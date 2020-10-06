@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~     Copyright (C) 2020 Lawnchair Team.
+  ~
+  ~     This file is part of Lawnchair Launcher.
+  ~
+  ~     Lawnchair Launcher is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Lawnchair Launcher is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<android.support.v7.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+        android:key="pref_actions_app_version"
+        android:title="@string/app_version">
+
+        <Preference
+            android:key="about_app_version"
+            android:title="@string/about_app_version" />
+
+        <Preference
+            android:key="play_store"
+            android:title="@string/play_store"
+            android:summary="@string/play_url"/>
+
+        <Preference
+            android:key="github"
+            android:title="GitHub"
+            android:summary="@string/github_url"/>
+
+        <Preference
+            android:key="based_on"
+            android:title="@string/based_on"
+            android:summary="@string/lawnchair_url" />
+    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>

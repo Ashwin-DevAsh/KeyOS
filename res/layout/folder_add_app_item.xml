@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/edit_folder_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/folder_add_app_icon"
+        android:layout_width="@dimen/folder_add_app_icon_size"
+        android:layout_height="@dimen/folder_add_app_icon_size"
+        android:layout_margin="@dimen/folder_add_app_icon_margin"
+        tools:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/folder_add_app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            tools:text="App name" />
+
+        <TextView
+            android:id="@+id/folder_add_app_package_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            tools:text="com.launcher" />
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/folder_add_app_checkbox"
+        android:layout_width="@dimen/folder_add_app_icon_size"
+        android:layout_height="@dimen/folder_add_app_icon_size"
+        android:layout_marginTop="@dimen/folder_add_app_icon_margin"
+        android:clickable="false" />
+
+</LinearLayout>

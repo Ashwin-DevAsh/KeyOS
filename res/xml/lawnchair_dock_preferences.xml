@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+        android:key="prefCat_dockTheme"
+        android:title="@string/pref_category_theme">
+        
+        <ch.deletescape.lawnchair.preferences.DockPresetPreference
+            android:key="pref_dockPreset"
+            android:title="@string/dock_style_pref_title"
+            android:summary="%s"
+            android:entries="@array/dockStyles"
+            android:entryValues="@array/dockStyleValues"
+            android:defaultValue="1"
+            android:disableDependentsState="true"
+            android:persistent="true" />
+
+        <ch.deletescape.lawnchair.preferences.AutoModeScalePreference
+            android:key="pref_dockScale"
+            android:title="@string/dock_scale"
+            android:dependency="pref_dockPreset"
+            app:minValue="0.60"
+            app:maxValue="1.75"
+            app:defaultSeekbarValue="0"
+            app:summaryFormat="%.0f%%"
+            app:summaryMultiplier="100"
+            android:persistent="true" />
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:key="pref_hotseatShowPageIndicator"
+            android:title="@string/hotseat_show_page_indicator"
+            android:defaultValue="true"
+            android:persistent="true"/>
+    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+    
+    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+        android:key="prefCat_dockIcons"
+        android:title="@string/pref_category_icons">
+        
+        <ch.deletescape.lawnchair.settings.ui.DockGridSizePreference
+            android:key="pref_dock_grid_size"
+            android:title="@string/num_hotseat_icons_pref_title" />
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:defaultValue="true"
+            android:disableDependentsState="true"
+            android:key="pref_hideDockLabels"
+            android:persistent="true"
+            android:title="@string/hide_icon_labels_pref_title" />
+
+        <ch.deletescape.lawnchair.colors.preferences.ColorPickerPreference
+            android:key="pref_hotseatLabelColorResolver"
+            android:title="@string/text_color"
+            android:dependency="pref_hideDockLabels"
+            app:colorMode="RGB"
+            app:resolvers="@array/resolvers_workspace_labels"/>
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:key="pref_dockIconLabelsInTwoLines"
+            android:title="@string/pref_mutliline_labels"
+            android:defaultValue="false"
+            android:dependency="pref_hideDockLabels"
+            android:persistent="true" />
+
+        <!-- TODO: For some reason this doesn't wanna work at all and I have absolutely no idea why
+        <ch.deletescape.lawnchair.preferences.AutoModeScalePreference
+            android:key="pref_dockTextScale"
+            android:persistent="true"
+            android:title="@string/icon_text_scale_pref_title"
+            android:dependency="pref_hideDockLabels"
+            app:defaultSeekbarValue="0"
+            app:maxValue="1.8"
+            app:minValue="0.3"
+            app:steps="150"
+            app:summaryFormat="%.0f%%"
+            app:summaryMultiplier="100"/>
+            -->
+
+        <ch.deletescape.lawnchair.preferences.AutoModeScalePreference
+            android:key="pref_hotseatIconSize"
+            android:persistent="true"
+            android:title="@string/icon_scale_pref_title"
+            app:defaultSeekbarValue="0"
+            app:maxValue="2.0"
+            app:minValue="0.3"
+            app:steps="170"
+            app:summaryFormat="%.0f%%"
+            app:summaryMultiplier="100" />
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:key="pref_twoRowDock"
+            android:title="@string/two_row_dock"
+            android:defaultValue="false"
+            android:persistent="true" />
+    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>

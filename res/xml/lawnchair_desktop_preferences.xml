@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+        android:key="prefCat_desktopLayout"
+        android:title="@string/pref_category_layout">
+
+        <ch.deletescape.lawnchair.settings.ui.GridSizePreference
+            android:key="pref_desktop_grid_size"
+            android:title="@string/grid_size" />
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="pref_allowOverlap"
+            android:title="@string/overlap_placement"/>
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="pref_lockDesktop"
+            android:title="@string/lock_desktop" />
+
+    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+
+    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+        android:key="prefCat_folder"
+        android:title="@string/pref_category_folder">
+
+        <ch.deletescape.lawnchair.settings.ui.FolderGridSizePreference
+            android:key="pref_folder_grid_size"
+            android:title="@string/folder_grid_size" />
+
+        <ch.deletescape.lawnchair.preferences.SeekbarPreference
+            android:key="pref_folderIconScale"
+            android:title="@string/folder_icon_scale_title"
+            android:persistent="true"
+            app:defaultSeekbarValue="1.0"
+            app:maxValue="1.8"
+            app:minValue="0.3"
+            app:steps="150"
+            app:summaryFormat="%.0f%%"
+            app:summaryMultiplier="100" />
+
+    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+
+    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+        android:key="prefCat_desktopIcons"
+        android:title="@string/pref_category_icons">
+
+        <Preference
+            android:key="pref_hiddenApps"
+            android:title="@string/hide_apps"
+            android:fragment="ch.deletescape.lawnchair.preferences.HiddenAppsFragment" />
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:defaultValue="false"
+            android:disableDependentsState="true"
+            android:key="pref_hideAppLabels"
+            android:persistent="true"
+            android:title="@string/hide_icon_labels_pref_title" />
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:key="pref_homeIconLabelsInTwoLines"
+            android:title="@string/pref_mutliline_labels"
+            android:defaultValue="true"
+            android:dependency="pref_hideAppLabels"
+            android:persistent="true" />
+
+        <ch.deletescape.lawnchair.preferences.SeekbarPreference
+            android:key="pref_iconTextScaleSB"
+            android:persistent="true"
+            android:title="@string/icon_text_scale_pref_title"
+            android:dependency="pref_hideAppLabels"
+            app:defaultSeekbarValue="1.0"
+            app:maxValue="1.8"
+            app:minValue="0.3"
+            app:steps="150"
+            app:summaryFormat="%.0f%%"
+            app:summaryMultiplier="100"/>
+
+        <ch.deletescape.lawnchair.colors.preferences.ColorPickerPreference
+            android:key="pref_workspaceLabelColorResolver"
+            android:title="@string/text_color"
+            android:dependency="pref_hideAppLabels"
+            app:colorMode="RGB"
+            app:resolvers="@array/resolvers_workspace_labels"/>
+
+        <ch.deletescape.lawnchair.preferences.SeekbarPreference
+            android:key="pref_iconSize"
+            android:persistent="true"
+            android:title="@string/icon_scale_pref_title"
+            app:defaultSeekbarValue="1.0"
+            app:maxValue="2.0"
+            app:minValue="0.3"
+            app:steps="170"
+            app:summaryFormat="%.0f%%"
+            app:summaryMultiplier="100" />
+
+        <ch.deletescape.lawnchair.settings.ui.PreferenceDialogPreference
+            android:key="pref_iconPopupMenu"
+            android:title="@string/pref_icon_popup_menu"
+            app:content="@xml/lawnchair_icon_popup_menu_preferences" />
+
+    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+
+    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+        android:key="prefCat_desktopMisc"
+        android:title="@string/pref_category_misc">
+
+        <ch.deletescape.lawnchair.preferences.AnimationTypePreference
+            android:key="pref_animationType"
+            android:defaultValue=""
+            android:title="@string/animation_type_title"
+            android:summary="%s" />
+
+        <com.android.launcher3.views.ButtonPreference
+            android:key="pref_icon_badging"
+            android:persistent="false"
+            android:title="@string/icon_badging_title"
+            android:widgetLayout="@layout/notification_pref_warning">
+            <intent android:action="android.settings.NOTIFICATION_SETTINGS">
+                <!-- This extra highlights the "Allow icon badges" field in Notification settings -->
+                <extra
+                    android:name=":settings:fragment_args_key"
+                    android:value="notification_badging" />
+            </intent>
+        </com.android.launcher3.views.ButtonPreference>
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:key="pref_displayNotificationCount"
+            android:persistent="true"
+            android:title="@string/pref_notification_count_title"/>
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:defaultValue="@bool/allow_rotation"
+            android:key="pref_allowRotation"
+            android:persistent="true"
+            android:title="@string/allow_rotation_title"
+            app:controllerClass=".AllowRotationController"/>
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:key="pref_centerWallpaper"
+            android:title="@string/pref_center_wallpaper"
+            android:summary="@string/pref_center_wallpaper_summary"/>
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:defaultValue="@bool/config_hide_statusbar"
+            android:key="pref_hideStatusBar"
+            android:persistent="true"
+            android:title="@string/pref_hide_statusbar"/>
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="pref_fullWidthWidgets"
+            android:persistent="true"
+            android:summary="@string/full_width_widgets_pref_summary"
+            android:title="@string/full_width_width_widgets_pref_title" />
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="pref_showTopShadow"
+            android:persistent="true"
+            android:title="@string/show_top_shadow_pref_title" />
+
+        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="pref_disableAutoFill"
+            android:persistent="true"
+            android:title="@string/disable_auto_fill_title" />
+    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+</android.support.v7.preference.PreferenceScreen>

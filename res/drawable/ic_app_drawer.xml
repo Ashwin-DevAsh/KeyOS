@@ -1,0 +1,33 @@
+<!--
+  ~     This file is part of Lawnchair Launcher.
+  ~
+  ~     Lawnchair Launcher is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Lawnchair Launcher is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="@dimen/dashboard_tile_image_size"
+    android:height="@dimen/dashboard_tile_image_size"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+  <path
+      android:pathData="M16,16m-16,0a16,16 0,1 1,32 0a16,16 0,1 1,-32 0"
+      android:strokeAlpha="0.18"
+      android:fillColor="#6B17F5"
+      android:fillAlpha="0.18"/>
+  <path
+      android:pathData="M14,11C14,12.6569 12.6569,14 11,14C9.3432,14 8,12.6569 8,11C8,9.3432 9.3432,8 11,8C12.6569,8 14,9.3432 14,11ZM24,11C24,12.6569 22.6569,14 21,14C19.3431,14 18,12.6569 18,11C18,9.3432 19.3431,8 21,8C22.6569,8 24,9.3432 24,11ZM24,21C24,22.6569 22.6569,24 21,24C19.3431,24 18,22.6569 18,21C18,19.3431 19.3431,18 21,18C22.6569,18 24,19.3431 24,21ZM14,21C14,22.6569 12.6569,24 11,24C9.3432,24 8,22.6569 8,21C8,19.3431 9.3432,18 11,18C12.6569,18 14,19.3431 14,21Z"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#6B17F5"/>
+</vector>

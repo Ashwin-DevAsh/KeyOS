@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~     This file is part of Lawnchair Launcher.
+  ~
+  ~     Lawnchair Launcher is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Lawnchair Launcher is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <dimen name="action_view_compound_drawable_padding">5dp</dimen>
+    <dimen name="all_apps_action_spacing">8dp</dimen>
+    <dimen name="swipe_up_negative_max">400dp</dimen>
+    <dimen name="swipe_up_positive_max">100dp</dimen>
+
+    <!-- Dashboard padding in its container -->
+    <dimen name="dashboard_padding_start">0dp</dimen>
+    <dimen name="dashboard_padding_end">0dp</dimen>
+    <dimen name="dashboard_padding_top">0dp</dimen>
+    <dimen name="dashboard_padding_bottom">0dp</dimen>
+
+    <!-- The following two margins need to match, with the caveat that
+     the second should be negative. The second one ensures that the icons and text
+     align despite the additional padding caused by the search bar's card background. -->
+    <dimen name="search_bar_margin">8dp</dimen>
+    <dimen name="search_bar_negative_margin">-8dp</dimen>
+
+    <dimen name="search_bar_height">48dp</dimen>
+    <dimen name="search_bar_text_size">16dp</dimen>
+
+    <!-- Dashboard image tile size -->
+    <dimen name="dashboard_tile_image_size">38dp</dimen>
+
+    <!-- Dashboard tile image margin start / end -->
+    <dimen name="dashboard_tile_image_margin_start">16dp</dimen>
+    <dimen name="dashboard_tile_image_margin_end">20dp</dimen>
+
+    <!-- search_bar_margin + search_bar_height -->
+    <dimen name="search_results_top_margin">64dp</dimen>
+    <dimen name="dashboard_tile_minimum_height">72dp</dimen>
+    <dimen name="dashboard_tile_foreground_image_size">@dimen/dashboard_tile_image_size</dimen>
+    <dimen name="dashboard_tile_foreground_image_inset">6dp</dimen>
+
+    <dimen name="button_corner_radius">4dp</dimen>
+    <dimen name="dialog_horizontal_padding">24dp</dimen>
+
+    <dimen name="qsb_radius_square">8dp</dimen>
+    <dimen name="qsb_radius_squircle">16dp</dimen>
+    <dimen name="hotseat_navbar_padding">12dp</dimen>
+
+    <!-- Smartspace dimens -->
+    <dimen name="smartspaceAmbientShadowBlur">1.5dp</dimen>
+    <dimen name="smartspaceKeyShadowBlur">2dp</dimen>
+    <dimen name="smartspaceKeyShadowOffset">0.5dp</dimen>
+    <dimen name="smartspaceLetterSpacing">0.02</dimen>
+</resources>

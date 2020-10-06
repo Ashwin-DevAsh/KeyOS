@@ -1,0 +1,38 @@
+<!--
+  ~     This file is part of Lawnchair Launcher.
+  ~
+  ~     Lawnchair Launcher is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Lawnchair Launcher is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="@dimen/dashboard_tile_image_size"
+    android:height="@dimen/dashboard_tile_image_size"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+  <path
+      android:pathData="M16,16m-16,0a16,16 0,1 1,32 0a16,16 0,1 1,-32 0"
+      android:strokeAlpha="0.18"
+      android:fillColor="#6B17F5"
+      android:fillAlpha="0.18"/>
+  <path
+      android:pathData="M16,6C10.48,6 6,10.48 6,16C6,21.52 10.48,26 16,26C21.52,26 26,21.52 26,16C26,10.48 21.52,6 16,6ZM16,24C11.59,24 8,20.41 8,16C8,11.59 11.59,8 16,8C20.41,8 24,11.59 24,16C24,20.41 20.41,24 16,24Z"
+      android:fillColor="#6B17F5"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="M15,16C15,15.4477 15.4477,15 16,15C16.5523,15 17,15.4477 17,16V20C17,20.5523 16.5523,21 16,21C15.4477,21 15,20.5523 15,20V16Z"
+      android:fillColor="#6B17F5"/>
+  <path
+      android:pathData="M17,12C17,12.5523 16.5523,13 16,13C15.4477,13 15,12.5523 15,12C15,11.4477 15.4477,11 16,11C16.5523,11 17,11.4477 17,12Z"
+      android:fillColor="#6B17F5"/>
+</vector>

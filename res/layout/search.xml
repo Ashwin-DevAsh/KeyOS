@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ch.deletescape.lawnchair.globalsearch.ui.SearchContainerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/HomeScreenElementTheme"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="0"
+    android:visibility="invisible">
+
+    <include
+        layout="@layout/all_apps_rv_layout"/>
+
+    <include
+        android:id="@id/search_container_all_apps"
+        layout="@layout/search_container_all_apps_google"/>
+
+    <include layout="@layout/all_apps_fast_scroller" />
+</ch.deletescape.lawnchair.globalsearch.ui.SearchContainerView>
