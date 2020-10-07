@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Esconder las etiquetas</string>
     <string name="pref_mutliline_labels">Etiquetas multilínea</string>
     <string name="icon_text_scale_pref_title">Tamaño del texto</string>
-    <string name="text_color">Color del texto</string>
     <string name="icon_scale_pref_title">Tamaño del icono</string>
     <string name="auto_add_shortcuts_label">Añadir nuevos accesos directos al Escritorio</string>
     <string name="pref_icon_popup_menu">Burbujas de atajo</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Disposición, Estilo, Indicadores</string>
-    <string name="background_color">Color de Fondo</string>
     <string name="theme_based">Ajustar por tema</string>
     <string name="radius">Radio de la Esquina</string>
     <string name="hotseat_show_page_indicator">Mostrar el indicador de pagina</string>
@@ -275,7 +273,6 @@
     <string name="theme_black_dark_text">Negro con texto oscuro</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">Tema automático</string>
     <string name="theme_dark_theme_mode_follow_system">Tema modo noche automático</string>
-    <string name="pref_qsb_color">Color</string>
     <string name="recents_not_connected">QuickSwitch está deshabilitado.</string>
     <string name="recent_task_option_popup_window">Diálogo</string>
     <string name="drawer_tabs">Pestañas</string>
@@ -327,7 +324,6 @@
     <string name="icon_shape_corner_round">Redondo</string>
     <string name="icon_shape_corner_squircle">Fluido</string>
     <string name="icon_shape_corner_cut">Cortar</string>
-    <string name="smartspace_add_to_home">Añadir al escritorio</string>
     <string name="get_lawnfeed">Obtener Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Recientes</string>

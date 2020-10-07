@@ -60,7 +60,6 @@
     <string name="hide_icon_labels_pref_title">اتیکت ها را پنهان کنید</string>
     <string name="pref_mutliline_labels">اتیکت های چند خطی</string>
     <string name="icon_text_scale_pref_title">اندازه متن</string>
-    <string name="text_color">رنگ متن</string>
     <string name="icon_scale_pref_title">اندازه نمایه</string>
     <string name="auto_add_shortcuts_label">اضافه کردن میانبرهای جدید به رومیزی</string>
     <string name="pref_icon_popup_menu">حباب میانبر</string>
@@ -135,7 +134,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">پیشخوان</string>
     <string name="dock_pref_summary">طرح بندی, اشکال, شاخص ها</string>
-    <string name="background_color">رنگ پس‌زمینه</string>
     <string name="theme_based">انتخاب با قالب بندی</string>
     <string name="radius">زاویه شعاعی</string>
     <string name="hotseat_show_page_indicator">نشان دادن شاخص صفحه</string>
@@ -270,7 +268,6 @@
     <string name="theme_dark_dark_text">تیره با نوشته‌های تیره</string>
     <string name="theme_black">مشکی</string>
     <string name="theme_black_dark_text">مشکی با نوشته‌های تیره</string>
-    <string name="pref_qsb_color">رنگ</string>
     <string name="recents_not_connected">سوییچ سریع غیر فعال شد.</string>
     <string name="recent_task_option_popup_window">گفتگو</string>
     <string name="drawer_tabs">زبانه‌ها</string>
@@ -322,7 +319,6 @@
     <string name="icon_shape_corner_round">گرد</string>
     <string name="icon_shape_corner_squircle">روان</string>
     <string name="icon_shape_corner_cut">برش</string>
-    <string name="smartspace_add_to_home">افزودن به ميزكار</string>
     <string name="get_lawnfeed">دریافت فید</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">برنامه‌های اخیر</string>

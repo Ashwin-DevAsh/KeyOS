@@ -60,7 +60,6 @@
     <string name="hide_icon_labels_pref_title">隐藏图标文字</string>
     <string name="pref_mutliline_labels">多行图标文字</string>
     <string name="icon_text_scale_pref_title">文字大小</string>
-    <string name="text_color">文字颜色</string>
     <string name="icon_scale_pref_title">图标大小</string>
     <string name="auto_add_shortcuts_label">添加快捷方式到桌面</string>
     <string name="pref_icon_popup_menu">快捷方式气泡</string>
@@ -136,7 +135,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock 栏</string>
     <string name="dock_pref_summary">布局、样式、指示器</string>
-    <string name="background_color">背景颜色</string>
     <string name="theme_based">根据主题设置</string>
     <string name="radius">圆角半径</string>
     <string name="hotseat_show_page_indicator">显示页面指示器</string>
@@ -271,7 +269,6 @@
     <string name="theme_black_dark_text">黑色背景 + 暗色文字</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">颜色</string>
     <string name="recents_not_connected">QuickSwitch 已禁用</string>
     <string name="recent_task_option_popup_window">对话框</string>
     <string name="drawer_tabs">标签页</string>
@@ -323,7 +320,6 @@
     <string name="icon_shape_corner_round">圆形</string>
     <string name="icon_shape_corner_squircle">平滑</string>
     <string name="icon_shape_corner_cut">倒角</string>
-    <string name="smartspace_add_to_home">添加到主屏幕</string>
     <string name="get_lawnfeed">获取 Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">最近任务</string>

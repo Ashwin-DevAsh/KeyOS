@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Beschriftungen ausblenden</string>
     <string name="pref_mutliline_labels">Mehrzeilige Beschriftungen</string>
     <string name="icon_text_scale_pref_title">Schriftgröße</string>
-    <string name="text_color">Schriftfarbe</string>
     <string name="icon_scale_pref_title">Icon-Größe</string>
     <string name="auto_add_shortcuts_label">Neue Verknüpfungen zum Startbildschirm hinzufügen</string>
     <string name="pref_icon_popup_menu">Verknüpfungs-Blase</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Anordnung, Stil, Anzeigen</string>
-    <string name="background_color">Hintergrundfarbe</string>
     <string name="theme_based">Durch Thema auswählen</string>
     <string name="radius">Eckenrundung</string>
     <string name="hotseat_show_page_indicator">Seitenindikator anzeigen</string>
@@ -275,7 +273,6 @@
     <string name="theme_black_dark_text">Schwarz mit dunklem Text</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Farbe</string>
     <string name="recents_not_connected">QuickSwitch ist deaktiviert.</string>
     <string name="recent_task_option_popup_window">Dialog</string>
     <string name="drawer_tabs">Tabs</string>
@@ -328,7 +325,6 @@
     <string name="icon_shape_corner_round">Rund</string>
     <string name="icon_shape_corner_squircle">Weich</string>
     <string name="icon_shape_corner_cut">Ausschneiden</string>
-    <string name="smartspace_add_to_home">Zum Startbildschirm hinzufügen</string>
     <string name="get_lawnfeed">Lade Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Anwendungsverlauf</string>

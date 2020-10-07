@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Ukryj etykiety</string>
     <string name="pref_mutliline_labels">Wieloliniowe etykiety</string>
     <string name="icon_text_scale_pref_title">Rozmiar tekstu</string>
-    <string name="text_color">Kolor tekstu</string>
     <string name="icon_scale_pref_title">Rozmiar ikon</string>
     <string name="auto_add_shortcuts_label">Dodawaj nowe skróty na pulpit</string>
     <string name="pref_icon_popup_menu">Dymek skrótów</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Układ, Styl, Wskaźniki</string>
-    <string name="background_color">Kolor Tła</string>
     <string name="theme_based">Ustawiony przez Motyw</string>
     <string name="radius">Zaokrąglenie Rogów</string>
     <string name="hotseat_show_page_indicator">Pokaż Wskaźnik Strony</string>
@@ -275,7 +273,6 @@
     <string name="theme_black_dark_text">Czarny z ciemnym tekstem</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Kolor</string>
     <string name="recents_not_connected">QuickSwitch jest wyłączony.</string>
     <string name="recent_task_option_popup_window">Okno dialogowe</string>
     <string name="drawer_tabs">Karty</string>
@@ -328,7 +325,6 @@
     <string name="icon_shape_corner_round">Zaokrąglij</string>
     <string name="icon_shape_corner_squircle">Gładkie</string>
     <string name="icon_shape_corner_cut">Wycięcie</string>
-    <string name="smartspace_add_to_home">Dodaj do pulpitu</string>
     <string name="get_lawnfeed">Pobierz Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Ostatnie</string>

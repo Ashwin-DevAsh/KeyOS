@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">ซ่อนป้ายกำกับ</string>
     <string name="pref_mutliline_labels">ป้ายกำกับหลายบรรทัด</string>
     <string name="icon_text_scale_pref_title">ขนาดตัวอักษร</string>
-    <string name="text_color">สีตัวอักษร</string>
     <string name="icon_scale_pref_title">ขนาดไอคอน</string>
     <string name="auto_add_shortcuts_label">เพิ่มทางลัดใหม่ไปยังหน้าจอหลัก</string>
     <string name="pref_icon_popup_menu">ทางลัดแอป</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">แถบรายการโปรด</string>
     <string name="dock_pref_summary">รูปแบบ, ลักษณะ, ตัวบ่งชี้</string>
-    <string name="background_color">สีพื้นหลัง</string>
     <string name="theme_based">กำหนดโดยธีม</string>
     <string name="radius">ความโค้งของมุม</string>
     <string name="hotseat_show_page_indicator">แสดงตัวบ่งชี้หน้า</string>
@@ -275,7 +273,6 @@
     <string name="theme_black_dark_text">สีดำและอักษรสีมืด</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">สี</string>
     <string name="recents_not_connected">QuickSwitch ปิดอยู่</string>
     <string name="recent_task_option_popup_window">กล่องโต้ตอบ</string>
     <string name="drawer_tabs">แท็บ</string>
@@ -327,7 +324,6 @@
     <string name="icon_shape_corner_round">โค้งมน</string>
     <string name="icon_shape_corner_squircle">ราบรื่น</string>
     <string name="icon_shape_corner_cut">ตัด</string>
-    <string name="smartspace_add_to_home">เพิ่มไปยังหน้าจอหลัก</string>
     <string name="get_lawnfeed">รับ Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">หน้าจอภาพรวม</string>

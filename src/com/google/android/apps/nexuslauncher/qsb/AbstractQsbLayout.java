@@ -163,7 +163,7 @@ public abstract class AbstractQsbLayout extends FrameLayout implements OnSharedP
 
     protected final void dz() {
         mLogoIconView = findViewById(R.id.g_icon);
-        mMicIconView = findViewById(R.id.mic_icon);
+        mMicIconView = findViewById(R.id.g_icon);
         mMicIconView.setOnClickListener(this);
         mLogoIconView.setOnClickListener(this);
     }

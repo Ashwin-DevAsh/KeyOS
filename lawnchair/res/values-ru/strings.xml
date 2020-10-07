@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Скрывать названия</string>
     <string name="pref_mutliline_labels">Переносить названия</string>
     <string name="icon_text_scale_pref_title">Размер текста</string>
-    <string name="text_color">Цвет текста</string>
     <string name="icon_scale_pref_title">Размер иконок</string>
     <string name="auto_add_shortcuts_label">Добавлять новые ярлыки на раб. стол</string>
     <string name="pref_icon_popup_menu">Пузыри ярлыков</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Док-бар</string>
     <string name="dock_pref_summary">Макет, внешний вид, индикаторы</string>
-    <string name="background_color">Цвет фона</string>
     <string name="theme_based">Задан темой</string>
     <string name="radius">Радиус закругления</string>
     <string name="hotseat_show_page_indicator">Показывать индикатор страницы</string>
@@ -274,7 +272,6 @@
     <string name="theme_black">Чёрная</string>
     <string name="theme_black_dark_text">Чёрная с тёмным текстом</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">Тёмная тема: следовать цвету обоев</string>
-    <string name="pref_qsb_color">Цвет</string>
     <string name="recents_not_connected">QuickSwitch не используется.</string>
     <string name="recent_task_option_popup_window">Диалоговое окно</string>
     <string name="drawer_tabs">Вкладки</string>
@@ -326,7 +323,6 @@
     <string name="icon_shape_corner_round">Закруглённый</string>
     <string name="icon_shape_corner_squircle">Плавный</string>
     <string name="icon_shape_corner_cut">Срезать</string>
-    <string name="smartspace_add_to_home">Добавить на рабочий стол</string>
     <string name="get_lawnfeed">Загрузить Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Меню недавних приложений</string>

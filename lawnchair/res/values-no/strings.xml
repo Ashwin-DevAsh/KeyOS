@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Skjul etiketter</string>
     <string name="pref_mutliline_labels">Etiketter på flere linjer</string>
     <string name="icon_text_scale_pref_title">Tekststørrelse</string>
-    <string name="text_color">Tekstfarge</string>
     <string name="icon_scale_pref_title">Ikonstørrelse</string>
     <string name="auto_add_shortcuts_label">Legg til snarveier på startskjermen</string>
     <string name="pref_icon_popup_menu">Snarveisboble</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dokk</string>
     <string name="dock_pref_summary">Oppsett, stil, indikatorer</string>
-    <string name="background_color">Bakgrunnsfarge</string>
     <string name="theme_based">Valgt av tema</string>
     <string name="radius">Hjørneradius</string>
     <string name="hotseat_show_page_indicator">Vis sideindikator</string>
@@ -273,7 +271,6 @@
     <string name="theme_dark_dark_text">Mørkt med mørk tekst</string>
     <string name="theme_black">Svart</string>
     <string name="theme_black_dark_text">Svart med mørk tekst</string>
-    <string name="pref_qsb_color">Farge</string>
     <string name="recents_not_connected">QuickSwitch er slått av.</string>
     <string name="recent_task_option_popup_window">Dialogvindu</string>
     <string name="drawer_tabs">Faner</string>
@@ -325,7 +322,6 @@
     <string name="icon_shape_corner_round">Avrundet</string>
     <string name="icon_shape_corner_squircle">Jevn</string>
     <string name="icon_shape_corner_cut">Klipp</string>
-    <string name="smartspace_add_to_home">Legg til på startskjerm</string>
     <string name="get_lawnfeed">Last ned Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Nylig brukte apper</string>

@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Сакриј ознаке</string>
     <string name="pref_mutliline_labels">Ознаке у више редова</string>
     <string name="icon_text_scale_pref_title">Величина текста</string>
-    <string name="text_color">Боја текста</string>
     <string name="icon_scale_pref_title">Величина икона</string>
     <string name="auto_add_shortcuts_label">Додаји нове пречице на почетни екран</string>
     <string name="pref_icon_popup_menu">Искачући мени са пречицама</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Док</string>
     <string name="dock_pref_summary">Изглед, стил, индикатори</string>
-    <string name="background_color">Боја позадине</string>
     <string name="theme_based">На основу теме</string>
     <string name="radius">Заобљеност ивица</string>
     <string name="hotseat_show_page_indicator">Индикатор страница</string>
@@ -273,7 +271,6 @@
     <string name="theme_dark_dark_text">Тамна са тамним текстом</string>
     <string name="theme_black">Црна</string>
     <string name="theme_black_dark_text">Црна са тамним текстом</string>
-    <string name="pref_qsb_color">Боја</string>
     <string name="recents_not_connected">QuickSwitch је онемогућен.</string>
     <string name="recent_task_option_popup_window">Дијалог</string>
     <string name="drawer_tabs">Картице</string>
@@ -325,7 +322,6 @@
     <string name="icon_shape_corner_round">Заобљено</string>
     <string name="icon_shape_corner_squircle">Заобљено</string>
     <string name="icon_shape_corner_cut">Опсечено</string>
-    <string name="smartspace_add_to_home">Додај на почетни екран</string>
     <string name="get_lawnfeed">Преузми Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Недавне апликације</string>

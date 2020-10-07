@@ -60,7 +60,6 @@
     <string name="hide_icon_labels_pref_title">Amaga les etiquetes</string>
     <string name="pref_mutliline_labels">Etiquetes en diverses línies</string>
     <string name="icon_text_scale_pref_title">Mida del text</string>
-    <string name="text_color">Color del text</string>
     <string name="icon_scale_pref_title">Mida de les icones</string>
     <string name="auto_add_shortcuts_label">Afegeix dreceres noves a l\'escriptori</string>
     <string name="pref_icon_popup_menu">Bombolles de dreceres</string>
@@ -136,7 +135,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Acoblador</string>
     <string name="dock_pref_summary">Disposició, estil, indicadors</string>
-    <string name="background_color">Color de fons</string>
     <string name="theme_based">Definit pel tema</string>
     <string name="radius">Radi de la cantonada</string>
     <string name="hotseat_show_page_indicator">Mostra l\'indicador de pàgina</string>
@@ -271,7 +269,6 @@
     <string name="theme_black_dark_text">Negre amb text fosc</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Color</string>
     <string name="recents_not_connected">El QuickSwitch està desactivat.</string>
     <string name="recent_task_option_popup_window">Diàleg</string>
     <string name="drawer_tabs">Pestanyes</string>
@@ -323,7 +320,6 @@
     <string name="icon_shape_corner_round">Arrodonit</string>
     <string name="icon_shape_corner_squircle">Suau</string>
     <string name="icon_shape_corner_cut">Retalla</string>
-    <string name="smartspace_add_to_home">Afegeix a l\'escriptori</string>
     <string name="get_lawnfeed">Aconseguiu el Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Recents</string>

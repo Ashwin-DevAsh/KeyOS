@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">लेबल छिपाएं</string>
     <string name="pref_mutliline_labels">लेबल कोई एक से अधिक लाइन में दिखाएं</string>
     <string name="icon_text_scale_pref_title">शब्दों का आकर</string>
-    <string name="text_color">शब्दों का रंग</string>
     <string name="icon_scale_pref_title">आइकन का आकार</string>
     <string name="auto_add_shortcuts_label">डेस्कटॉप पर नए शॉर्टकट जोड़ें</string>
     <string name="pref_icon_popup_menu">शार्टकट बबल</string>
@@ -139,7 +138,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">डॉक</string>
     <string name="dock_pref_summary">लेआउट, स्टाइल, इंडिकेटर</string>
-    <string name="background_color">बैकग्राउंड रंग</string>
     <string name="theme_based">थीम के अनुसार सेट करें</string>
     <string name="radius">कोने की त्रिज्या</string>
     <string name="hotseat_show_page_indicator">पेज इंडिकेटर दिखाएं</string>
@@ -272,7 +270,6 @@
     <string name="theme_dark_dark_text">गहरे रंग की थीम गहरे अक्षरों के साथ</string>
     <string name="theme_black">काला</string>
     <string name="theme_black_dark_text">काली थीम गहरे रंग के अक्षरों के साथ</string>
-    <string name="pref_qsb_color">रंग</string>
     <string name="recents_not_connected">Quickswitch बंद है</string>
     <string name="recent_task_option_popup_window">डायलॉग</string>
     <string name="drawer_tabs">टैब्स</string>
@@ -324,7 +321,6 @@
     <string name="icon_shape_corner_round">वृत्ताकार</string>
     <string name="icon_shape_corner_squircle">चिकना</string>
     <string name="icon_shape_corner_cut">कट</string>
-    <string name="smartspace_add_to_home">डेस्कटॉप पर जोड़ें</string>
     <string name="get_lawnfeed">Lawnfeed इंस्टाल करें</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">रेसेंट्स</string>

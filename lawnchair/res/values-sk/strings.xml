@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Skryť štítky</string>
     <string name="pref_mutliline_labels">Viacriadkové štítky</string>
     <string name="icon_text_scale_pref_title">Veľkosť písma</string>
-    <string name="text_color">Farba textu</string>
     <string name="icon_scale_pref_title">Veľkosť ikony</string>
     <string name="auto_add_shortcuts_label">Pridať nové odkazy na plochu</string>
     <string name="pref_icon_popup_menu">Bublinky odkazov</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dok - lišta aplikácií</string>
     <string name="dock_pref_summary">Usporiadanie, štýl, ukazovatele</string>
-    <string name="background_color">Farba pozadia</string>
     <string name="theme_based">Nastavenia vzhľadu</string>
     <string name="radius">Zaoblenie rohov</string>
     <string name="hotseat_show_page_indicator">Zobraziť indikátor stránky</string>
@@ -273,7 +271,6 @@
     <string name="theme_dark_dark_text">Tmavý s tmavým textom</string>
     <string name="theme_black">Čierna</string>
     <string name="theme_black_dark_text">Tmavý s tmavým textom</string>
-    <string name="pref_qsb_color">Farba</string>
     <string name="recents_not_connected">QuickSwitch je vypnutý.</string>
     <string name="recent_task_option_popup_window">Dialóg</string>
     <string name="drawer_tabs">Karty</string>
@@ -325,7 +322,6 @@
     <string name="icon_shape_corner_round">Kruh</string>
     <string name="icon_shape_corner_squircle">Jemný</string>
     <string name="icon_shape_corner_cut">Vystrihnúť</string>
-    <string name="smartspace_add_to_home">Pridať na Plochu</string>
     <string name="get_lawnfeed">Získajte Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Nedávne</string>

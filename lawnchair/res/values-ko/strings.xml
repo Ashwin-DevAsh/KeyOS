@@ -61,7 +61,6 @@
     <string name="hide_icon_labels_pref_title">레이블 숨기기</string>
     <string name="pref_mutliline_labels">2줄 이상 레이블</string>
     <string name="icon_text_scale_pref_title">텍스트 크기</string>
-    <string name="text_color">텍스트 색상</string>
     <string name="icon_scale_pref_title">아이콘 크기</string>
     <string name="auto_add_shortcuts_label">데스크톱에 새 바로가기 추가</string>
     <string name="pref_icon_popup_menu">바로가기 버블</string>
@@ -137,7 +136,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">독</string>
     <string name="dock_pref_summary">레이아웃 + 스타일 + 표시기</string>
-    <string name="background_color">배경 색</string>
     <string name="theme_based">테마에 따라 설정</string>
     <string name="radius">가장자리 반경</string>
     <string name="hotseat_show_page_indicator">페이지 표시기 표시</string>
@@ -270,7 +268,6 @@
     <string name="theme_dark_dark_text">어두운 배경에 검정색 글자</string>
     <string name="theme_black">검은색</string>
     <string name="theme_black_dark_text">검정색 텍스트</string>
-    <string name="pref_qsb_color">색상</string>
     <string name="recents_not_connected">QuickSwitch가 비활성화 되었습니다.</string>
     <string name="recent_task_option_popup_window">대화 상자</string>
     <string name="drawer_tabs">탭</string>
@@ -322,7 +319,6 @@
     <string name="icon_shape_corner_round">원형</string>
     <string name="icon_shape_corner_squircle">부드럽게</string>
     <string name="icon_shape_corner_cut">자르기</string>
-    <string name="smartspace_add_to_home">데스크톱에 추가</string>
     <string name="get_lawnfeed">Lawnfeed 받기</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">최근 앱</string>

@@ -60,7 +60,6 @@
     <string name="hide_icon_labels_pref_title">ラベルを隠す</string>
     <string name="pref_mutliline_labels">複数行のラベル</string>
     <string name="icon_text_scale_pref_title">文字のサイズ</string>
-    <string name="text_color">文字の色</string>
     <string name="icon_scale_pref_title">アイコンサイズ</string>
     <string name="pref_icon_popup_menu">ショートカットバブル</string>
     <string name="pref_category_misc">その他</string>
@@ -212,7 +211,6 @@
     <string name="theme_dark">ダーク</string>
     <string name="theme_dark_theme_mode">ダークテーマ</string>
     <string name="theme_black">黒</string>
-    <string name="pref_qsb_color">色</string>
     <string name="recent_task_option_popup_window">ダイアログ</string>
     <string name="drawer_tabs">タブ</string>
     <string name="undo">元に戻す</string>

@@ -36,7 +36,6 @@
     <string name="lock_desktop">Lukitse työpöytä</string>
     <string name="pref_category_icons">Pikakuvakkeet</string>
     <string name="icon_text_scale_pref_title">Tekstin koko</string>
-    <string name="text_color">Tekstin väri</string>
     <string name="icon_scale_pref_title">Kuvakkeen koko</string>
     <string name="pref_category_misc">Muut</string>
     <string name="animation_type_default">Oletus</string>
@@ -94,7 +93,6 @@
     <string name="battery_low">Akku vähissä</string>
     <!-- Section 5 -->
     <string name="dock_pref_title">Telakka</string>
-    <string name="background_color">Taustaväri</string>
     <string name="radius">Kulmien pyöristys</string>
     <!-- Section 6 -->
     <string name="pref_category_theme">Tyyli</string>
@@ -151,7 +149,6 @@
     <string name="theme_dark">Tumma</string>
     <string name="theme_dark_theme_mode">Tumma teema</string>
     <string name="theme_black">Musta</string>
-    <string name="pref_qsb_color">Väri</string>
     <string name="drawer_tabs">Välilehdet</string>
     <string name="undo">Kumoa</string>
     <string name="allow">Salli</string>

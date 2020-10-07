@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Απόκρυψη Ετικετών</string>
     <string name="pref_mutliline_labels">Ετικέτες Πολλαπλών Γραμμών</string>
     <string name="icon_text_scale_pref_title">Μέγεθος κειμένου</string>
-    <string name="text_color">Χρώμα κειμένου</string>
     <string name="icon_scale_pref_title">Μέγεθος εικονιδίου</string>
     <string name="auto_add_shortcuts_label">Προσθήκη Νέων Συντομεύσεων στην Αρχική Οθόνη</string>
     <string name="pref_icon_popup_menu">Συντόμευση αναδυόμενης Φούσκας</string>
@@ -139,7 +138,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Μπάρα εφαρμογών</string>
     <string name="dock_pref_summary">Διάταξη, Στυλ, Δείκτες</string>
-    <string name="background_color">Χρώμα Φόντου</string>
     <string name="theme_based">Καθορισμός από το Θέμα</string>
     <string name="radius">Ακτίνα γωνίας</string>
     <string name="hotseat_show_page_indicator">Εμφάνιση ένδειξης σελίδας</string>
@@ -251,7 +249,6 @@
     <string name="theme_black_dark_text">Μαύρο με Σκούρο Κείμενο</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Χρώμα</string>
     <string name="recent_task_option_popup_window">Διάλογος</string>
     <string name="drawer_tabs">Καρτέλες</string>
     <string name="undo">Αναίρεση</string>

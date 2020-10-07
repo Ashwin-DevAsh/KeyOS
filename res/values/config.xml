@@ -50,9 +50,8 @@
     <!-- The duration of the animation from search hint to text entry -->
 
     <!-- View tag key used to store SpringAnimation data. -->
-    <item type="id" name="spring_animation_tag" />
 
-<!-- Workspace -->
+    <!-- Workspace -->
     <!-- The duration (in ms) of the fade animation on the object outlines, used when
          we are dragging objects around on the home screen. -->
     <integer name="config_dragOutlineFadeTime">900</integer>
@@ -131,8 +130,6 @@
     <item type="id" name="action_add_to_workspace" />
     <item type="id" name="action_move" />
     <item type="id" name="action_move_to_workspace" />
-    <item type="id" name="action_move_screen_backwards" />
-    <item type="id" name="action_move_screen_forwards" />
     <item type="id" name="action_resize" />
     <item type="id" name="action_deep_shortcuts" />
     <item type="id" name="action_shortcuts_and_notifications"/>
@@ -141,9 +138,8 @@
 
 <!-- QSB IDs. DO not change -->
     <item type="id" name="search_container_workspace" />
-    <item type="id" name="search_container_all_apps" />
 
-<!-- View ID to use for blocked area on the first screen -->
+    <!-- View ID to use for blocked area on the first screen -->
     <item type="id" name="workspace_blocked_row" />
 
 <!-- Recents -->

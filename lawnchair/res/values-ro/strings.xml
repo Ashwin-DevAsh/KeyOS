@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Ascunde Etichetele</string>
     <string name="pref_mutliline_labels">Multiliniază Etichetele</string>
     <string name="icon_text_scale_pref_title">Dimensiunea textului</string>
-    <string name="text_color">Culoare Text</string>
     <string name="icon_scale_pref_title">Mărimea pictogramelor</string>
     <string name="auto_add_shortcuts_label">Adaugă Scurtături Noi pe Ecranul principal</string>
     <string name="pref_icon_popup_menu">Bulele Scurtăturilor</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Zonă de andocare</string>
     <string name="dock_pref_summary">Plan, Stil, Indicatori</string>
-    <string name="background_color">Culoarea de fundal</string>
     <string name="theme_based">In ton cu tema</string>
     <string name="radius">Raza de colț</string>
     <string name="hotseat_show_page_indicator">Afișare indicator de pagină</string>
@@ -265,7 +263,6 @@
     <string name="theme_dark_dark_text">Întunecat w/ Text întunecat</string>
     <string name="theme_black">Neagră</string>
     <string name="theme_black_dark_text">Negru w/ Text negru</string>
-    <string name="pref_qsb_color">Culoare</string>
     <string name="drawer_tabs">File</string>
     <string name="undo">Anulați</string>
     <string name="allow">Permite</string>

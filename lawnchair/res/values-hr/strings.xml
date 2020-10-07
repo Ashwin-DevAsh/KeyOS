@@ -60,7 +60,6 @@
     <string name="hide_icon_labels_pref_title">Sakrij natpise</string>
     <string name="pref_mutliline_labels">Natpisi u više redova</string>
     <string name="icon_text_scale_pref_title">Veličina teksta</string>
-    <string name="text_color">Boja Teksta</string>
     <string name="icon_scale_pref_title">Veličina ikone</string>
     <string name="auto_add_shortcuts_label">Dodaj novi prečac na radnu površinu</string>
     <string name="pref_icon_popup_menu">Mjehurići prečaca</string>
@@ -135,7 +134,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Izgled, Stil, Pokazatelji</string>
-    <string name="background_color">Pozadinska boja</string>
     <string name="theme_based">Postavlja Tema</string>
     <string name="radius">Zakrivljenost kuta</string>
     <string name="hotseat_show_page_indicator">Prikaži oznaku stranice</string>
@@ -268,7 +266,6 @@
     <string name="theme_black_dark_text">Crna s tamnim tekstom</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Boja</string>
     <string name="recents_not_connected">QuickSwitch je onemogućen.</string>
     <string name="recent_task_option_popup_window">Dijalog</string>
     <string name="drawer_tabs">Kartice</string>
@@ -320,7 +317,6 @@
     <string name="icon_shape_corner_round">Zaobljeno</string>
     <string name="icon_shape_corner_squircle">Glatko</string>
     <string name="icon_shape_corner_cut">Izreži</string>
-    <string name="smartspace_add_to_home">Dodaj na radnu površinu</string>
     <string name="get_lawnfeed">Dobavi Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Nedavne aplikacije</string>

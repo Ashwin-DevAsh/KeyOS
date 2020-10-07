@@ -106,7 +106,6 @@
             android:paddingTop="6dp">
 
             <ch.deletescape.lawnchair.smartspace.SmartspaceDividerView
-                android:id="@+id/subtitle_sep"
                 android:layout_width="@dimen/smartspace_title_sep_width"
                 android:layout_height="fill_parent"
                 android:layout_marginBottom="4dp"

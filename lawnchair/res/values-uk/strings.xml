@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Приховати підписи</string>
     <string name="pref_mutliline_labels">Багатострокові підписи</string>
     <string name="icon_text_scale_pref_title">Розмір тексту</string>
-    <string name="text_color">Колір тексту</string>
     <string name="icon_scale_pref_title">Розмір піктограми</string>
     <string name="auto_add_shortcuts_label">Додавати нові ярлики на Стільницю</string>
     <string name="pref_icon_popup_menu">Бульбашка ярлика</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Док-панель</string>
     <string name="dock_pref_summary">Компонування, стиль, індикатори</string>
-    <string name="background_color">Колір тла</string>
     <string name="theme_based">Задано темою</string>
     <string name="radius">Радіус закруглення</string>
     <string name="hotseat_show_page_indicator">Відобразити індикатор сторінки</string>
@@ -273,7 +271,6 @@
     <string name="theme_dark_dark_text">Темна з темним текстом</string>
     <string name="theme_black">Чорна</string>
     <string name="theme_black_dark_text">Чорна з темним текстом</string>
-    <string name="pref_qsb_color">Кольорове</string>
     <string name="recents_not_connected">QuickSwitch вимкнено.</string>
     <string name="recent_task_option_popup_window">Діалог</string>
     <string name="drawer_tabs">Вкладки</string>
@@ -325,7 +322,6 @@
     <string name="icon_shape_corner_round">Округлі</string>
     <string name="icon_shape_corner_squircle">Згладжені кути</string>
     <string name="icon_shape_corner_cut">Виріз</string>
-    <string name="smartspace_add_to_home">Додати на Стільницю</string>
     <string name="get_lawnfeed">Встановити Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Нещодавні</string>

@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Ẩn tên</string>
     <string name="pref_mutliline_labels">Tên ứng dụng nhiều dòng</string>
     <string name="icon_text_scale_pref_title">Cỡ chữ</string>
-    <string name="text_color">Màu chữ</string>
     <string name="icon_scale_pref_title">Kích cỡ biểu tượng</string>
     <string name="auto_add_shortcuts_label">Thêm phím tắt mới vào màn hình</string>
     <string name="pref_icon_popup_menu">Phím tắt bong bóng</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Thanh dock</string>
     <string name="dock_pref_summary">Bố cục, kiểu dáng, chỉ số</string>
-    <string name="background_color">Màu nền</string>
     <string name="theme_based">Theo chủ đề</string>
     <string name="radius">Độ bo góc</string>
     <string name="hotseat_show_page_indicator">Hiện chỉ số trang</string>
@@ -273,7 +271,6 @@
     <string name="theme_dark_dark_text">Tối với Chữ màu đen</string>
     <string name="theme_black">Đen</string>
     <string name="theme_black_dark_text">Đen với Chữ màu đen</string>
-    <string name="pref_qsb_color">Màu sắc</string>
     <string name="recents_not_connected">QuickSwitch đang bị vô hiệu hóa.</string>
     <string name="recent_task_option_popup_window">Hộp thoại</string>
     <string name="drawer_tabs">Thẻ</string>
@@ -325,7 +322,6 @@
     <string name="icon_shape_corner_round">Tròn</string>
     <string name="icon_shape_corner_squircle">Mượt mà</string>
     <string name="icon_shape_corner_cut">Cắt</string>
-    <string name="smartspace_add_to_home">Thêm vào màn hình chính</string>
     <string name="get_lawnfeed">Cài đặt Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Gần đây</string>

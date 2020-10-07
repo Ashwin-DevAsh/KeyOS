@@ -60,7 +60,6 @@
     <string name="hide_icon_labels_pref_title">Hide Labels</string>
     <string name="pref_mutliline_labels">Multiline Labels</string>
     <string name="icon_text_scale_pref_title">Text Size</string>
-    <string name="text_color">Text Colour</string>
     <string name="icon_scale_pref_title">Icon Size</string>
     <string name="auto_add_shortcuts_label">Add New Shortcuts to Desktop</string>
     <string name="pref_icon_popup_menu">Shortcut Bubble</string>
@@ -135,7 +134,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Layout, Style, Indicators</string>
-    <string name="background_color">Background Colour</string>
     <string name="theme_based">Set by Theme</string>
     <string name="radius">Corner Radius</string>
     <string name="hotseat_show_page_indicator">Show Page Indicator</string>
@@ -267,7 +265,6 @@
     <string name="theme_dark_dark_text">Dark w/ Dark Text</string>
     <string name="theme_black">Black</string>
     <string name="theme_black_dark_text">Black w/ Dark Text</string>
-    <string name="pref_qsb_color">Colour</string>
     <string name="recents_not_connected">QuickSwitch is disabled.</string>
     <string name="recent_task_option_popup_window">Dialog</string>
     <string name="drawer_tabs">Tabs</string>
@@ -319,7 +316,6 @@
     <string name="icon_shape_corner_round">Round</string>
     <string name="icon_shape_corner_squircle">Smooth</string>
     <string name="icon_shape_corner_cut">Cut</string>
-    <string name="smartspace_add_to_home">Add to Desktop</string>
     <string name="get_lawnfeed">Get Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Recents</string>

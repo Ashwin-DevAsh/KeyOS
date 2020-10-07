@@ -60,7 +60,6 @@
     <string name="hide_icon_labels_pref_title">Peida sildid</string>
     <string name="pref_mutliline_labels">Mitmerealised sildid</string>
     <string name="icon_text_scale_pref_title">Teksti suurus</string>
-    <string name="text_color">Teksti värv</string>
     <string name="icon_scale_pref_title">Ikooni suurus</string>
     <string name="auto_add_shortcuts_label">Lisage töölauale uued otseteed</string>
     <string name="pref_icon_popup_menu">Otseteede mull</string>
@@ -135,7 +134,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dokk</string>
     <string name="dock_pref_summary">Paigutus, stiil, indikaatorid</string>
-    <string name="background_color">Taustavärv</string>
     <string name="theme_based">Määratakse teema järgi</string>
     <string name="radius">Nurga raadius</string>
     <string name="hotseat_show_page_indicator">Näita lehekülje indikaatorit</string>
@@ -270,7 +268,6 @@
     <string name="theme_black_dark_text">Tume musta tekstiga</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Värv</string>
     <string name="recents_not_connected">QuickSwitchit ei kasutata.</string>
     <string name="recent_task_option_popup_window">Dialoog</string>
     <string name="drawer_tabs">Kaardid</string>
@@ -322,7 +319,6 @@
     <string name="icon_shape_corner_round">Ring</string>
     <string name="icon_shape_corner_squircle">Sujuv</string>
     <string name="icon_shape_corner_cut">Lõika</string>
-    <string name="smartspace_add_to_home">Lisa töölauale</string>
     <string name="get_lawnfeed">Hangi Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Hiljutised</string>

@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">إخفاء اسماء التطبيقات</string>
     <string name="pref_mutliline_labels">تسميات متعددة الأسطر</string>
     <string name="icon_text_scale_pref_title">حجم الخط</string>
-    <string name="text_color">لون الخط</string>
     <string name="icon_scale_pref_title">حجم الأيقونة</string>
     <string name="auto_add_shortcuts_label">إضافة إختصارات جديدة على سطح المكتب</string>
     <string name="pref_icon_popup_menu">اختصار فقاعي</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">الشريط السفلي</string>
     <string name="dock_pref_summary">التنسيق، التصميم، المؤشرات</string>
-    <string name="background_color">لون الخلفية</string>
     <string name="theme_based">تعيين حسب السمة</string>
     <string name="radius">زاوية نصف قطرية</string>
     <string name="hotseat_show_page_indicator">عرض مؤشر الصفحة</string>
@@ -273,7 +271,6 @@
     <string name="theme_dark_dark_text">مظلم مع نص مظلم</string>
     <string name="theme_black">أسود</string>
     <string name="theme_black_dark_text">أسود مع نص مظلم</string>
-    <string name="pref_qsb_color">اللون</string>
     <string name="recents_not_connected">QuickSwitch معطل.</string>
     <string name="recent_task_option_popup_window">حوار</string>
     <string name="drawer_tabs">تبويبات</string>
@@ -325,7 +322,6 @@
     <string name="icon_shape_corner_round">دائرية</string>
     <string name="icon_shape_corner_squircle">سلس</string>
     <string name="icon_shape_corner_cut">قص</string>
-    <string name="smartspace_add_to_home">إضافة الى سطح المكتب</string>
     <string name="get_lawnfeed">أحصل على Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">التطبيقات الأخيرة</string>

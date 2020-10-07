@@ -66,9 +66,7 @@
 
 
 
-        <include
-            android:id="@+id/scrim_view"
-            layout="@layout/scrim_view"/>
+        <include layout="@layout/scrim_view"/>
 
         <include
             android:id="@+id/options_view"

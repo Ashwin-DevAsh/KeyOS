@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Címkék elrejtése</string>
     <string name="pref_mutliline_labels">Többsoros cimkék</string>
     <string name="icon_text_scale_pref_title">Betűméret</string>
-    <string name="text_color">Betűszín</string>
     <string name="icon_scale_pref_title">Ikonméret</string>
     <string name="auto_add_shortcuts_label">Új parancsikonok hozzáadása a kezdőképernyőhöz</string>
     <string name="pref_icon_popup_menu">Parancsikon buborék</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dokk</string>
     <string name="dock_pref_summary">Elrendezés, stílus, jelölők</string>
-    <string name="background_color">Háttérszín</string>
     <string name="theme_based">Téma alapján beállítva</string>
     <string name="radius">Sarkak lekerekítése</string>
     <string name="hotseat_show_page_indicator">Oldaljelző megjelenítése</string>
@@ -275,7 +273,6 @@
     <string name="theme_black_dark_text">Fekete, sötét szöveggel</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Szín</string>
     <string name="recents_not_connected">A Gyorskapcsoló letiltásra került.</string>
     <string name="recent_task_option_popup_window">Párbeszédablak</string>
     <string name="drawer_tabs">Lapok</string>
@@ -327,7 +324,6 @@
     <string name="icon_shape_corner_round">Kerek</string>
     <string name="icon_shape_corner_squircle">Sima</string>
     <string name="icon_shape_corner_cut">Kivágás</string>
-    <string name="smartspace_add_to_home">Hozzáadás az Asztalhoz</string>
     <string name="get_lawnfeed">A Lawnfeed letöltése</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Legutóbbiak</string>

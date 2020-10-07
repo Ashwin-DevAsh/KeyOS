@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Esconder nome dos aplicativos</string>
     <string name="pref_mutliline_labels">Nome em múltiplas linhas</string>
     <string name="icon_text_scale_pref_title">Tamanho do Texto</string>
-    <string name="text_color">Cor do Texto</string>
     <string name="icon_scale_pref_title">Tamanho do Ícone</string>
     <string name="auto_add_shortcuts_label">Adicionar novos aplicativos à Tela Inicial</string>
     <string name="pref_icon_popup_menu">Atalhos em Bolha</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Layout, Estilo, Indicadores</string>
-    <string name="background_color">Cor de Fundo</string>
     <string name="theme_based">Escolher pelo Tema</string>
     <string name="radius">Raio de Canto</string>
     <string name="hotseat_show_page_indicator">Mostrar Indicador de Página</string>
@@ -275,7 +273,6 @@
     <string name="theme_black_dark_text">Preto com Texto Escuro</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Cor</string>
     <string name="recents_not_connected">QuickSwitch está desativado.</string>
     <string name="recent_task_option_popup_window">Diálogo</string>
     <string name="drawer_tabs">Abas</string>
@@ -327,7 +324,6 @@
     <string name="icon_shape_corner_round">Redondo</string>
     <string name="icon_shape_corner_squircle">Suave</string>
     <string name="icon_shape_corner_cut">Recortar</string>
-    <string name="smartspace_add_to_home">Adicionar à Tela Inicial</string>
     <string name="get_lawnfeed">Baixe o Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Recentes</string>

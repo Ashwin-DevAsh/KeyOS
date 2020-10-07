@@ -60,7 +60,6 @@
     <string name="hide_icon_labels_pref_title">Dölj etiketter</string>
     <string name="pref_mutliline_labels">Titel på flera rader</string>
     <string name="icon_text_scale_pref_title">Textstorlek</string>
-    <string name="text_color">Textfärg</string>
     <string name="icon_scale_pref_title">Ikonstorlek</string>
     <string name="auto_add_shortcuts_label">Lägg till ny genväg på skrivbordet</string>
     <string name="pref_icon_popup_menu">Genvägsbubblor</string>
@@ -136,7 +135,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Layout, stil, indikatorer</string>
-    <string name="background_color">Bakgrundsfärg</string>
     <string name="theme_based">Inställt av tema</string>
     <string name="radius">Hörnradie</string>
     <string name="hotseat_show_page_indicator">Visa sidindikator</string>
@@ -245,7 +243,6 @@
     <string name="theme_dark_dark_text">Mörkt med mörk text</string>
     <string name="theme_black">Svart</string>
     <string name="theme_black_dark_text">Svart med mörk text</string>
-    <string name="pref_qsb_color">Färg</string>
     <string name="recent_task_option_popup_window">Dialog</string>
     <string name="drawer_tabs">Flikar</string>
     <string name="undo">Ångra</string>

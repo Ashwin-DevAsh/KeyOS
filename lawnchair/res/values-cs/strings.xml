@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Skrýt popisky</string>
     <string name="pref_mutliline_labels">Víceřádkové popisky</string>
     <string name="icon_text_scale_pref_title">Velikost textu</string>
-    <string name="text_color">Barva textu</string>
     <string name="icon_scale_pref_title">Velikost ikon</string>
     <string name="auto_add_shortcuts_label">Přidávat zástupce nových aplikací na plochu</string>
     <string name="pref_icon_popup_menu">Možnosti v\u00a0bublině zástupce</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dok</string>
     <string name="dock_pref_summary">Rozložení, styl, ukazatelé</string>
-    <string name="background_color">Barva pozadí</string>
     <string name="theme_based">Dle motivu</string>
     <string name="radius">Poloměr rohů</string>
     <string name="hotseat_show_page_indicator">Zobrazit ukazatel stránky</string>
@@ -273,7 +271,6 @@
     <string name="theme_dark_dark_text">Tmavý s\u00a0tmavým textem</string>
     <string name="theme_black">Černý</string>
     <string name="theme_black_dark_text">Černý s\u00a0tmavým textem</string>
-    <string name="pref_qsb_color">Barva</string>
     <string name="recents_not_connected">QuickSwitch je vypnutý.</string>
     <string name="recent_task_option_popup_window">Dialogové okno</string>
     <string name="drawer_tabs">Záložky</string>
@@ -325,7 +322,6 @@
     <string name="icon_shape_corner_round">Kruh</string>
     <string name="icon_shape_corner_squircle">Superelipsa</string>
     <string name="icon_shape_corner_cut">Zkosení</string>
-    <string name="smartspace_add_to_home">Přidat na plochu</string>
     <string name="get_lawnfeed">Získejte Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Nedávné aplikace</string>

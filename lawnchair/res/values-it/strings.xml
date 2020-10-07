@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Nascondi etichette</string>
     <string name="pref_mutliline_labels">Etichette multilinea</string>
     <string name="icon_text_scale_pref_title">Dimensione testo</string>
-    <string name="text_color">Colore del testo</string>
     <string name="icon_scale_pref_title">Dimensione icona</string>
     <string name="auto_add_shortcuts_label">Aggiungi nuovi collegamenti al desktop</string>
     <string name="pref_icon_popup_menu">Bolla delle scorciatoie</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Layout, Stile, Indicatori</string>
-    <string name="background_color">Colore dello sfondo</string>
     <string name="theme_based">Impostato dal tema</string>
     <string name="radius">Raggio curvatura</string>
     <string name="hotseat_show_page_indicator">Mostra l\'indicatore di pagina</string>
@@ -275,7 +273,6 @@
     <string name="theme_black_dark_text">Nero con testo scuro</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Colore</string>
     <string name="recents_not_connected">QuickSwitch è disabilitato.</string>
     <string name="recent_task_option_popup_window">Dialogo</string>
     <string name="drawer_tabs">Schede</string>
@@ -327,7 +324,6 @@
     <string name="icon_shape_corner_round">Rotondo</string>
     <string name="icon_shape_corner_squircle">Smussato</string>
     <string name="icon_shape_corner_cut">Tagliato</string>
-    <string name="smartspace_add_to_home">Aggiungi al Desktop</string>
     <string name="get_lawnfeed">Scarica Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">App Recenti</string>

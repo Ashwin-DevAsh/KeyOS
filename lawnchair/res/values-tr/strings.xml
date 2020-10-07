@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Etiketleri Gizle</string>
     <string name="pref_mutliline_labels">Çok Satırlı Etiketler</string>
     <string name="icon_text_scale_pref_title">Metin Boyutu</string>
-    <string name="text_color">Metin Rengi</string>
     <string name="icon_scale_pref_title">Simge Boyutu</string>
     <string name="auto_add_shortcuts_label">Masaüstüne Yeni Kısayollar Ekle</string>
     <string name="pref_icon_popup_menu">Kısayol Baloncukları</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Alt Panel</string>
     <string name="dock_pref_summary">Düzen, Stil, Göstergeler</string>
-    <string name="background_color">Arkaplan Rengi</string>
     <string name="theme_based">Temaya Göre Ayarla</string>
     <string name="radius">Köşe Yarıçapı</string>
     <string name="hotseat_show_page_indicator">Sayfa Göstergesini Göster</string>
@@ -275,7 +273,6 @@
     <string name="theme_black_dark_text">Siyah w/ Koyu Metin</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-    <string name="pref_qsb_color">Renk</string>
     <string name="recents_not_connected">QuickSwitch devre dışı.</string>
     <string name="recent_task_option_popup_window">İletişim</string>
     <string name="drawer_tabs">Sekmeler</string>
@@ -328,7 +325,6 @@
     <string name="icon_shape_corner_round">Yuvarlak</string>
     <string name="icon_shape_corner_squircle">Akıcı</string>
     <string name="icon_shape_corner_cut">Kes</string>
-    <string name="smartspace_add_to_home">Giriş Ekranına Ekle</string>
     <string name="get_lawnfeed">Lawnfeed Yükle</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Son uygulamalar</string>

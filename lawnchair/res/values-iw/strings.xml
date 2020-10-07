@@ -60,7 +60,6 @@
     <string name="hide_icon_labels_pref_title">הסתר תוויות</string>
     <string name="pref_mutliline_labels">תוויות רבות שורה</string>
     <string name="icon_text_scale_pref_title">גודל הטקסט</string>
-    <string name="text_color">צבע הטקסט</string>
     <string name="icon_scale_pref_title">גודל הסמל</string>
     <string name="auto_add_shortcuts_label">הוסף קיצורים חדשים למסך הבית</string>
     <string name="pref_icon_popup_menu">בועת קיצורים</string>
@@ -135,7 +134,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">פריסה, סגנון, מחוונים</string>
-    <string name="background_color">צבע רקע</string>
     <string name="theme_based">נקבע מערכת נושא</string>
     <string name="radius">רדיוס פינות</string>
     <string name="hotseat_show_page_indicator">הצג מחוון עמוד</string>
@@ -268,7 +266,6 @@
     <string name="theme_dark_dark_text">כהה עם טקסט כהה</string>
     <string name="theme_black">שחור</string>
     <string name="theme_black_dark_text">שחור עם טקסט כהה</string>
-    <string name="pref_qsb_color">צבע</string>
     <string name="recents_not_connected">QuickSwitch מבוטל.</string>
     <string name="recent_task_option_popup_window">תיבת דו שיח</string>
     <string name="drawer_tabs">כרטיסיות</string>
@@ -320,7 +317,6 @@
     <string name="icon_shape_corner_round">מעוגל</string>
     <string name="icon_shape_corner_squircle">חלק</string>
     <string name="icon_shape_corner_cut">חתוך</string>
-    <string name="smartspace_add_to_home">הוסף למסך הבית</string>
     <string name="get_lawnfeed">קבל את Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">אחרונים</string>

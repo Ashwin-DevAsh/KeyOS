@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Sembunyikan Label</string>
     <string name="pref_mutliline_labels">Baris Label Ganda</string>
     <string name="icon_text_scale_pref_title">Ukuran Teks</string>
-    <string name="text_color">Warna Teks</string>
     <string name="icon_scale_pref_title">Ukuran Ikon</string>
     <string name="auto_add_shortcuts_label">Tambah Pintasan Baru ke Desktop</string>
     <string name="pref_icon_popup_menu">Gelembung Pintasan</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Tata Letak, Gaya, Indikator</string>
-    <string name="background_color">Warna Latar Belakang</string>
     <string name="theme_based">Diatur oleh Tema</string>
     <string name="radius">Lengkungan Sudut</string>
     <string name="hotseat_show_page_indicator">Tampilkan Penanda Halaman</string>
@@ -273,7 +271,6 @@
     <string name="theme_dark_dark_text">Gelap dengan Tulisan Gelap</string>
     <string name="theme_black">Hitam</string>
     <string name="theme_black_dark_text">Hitam dengan Tulisan Gelap</string>
-    <string name="pref_qsb_color">Warna</string>
     <string name="recents_not_connected">QuickSwitch dimatikan.</string>
     <string name="recent_task_option_popup_window">Dialog</string>
     <string name="drawer_tabs">Tab</string>
@@ -325,7 +322,6 @@
     <string name="icon_shape_corner_round">Melengkung</string>
     <string name="icon_shape_corner_squircle">Halus</string>
     <string name="icon_shape_corner_cut">Potong</string>
-    <string name="smartspace_add_to_home">Tambahkan ke Desktop</string>
     <string name="get_lawnfeed">Dapatkan Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Terkini</string>

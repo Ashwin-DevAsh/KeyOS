@@ -64,7 +64,6 @@
     <string name="hide_icon_labels_pref_title">Masquer les étiquettes</string>
     <string name="pref_mutliline_labels">Étiquettes multilignes</string>
     <string name="icon_text_scale_pref_title">Taille du texte</string>
-    <string name="text_color">Couleur du texte</string>
     <string name="icon_scale_pref_title">Taille de l\'icône</string>
     <string name="auto_add_shortcuts_label">Ajouter nouv. raccourcis à l\'écran d\'acc.</string>
     <string name="pref_icon_popup_menu">Bulle de raccourci</string>
@@ -140,7 +139,6 @@
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Disposition, Style, Indicateurs</string>
-    <string name="background_color">Couleur du fond d\'écran</string>
     <string name="theme_based">Appliquer par thème</string>
     <string name="radius">Rayon du coin</string>
     <string name="hotseat_show_page_indicator">Afficher l\'Indicateur de Page</string>
@@ -275,7 +273,6 @@
     <string name="theme_black_dark_text">Foncé avec texte foncé</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">Thème automatique suivant le fond d\'écran</string>
     <string name="theme_dark_theme_mode_follow_system">Thème sombre suivant les paramètres système</string>
-    <string name="pref_qsb_color">Couleur</string>
     <string name="recents_not_connected">QuickSwitch est désactivé.</string>
     <string name="recent_task_option_popup_window">Dialogue</string>
     <string name="drawer_tabs">Onglets</string>
@@ -327,7 +324,6 @@
     <string name="icon_shape_corner_round">Circulaire</string>
     <string name="icon_shape_corner_squircle">Arrondi</string>
     <string name="icon_shape_corner_cut">Couper</string>
-    <string name="smartspace_add_to_home">Ajouter à l\'écran d\'accueil</string>
     <string name="get_lawnfeed">Obtenir Lawnfeed</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Récents</string>
