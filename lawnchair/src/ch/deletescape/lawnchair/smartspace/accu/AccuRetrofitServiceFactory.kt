@@ -27,22 +27,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object AccuRetrofitServiceFactory {
-    private var ACCU_APIKEY: Pair<String, String> = Pair("apikey", BuildConfig.ACCUWEATHER_KEY)
     private val ACCU_BASE_URL = "https://api.accuweather.com"
-    private val ACCU_DETAILS = Pair("details", "true")
-    private val ACCU_GETPHOTOS = Pair("getPhotos", "true")
-    private val ACCU_METRIC = Pair("metric", "true")
+
     private var okHttpClient: OkHttpClient? = null
 
     val accuWeatherRetrofitService: AccuWeatherRetrofitService by lazy { getAccuWeatherRetrofitService_() }
 
     val accuSearchRetrofitService: AccuSearchRetrofitService by lazy { getAccuSearchRetrofitService_() }
 
-    fun setApiKey(apiKey: String) {
-        if (!TextUtils.isEmpty(apiKey)) {
-            ACCU_APIKEY = Pair("apiKey", apiKey)
-        }
-    }
+
 
     fun getAccuWeatherRetrofitService_(): AccuWeatherRetrofitService {
         return getRetrofitService(AccuWeatherRetrofitService::class.java)
@@ -61,7 +54,6 @@ object AccuRetrofitServiceFactory {
         if (okHttpClient == null) {
             synchronized(AccuRetrofitServiceFactory::class.java) {
                 if (okHttpClient == null) {
-                    okHttpClient = OkHttpClientBuilder().addQueryParam(ACCU_APIKEY).addQueryParam(ACCU_DETAILS).addQueryParam(ACCU_METRIC).build(LauncherAppState.getInstanceNoCreate().context)
                 }
             }
         }

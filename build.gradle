@@ -57,16 +57,16 @@ android {
         buildConfigField "boolean", "HAS_LEAKCANARY", "false"
         buildConfigField "boolean", "FEATURE_BUG_REPORTER", "true"
 
-        def githubToken = localProps.getProperty('githubToken') ?: '"' + System.getenv("GITHUB_TOKEN") + '"'
-        buildConfigField "String", "GITHUB_TOKEN", githubToken
-
-        def debugMenuCode = System.getenv("DEBUG_MENU_CODE") ?: "veryperu"
-        buildConfigField "String", "DEBUG_MENU_CODE_HASH", '"' + debugMenuCode.digest('SHA-1') + '"'
-
-        def accuWeatherKey = localProps.getProperty('accu_key') ?: '"' + System.getenv("ACCU_KEY") + '"'
-        buildConfigField "String", "ACCUWEATHER_KEY", accuWeatherKey
-
-        buildConfigField "String", "BRIDGE_DOWNLOAD_URL", "\"https://lawnchair.app/lawnfeed/?ref=lawnchair\""
+//        def githubToken = localProps.getProperty('githubToken') ?: '"' + System.getenv("GITHUB_TOKEN") + '"'
+//        buildConfigField "String", "GITHUB_TOKEN", githubToken
+//
+//        def debugMenuCode = System.getenv("DEBUG_MENU_CODE") ?: "veryperu"
+//        buildConfigField "String", "DEBUG_MENU_CODE_HASH", '"' + debugMenuCode.digest('SHA-1') + '"'
+//
+//        def accuWeatherKey = localProps.getProperty('accu_key') ?: '"' + System.getenv("ACCU_KEY") + '"'
+//        buildConfigField "String", "ACCUWEATHER_KEY", accuWeatherKey
+//
+//        buildConfigField "String", "BRIDGE_DOWNLOAD_URL", "\"https://lawnchair.app/lawnfeed/?ref=lawnchair\""
 
         ndk {
             abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a"

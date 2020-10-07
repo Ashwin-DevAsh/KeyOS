@@ -131,8 +131,6 @@ public class SettingsActivity extends SettingsBaseActivity implements
     private static final String NOTIFICATION_ENABLED_LISTENERS = "enabled_notification_listeners";
 
     public final static String SHOW_PREDICTIONS_PREF = "pref_show_predictions";
-    public final static String SHOW_ACTIONS_PREF = "pref_show_suggested_actions";
-    public final static String HIDDEN_ACTIONS_PREF = "pref_hidden_prediction_action_set";
     public final static String ENABLE_MINUS_ONE_PREF = "pref_enable_minus_one";
     public final static String FEED_THEME_PREF = "pref_feedTheme";
     public final static String SMARTSPACE_PREF = "pref_smartspace";
@@ -301,7 +299,6 @@ public class SettingsActivity extends SettingsBaseActivity implements
         if (resolveInfo.getKey().equals(ColorEngine.Resolvers.ACCENT) && shouldShowSearch()) {
             Drawable search = getResources().getDrawable(R.drawable.ic_settings_search, null);
             search.setTint(resolveInfo.getColor());
-
             Toolbar toolbar = findViewById(R.id.search_action_bar);
             toolbar.setNavigationIcon(search);
         }
@@ -1077,7 +1074,6 @@ public class SettingsActivity extends SettingsBaseActivity implements
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Utilities.openURLinBrowser(getContext(), BuildConfig.BRIDGE_DOWNLOAD_URL);
                         }
                     })
                     .create();

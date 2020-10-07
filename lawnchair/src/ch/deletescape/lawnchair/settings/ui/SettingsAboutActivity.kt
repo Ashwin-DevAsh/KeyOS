@@ -33,9 +33,6 @@ class SettingsAboutActivity : SettingsActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun createLaunchFragment(intent: Intent): Fragment {
-        return Attribouter.from(this).withGitHubToken(BuildConfig.GITHUB_TOKEN).withFile(R.xml.attribouter).toFragment()
-    }
 
     override fun shouldUseLargeTitle(): Boolean {
         return false
