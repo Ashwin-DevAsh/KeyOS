@@ -154,7 +154,6 @@ public class Folder extends AbstractFloatingView implements DragSource,
     public ExtendedEditText mFolderName;
     private PageIndicatorDots mPageIndicator;
 
-    public ImageButton mAddButton;
 
     private View mFooter, mHeader;
     private int mFooterHeight;
@@ -230,13 +229,7 @@ public class Folder extends AbstractFloatingView implements DragSource,
         mFolderName = findViewById(R.id.folder_name);
         mFolderName.setOnBackKeyListener(this);
         mFolderName.setOnFocusChangeListener(this);
-        mAddButton = findViewById(R.id.folder_add_btn);
-        mAddButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openEditDialog();
-            }
-        });
+
 
         if (!Utilities.ATLEAST_MARSHMALLOW) {
             // We disable action mode in older OSes where floating selection menu is not yet
@@ -676,7 +669,6 @@ public class Folder extends AbstractFloatingView implements DragSource,
             @Override
             public void onAnimationStart(Animator animation) {
                 mFolderName.setVisibility(INVISIBLE);
-                mAddButton.setVisibility(INVISIBLE);
                 if (mContent.getPageCount() > 1) {
                     mPageIndicator.setVisibility(INVISIBLE);
                 }
@@ -685,7 +677,6 @@ public class Folder extends AbstractFloatingView implements DragSource,
             @Override
             public void onAnimationEnd(Animator animation) {
                 mFolderName.setVisibility(VISIBLE);
-                mAddButton.setVisibility(VISIBLE);
                 if (mContent.getPageCount() > 1) {
                     mPageIndicator.setVisibility(VISIBLE);
                 }
@@ -791,8 +782,7 @@ public class Folder extends AbstractFloatingView implements DragSource,
             mPrevTargetRank = mTargetRank;
 
             if (d.stateAnnouncer != null) {
-                d.stateAnnouncer.announce(getContext().getString(R.string.move_to_position,
-                        mTargetRank + 1));
+                d.stateAnnouncer.announce(getContext().getString(R.string.move_to_position, mTargetRank + 1));
             }
         }
 

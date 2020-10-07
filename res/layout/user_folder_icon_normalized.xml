@@ -54,17 +54,7 @@
             app:customFontType="workspaceIcon"
             app:customFontWeight="w700" />
 
-        <ImageButton
-            android:id="@+id/folder_add_btn"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="-2dp"
-            android:layout_marginEnd="16dp"
-            android:background="@null"
-            android:src="@drawable/ic_plus_folder" />
+
     </RelativeLayout>
 
     <com.android.launcher3.folder.FolderPagedView

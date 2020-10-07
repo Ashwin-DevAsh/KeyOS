@@ -254,13 +254,13 @@ class IconPackAdapter(context: Context) : RecyclerView.Adapter<IconPackAdapter.H
 
     inner class DownloadHolder(itemView: View) : IconPackHolder(itemView) {
 
-        init {
-            val context = itemView.context
-            icon.setImageDrawable(context.getDrawable(R.drawable.ic_add)?.apply {
-                setTint(ColorEngine.getInstance(context).accent)
-            })
-            title.setText(R.string.get_more_icon_packs)
-        }
+//        init {
+//            val context = itemView.context
+//            icon.setImageDrawable(context.getDrawable(R.drawable.ic_add)?.apply {
+//                setTint(ColorEngine.getInstance(context).accent)
+//            })
+//            title.setText(R.string.get_more_icon_packs)
+//        }
 
         override fun bind(item: Item) {
 

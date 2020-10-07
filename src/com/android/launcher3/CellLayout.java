@@ -424,9 +424,6 @@ public class CellLayout extends ViewGroup {
                 (ParcelableSparseArray) parcelable : new ParcelableSparseArray();
     }
 
-    public boolean getIsDragOverlapping() {
-        return mIsDragOverlapping;
-    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -702,9 +699,7 @@ public class CellLayout extends ViewGroup {
      * @param y Y coordinate of the point
      * @param result Array of 2 ints to hold the x and y coordinate of the cell
      */
-    void pointToCellRounded(int x, int y, int[] result) {
-        pointToCellExact(x + (mCellWidth / 2), y + (mCellHeight / 2), result);
-    }
+
 
     /**
      * Given a cell coordinate, return the point that represents the upper left corner of that cell
@@ -846,7 +841,7 @@ public class CellLayout extends ViewGroup {
      * Returns the amount of space left over after subtracting padding and cells. This space will be
      * very small, a few pixels at most, and is a result of rounding down when calculating the cell
      * width in {@link DeviceProfile#calculateCellWidth(int, int)}.
-     */
+    */
     public int getUnusedHorizontalSpace() {
         return getMeasuredWidth() - getPaddingLeft() - getPaddingRight() - (mCountX * mCellWidth);
     }
