@@ -143,7 +143,7 @@ public class NexusLauncher {
         }
 
         public void onLauncherProviderChange() {
-            ReflectionClient.getInstance(mLauncher).onProviderChanged();
+//            ReflectionClient.getInstance(mLauncher).onProviderChanged();
         }
 
         public void onPause() {
