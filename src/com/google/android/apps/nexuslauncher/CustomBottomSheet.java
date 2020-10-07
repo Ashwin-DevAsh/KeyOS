@@ -57,7 +57,6 @@ import com.android.launcher3.util.PackageManagerHelper;
 import com.android.launcher3.widget.WidgetsBottomSheet;
 
 public class CustomBottomSheet extends WidgetsBottomSheet {
-    private FragmentManager mFragmentManager;
     private EditText mEditTitle;
     private String mPreviousTitle;
     private ItemInfo mItemInfo;
@@ -71,7 +70,6 @@ public class CustomBottomSheet extends WidgetsBottomSheet {
 
     public CustomBottomSheet(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mFragmentManager = mLauncher.getFragmentManager();
     }
 
     @Override
@@ -83,8 +81,7 @@ public class CustomBottomSheet extends WidgetsBottomSheet {
 
         TextView title = findViewById(R.id.title);
         title.setText(itemInfo.title);
-        ((PrefsFragment) mFragmentManager.findFragmentById(R.id.sheet_prefs)).loadForApp(itemInfo,
-                this::setForceOpen, this::unsetForceOpen, this::reopen);
+
 
         boolean allowTitleEdit = true;
 
@@ -99,22 +96,21 @@ public class CustomBottomSheet extends WidgetsBottomSheet {
                 icon.setImageDrawable(folderInfo.getIcon(mLauncher));
                 // Drawer folder
                 if (folderInfo.container == ItemInfo.NO_ID) {
-                    // TODO: Allow editing title for drawer folder & sync with group backend
                     allowTitleEdit = false;
                 }
             }
-            if (mInfoProvider != null) {
-                LawnchairLauncher launcher = LawnchairLauncher.Companion.getLauncher(getContext());
-                icon.setOnClickListener(v -> {
-                    ItemInfo editItem;
-                    editItem = mItemInfo;
-                    CustomInfoProvider editProvider
-                            = CustomInfoProvider.Companion.forItem(getContext(), editItem);
-                    if (editProvider != null) {
-                        launcher.startEditIcon(editItem, editProvider);
-                    }
-                });
-            }
+//            if (mInfoProvider != null) {
+//                LawnchairLauncher launcher = LawnchairLauncher.Companion.getLauncher(getContext());
+//                icon.setOnClickListener(v -> {
+//                    ItemInfo editItem;
+//                    editItem = mItemInfo;
+//                    CustomInfoProvider editProvider
+//                            = CustomInfoProvider.Companion.forItem(getContext(), editItem);
+//                    if (editProvider != null) {
+//                        launcher.startEditIcon(editItem, editProvider);
+//                    }
+//                });
+//            }
         }
         if (mInfoProvider != null && allowTitleEdit) {
             mPreviousTitle = mInfoProvider.getCustomTitle(mItemInfo);
@@ -130,10 +126,7 @@ public class CustomBottomSheet extends WidgetsBottomSheet {
 
     @Override
     public void onDetachedFromWindow() {
-        Fragment pf = mFragmentManager.findFragmentById(R.id.sheet_prefs);
-        if (pf != null) {
-            mFragmentManager.beginTransaction().remove(pf).commitAllowingStateLoss();
-        }
+
         if (mEditTitle != null) {
             String newTitle = mEditTitle.getText().toString();
             if (!newTitle.equals(mPreviousTitle)) {
@@ -142,16 +135,7 @@ public class CustomBottomSheet extends WidgetsBottomSheet {
                 mInfoProvider.setTitle(mItemInfo, newTitle);
             }
         }
-        if (pf instanceof PrefsFragment) {
-            PrefsFragment prefsFragment = (PrefsFragment) pf;
-            if (prefsFragment.hidden) {
-                mLauncher.getModelWriter().deleteItemFromDatabase(prefsFragment.itemInfo);
-                final LongArrayMap<Boolean> removed = new LongArrayMap<>();
-                removed.put(prefsFragment.itemInfo.id, true);
-                ItemInfoMatcher matcher = ItemInfoMatcher.ofItemIds(removed, false);
-                mLauncher.bindWorkspaceComponentsRemoved(matcher);
-            }
-        }
+
         super.onDetachedFromWindow();
     }
 
