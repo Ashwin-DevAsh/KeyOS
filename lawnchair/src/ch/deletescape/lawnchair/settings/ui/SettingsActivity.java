@@ -17,6 +17,7 @@
 
 package ch.deletescape.lawnchair.settings.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ComponentName;
@@ -441,6 +442,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
             }
         }
 
+        @SuppressLint("RestrictedApi")
         public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup parent,
                 Bundle savedInstanceState) {
             RecyclerView recyclerView = (RecyclerView) inflater
@@ -704,10 +706,10 @@ public class SettingsActivity extends SettingsBaseActivity implements
             if (getContent() == R.xml.lawnchair_integration_preferences) {
                 SwitchPreference minusOne = (SwitchPreference) findPreference(
                         ENABLE_MINUS_ONE_PREF);
-                if (minusOne != null && !FeedBridge.Companion.getInstance(getActivity())
-                        .isInstalled()) {
-                    minusOne.setChecked(false);
-                }
+//                if (minusOne != null && !FeedBridge.Companion.getInstance(getActivity())
+//                        .isInstalled()) {
+//                    minusOne.setChecked(false);
+//                }
             }
         }
 
@@ -803,9 +805,9 @@ public class SettingsActivity extends SettingsBaseActivity implements
                     confirmationFragment.show(getFragmentManager(), preference.getKey());
                     break;
                 case ENABLE_MINUS_ONE_PREF:
-                    if (FeedBridge.Companion.getInstance(getActivity()).isInstalled()) {
-                        return true;
-                    }
+//                    if (FeedBridge.Companion.getInstance(getActivity()).isInstalled()) {
+//                        return true;
+//                    }
                     FragmentManager fm = getFragmentManager();
                     if (fm.findFragmentByTag(BRIDGE_TAG) == null) {
                         InstallFragment fragment = new InstallFragment();

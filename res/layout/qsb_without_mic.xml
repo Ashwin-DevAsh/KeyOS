@@ -5,7 +5,6 @@
     android:background="@drawable/bg_qsb_pill"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/qsb_button_height"
-    android:src="@drawable/ic_super_g_color"
     android:scaleType="center"
     android:contentDescription="@string/search"
     android:elevation="@dimen/qsb_button_elevation"

@@ -11,21 +11,21 @@ public class BaseClientService implements ServiceConnection {
     private boolean mConnected;
     private final Context mContext;
     private final int mFlags;
-    private final ServiceConnection mBridge;
+    private  ServiceConnection mBridge;
 
     BaseClientService(Context context, int flags) {
         mContext = context;
         mFlags = flags;
-        mBridge = FeedBridge.getUseBridge()
-                ? new LauncherClientBridge(this, flags)
-                : this;
+//        mBridge = FeedBridge.getUseBridge()
+//                ? new LauncherClientBridge(this, flags)
+//                : this;
     }
 
     public final boolean connect() {
         if (!mConnected) {
             try {
-                mConnected = mContext.bindService(LauncherClient.getIntent(mContext,
-                        FeedBridge.getUseBridge()), mBridge, mFlags);
+//                mConnected = mContext.bindService(LauncherClient.getIntent(mContext,
+//                        FeedBridge.getUseBridge()), mBridge, mFlags);
             } catch (Throwable e) {
                 Log.e("LauncherClient", "Unable to connect to overlay service", e);
             }

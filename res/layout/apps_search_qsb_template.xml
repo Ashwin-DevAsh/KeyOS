@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center"
-            android:src="@drawable/ic_super_g_color" />
+             />
 
         <ImageView
             android:id="@+id/mic_icon"

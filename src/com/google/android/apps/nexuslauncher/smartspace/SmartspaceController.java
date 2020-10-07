@@ -58,11 +58,7 @@ public class SmartspaceController implements Handler.Callback {
                 Intent.ACTION_PACKAGE_DATA_CLEARED));
     }
 
-    private Intent db() {
-        return new Intent("com.google.android.apps.gsa.smartspace.SETTINGS")
-                .setPackage(FeedBridge.Companion.getInstance(mAppContext).resolveSmartspace())
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    }
+
 
     private void dc() {
         final boolean cr = this.dQ.isWeatherAvailable();
@@ -71,26 +67,17 @@ public class SmartspaceController implements Handler.Callback {
         if (cr && !this.dQ.isWeatherAvailable()) {
             this.df(null, SmartspaceController.Store.WEATHER);
         }
-        if (cs && !this.dQ.cS()) {
-            this.df(null, SmartspaceController.Store.CURRENT);
-            this.mAppContext.sendBroadcast(new Intent("com.google.android.apps.gsa.smartspace.EXPIRE_EVENT")
-                    .setPackage(FeedBridge.Companion.getInstance(mAppContext).resolveSmartspace())
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        }
+
     }
 
     private void dd() {
         if (this.dS != null) {
             this.dS.onGsaChanged();
         }
-        this.de();
+
     }
 
-    private void de() {
-        this.mAppContext.sendBroadcast(new Intent("com.google.android.apps.gsa.smartspace.ENABLE_UPDATE")
-                .setPackage(FeedBridge.Companion.getInstance(mAppContext).resolveSmartspace())
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-    }
+
 
     private void df(final NewCardInfo a, final SmartspaceController.Store SmartspaceControllerStore) {
         Message.obtain(this.mWorker, 2, SmartspaceControllerStore.ordinal(), 0, a).sendToTarget();
@@ -134,12 +121,8 @@ public class SmartspaceController implements Handler.Callback {
     }
 
     public boolean cY() {
-        boolean b = false;
-        final List queryBroadcastReceivers = this.mAppContext.getPackageManager().queryBroadcastReceivers(this.db(), 0);
-        if (queryBroadcastReceivers != null) {
-            b = !queryBroadcastReceivers.isEmpty();
-        }
-        return b;
+
+        return false;
     }
 
     public void da(final ISmartspace ds) {

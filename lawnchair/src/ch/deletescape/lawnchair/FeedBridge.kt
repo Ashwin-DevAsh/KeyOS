@@ -30,22 +30,22 @@ import com.android.launcher3.config.FeatureFlags
 
 class FeedBridge(private val context: Context) {
 
-    private val bridgePackages by lazy { listOf(
-            PixelBridgeInfo("com.google.android.apps.nexuslauncher", R.integer.bridge_signature_hash),
-            BridgeInfo("ch.deletescape.lawnchair.lawnfeed", R.integer.lawnfeed_signature_hash)) }
+//    private val bridgePackages by lazy { listOf(
+//            PixelBridgeInfo("com.google.android.apps.nexuslauncher", R.integer.bridge_signature_hash),
+//            BridgeInfo("ch.deletescape.lawnchair.lawnfeed", R.integer.lawnfeed_signature_hash)) }
 
-    fun resolveBridge(): BridgeInfo? {
-        if (!useBridge) return null
-        return bridgePackages.firstOrNull { it.isAvailable() }
-    }
+//    fun resolveBridge(): BridgeInfo? {
+//        if (!useBridge) return null
+//        return bridgePackages.firstOrNull { it.isAvailable() }
+//    }
 
-    fun isInstalled(): Boolean {
-        return !useBridge || bridgePackages.any { it.isAvailable() }
-    }
+//    fun isInstalled(): Boolean {
+//        return !useBridge || bridgePackages.any { it.isAvailable() }
+//    }
 
-    fun resolveSmartspace(): String {
-        return bridgePackages.firstOrNull { it.supportsSmartspace }?.packageName ?: "com.google.android.googlequicksearchbox"
-    }
+//    fun resolveSmartspace(): String {
+//        return bridgePackages.firstOrNull { it.supportsSmartspace }?.packageName ?: "com.google.android.googlequicksearchbox"
+//    }
 
     open inner class BridgeInfo(val packageName: String, signatureHashRes: Int) {
 
@@ -53,21 +53,21 @@ class FeedBridge(private val context: Context) {
 
         open val supportsSmartspace = false
 
-        fun isAvailable(): Boolean {
-            val info = context.packageManager.resolveService(Intent(overlayAction)
-                    .setPackage(packageName)
-                    .setData(Uri.parse(StringBuilder(packageName.length + 18)
-                            .append("app://")
-                            .append(packageName)
-                            .append(":")
-                            .append(Process.myUid())
-                            .toString())
-                            .buildUpon()
-                            .appendQueryParameter("v", Integer.toString(7))
-                            .appendQueryParameter("cv", Integer.toString(9))
-                            .build()), 0)
-            return info != null && isSigned()
-        }
+//        fun isAvailable(): Boolean {
+//            val info = context.packageManager.resolveService(Intent(overlayAction)
+//                    .setPackage(packageName)
+//                    .setData(Uri.parse(StringBuilder(packageName.length + 18)
+//                            .append("app://")
+//                            .append(packageName)
+//                            .append(":")
+//                            .append(Process.myUid())
+//                            .toString())
+//                            .buildUpon()
+//                            .appendQueryParameter("v", Integer.toString(7))
+//                            .appendQueryParameter("cv", Integer.toString(9))
+//                            .build()), 0)
+//            return info != null && isSigned()
+//        }
 
         private fun isSigned(): Boolean {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -85,18 +85,18 @@ class FeedBridge(private val context: Context) {
         }
     }
 
-    private inner class PixelBridgeInfo(packageName: String, signatureHashRes: Int) : BridgeInfo(packageName, signatureHashRes) {
+//    private inner class PixelBridgeInfo(packageName: String, signatureHashRes: Int) : BridgeInfo(packageName, signatureHashRes) {
+//
+//        override val supportsSmartspace get() = isAvailable()
+//    }
 
-        override val supportsSmartspace get() = isAvailable()
-    }
-
-    companion object : SingletonHolder<FeedBridge, Context>(ensureOnMainThread(
-            useApplicationContext(::FeedBridge))) {
-
-        private const val TAG = "FeedBridge"
-        private const val overlayAction = "com.android.launcher3.WINDOW_OVERLAY"
-
-        @JvmStatic
-        val useBridge = FeatureFlags.FORCE_FEED_BRIDGE || !BuildConfig.DEBUG
-    }
+//    companion object : SingletonHolder<FeedBridge, Context>(ensureOnMainThread(
+//            useApplicationContext(::FeedBridge))) {
+//
+//        private const val TAG = "FeedBridge"
+//        private const val overlayAction = "com.android.launcher3.WINDOW_OVERLAY"
+//
+//        @JvmStatic
+//        val useBridge = FeatureFlags.FORCE_FEED_BRIDGE || !BuildConfig.DEBUG
+//    }
 }

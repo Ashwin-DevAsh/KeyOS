@@ -25,9 +25,9 @@ public class NexusLauncherActivity extends Launcher {
         super.onCreate(savedInstanceState);
 
         SharedPreferences prefs = Utilities.getPrefs(this);
-        if (!FeedBridge.Companion.getInstance(this).isInstalled()) {
-            prefs.edit().putBoolean(SettingsActivity.ENABLE_MINUS_ONE_PREF, false).apply();
-        }
+//        if (!FeedBridge.Companion.getInstance(this).isInstalled()) {
+//            prefs.edit().putBoolean(SettingsActivity.ENABLE_MINUS_ONE_PREF, false).apply();
+//        }
     }
 
     @Nullable

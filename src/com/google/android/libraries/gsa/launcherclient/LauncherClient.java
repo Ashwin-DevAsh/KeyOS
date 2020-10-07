@@ -40,7 +40,7 @@ public class LauncherClient {
         public void onReceive(Context context, Intent intent) {
             mBaseService.disconnect();
             mLauncherService.disconnect();
-            LauncherClient.loadApiVersion(context);
+//            LauncherClient.loadApiVersion(context);
             if ((mActivityState & 2) != 0) {
                 reconnect();
             }
@@ -132,7 +132,7 @@ public class LauncherClient {
         mActivity.registerReceiver(googleInstallListener, intentFilter);
 
         if (apiVersion <= 0) {
-            loadApiVersion(activity);
+//            loadApiVersion(activity);
         }
 
         reconnect();
@@ -384,27 +384,12 @@ public class LauncherClient {
         }
     }
 
-    static Intent getIntent(Context context, boolean proxy) {
-        BridgeInfo bridgeInfo = proxy ? FeedBridge.Companion.getInstance(context).resolveBridge() : null;
-        String pkg = context.getPackageName();
-        return new Intent("com.android.launcher3.WINDOW_OVERLAY")
-                .setPackage(bridgeInfo != null ? bridgeInfo.getPackageName() : "com.google.android.googlequicksearchbox")
-                .setData(Uri.parse(new StringBuilder(pkg.length() + 18)
-                            .append("app://")
-                            .append(pkg)
-                            .append(":")
-                            .append(Process.myUid())
-                            .toString())
-                        .buildUpon()
-                        .appendQueryParameter("v", Integer.toString(7))
-                        .appendQueryParameter("cv", Integer.toString(9))
-                        .build());
-    }
 
-    private static void loadApiVersion(Context context) {
-        ResolveInfo resolveService = context.getPackageManager().resolveService(getIntent(context, false), PackageManager.GET_META_DATA);
-        apiVersion = resolveService == null || resolveService.serviceInfo.metaData == null ?
-                1 :
-                resolveService.serviceInfo.metaData.getInt("service.api.version", 1);
-    }
+
+//    private static void loadApiVersion(Context context) {
+//        ResolveInfo resolveService = context.getPackageManager().resolveService(getIntent(context, false), PackageManager.GET_META_DATA);
+//        apiVersion = resolveService == null || resolveService.serviceInfo.metaData == null ?
+//                1 :
+//                resolveService.serviceInfo.metaData.getInt("service.api.version", 1);
+//    }
 }

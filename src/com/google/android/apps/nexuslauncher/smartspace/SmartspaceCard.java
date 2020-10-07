@@ -289,17 +289,15 @@ public class SmartspaceCard {
             case 1: {
                 if (!Utilities.ATLEAST_NOUGAT) {
                     try {
-                        Intent internal = Intent.parseUri(intent.getExtras()
-                                .getString("com.google.android.apps.gsa.smartspace.extra.SMARTSPACE_INTENT"), Intent.URI_INTENT_SCHEME);
-                        launcher.startActivity(internal);
+
                         return;
-                    } catch (URISyntaxException | NullPointerException | SecurityException e) {
+                    } catch (NullPointerException | SecurityException e) {
                         e.printStackTrace();
                     }
                 }
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setSourceBounds(launcher.getViewBounds(view));
-                intent.setPackage(FeedBridge.Companion.getInstance(mContext).resolveSmartspace());
+//                intent.setPackage(FeedBridge.Companion.getInstance(mContext).resolveSmartspace());
                 view.getContext().sendBroadcast(intent);
                 break;
             }

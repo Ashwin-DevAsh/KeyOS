@@ -33,7 +33,7 @@ class MinusOneController(context: Context) : PreferenceController(context) {
     override val title get() = getDisplayGoogleTitle()
 
     override val onChange = Preference.OnPreferenceChangeListener { pref, newValue ->
-        if (newValue == true && !FeedBridge.getInstance(context).isInstalled()) {
+        if (newValue == true) {
             pref.preferenceManager.showDialog(pref)
             false
         } else {
