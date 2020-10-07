@@ -16,6 +16,4 @@
   ~     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<resources>
-    <color name="ic_allapps_background">#FAFAFA</color>
-</resources>
+<resources></resources>

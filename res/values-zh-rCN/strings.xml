@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Work"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"未安装该应用。"</string>
     <string name="activity_not_available" msgid="7456344436509528827">"应用不可用"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"安全模式下不允许使用下载的此应用"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"宽 %1$d，高 %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"触摸并按住即可手动放置"</string>
     <string name="place_automatically" msgid="8064208734425456485">"自动添加"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"搜索应用"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"正在加载应用…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"未找到与“<xliff:g id="QUERY">%1$s</xliff:g>”相符的应用"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"搜索更多应用"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"此主屏幕上已没有空间。"</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"收藏栏已满"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"应用列表"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"个人应用列表"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"工作应用列表"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"主屏幕"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"移除"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"卸载"</string>
@@ -99,7 +95,6 @@
     <string name="icon_shape_squircle" msgid="5658049910802669495">"方圆形"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"圆形"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"泪珠形"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"正在应用图标形状更改"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"未知"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"移除"</string>
     <string name="abandoned_search" msgid="891119232568284442">"搜索"</string>
@@ -135,32 +130,21 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"快捷方式和通知"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"关闭"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"已关闭通知"</string>
-    <string name="label_voice_search">语音搜索</string>
-    <string name="smartspace_preferences_in_settings">一目了然</string>
     <string name="smartspace_preferences_in_settings_desc">在主屏幕顶部</string>
     <string name="title_show_google_app">显示 %1$s</string>
-    <string name="msg_minus_one_on_left">位于主屏幕左侧</string>
     <string name="about">关于</string>
-    <string name="title_app_suggestions">显示应用推荐</string>
-    <string name="summary_app_suggestions">位于“所有应用”列表的顶部</string>
     <string name="about_app_version">版本</string>
-    <string name="app_name_pixel_launcher">Pixel Launcher</string>
     <string name="title_disable_suggestions_prompt">要关闭应用推荐吗？</string>
     <string name="msg_disable_suggestions_prompt">关闭后，系统将不会在您的应用列表顶部显示推荐应用，并且将永久清空用于生成这些信息的使用数据。</string>
     <string name="label_turn_off_suggestions">关闭</string>
-    <string name="action_edit">编辑</string>
     <string name="icon_shape_rounded_square">圆角正方形</string>
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s，%2$s 年</string>
     <string name="icon_shape_cylinder">圓筒</string>
     <string name="theme_title">主题</string>
-    <string name="theme_automatic">自动</string>
     <string name="theme_default">默认</string>
     <string name="theme_light">亮色</string>
     <string name="theme_dark">暗色</string>
-    <string name="pref_open_source_licenses_title">开放源代码许可</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"个人"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"工作"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"工作资料"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"请在此处查找工作应用"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"每个工作应用均有一个徽标，并由贵单位负责确保其安全。请将工作应用移到主屏幕，以便轻松访问。"</string>
@@ -180,7 +164,6 @@
     <string name="based_on">基于 Lawnchair</string>
 
     <string name="pref_external_search_provider">外部搜索App</string>
-    <string name="action_external_search">启动外部搜索</string>
 
     <string name="button_overview_mode">概览模式</string>
     <string name="message_storage_permission_required">需要获取存储空间权限才能开启毛玻璃效果</string>
@@ -188,11 +171,8 @@
     <string name="download_oneplus_weather">下载一加天气</string>
     <string name="supported_weather_source">受支持的天气源</string>
 
-    <string name="backup_location_device_storage_v2">“Lawndesk”文件夹</string>
-
     <string name="pref_category_folder">文件夹</string>
     <string name="folder_grid_size">文件夹网格大小</string>
-    <string name="pref_folder_icon_scale">文件夹图标大小</string>
     <string name="disable_auto_fill_title">禁用图标自动补位</string>
     <string name="folder_icon_scale_title">文件夹图标大小</string>
 

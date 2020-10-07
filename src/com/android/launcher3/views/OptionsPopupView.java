@@ -173,10 +173,10 @@ public class OptionsPopupView extends ArrowPopup
     }
 
     public static boolean startSettings(View view) {
-        Launcher launcher = Launcher.getLauncher(view.getContext());
-        launcher.startActivitySafely(view, new Intent(Intent.ACTION_APPLICATION_PREFERENCES)
-                .setPackage(launcher.getPackageName())
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null);
+//        Launcher launcher = Launcher.getLauncher(view.getContext());
+//        launcher.startActivitySafely(view, new Intent(Intent.ACTION_APPLICATION_PREFERENCES)
+//                .setPackage(launcher.getPackageName())
+//                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null);
         return true;
     }
 

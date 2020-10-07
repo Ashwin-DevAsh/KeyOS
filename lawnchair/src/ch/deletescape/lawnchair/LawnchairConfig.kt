@@ -29,7 +29,7 @@ class LawnchairConfig(context: Context) {
     val defaultBlurStrength = TypedValue().apply {
         context.resources.getValue(R.dimen.config_default_blur_strength, this, true)
     }.float
-    val defaultIconPacks = context.resources.getStringArray(R.array.config_default_icon_packs) ?: emptyArray()
+    val defaultIconPacks: Array<String> = context.resources.getStringArray(R.array.config_default_icon_packs) ?: emptyArray()
     val enableLegacyTreatment = context.resources.getBoolean(R.bool.config_enable_legacy_treatment)
     val enableColorizedLegacyTreatment = context.resources.getBoolean(R.bool.config_enable_colorized_legacy_treatment)
     val enableWhiteOnlyTreatment = context.resources.getBoolean(R.bool.config_enable_white_only_treatment)

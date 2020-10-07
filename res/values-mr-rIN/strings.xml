@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"कार्य"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"अॅप इंस्टॉल केलेला नाही."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"अॅप उपलब्ध नाही"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"डाउनलोड केलेला अ‍ॅप सुरक्षित मोड मध्‍ये अक्षम केला"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"%1$d रूंद बाय %2$d उंच"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"स्वतः ठेवण्यासाठी स्पर्श करा आणि धरून ठेवा"</string>
     <string name="place_automatically" msgid="8064208734425456485">"अापोआप जोडा"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"अॅप्स शोधा"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"अॅप्स लोड करत आहे…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"\"<xliff:g id="QUERY">%1$s</xliff:g>\" शी जुळणारे कोणतेही अॅप्स आढळले नाहीत"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"अधिक अॅप्स शोधा"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"या मुख्य स्क्रीनवर आणखी जागा नाही."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"आवडीच्या ट्रे मध्ये आणखी जागा नाही"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"अॅप्स सूची"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"वैयक्तिक अॅप्स सूची"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"कामाच्या ठिकाणी वापरली जाणाऱ्या अॅप्सची सूची"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"होम"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"काढा"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"अनइंस्टॉल करा"</string>
@@ -99,7 +95,6 @@
     <string name="icon_shape_squircle" msgid="5658049910802669495">"गोलाकार चौरस"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"वर्तुळ"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"अश्रू"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"चिन्हाचा आकार बदल लागू करत आहे"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"अज्ञात"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"काढा"</string>
     <string name="abandoned_search" msgid="891119232568284442">"शोधा"</string>
@@ -133,8 +128,6 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="8985659504915468840">"<xliff:g id="APP_NAME">%3$s</xliff:g>साठी <xliff:g id="NUMBER_OF_SHORTCUTS">%1$d</xliff:g> शॉर्टकट आणि <xliff:g id="NUMBER_OF_NOTIFICATIONS">%2$d</xliff:g> सूचना"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"डिसमिस करा"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"सूचना डिसमिस केली"</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"वैयक्तिक"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"कार्यालय"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"कार्य प्रोफाइल"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"कामाची अ‍ॅप्स येथे मिळवा"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"प्रत्येक कार्य अ‍ॅपला एक बॅज असतो आणि तो तुमच्या संस्थेकडून सुरक्षित ठेवला जातो. अधिक सहज अ‍ॅक्सेससाठी अ‍ॅप्स तुमच्या होम स्क्रीनवर हलवा."</string>

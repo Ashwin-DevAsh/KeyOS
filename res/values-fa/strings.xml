@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"کاری"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"برنامه نصب نشده است."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"برنامه در دسترس نیست"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"برنامه بارگیری شده در حالت ایمن غیرفعال شد"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"‏%1$d عرض در %2$d طول"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"برای قرار دادن به‌صورت دستی لمس کنید و بکشید"</string>
     <string name="place_automatically" msgid="8064208734425456485">"افزودن خودکار"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"جستجوی برنامه‌ها"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"درحال بارگیری برنامه‌‌ها…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"هیچ برنامه‌ای در مطابقت با «<xliff:g id="QUERY">%1$s</xliff:g>» پیدا نشد"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"جستجوی برنامه‌های بیشتر"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"فضای بیشتری در این صفحه اصلی موجود نیست."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"فضای بیشتری در سینی موارد دلخواه وجود ندارد"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"فهرست برنامه‌ها"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"فهرست برنامه‌های شخصی"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"فهرست برنامه‌های کاری"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"صفحه اصلی"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"برداشتن"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"حذف نصب"</string>
@@ -99,7 +95,6 @@
     <string name="icon_shape_squircle" msgid="5658049910802669495">"مربع با گوشه‌های گرد"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"دایره"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"قطره اشک"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"درحال اعمال کردن تغییرات شکل نماد"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"نامشخص"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"حذف"</string>
     <string name="abandoned_search" msgid="891119232568284442">"جستجو"</string>
@@ -135,32 +130,21 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"میان‌برها و اعلان‌ها"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"رد کردن"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"اعلان رد شد"</string>
-    <string name="label_voice_search">جستجوی گفتاری</string>
-    <string name="smartspace_preferences_in_settings">در یک نگاه</string>
     <string name="smartspace_preferences_in_settings_desc">در بالای صفحه ‌اصلی‌</string>
     <string name="title_show_google_app">نمایش %1$s</string>
-    <string name="msg_minus_one_on_left">به سمت راست صفحه اصلی</string>
     <string name="about">درباره</string>
-    <string name="title_app_suggestions">نمایش پیشنهادهای برنامه</string>
-    <string name="summary_app_suggestions">در بالای فهرست «همه برنامه‌های» شما</string>
     <string name="about_app_version">نسخه</string>
-    <string name="app_name_pixel_launcher">‏راه‌انداز Pixel</string>
     <string name="title_disable_suggestions_prompt">پیشنهادات برنامه خاموش شود؟</string>
     <string name="msg_disable_suggestions_prompt">پیشنهادات در رأس فهرست برنامه‌های شما قرار نمی‌گیرند و داده‌های مصرف استفاده شده برای ایجاد آنها برای همیشه پاک می‌شوند.</string>
     <string name="label_turn_off_suggestions">خاموش کردن</string>
-    <string name="action_edit">ویرایش</string>
     <string name="icon_shape_rounded_square">مربع با گوشه‌های گرد</string>
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s، %2$s</string>
     <string name="icon_shape_cylinder">سیلندر</string>
     <string name="theme_title">موضوع</string>
-    <string name="theme_automatic">خودکار</string>
     <string name="theme_default">پیش فرض</string>
     <string name="theme_light">سبک</string>
     <string name="theme_dark">تاریکی</string>
-    <string name="pref_open_source_licenses_title">مجوزهای منبع آزاد</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"شخصی"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"محل کار"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"نمایه کاری"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"اینجا برنامه‌های کاری را پیدا کنید"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"همه برنامه‌های کاری نشانی دارند و توسط سازمانتان ایمن نگه داشته می‌شوند. برنامه‌های کاری را برای دسترسی آسان‌تر به صفحه اصلی انتقال دهید."</string>

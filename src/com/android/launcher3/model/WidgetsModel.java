@@ -60,14 +60,14 @@ public class WidgetsModel {
     public synchronized ArrayList<WidgetListRowEntry> getWidgetsList(Context context) {
         ArrayList<WidgetListRowEntry> result = new ArrayList<>();
         AlphabeticIndexCompat indexer = new AlphabeticIndexCompat(context);
-
-        WidgetItemComparator widgetComparator = new WidgetItemComparator();
-        for (Map.Entry<PackageItemInfo, ArrayList<WidgetItem>> entry : mWidgetsList.entrySet()) {
-            WidgetListRowEntry row = new WidgetListRowEntry(entry.getKey(), entry.getValue());
-            row.titleSectionName = indexer.computeSectionName(row.pkgItem.title);
-            Collections.sort(row.widgets, widgetComparator);
-            result.add(row);
-        }
+//
+//        WidgetItemComparator widgetComparator = new WidgetItemComparator();
+//        for (Map.Entry<PackageItemInfo, ArrayList<WidgetItem>> entry : mWidgetsList.entrySet()) {
+//            WidgetListRowEntry row = new WidgetListRowEntry(entry.getKey(), entry.getValue());
+//            row.titleSectionName = indexer.computeSectionName(row.pkgItem.title);
+//            Collections.sort(row.widgets, widgetComparator);
+//            result.add(row);
+//        }
         return result;
     }
 

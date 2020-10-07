@@ -208,7 +208,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     @Thunk Hotseat mHotseat;
     @Thunk PageIndicatorDots mPageIndicatorDots;
 
-    private DropTargetBar mDropTargetBar;
+//    private DropTargetBar mDropTargetBar;
 
     // Main container view for the all apps screen.
 
@@ -989,12 +989,12 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         mDragController.addDragListener(mWorkspace);
 
         // Get the search/delete/uninstall bar
-        mDropTargetBar = mDragLayer.findViewById(R.id.drop_target_bar);
+//        mDropTargetBar = mDragLayer.findViewById(R.id.drop_target_bar);
 
 
         // Setup the drag controller (drop targets have to be added in reverse order in priority)
         mDragController.setMoveTarget(mWorkspace);
-        mDropTargetBar.setup(mDragController);
+//        mDropTargetBar.setup(mDragController);
     }
 
     /**
@@ -1218,9 +1218,9 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         return (T) mOverviewPanel;
     }
 
-    public DropTargetBar getDropTargetBar() {
-        return mDropTargetBar;
-    }
+//    public DropTargetBar getDropTargetBar() {
+//        return mDropTargetBar;
+//    }
 
     public LauncherAppWidgetHost getAppWidgetHost() {
         return mAppWidgetHost;

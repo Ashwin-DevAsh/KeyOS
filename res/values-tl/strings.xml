@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Trabaho"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"Hindi naka-install ang app."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"Hindi available ang app"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"Naka-disable ang na-download na app sa Safe mode"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"%1$d ang lapad at %2$d ang taas"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Pindutin nang matagal upang manual na ilagay"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Awtomatikong idagdag"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Maghanap ng mga app"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Naglo-load ng mga app…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"Walang nahanap na app na tumutugma sa \"<xliff:g id="QUERY">%1$s</xliff:g>\""</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Maghanap ng higit pang mga app"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Wala nang lugar sa Home screen na ito."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"Wala nang lugar sa tray ng Mga Paborito"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Listahan ng mga app"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Listahan ng mga personal na app"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Listahan ng mga app sa trabaho"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Home"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Alisin"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"I-uninstall"</string>
@@ -99,7 +95,6 @@
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Squircle"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Bilog"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Teardrop"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Inilalapat ang mga pagbabago sa hugis ng icon"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Hindi kilala"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Alisin"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Maghanap"</string>
@@ -135,32 +130,21 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Mga shortcut at notification"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"I-dismiss"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Na-dismiss ang notification"</string>
-    <string name="label_voice_search">Paghahanap gamit ang boses</string>
-    <string name="smartspace_preferences_in_settings">Sa Isang Sulyap</string>
     <string name="smartspace_preferences_in_settings_desc">Sa itaas ng iyong Home screen</string>
     <string name="title_show_google_app">Ipakita ang %1$s</string>
-    <string name="msg_minus_one_on_left">Sa kaliwa ng pangunahing Home screen</string>
     <string name="about">Tungkol Dito</string>
-    <string name="title_app_suggestions">Ipakita ang mga suhestyon ng app</string>
-    <string name="summary_app_suggestions">Nasa itaas ng iyong listahan ng Lahat ng App</string>
     <string name="about_app_version">Bersyon</string>
-    <string name="app_name_pixel_launcher">Pixel Launcher</string>
     <string name="title_disable_suggestions_prompt">I-off ang mga iminumungkahing app?</string>
     <string name="msg_disable_suggestions_prompt">Hindi makikita ang mga suhestyon sa itaas ng listahan ng iyong mga app at permanenteng mabubura ang data ng paggamit na ginamit upang gawin ang mga ito.</string>
     <string name="label_turn_off_suggestions">I-OFF</string>
-    <string name="action_edit">I-edit</string>
     <string name="icon_shape_rounded_square">Bilugang parisukat</string>
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Silindro</string>
     <string name="theme_title">Tema</string>
-    <string name="theme_automatic">Awtomatikong</string>
     <string name="theme_default">Default</string>
     <string name="theme_light">Banayad</string>
     <string name="theme_dark">Madilim</string>
-    <string name="pref_open_source_licenses_title">Mga open source na lisensya</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Personal"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"Trabaho"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Profile sa trabaho"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Maghanap ng mga app para sa trabaho rito"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Ang bawat app para sa trabaho ay may badge at pinapanatiling ligtas ng iyong organisasyon. Ilipat ang mga app sa iyong Home screen para mas madaling ma-access."</string>

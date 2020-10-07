@@ -2067,7 +2067,7 @@ public class Workspace extends PagedView<PageIndicatorDots>
                     mLauncher.getDragController().animateDragViewToOriginalPosition(
                             onCompleteRunnable, cell, SPRING_LOADED_TRANSITION_MS);
                     mLauncher.getStateManager().goToState(NORMAL);
-                    mLauncher.getDropTargetBar().onDragEnd();
+//                    mLauncher.getDropTargetBar().onDragEnd();
                     parent.onDropChild(cell);
                     return;
                 }

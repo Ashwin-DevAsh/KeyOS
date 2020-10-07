@@ -25,7 +25,6 @@
     <!-- Default folder name -->
     <string name="folder_name"></string>
     <!-- Work folder name -->
-    <string name="work_folder_name">Work</string>
     <!-- Displayed when user selects a shortcut for an app that was uninstalled [CHAR_LIMIT=none]-->
     <string name="activity_not_found">App isn\'t installed.</string>
     <!-- Displayed when user selects a shortcut for an app that is current not available [CHAR_LIMIT=none]-->
@@ -58,7 +57,6 @@
 
     <!-- All Apps -->
     <!-- Search bar text in the apps view. [CHAR_LIMIT=50] -->
-    <string name="all_apps_search_bar_hint">Search apps</string>
     <!-- Loading apps text. [CHAR_LIMIT=50] -->
     <string name="all_apps_loading_message">Loading apps&#8230;</string>
     <!-- No-search-results text. [CHAR_LIMIT=50] -->
@@ -84,8 +82,6 @@
 
     <!-- All applications label -->
     <string name="all_apps_button_label">Apps list</string>
-    <string name="all_apps_button_personal_label">Personal apps list</string>
-    <string name="all_apps_button_work_label">Work apps list</string>
 
     <!-- Label for button in all applications label to go back home (to the workspace / desktop)
          for accessibilty (spoken when the button gets focus). -->
@@ -218,7 +214,6 @@
     <string name="icon_shape_cylinder">Cylinder</string>
 
     <!-- Message shown in the progress dialog when the icon shape override is being applied [CHAR LIMIT=100]-->
-    <string name="icon_shape_override_progress">Applying icon shape changes</string>
 
     <!-- Label on an icon that references an uninstalled package, for which we have no information about when it might be installed. [CHAR_LIMIT=15] -->
     <string name="package_state_unknown">Unknown</string>
@@ -328,10 +323,8 @@
     <string name="notification_dismissed">Notification dismissed</string>
 
     <!-- Label of tab to indicate personal apps -->
-    <string name="all_apps_personal_tab">Personal</string>
 
     <!-- Label of tab to indicate work apps -->
-    <string name="all_apps_work_tab">Work</string>
 
     <!-- This string is in the work profile tab when a user has All Apps open on their phone. This is a label for a toggle to turn the work profile on and off. "Work profile" means a separate profile on a user's phone that's specifically for their work apps and managed by their company. "Work" is used as an adjective.-->
     <string name="work_profile_toggle_label">Work profile</string>
@@ -346,7 +339,6 @@
     <string name="work_mode_off_label">Notifications and apps are off</string>
     <string name="bottom_work_tab_user_education_close_button">Close</string>
     <string name="bottom_work_tab_user_education_closed">Closed</string>
-    <string name="web_search_yahoo">Yahoo (web)</string>
 
     <string name="launcher_name">Lawndesk</string>
 
@@ -364,7 +356,6 @@
     <string name="lawnchair_url">https://github.com/LawnchairLauncher/Lawnchair</string>
 
     <string name="pref_external_search_provider">External Search App</string>
-    <string name="action_external_search">Open External Search</string>
     <string name="pref_integrations_summary_v2">Google Feed</string>
 
     <string name="button_overview_mode">Overview Mode</string>
@@ -373,11 +364,8 @@
     <string name="download_oneplus_weather">Download Oneplus Weather</string>
     <string name="supported_weather_source">Supported weather source</string>
 
-    <string name="backup_location_device_storage_v2">“Lawndesk” Folder</string>
-
     <string name="pref_category_folder">Folder</string>
     <string name="folder_grid_size">Folder Grid</string>
-    <string name="pref_folder_icon_scale">Folder Icon Scale</string>
     <string name="disable_auto_fill_title">Disable Icon Auto Fill</string>
     <string name="folder_icon_scale_title">Folder Icon Scale</string>
 </resources>

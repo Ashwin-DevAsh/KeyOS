@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Trabajo"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"La aplicación no está instalada."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"La aplicación no está disponible"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"Aplicación descargada inhabilitada en modo seguro"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"%1$d de ancho por %2$d de alto"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Mantenlo pulsado para añadirlo manualmente"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Añadir automáticamente"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Buscar aplicaciones"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Cargando aplicaciones…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"No se han encontrado aplicaciones que contengan \"<xliff:g id="QUERY">%1$s</xliff:g>\""</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Buscar más aplicaciones"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"No queda espacio en la pantalla de inicio."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"La bandeja de favoritos está completa"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Lista de aplicaciones"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Lista de aplicaciones personales"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Lista de aplicaciones del trabajo"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Inicio"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Quitar"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Desinstalar"</string>
@@ -99,7 +95,6 @@
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Cuadrado con esquinas redondeadas"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Círculo"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Lágrima"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Aplicando cambios en la forma de los iconos"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Desconocido"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Quitar"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Buscar"</string>
@@ -135,34 +130,22 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Accesos directos y notificaciones"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Ignorar"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Notificación ignorada"</string>
-    <string name="label_voice_search">Búsqueda por voz</string>
-    <string name="smartspace_preferences_in_settings">Recuerda:</string>
     <string name="smartspace_preferences_in_settings_desc">En la parte superior de la pantalla de inicio</string>
     <string name="title_show_google_app">Mostrar %1$s</string>
-    <string name="msg_minus_one_on_left">A la izquierda de la pantalla de inicio principal</string>
     <string name="about">Información</string>
-    <string name="title_app_suggestions">Mostrar sugerencias de aplicaciones</string>
-    <string name="summary_app_suggestions">En la parte superior de la lista Todas las aplicaciones</string>
     <string name="about_app_version">Versión</string>
-    <string name="app_name_pixel_launcher">Pixel Launcher</string>
     <string name="title_disable_suggestions_prompt">¿Desactivar las sugerencias de aplicaciones?</string>
     <string name="msg_disable_suggestions_prompt">No se mostrarán sugerencias en la parte superior de tu lista de aplicaciones, y los datos de uso utilizados para crearlas se borrarán de forma permanente.</string>
     <string name="label_turn_off_suggestions">DESACTIVAR</string>
-    <string name="action_edit">Editar</string>
-  <string name="hide_app_sum">Ocultar aplicación del cajón de aplicaciones</string>
-  <string name="hide_app">Ocultar aplicación</string>
+    <string name="hide_app">Ocultar aplicación</string>
     <string name="icon_shape_rounded_square">Cuadrado redondeado</string>
     <string name="smartspace_hours_mins">%1$s y %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Cilindro</string>
     <string name="theme_title">Tema</string>
-    <string name="theme_automatic">Automático</string>
     <string name="theme_default">Estandar</string>
     <string name="theme_light">Claro</string>
     <string name="theme_dark">Oscuro</string>
-    <string name="pref_open_source_licenses_title">Licencias de código abierto</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Personal"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"Trabajo"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Perfil de trabajo"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Aplicaciones de trabajo"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Cada aplicación de trabajo tiene una insignia y está protegida por tu organización. Mueve las aplicaciones a la pantalla de inicio para acceder a ellas más fácilmente."</string>

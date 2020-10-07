@@ -40,35 +40,7 @@
         <item>@string/icon_shape_cylinder</item>
     </string-array>
 
-    <string-array translatable="false" name="alt_icon_shape_values">
-        <item></item>
-        <item>circle</item>
-        <item>square</item>
-        <item>roundedSquare</item>
-        <item>squircle</item>
-        <item>teardrop</item>
-        <item>cylinder</item>
-        <item>v1|arc,1|arc,0.16|arc,0.16|arc,1</item>
-        <item>v1|cut,0.3|cut,0.3|cut,1|cut,1</item>
-        <item>v1|cut,0.6|cut,0.6|cut,0.6|cut,0.6</item>
-        <item>v1|arc,1|cut,0.5|squircle,1|cut,0</item>
-    </string-array>
-
-    <string-array translatable="false" name="alt_icon_shape_names">
-        <item>@string/icon_shape_system_default</item>
-        <item>@string/icon_shape_circle</item>
-        <item>@string/icon_shape_square</item>
-        <item>@string/icon_shape_rounded_square</item>
-        <item>@string/icon_shape_squircle</item>
-        <item>@string/icon_shape_teardrop</item>
-        <item>@string/icon_shape_cylinder</item>
-        <item>Lemon</item>
-        <item>Diamond</item>
-        <item>Octa</item>
-        <item>epic shape af 2019</item>
-    </string-array>
-
-<!-- DragController -->
+    <!-- DragController -->
     <item type="id" name="drag_event_parity" />
 
 <!-- AllApps & Launcher transitions -->
@@ -76,7 +48,6 @@
     <integer name="config_workspaceSpringLoadShrinkPercentage">90</integer>
 
     <!-- The duration of the animation from search hint to text entry -->
-    <integer name="config_searchHintAnimationDuration">50</integer>
 
     <!-- View tag key used to store SpringAnimation data. -->
     <item type="id" name="spring_animation_tag" />
@@ -102,9 +73,8 @@
     <integer name="config_dropAnimMaxDist">800</integer>
 
     <!-- The duration of the caret animation -->
-    <integer name="config_caretAnimationDuration">200</integer>
 
-<!-- Hotseat -->
+    <!-- Hotseat -->
     <bool name="hotseat_transpose_layout_with_orientation">true</bool>
 
     <!-- Name of a subclass of com.android.launcher3.AppFilter used to
@@ -118,7 +88,6 @@
     <string name="drawable_factory_class" translatable="false">ch.deletescape.lawnchair.iconpack.LawnchairDrawableFactory</string>
 
     <!-- Name of a custom shortcut class. -->
-    <string name="custom_shortcut_class" translatable="false">com.google.android.apps.nexuslauncher.CustomEditShortcut</string>
 
     <!-- Name of an app transition manager class. -->
     <string name="app_transition_manager_class" translatable="false"></string>
@@ -154,9 +123,8 @@
 <!-- Popup items -->
     <integer name="config_popupOpenCloseDuration">150</integer>
     <integer name="config_popupArrowOpenDuration">80</integer>
-    <integer name="config_removeNotificationViewDuration">300</integer>
 
-<!-- Accessibility actions -->
+    <!-- Accessibility actions -->
     <item type="id" name="action_remove" />
     <item type="id" name="action_uninstall" />
     <item type="id" name="action_reconfigure" />

@@ -55,10 +55,7 @@ public class WidgetsRecyclerView extends BaseRecyclerView implements OnItemTouch
         addOnItemTouchListener(this);
     }
 
-    public WidgetsRecyclerView(Context context, AttributeSet attrs, int defStyleAttr,
-                               int defStyleRes) {
-        this(context, attrs, defStyleAttr);
-    }
+
 
     @Override
     protected void onFinishInflate() {

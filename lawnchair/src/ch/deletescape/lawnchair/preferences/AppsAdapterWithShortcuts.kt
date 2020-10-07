@@ -142,18 +142,6 @@ open class AppsAdapterWithShortcuts(
         }
     }
 
-    private fun getAppsList(context: Context): List<LauncherActivityInfo> {
-        val apps = ArrayList<LauncherActivityInfo>()
-        val profiles = UserManagerCompat.getInstance(context).userProfiles
-        val launcherAppsCompat = LauncherAppsCompat.getInstance(context)
-        profiles.forEach { apps += launcherAppsCompat.getActivityList(null, it) }
-        return if (filter != null) {
-            apps.filter { filter.shouldShowApp(it.componentName, it.user) }
-        } else {
-            apps
-        }
-    }
-
     interface Item
 
     inner class AppItem(context: Context, val info: LauncherActivityInfo) : Item {

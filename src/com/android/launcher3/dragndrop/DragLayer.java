@@ -146,9 +146,9 @@ public class DragLayer extends BaseDragLayer<Launcher> {
         return super.findActiveController(ev);
     }
 
-    private boolean isEventOverAccessibleDropTargetBar(MotionEvent ev) {
-        return isInAccessibleDrag() && isEventOverView(mActivity.getDropTargetBar(), ev);
-    }
+//    private boolean isEventOverAccessibleDropTargetBar(MotionEvent ev) {
+//        return isInAccessibleDrag() && isEventOverView(mActivity.getDropTargetBar(), ev);
+//    }
 
     @Override
     public boolean onInterceptHoverEvent(MotionEvent ev) {
@@ -167,8 +167,8 @@ public class DragLayer extends BaseDragLayer<Launcher> {
                 boolean isOverFolderOrSearchBar;
                 switch (action) {
                     case MotionEvent.ACTION_HOVER_ENTER:
-                        isOverFolderOrSearchBar = isEventOverView(topView, ev) ||
-                                isEventOverAccessibleDropTargetBar(ev);
+                        isOverFolderOrSearchBar = isEventOverView(topView, ev);
+//                                isEventOverAccessibleDropTargetBar(ev);
                         if (!isOverFolderOrSearchBar) {
                             sendTapOutsideFolderAccessibilityEvent(currentFolder.isEditingName());
                             mHoverPointClosesFolder = true;
@@ -177,8 +177,8 @@ public class DragLayer extends BaseDragLayer<Launcher> {
                         mHoverPointClosesFolder = false;
                         break;
                     case MotionEvent.ACTION_HOVER_MOVE:
-                        isOverFolderOrSearchBar = isEventOverView(topView, ev) ||
-                                isEventOverAccessibleDropTargetBar(ev);
+                        isOverFolderOrSearchBar = isEventOverView(topView, ev);
+//                                isEventOverAccessibleDropTargetBar(ev);
                         if (!isOverFolderOrSearchBar && !mHoverPointClosesFolder) {
                             sendTapOutsideFolderAccessibilityEvent(currentFolder.isEditingName());
                             mHoverPointClosesFolder = true;
@@ -226,7 +226,7 @@ public class DragLayer extends BaseDragLayer<Launcher> {
         if (topView != null) {
             addAccessibleChildToList(topView, childrenForAccessibility);
             if (isInAccessibleDrag()) {
-                addAccessibleChildToList(mActivity.getDropTargetBar(), childrenForAccessibility);
+//                addAccessibleChildToList(mActivity.getDropTargetBar(), childrenForAccessibility);
             }
         } else {
             super.addChildrenForAccessibility(childrenForAccessibility);

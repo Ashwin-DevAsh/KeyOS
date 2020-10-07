@@ -17,22 +17,18 @@
   -->
 
 <resources>
-    <dimen name="action_view_compound_drawable_padding">5dp</dimen>
-    <dimen name="all_apps_action_spacing">8dp</dimen>
     <dimen name="swipe_up_negative_max">400dp</dimen>
     <dimen name="swipe_up_positive_max">100dp</dimen>
 
     <!-- Dashboard padding in its container -->
     <dimen name="dashboard_padding_start">0dp</dimen>
     <dimen name="dashboard_padding_end">0dp</dimen>
-    <dimen name="dashboard_padding_top">0dp</dimen>
     <dimen name="dashboard_padding_bottom">0dp</dimen>
 
     <!-- The following two margins need to match, with the caveat that
      the second should be negative. The second one ensures that the icons and text
      align despite the additional padding caused by the search bar's card background. -->
     <dimen name="search_bar_margin">8dp</dimen>
-    <dimen name="search_bar_negative_margin">-8dp</dimen>
 
     <dimen name="search_bar_height">48dp</dimen>
     <dimen name="search_bar_text_size">16dp</dimen>
@@ -45,10 +41,7 @@
     <dimen name="dashboard_tile_image_margin_end">20dp</dimen>
 
     <!-- search_bar_margin + search_bar_height -->
-    <dimen name="search_results_top_margin">64dp</dimen>
     <dimen name="dashboard_tile_minimum_height">72dp</dimen>
-    <dimen name="dashboard_tile_foreground_image_size">@dimen/dashboard_tile_image_size</dimen>
-    <dimen name="dashboard_tile_foreground_image_inset">6dp</dimen>
 
     <dimen name="button_corner_radius">4dp</dimen>
     <dimen name="dialog_horizontal_padding">24dp</dimen>

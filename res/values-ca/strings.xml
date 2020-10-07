@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Feina"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"L\'aplicació no s\'ha instal·lat."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"L\'aplicació no està disponible."</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"L\'aplicació que has baixat està desactivada al mode segur."</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"%1$d d\'amplada per %2$d d\'alçada"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Toca i mantén premut l\'element per col·locar-lo manualment"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Afegeix automàticament"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Cerca aplicacions"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"S\'estan carregant les aplicacions…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"No s\'ha trobat cap aplicació que coincideixi amb \"<xliff:g id="QUERY">%1$s</xliff:g>\""</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Cerca més aplicacions"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Ja no queda espai en aquesta pantalla d\'inici."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"No hi ha més espai a la safata Preferits."</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Llista d\'aplicacions"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Llista d\'aplicacions personals"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Llista d\'aplicacions per a la feina"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Inici"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Suprimeix"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Desinstal·la"</string>
@@ -99,7 +95,6 @@
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Quadrat arrodonit"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Cercle"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Llàgrima"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"S\'estan aplicant els canvis de forma de les icones"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Desconegut"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Suprimeix"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Cerca"</string>
@@ -135,34 +130,22 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Dreceres i notificacions"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Ignora"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"S\'ha ignorat la notificació"</string>
-    <string name="label_voice_search">Cerca per veu</string>
-    <string name="smartspace_preferences_in_settings">Recorda</string>
     <string name="smartspace_preferences_in_settings_desc">"A la part superior de la pantalla d'inici"</string>
     <string name="title_show_google_app">Mostra %1$s</string>
-    <string name="msg_minus_one_on_left">"A l'esquerra de la pantalla d'inici principal"</string>
     <string name="about">Informació</string>
-    <string name="title_app_suggestions">"Mostra suggeriments d'aplicacions"</string>
-    <string name="summary_app_suggestions">A la part superior de la llista Totes les aplicacions</string>
     <string name="about_app_version">Versió</string>
-    <string name="app_name_pixel_launcher">Pixel Launcher</string>
     <string name="title_disable_suggestions_prompt">"Vols desactivar els suggeriments d'aplicacions?"</string>
     <string name="msg_disable_suggestions_prompt">"Els suggeriments no es mostraran a la part superior de la llista d'aplicacions, i les dades d'ús utilitzades per crear-los s'esborraran permanentment."</string>
     <string name="label_turn_off_suggestions">DESACTIVA</string>
-    <string name="action_edit">Edita</string>
-    <string name="hide_app_sum">Amaga l\'aplicació del calaix</string>
     <string name="hide_app">Amaga l\'aplicació</string>
     <string name="icon_shape_rounded_square">Quadrat arrodonit</string>
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Cilindre</string>
     <string name="theme_title">Tema</string>
-    <string name="theme_automatic">Automàtic</string>
     <string name="theme_default">Per defecte</string>
     <string name="theme_light">Llum</string>
     <string name="theme_dark">Fosc</string>
-    <string name="pref_open_source_licenses_title">Llicències de programari lliure</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Personal"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"Feina"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Perfil professional"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Cerca aplicacions per a la feina aquí"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Totes les aplicacions per a la feina tenen una insígnia que indica que estan protegides per la teva organització. Mou les aplicacions a la pantalla d\'inici per poder-hi accedir més fàcilment."</string>

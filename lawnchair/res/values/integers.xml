@@ -16,6 +16,4 @@
   ~     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<resources>
-    <integer name="lawnchair_signature_hash">0x7F7A957A</integer>
-</resources>
+<resources></resources>

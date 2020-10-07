@@ -24,15 +24,6 @@
         <item>ch.deletescape.lawnchair.colors.WallpaperSecondaryColorResolver</item>
         <item>ch.deletescape.lawnchair.colors.WallpaperTertiaryColorResolver</item>
     </string-array>
-    <string-array name="resolvers_hotseat_qsb">
-        <item>ch.deletescape.lawnchair.colors.resolvers.DockQsbAutoResolver</item>
-        <item>ch.deletescape.lawnchair.colors.resolvers.DockQsbLightResolver</item>
-        <item>ch.deletescape.lawnchair.colors.resolvers.DockQsbDarkResolver</item>
-        <item>ch.deletescape.lawnchair.colors.LawnchairAccentResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperMainColorResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperSecondaryColorResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperTertiaryColorResolver</item>
-    </string-array>
     <string-array name="resolvers_allapps_qsb">
         <item>ch.deletescape.lawnchair.colors.resolvers.DrawerQsbAutoResolver</item>
         <item>ch.deletescape.lawnchair.colors.resolvers.DrawerQsbLightResolver</item>
@@ -42,28 +33,8 @@
         <item>ch.deletescape.lawnchair.colors.WallpaperSecondaryColorResolver</item>
         <item>ch.deletescape.lawnchair.colors.WallpaperTertiaryColorResolver</item>
     </string-array>
-    <string-array name="resolver_tabs">
-        <item>ch.deletescape.lawnchair.colors.LawnchairAccentResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperMainColorResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperSecondaryColorResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperTertiaryColorResolver</item>
-    </string-array>
-    <string-array name="resolvers_drawer_labels">
-        <item>ch.deletescape.lawnchair.colors.resolvers.DrawerLabelAutoResolver</item>
-        <item>ch.deletescape.lawnchair.colors.LawnchairAccentResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperMainColorResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperSecondaryColorResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperTertiaryColorResolver</item>
-    </string-array>
     <string-array name="resolvers_workspace_labels">
         <item>ch.deletescape.lawnchair.colors.resolvers.WorkspaceLabelAutoResolver</item>
-        <item>ch.deletescape.lawnchair.colors.LawnchairAccentResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperMainColorResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperSecondaryColorResolver</item>
-        <item>ch.deletescape.lawnchair.colors.WallpaperTertiaryColorResolver</item>
-    </string-array>
-    <string-array name="resolvers_shelf_background">
-        <item>ch.deletescape.lawnchair.colors.resolvers.ShelfBackgroundAutoResolver</item>
         <item>ch.deletescape.lawnchair.colors.LawnchairAccentResolver</item>
         <item>ch.deletescape.lawnchair.colors.WallpaperMainColorResolver</item>
         <item>ch.deletescape.lawnchair.colors.WallpaperSecondaryColorResolver</item>

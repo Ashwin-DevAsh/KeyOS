@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Работа"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"Приложението не е инсталирано."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"Приложението не е налично"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"Изтегленото приложение е деактивирано в безопасния режим"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"Ширина %1$d и височина %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Докоснете и задръжте, за да поставите ръчно"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Автоматично добавяне"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Търсене в приложенията"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Приложенията се зареждат…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"Няма намерени приложения, съответстващи на „<xliff:g id="QUERY">%1$s</xliff:g>“"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Търсене на още приложения"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"На този начален екран няма повече място."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"Няма повече място в областта с любимите"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Списък с приложения"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Списък с лични приложения"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Списък със служебни приложения"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Начало"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Премахване"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Деинсталиране"</string>
@@ -99,7 +95,6 @@
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Комбинация от кръг и квадрат"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Кръг"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Сълза"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Промените във формата на иконите се прилагат"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Няма информация"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Премахване"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Търсене"</string>
@@ -135,16 +130,10 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Преки пътища и известия"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Отхвърляне"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Известието е отхвърлено"</string>
-    <string name="label_voice_search">Гласово търсене</string>
-    <string name="smartspace_preferences_in_settings">бърз поглед</string>
     <string name="smartspace_preferences_in_settings_desc">В горната част на началния ви екран</string>
     <string name="title_show_google_app">Показване на %1$s</string>
-    <string name="msg_minus_one_on_left">Отляво на основния начален екран</string>
     <string name="about">Информация</string>
-    <string name="title_app_suggestions">Показване на предложения за приложения</string>
-    <string name="summary_app_suggestions">В горната част на списъка с всички приложения</string>
     <string name="about_app_version">Версия</string>
-    <string name="app_name_pixel_launcher">Стартов панел Pixel</string>
     <string name="title_disable_suggestions_prompt">Да се изключат ли предложенията за приложения?</string>
     <string name="msg_disable_suggestions_prompt">Предложенията няма да се показват в горната част на списъка ви с приложения и използваните за създаването им данни за употребата ще бъдат изтрити завинаги.</string>
     <string name="label_turn_off_suggestions">ИЗКЛЮЧВАНЕ</string>
@@ -153,13 +142,9 @@
     <string name="week_day_format">%1$s, %2$s г.</string>
     <string name="icon_shape_cylinder">Цилиндър</string>
     <string name="theme_title">Тема</string>
-    <string name="theme_automatic">Автоматичен</string>
     <string name="theme_default">По подразбиране</string>
     <string name="theme_light">Светлина</string>
     <string name="theme_dark">Тъмен</string>
-    <string name="pref_open_source_licenses_title">Лицензи за отворен код</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Лични"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"Служебни"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Служебен потребителски профил"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Тук можете да намерите служебните приложения"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Всяко служебно приложение има значка и организацията ви се грижи за сигурността му. За по-лесен достъп преместете приложенията на началния си екран."</string>

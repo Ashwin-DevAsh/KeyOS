@@ -47,13 +47,15 @@ public class WidgetsFullSheet extends BaseWidgetSheet
 
     private final Rect mInsets = new Rect();
 
-    private final WidgetsListAdapter mAdapter;
+    private  WidgetsListAdapter mAdapter;
 
     private WidgetsRecyclerView mRecyclerView;
 
     public WidgetsFullSheet(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         LauncherAppState apps = LauncherAppState.getInstance(context);
+
+
         mAdapter = new WidgetsListAdapter(context,
                 LayoutInflater.from(context), apps.getWidgetCache(), apps.getIconCache(),
                 this, this);

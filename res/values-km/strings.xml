@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"ការងារ"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"មិន​បាន​ដំឡើង​កម្មវិធី។"</string>
     <string name="activity_not_available" msgid="7456344436509528827">"មិន​មាន​កម្មវិធី"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"បាន​បិទ​កម្មវិធី​ដែល​បាន​ទាញ​យក​ក្នុង​របៀប​សុវត្ថិភាព"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"ទទឺង %1$d គុណនឹងកម្ពស់ %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"ចុច​ឲ្យជាប់​ដើម្បី​បញ្ចូលវា​ដោយផ្ទាល់"</string>
     <string name="place_automatically" msgid="8064208734425456485">"បញ្ចូល​ដោយ​ស្វ័យ​ប្រវត្តិ"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"ស្វែងរក​កម្មវិធី"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"កំពុងផ្ទុកកម្មវិធី…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"រកមិនឃើញកម្មវិធី​ដែលត្រូវគ្នាជាមួយ \"<xliff:g id="QUERY">%1$s</xliff:g>\" ទេ"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"ស្វែងរកកម្មវិធីច្រើនទៀត"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"គ្មាន​បន្ទប់​នៅ​លើ​អេក្រង់​ដើម​នេះ​ទៀត​ទេ។"</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"គ្មាន​បន្ទប់​​ក្នុង​ថាស​និយម​ប្រើ"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"បញ្ជីកម្មវិធី"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"បញ្ជី​កម្មវិធី​ផ្ទាល់ខ្លួន"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"បញ្ជី​កម្មវិធី​ការងារ"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"ដើម"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"យកចេញ"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"លុបការដំឡើង"</string>
@@ -99,7 +95,6 @@
     <string name="icon_shape_squircle" msgid="5658049910802669495">"ការ៉េជ្រុងកោង"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"រង្វង់"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"តំណក់​ទឹកភ្នែក"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"កំពុងអនុវត្ត​ការប្តូររូបរាងរូបតំណាង"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"មិន​ស្គាល់"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"លុបចេញ"</string>
     <string name="abandoned_search" msgid="891119232568284442">"ស្វែងរក"</string>
@@ -135,16 +130,10 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"ផ្លូវកាត់ និង​ការជូនដំណឹង"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"បដិសេធ"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"បាន​បដិសេធ​ការជូនដំណឹង"</string>
-    <string name="label_voice_search">ការ​ស្វែងរក​ជា​សំឡេង</string>
-    <string name="smartspace_preferences_in_settings">មើលមួយភ្លែត</string>
     <string name="smartspace_preferences_in_settings_desc">នៅផ្នែក​ខាងលើ​នៃ​អេក្រង់ដើមរបស់អ្នក</string>
     <string name="title_show_google_app">បង្ហាញ %1$s</string>
-    <string name="msg_minus_one_on_left">ទៅ​ខាងឆ្វេង​នៃ​អេក្រង់ដើម​ចម្បង</string>
     <string name="about">អំពី</string>
-    <string name="title_app_suggestions">បង្ហាញការណែនាំពីកម្មវិធី</string>
-    <string name="summary_app_suggestions">នៅផ្នែកខាងលើបញ្ជីកម្មវិធីទាំងអស់របស់អ្នក</string>
     <string name="about_app_version">កំណែ</string>
-    <string name="app_name_pixel_launcher">កម្មវិធីចាប់ផ្តើម Pixel</string>
     <string name="title_disable_suggestions_prompt">បិទការណែនាំកម្មវិធី?</string>
     <string name="msg_disable_suggestions_prompt">ការណែនាំនឹងមិនលេចឡើងនៅផ្នែកខាងលើនៃបញ្ជីកម្មវិធីទេ ហើយទិន្នន័យប្រើប្រាស់ដែលបានប្រើដើម្បីបង្កើតការណែនាំនេះនឹងត្រូវលុបចោលជាអចិន្ត្រៃយ៍។</string>
     <string name="label_turn_off_suggestions">បិទ</string>
@@ -152,13 +141,9 @@
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="icon_shape_cylinder">ស៊ីឡាំង</string>
     <string name="theme_title">ស្បែក</string>
-    <string name="theme_automatic">ដោយស្វ័យប្រវត្តិ</string>
     <string name="theme_default">លំនាំដើម</string>
     <string name="theme_light">ពន្លឺ</string>
     <string name="theme_dark">ងងឹត</string>
-    <string name="pref_open_source_licenses_title">អាជ្ញាប័ណ្ណ​ប្រភព​កូដ​ចំហ</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"ផ្ទាល់ខ្លួន"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"ការងារ"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"កម្រងព័ត៌មានការងារ"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"ស្វែង​រក​កម្មវិធី​ការងារ​នៅទីនេះ"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"កម្មវិធី​ការងារ​នីមួយៗ​មាន​ស្លាកមួយ និងត្រូវ​បានរក្សាទុក​យ៉ាងមានសុវត្ថិភាព​ដោយស្ថាប័ន​របស់អ្នក។ សូម​ផ្លាស់ទី​កម្មវិធី​ទៅកាន់​អេក្រង់​ដើម​របស់អ្នក​ ដើម្បី​ងាយស្រួល​ចូលប្រើជាងមុន។"</string>

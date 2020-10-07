@@ -23,7 +23,6 @@ import android.os.UserHandle
 import com.android.launcher3.AppFilter
 
 open class LawnchairAppFilter(context: Context) : AppFilter() {
-    // 用来排除应用本身
 
     private val hideList = HashSet<ComponentName>()
 
