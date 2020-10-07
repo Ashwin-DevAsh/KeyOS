@@ -46,7 +46,7 @@ public class NexusLauncher {
     }
 
     void registerSmartspaceView(SmartspaceView smartspace) {
-        mCallbacks.registerSmartspaceView(smartspace);
+//        mCallbacks.registerSmartspaceView(smartspace);
     }
 
     class NexusLauncherCallbacks implements LauncherCallbacks, SharedPreferences.OnSharedPreferenceChangeListener, WallpaperColorInfo.OnChangeListener {
@@ -79,7 +79,6 @@ public class NexusLauncher {
         }
 
         void registerSmartspaceView(SmartspaceView smartspace) {
-            mSmartspaceViews.add(smartspace);
         }
 
         public void onCreate(final Bundle bundle) {
