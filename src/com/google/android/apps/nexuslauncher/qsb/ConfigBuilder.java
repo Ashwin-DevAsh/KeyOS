@@ -84,9 +84,9 @@ public class ConfigBuilder {
         mNano.ez = ez;
     }
 
-    private AllAppsRecyclerView getAppsView() {
-        return (AllAppsRecyclerView) mActivity.findViewById(R.id.apps_list_view);
-    }
+//    private AllAppsRecyclerView getAppsView() {
+////        return (AllAppsRecyclerView) mActivity.findViewById(R.id.apps_list_view);
+//    }
 
     private int getBackgroundColor() {
         return ColorUtils.compositeColors(Themes.getAttrColor(mActivity, R.attr.allAppsScrimColor),
@@ -201,76 +201,76 @@ public class ConfigBuilder {
         canvas.restoreToCount(save);
     }
 
-    private void ce() {
-        View view = null;
-        AllAppsRecyclerView appsView = getAppsView();
-        GridLayoutManager.SpanSizeLookup spanSizeLookup = ((GridLayoutManager) appsView.getLayoutManager())
-                .getSpanSizeLookup();
-        int allAppsCols = Math
-                .min(mActivity.getDeviceProfile().inv.numColsDrawer, appsView.getChildCount());
-        int childCount = appsView.getChildCount();
-        BubbleTextView[] bubbleTextViewArr = new BubbleTextView[allAppsCols];
-        int i4 = -1;
-        for (int i = 0; i < childCount; i++) {
-            RecyclerView.ViewHolder childViewHolder = appsView.getChildViewHolder(appsView.getChildAt(i));
-            if (childViewHolder.itemView instanceof BubbleTextView) {
-                int spanGroupIndex = spanSizeLookup.getSpanGroupIndex(childViewHolder.getLayoutPosition(), allAppsCols);
-                if (spanGroupIndex >= 0) {
-                    if (i4 >= 0) {
-                        if (spanGroupIndex != i4) {
-                            view = childViewHolder.itemView;
-                            break;
-                        }
-                    }
-                    i4 = spanGroupIndex;
-                    int index = ((GridLayoutManager.LayoutParams) childViewHolder.itemView.getLayoutParams()).getSpanIndex();
-                    bubbleTextViewArr[index] = (BubbleTextView) childViewHolder.itemView;
-                }
-            }
-        }
-        if (bubbleTextViewArr.length == 0 || bubbleTextViewArr[0] == null) {
-            Log.e("ConfigBuilder", "No icons rendered in all apps");
-            cf();
-            return;
-        }
-        mBubbleTextView = bubbleTextViewArr[0];
-        mNano.es = allAppsCols;
-        int iconCountOffset = 0;
-        for (int i = 0; i < bubbleTextViewArr.length; i++) {
-            if (bubbleTextViewArr[i] == null) {
-                iconCountOffset = allAppsCols - i;
-                allAppsCols = i;
-                break;
-            }
-        }
-        co = appsView.getChildViewHolder(bubbleTextViewArr[0]).getItemViewType() == 4;
-        a_search lastColumn = getViewBounds(bubbleTextViewArr[allAppsCols - 1]);
-        a_search firstColumn = getViewBounds(bubbleTextViewArr[0]);
-        if (Utilities.isRtl(mActivity.getResources())) {
-            a_search temp = lastColumn;
-            lastColumn = firstColumn;
-            firstColumn = temp;
-        }
-        int iconWidth = lastColumn.eh;
-        int totalIconDistance = lastColumn.ef - firstColumn.ef;
-        int iconDistance = totalIconDistance / allAppsCols;
-        firstColumn.eh = iconWidth + totalIconDistance;
-        if (Utilities.isRtl(mActivity.getResources())) {
-            firstColumn.ef -= iconCountOffset * iconWidth;
-            firstColumn.eh += iconCountOffset * iconWidth;
-        } else {
-            firstColumn.eh += iconCountOffset * (iconDistance + iconWidth);
-        }
-        mNano.en = firstColumn;
-        if (!this.co) {
-            firstColumn.eg -= firstColumn.ee;
-        } else if (view != null) {
-            a_search viewBounds3 = getViewBounds(view);
-            viewBounds3.eh = firstColumn.eh;
-            mNano.ez = viewBounds3;
-        }
-        bW();
-    }
+//    private void ce() {
+//        View view = null;
+////        AllAppsRecyclerView appsView = getAppsView();
+//        GridLayoutManager.SpanSizeLookup spanSizeLookup = ((GridLayoutManager) appsView.getLayoutManager())
+//                .getSpanSizeLookup();
+//        int allAppsCols = Math
+//                .min(mActivity.getDeviceProfile().inv.numColsDrawer, appsView.getChildCount());
+//        int childCount = appsView.getChildCount();
+//        BubbleTextView[] bubbleTextViewArr = new BubbleTextView[allAppsCols];
+//        int i4 = -1;
+//        for (int i = 0; i < childCount; i++) {
+//            RecyclerView.ViewHolder childViewHolder = appsView.getChildViewHolder(appsView.getChildAt(i));
+//            if (childViewHolder.itemView instanceof BubbleTextView) {
+//                int spanGroupIndex = spanSizeLookup.getSpanGroupIndex(childViewHolder.getLayoutPosition(), allAppsCols);
+//                if (spanGroupIndex >= 0) {
+//                    if (i4 >= 0) {
+//                        if (spanGroupIndex != i4) {
+//                            view = childViewHolder.itemView;
+//                            break;
+//                        }
+//                    }
+//                    i4 = spanGroupIndex;
+//                    int index = ((GridLayoutManager.LayoutParams) childViewHolder.itemView.getLayoutParams()).getSpanIndex();
+//                    bubbleTextViewArr[index] = (BubbleTextView) childViewHolder.itemView;
+//                }
+//            }
+//        }
+//        if (bubbleTextViewArr.length == 0 || bubbleTextViewArr[0] == null) {
+//            Log.e("ConfigBuilder", "No icons rendered in all apps");
+//            cf();
+//            return;
+//        }
+//        mBubbleTextView = bubbleTextViewArr[0];
+//        mNano.es = allAppsCols;
+//        int iconCountOffset = 0;
+//        for (int i = 0; i < bubbleTextViewArr.length; i++) {
+//            if (bubbleTextViewArr[i] == null) {
+//                iconCountOffset = allAppsCols - i;
+//                allAppsCols = i;
+//                break;
+//            }
+//        }
+//        co = appsView.getChildViewHolder(bubbleTextViewArr[0]).getItemViewType() == 4;
+//        a_search lastColumn = getViewBounds(bubbleTextViewArr[allAppsCols - 1]);
+//        a_search firstColumn = getViewBounds(bubbleTextViewArr[0]);
+//        if (Utilities.isRtl(mActivity.getResources())) {
+//            a_search temp = lastColumn;
+//            lastColumn = firstColumn;
+//            firstColumn = temp;
+//        }
+//        int iconWidth = lastColumn.eh;
+//        int totalIconDistance = lastColumn.ef - firstColumn.ef;
+//        int iconDistance = totalIconDistance / allAppsCols;
+//        firstColumn.eh = iconWidth + totalIconDistance;
+//        if (Utilities.isRtl(mActivity.getResources())) {
+//            firstColumn.ef -= iconCountOffset * iconWidth;
+//            firstColumn.eh += iconCountOffset * iconWidth;
+//        } else {
+//            firstColumn.eh += iconCountOffset * (iconDistance + iconWidth);
+//        }
+//        mNano.en = firstColumn;
+//        if (!this.co) {
+//            firstColumn.eg -= firstColumn.ee;
+//        } else if (view != null) {
+//            a_search viewBounds3 = getViewBounds(view);
+//            viewBounds3.eh = firstColumn.eh;
+//            mNano.ez = viewBounds3;
+//        }
+//        bW();
+//    }
 
     private void cf() {
         int n2 = 0;
@@ -283,14 +283,14 @@ public class ConfigBuilder {
         en.ee = mActivity.getDeviceProfile().cellHeightPx;
         mNano.en = en;
         bW();
-        final AlphabeticalAppsList apps = getAppsView().getApps();
-        mBubbleTextView = (BubbleTextView) mActivity.getLayoutInflater().inflate(R.layout.all_apps_icon, getAppsView(), false);
+//        final AlphabeticalAppsList apps = getAppsView().getApps();
+//        mBubbleTextView = (BubbleTextView) mActivity.getLayoutInflater().inflate(R.layout.all_apps_icon, getAppsView(), false);
         final ViewGroup.LayoutParams layoutParams = mBubbleTextView.getLayoutParams();
         layoutParams.height = en.ee;
         layoutParams.width = en.eh / mNano.es;
-        if (!apps.getApps().isEmpty()) {
-            mBubbleTextView.applyFromApplicationInfo(apps.getApps().get(0));
-        }
+//        if (!apps.getApps().isEmpty()) {
+//            mBubbleTextView.applyFromApplicationInfo(apps.getApps().get(0));
+//        }
         mBubbleTextView.measure(View.MeasureSpec.makeMeasureSpec(layoutParams.width, View.MeasureSpec.EXACTLY), View.MeasureSpec.makeMeasureSpec(layoutParams.height, View.MeasureSpec.EXACTLY));
         mBubbleTextView.layout(0, 0, layoutParams.width, layoutParams.height);
         final ArrayList<b_search> list = new ArrayList<>(mNano.es);
@@ -312,7 +312,7 @@ public class ConfigBuilder {
         mNano.em = getBackgroundColor();
         mNano.eq = Themes.getAttrBoolean(mActivity, R.attr.isMainColorDark);
         if (mIsAllApps) {
-            ce();
+//            ce();
         } else {
             cf();
         }

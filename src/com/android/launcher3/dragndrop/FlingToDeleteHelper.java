@@ -107,7 +107,7 @@ public class FlingToDeleteHelper {
      */
     private PointF isFlingingToDelete() {
         if (mDropTarget == null) {
-            mDropTarget = (ButtonDropTarget) mLauncher.findViewById(R.id.delete_target_text);
+//            mDropTarget = (ButtonDropTarget) mLauncher.findViewById(R.id.delete_target_text);
         }
         if (mDropTarget == null || !mDropTarget.isDropEnabled()) return null;
         ViewConfiguration config = ViewConfiguration.get(mLauncher);

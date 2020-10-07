@@ -59,7 +59,7 @@ public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
 
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mHint = findViewById(R.id.qsb_hint);
+//        mHint = findViewById(R.id.qsb_hint);
     }
 
     public void setInsets(Rect rect) {
