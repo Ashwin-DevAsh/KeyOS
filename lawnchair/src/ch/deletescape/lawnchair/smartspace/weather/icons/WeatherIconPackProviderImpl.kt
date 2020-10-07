@@ -34,9 +34,9 @@ class WeatherIconPackProviderImpl(private val context: Context, private val pkgN
         val resId = res.getIdentifier(getResName(which, night), "drawable", pkgName)
         return (if (resId > 0) res.getDrawable(resId) else context.getDrawable(R.drawable.weather_none_available)).apply {
             if (pack.recoloringMode == WeatherIconManager.RecoloringMode.ALWAYS) {
-                setTint(tintColor)
+                this?.setTint(tintColor)
             }
-        }.toBitmap()!!
+        }!!.toBitmap()!!
     }
 
     companion object {

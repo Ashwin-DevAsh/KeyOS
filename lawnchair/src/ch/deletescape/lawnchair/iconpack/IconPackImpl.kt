@@ -397,7 +397,7 @@ class IconPackImpl(context: Context, packPackageName: String) : IconPack(context
                 throw IllegalStateException("Trying to access an unavailable entry $debugName")
             }
             try {
-                return AdaptiveIconCompat.wrap(packResources.getDrawableForDensity(drawableId, density))
+                return AdaptiveIconCompat.wrap(packResources.getDrawableForDensity(drawableId, density)!!)
             } catch (e: Resources.NotFoundException) {
                 throw Exception("Failed to get drawable $drawableId ($debugName)", e)
             }

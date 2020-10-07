@@ -112,7 +112,7 @@ class UriIconPack(context: Context) : IconPack(context, "lawnchairUriPack") {
         }
 
         private fun loadBitmap(): Bitmap {
-            val parcelFileDescriptor: ParcelFileDescriptor = context.contentResolver.openFileDescriptor(uri, "r")
+            val parcelFileDescriptor: ParcelFileDescriptor = context.contentResolver.openFileDescriptor(uri, "r")!!
             val fileDescriptor: FileDescriptor = parcelFileDescriptor.fileDescriptor
             val image: Bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor)
             parcelFileDescriptor.close()

@@ -150,7 +150,7 @@ class LegacyBlurDrawable internal constructor(
 
     fun draw(canvas: Canvas, noRadius: Boolean) {
         val toDraw = bitmap
-        mShaderPaint.shader = BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+        mShaderPaint.shader = BitmapShader(bitmap!!, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
         if (!mShouldDraw || toDraw == null || toDraw.isRecycled) return
 
         val rounded = mRounded && !noRadius

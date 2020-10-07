@@ -82,13 +82,13 @@ class SearchIndex(private val context: Context) {
                             val summary = controller?.summary ?: ta.getString(R.styleable.IndexablePreference_android_summary)
                             if (parent != null && key != null) {
                                 if (addedKeys.add(key)) {
-                                    entries.add(SettingsEntry(iconRes, key, title, summary, parent))
+                                    entries.add(SettingsEntry(iconRes, key, title!!, summary, parent))
                                 }
                             }
                             canIndex = Utilities.getPrefs(context).getBoolean(key, defaultValue)
                         }
                         if (canIndex) {
-                            indexScreen(content, SettingsScreen(title, title, findScreen(parent), content, hasPreview))
+                            indexScreen(content, SettingsScreen(title!!, title, findScreen(parent), content, hasPreview))
                         }
                     }
                     skip(parser)
