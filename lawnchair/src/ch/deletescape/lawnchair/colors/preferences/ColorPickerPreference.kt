@@ -33,16 +33,16 @@ open class ColorPickerPreference(context: Context, attrs: AttributeSet?)
     : Preference(context, attrs), ColorEngine.OnColorChangeListener {
 
     private val engine = ColorEngine.getInstance(context)
-    private val colorMode: ColorMode
-    private val resolvers: Array<String>
+//    private val colorMode: ColorMode
+//    private val resolvers: Array<String>
 
     init {
         fragment = key
         layoutResource = R.layout.pref_with_preview_icon
-        val ta = context.obtainStyledAttributes(attrs, R.styleable.ColorPickerPreference)
-        colorMode = getColorMode(ta.getInt(R.styleable.ColorPickerPreference_colorMode, 0))
-        resolvers = context.resources.getStringArray(ta.getResourceId(R.styleable.ColorPickerPreference_resolvers, -1))
-        ta.recycle()
+//        val ta = context.obtainStyledAttributes(attrs, R.styleable.ColorPickerPreference)
+//        colorMode = getColorMode(ta.getInt(R.styleable.ColorPickerPreference_colorMode, 0))
+//        resolvers = context.resources.getStringArray(ta.getResourceId(R.styleable.ColorPickerPreference_resolvers, -1))
+//        ta.recycle()
     }
 
     private fun getColorMode(mode: Int): ColorMode = when (mode) {
@@ -77,7 +77,7 @@ open class ColorPickerPreference(context: Context, attrs: AttributeSet?)
 
     fun showDialog(fragmentManager: FragmentManager) {
         val resolver = engine.getResolver(key)
-        ColorPickerDialog.newInstance(key, resolver.resolveColor(), colorMode, resolvers).show(fragmentManager, key)
+//        ColorPickerDialog.newInstance(key, resolver.resolveColor(), colorMode, resolvers).show(fragmentManager, key)
     }
 }
 

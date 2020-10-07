@@ -22,14 +22,14 @@
         <attr name="steps" format="integer" />
     </declare-styleable>
 
-    <declare-styleable name="ColorPickerPreference">
-        <attr name="colorMode" format="integer" >
-            <enum name="RGB" value="0" />
-            <enum name="ARGB" value="1" />
-            <enum name="HSV" value="2"/>
-        </attr>
-        <attr name="resolvers" value="reference"/>
-    </declare-styleable>
+<!--    <declare-styleable name="ColorPickerPreference">-->
+<!--        <attr name="colorMode" format="integer" >-->
+<!--            <enum name="RGB" value="0" />-->
+<!--            <enum name="ARGB" value="1" />-->
+<!--            <enum name="HSV" value="2"/>-->
+<!--        </attr>-->
+<!--        <attr name="resolvers" value="reference"/>-->
+<!--    </declare-styleable>-->
 
     <declare-styleable name="PreviewPreference">
         <attr name="previewLayout" format="float" />
@@ -111,6 +111,6 @@
         <attr name="controllerClass" />
         <attr name="content" />
         <attr name="hasPreview" />
-        <attr name="indexable" />
+<!--        <attr name="indexable" />-->
     </declare-styleable>
 </resources>

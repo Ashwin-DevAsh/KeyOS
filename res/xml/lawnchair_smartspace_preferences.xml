@@ -6,10 +6,10 @@
         android:key="pref_smartspace_preview"
         app:previewLayout="@layout/smartspace_preview" />
 
-    <ch.deletescape.lawnchair.preferences.SmartspaceAddToHomePreference
-        android:key="pref_smartspace_add_to_home"
-        android:title="@string/smartspace_add_to_home"
-        app:indexable="false" />
+<!--    <ch.deletescape.lawnchair.preferences.SmartspaceAddToHomePreference-->
+<!--        android:key="pref_smartspace_add_to_home"-->
+<!--        android:title="@string/smartspace_add_to_home"-->
+<!--        app:indexable="false" />-->
     
     <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
         android:key="homewidgetStyle"
@@ -58,12 +58,12 @@
             android:defaultValue="false"
             />
 
-        <ch.deletescape.lawnchair.preferences.SuperGColorPickerPreference
-            android:key="pref_superGBackgroundColorResolver"
-            android:title="@string/background_color"
-            android:dependency="pref_use_pill_qsb"
-            app:colorMode="RGB"
-            app:resolvers="@array/resolvers_superg_background"/>
+<!--        <ch.deletescape.lawnchair.preferences.SuperGColorPickerPreference-->
+<!--            android:key="pref_superGBackgroundColorResolver"-->
+<!--            android:title="@string/background_color"-->
+<!--            android:dependency="pref_use_pill_qsb"-->
+<!--            app:colorMode="RGB"-->
+<!--            app:resolvers="@array/resolvers_superg_background"/>-->
 
     </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
 

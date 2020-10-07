@@ -79,10 +79,10 @@
             android:title="@string/appearance"
             app:content="@xml/lawnchair_theme_dialog_preference" />
 
-        <ch.deletescape.lawnchair.colors.preferences.ColorPickerPreference
-            android:key="pref_accentColorResolver"
-            android:title="@string/lawnchair_accent"
-            app:resolvers="@array/resolvers_accent"/>
+<!--        <ch.deletescape.lawnchair.colors.preferences.ColorPickerPreference-->
+<!--            android:key="pref_accentColorResolver"-->
+<!--            android:title="@string/lawnchair_accent"-->
+<!--            app:resolvers="@array/resolvers_accent"/>-->
 
         <ch.deletescape.lawnchair.settings.ui.SubPreference
             android:key="fonts"

@@ -49,12 +49,12 @@
             android:persistent="true"
             android:title="@string/hide_icon_labels_pref_title" />
 
-        <ch.deletescape.lawnchair.colors.preferences.ColorPickerPreference
-            android:key="pref_hotseatLabelColorResolver"
-            android:title="@string/text_color"
-            android:dependency="pref_hideDockLabels"
-            app:colorMode="RGB"
-            app:resolvers="@array/resolvers_workspace_labels"/>
+<!--        <ch.deletescape.lawnchair.colors.preferences.ColorPickerPreference-->
+<!--            android:key="pref_hotseatLabelColorResolver"-->
+<!--            android:title="@string/text_color"-->
+<!--            android:dependency="pref_hideDockLabels"-->
+<!--            app:colorMode="RGB"-->
+<!--            app:resolvers="@array/resolvers_workspace_labels"/>-->
 
         <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
             android:key="pref_dockIconLabelsInTwoLines"
