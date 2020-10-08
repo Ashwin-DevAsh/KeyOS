@@ -134,7 +134,7 @@ android {
             buildConfigField "boolean", "FEATURE_BUG_REPORTER", "true"
         }
 
-        lawnchair {
+        keyOS {
             dimension "custom"
         }
 
@@ -193,17 +193,17 @@ android {
             manifest.srcFile "quickstep/AndroidManifest.xml"
         }
 
-        lawnchair {
-            res.srcDirs = ['lawnchair/res']
-            java.srcDirs = ['lawnchair/src']
-            manifest.srcFile "lawnchair/AndroidManifest.xml"
+        keyOS {
+            res.srcDirs = ['keyOS/res']
+            java.srcDirs = ['keyOS/src']
+            manifest.srcFile "keyOS/AndroidManifest.xml"
         }
 
     }
 
     gradle.projectsEvaluated {
         tasks.withType(JavaCompile) {
-            options.compilerArgs.add('-Xbootclasspath/p:lawnchair/libs/framework.jar')
+            options.compilerArgs.add('-Xbootclasspath/p:keyOS/libs/framework.jar')
         }
     }
 }
@@ -256,7 +256,7 @@ dependencies {
     implementation 'me.xdrop:fuzzywuzzy:1.2.0'
 
     quickstepImplementation project(':systemui-shared')
-    lawnchairImplementation files('lawnchair/libs/sesame-lib.aar')
+    keyOSImplementation files('keyOS/libs/sesame-lib.aar')
 
     if (!isPublicBuild) {
         // TODO: update to 2.x when we're on AndroidX

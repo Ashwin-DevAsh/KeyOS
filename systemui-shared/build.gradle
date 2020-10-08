@@ -53,7 +53,7 @@ android {
 
     gradle.projectsEvaluated {
         tasks.withType(JavaCompile) {
-            options.compilerArgs.add('-Xbootclasspath/p:lawnchair/libs/framework.jar')
+            options.compilerArgs.add('-Xbootclasspath/p:keyOS/libs/framework.jar')
         }
     }
 }

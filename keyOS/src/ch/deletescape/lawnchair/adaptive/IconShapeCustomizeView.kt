@@ -23,7 +23,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.android.launcher3.R
-import kotlinx.android.synthetic.lawnchair.icon_shape_customize_view.view.*
+import kotlinx.android.synthetic.keyOS.icon_shape_customize_view.view.*
 
 class IconShapeCustomizeView(context: Context, attrs: AttributeSet?) :
         LinearLayout(context, attrs) {

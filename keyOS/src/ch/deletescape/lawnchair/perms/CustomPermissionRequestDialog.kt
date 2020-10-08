@@ -28,7 +28,7 @@ import ch.deletescape.lawnchair.*
 import ch.deletescape.lawnchair.theme.ThemeOverride
 import ch.deletescape.lawnchair.util.ThemedContextProvider
 import com.android.launcher3.R
-import kotlinx.android.synthetic.lawnchair.perm_request_dialog.view.*
+import kotlinx.android.synthetic.keyOS.perm_request_dialog.view.*
 
 class CustomPermissionRequestDialog private constructor(private val context: Context, private val string: Int, private val icon: Int, private val explanation: Int?) {
     private val key = Pair(string, icon)

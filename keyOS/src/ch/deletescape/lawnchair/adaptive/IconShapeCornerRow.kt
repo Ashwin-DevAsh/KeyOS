@@ -28,7 +28,7 @@ import android.widget.LinearLayout
 import android.widget.SeekBar
 import android.widget.SimpleAdapter
 import com.android.launcher3.R
-import kotlinx.android.synthetic.lawnchair.icon_shape_corner_row.view.*
+import kotlinx.android.synthetic.keyOS.icon_shape_corner_row.view.*
 
 class IconShapeCornerRow(context: Context, attrs: AttributeSet?) :
         LinearLayout(context, attrs), SeekBar.OnSeekBarChangeListener,
