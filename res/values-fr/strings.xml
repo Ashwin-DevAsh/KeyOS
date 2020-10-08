@@ -139,7 +139,6 @@
     <string name="label_turn_off_suggestions">DÉSACTIVER</string>
     <string name="hide_app">Masquer app</string>
     <string name="icon_shape_rounded_square">Carré arrondi</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Cylindre</string>
     <string name="theme_title">Thème</string>

@@ -7,10 +7,6 @@
     <string name="action_do_nothing_class" translatable="false">ch.deletescape.lawnchair.gestures.BlankGestureHandler</string>
     <string name="default_owm_key" translatable="false">17a6438b1d63d5b05f7039e7cb52cde7</string>
     <string name="action_switch_apps_class" translatable="false">ch.deletescape.lawnchair.gestures.SwitchAppsGestureHandler</string>
-    <string name="icu_abbrev_wday_month_day_no_year">EEEEMMMd</string>
-    <string name="icu_abbrev_time">HH:mm</string>
-    <string name="icu_abbrev_time_12h">hh:mm aa</string>
-    <string name="icu_abbrev_date"> dd MMMM</string>
 
     <!-- Section 1 -->
 
@@ -133,64 +129,8 @@
     <!-- Note: replaces hard-coded copy (“Home widget”). -->
     <string name="smartspace_preferences_in_settings_desc">Date &amp; Time, Data Sources</string>
 
-    <string name="smartspace_time">Show Time</string>
-    <string name="smartspace_date">Show Date</string>
-
-    <string name="pref_smartspace_time_above">Show Large Clock</string>
-
-    <string name="pref_hide_statusbar_clock">Hide Status Bar Clock</string>
-    <string name="root_access_required">Root access required.</string>
-
-    <string name="smartspace_time_24_h">Use 24-Hour Format</string>
-    <string name="title_use_pill_qsb">Show Pill Search Shortcut</string>
-
-    <string name="pref_category_weather">Other</string>
-
     <string name="pref_smartspace_widget_provider">Weather Source</string>
     <string name="google_app">Google App</string>
-    <string name="weather_provider_disabled">Disabled</string>
-    <string name="weather_provider_owm">OpenWeatherMap</string>
-    <string name="weather_provider_pe">Pixel Experience</string>
-
-    <string name="pref_weather_units">Temperature Unit</string>
-    <string name="units_metric">Celsius</string>
-    <string name="units_imperial">Fahrenheit</string>
-    <string name="units_kelvin">Kelvin</string>
-    <string name="units_rakine">Rankine</string>
-    <string name="units_newton">Newton</string>
-    <string name="units_delisle">Delisle</string>
-    <string name="units_reaumur">Réaumur</string>
-    <string name="units_romer">Rømer</string>
-
-    <string name="pref_smartspace_event_providers">Data Sources</string>
-    <string name="battery_status">Battery Status</string>
-    <string name="event_provider_now_playing">Now Playing</string>
-    <string name="event_provider_unread_notifications">Notifications</string>
-    <string name="personality_provider">Greetings</string>
-
-    <string-array name="greetings_morning">
-        <item>Good morning!</item>
-        <item>Have a great day!</item>
-        <item>It’s a beautiful day outside!</item>
-    </string-array>
-
-    <string-array name="greetings_evening">
-        <item>What’s up?</item>
-        <item>Good evening!</item>
-        <item>How did your day go?</item>
-        <item>How was your day?</item>
-    </string-array>
-
-    <string-array name="greetings_night">
-        <item>Sleep well!</item>
-        <item>See you tomorrow!</item>
-        <item>Good night!</item>
-        <item>Don’t stay up too late!</item>
-    </string-array>
-
-    <string name="battery_charging">Charging</string>
-    <string name="battery_full">Charged</string>
-    <string name="battery_low">Battery Low</string>
 
     <!-- Section 5 -->
 
@@ -221,7 +161,6 @@
 
     <string name="pref_global_search_provider">Search Engine</string>
     <string name="google">Google App</string>
-    <string name="weather_provider_oneplus_weather">OnePlus Weather</string>
 
     <string name="searchbar_appearance_title">Style</string>
 
@@ -262,9 +201,6 @@
     <string name="backups">Back Up &amp; Restore</string>
     <string name="backup_pref_summary">Save Home Setup, Restore Backups</string>
 
-    <string name="new_backup">Create</string>
-    <string name="restore_backup">Restore</string>
-
     <string name="homescreen">Desktop Layout</string>
 
     <string name="custom">Custom</string>
@@ -273,13 +209,9 @@
 
     <string name="about">About</string>
 
-    <string name="about_translate">Translate</string>
     <string name="title_attribouter_rate">Rate</string>
     <string name="title_attribouter_website">Website</string>
 
-    <string name="about_role_family_member">Family Member</string>
-
-    <string name="about_our_team">The Team</string>
     <string name="title_attribouter_licenses">Attribution</string>
 
     <!-- Section 12 -->
@@ -296,9 +228,6 @@
 
     <string name="advanced_settings">More Settings</string>
     <string name="adaptive_icon">Adaptive Icon</string>
-
-    <string name="smartspace_setup_text">Tap to Set Up</string>
-    <string name="lawnchair_settings">Lawnchair Settings</string>
 
     <string name="icon_pack">Icon Pack</string>
     <string name="home_widget">At a Glance</string>
@@ -325,8 +254,6 @@
     <string name="debug_component_name">Component Name</string>
     <string name="debug_component_name_copied">Copied to clipboard.</string>
 
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
-
     <string name="dock_style_pref_title">Dock Style</string>
 
     <string name="dock_style_hidden">Hidden</string>
@@ -342,7 +269,6 @@
 
     <string name="pref_category_layout">Layout</string>
 
-    <string name="about_twitter" translatable="false">Twitter</string>
     <string name="title_attribouter_email">Email</string>
 
     <string name="title_attribouter_version">Version %1$s</string>
@@ -353,8 +279,6 @@
     <string name="title_attribouter_more_info">Details</string>
     <string name="title_attribouter_translators">Translators</string>
 
-    <string name="about_our_family">Family Members</string>
-
     <string name="debug_crash_launcher">Force Stop</string>
 
     <string name="action_last_task">Launch Last Used App</string>
@@ -363,20 +287,13 @@
     <string name="action_app_search">Launch App Search</string>
     <string name="action_close_notifications">Close Notification Panel</string>
     <string name="action_open_app_with_target">Open “%s”</string>
-    <string name="action_open_app_select_app">Pick App</string>
 
-    <string name="smartspace_widget_provider_not_found">Get the Google App.</string>
-
-    <string name="pref_weather_city_title">City</string>
     <string name="default_city">Lucerne, CH</string>
-    <string name="pref_weather_api_key_title">API Key</string>
 
     <string name="error_no_browser">No browser found.</string>
     <string name="icon_pack_external_picker">Open External Picker</string>
 
     <string name="week_day_format">%1$s, %2$s</string>
-    <string name="full_wday_month_day_no_year">EEEE, MMMM d</string>
-    <string name="weather_provider_testing">Debug</string>
 
     <string name="reset">Reset</string>
 
@@ -393,14 +310,12 @@
 
     <string name="drag_to_enable_packs">Drag Up to Enable</string>
     <string name="drag_to_disable_packs">Drag Down to Disable</string>
-    <string name="get_more_icon_packs">Get More</string>
     <string name="enabled_icon_packs">Applied</string>
 
     <string name="lawnchair_actions">Actions</string>
 
     <string name="bridge_missing_title">Get Lawnfeed</string>
     <string name="bridge_missing_message">To use Google Feed, get Lawnfeed.</string>
-    <string name="smartspace_provider_bridge">Rootless Pixel Bridge</string>
 
     <string name="theme_dark">Dark</string>
     <string name="theme_dark_theme_mode">Dark theme</string>
@@ -436,8 +351,6 @@
     <string name="font_weight_extra_bold">Extrabold</string>
     <string name="font_weight_extra_black">Black</string>
 
-    <string name="owm_get_your_own_key">Get an API key at api.openweathermap.org.</string>
-
     <string name="pref_fonts_global_font">Global Font</string>
     <string name="pref_fonts_change_global_font">Change</string>
 
@@ -458,23 +371,8 @@
     <string name="import_icon">Import Icon</string>
     <string name="import_as_adaptive">Import Adaptive Icon</string>
 
-    <string name="weather_provider_accu" translatable="false">AccuWeather</string>
-
     <string name="permission_iplocate">Approximate Location</string>
     <string name="permission_iplocate_twilight_explanation">Allow access to your approximate location? This enables more accurate daylight calculation.</string>
-
-    <string name="event_provider_missing_notification_access">To use <xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, enable notifications from <xliff:g example="My App" id="name">“%2$s”.</xliff:g></string>
-    <string name="event_provider_missing_notification_dots">To use <xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, enable Notification Dots.</string>
-
-    <string name="zen_mode_enabled">Do Not Disturb is enabled.</string>
-
-    <string name="onbording">Onboarding</string>
-    <string name="onbording_settings_title">Set Up %s</string>
-    <string name="onbording_settings_summary">Touch &amp; hold on the Desktop.</string>
-
-    <string name="weather_icons_default">Default</string>
-    <string name="pref_weather_icon_pack">Weather Icon Pack</string>
-    <string name="weather_icon_packs_not_supported">Not supported by your weather provider.</string>
 
     <string name="customnavbar">Custom Navigation Bar</string>
     <string name="customnavbar_install">Tap to install Custom Navigation Bar.</string>

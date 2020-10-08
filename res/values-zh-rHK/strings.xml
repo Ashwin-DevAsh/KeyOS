@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">建議將不會在應用程式清單上方顯示，而用作提供建議的使用資料將會永久清除。</string>
     <string name="label_turn_off_suggestions">關閉</string>
     <string name="icon_shape_rounded_square">圓角正方形</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s，%2$s</string>
     <string name="icon_shape_cylinder">圆筒</string>
     <string name="theme_title">主題</string>

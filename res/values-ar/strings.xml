@@ -143,7 +143,6 @@
     <string name="label_turn_off_suggestions">إيقاف</string>
     <string name="hide_app">إخفاء التطبيق</string>
     <string name="icon_shape_rounded_square">مربّع دائري</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s، %2$s</string>
     <string name="icon_shape_cylinder">أسطوانة</string>
     <string name="theme_title">موضوع</string>

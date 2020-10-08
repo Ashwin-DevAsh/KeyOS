@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">Hindi makikita ang mga suhestyon sa itaas ng listahan ng iyong mga app at permanenteng mabubura ang data ng paggamit na ginamit upang gawin ang mga ito.</string>
     <string name="label_turn_off_suggestions">I-OFF</string>
     <string name="icon_shape_rounded_square">Bilugang parisukat</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Silindro</string>
     <string name="theme_title">Tema</string>

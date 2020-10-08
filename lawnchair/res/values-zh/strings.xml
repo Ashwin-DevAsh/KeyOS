@@ -85,53 +85,8 @@
     <!-- Section 4 -->
     <!-- Note: replaces hard-coded copy (“Home widget”). -->
     <string name="smartspace_preferences_in_settings_desc">日期 &amp; 时间，日期源</string>
-    <string name="smartspace_time">显示时间</string>
-    <string name="smartspace_date">显示日期</string>
-    <string name="pref_smartspace_time_above">显示大号时钟</string>
-    <string name="pref_hide_statusbar_clock">隐藏状态栏时钟</string>
-    <string name="root_access_required">需要 Root 访问权限</string>
-    <string name="smartspace_time_24_h">使用 24 小时制</string>
-    <string name="title_use_pill_qsb">显示胶囊搜索快捷方式</string>
-    <string name="pref_category_weather">其它</string>
     <string name="pref_smartspace_widget_provider">天气数据来源</string>
     <string name="google_app">Google 应用</string>
-    <string name="weather_provider_disabled">禁用</string>
-    <string name="weather_provider_owm">OpenWeatherMap</string>
-    <string name="weather_provider_pe">Pixel Experience</string>
-    <string name="pref_weather_units">温度单位</string>
-    <string name="units_metric">摄氏度</string>
-    <string name="units_imperial">华氏度</string>
-    <string name="units_kelvin">开尔文</string>
-    <string name="units_rakine">兰金</string>
-    <string name="units_newton">牛顿</string>
-    <string name="units_delisle">德利尔</string>
-    <string name="units_reaumur">列氏度</string>
-    <string name="units_romer">兰氏温度</string>
-    <string name="pref_smartspace_event_providers">数据源</string>
-    <string name="battery_status">电池状况</string>
-    <string name="event_provider_now_playing">正在播放</string>
-    <string name="event_provider_unread_notifications">通知</string>
-    <string name="personality_provider">问候</string>
-    <string-array name="greetings_morning">
-        <item>早上好！</item>
-        <item>享受美好的一天！</item>
-        <item>多么美好的一天</item>
-    </string-array>
-    <string-array name="greetings_evening">
-        <item>今天过得如何？</item>
-        <item>晚安！</item>
-        <item>今天过的还好吗？</item>
-        <item>今天过得怎样？</item>
-    </string-array>
-    <string-array name="greetings_night">
-        <item>晚安！</item>
-        <item>明天见！</item>
-        <item>晚上好！</item>
-        <item>别熬夜到太晚哦</item>
-    </string-array>
-    <string name="battery_charging">正在充电</string>
-    <string name="battery_full">已充满</string>
-    <string name="battery_low">电量低</string>
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock 栏</string>
     <string name="dock_pref_summary">布局、样式、指示器</string>
@@ -149,7 +104,6 @@
     <string name="search_pref_summary">布局、样式、搜索引擎</string>
     <string name="pref_global_search_provider">搜索引擎</string>
     <string name="google">Google 应用</string>
-    <string name="weather_provider_oneplus_weather">一加天气</string>
     <string name="searchbar_appearance_title">样式</string>
     <string name="pref_search_bar_radius">圆角半径</string>
     <!-- Section 8 -->
@@ -176,17 +130,12 @@
     <!-- Section 10 -->
     <string name="backups">备份&amp; 还原</string>
     <string name="backup_pref_summary">保存主屏幕，还原备份</string>
-    <string name="new_backup">创建备份</string>
-    <string name="restore_backup">还原</string>
     <string name="homescreen">桌面布局</string>
     <string name="custom">自定义</string>
     <!-- Section 11 -->
     <string name="about">关于</string>
-    <string name="about_translate">翻译</string>
     <string name="title_attribouter_rate">评分</string>
     <string name="title_attribouter_website">网站</string>
-    <string name="about_role_family_member">团队成员</string>
-    <string name="about_our_team">我们的团队</string>
     <string name="title_attribouter_licenses">属性</string>
     <!-- Section 12 -->
     <string name="settings_button_text">主屏幕设置</string>
@@ -194,8 +143,6 @@
     <string name="customize">自定义</string>
     <string name="advanced_settings">更多设置</string>
     <string name="adaptive_icon">自适应图标</string>
-    <string name="smartspace_setup_text">点击来设置</string>
-    <string name="lawnchair_settings">Lawnchair 设置</string>
     <string name="icon_pack">图标包</string>
     <string name="home_widget">速览</string>
     <string name="about_app_version">版本</string>
@@ -212,7 +159,6 @@
     <string name="show_debug_info_pref_title">显示组件名称</string>
     <string name="debug_component_name">组件名称</string>
     <string name="debug_component_name_copied">复制到剪贴板</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="dock_style_pref_title">Dock 栏样式</string>
     <string name="dock_style_hidden">隐藏</string>
     <string name="add_settings_shortcut_title">添加快捷方式到桌面</string>
@@ -228,7 +174,6 @@
     <string name="title_attribouter_license_limitations">许可限制</string>
     <string name="title_attribouter_more_info">详细信息</string>
     <string name="title_attribouter_translators">翻译人员</string>
-    <string name="about_our_family">团队成员</string>
     <string name="debug_crash_launcher">强制停止</string>
     <string name="action_last_task">启动上一次使用到应用</string>
     <string name="action_open_widgets">打开微件抽屉</string>
@@ -236,16 +181,10 @@
     <string name="action_app_search">启动应用搜索</string>
     <string name="action_close_notifications">关闭通知面板</string>
     <string name="action_open_app_with_target">打开 “%s”</string>
-    <string name="action_open_app_select_app">选择应用</string>
-    <string name="smartspace_widget_provider_not_found">获取 Google 应用</string>
-    <string name="pref_weather_city_title">城市</string>
     <string name="default_city">Beijing, CN</string>
-    <string name="pref_weather_api_key_title">API 密钥</string>
     <string name="error_no_browser">找不到浏览器</string>
     <string name="icon_pack_external_picker">打开外部选择器</string>
     <string name="week_day_format">%1$s，%2$s</string>
-    <string name="full_wday_month_day_no_year">M 月 dd 日EEEE</string>
-    <string name="weather_provider_testing">调试</string>
     <string name="reset">重置</string>
     <string name="theme_default">默认</string>
     <string name="icon_pack_applied_toast">“”%s“” 已应用</string>
@@ -256,12 +195,10 @@
     <string name="recent_task_option_force_stop">强制停止</string>
     <string name="drag_to_enable_packs">向上拖动以启用</string>
     <string name="drag_to_disable_packs">拖动至下方以禁用</string>
-    <string name="get_more_icon_packs">获取更多图标包</string>
     <string name="enabled_icon_packs">已应用</string>
     <string name="lawnchair_actions">动作</string>
     <string name="bridge_missing_title">获取 Lawnfeed</string>
     <string name="bridge_missing_message">要使用 Google Feed，请安装 Lawnfeed</string>
-    <string name="smartspace_provider_bridge">Rootless Pixel Bridge</string>
     <string name="theme_dark">暗色主题</string>
     <string name="theme_dark_theme_mode">暗色主题</string>
     <string name="theme_dark_dark_text">暗色背景 + 暗色文字</string>
@@ -286,7 +223,6 @@
     <string name="font_weight_bold">粗体</string>
     <string name="font_weight_extra_bold">特粗</string>
     <string name="font_weight_extra_black">极粗体</string>
-    <string name="owm_get_your_own_key">从 api.openweathermap.org API密钥</string>
     <string name="pref_fonts_global_font">全局字体</string>
     <string name="pref_fonts_change_global_font">变更</string>
     <string name="pref_fonts_home_icons">标签</string>
@@ -303,14 +239,6 @@
     <string name="import_as_adaptive">导入自适应图标</string>
     <string name="permission_iplocate">大概位置</string>
     <string name="permission_iplocate_twilight_explanation">允许访问您的大概位置？这样可以实现更准确的时段计算。</string>
-    <string name="event_provider_missing_notification_access">要使用<xliff:g example="My Provider" id="providerName">%1$s</xliff:g>，请为<xliff:g example="My App" id="name">%2$s</xliff:g>开启应用通知</string>
-    <string name="event_provider_missing_notification_dots">要使用<xliff:g example="My Provider" id="providerName">%1$s</xliff:g>，请开启通知圆点</string>
-    <string name="zen_mode_enabled">已开启勿扰模式</string>
-    <string name="onbording_settings_title">设置 %s</string>
-    <string name="onbording_settings_summary">长按桌面</string>
-    <string name="weather_icons_default">默认</string>
-    <string name="pref_weather_icon_pack">天气图标包</string>
-    <string name="weather_icon_packs_not_supported">天气提供商不受支持</string>
     <string name="customnavbar_install">点击安装 Custom Navigation Bar</string>
     <string name="customnavbar_back_hiding_desc">不需要时隐藏返回键</string>
     <string name="icon_shape_top_left">左上</string>

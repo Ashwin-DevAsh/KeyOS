@@ -85,52 +85,8 @@
     <!-- Section 4 -->
     <!-- Note: replaces hard-coded copy (“Home widget”). -->
     <string name="smartspace_preferences_in_settings_desc">Datum i vrijeme, Pružatelji podataka</string>
-    <string name="smartspace_time">Prikaži vrijeme</string>
-    <string name="smartspace_date">Prikaži datum</string>
-    <string name="pref_smartspace_time_above">Prikaži veliki sat</string>
-    <string name="pref_hide_statusbar_clock">Sakrij sat iz statusne trake</string>
-    <string name="root_access_required">Potreban je korijenski pristup.</string>
-    <string name="smartspace_time_24_h">Prikaži 24-satno vrijeme</string>
-    <string name="title_use_pill_qsb">Prikaži prečac za Pill Search</string>
-    <string name="pref_category_weather">Ostalo</string>
     <string name="pref_smartspace_widget_provider">Pružatelj vremenske prognoze</string>
     <string name="google_app">Google aplikacija</string>
-    <string name="weather_provider_disabled">Onemogućeno</string>
-    <string name="weather_provider_pe">Pixel Experience</string>
-    <string name="pref_weather_units">Mjerna jedinica za temperaturu</string>
-    <string name="units_metric">Celzij</string>
-    <string name="units_imperial">Fahrenheit</string>
-    <string name="units_kelvin">Kelvin</string>
-    <string name="units_rakine">Rankine</string>
-    <string name="units_newton">Newton</string>
-    <string name="units_delisle">Delisle</string>
-    <string name="units_reaumur">Réaumur</string>
-    <string name="units_romer">Rømer</string>
-    <string name="pref_smartspace_event_providers">Pružatelji podataka</string>
-    <string name="battery_status">Status baterije</string>
-    <string name="event_provider_now_playing">Trenutno svira</string>
-    <string name="event_provider_unread_notifications">Obavijesti</string>
-    <string name="personality_provider">Pozdrav</string>
-    <string-array name="greetings_morning">
-        <item>Dobro jutro!</item>
-        <item>Želim ti super dan!</item>
-        <item>Vani je lijepi dan!</item>
-    </string-array>
-    <string-array name="greetings_evening">
-        <item>Što ima?</item>
-        <item>Dobra večer!</item>
-        <item>Kako ti je prošao dan?</item>
-        <item>Kakav ti je bio dan?</item>
-    </string-array>
-    <string-array name="greetings_night">
-        <item>Lijepo spavaj!</item>
-        <item>Vidimo se sutra!</item>
-        <item>Laku noć!</item>
-        <item>Ne ostaj na nogama dugo!</item>
-    </string-array>
-    <string name="battery_charging">Punjenje</string>
-    <string name="battery_full">Napunjeno</string>
-    <string name="battery_low">Baterija slaba</string>
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Izgled, Stil, Pokazatelji</string>
@@ -148,7 +104,6 @@
     <string name="search_pref_summary">Izgled, Stil, Tražilica</string>
     <string name="pref_global_search_provider">Tražilica</string>
     <string name="google">Aplikacija Google</string>
-    <string name="weather_provider_oneplus_weather">OnePlus vremenska prognoza</string>
     <string name="searchbar_appearance_title">Stil</string>
     <string name="pref_search_bar_radius">Zakrivljenost kuta</string>
     <!-- Section 8 -->
@@ -175,17 +130,12 @@
     <!-- Section 10 -->
     <string name="backups">Pričuvna kopija i vraćanje</string>
     <string name="backup_pref_summary">Spremite početni zaslon, vratite pričuvne kopije</string>
-    <string name="new_backup">Stvori</string>
-    <string name="restore_backup">Vrati</string>
     <string name="homescreen">Izgled radne površine</string>
     <string name="custom">Prilagođeno</string>
     <!-- Section 11 -->
     <string name="about">O aplikaciji</string>
-    <string name="about_translate">Prijevod</string>
     <string name="title_attribouter_rate">Ocijeni aplikaciju</string>
     <string name="title_attribouter_website">Web stranica</string>
-    <string name="about_role_family_member">Član obitelji</string>
-    <string name="about_our_team">Tim</string>
     <string name="title_attribouter_licenses">Pridonositelji</string>
     <!-- Section 12 -->
     <string name="settings_button_text">Postavke početne stranice</string>
@@ -193,8 +143,6 @@
     <string name="customize">Prilagodi</string>
     <string name="advanced_settings">Više postavki</string>
     <string name="adaptive_icon">Prilagodljiva ikona</string>
-    <string name="smartspace_setup_text">Dodirnite za postavljanje</string>
-    <string name="lawnchair_settings">Postavke Lawnchaira</string>
     <string name="icon_pack">Paket ikona</string>
     <string name="home_widget">At a Glance</string>
     <string name="about_app_version">Verzija</string>
@@ -211,7 +159,6 @@
     <string name="show_debug_info_pref_title">Prikaži nazive komponenti</string>
     <string name="debug_component_name">Naziv komponente</string>
     <string name="debug_component_name_copied">Kopirano u međuspremnik.</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="dock_style_pref_title">Stil docka</string>
     <string name="dock_style_hidden">Skriven</string>
     <string name="add_settings_shortcut_title">Dodaj novi prečac na radnu površinu</string>
@@ -227,7 +174,6 @@
     <string name="title_attribouter_license_limitations">Ograničenja</string>
     <string name="title_attribouter_more_info">Pojedinosti</string>
     <string name="title_attribouter_translators">Prevoditelji</string>
-    <string name="about_our_family">Članovi obitelji</string>
     <string name="debug_crash_launcher">Prisilno zaustavi</string>
     <string name="action_last_task">Pokreni zadnje korištenu aplikaciju</string>
     <string name="action_open_widgets">Otvori izbornik widgeta</string>
@@ -235,14 +181,9 @@
     <string name="action_app_search">Pokreni pretragu aplikacija</string>
     <string name="action_close_notifications">Zatvori obavijesti</string>
     <string name="action_open_app_with_target">Otvori “%s”</string>
-    <string name="action_open_app_select_app">Odaberi aplikaciju</string>
-    <string name="smartspace_widget_provider_not_found">Dobavi aplikaciju Google.</string>
-    <string name="pref_weather_city_title">Grad</string>
     <string name="default_city">Lucerne, CH</string>
-    <string name="pref_weather_api_key_title">API Key</string>
     <string name="error_no_browser">Nema pretraživača.</string>
     <string name="icon_pack_external_picker">Otvori vanjski odabir</string>
-    <string name="weather_provider_testing">Otklanjanje pogrešaka</string>
     <string name="reset">Resetiraj</string>
     <string name="theme_default">Zadano</string>
     <string name="icon_pack_applied_toast">“%s” primjenjeno.</string>
@@ -253,12 +194,10 @@
     <string name="recent_task_option_force_stop">Prisilno zaustavi</string>
     <string name="drag_to_enable_packs">Povuci prema gore za omogućavanje</string>
     <string name="drag_to_disable_packs">Premjesti ispod za onemogućavanje</string>
-    <string name="get_more_icon_packs">Nabavi više</string>
     <string name="enabled_icon_packs">Primjenjeno</string>
     <string name="lawnchair_actions">Radnje</string>
     <string name="bridge_missing_title">Dobavi Lawnfeed</string>
     <string name="bridge_missing_message">Za korištenje Google Feed-a, dobavi Lawnfeed.</string>
-    <string name="smartspace_provider_bridge">Rootless Pixel Bridge</string>
     <string name="theme_dark">Tamni</string>
     <string name="theme_dark_theme_mode">Tamna tema</string>
     <string name="theme_dark_dark_text">Tamna s tamnim tekstom</string>
@@ -283,7 +222,6 @@
     <string name="font_weight_bold">Podebljan</string>
     <string name="font_weight_extra_bold">Extra podebljan</string>
     <string name="font_weight_extra_black">Crn</string>
-    <string name="owm_get_your_own_key">Dobavi API key na api.openweathermap.org.</string>
     <string name="pref_fonts_global_font">Globalni font</string>
     <string name="pref_fonts_change_global_font">Promijeni</string>
     <string name="pref_fonts_home_icons">Oznake</string>
@@ -300,14 +238,6 @@
     <string name="import_as_adaptive">Uvezi prilagodljivu ikonu</string>
     <string name="permission_iplocate">Približna lokacija</string>
     <string name="permission_iplocate_twilight_explanation">Dozvoliti pristup tvojoj približnoj lokaciji? Ovo omogućava preciznije predviđanje trajanja dnevnog svjetla.</string>
-    <string name="event_provider_missing_notification_access">Za uporabu <xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, uključite obavijesti za <xliff:g example="My App" id="name">“%2$s”.</xliff:g></string>
-    <string name="event_provider_missing_notification_dots">Za uporabu <xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, uključite Točke obavijesti.</string>
-    <string name="zen_mode_enabled">Uključena opcija \'Ne ometaj\'.</string>
-    <string name="onbording_settings_title">Postavi %s</string>
-    <string name="onbording_settings_summary">Stisni i zadrži na radnoj površini.</string>
-    <string name="weather_icons_default">Zadano</string>
-    <string name="pref_weather_icon_pack">Paket ikona vremenske prognoze</string>
-    <string name="weather_icon_packs_not_supported">Nije podržano od tvog pružatelja usluga vremenske prognoze.</string>
     <string name="customnavbar_install">Dodirni za postavljanje Prilagođene upravljačke trake.</string>
     <string name="customnavbar_back_hiding_desc">Sakrij dugme \'Natrag\' kada nije potrebno.</string>
     <string name="icon_shape_top_left">Gore lijevo</string>

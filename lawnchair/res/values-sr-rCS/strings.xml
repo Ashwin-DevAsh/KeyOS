@@ -33,48 +33,18 @@
     <string name="animation_type_fade">Nestajanje</string>
     <!-- Section 4 -->
     <!-- Note: replaces hard-coded copy (“Home widget”). -->
-    <string name="pref_category_weather">Drugo</string>
-    <string name="weather_provider_disabled">Onemogućeno</string>
-    <string name="units_metric">Celzijus</string>
-    <string name="units_imperial">Farenhajt</string>
-    <string name="units_kelvin">Kelvin</string>
-    <string name="units_rakine">Rankin</string>
-    <string name="units_newton">Njutn</string>
-    <string name="units_delisle">Delil</string>
-    <string name="units_reaumur">Reomir</string>
-    <string name="units_romer">Remer</string>
-    <string-array name="greetings_morning">
-        <item>Dobro jutro!</item>
-        <item>Uživajte u današnjem danu!</item>
-        <item>It’s a beautiful day outside!</item>
-    </string-array>
-    <string-array name="greetings_evening">
-        <item>What’s up?</item>
-        <item>Good evening!</item>
-        <item>How did your day go?</item>
-        <item>Laku noć!</item>
-    </string-array>
-    <string-array name="greetings_night">
-        <item>Lepo spavajte!</item>
-        <item>Vidimo se sutra!</item>
-        <item>Laku noć!</item>
-        <item>Don’t stay up too late!</item>
-    </string-array>
     <!-- Section 5 -->
     <string name="dock_pref_title">Dok</string>
     <!-- Section 6 -->
     <string name="pref_category_theme">Stil</string>
     <!-- Section 7 -->
     <string name="search">Pretraga</string>
-    <string name="weather_provider_oneplus_weather">OnePlus Weather</string>
     <string name="searchbar_appearance_title">Stil</string>
     <!-- Section 8 -->
     <!-- Section 9 -->
     <string name="gestures_pref_title">Pokreti</string>
     <string name="action_sleep">Spavanje</string>
     <!-- Section 10 -->
-    <string name="new_backup">Napravi</string>
-    <string name="restore_backup">Vrati</string>
     <string name="custom">Prilagođeni</string>
     <!-- Section 11 -->
     <string name="about">O aplikaciji</string>
@@ -83,12 +53,10 @@
     <!-- Section 12 -->
     <string name="wallpaper_button_text">Pozadina</string>
     <string name="customize">Prilagodi</string>
-    <string name="lawnchair_settings">Podešavanja Lawnchaira</string>
     <string name="home_widget">Kratak pregled</string>
     <string name="about_app_version">Verzija</string>
     <string name="label_turn_off_suggestions">Isključi</string>
     <string name="loading">Učitavanje…</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="dock_style_hidden">Skriven</string>
     <string name="pref_category_layout">Raspored</string>
     <string name="title_attribouter_email">Imejl</string>
@@ -98,15 +66,12 @@
     <string name="title_attribouter_license_conditions">Uslovi</string>
     <string name="title_attribouter_license_limitations">Ograničenja</string>
     <string name="title_attribouter_translators">Prevodioci</string>
-    <string name="pref_weather_city_title">Grad</string>
     <string name="default_city">Belgrade, RS</string>
-    <string name="weather_provider_testing">Otklanjanje grešaka</string>
     <string name="reset">Resetuj</string>
     <string name="theme_default">Podrazumevana</string>
     <string name="color_presets">Šabloni</string>
     <string name="automatic_short">autom.</string>
     <string name="lawnchair_actions">Radnje</string>
-    <string name="smartspace_provider_bridge">Rootless Pixel Bridge</string>
     <string name="theme_dark">Tamna</string>
     <string name="theme_dark_theme_mode">Tamna tema</string>
     <string name="theme_black">Crna</string>
@@ -124,7 +89,6 @@
     <string name="pref_fonts_change_global_font">Promeni</string>
     <string name="pref_fonts_home_smartspace">Kratak pregled</string>
     <string name="pref_fonts_find_fonts">Pretraga</string>
-    <string name="weather_icons_default">Podrazumevano</string>
     <!-- Section 13 -->
     <string name="quickstep_pref_title">Nedavne aplikacije</string>
 </resources>

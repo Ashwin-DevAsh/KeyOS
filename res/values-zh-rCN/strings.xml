@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">关闭后，系统将不会在您的应用列表顶部显示推荐应用，并且将永久清空用于生成这些信息的使用数据。</string>
     <string name="label_turn_off_suggestions">关闭</string>
     <string name="icon_shape_rounded_square">圆角正方形</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s，%2$s 年</string>
     <string name="icon_shape_cylinder">圓筒</string>
     <string name="theme_title">主题</string>
@@ -167,9 +166,6 @@
 
     <string name="button_overview_mode">概览模式</string>
     <string name="message_storage_permission_required">需要获取存储空间权限才能开启毛玻璃效果</string>
-
-    <string name="download_oneplus_weather">下载一加天气</string>
-    <string name="supported_weather_source">受支持的天气源</string>
 
     <string name="pref_category_folder">文件夹</string>
     <string name="folder_grid_size">文件夹网格大小</string>

@@ -139,7 +139,6 @@
     <string name="label_turn_off_suggestions">사용 중지</string>
     <string name="hide_app">앱 숨기기</string>
     <string name="icon_shape_rounded_square">모서리가 둥근 정사각형</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%2$s %1$s</string>
     <string name="icon_shape_cylinder">실린더</string>
     <string name="theme_title">테마</string>

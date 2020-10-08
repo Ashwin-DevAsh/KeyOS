@@ -85,52 +85,8 @@
     <!-- Section 4 -->
     <!-- Note: replaces hard-coded copy (“Home widget”). -->
     <string name="smartspace_preferences_in_settings_desc">تاریخ, زمان, منبع داده ها</string>
-    <string name="smartspace_time">نمایش زمان</string>
-    <string name="smartspace_date">نمایش تاریخ</string>
-    <string name="pref_smartspace_time_above">نمایش ساعت بزرگ</string>
-    <string name="pref_hide_statusbar_clock">مخفی کردن ساعت نوار وضعیت</string>
-    <string name="root_access_required">نیازمند دسترسی ریشه‌ای است.</string>
-    <string name="smartspace_time_24_h">استفاده از قالب ۲۴ ساعته</string>
-    <string name="title_use_pill_qsb">نمایش میانبر جستجوی دیسک</string>
-    <string name="pref_category_weather">ساير</string>
     <string name="pref_smartspace_widget_provider">منبع آب و هوا</string>
     <string name="google_app">اپلیکیشن گوگل</string>
-    <string name="weather_provider_disabled">غیرفعال</string>
-    <string name="weather_provider_pe">تجربه پیکسل</string>
-    <string name="pref_weather_units">واحد دما</string>
-    <string name="units_metric">سلسیوس (سانتی‌گراد)</string>
-    <string name="units_imperial">فارنهایت</string>
-    <string name="units_kelvin">کلوین</string>
-    <string name="units_rakine">رتبه بندی</string>
-    <string name="units_newton">نیوتن</string>
-    <string name="units_delisle">دلیسل</string>
-    <string name="units_reaumur">رامور</string>
-    <string name="units_romer">رُمر</string>
-    <string name="pref_smartspace_event_providers">منبع اطلاعات</string>
-    <string name="battery_status">وضعیت باتری</string>
-    <string name="event_provider_now_playing">درحالِ پخش</string>
-    <string name="event_provider_unread_notifications">اعلانات</string>
-    <string name="personality_provider">چاق سلامتی</string>
-    <string-array name="greetings_morning">
-        <item>صبح بخیر!</item>
-        <item>روز خوبی داشته باشی!</item>
-        <item>روز خوبی برای بیرون رفتنه!</item>
-    </string-array>
-    <string-array name="greetings_evening">
-        <item>چی شده؟</item>
-        <item>عصر بخیر!</item>
-        <item>امروز چطور بود؟</item>
-        <item>روزت چجوری گذشت؟</item>
-    </string-array>
-    <string-array name="greetings_night">
-        <item>خوب بخوابی!</item>
-        <item>فردا می‌بینمت!</item>
-        <item>شب بخیر!</item>
-        <item>تا دیروقت بیدار نمون!</item>
-    </string-array>
-    <string name="battery_charging">درحال شارژ</string>
-    <string name="battery_full">شارژ کامل شد</string>
-    <string name="battery_low">باتری ضعیف است</string>
     <!-- Section 5 -->
     <string name="dock_pref_title">پیشخوان</string>
     <string name="dock_pref_summary">طرح بندی, اشکال, شاخص ها</string>
@@ -148,7 +104,6 @@
     <string name="search_pref_summary">طرح بندی, اشکال, موتور جستجوگر</string>
     <string name="pref_global_search_provider">موتور جستجو</string>
     <string name="google">اپلیکیشن گوگل</string>
-    <string name="weather_provider_oneplus_weather">آب و هوای وان‌پلاس</string>
     <string name="searchbar_appearance_title">سبک</string>
     <string name="pref_search_bar_radius">زاویه شعاعی</string>
     <!-- Section 8 -->
@@ -177,17 +132,12 @@
     <!-- Section 10 -->
     <string name="backups">پشتیبان‌گیری و بازیابی</string>
     <string name="backup_pref_summary">ذخیره تنظیمات صفحه اصلی ، بازیابی از پشتیبان</string>
-    <string name="new_backup">ساختن</string>
-    <string name="restore_backup">بازیابی</string>
     <string name="homescreen">طرح بندی میزکار</string>
     <string name="custom">سفارشی</string>
     <!-- Section 11 -->
     <string name="about">درباره</string>
-    <string name="about_translate">ترجمه</string>
     <string name="title_attribouter_rate">امتیاز</string>
     <string name="title_attribouter_website">وب سایت</string>
-    <string name="about_role_family_member">عضو خانواده</string>
-    <string name="about_our_team">تیم</string>
     <string name="title_attribouter_licenses">خصوصیات</string>
     <!-- Section 12 -->
     <string name="settings_button_text">تنظیمات صفحه اصلی</string>
@@ -195,8 +145,6 @@
     <string name="customize">شخصی‌سازی</string>
     <string name="advanced_settings">تنظیمات بیشتر</string>
     <string name="adaptive_icon">نمایه سازگار</string>
-    <string name="smartspace_setup_text">برای انجام تنظیمات ضربه بزنید</string>
-    <string name="lawnchair_settings">تنظیمات Lawnchair</string>
     <string name="icon_pack">آیکون پک</string>
     <string name="home_widget">در یک نگاه</string>
     <string name="about_app_version">نسخه</string>
@@ -213,7 +161,6 @@
     <string name="show_debug_info_pref_title">نمایش نام اجزا</string>
     <string name="debug_component_name">نام اجزا</string>
     <string name="debug_component_name_copied">کپی در حافظه موقت.</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="dock_style_pref_title">حالت پیشخوان</string>
     <string name="dock_style_hidden">پنهان</string>
     <string name="add_settings_shortcut_title">اضافه کردن میانبر به میزکار</string>
@@ -229,7 +176,6 @@
     <string name="title_attribouter_license_limitations">محدودیت ها</string>
     <string name="title_attribouter_more_info">جزئیات</string>
     <string name="title_attribouter_translators">مترجم ها</string>
-    <string name="about_our_family">اعضای خانواده</string>
     <string name="debug_crash_launcher">توقف اجباری</string>
     <string name="action_last_task">اجرای آخرین برنامه مورد استفاده</string>
     <string name="action_open_widgets">باز کردن منو ابزارک ها</string>
@@ -237,16 +183,10 @@
     <string name="action_app_search">انجام جستجوی برنامه ها</string>
     <string name="action_close_notifications">بستن پنل اعلان ها</string>
     <string name="action_open_app_with_target">“%s” را باز نمایید</string>
-    <string name="action_open_app_select_app">انتخاب برنامه</string>
-    <string name="smartspace_widget_provider_not_found">دریافت برنامه گوگل.</string>
-    <string name="pref_weather_city_title">شهر</string>
     <string name="default_city">لوسرن، CH</string>
-    <string name="pref_weather_api_key_title">کلید API</string>
     <string name="error_no_browser">مرورگری یافت نشد.</string>
     <string name="icon_pack_external_picker">باز کردن انتخاب‌گر خارجی</string>
     <string name="week_day_format">%1$s، %2$s</string>
-    <string name="full_wday_month_day_no_year">EEEE، d MMMM</string>
-    <string name="weather_provider_testing">اشکال زدایی</string>
     <string name="reset">بازنشانی</string>
     <string name="theme_default">پیش‌فرض</string>
     <string name="icon_pack_applied_toast">“%s” پذیرفته شد.</string>
@@ -257,12 +197,10 @@
     <string name="recent_task_option_force_stop">توقف اجباری</string>
     <string name="drag_to_enable_packs">برای فعالسازی بالا بکشید</string>
     <string name="drag_to_disable_packs">برای غیرفعال‌سازی به پایین بکشید</string>
-    <string name="get_more_icon_packs">دریافت بیشتر</string>
     <string name="enabled_icon_packs">پذیرفته شد</string>
     <string name="lawnchair_actions">عملیات</string>
     <string name="bridge_missing_title">دریافت فید</string>
     <string name="bridge_missing_message">دریافت فید, برای استفاده از گوگل خبری.</string>
-    <string name="smartspace_provider_bridge">پل پیکسل بدون روت</string>
     <string name="theme_dark">تیره</string>
     <string name="theme_dark_theme_mode">تم تاریک</string>
     <string name="theme_dark_dark_text">تیره با نوشته‌های تیره</string>
@@ -285,7 +223,6 @@
     <string name="font_weight_bold">کلفت</string>
     <string name="font_weight_extra_bold">فوق ضخیم</string>
     <string name="font_weight_extra_black">مشکی</string>
-    <string name="owm_get_your_own_key">کلید API مربوطه را از آدرس api.openweathermap.org دریافت نمایید.</string>
     <string name="pref_fonts_global_font">فونت سراسری</string>
     <string name="pref_fonts_change_global_font">تغییر دادن</string>
     <string name="pref_fonts_home_icons">برچسب‌ها</string>
@@ -302,14 +239,6 @@
     <string name="import_as_adaptive">آیکن منطبق را وارد کن</string>
     <string name="permission_iplocate">لوکیشن تقریبی</string>
     <string name="permission_iplocate_twilight_explanation">آیا اجازه دسترسی به مکان تقریبی خود را می دهید؟ این امکان محاسبه دقیق تر نور روز را فراهم می کند.</string>
-    <string name="event_provider_missing_notification_access">PERSIAN TRANSLATIONS</string>
-    <string name="event_provider_missing_notification_dots">برای استفاده از <xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, نقطه های اعلان را فعال کنید.</string>
-    <string name="zen_mode_enabled">حالت مزاحم نشوید روشن شد.</string>
-    <string name="onbording_settings_title">%s را تنظیم کنید</string>
-    <string name="onbording_settings_summary">پس از لمس میزکار مدتی نگهدارید.</string>
-    <string name="weather_icons_default">پیش‌فرض</string>
-    <string name="pref_weather_icon_pack">بسته آیکون آب و هوا</string>
-    <string name="weather_icon_packs_not_supported">توسط ایستگاه هواشناسی شما پشتیبانی نمی شود.</string>
     <string name="customnavbar_install">برای نصب سفارشی نوار جهت یابی ضربه بزنید.</string>
     <string name="customnavbar_back_hiding_desc">دکمه برگشت را در زمانی که نیاز ندارید مخفی کنید.</string>
     <string name="icon_shape_top_left">بالا سمت چپ</string>

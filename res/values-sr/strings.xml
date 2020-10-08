@@ -140,7 +140,6 @@
     <string name="label_turn_off_suggestions">ИСКЉУЧИ</string>
     <string name="hide_app">Сакриј апликацију</string>
     <string name="icon_shape_rounded_square">Квадрат заобљених углова</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Цилиндар.</string>
     <string name="theme_title">Тема</string>

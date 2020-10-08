@@ -74,13 +74,6 @@
     </style>
 
     <!-- Weather widget -->
-    <style name="WeatherWidget" />
-
-    <style name="WeatherWidget.Text">
-        <item name="android:shadowRadius">3.0</item>
-        <item name="android:shadowDy">0.5</item>
-        <item name="android:shadowColor">#33000000</item>
-    </style>
 
     <!-- Pixel -->
 
@@ -318,25 +311,4 @@
         <item name="customFontType">settingsTileTitle</item>
     </style>
 
-    <style name="SmartspaceTextHeadline">
-        <item name="android:textColor">?attr/workspaceTextColor</item>
-        <item name="android:letterSpacing">@dimen/smartspaceLetterSpacing</item>
-        <item name="ambientShadowBlur">@dimen/smartspaceAmbientShadowBlur</item>
-        <item name="ambientShadowColor">?attr/workspaceAmbientShadowColor</item>
-        <item name="keyShadowBlur">@dimen/smartspaceKeyShadowBlur</item>
-        <item name="keyShadowColor">?attr/workspaceKeyShadowColor</item>
-        <item name="keyShadowOffset">@dimen/smartspaceKeyShadowOffset</item>
-        <item name="customFontType">smartspaceText</item>
-    </style>
-
-    <style name="SmartspaceTextTitle">
-        <item name="android:textColor">?attr/workspaceTextColor</item>
-        <item name="android:letterSpacing">@dimen/smartspaceLetterSpacing</item>
-        <item name="ambientShadowBlur">@dimen/smartspaceAmbientShadowBlur</item>
-        <item name="ambientShadowColor">?attr/workspaceAmbientShadowColor</item>
-        <item name="keyShadowBlur">@dimen/smartspaceKeyShadowBlur</item>
-        <item name="keyShadowColor">?attr/workspaceKeyShadowColor</item>
-        <item name="keyShadowOffset">@dimen/smartspaceKeyShadowOffset</item>
-        <item name="customFontType">smartspaceText</item>
-    </style>
 </resources>

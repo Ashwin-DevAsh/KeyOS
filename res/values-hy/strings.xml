@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">Առաջարկությունները ձեր հավելվածների ցանկի վերևում չեն հայտնվի, իսկ դրանք ստեղծելու համար օգտագործված տվյալները մեկընդմիշտ կջնջվեն:</string>
     <string name="label_turn_off_suggestions">ԱՆՋԱՏԵԼ</string>
     <string name="icon_shape_rounded_square">Շրջանակաձև քառակուսի</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="icon_shape_cylinder">Մխոց</string>
     <string name="theme_title">Թեմա</string>
     <string name="theme_default">Default</string>

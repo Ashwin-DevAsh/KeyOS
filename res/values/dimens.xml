@@ -205,12 +205,6 @@
     <item name="disabled_alpha_material_light" format="float" type="dimen">0.26</item>
 
 <!-- Pixel -->
-    <dimen name="smartspace_title_size">24dp</dimen>
-    <dimen name="smartspace_clock_above_size">40dp</dimen>
-    <dimen name="smartspace_title_min_size">14dp</dimen>
-    <dimen name="smartspace_horizontal_padding">56dp</dimen>
-    <dimen name="smartspace_title_sep_width">1dp</dimen>
-    <dimen name="smartspace_title_weather_icon_size">24dp</dimen>
     <dimen name="qsb_shadow_margin">6dp</dimen>
     <dimen name="hotseat_qsb_scroll_shadow_blur_radius">1.5dp</dimen>
     <dimen name="hotseat_qsb_scroll_key_shadow_offset">2dp</dimen>
@@ -231,7 +225,6 @@
     <dimen name="qsb_connector_gradient_end_padding">20dp</dimen>
     <dimen name="qsb_min_width_with_mic">124dp</dimen>
     <dimen name="qsb_min_width_portrait">96dp</dimen>
-    <dimen name="smartspace_preview_height">100dp</dimen>
     <dimen name="smartspace_preview_widget_margin">24dp</dimen>
     <dimen name="color_preview_height">60dp</dimen>
     <dimen name="color_preview_width">80dp</dimen>

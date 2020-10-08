@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">የአስተያየት ጥቆማዎች በእርስዎ የመተግበሪያዎች ዝርዝር አናት ላይ አይታዩም፣ እና እነሱን ለመፍጠር ጥቅም ላይ የዋለው የአጠቃቀም ውሂብ በቋሚነት ይደመሰሳል።</string>
     <string name="label_turn_off_suggestions">አጥፋ</string>
     <string name="icon_shape_rounded_square">ክብ ካሬ</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s፣ %2$s</string>
     <string name="icon_shape_cylinder">ሲሊንደር</string>
     <string name="theme_title">ገጽታ</string>

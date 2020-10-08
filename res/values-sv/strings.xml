@@ -139,7 +139,6 @@
     <string name="label_turn_off_suggestions">INAKTIVERA</string>
     <string name="hide_app">Dölj app</string>
     <string name="icon_shape_rounded_square">Rundad kvadrat</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Cylinder</string>
     <string name="theme_title">Tema</string>

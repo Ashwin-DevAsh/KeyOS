@@ -139,7 +139,6 @@
     <string name="label_turn_off_suggestions">POISTA KÄYTÖSTÄ</string>
     <string name="hide_app">Piilota sovellus</string>
     <string name="icon_shape_rounded_square">Pyöreäkulmainen neliö</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Sylinteri</string>
     <string name="theme_title">Teema</string>

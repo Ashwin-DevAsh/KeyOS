@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">Таны апп-н жагсаалтын дээр зөвлөмж гарч ирэхгүй бөгөөд тэдгээрийг үүсгэхэд ашигладаг хэрэглээний өгөгдөл бүрмөсөн устах болно.</string>
     <string name="label_turn_off_suggestions">УНТРААХ</string>
     <string name="icon_shape_rounded_square">Мохоо дөрвөлжин</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="icon_shape_cylinder">Цилиндр</string>
     <string name="theme_title">Сэдэв</string>
     <string name="theme_default">Үндсэн байна</string>

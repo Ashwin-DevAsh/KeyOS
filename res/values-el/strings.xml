@@ -139,7 +139,6 @@
     <string name="label_turn_off_suggestions">ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ</string>
     <string name="hide_app">Κρυφές εφαρμογές</string>
     <string name="icon_shape_rounded_square">Στρογγυλεμένο τετράγωνο</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Κύλινδρος</string>
     <string name="theme_title">Θέμα</string>

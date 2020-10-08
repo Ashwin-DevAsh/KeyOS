@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">Du finner ikke lenger anbefalinger øverst på applisten din, og brukerdataene som ble brukt til oppretting, slettes permanent.</string>
     <string name="label_turn_off_suggestions">SLÅ AV</string>
     <string name="icon_shape_rounded_square">Avrundet kvadrat</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Sylinder</string>
     <string name="theme_title">Tema</string>

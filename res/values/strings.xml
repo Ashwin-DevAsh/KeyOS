@@ -361,9 +361,6 @@
     <string name="button_overview_mode">Overview Mode</string>
     <string name="message_storage_permission_required">To use blur effect, grant the Storage permission.</string>
 
-    <string name="download_oneplus_weather">Download Oneplus Weather</string>
-    <string name="supported_weather_source">Supported weather source</string>
-
     <string name="pref_category_folder">Folder</string>
     <string name="folder_grid_size">Folder Grid</string>
     <string name="disable_auto_fill_title">Disable Icon Auto Fill</string>

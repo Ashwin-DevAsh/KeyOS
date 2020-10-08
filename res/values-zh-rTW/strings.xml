@@ -139,7 +139,6 @@
     <string name="label_turn_off_suggestions">關閉</string>
     <string name="hide_app">隱藏應用程式</string>
     <string name="icon_shape_rounded_square">圓角正方形</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%2$s，%1$s</string>
     <string name="icon_shape_cylinder">圆筒</string>
     <string name="theme_title">主題</string>

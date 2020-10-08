@@ -85,52 +85,8 @@
     <!-- Section 4 -->
     <!-- Note: replaces hard-coded copy (“Home widget”). -->
     <string name="smartspace_preferences_in_settings_desc">תאריך וזמן, מקורות מידע</string>
-    <string name="smartspace_time">הצג זמן</string>
-    <string name="smartspace_date">הצג תאריך</string>
-    <string name="pref_smartspace_time_above">הצג שעון גדול</string>
-    <string name="pref_hide_statusbar_clock">הסתר את השעון בשורת המצב</string>
-    <string name="root_access_required">נדרשת גישת רוט.</string>
-    <string name="smartspace_time_24_h">השתמש בפורמט 24 שעות</string>
-    <string name="title_use_pill_qsb">הצג קיצור חיפוש גלולה</string>
-    <string name="pref_category_weather">אחר</string>
     <string name="pref_smartspace_widget_provider">מקור מזג האוויר</string>
     <string name="google_app">אפליקציית Google</string>
-    <string name="weather_provider_disabled">מבוטל</string>
-    <string name="weather_provider_pe">חווית פיקסל</string>
-    <string name="pref_weather_units">יחידת טמפרטורה</string>
-    <string name="units_metric">צלזיוס</string>
-    <string name="units_imperial">פרנהייט</string>
-    <string name="units_kelvin">קלווין</string>
-    <string name="units_rakine">רנקין</string>
-    <string name="units_newton">ניוטון</string>
-    <string name="units_delisle">דוליל</string>
-    <string name="units_reaumur">רימיור</string>
-    <string name="units_romer">רומר</string>
-    <string name="pref_smartspace_event_providers">מקורות מידע</string>
-    <string name="battery_status">מצב הסוללה</string>
-    <string name="event_provider_now_playing">כעת מנגן</string>
-    <string name="event_provider_unread_notifications">התראות</string>
-    <string name="personality_provider">ברכות</string>
-    <string-array name="greetings_morning">
-        <item>בוקר טוב!</item>
-        <item>שיהיה לך יום נפלא!</item>
-        <item>זהו יום יפה בחוץ!</item>
-    </string-array>
-    <string-array name="greetings_evening">
-        <item>מה קורה?</item>
-        <item>ערב טוב!</item>
-        <item>איך הלך היום שלך?</item>
-        <item>איך היה היום שלך?</item>
-    </string-array>
-    <string-array name="greetings_night">
-        <item>שינה טובה!</item>
-        <item>נתראה מחר!</item>
-        <item>לילה טוב!</item>
-        <item>אל תישאר ער יותר מדי מאוחר!</item>
-    </string-array>
-    <string name="battery_charging">טוען</string>
-    <string name="battery_full">טעון</string>
-    <string name="battery_low">סוללה חלשה</string>
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">פריסה, סגנון, מחוונים</string>
@@ -148,7 +104,6 @@
     <string name="search_pref_summary">פריסה, סגנון, מנוע חיפוש</string>
     <string name="pref_global_search_provider">מנוע חיפוש</string>
     <string name="google">אפליקציית Google</string>
-    <string name="weather_provider_oneplus_weather">מזג אוויר של OnePlus</string>
     <string name="searchbar_appearance_title">סגנון</string>
     <string name="pref_search_bar_radius">רדיוס פינות</string>
     <!-- Section 8 -->
@@ -175,17 +130,12 @@
     <!-- Section 10 -->
     <string name="backups">גיבוי ושחזור</string>
     <string name="backup_pref_summary">שמור את מסך הבית, שחזר גיבוי קיים</string>
-    <string name="new_backup">צור</string>
-    <string name="restore_backup">שחזר</string>
     <string name="homescreen">פריסת מסך הבית</string>
     <string name="custom">מותאם אישית</string>
     <!-- Section 11 -->
     <string name="about">אודות</string>
-    <string name="about_translate">תרגום</string>
     <string name="title_attribouter_rate">דירוג</string>
     <string name="title_attribouter_website">אתר</string>
-    <string name="about_role_family_member">בן משפחה</string>
-    <string name="about_our_team">הצוות</string>
     <string name="title_attribouter_licenses">ייחוס</string>
     <!-- Section 12 -->
     <string name="settings_button_text">הגדרות דף הבית</string>
@@ -193,8 +143,6 @@
     <string name="customize">התאמה אישית</string>
     <string name="advanced_settings">הגדרות נוספות</string>
     <string name="adaptive_icon">סמל מסתגל</string>
-    <string name="smartspace_setup_text">הקש כדי להגדיר</string>
-    <string name="lawnchair_settings">הגדרות Lawnchair</string>
     <string name="icon_pack">ערכת סמלים</string>
     <string name="home_widget">בקצרה</string>
     <string name="about_app_version">גרסה</string>
@@ -211,7 +159,6 @@
     <string name="show_debug_info_pref_title">הראה את שמות המרכיבים</string>
     <string name="debug_component_name">שם רכיב</string>
     <string name="debug_component_name_copied">הועתק ללוח.</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="dock_style_pref_title">סגנון Dock</string>
     <string name="dock_style_hidden">מוסתר</string>
     <string name="add_settings_shortcut_title">הוסף קיצור דרך למסך הבית</string>
@@ -227,7 +174,6 @@
     <string name="title_attribouter_license_limitations">מגבלות</string>
     <string name="title_attribouter_more_info">פרטים</string>
     <string name="title_attribouter_translators">מתרגמים</string>
-    <string name="about_our_family">בני משפחה</string>
     <string name="debug_crash_launcher">אלץ עצירה</string>
     <string name="action_last_task">הפעל את האפליקציה האחרונה שהייתה בשימוש</string>
     <string name="action_open_widgets">פתח מגירת ווידג\'טים</string>
@@ -235,16 +181,10 @@
     <string name="action_app_search">הפעל חיפוש אפליקציות</string>
     <string name="action_close_notifications">סגור את לוח ההתראות</string>
     <string name="action_open_app_with_target">פתח את \"%s\"</string>
-    <string name="action_open_app_select_app">בחר אפליקציה</string>
-    <string name="smartspace_widget_provider_not_found">השג את אפליקציית Google.</string>
-    <string name="pref_weather_city_title">עיר</string>
     <string name="default_city">תל אביב, ישראל</string>
-    <string name="pref_weather_api_key_title">מפתח API</string>
     <string name="error_no_browser">לא נמצא דפדפן.</string>
     <string name="icon_pack_external_picker">פתח בוחר סמלים חיצוני</string>
     <string name="week_day_format">%1$s, %2$s</string>
-    <string name="full_wday_month_day_no_year">EEEE, MMMM d</string>
-    <string name="weather_provider_testing">תיקון שגיאות</string>
     <string name="reset">איפוס</string>
     <string name="theme_default">ברירת מחדל</string>
     <string name="icon_pack_applied_toast">\"%s\" הוחל.</string>
@@ -255,12 +195,10 @@
     <string name="recent_task_option_force_stop">אלץ עצירה</string>
     <string name="drag_to_enable_packs">גרור למעלה כדי להפעיל</string>
     <string name="drag_to_disable_packs">גרור למטה כדי לבטל</string>
-    <string name="get_more_icon_packs">קבל עוד</string>
     <string name="enabled_icon_packs">הוחל</string>
     <string name="lawnchair_actions">פעולות</string>
     <string name="bridge_missing_title">קבל את Lawnfeed</string>
     <string name="bridge_missing_message">כדי להשתמש ב-Google Feed, עליך לקבל את Lawnfeed.</string>
-    <string name="smartspace_provider_bridge">Rootless Pixel Bridge</string>
     <string name="theme_dark">כהה</string>
     <string name="theme_dark_theme_mode">ערכת נושא כהה</string>
     <string name="theme_dark_dark_text">כהה עם טקסט כהה</string>
@@ -283,7 +221,6 @@
     <string name="font_weight_bold">מודגש</string>
     <string name="font_weight_extra_bold">מודגש מאוד</string>
     <string name="font_weight_extra_black">שחור</string>
-    <string name="owm_get_your_own_key">קבל מפתח API ב-api.openweathermap.org.</string>
     <string name="pref_fonts_global_font">גופן גלובלי</string>
     <string name="pref_fonts_change_global_font">שנה</string>
     <string name="pref_fonts_home_icons">תוויות</string>
@@ -300,14 +237,6 @@
     <string name="import_as_adaptive">ייבא סמל מסתגל</string>
     <string name="permission_iplocate">מיקום משוער</string>
     <string name="permission_iplocate_twilight_explanation">האם לאפשר הרשאה למיקום המשוער שלך? הדבר יאפשר חישוב מדויק יותר של אור יום.</string>
-    <string name="event_provider_missing_notification_access">כדי להשתמש ב-<xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, אפשר התראות מ- <xliff:g example="My App" id="name">“%2$s”.</xliff:g></string>
-    <string name="event_provider_missing_notification_dots">כדי להשתמש ב-<xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, הפעל נקודות התראה.</string>
-    <string name="zen_mode_enabled">מצב \'נא לא להפריע\' מופעל.</string>
-    <string name="onbording_settings_title">הגדר את %s</string>
-    <string name="onbording_settings_summary">הקש והחזק על מסך הבית.</string>
-    <string name="weather_icons_default">ברירת מחדל</string>
-    <string name="pref_weather_icon_pack">ערכת סמלים למזג האוויר</string>
-    <string name="weather_icon_packs_not_supported">לא נתמך על ידי ספק מזג האוויר שלך.</string>
     <string name="customnavbar_install">הקש כדי להתקין את Custom Navigation Bar.</string>
     <string name="customnavbar_back_hiding_desc">הסתר את לחצן החזרה כאשר אינו נצרך.</string>
     <string name="icon_shape_top_left">שמאל למעלה</string>

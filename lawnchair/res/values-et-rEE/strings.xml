@@ -85,52 +85,8 @@
     <!-- Section 4 -->
     <!-- Note: replaces hard-coded copy (“Home widget”). -->
     <string name="smartspace_preferences_in_settings_desc">Kuupäeva ja kellaaeg, andmete allikad</string>
-    <string name="smartspace_time">Näita aega</string>
-    <string name="smartspace_date">Näita kuupäeva</string>
-    <string name="pref_smartspace_time_above">Näita suurt kella</string>
-    <string name="pref_hide_statusbar_clock">Peida kell olekuribal</string>
-    <string name="root_access_required">Root juurdepääs on vajalik.</string>
-    <string name="smartspace_time_24_h">24-tunnise vormingu kasutamine</string>
-    <string name="title_use_pill_qsb">Kuva tahvelarvuti otsinguriba</string>
-    <string name="pref_category_weather">Muu</string>
     <string name="pref_smartspace_widget_provider">Ilma allikas</string>
     <string name="google_app">Google rakendus</string>
-    <string name="weather_provider_disabled">Keelatud</string>
-    <string name="weather_provider_pe">Pixeli kogemus</string>
-    <string name="pref_weather_units">Temperatuuriühik</string>
-    <string name="units_metric">Celsius</string>
-    <string name="units_imperial">Fahrenheit</string>
-    <string name="units_kelvin">Kelvin</string>
-    <string name="units_rakine">Rankine</string>
-    <string name="units_newton">Newton</string>
-    <string name="units_delisle">Delisle</string>
-    <string name="units_reaumur">Réaumur</string>
-    <string name="units_romer">Rømer</string>
-    <string name="pref_smartspace_event_providers">Andmeallikas</string>
-    <string name="battery_status">Aku olek</string>
-    <string name="event_provider_now_playing">Hetkel mängib</string>
-    <string name="event_provider_unread_notifications">Teavitused</string>
-    <string name="personality_provider">Tervitus</string>
-    <string-array name="greetings_morning">
-        <item>Tere hommikust!</item>
-        <item>Ilusat päeva!</item>
-        <item>Väljas on ilus ilm!</item>
-    </string-array>
-    <string-array name="greetings_evening">
-        <item>Mis teoksil?</item>
-        <item>Head õhtut!</item>
-        <item>Kuidas sinu päeva läks?</item>
-        <item>Head ööd!</item>
-    </string-array>
-    <string-array name="greetings_night">
-        <item>Head und!</item>
-        <item>Näeme homme!</item>
-        <item>Head ööd!</item>
-        <item>Ära ole üleval liiga kaua!</item>
-    </string-array>
-    <string name="battery_charging">Laadimine</string>
-    <string name="battery_full">Laetud</string>
-    <string name="battery_low">Akutase on madal</string>
     <!-- Section 5 -->
     <string name="dock_pref_title">Dokk</string>
     <string name="dock_pref_summary">Paigutus, stiil, indikaatorid</string>
@@ -148,7 +104,6 @@
     <string name="search_pref_summary">Paigutus, stiil, otsingumootor</string>
     <string name="pref_global_search_provider">Otsingumootor</string>
     <string name="google">Google rakendus</string>
-    <string name="weather_provider_oneplus_weather">OnePlus ilm</string>
     <string name="searchbar_appearance_title">Stiil</string>
     <string name="pref_search_bar_radius">Nurga raadius</string>
     <!-- Section 8 -->
@@ -175,17 +130,12 @@
     <!-- Section 10 -->
     <string name="backups">Varundamine ja taastamine</string>
     <string name="backup_pref_summary">Salvesta avakuva, taasta varukoopiad</string>
-    <string name="new_backup">Loo</string>
-    <string name="restore_backup">Taasta</string>
     <string name="homescreen">Töölaua paigutus</string>
     <string name="custom">Kohandatud</string>
     <!-- Section 11 -->
     <string name="about">Teave</string>
-    <string name="about_translate">Tõlgi</string>
     <string name="title_attribouter_rate">Hinda</string>
     <string name="title_attribouter_website">Veebileht</string>
-    <string name="about_role_family_member">Pereliige</string>
-    <string name="about_our_team">Meeskond</string>
     <string name="title_attribouter_licenses">Panus</string>
     <!-- Section 12 -->
     <string name="settings_button_text">Avalehe seaded</string>
@@ -193,8 +143,6 @@
     <string name="customize">Muuda</string>
     <string name="advanced_settings">Rohkem seadeid</string>
     <string name="adaptive_icon">Adaptiivsed ikoonid</string>
-    <string name="smartspace_setup_text">Puudutage seadistamiseks</string>
-    <string name="lawnchair_settings">Lawnchairi seaded</string>
     <string name="icon_pack">Ikoonipakk</string>
     <string name="home_widget">Peale vaadates</string>
     <string name="about_app_version">Versioon</string>
@@ -211,7 +159,6 @@
     <string name="show_debug_info_pref_title">Näita komponendi nimesid</string>
     <string name="debug_component_name">Komponendi nimi</string>
     <string name="debug_component_name_copied">Kopeeritud lõikelauale.</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="dock_style_pref_title">Doki stiil</string>
     <string name="dock_style_hidden">Peidetud</string>
     <string name="add_settings_shortcut_title">Lisage töölauale otsetee</string>
@@ -227,7 +174,6 @@
     <string name="title_attribouter_license_limitations">Piirangud</string>
     <string name="title_attribouter_more_info">Üksikasjad</string>
     <string name="title_attribouter_translators">Tõlkijad</string>
-    <string name="about_our_family">Pereliikmed</string>
     <string name="debug_crash_launcher">Peata jõuga</string>
     <string name="action_last_task">Käivita viimati kasutatud rakendus</string>
     <string name="action_open_widgets">Ava vidinate sahtel</string>
@@ -235,16 +181,10 @@
     <string name="action_app_search">Käivita otsingu rakendus</string>
     <string name="action_close_notifications">Sulge teavituste paneel</string>
     <string name="action_open_app_with_target">Ava “%s”</string>
-    <string name="action_open_app_select_app">Vali rakendus</string>
-    <string name="smartspace_widget_provider_not_found">Lae alla Google rakendus.</string>
-    <string name="pref_weather_city_title">Linn</string>
     <string name="default_city">Lucerne, CH</string>
-    <string name="pref_weather_api_key_title">API võti</string>
     <string name="error_no_browser">Veebisirvijaid ei leitud.</string>
     <string name="icon_pack_external_picker">Ava väline valija</string>
     <string name="week_day_format">%1$s, %2$s</string>
-    <string name="full_wday_month_day_no_year">EEEE d. MMMM</string>
-    <string name="weather_provider_testing">Silumine</string>
     <string name="reset">Lähtesta</string>
     <string name="theme_default">Vaikimisi</string>
     <string name="icon_pack_applied_toast">“%s” rakendatud.</string>
@@ -255,12 +195,10 @@
     <string name="recent_task_option_force_stop">Peata jõuga</string>
     <string name="drag_to_enable_packs">Lubamiseks lohista üles</string>
     <string name="drag_to_disable_packs">Keelamiseks lohista alla</string>
-    <string name="get_more_icon_packs">Hangi rohkem</string>
     <string name="enabled_icon_packs">Rakendatud</string>
     <string name="lawnchair_actions">Tegevused</string>
     <string name="bridge_missing_title">Hangi Lawnfeed</string>
     <string name="bridge_missing_message">Google Feed\'i kasutamiseks installige Lawnfeed.</string>
-    <string name="smartspace_provider_bridge">Rootless Pixel Bridge</string>
     <string name="theme_dark">Tume</string>
     <string name="theme_dark_theme_mode">Tume teema</string>
     <string name="theme_dark_dark_text">Tume tumeda tekstiga</string>
@@ -285,7 +223,6 @@
     <string name="font_weight_bold">Paks kiri</string>
     <string name="font_weight_extra_bold">Eriti paks kiri</string>
     <string name="font_weight_extra_black">Must</string>
-    <string name="owm_get_your_own_key">Hankige API-võti saidilt api.openweathermap.org.</string>
     <string name="pref_fonts_global_font">Üldine font</string>
     <string name="pref_fonts_change_global_font">Muuda</string>
     <string name="pref_fonts_home_icons">Sildid</string>
@@ -302,14 +239,6 @@
     <string name="import_as_adaptive">Impordi adaptiivne ikoon</string>
     <string name="permission_iplocate">Umbmäärane asukoht</string>
     <string name="permission_iplocate_twilight_explanation">Kas lubada juurdepääsu asukohale? See võimaldab päevavalgustunde täpsemalt lugeda.</string>
-    <string name="event_provider_missing_notification_access">Funktsiooni <xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, kasutamiseks lubage teatised saidilt <xliff:g example="My App" id="name">“%2$s”.</xliff:g></string>
-    <string name="event_provider_missing_notification_dots">Funktsiooni <xliff:g example="My Provider" id="providerName">“%1$s”</xliff:g>, kasutamiseks lubage teavituspunktid.</string>
-    <string name="zen_mode_enabled">Mitte segada on sisse lülitatud.</string>
-    <string name="onbording_settings_title">Seadista %s</string>
-    <string name="onbording_settings_summary">Vajutage &amp; hoidke avakuval.</string>
-    <string name="weather_icons_default">Vaikimisi</string>
-    <string name="pref_weather_icon_pack">Ilmateate ikoonid</string>
-    <string name="weather_icon_packs_not_supported">Teie ilmateenuse pakkuja ei toeta.</string>
     <string name="customnavbar_install">Klõpsake kohandatud navigeerimisriba installimiseks.</string>
     <string name="customnavbar_back_hiding_desc">Peida tagasi nupp, kui seda pole vaja.</string>
     <string name="icon_shape_top_left">Üleval vasakul</string>

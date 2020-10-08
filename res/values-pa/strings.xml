@@ -140,7 +140,6 @@
     <string name="msg_disable_suggestions_prompt">"ਸੁਝਾਅ ਤੁਹਾਡੀ ਐਪ ਸੂਚੀ ਦੇ ਸਿਖਰ 'ਤੇ ਨਹੀਂ ਵਿਖਾਈ ਦੇਣਗੇ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਬਣਾਉਣ ਲਈ ਵਰਤੇ ਗਏ ਵਰਤੋਂ  ਡਾਟੇ  ਨੂੰ ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="label_turn_off_suggestions">ਬੰਦ ਕਰੋ</string>
     <string name="icon_shape_rounded_square">ਗੋਲ ਕਿਨਾਰਿਆਂ ਵਾਲਾ ਵਰਗ</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="icon_shape_cylinder">ਸਿਲੰਡਰ</string>
     <string name="theme_title">ਥੀਮ</string>
     <string name="theme_default">ਡਿਫੌਲਟ</string>

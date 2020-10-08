@@ -85,53 +85,8 @@
     <!-- Section 4 -->
     <!-- Note: replaces hard-coded copy (“Home widget”). -->
     <string name="smartspace_preferences_in_settings_desc">Datum &amp; Tid, Datakälla</string>
-    <string name="smartspace_time">Visa tid</string>
-    <string name="smartspace_date">Visa datum</string>
-    <string name="pref_smartspace_time_above">Visa stor klocka</string>
-    <string name="pref_hide_statusbar_clock">Göm klockan i statusfältet</string>
-    <string name="root_access_required">Root-åtkomst krävs.</string>
-    <string name="smartspace_time_24_h">Använd 24-timmarsformat</string>
-    <string name="title_use_pill_qsb">Visa sökgenväg</string>
-    <string name="pref_category_weather">Övrigt</string>
     <string name="pref_smartspace_widget_provider">Väderleverantör</string>
     <string name="google_app">Google-appen</string>
-    <string name="weather_provider_disabled">Avaktiverad</string>
-    <string name="weather_provider_owm">OpenWeatherMap</string>
-    <string name="weather_provider_pe">Pixel Experience</string>
-    <string name="pref_weather_units">Temperaturenhet</string>
-    <string name="units_metric">Celsius</string>
-    <string name="units_imperial">Fahrenheit</string>
-    <string name="units_kelvin">Kelvin</string>
-    <string name="units_rakine">Rankine</string>
-    <string name="units_newton">Newton</string>
-    <string name="units_delisle">Delisle</string>
-    <string name="units_reaumur">Réaumur</string>
-    <string name="units_romer">Rømer</string>
-    <string name="pref_smartspace_event_providers">Datakällor</string>
-    <string name="battery_status">Batteristatus</string>
-    <string name="event_provider_now_playing">Spelas nu</string>
-    <string name="event_provider_unread_notifications">Aviseringar</string>
-    <string name="personality_provider">Hälsningsfraser</string>
-    <string-array name="greetings_morning">
-        <item>God morgon!</item>
-        <item>Ha en bra dag!</item>
-        <item>Det är en fin dag utomhus!</item>
-    </string-array>
-    <string-array name="greetings_evening">
-        <item>Hur är läget?</item>
-        <item>God kväll!</item>
-        <item>Hur var din dag?</item>
-        <item>Godnatt!</item>
-    </string-array>
-    <string-array name="greetings_night">
-        <item>Sov gott!</item>
-        <item>Vi ses imorgon!</item>
-        <item>God natt!</item>
-        <item>Var inte uppe för sent!</item>
-    </string-array>
-    <string name="battery_charging">Laddas</string>
-    <string name="battery_full">Laddat</string>
-    <string name="battery_low">Låg batterinivå</string>
     <!-- Section 5 -->
     <string name="dock_pref_title">Dock</string>
     <string name="dock_pref_summary">Layout, stil, indikatorer</string>
@@ -149,7 +104,6 @@
     <string name="search_pref_summary">Layout, Stil, Sökmotor</string>
     <string name="pref_global_search_provider">Sökmotor</string>
     <string name="google">Google-appen</string>
-    <string name="weather_provider_oneplus_weather">OnePlus Väder</string>
     <string name="searchbar_appearance_title">Stil</string>
     <string name="pref_search_bar_radius">Hörnradie</string>
     <!-- Section 8 -->
@@ -176,25 +130,18 @@
     <!-- Section 10 -->
     <string name="backups">Säkerhetskopiering &amp; återställning</string>
     <string name="backup_pref_summary">Spara hemskärm, återställ säkerhetskopior</string>
-    <string name="new_backup">Skapa</string>
-    <string name="restore_backup">Återställ</string>
     <string name="homescreen">Hemskärmslayout</string>
     <string name="custom">Anpassad</string>
     <!-- Section 11 -->
     <string name="about">Om</string>
-    <string name="about_translate">Översätt</string>
     <string name="title_attribouter_rate">Betygsätt</string>
     <string name="title_attribouter_website">Hemsida</string>
-    <string name="about_role_family_member">Familjemedlem</string>
-    <string name="about_our_team">Teamet</string>
     <!-- Section 12 -->
     <string name="settings_button_text">Hemskärmsinställningar</string>
     <string name="wallpaper_button_text">Bakgrundsbild</string>
     <string name="customize">Anpassa</string>
     <string name="advanced_settings">Fler inställningar</string>
     <string name="adaptive_icon">Adaptiv ikon</string>
-    <string name="smartspace_setup_text">Tryck för att konfigurera</string>
-    <string name="lawnchair_settings">Lawnchair-inställningar</string>
     <string name="icon_pack">Ikonpaket</string>
     <string name="home_widget">At a Glance</string>
     <string name="about_app_version">Version</string>
@@ -203,7 +150,6 @@
     <string name="label_turn_off_suggestions">Inaktivera</string>
     <string name="icon_shape_rounded_square">Avrundad kvadrat</string>
     <string name="loading">Laddar…</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="dock_style_hidden">Dold</string>
     <string name="pref_category_layout">Layout</string>
     <string name="title_attribouter_email">E-post</string>
@@ -214,18 +160,12 @@
     <string name="title_attribouter_license_limitations">Begränsningar</string>
     <string name="title_attribouter_more_info">Information</string>
     <string name="title_attribouter_translators">Översättare</string>
-    <string name="about_our_family">Familjemedlemmar</string>
     <string name="action_open_widgets">Öppna widgetlistan</string>
     <string name="action_close_notifications">Stäng aviseringspanel</string>
-    <string name="action_open_app_select_app">Välj app</string>
-    <string name="pref_weather_city_title">Stad</string>
     <string name="default_city">Lucerne, CH</string>
-    <string name="pref_weather_api_key_title">API-nyckel</string>
     <string name="error_no_browser">Hittade ingen webbläsare.</string>
     <string name="icon_pack_external_picker">Öppna extern väljare</string>
     <string name="week_day_format">%1$s, %2$s</string>
-    <string name="full_wday_month_day_no_year">EEEE d MMMM</string>
-    <string name="weather_provider_testing">Felsök</string>
     <string name="reset">Återställ</string>
     <string name="theme_default">Standard</string>
     <string name="dt2s_admin_hint">Administratörsbehörighet krävs för att låsa skärmen med dubbeltryck.</string>
@@ -234,10 +174,8 @@
     <string name="automatic_short">Auto</string>
     <string name="drag_to_enable_packs">Dra uppåt för att aktivera</string>
     <string name="drag_to_disable_packs">Dra nedåt för att inaktivera</string>
-    <string name="get_more_icon_packs">Skaffa fler</string>
     <string name="enabled_icon_packs">Tillämpad</string>
     <string name="lawnchair_actions">Åtgärder</string>
-    <string name="smartspace_provider_bridge">Rootless Pixel Bridge</string>
     <string name="theme_dark">Mörkt</string>
     <string name="theme_dark_theme_mode">Mörkt tema</string>
     <string name="theme_dark_dark_text">Mörkt med mörk text</string>
@@ -258,9 +196,6 @@
     <string name="pref_fonts_change_global_font">Ändra</string>
     <string name="pref_fonts_home_smartspace">At a Glance</string>
     <string name="pref_fonts_find_fonts">Sök</string>
-    <string name="zen_mode_enabled">Stör ej är aktiverat.</string>
-    <string name="onbording_settings_title">Ställ in %s</string>
-    <string name="weather_icons_default">Standard</string>
     <string name="icon_shape_top_left">Överst till vänster</string>
     <string name="icon_shape_top_right">Överst till höger</string>
     <string name="icon_shape_bottom_left">Nederst till vänster</string>

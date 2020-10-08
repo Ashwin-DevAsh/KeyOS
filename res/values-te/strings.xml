@@ -140,7 +140,6 @@
     <string name="msg_disable_suggestions_prompt">సూచనలు మీ అనువర్తనాల జాబితా పైభాగంలో కనిపించవు మరియు వాటిని సృష్టించడానికి వినియోగించిన వినియోగ డేటా శాశ్వతంగా తొలగించబడుతుంది.</string>
     <string name="label_turn_off_suggestions">ఆఫ్ చేయి</string>
     <string name="icon_shape_rounded_square">వృత్తాకార చతురస్రం</string>
-    <string name="smartspace_hours_mins">%1$s:%2$s</string>
     <string name="icon_shape_cylinder">సిలిండర్</string>
     <string name="theme_title">థీమ్</string>
     <string name="theme_default">డిఫాల్ట్</string>

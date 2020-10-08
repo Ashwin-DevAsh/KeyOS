@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">"Sugjerimet nuk shfaqen në krye të listës së aplikacioneve dhe të dhënat e përdorimit që përdoren për t'i krijuar ato do të fshihen në mënyrë të përhershme."</string>
     <string name="label_turn_off_suggestions">ÇAKTIVIZO</string>
     <string name="icon_shape_rounded_square">Katror i rrumbullakosur</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="icon_shape_cylinder">Cilindër</string>
     <string name="theme_title">Temë</string>
     <string name="theme_default">Default</string>

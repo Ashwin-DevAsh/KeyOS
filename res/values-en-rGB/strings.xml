@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">"Suggestions won't appear at the top of your apps list and the usage data used to create them will be permanently erased."</string>
     <string name="label_turn_off_suggestions">TURN OFF</string>
     <string name="icon_shape_rounded_square">Rounded square</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Cylinder</string>
     <string name="theme_title">Theme</string>

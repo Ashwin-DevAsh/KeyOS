@@ -138,7 +138,6 @@
     <string name="msg_disable_suggestions_prompt">"Les suggestions ne s'afficheront pas en haut de votre liste d'applications, et les données d'utilisation employées pour les créer seront supprimées définitivement."</string>
     <string name="label_turn_off_suggestions">DÉSACTIVER</string>
     <string name="icon_shape_rounded_square">Carré aux coins arrondis</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Cylindre</string>
     <string name="theme_title">Thème</string>
