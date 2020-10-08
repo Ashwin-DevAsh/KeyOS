@@ -99,7 +99,6 @@ import com.android.launcher3.util.ContentWriter;
 import com.android.launcher3.util.ContentWriter.CommitParams;
 import com.android.launcher3.util.SettingsObserver;
 import com.android.launcher3.views.ButtonPreference;
-import com.google.android.apps.nexuslauncher.reflection.ReflectionClient;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Set;
@@ -776,7 +775,6 @@ public class SettingsActivity extends SettingsBaseActivity implements
             switch (preference.getKey()) {
                 case SHOW_PREDICTIONS_PREF:
                     if ((boolean) newValue) {
-                        ReflectionClient.getInstance(getContext()).setEnabled(true);
                         return true;
                     }
                     SuggestionConfirmationFragment confirmationFragment = new SuggestionConfirmationFragment();
@@ -886,7 +884,6 @@ public class SettingsActivity extends SettingsBaseActivity implements
                     ((TwoStatePreference) preference).setChecked(false);
                 }
             }
-            ReflectionClient.getInstance(getContext()).setEnabled(false);
         }
 
         public Dialog onCreateDialog(final Bundle bundle) {

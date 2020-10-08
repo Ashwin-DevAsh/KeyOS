@@ -11,7 +11,6 @@ import ch.deletescape.lawnchair.settings.ui.SettingsActivity;
 import com.android.launcher3.*;
 import com.android.launcher3.uioverrides.WallpaperColorInfo;
 import com.android.launcher3.util.Themes;
-import com.google.android.apps.nexuslauncher.reflection.ReflectionClient;
 import com.google.android.apps.nexuslauncher.utils.ActionIntentFilter;
 import com.google.android.libraries.gsa.launcherclient.LauncherClient;
 import com.google.android.libraries.gsa.launcherclient.LauncherClientService;
