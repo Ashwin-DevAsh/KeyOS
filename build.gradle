@@ -109,17 +109,17 @@ android {
     flavorDimensions "default", "custom"
 
     productFlavors {
-        aosp {
-            dimension "default"
-            applicationId 'ch.deletescape.lawnchair'
-            testApplicationId 'com.android.launcher3.tests'
-        }
-
-        l3go {
-            dimension "default"
-            applicationId 'com.android.launcher3'
-            testApplicationId 'com.android.launcher3.tests'
-        }
+//        aosp {
+//            dimension "default"
+//            applicationId 'ch.deletescape.lawnchair'
+//            testApplicationId 'com.android.launcher3.tests'
+//        }
+//
+//        l3go {
+//            dimension "default"
+//            applicationId 'com.android.launcher3'
+//            testApplicationId 'com.android.launcher3.tests'
+//        }
 
         quickstep {
             dimension "default"
@@ -177,15 +177,15 @@ android {
             manifest.srcFile "tests/AndroidManifest.xml"
         }
 
-        aosp {
-            java.srcDirs = ['src_flags', "src_ui_overrides"]
-        }
-
-        l3go {
-            res.srcDirs = ['go/res']
-            java.srcDirs = ['go/src_flags', "src_ui_overrides"]
-            manifest.srcFile "go/AndroidManifest.xml"
-        }
+//        aosp {
+//            java.srcDirs = ['src_flags', "src_ui_overrides"]
+//        }
+//
+//        l3go {
+//            res.srcDirs = ['go/res']
+//            java.srcDirs = ['go/src_flags', "src_ui_overrides"]
+//            manifest.srcFile "go/AndroidManifest.xml"
+//        }
 
         quickstep {
             res.srcDirs = ['quickstep/res']

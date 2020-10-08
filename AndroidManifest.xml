@@ -61,7 +61,8 @@
         android:largeHeap="@bool/config_largeHeap"
         android:restoreAnyVersion="true"
         android:supportsRtl="true"
-        tools:replace="android:icon,android:label" >
+        tools:replace="android:icon,android:label"
+        tools:ignore="ManifestResource">
 
         <!--
         Main launcher activity. When extending only change the name, and keep all the
