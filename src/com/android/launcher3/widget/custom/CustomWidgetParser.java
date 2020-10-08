@@ -96,27 +96,7 @@ public class CustomWidgetParser {
         Parcel parcel = Parcel.obtain();
         providers.get(0).writeToParcel(parcel, 0);
 
-        try (XmlResourceParser parser = context.getResources().getXml(R.xml.custom_widgets)) {
-            final int depth = parser.getDepth();
-            int type;
 
-            while (((type = parser.next()) != XmlPullParser.END_TAG ||
-                    parser.getDepth() > depth) && type != XmlPullParser.END_DOCUMENT) {
-                if ((type == XmlPullParser.START_TAG) && "widget".equals(parser.getName())) {
-                    TypedArray a = context.obtainStyledAttributes(
-                            Xml.asAttributeSet(parser), R.styleable.CustomAppWidgetProviderInfo);
-
-                    parcel.setDataPosition(0);
-                    CustomAppWidgetProviderInfo info = newInfo(a, parcel, context);
-                    widgets.add(info);
-                    a.recycle();
-
-                    idMap.put(info.providerId, info.provider);
-                }
-            }
-        } catch (IOException | XmlPullParserException e) {
-            throw new RuntimeException(e);
-        }
         parcel.recycle();
         sCustomWidgets = widgets;
         sWidgetsIdMap = idMap;

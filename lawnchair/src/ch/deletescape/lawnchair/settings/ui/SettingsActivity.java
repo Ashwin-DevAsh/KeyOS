@@ -668,15 +668,6 @@ public class SettingsActivity extends SettingsBaseActivity implements
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-            } else if (getContent() == R.xml.lawnchair_smartspace_preferences) {
-                findPreference("download_oneplus_weather").setOnPreferenceClickListener(
-                        new OnPreferenceClickListener() {
-                            @Override
-                            public boolean onPreferenceClick(Preference preference) {
-                                Utilities.openWebPage(getContext(), "https://www.apkmirror.com/apk/oneplus-ltd/oneplus-weather/");
-                                return true;
-                            }
-                        });
             }
         }
 

@@ -35,7 +35,6 @@
         android:summary="@string/smartspace_preferences_in_settings_desc"
         android:title="@string/home_widget"
         android:key="smartspace"
-        app:content="@xml/lawnchair_smartspace_preferences"
         app:hasPreview="true"
         android:layout="@layout/home_preference"/>
 

@@ -497,11 +497,8 @@ public class Workspace extends PagedView<PageIndicatorDots>
     }
 
     private int getEmbeddedQsbLayout() {
-        if (mPillQsb) {
             return R.layout.qsb_container;
-        } else {
-            return R.layout.search_container_workspace;
-        }
+
     }
 
     /**
