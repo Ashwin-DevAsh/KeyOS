@@ -30,22 +30,17 @@ import ch.deletescape.lawnchair.blur.BlurWallpaperProvider
 import ch.deletescape.lawnchair.flowerpot.Flowerpot
 
 import ch.deletescape.lawnchair.iconpack.IconPackManager
-import ch.deletescape.lawnchair.smartspace.LawnchairSmartspaceController
 import ch.deletescape.lawnchair.theme.ThemeManager
 import ch.deletescape.lawnchair.util.extensions.d
 import com.android.launcher3.BuildConfig
-import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import com.android.quickstep.RecentsActivity
 import com.squareup.leakcanary.LeakCanary
-import ninja.sesame.lib.bridge.v1.SesameFrontend
-import ninja.sesame.lib.bridge.v1.SesameInitOnComplete
-import ninja.sesame.lib.bridge.v1_1.LookFeelKeys
+
 
 class LawnchairApp : Application() {
 
     val activityHandler = ActivityHandler()
-    val smartspace by lazy { LawnchairSmartspaceController(this) }
     val recentsEnabled by lazy { checkRecentsComponent() }
     var accessibilityService: LawnchairAccessibilityService? = null
 

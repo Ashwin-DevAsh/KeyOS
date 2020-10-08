@@ -29,7 +29,6 @@ import ch.deletescape.lawnchair.preferences.DockStyle
 import ch.deletescape.lawnchair.settings.GridSize
 import ch.deletescape.lawnchair.settings.GridSize2D
 import ch.deletescape.lawnchair.settings.ui.SettingsActivity
-import ch.deletescape.lawnchair.smartspace.*
 import ch.deletescape.lawnchair.theme.ThemeManager
 import ch.deletescape.lawnchair.util.Temperature
 import com.android.launcher3.*
@@ -78,8 +77,6 @@ class LawnchairPreferences(val context: Context) : SharedPreferences.OnSharedPre
     private val refreshGrid = { refreshGrid() }
     private val updateBlur = { updateBlur() }
     private val resetAllApps = { onChangeCallback?.resetAllApps() ?: Unit }
-    private val updateSmartspace = { updateSmartspace() }
-    private val updateWeatherData = { onChangeCallback?.updateWeatherData() ?: Unit }
     private val reloadIcons = { reloadIcons() }
     private val reloadIconPacks = { IconPackManager.getInstance(context).packList.reloadPacks() }
     private val reloadDockStyle = {
@@ -90,9 +87,6 @@ class LawnchairPreferences(val context: Context) : SharedPreferences.OnSharedPre
     private val lawnchairConfig = LawnchairConfig.getInstance(context)
 
     var restoreSuccess by BooleanPref("pref_restoreSuccess", false)
-    var configVersion by IntPref(VERSION_KEY, if (restoreSuccess) 0 else CURRENT_VERSION)
-    // Show a short onboarding "welcome to your new home"
-    var migratedFrom1 by BooleanPref("pref_legacyUpgrade", false)
 
     // Blur
     var enableBlur by BooleanPref("pref_enableBlur", true, updateBlur)
@@ -138,23 +132,11 @@ class LawnchairPreferences(val context: Context) : SharedPreferences.OnSharedPre
     val smartspaceTimeAbove by BooleanPref("pref_smartspace_time_above", true, refreshGrid)
     val smartspaceTime24H by BooleanPref("pref_smartspace_time_24_h", false, refreshGrid)
     val smartspaceDate by BooleanPref("pref_smartspace_date", true, refreshGrid)
-    var smartspaceWidgetId by IntPref("smartspace_widget_id", -1, doNothing)
-    var weatherProvider by StringPref("pref_smartspace_widget_provider",
-            SmartspaceDataWidget::class.java.name, ::updateSmartspaceProvider)
-    var eventProvider by StringPref("pref_smartspace_event_provider",
-            SmartspaceDataWidget::class.java.name, ::updateSmartspaceProvider)
-    var eventProviders = StringListPref("pref_smartspace_event_providers",
-            ::updateSmartspaceProvider, listOf(eventProvider,
-                                               NotificationUnreadProvider::class.java.name,
-                                               NowPlayingProvider::class.java.name,
-                                               BatteryStatusProvider::class.java.name,
-                                               PersonalityProvider::class.java.name))
+
     var weatherApiKey by StringPref("pref_weatherApiKey", context.getString(R.string.default_owm_key))
     var weatherCity by StringPref("pref_weather_city", context.getString(R.string.default_city))
-    val weatherUnit by StringBasedPref("pref_weather_units", Temperature.Unit.Celsius, ::updateSmartspaceProvider,
-        Temperature.Companion::unitFromString, Temperature.Companion::unitToString) { }
+
     var usePillQsb by BooleanPref("pref_use_pill_qsb", false, recreate)
-    var weatherIconPack by StringPref("pref_weatherIcons", "", updateWeatherData)
 
     // Dock
     val dockStyles = DockStyle.StyleManager(this, reloadDockStyle, resetAllApps)
@@ -294,13 +276,6 @@ class LawnchairPreferences(val context: Context) : SharedPreferences.OnSharedPre
         onChangeCallback?.updateBlur()
     }
 
-    private fun updateSmartspaceProvider() {
-        onChangeCallback?.updateSmartspaceProvider()
-    }
-
-    private fun updateSmartspace() {
-        onChangeCallback?.updateSmartspace()
-    }
 
     fun reloadIcons() {
         LauncherAppState.getInstance(context).reloadIconCache()

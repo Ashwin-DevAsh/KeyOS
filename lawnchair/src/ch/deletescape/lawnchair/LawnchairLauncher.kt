@@ -287,21 +287,9 @@ open class LawnchairLauncher : NexusLauncherActivity(),
                         applyAccent()
                     }
             }
-            if (Utilities.shouldRequestIMEIPermission() && ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_PHONE_STATE)) {
-                AlertDialog.Builder(this)
-                    .setMessage("因未授予电话权限、无法获取IMEI，将使用Android ID作为设备ID，激活状态在刷机后会失效\n" + "点击“确定”授予电话权限")
-                    .setPositiveButton(android.R.string.ok) { _, _ -> Utilities.requestNeededPermission(this@LawnchairLauncher) }
-                    .setCancelable(false)
-                    .create().apply {
-                        show()
-                        applyAccent()
-                    }
-            }
             if (Utilities.hasStoragePermission(this)) {
                 BlurWallpaperProvider.getInstance(this).updateAsync()
             }
-        } else if(requestCode == REQUEST_PERMISSION_LOCATION_ACCESS) {
-            lawnchairApp.smartspace.updateWeatherData()
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }

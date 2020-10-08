@@ -82,10 +82,7 @@ import ch.deletescape.lawnchair.gestures.ui.GesturePreference;
 import ch.deletescape.lawnchair.gestures.ui.SelectGestureHandlerFragment;
 import ch.deletescape.lawnchair.iconpack.IconPackManager;
 import ch.deletescape.lawnchair.preferences.ResumablePreference;
-import ch.deletescape.lawnchair.preferences.SmartspaceEventProvidersFragment;
-import ch.deletescape.lawnchair.preferences.SmartspaceEventProvidersPreference;
 import ch.deletescape.lawnchair.settings.ui.search.SettingsSearchActivity;
-import ch.deletescape.lawnchair.smartspace.OnboardingProvider;
 import ch.deletescape.lawnchair.theme.ThemeOverride;
 import ch.deletescape.lawnchair.theme.ThemeOverride.ThemeSet;
 import ch.deletescape.lawnchair.views.SpringRecyclerView;
@@ -186,7 +183,6 @@ public class SettingsActivity extends SettingsBaseActivity implements
             overrideOpenAnim();
         }
 
-        Utilities.getDevicePrefs(this).edit().putBoolean(OnboardingProvider.PREF_HAS_OPENED_SETTINGS, true).apply();
     }
 
     @Override
@@ -659,8 +655,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
             } else if (getContent() == R.xml.lawnchair_dev_options_preference) {
                 findPreference("kill").setOnPreferenceClickListener(this);
                 findPreference("addSettingsShortcut").setOnPreferenceClickListener(this);
-                findPreference("currentWeatherProvider").setSummary(
-                        Utilities.getLawnchairPrefs(mContext).getWeatherProvider());
+
                 findPreference("appInfo").setOnPreferenceClickListener(this);
             } else if (getContent() == R.xml.lawnchair_about_preferences) {
                 findPreference("play_store").setOnPreferenceClickListener(this);
@@ -750,10 +745,6 @@ public class SettingsActivity extends SettingsBaseActivity implements
             } else if (preference instanceof AbstractMultiSelectListPreference) {
                 f = ThemedMultiSelectListPreferenceDialogFragmentCompat.Companion
                         .newInstance(preference.getKey());
-            } else if (preference instanceof SmartspaceEventProvidersPreference) {
-                f = SmartspaceEventProvidersFragment.Companion.newInstance(preference.getKey());
-            } else if (preference instanceof WeatherIconPackPreference) {
-                f = WeatherIconPackDialogFragment.Companion.newInstance();
             } else {
                 super.onDisplayPreferenceDialog(preference);
                 return;

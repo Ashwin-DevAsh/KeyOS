@@ -12,8 +12,6 @@ import com.android.launcher3.*;
 import com.android.launcher3.uioverrides.WallpaperColorInfo;
 import com.android.launcher3.util.Themes;
 import com.google.android.apps.nexuslauncher.reflection.ReflectionClient;
-import com.google.android.apps.nexuslauncher.smartspace.SmartspaceController;
-import com.google.android.apps.nexuslauncher.smartspace.SmartspaceView;
 import com.google.android.apps.nexuslauncher.utils.ActionIntentFilter;
 import com.google.android.libraries.gsa.launcherclient.LauncherClient;
 import com.google.android.libraries.gsa.launcherclient.LauncherClientService;
@@ -45,26 +43,19 @@ public class NexusLauncher {
         mLauncher.addOnDeviceProfileChangeListener(dp -> mClient.redraw());
     }
 
-    void registerSmartspaceView(SmartspaceView smartspace) {
-//        mCallbacks.registerSmartspaceView(smartspace);
-    }
+
 
     class NexusLauncherCallbacks implements LauncherCallbacks, SharedPreferences.OnSharedPreferenceChangeListener, WallpaperColorInfo.OnChangeListener {
-        private Set<SmartspaceView> mSmartspaceViews = Collections.newSetFromMap(new WeakHashMap<>());
         private final FeedReconnector mFeedReconnector = new FeedReconnector();
 
         public void dump(final String s, final FileDescriptor fileDescriptor, final PrintWriter printWriter, final String[] array) {
         }
 
-        public void finishBindingItems(final boolean b) {
-        }
+
         public boolean handleBackPressed() {
             return false;
         }
 
-        public boolean hasCustomContentToLeft() {
-            return false;
-        }
 
         public boolean hasSettings() {
             return true;
@@ -78,8 +69,7 @@ public class NexusLauncher {
             mFeedReconnector.start();
         }
 
-        void registerSmartspaceView(SmartspaceView smartspace) {
-        }
+
 
         public void onCreate(final Bundle bundle) {
             SharedPreferences prefs = Utilities.getPrefs(mLauncher);
@@ -90,7 +80,6 @@ public class NexusLauncher {
 
             prefs.registerOnSharedPreferenceChangeListener(this);
 
-            SmartspaceController.get(mLauncher).cW();
 
             mUiInformation.putInt("system_ui_visibility", mLauncher.getWindow().getDecorView().getSystemUiVisibility());
             applyFeedTheme(false);
@@ -149,9 +138,6 @@ public class NexusLauncher {
             mRunning = false;
             mClient.onPause();
 
-            for (SmartspaceView smartspace : mSmartspaceViews) {
-                smartspace.onPause();
-            }
         }
 
         public void onRequestPermissionsResult(final int n, final String[] array, final int[] array2) {
@@ -165,9 +151,6 @@ public class NexusLauncher {
 
             mClient.onResume();
 
-            for (SmartspaceView smartspace : mSmartspaceViews) {
-                smartspace.onResume();
-            }
         }
 
         public void onSaveInstanceState(final Bundle bundle) {

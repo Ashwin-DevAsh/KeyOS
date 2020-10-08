@@ -37,9 +37,6 @@ class LawnchairPreferencesChangeCallback(val launcher: LawnchairLauncher) {
         launcher.model.forceReload()
     }
 
-    fun reloadDrawer() {
-    }
-
     fun restart() {
         launcher.scheduleRestart()
     }
@@ -62,15 +59,7 @@ class LawnchairPreferencesChangeCallback(val launcher: LawnchairLauncher) {
         }
     }
 
-    fun updateSmartspaceProvider() {
-        launcher.lawnchairApp.smartspace.onProviderChanged()
-    }
 
-    fun updateSmartspace() {
-        launcher.refreshGrid()
-    }
 
-    fun updateWeatherData() {
-        launcher.lawnchairApp.smartspace.forceUpdateWeather()
-    }
+
 }
