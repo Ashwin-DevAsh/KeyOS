@@ -18,7 +18,6 @@
 package ch.deletescape.lawnchair
 
 import android.app.Activity
-import android.app.Notification
 import android.content.ContentResolver
 import android.content.Context
 import android.content.pm.LauncherActivityInfo
