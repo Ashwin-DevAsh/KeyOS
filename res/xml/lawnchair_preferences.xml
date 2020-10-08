@@ -87,9 +87,7 @@
         android:layout="@layout/home_preference">
 
         <!--suppress AndroidDomInspection (Injected at compile time) -->
-        <intent
-            android:targetPackage="@string/application_id"
-            android:targetClass="ch.deletescape.lawnchair.backup.BackupListActivity"/>
+
     </ch.deletescape.lawnchair.preferences.StyledIconPreference>
 
     <ch.deletescape.lawnchair.settings.ui.SubPreference

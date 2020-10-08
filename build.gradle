@@ -140,11 +140,6 @@ android {
 
     }
 
-    android.applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-            outputFileName = "Lawndesk-${variant.versionName}.apk"
-        }
-    }
 
     sourceSets {
         main {
@@ -213,11 +208,7 @@ android {
     }
 }
 
-afterEvaluate {
-    android.applicationVariants.all { variant ->
-        variant.resValue 'string', 'application_id', variant.applicationId
-    }
-}
+
 
 
 allprojects {
