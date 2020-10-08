@@ -94,54 +94,10 @@
     <uses-permission android:name="xyz.paphonb.systemuituner.permission.MODIFY_NAVBAR"/>
 
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
         android:name="ch.deletescape.lawnchair.LawnchairApp">
 
-        <activity
-            android:excludeFromRecents="true"
-            android:name="ch.deletescape.lawnchair.LawnchairLauncher$Screenshot"
-            android:screenOrientation="portrait"
-            android:theme="@style/ScreenshotTheme"/>
-
-        <activity
-            android:autoRemoveFromRecents="true"
-            android:label="@string/derived_app_name"
-            android:name="ch.deletescape.lawnchair.settings.ui.SettingsActivity"
-            android:theme="@style/SettingsTheme.V2"
-            android:taskAffinity="${applicationId}.tasks.SETTINGS">
-            <intent-filter>
-                <action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
-
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
 
 
-        <activity-alias
-            android:name="ch.deletescape.lawnchair.settings.ui.SettingsLauncherActivity"
-            android:targetActivity="ch.deletescape.lawnchair.settings.ui.SettingsActivity"
-            android:label="@string/lawnchair_settings"
-            android:icon="@mipmap/ic_settings_adaptive">
-        </activity-alias>
-
-        <activity
-            android:autoRemoveFromRecents="true"
-            android:label="@string/derived_app_name"
-            android:name="ch.deletescape.lawnchair.settings.ui.search.SettingsSearchActivity"
-            android:theme="@style/SettingsTheme.V2"
-            android:parentActivityName="ch.deletescape.lawnchair.settings.ui.SettingsActivity" />
-
-        <activity
-            android:autoRemoveFromRecents="true"
-            android:label="@string/about"
-            android:name="ch.deletescape.lawnchair.settings.ui.SettingsAboutActivity"
-            android:theme="@style/SettingsTheme.V2"
-            android:parentActivityName="ch.deletescape.lawnchair.settings.ui.SettingsActivity" />
-
-        <activity
-            android:autoRemoveFromRecents="true"
-            android:name="ch.deletescape.lawnchair.preferences.SelectableAppsActivity"
-            android:theme="@style/SettingsTheme.V2" />
 
         <activity
             android:autoRemoveFromRecents="true"
@@ -150,9 +106,7 @@
             android:theme="@style/SettingsTheme.V2"
             android:parentActivityName="ch.deletescape.lawnchair.settings.ui.SettingsActivity" />
 
-        <activity
-            android:name="com.android.launcher3.SettingsActivity"
-            tools:node="remove" />
+
 
         <service
             android:name="com.android.launcher3.uioverrides.WallpaperManagerCompat$ColorExtractionService"
@@ -179,18 +133,7 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name="com.google.android.apps.nexuslauncher.qsb.OPAStatusReceiver"
-            android:permission="android.permission.CAPTURE_AUDIO_HOTWORD">
-            <intent-filter>
-                <action android:name="com.google.android.systemui.OPA_ENABLED"/>
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.google.android.apps.nexuslauncher.smartspace.SmartspaceBroadcastReceiver">
-            <intent-filter>
-                <action android:name="com.google.android.apps.nexuslauncher.UPDATE_SMARTSPACE"/>
-            </intent-filter>
-        </receiver>
+
         <receiver android:name="com.google.android.apps.nexuslauncher.qsb.LongClickReceiver"/>
 
         <provider
@@ -206,70 +149,8 @@
             android:name="com.samsung.android.non_immersive"
             android:value="true"/>
 
-        <activity
-            android:label="@string/backups"
-            android:name="ch.deletescape.lawnchair.backup.BackupListActivity"
-            android:parentActivityName="ch.deletescape.lawnchair.settings.ui.SettingsActivity"
-            android:theme="@style/SettingsTheme.V2"/>
-        <activity
-            android:label="@string/new_backup"
-            android:name="ch.deletescape.lawnchair.backup.NewBackupActivity"
-            android:parentActivityName="ch.deletescape.lawnchair.backup.BackupListActivity"
-            android:theme="@style/SettingsTheme.V2"/>
-        <activity
-            android:label="@string/restore_backup"
-            android:name="ch.deletescape.lawnchair.backup.RestoreBackupActivity"
-            android:parentActivityName="ch.deletescape.lawnchair.backup.BackupListActivity"
-            android:theme="@style/SettingsTheme.V2">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:mimeType="application/vnd.lawnchair.backup"/>
-                <data android:mimeType="application/octet-stream"/>
-                <data android:mimeType="application/x-zip-compressed"/>
-                <data android:mimeType="application/zip"/>
-
-                <data android:scheme="file" />
-                <data android:scheme="content" />
-                <data android:mimeType="*/*" />
-                <!--
-                    Work around Android's ugly primitive PatternMatcher
-                    implementation that can't cope with finding a . early in
-                    the path unless it's explicitly matched.
-                -->
-                <data android:host="*" />
-                <data android:pathPattern=".*\\.shed" />
-                <data android:pathPattern=".*\\..*\\.shed" />
-                <data android:pathPattern=".*\\..*\\..*\\.shed" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\.shed" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.shed" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.shed" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.shed" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.shed" />
-                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.shed" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:label="@string/pref_integrations"
-            android:name="ch.deletescape.lawnchair.settings.ui.SettingsIntegrationActivity"
-            android:parentActivityName="ch.deletescape.lawnchair.settings.ui.SettingsActivity"
-            android:theme="@style/SettingsTheme.V2">
-            <intent-filter>
-                <action android:name="ninja.sesame.app.action.CONFIG_INTEGRATION"/>
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:label="@string/search"
-            android:name="ch.deletescape.lawnchair.settings.ui.SettingsSearchActivity"
-            android:parentActivityName="ch.deletescape.lawnchair.settings.ui.SettingsActivity"
-            android:theme="@style/SettingsTheme.V2" />
 
         <!-- Mimetype for .shed backup files -->
         <provider
@@ -282,25 +163,8 @@
                 android:resource="@xml/provider_paths"/>
         </provider>
 
-        <!-- Apply directly from iconpack -->
-        <activity
-            android:name="ch.deletescape.lawnchair.iconpack.ApplyIconPackActivity"
-            android:theme="@style/SettingsTheme.V2.Transparent">
-            <intent-filter>
-                <action android:name="ch.deletescape.lawnchair.APPLY_ICONS"/>
 
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </activity>
 
-        <!-- Icon picker -->
-        <activity
-            android:name="ch.deletescape.lawnchair.iconpack.EditIconActivity"
-            android:theme="@style/SettingsTheme.V2"
-            android:taskAffinity="${applicationId}.tasks.EDIT_ICON"/>
-        <activity
-            android:name="ch.deletescape.lawnchair.iconpack.IconPickerActivity"
-            android:theme="@style/SettingsTheme.V2"/>
 
         <!-- Actions -->
         <activity
@@ -310,7 +174,6 @@
             android:theme="@style/SettingsTheme.V2">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT"/>
-
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
@@ -320,16 +183,12 @@
             android:taskAffinity="${applicationId}.tasks.RUN_HANDLER">
             <intent-filter>
                 <action android:name="ch.deletescape.lawnchair.START_ACTION"/>
-
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
         <!-- Gesture app selection -->
-        <activity
-            android:label="@string/action_open_app_select_app"
-            android:name="ch.deletescape.lawnchair.gestures.ui.SelectAppActivity"
-            android:theme="@style/SettingsTheme.V2"/>
+
         <activity
             android:name="ch.deletescape.lawnchair.BlankActivity"
             android:theme="@style/Theme.Transparent"/>
@@ -366,14 +225,14 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name="ch.deletescape.lawnchair.LawnchairAccessibilityService"
-            android:label="@string/derived_app_name"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-        </service>
+<!--        <service-->
+<!--            android:name="ch.deletescape.lawnchair.LawnchairAccessibilityService"-->
+<!--            android:label="@string/derived_app_name"-->
+<!--            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.accessibilityservice.AccessibilityService" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
 
         <!-- Kustom 5s support -->
         <provider
@@ -382,17 +241,7 @@
             android:exported="true"
             android:grantUriPermissions="true"/>
 
-        <service
-            android:enabled="true"
-            android:exported="false"
-            android:name="ch.deletescape.lawnchair.bugreport.BugReportService"
-            android:process=":bugReport" />
 
-        <service
-            android:enabled="true"
-            android:exported="false"
-            android:name="ch.deletescape.lawnchair.bugreport.DogbinUploadService"
-            android:process=":bugReport" />
     </application>
 
 </manifest>
