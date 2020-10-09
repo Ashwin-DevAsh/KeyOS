@@ -16,3 +16,4 @@
  */
 
 include ':systemui-shared'
+rootProject.name = 'KeyOS'

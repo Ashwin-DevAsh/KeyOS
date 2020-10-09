@@ -828,15 +828,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
                                 }
                             });
                     break;
-                case "github":
-                    Utilities.openWebPage(getActivity(), getResources().getString(R.string.github_url));
-                    break;
-                case "play_store":
-                    Utilities.openWebPage(getActivity(), getResources().getString(R.string.play_url));
-                    break;
-                case "based_on":
-                    Utilities.openWebPage(getActivity(), getResources().getString(R.string.lawnchair_url));
-                    break;
+
             }
             return false;
         }

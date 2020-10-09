@@ -25,26 +25,10 @@
 
     <tech.DevAsh.Launcher.preferences.StyledPreferenceCategory
         android:key="pref_actions_app_version"
-        android:title="@string/app_version">
+       >
 
-        <Preference
-            android:key="about_app_version"
-            android:title="@string/about_app_version" />
 
-        <Preference
-            android:key="play_store"
-            android:title="@string/play_store"
-            android:summary="@string/play_url"/>
 
-        <Preference
-            android:key="github"
-            android:title="GitHub"
-            android:summary="@string/github_url"/>
-
-        <Preference
-            android:key="based_on"
-            android:title="@string/based_on"
-            android:summary="@string/lawnchair_url" />
     </tech.DevAsh.Launcher.preferences.StyledPreferenceCategory>
 
 </android.support.v7.preference.PreferenceScreen>

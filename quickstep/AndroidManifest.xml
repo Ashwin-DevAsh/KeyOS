@@ -19,10 +19,12 @@
 -->
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.android.launcher3" >
 
-    <uses-sdk android:targetSdkVersion="28" android:minSdkVersion="28"/>
-    <uses-permission android:name="android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS" />
+    <uses-sdk android:targetSdkVersion="29" android:minSdkVersion="28" tools:ignore="GradleOverrides" />
+    <uses-permission android:name="android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS"
+        tools:ignore="ProtectedPermissions" />
     <application
         android:backupAgent="com.android.launcher3.LauncherBackupAgent"
         android:fullBackupOnly="true"
@@ -33,7 +35,8 @@
         android:theme="@style/AppTheme"
         android:largeHeap="@bool/config_largeHeap"
         android:restoreAnyVersion="true"
-        android:supportsRtl="true" >
+        android:supportsRtl="true"
+        tools:ignore="ManifestResource">
 
         <service
             android:name="com.android.quickstep.TouchInteractionService"
@@ -70,7 +73,6 @@
 <!--                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />-->
 <!--            </intent-filter>-->
 <!--        </provider>-->
-
 
 <!--        <service-->
 <!--            android:name="com.android.launcher3.uioverrides.dynamicui.WallpaperManagerCompatVL$ColorExtractionService"-->

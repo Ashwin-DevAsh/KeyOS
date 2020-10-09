@@ -21,7 +21,7 @@
     <skip />
 
     <!-- Application name -->
-    <string name="app_name">Launcher3</string>
+    <string name="app_name">keyOS</string>
     <!-- Default folder name -->
     <string name="folder_name"></string>
     <!-- Work folder name -->
@@ -340,20 +340,14 @@
     <string name="bottom_work_tab_user_education_close_button">Close</string>
     <string name="bottom_work_tab_user_education_closed">Closed</string>
 
-    <string name="launcher_name">Lawndesk</string>
+    <string name="launcher_name">keyOS</string>
 
     <string name="add_apps_to_folder_title">Add apps to folder</string>
     <string name="system_app">System Apps</string>
     <string name="locate_app_message">Locate this App on desktop?</string>
     <string name="initializing_desktop">Initializing desktop…</string>
 
-    <string name="about_pref_summary_v2">App version, Links</string>
-    <string name="app_version">App version</string>
-    <string name="play_store">Google Play</string>
-    <string name="based_on">Based on Lawnchair</string>
-    <string name="play_url">https://play.google.com/store/apps/details?id=net.ohrz.lawndesk</string>
-    <string name="github_url">https://github.com/renzhn/Lawndesk</string>
-    <string name="lawnchair_url">https://github.com/LawnchairLauncher/Lawnchair</string>
+
 
     <string name="pref_external_search_provider">External Search App</string>
     <string name="pref_integrations_summary_v2">Google Feed</string>

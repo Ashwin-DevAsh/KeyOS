@@ -69,12 +69,34 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.MONKEY"/>-->
+<!--                <category android:name="android.intent.category.LAUNCHER"/>-->
+<!--                <category android:name="android.intent.category.LAUNCHER_APP"/>-->
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="tech.DevAsh.Launcher.SplashScreen"
+            android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true"
+            android:stateNotNeeded="true"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="unspecified"
+            android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:resizeableActivity="true"
+            android:resumeWhilePausing="true"
+            android:taskAffinity=""
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.MONKEY"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <category android:name="android.intent.category.LAUNCHER_APP"/>
             </intent-filter>
         </activity>
+
+
 
         <!-- Intent received used to install shortcuts from other applications -->
         <receiver
@@ -101,11 +123,11 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name="com.android.launcher3.uioverrides.dynamicui.WallpaperManagerCompatVL$ColorExtractionService"
-            android:exported="false"
-            android:process=":wallpaper_chooser"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
+<!--        <service-->
+<!--            android:name="com.android.launcher3.uioverrides.dynamicui.WallpaperManagerCompatVL$ColorExtractionService"-->
+<!--            android:exported="false"-->
+<!--            android:process=":wallpaper_chooser"-->
+<!--            android:permission="android.permission.BIND_JOB_SERVICE" />-->
 
         <service
             android:name="com.android.launcher3.notification.NotificationListener"

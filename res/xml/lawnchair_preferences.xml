@@ -93,14 +93,11 @@
     <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:key="developerOptions"
         android:icon="@drawable/ic_settings_development"
-        android:title="@string/developer_options_title"
         app:content="@xml/lawnchair_dev_options_preference"
         app:controllerClass=".DeveloperOptionsController"
         android:layout="@layout/home_preference" />
 
     <tech.DevAsh.Launcher.settings.ui.SubPreference
-        android:title="@string/about"
-        android:summary="@string/about_pref_summary_v2"
         android:icon="@drawable/ic_pref_about"
         android:layout="@layout/home_preference"
         app:content="@xml/lawnchair_about_preferences"
