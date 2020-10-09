@@ -20,16 +20,11 @@ package com.android.launcher3.config;
  * Defines a set of flags used to control various launcher behaviors
  */
 public final class FeatureFlags extends BaseFlags {
-
     // When enabled, icons not supporting {@link AdaptiveIconDrawable} will be wrapped in {@link FixedScaleDrawable}.
     public static final boolean LEGACY_ICON_TREATMENT = true;
-
     // When enabled, app shortcuts are extracted from the package XML.
     public static final boolean LAUNCHER3_BACKPORT_SHORTCUTS = true;
-
     public static boolean REFLECTION_FORCE_OVERVIEW_MODE = true;
-
     public static boolean FORCE_FEED_BRIDGE = false;
-
     private FeatureFlags() {}
 }

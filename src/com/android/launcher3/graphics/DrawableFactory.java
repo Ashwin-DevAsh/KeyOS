@@ -31,7 +31,7 @@ import android.os.UserHandle;
 import android.support.annotation.UiThread;
 import android.util.ArrayMap;
 import android.util.Log;
-import ch.deletescape.lawnchair.iconpack.LawnchairIconProvider;
+import tech.DevAsh.Launcher.iconpack.LawnchairIconProvider;
 import com.android.launcher3.FastBitmapDrawable;
 import com.android.launcher3.ItemInfoWithIcon;
 import com.android.launcher3.R;

@@ -26,7 +26,6 @@ import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
 import android.app.ActivityOptions;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Outline;
 import android.os.Bundle;
 import android.os.Handler;
@@ -40,15 +39,10 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import ch.deletescape.lawnchair.LawnchairPreferences;
-import com.android.launcher3.BaseActivity;
 import com.android.launcher3.BaseDraggingActivity;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
-import com.android.launcher3.userevent.nano.LauncherLogProto.Action.Direction;
-import com.android.launcher3.userevent.nano.LauncherLogProto.Action.Touch;
 import com.android.quickstep.TaskSystemShortcut;
-import com.android.quickstep.TaskUtils;
 import com.android.quickstep.views.RecentsView.PageCallbacks;
 import com.android.quickstep.views.RecentsView.ScrollState;
 import com.android.systemui.shared.recents.model.Task;
@@ -57,7 +51,6 @@ import com.android.systemui.shared.recents.model.ThumbnailData;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
 
 import java.util.function.Consumer;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * A task in the Recents view.

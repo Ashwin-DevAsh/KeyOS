@@ -23,9 +23,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ch.deletescape.lawnchair.colors.ColorEngine;
-import ch.deletescape.lawnchair.colors.ColorEngine.OnColorChangeListener;
-import ch.deletescape.lawnchair.colors.ColorEngine.ResolveInfo;
+import tech.DevAsh.Launcher.colors.ColorEngine;
+import tech.DevAsh.Launcher.colors.ColorEngine.OnColorChangeListener;
+import tech.DevAsh.Launcher.colors.ColorEngine.ResolveInfo;
 import com.android.launcher3.views.RecyclerViewFastScroller;
 import org.jetbrains.annotations.NotNull;
 

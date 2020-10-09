@@ -16,7 +16,6 @@
 
 package com.android.launcher3.folder;
 
-import static com.android.launcher3.BubbleTextView.TEXT_ALPHA_PROPERTY;
 import static com.android.launcher3.LauncherAnimUtils.SCALE_PROPERTY;
 import static com.android.launcher3.folder.NineFolderIconLayoutRule.MAX_NUM_ITEMS_IN_PREVIEW;
 
@@ -34,9 +33,8 @@ import android.util.Pair;
 import android.util.Property;
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import ch.deletescape.lawnchair.LawnchairPreferences;
+import tech.DevAsh.Launcher.LawnchairPreferences;
 import com.android.launcher3.DeviceProfile;
-import com.android.launcher3.graphics.IconShape;
 import com.android.launcher3.BubbleTextView;
 import com.android.launcher3.CellLayout;
 import com.android.launcher3.Launcher;
@@ -44,8 +42,6 @@ import com.android.launcher3.LauncherAnimUtils;
 import com.android.launcher3.R;
 import com.android.launcher3.ShortcutAndWidgetContainer;
 import com.android.launcher3.Utilities;
-import com.android.launcher3.anim.Interpolators;
-import com.android.launcher3.anim.PropertyResetListener;
 import com.android.launcher3.dragndrop.DragLayer;
 import com.android.launcher3.util.Themes;
 import java.util.List;

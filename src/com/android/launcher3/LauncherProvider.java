@@ -48,9 +48,9 @@ import android.os.UserManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-import ch.deletescape.lawnchair.flowerpot.Chinapot;
-import ch.deletescape.lawnchair.flowerpot.Flowerpot;
-import ch.deletescape.lawnchair.flowerpot.Flowerpot.FlowerpotManager;
+import tech.DevAsh.Launcher.flowerpot.Chinapot;
+import tech.DevAsh.Launcher.flowerpot.Flowerpot;
+import tech.DevAsh.Launcher.flowerpot.Flowerpot.FlowerpotManager;
 import com.android.launcher3.AutoInstallsLayout.LayoutParserCallback;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.LauncherSettings.WorkspaceScreens;

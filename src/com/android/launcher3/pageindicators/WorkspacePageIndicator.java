@@ -18,8 +18,8 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 
-import ch.deletescape.lawnchair.LawnchairPreferences;
-import ch.deletescape.lawnchair.theme.ThemeManager;
+import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.theme.ThemeManager;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.Insettable;
 import com.android.launcher3.Launcher;

@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 
 import android.os.Process;
-import ch.deletescape.lawnchair.iconpack.AdaptiveIconCompat;
+import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.graphics.LauncherIcons;
 

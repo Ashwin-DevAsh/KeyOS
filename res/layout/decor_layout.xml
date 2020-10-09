@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <view class="ch.deletescape.lawnchair.settings.ui.DecorLayout$ContentFrameLayout"
+    <view class="tech.DevAsh.Launcher.settings.ui.DecorLayout$ContentFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <view class="ch.deletescape.lawnchair.settings.ui.DecorLayout$BackScrimView"
+        <view class="tech.DevAsh.Launcher.settings.ui.DecorLayout$BackScrimView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?settingsBackground"/>
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <view class="ch.deletescape.lawnchair.settings.ui.DecorLayout$FrontScrimView"
+        <view class="tech.DevAsh.Launcher.settings.ui.DecorLayout$FrontScrimView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?settingsBackground"/>
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ch.deletescape.lawnchair.views.CenteredToolbar
+        <tech.DevAsh.Launcher.views.CenteredToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

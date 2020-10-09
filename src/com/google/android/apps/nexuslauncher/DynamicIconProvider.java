@@ -15,7 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
 
-import ch.deletescape.lawnchair.iconpack.AdaptiveIconCompat;
+import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import com.android.launcher3.IconProvider;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherModel;

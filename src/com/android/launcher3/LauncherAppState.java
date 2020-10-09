@@ -24,7 +24,7 @@ import android.content.IntentFilter;
 import android.os.Looper;
 import android.util.Log;
 
-import ch.deletescape.lawnchair.LawnchairAppKt;
+import tech.DevAsh.Launcher.LawnchairAppKt;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.PackageInstallerCompat;
 import com.android.launcher3.compat.UserManagerCompat;
@@ -37,7 +37,7 @@ import com.android.launcher3.util.SettingsObserver;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
-import static ch.deletescape.lawnchair.settings.ui.SettingsActivity.NOTIFICATION_BADGING;
+import static tech.DevAsh.Launcher.settings.ui.SettingsActivity.NOTIFICATION_BADGING;
 
 public class LauncherAppState {
 

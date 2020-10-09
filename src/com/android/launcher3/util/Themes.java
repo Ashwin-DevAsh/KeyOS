@@ -25,7 +25,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.util.TypedValue;
-import ch.deletescape.lawnchair.colors.ColorEngine;
+import tech.DevAsh.Launcher.colors.ColorEngine;
 
 /**
  * Various utility methods associated with theming.

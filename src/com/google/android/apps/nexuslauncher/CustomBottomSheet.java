@@ -16,14 +16,9 @@
 
 package com.google.android.apps.nexuslauncher;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -35,12 +30,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import ch.deletescape.lawnchair.LawnchairLauncher;
-import ch.deletescape.lawnchair.LawnchairPreferences;
-import ch.deletescape.lawnchair.gestures.BlankGestureHandler;
-import ch.deletescape.lawnchair.gestures.GestureHandler;
-import ch.deletescape.lawnchair.gestures.ui.LauncherGesturePreference;
-import ch.deletescape.lawnchair.override.CustomInfoProvider;
+import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.override.CustomInfoProvider;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.FolderInfo;
 import com.android.launcher3.ItemInfo;
@@ -51,8 +42,6 @@ import com.android.launcher3.R;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.util.ComponentKey;
-import com.android.launcher3.util.ItemInfoMatcher;
-import com.android.launcher3.util.LongArrayMap;
 import com.android.launcher3.util.PackageManagerHelper;
 import com.android.launcher3.widget.WidgetsBottomSheet;
 

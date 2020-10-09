@@ -16,8 +16,6 @@
 
 package com.android.quickstep;
 
-import static com.android.launcher3.userevent.nano.LauncherLogProto.Action.Touch.TAP;
-
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
 import android.app.admin.DevicePolicyManager;
@@ -37,7 +35,7 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import ch.deletescape.lawnchair.HiddenApiCompat;
+import tech.DevAsh.Launcher.HiddenApiCompat;
 import com.android.launcher3.BaseDraggingActivity;
 import com.android.launcher3.BuildConfig;
 import com.android.launcher3.DeviceProfile;
@@ -46,7 +44,6 @@ import com.android.launcher3.R;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.popup.SystemShortcut;
-import com.android.launcher3.userevent.nano.LauncherLogProto;
 import com.android.launcher3.util.InstantAppResolver;
 import com.android.quickstep.views.RecentsView;
 import com.android.quickstep.views.TaskThumbnailView;

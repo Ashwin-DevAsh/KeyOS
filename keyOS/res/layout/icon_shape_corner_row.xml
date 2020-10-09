@@ -18,7 +18,7 @@
   ~     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<ch.deletescape.lawnchair.adaptive.IconShapeCornerRow
+<tech.DevAsh.Launcher.adaptive.IconShapeCornerRow
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -70,4 +70,4 @@
             android:layout_alignParentEnd="true"
             android:gravity="center|end" />
     </RelativeLayout>
-</ch.deletescape.lawnchair.adaptive.IconShapeCornerRow>
+</tech.DevAsh.Launcher.adaptive.IconShapeCornerRow>

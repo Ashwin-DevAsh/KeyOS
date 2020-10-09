@@ -1,17 +1,13 @@
 package com.google.android.apps.nexuslauncher.superg;
 
 import android.content.Context;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.text.Editable;
-import android.text.TextPaint;
 import android.text.TextWatcher;
-import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import ch.deletescape.lawnchair.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.LawnchairUtilsKt;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;

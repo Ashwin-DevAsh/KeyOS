@@ -18,7 +18,6 @@ package com.android.launcher3;
 
 import static java.lang.Math.max;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -30,8 +29,8 @@ import android.util.Xml;
 import android.view.Display;
 import android.view.WindowManager;
 
-import ch.deletescape.lawnchair.LawnchairPreferences;
-import ch.deletescape.lawnchair.settings.IconScale;
+import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.settings.IconScale;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.util.Thunk;
 

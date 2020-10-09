@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<ch.deletescape.lawnchair.settings.ui.SettingsBottomSheet
+<tech.DevAsh.Launcher.settings.ui.SettingsBottomSheet
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -38,4 +38,4 @@
         android:layout_gravity="bottom"
         android:focusable="false"  />
 
-</ch.deletescape.lawnchair.settings.ui.SettingsBottomSheet>
+</tech.DevAsh.Launcher.settings.ui.SettingsBottomSheet>

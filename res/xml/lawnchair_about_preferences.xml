@@ -23,7 +23,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+    <tech.DevAsh.Launcher.preferences.StyledPreferenceCategory
         android:key="pref_actions_app_version"
         android:title="@string/app_version">
 
@@ -45,6 +45,6 @@
             android:key="based_on"
             android:title="@string/based_on"
             android:summary="@string/lawnchair_url" />
-    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+    </tech.DevAsh.Launcher.preferences.StyledPreferenceCategory>
 
 </android.support.v7.preference.PreferenceScreen>

@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_showDevOptions"
         android:title="@string/pref_show_dev_options"
         android:defaultValue="false"
@@ -17,39 +17,39 @@
         android:title="@string/restart_lawnchair_pref_title"
         android:summary="@string/restart_lawnchair_pref_summary" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_showDebugInfo"
         android:title="@string/show_debug_info_pref_title"
         android:defaultValue="false"
         android:persistent="true" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_alwaysClearIconCache"
         android:title="Always clear icon cache"
         android:summary="Don't touch this. Seriously."
         android:defaultValue="false"
         android:persistent="true" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_debugLegacyTreatment"
         android:title="Debug adaptive icon generation"
         android:summary="I hope you like red"
         android:defaultValue="false"
         android:persistent="true" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_useWindowToIcon"
         android:title="Use window to icon transition"
         android:defaultValue="true"
         android:persistent="true" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_dismissTasksOnKill"
         android:title="Dismiss tasks from app switcher when killed"
         android:defaultValue="true"
         android:persistent="true" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_debugVisualizeOccupied"
         android:title="Visualize Occupied"
         android:summary="Highlight occupied grid cells"
@@ -63,107 +63,107 @@
         android:key="currentWeatherProvider"
         android:title="@string/pref_smartspace_widget_provider" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_debugOkhttp"
         android:title="Enable full network log"
         android:summary="Useful for debugging some weather providers"
         android:defaultValue="false" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_showCrashNotifications"
         android:title="Show bug report notifications"
         android:defaultValue="true" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_autoUploadBugReport"
         android:title="Automatically upload bug reports to dogbin"
         android:defaultValue="false"
         android:dependency="pref_showCrashNotifications" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_initLeakCanary"
         android:title="Init LeakCanary"
         android:defaultValue="false"
         app:controllerClass=".LeakCanaryController" />
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_debugDisplayState"
         android:title="Debug information overlay"
         android:summary="Display informations such as the current Launcher State"/>
 
-    <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+    <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
         android:key="pref_lowPerformanceMode"
         android:title="@string/low_performance_mode_pref_title"
         android:defaultValue="false"
         android:persistent="true" />
 
-    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+    <tech.DevAsh.Launcher.preferences.StyledPreferenceCategory
         android:key="prefCat_wipOptions"
         android:title="Other"
         app:controllerClass=".SecretOptionsController">
 
-        <ch.deletescape.lawnchair.settings.ui.BasePreference
+        <tech.DevAsh.Launcher.settings.ui.BasePreference
             android:key="crashLauncher"
             android:title="@string/debug_crash_launcher"
             app:controllerClass=".CrashLauncherController" />
 
-        <ch.deletescape.lawnchair.settings.ui.SubPreference
+        <tech.DevAsh.Launcher.settings.ui.SubPreference
             android:title="Fonts"
             app:content="@xml/lawnchair_fonts_preference" />
 
         <Preference
             android:title="UI font"
-            android:fragment="ch.deletescape.lawnchair.preferences.CustomFontFragment" />
+            android:fragment="tech.DevAsh.Launcher.preferences.CustomFontFragment" />
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_appsCategorizationEnabled"
             android:title="Enable apps categorization"
             android:defaultValue="false"
             android:persistent="true" />
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_forceEnableFools"
             android:title="Enable April Fools"
             android:defaultValue="false"
             android:persistent="true" />
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_backupScreenshot"
             android:title="Create screenshot for new backup"
             android:defaultValue="false"
             android:persistent="true" />
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_useScaleAnim"
             android:title="Use scale animation for transitions"
             android:defaultValue="false"
             android:persistent="true" />
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_scaleAdaptiveBg"
             android:title="Scale adaptive background"
             android:summary="Increase adaptive icon background size on long press [wow so sexy effect]"
             android:defaultValue="false" />
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_folderBgColorGen"
             android:title="Generate folder color"
             android:summary="Generates the folder color based on custom icons [this breaks readability depending on the color]"
             android:defaultValue="false" />
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_brightnessTheme"
             android:title="Brightness based theme"
             android:summary="Dynamically fade between light and dark"
             android:defaultValue="false" />
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_desktopUsePopupMenuView"
             android:title="Desktop popup menu"
             android:summary="Use Pie launcher menu instead of the Oreo's overview mode"
             android:defaultValue="true" />
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_forceFakePieAnims"
             android:title="Force fake Pie anims"
             android:defaultValue="false" />
@@ -171,11 +171,11 @@
         <Preference
             android:key="pref_drawerTabs"
             android:title="@string/drawer_tabs"
-            android:fragment="ch.deletescape.lawnchair.preferences.DrawerTabsFragment"/>
+            android:fragment="tech.DevAsh.Launcher.preferences.DrawerTabsFragment"/>
 
         <EditTextPreference
             android:key="pref_weatherIcons"
             android:title="Weather icon pack"
             android:summary="Enter a packagename of a chronus icon pack [TODO: Proper UI, support for more data providers]"/>
-    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+    </tech.DevAsh.Launcher.preferences.StyledPreferenceCategory>
 </PreferenceScreen>

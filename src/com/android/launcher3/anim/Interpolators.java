@@ -27,8 +27,8 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.PathInterpolator;
 
-import ch.deletescape.lawnchair.ReverseInputInterpolator;
-import ch.deletescape.lawnchair.ReverseOutputInterpolator;
+import tech.DevAsh.Launcher.ReverseInputInterpolator;
+import tech.DevAsh.Launcher.ReverseOutputInterpolator;
 import com.android.launcher3.Utilities;
 
 

@@ -28,7 +28,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.Log;
 
-import ch.deletescape.lawnchair.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.LawnchairUtilsKt;
 import com.android.launcher3.graphics.ShadowGenerator;
 
 /**

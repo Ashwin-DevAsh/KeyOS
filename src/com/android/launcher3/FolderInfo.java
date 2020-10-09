@@ -26,16 +26,15 @@ import android.os.Process;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
-import ch.deletescape.lawnchair.LawnchairLauncher;
-import ch.deletescape.lawnchair.folder.FirstItemProvider;
-import ch.deletescape.lawnchair.iconpack.IconPack;
-import ch.deletescape.lawnchair.iconpack.IconPackManager;
-import ch.deletescape.lawnchair.iconpack.IconPackManager.CustomIconEntry;
-import ch.deletescape.lawnchair.override.CustomInfoProvider;
+import tech.DevAsh.Launcher.LawnchairLauncher;
+import tech.DevAsh.Launcher.folder.FirstItemProvider;
+import tech.DevAsh.Launcher.iconpack.IconPack;
+import tech.DevAsh.Launcher.iconpack.IconPackManager;
+import tech.DevAsh.Launcher.iconpack.IconPackManager.CustomIconEntry;
+import tech.DevAsh.Launcher.override.CustomInfoProvider;
 import com.android.launcher3.folder.Folder;
 import com.android.launcher3.folder.FolderIcon;
 import com.android.launcher3.graphics.BitmapRenderer;
-import com.android.launcher3.graphics.DrawableFactory;
 import com.android.launcher3.model.ModelWriter;
 import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.ContentWriter;
@@ -191,7 +190,7 @@ public class FolderInfo extends ItemInfo {
     }
 
     public ComponentKey toComponentKey() {
-        return new ComponentKey(new ComponentName("ch.deletescape.lawnchair.folder", String.valueOf(id)), Process.myUserHandle());
+        return new ComponentKey(new ComponentName("ch.deletescape.keyOS.Launcher.folder", String.valueOf(id)), Process.myUserHandle());
     }
 
     public Drawable getIcon(Context context) {

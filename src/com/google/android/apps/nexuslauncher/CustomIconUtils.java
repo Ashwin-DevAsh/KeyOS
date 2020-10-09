@@ -2,27 +2,19 @@ package com.google.android.apps.nexuslauncher;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.LauncherActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.UserHandle;
-import ch.deletescape.lawnchair.iconpack.IconPackManager;
-import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherModel;
-import com.android.launcher3.Utilities;
-import com.android.launcher3.compat.LauncherAppsCompat;
-import com.android.launcher3.compat.UserManagerCompat;
 import com.android.launcher3.shortcuts.DeepShortcutManager;
 import com.android.launcher3.shortcuts.ShortcutInfoCompat;
-import com.android.launcher3.util.LooperExecutor;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class CustomIconUtils {
     private final static String[] ICON_INTENTS = new String[] {
-            "ch.deletescape.lawnchair.ICONPACK",
+            "ch.deletescape.keyOS.Launcher.ICONPACK",
             "com.fede.launcher.THEME_ICONPACK",
             "com.anddoes.launcher.THEME",
             "com.novalauncher.THEME",

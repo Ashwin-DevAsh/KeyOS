@@ -40,9 +40,9 @@ import android.util.Log;
 import android.util.LongSparseArray;
 import android.util.MutableInt;
 
-import ch.deletescape.lawnchair.LawnchairPreferences;
-import ch.deletescape.lawnchair.iconpack.IconPackManager;
-import ch.deletescape.lawnchair.model.HomeWidgetMigrationTask;
+import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.iconpack.IconPackManager;
+import tech.DevAsh.Launcher.model.HomeWidgetMigrationTask;
 import com.android.launcher3.AllAppsList;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.FolderInfo;

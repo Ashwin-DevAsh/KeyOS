@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.graphics.ColorUtils;
 import android.view.View;
-import ch.deletescape.lawnchair.settings.ui.SettingsActivity;
+import tech.DevAsh.Launcher.settings.ui.SettingsActivity;
 import com.android.launcher3.*;
 import com.android.launcher3.uioverrides.WallpaperColorInfo;
 import com.android.launcher3.util.Themes;
@@ -18,10 +18,6 @@ import com.google.android.libraries.gsa.launcherclient.StaticInteger;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Set;
-import java.util.WeakHashMap;
 
 public class NexusLauncher {
     private final Launcher mLauncher;

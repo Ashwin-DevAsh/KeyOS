@@ -5,7 +5,7 @@ import android.content.pm.LauncherActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 
-import ch.deletescape.lawnchair.iconpack.AdaptiveIconCompat;
+import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import java.util.Locale;
 
 public class IconProvider {

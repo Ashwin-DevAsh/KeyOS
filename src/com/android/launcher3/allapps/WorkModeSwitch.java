@@ -23,8 +23,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Switch;
 
-import ch.deletescape.lawnchair.LawnchairUtilsKt;
-import ch.deletescape.lawnchair.colors.ColorEngine;
+import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.colors.ColorEngine;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.compat.UserManagerCompat;
 

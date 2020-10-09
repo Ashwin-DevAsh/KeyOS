@@ -19,7 +19,7 @@ import android.content.Context;
 import android.os.Process;
 import android.os.UserHandle;
 
-import ch.deletescape.lawnchair.override.AppInfoProvider;
+import tech.DevAsh.Launcher.override.AppInfoProvider;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.compat.UserManagerCompat;
 import com.android.launcher3.util.LabelComparator;

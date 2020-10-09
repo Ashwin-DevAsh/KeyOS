@@ -21,7 +21,7 @@ import android.content.pm.LauncherActivityInfo;
 import android.os.Handler;
 import android.os.UserHandle;
 
-import ch.deletescape.lawnchair.LawnchairAppFilter;
+import tech.DevAsh.Launcher.LawnchairAppFilter;
 
 import com.android.launcher3.AppFilter;
 import com.android.launcher3.AppInfo;
@@ -34,7 +34,6 @@ import com.android.launcher3.util.ComponentKey;
 
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**

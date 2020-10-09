@@ -3,7 +3,7 @@ package com.google.android.apps.nexuslauncher;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.UserHandle;
-import ch.deletescape.lawnchair.LawnchairAppFilter;
+import tech.DevAsh.Launcher.LawnchairAppFilter;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.util.ComponentKey;
 

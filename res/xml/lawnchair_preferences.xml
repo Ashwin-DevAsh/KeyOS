@@ -14,7 +14,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:title="@string/theme_title"
         android:summary="@string/pixel_ui_pref_summary"
         android:icon="@drawable/ic_theme"
@@ -22,7 +22,7 @@
         app:content="@xml/lawnchair_theme_preferences"
         android:layout="@layout/home_preference" />
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:icon="@drawable/ic_pref_desktop"
         android:summary="@string/general_pref_summary"
         android:title="@string/general_pref_title"
@@ -30,7 +30,7 @@
         app:content="@xml/lawnchair_desktop_preferences"
         android:layout="@layout/home_preference" />
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:icon="@drawable/ic_smartspace"
         android:summary="@string/smartspace_preferences_in_settings_desc"
         android:title="@string/home_widget"
@@ -38,7 +38,7 @@
         app:hasPreview="true"
         android:layout="@layout/home_preference"/>
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:icon="@drawable/ic_dock"
         android:summary="@string/dock_pref_summary"
         android:title="@string/dock_pref_title"
@@ -46,7 +46,7 @@
         app:content="@xml/lawnchair_dock_preferences"
         android:layout="@layout/home_preference" />
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:icon="@drawable/ic_pref_search"
         android:summary="@string/search_pref_summary"
         android:title="@string/search"
@@ -54,7 +54,7 @@
         app:content="@xml/lawnchair_search_preferences"
         android:layout="@layout/home_preference" />
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:icon="@drawable/ic_gestures"
         android:summary="@string/gestures_pref_summary"
         android:title="@string/gestures_pref_title"
@@ -62,7 +62,7 @@
         app:content="@xml/lawnchair_gesture_preferences"
         android:layout="@layout/home_preference" />
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:icon="@drawable/ic_integrations"
         android:summary="@string/pref_integrations_summary_v2"
         android:title="@string/pref_integrations"
@@ -70,7 +70,7 @@
         app:content="@xml/lawnchair_integration_preferences"
         android:layout="@layout/home_preference" />
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:key="quickstep"
         android:summary="@string/quickstep_pref_summary"
         android:title="@string/quickstep_pref_title"
@@ -79,7 +79,7 @@
         app:controllerClass=".LawnstepController"
         android:layout="@layout/home_preference" />
 
-    <ch.deletescape.lawnchair.preferences.StyledIconPreference
+    <tech.DevAsh.Launcher.preferences.StyledIconPreference
         android:key="backups"
         android:title="@string/backups"
         android:summary="@string/backup_pref_summary"
@@ -88,9 +88,9 @@
 
         <!--suppress AndroidDomInspection (Injected at compile time) -->
 
-    </ch.deletescape.lawnchair.preferences.StyledIconPreference>
+    </tech.DevAsh.Launcher.preferences.StyledIconPreference>
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:key="developerOptions"
         android:icon="@drawable/ic_settings_development"
         android:title="@string/developer_options_title"
@@ -98,7 +98,7 @@
         app:controllerClass=".DeveloperOptionsController"
         android:layout="@layout/home_preference" />
 
-    <ch.deletescape.lawnchair.settings.ui.SubPreference
+    <tech.DevAsh.Launcher.settings.ui.SubPreference
         android:title="@string/about"
         android:summary="@string/about_pref_summary_v2"
         android:icon="@drawable/ic_pref_about"

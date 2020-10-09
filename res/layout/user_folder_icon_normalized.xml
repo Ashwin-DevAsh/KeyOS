@@ -34,7 +34,7 @@
         android:paddingLeft="0dp"
         android:paddingRight="0dp">
 
-        <ch.deletescape.lawnchair.views.FolderNameEditText
+        <tech.DevAsh.Launcher.views.FolderNameEditText
             android:id="@+id/folder_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

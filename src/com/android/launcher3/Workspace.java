@@ -53,10 +53,10 @@ import android.view.ViewTreeObserver;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
-import ch.deletescape.lawnchair.ClockVisibilityManager;
-import ch.deletescape.lawnchair.LawnchairLauncher;
-import ch.deletescape.lawnchair.LawnchairPreferences;
-import ch.deletescape.lawnchair.views.LawnchairBackgroundView;
+import tech.DevAsh.Launcher.ClockVisibilityManager;
+import tech.DevAsh.Launcher.LawnchairLauncher;
+import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.views.LawnchairBackgroundView;
 import com.android.launcher3.Launcher.LauncherOverlay;
 import com.android.launcher3.LauncherAppWidgetHost.ProviderChangedListener;
 import com.android.launcher3.LauncherStateManager.AnimationConfig;
@@ -93,7 +93,6 @@ import com.android.launcher3.widget.PendingAddShortcutInfo;
 import com.android.launcher3.widget.PendingAddWidgetInfo;
 import com.android.launcher3.widget.PendingAppWidgetHostView;
 
-import com.google.android.apps.nexuslauncher.CustomAppFilter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;

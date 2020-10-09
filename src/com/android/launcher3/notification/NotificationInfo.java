@@ -27,7 +27,7 @@ import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
 import android.view.View;
-import ch.deletescape.lawnchair.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.LawnchairUtilsKt;
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherAppState;

@@ -39,7 +39,7 @@ import android.util.DisplayMetrics;
 import android.util.Property;
 import android.view.View;
 
-import ch.deletescape.lawnchair.theme.ThemeManager;
+import tech.DevAsh.Launcher.theme.ThemeManager;
 import com.android.launcher3.CellLayout;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;

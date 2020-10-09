@@ -20,7 +20,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <ch.deletescape.lawnchair.views.LawnchairBackgroundView
+    <tech.DevAsh.Launcher.views.LawnchairBackgroundView
         android:id="@+id/lawnchair_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

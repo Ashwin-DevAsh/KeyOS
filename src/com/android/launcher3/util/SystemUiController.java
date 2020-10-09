@@ -17,11 +17,10 @@
 package com.android.launcher3.util;
 
 import android.os.Handler;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 
-import ch.deletescape.lawnchair.util.FlagUtilsKt;
+import tech.DevAsh.Launcher.util.FlagUtilsKt;
 import com.android.launcher3.Utilities;
 
 import java.util.Arrays;

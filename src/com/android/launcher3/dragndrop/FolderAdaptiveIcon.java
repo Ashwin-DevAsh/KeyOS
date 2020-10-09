@@ -30,7 +30,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Log;
 
-import ch.deletescape.lawnchair.iconpack.AdaptiveIconCompat;
+import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.MainThreadExecutor;
 import com.android.launcher3.R;

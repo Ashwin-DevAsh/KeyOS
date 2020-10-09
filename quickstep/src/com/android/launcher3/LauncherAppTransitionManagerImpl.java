@@ -41,23 +41,22 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.annotation.TargetApi;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.CancellationSignal;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
-import ch.deletescape.lawnchair.LawnchairLauncher;
-import ch.deletescape.lawnchair.util.InvertedMultiValueAlpha;
-import ch.deletescape.lawnchair.views.LawnchairBackgroundView;
+import androidx.annotation.Keep;
+import tech.DevAsh.Launcher.LawnchairLauncher;
+import tech.DevAsh.Launcher.util.InvertedMultiValueAlpha;
+import tech.DevAsh.Launcher.views.LawnchairBackgroundView;
 import com.android.launcher3.DeviceProfile.OnDeviceProfileChangeListener;
 import com.android.launcher3.InsettableFrameLayout.LayoutParams;
 import com.android.launcher3.anim.AnimatorPlaybackController;
@@ -87,8 +86,8 @@ import com.android.systemui.shared.system.WindowManagerWrapper;
 /**
  * Manages the opening and closing app transitions from Launcher.
  */
-@TargetApi(Build.VERSION_CODES.O)
 @SuppressWarnings("unused")
+@Keep
 public class LauncherAppTransitionManagerImpl extends LauncherAppTransitionManager
         implements OnDeviceProfileChangeListener {
 

@@ -37,7 +37,7 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.animation.Interpolator;
 import android.widget.TextView;
 
-import ch.deletescape.lawnchair.touch.WorkspaceOptionModeTouchHelper;
+import tech.DevAsh.Launcher.touch.WorkspaceOptionModeTouchHelper;
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.CellLayout;
 import com.android.launcher3.DropTargetBar;

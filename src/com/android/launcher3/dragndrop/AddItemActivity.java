@@ -16,10 +16,7 @@
 
 package com.android.launcher3.dragndrop;
 
-import static com.android.launcher3.logging.LoggerUtils.newCommandAction;
-import static com.android.launcher3.logging.LoggerUtils.newContainerTarget;
 import static com.android.launcher3.logging.LoggerUtils.newItemTarget;
-import static com.android.launcher3.logging.LoggerUtils.newLauncherEvent;
 
 import android.annotation.TargetApi;
 import android.app.ActivityOptions;
@@ -41,7 +38,7 @@ import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 
 import android.widget.Button;
-import ch.deletescape.lawnchair.colors.ColorEngine;
+import tech.DevAsh.Launcher.colors.ColorEngine;
 import com.android.launcher3.BaseActivity;
 import com.android.launcher3.InstallShortcutReceiver;
 import com.android.launcher3.InvariantDeviceProfile;
@@ -53,8 +50,6 @@ import com.android.launcher3.compat.AppWidgetManagerCompat;
 import com.android.launcher3.compat.LauncherAppsCompatVO;
 import com.android.launcher3.model.WidgetItem;
 import com.android.launcher3.shortcuts.ShortcutInfoCompat;
-import com.android.launcher3.userevent.nano.LauncherLogProto.Action;
-import com.android.launcher3.userevent.nano.LauncherLogProto.ContainerType;
 import com.android.launcher3.util.InstantAppResolver;
 import com.android.launcher3.widget.PendingAddShortcutInfo;
 import com.android.launcher3.widget.PendingAddWidgetInfo;

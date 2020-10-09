@@ -23,10 +23,9 @@ import android.service.notification.StatusBarNotification;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import ch.deletescape.lawnchair.popup.LawnchairShortcut;
+import tech.DevAsh.Launcher.popup.LawnchairShortcut;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
-import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.badge.BadgeInfo;
 import com.android.launcher3.model.WidgetItem;
@@ -46,8 +45,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import ninja.sesame.lib.bridge.v1.SesameFrontend;
-import ninja.sesame.lib.bridge.v1.SesameShortcut;
 
 /**
  * Provides data for the popup menu that appears after long-clicking on apps.

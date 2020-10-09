@@ -41,7 +41,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 
-import ch.deletescape.lawnchair.gestures.NavigationBarGestureConsumer;
+import tech.DevAsh.Launcher.gestures.NavigationBarGestureConsumer;
 import com.android.launcher3.BaseDraggingActivity;
 import com.android.launcher3.MainThreadExecutor;
 import com.android.launcher3.util.TraceHelper;

@@ -2,24 +2,24 @@
 <android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+    <tech.DevAsh.Launcher.preferences.StyledPreferenceCategory
         android:key="prefCat_themeIcons"
         android:title="@string/pref_category_icons">
 
-        <ch.deletescape.lawnchair.settings.ui.IconPackPreference
+        <tech.DevAsh.Launcher.settings.ui.IconPackPreference
             android:defaultValue="@string/config_default_icon_pack"
             android:key="pref_icon_packs"
             android:persistent="true"
             android:title="@string/pref_icon_packs" />
 
-        <ch.deletescape.lawnchair.settings.ui.IconMaskingPreference
+        <tech.DevAsh.Launcher.settings.ui.IconMaskingPreference
             android:defaultValue="true"
             android:key="pref_iconPackMasking"
             android:summary="@string/pref_icon_pack_masking_summary"
             android:title="@string/pref_icon_pack_masking"
             app:controllerClass=".IconPackMaskingController"/>
 
-        <ch.deletescape.lawnchair.adaptive.IconShapePreference
+        <tech.DevAsh.Launcher.adaptive.IconShapePreference
             android:defaultValue=""
             android:entries="@array/icon_shape_names"
             android:entryValues="@array/icon_shape_values"
@@ -32,10 +32,10 @@
             android:key="pref_resetCustomIcons"
             android:title="@string/reset_custom_icons" />
 
-        <ch.deletescape.lawnchair.preferences.AdvancedPreferencesGroup
+        <tech.DevAsh.Launcher.preferences.AdvancedPreferencesGroup
             app:topic="@string/adaptive_icon"
             app:controllerClass=".IconShapeOverrideController">
-            <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
                 android:defaultValue="@bool/config_enable_legacy_treatment"
                 android:key="pref_enableLegacyTreatment"
                 android:persistent="true"
@@ -43,7 +43,7 @@
                 android:title="@string/pref_legacy_treatment_title"
                 app:controllerClass=".IconShapeOverrideController"/>
 
-            <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
                 android:defaultValue="@bool/config_enable_colorized_legacy_treatment"
                 android:key="pref_colorizeGeneratedBackgrounds"
                 android:persistent="true"
@@ -52,7 +52,7 @@
                 android:title="@string/pref_legacy_colored_backgrounds"
                 app:controllerClass=".IconShapeOverrideController"/>
 
-            <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
                 android:defaultValue="@bool/config_enable_white_only_treatment"
                 android:key="pref_enableWhiteOnlyTreatment"
                 android:persistent="true"
@@ -61,42 +61,42 @@
                 android:title="@string/pref_white_only_treatment"
                 app:controllerClass=".IconShapeOverrideController"/>
 
-            <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+            <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
                 android:defaultValue="false"
                 android:key="pref_generateAdaptiveForIconPack"
                 android:dependency="pref_enableLegacyTreatment"
                 android:title="@string/adaptify_pack_title"
                 app:controllerClass=".IconShapeOverrideController"/>
-        </ch.deletescape.lawnchair.preferences.AdvancedPreferencesGroup>
-    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+        </tech.DevAsh.Launcher.preferences.AdvancedPreferencesGroup>
+    </tech.DevAsh.Launcher.preferences.StyledPreferenceCategory>
 
-    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+    <tech.DevAsh.Launcher.preferences.StyledPreferenceCategory
         android:key="prefCat_themeStyle"
         android:title="@string/pref_category_theme">
 
-        <ch.deletescape.lawnchair.theme.ui.ThemePreference
+        <tech.DevAsh.Launcher.theme.ui.ThemePreference
             android:key="pref_launcherTheme"
             android:title="@string/appearance"
             app:content="@xml/lawnchair_theme_dialog_preference" />
 
-<!--        <ch.deletescape.lawnchair.colors.preferences.ColorPickerPreference-->
+<!--        <ch.deletescape.keyOS.Launcher.colors.preferences.ColorPickerPreference-->
 <!--            android:key="pref_accentColorResolver"-->
 <!--            android:title="@string/lawnchair_accent"-->
 <!--            app:resolvers="@array/resolvers_accent"/>-->
 
-        <ch.deletescape.lawnchair.settings.ui.SubPreference
+        <tech.DevAsh.Launcher.settings.ui.SubPreference
             android:key="fonts"
             android:title="@string/pref_fonts_title"
             app:content="@xml/lawnchair_fonts_preference_v2"/>
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:defaultValue="true"
             android:key="pref_enableBlur"
             android:persistent="true"
             android:summary="@string/blur_pref_summary"
             android:title="@string/blur_pref_title" />
 
-        <ch.deletescape.lawnchair.preferences.SeekbarPreference
+        <tech.DevAsh.Launcher.preferences.SeekbarPreference
             android:dependency="pref_enableBlur"
             android:key="pref_blurRadius"
             android:persistent="true"
@@ -106,5 +106,5 @@
             app:minValue="10"
             app:steps="140"
             app:summaryFormat="%.0f" />
-    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+    </tech.DevAsh.Launcher.preferences.StyledPreferenceCategory>
 </android.support.v7.preference.PreferenceScreen>

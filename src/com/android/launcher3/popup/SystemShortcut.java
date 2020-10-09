@@ -1,15 +1,12 @@
 package com.android.launcher3.popup;
 
-import static com.android.launcher3.userevent.nano.LauncherLogProto.Action;
-import static com.android.launcher3.userevent.nano.LauncherLogProto.ControlType;
-
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 
-import ch.deletescape.lawnchair.LawnchairLauncher;
-import ch.deletescape.lawnchair.animations.LawnchairAppTransitionManagerImpl;
+import tech.DevAsh.Launcher.LawnchairLauncher;
+import tech.DevAsh.Launcher.animations.LawnchairAppTransitionManagerImpl;
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.BaseDraggingActivity;
 import com.android.launcher3.ItemInfo;

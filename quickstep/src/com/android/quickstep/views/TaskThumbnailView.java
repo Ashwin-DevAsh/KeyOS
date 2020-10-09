@@ -34,7 +34,7 @@ import android.util.FloatProperty;
 import android.util.Property;
 import android.view.View;
 
-import ch.deletescape.lawnchair.LawnchairPreferences;
+import tech.DevAsh.Launcher.LawnchairPreferences;
 import com.android.launcher3.BaseActivity;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.R;

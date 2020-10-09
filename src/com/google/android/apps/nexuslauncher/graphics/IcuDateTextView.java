@@ -4,16 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.icu.text.DateFormat;
-import android.icu.text.DisplayContext;
-import android.support.annotation.RequiresApi;
-import android.text.format.DateUtils;
 import android.util.AttributeSet;
-import ch.deletescape.lawnchair.LawnchairPreferences;
-import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
-
-import java.util.Locale;
 
 public class IcuDateTextView extends DoubleShadowTextView {
     private final BroadcastReceiver mTimeChangeReceiver;

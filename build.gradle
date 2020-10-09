@@ -111,7 +111,7 @@ android {
     productFlavors {
 //        aosp {
 //            dimension "default"
-//            applicationId 'ch.deletescape.lawnchair'
+//            applicationId 'ch.deletescape.keyOS.Launcher'
 //            testApplicationId 'com.android.launcher3.tests'
 //        }
 //
@@ -123,8 +123,8 @@ android {
 
         quickstep {
             dimension "default"
-            applicationId 'net.ohrz.lawndesk'
-            testApplicationId 'com.android.launcher3.tests'
+            applicationId 'tech.DevAsh.keyOS'
+            testApplicationId 'tech.DevAsh.keyOS.tests'
 
             resValue "string", "xmlApplicationId", applicationId
             resValue "string", "settingsApplicationId", "package:$applicationId"

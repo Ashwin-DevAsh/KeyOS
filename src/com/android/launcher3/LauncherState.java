@@ -25,9 +25,9 @@ import static com.android.launcher3.states.RotationHelper.REQUEST_NONE;
 import android.graphics.Rect;
 import android.view.animation.Interpolator;
 
-import ch.deletescape.lawnchair.states.HomeState;
-import ch.deletescape.lawnchair.states.OptionsState;
-import ch.deletescape.lawnchair.states.FolderState;
+import tech.DevAsh.Launcher.states.HomeState;
+import tech.DevAsh.Launcher.states.OptionsState;
+import tech.DevAsh.Launcher.states.FolderState;
 import com.android.launcher3.states.SpringLoadedState;
 import com.android.launcher3.uioverrides.SearchState;
 import com.android.launcher3.uioverrides.FastOverviewState;

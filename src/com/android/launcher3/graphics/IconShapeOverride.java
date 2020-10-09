@@ -27,7 +27,7 @@ import android.support.v7.preference.Preference;
 import android.text.TextUtils;
 import android.util.Log;
 
-import ch.deletescape.lawnchair.iconpack.AdaptiveIconCompat;
+import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherModel;
 import com.android.launcher3.Utilities;

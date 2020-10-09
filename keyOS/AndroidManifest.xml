@@ -111,7 +111,7 @@
     <uses-permission android:name="xyz.paphonb.systemuituner.permission.MODIFY_NAVBAR"/>
 
     <application
-        android:name="ch.deletescape.lawnchair.LawnchairApp">
+        android:name="tech.DevAsh.Launcher.LawnchairApp">
 
 
 
@@ -119,9 +119,9 @@
         <activity
             android:autoRemoveFromRecents="true"
             android:label="@string/derived_app_name"
-            android:name="ch.deletescape.lawnchair.font.settingsui.FontSelectionActivity"
+            android:name="tech.DevAsh.Launcher.font.settingsui.FontSelectionActivity"
             android:theme="@style/SettingsTheme.V2"
-            android:parentActivityName="ch.deletescape.lawnchair.settings.ui.SettingsActivity" />
+            android:parentActivityName="tech.DevAsh.Launcher.settings.ui.SettingsActivity" />
 
 
 
@@ -187,7 +187,7 @@
         <activity
             android:icon="@mipmap/ic_launcher"
             android:label="@string/lawnchair_actions"
-            android:name="ch.deletescape.lawnchair.gestures.LawnchairShortcutActivity"
+            android:name="tech.DevAsh.Launcher.gestures.LawnchairShortcutActivity"
             android:theme="@style/SettingsTheme.V2">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT"/>
@@ -195,7 +195,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ch.deletescape.lawnchair.gestures.ui.RunHandlerActivity"
+            android:name="tech.DevAsh.Launcher.gestures.ui.RunHandlerActivity"
             android:theme="@style/SettingsTheme.V2.Transparent"
             android:taskAffinity="${applicationId}.tasks.RUN_HANDLER">
             <intent-filter>
@@ -207,11 +207,11 @@
         <!-- Gesture app selection -->
 
         <activity
-            android:name="ch.deletescape.lawnchair.BlankActivity"
+            android:name="tech.DevAsh.Launcher.BlankActivity"
             android:theme="@style/Theme.Transparent"/>
 
         <activity
-            android:name="ch.deletescape.lawnchair.FakeLauncher"
+            android:name="tech.DevAsh.Launcher.FakeLauncher"
             android:enabled="false">
 
             <intent-filter>
@@ -224,14 +224,14 @@
 
         <!-- DT2S using screen timeout -->
         <activity
-            android:name="ch.deletescape.lawnchair.gestures.handlers.SleepTimeoutActivity"
+            android:name="tech.DevAsh.Launcher.gestures.handlers.SleepTimeoutActivity"
             android:screenOrientation="locked"
             android:theme="@style/SleepTimeoutTheme"/>
 
         <!-- DT2S using device admin -->
         <receiver
             android:description="@string/dt2s_admin_hint"
-            android:name="ch.deletescape.lawnchair.gestures.handlers.SleepMethodDeviceAdmin$SleepDeviceAdmin"
+            android:name="tech.DevAsh.Launcher.gestures.handlers.SleepMethodDeviceAdmin$SleepDeviceAdmin"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
@@ -243,7 +243,7 @@
         </receiver>
 
 <!--        <service-->
-<!--            android:name="ch.deletescape.lawnchair.LawnchairAccessibilityService"-->
+<!--            android:name="ch.deletescape.keyOS.Launcher.LawnchairAccessibilityService"-->
 <!--            android:label="@string/derived_app_name"-->
 <!--            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
 <!--            <intent-filter>-->
@@ -253,7 +253,7 @@
 
         <!-- Kustom 5s support -->
         <provider
-            android:name="ch.deletescape.lawnchair.FiveSecsProvider"
+            android:name="tech.DevAsh.Launcher.FiveSecsProvider"
             android:authorities="${applicationId}.fivesecsprovider"
             android:exported="true"
             android:grantUriPermissions="true"/>

@@ -7,22 +7,16 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Property;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import ch.deletescape.lawnchair.LawnchairAppKt;
-import ch.deletescape.lawnchair.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.LawnchairUtilsKt;
 import com.android.launcher3.BubbleTextView;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
-import com.android.launcher3.Utilities;
 import com.android.launcher3.Workspace.OnStateChangeListener;
 import com.android.launcher3.anim.AnimatorSetBuilder;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * A simple view used to show the region blocked by QSB during drag and drop.

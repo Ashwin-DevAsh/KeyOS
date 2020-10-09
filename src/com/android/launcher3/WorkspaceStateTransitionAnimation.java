@@ -16,12 +16,11 @@
 
 package com.android.launcher3;
 
-import static ch.deletescape.lawnchair.views.LawnchairBackgroundView.ALPHA_INDEX_STATE;
+import static tech.DevAsh.Launcher.views.LawnchairBackgroundView.ALPHA_INDEX_STATE;
 import static com.android.launcher3.LauncherAnimUtils.DRAWABLE_ALPHA;
 import static com.android.launcher3.LauncherAnimUtils.SCALE_PROPERTY;
 import static com.android.launcher3.LauncherState.HOTSEAT_ICONS;
 import static com.android.launcher3.LauncherState.OPTIONS_VIEW;
-import static com.android.launcher3.LauncherState.SEARCH_VIEW;
 import static com.android.launcher3.anim.AnimatorSetBuilder.ANIM_BLUR_FADE;
 import static com.android.launcher3.anim.AnimatorSetBuilder.ANIM_WORKSPACE_FADE;
 import static com.android.launcher3.anim.AnimatorSetBuilder.ANIM_WORKSPACE_SCALE;
@@ -33,11 +32,10 @@ import static com.android.launcher3.graphics.WorkspaceAndHotseatScrim.SYSUI_PROG
 
 import android.view.View;
 import android.view.animation.Interpolator;
-import ch.deletescape.lawnchair.LawnchairLauncher;
-import ch.deletescape.lawnchair.util.InvertedMultiValueAlpha;
-import ch.deletescape.lawnchair.util.InvertedMultiValueAlpha.InvertedAlphaProperty;
-import ch.deletescape.lawnchair.views.LawnchairBackgroundView;
-import ch.deletescape.lawnchair.views.OptionsPanel;
+import tech.DevAsh.Launcher.LawnchairLauncher;
+import tech.DevAsh.Launcher.util.InvertedMultiValueAlpha;
+import tech.DevAsh.Launcher.views.LawnchairBackgroundView;
+import tech.DevAsh.Launcher.views.OptionsPanel;
 import com.android.launcher3.LauncherState.PageAlphaProvider;
 import com.android.launcher3.LauncherStateManager.AnimationConfig;
 import com.android.launcher3.anim.AnimatorSetBuilder;

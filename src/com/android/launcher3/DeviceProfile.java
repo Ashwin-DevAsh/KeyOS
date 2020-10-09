@@ -27,7 +27,7 @@ import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.view.Surface;
 import android.view.WindowManager;
-import ch.deletescape.lawnchair.LawnchairPreferences;
+import tech.DevAsh.Launcher.LawnchairPreferences;
 import com.android.launcher3.CellLayout.ContainerType;
 import com.android.launcher3.badge.BadgeRenderer;
 import com.android.launcher3.graphics.IconNormalizer;

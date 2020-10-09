@@ -26,7 +26,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-import ch.deletescape.lawnchair.iconpack.IconPackManager;
+import tech.DevAsh.Launcher.iconpack.IconPackManager;
 import com.android.launcher3.*;
 import com.android.launcher3.FolderInfo;
 import com.android.launcher3.ItemInfo;
@@ -37,7 +37,6 @@ import com.android.launcher3.LauncherModel;
 import com.android.launcher3.LauncherModel.Callbacks;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.LauncherSettings.Settings;
-import com.android.launcher3.logging.FileLog;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.util.ContentWriter;

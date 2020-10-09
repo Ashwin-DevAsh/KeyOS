@@ -27,7 +27,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import ch.deletescape.lawnchair.settings.ui.SettingsActivity;
+import tech.DevAsh.Launcher.settings.ui.SettingsActivity;
 import com.android.launcher3.Launcher.OnResumeCallback;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.dragndrop.DragOptions;

@@ -32,8 +32,8 @@ import android.provider.Settings;
 import android.support.annotation.WorkerThread;
 import android.util.Log;
 
-import ch.deletescape.lawnchair.LawnchairPreferences;
-import ch.deletescape.lawnchair.customnavbar.CustomNavBar;
+import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.customnavbar.CustomNavBar;
 import com.android.launcher3.MainThreadExecutor;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.util.UiThreadHelper;

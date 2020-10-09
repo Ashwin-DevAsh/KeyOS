@@ -45,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static ch.deletescape.lawnchair.settings.ui.SettingsActivity.NOTIFICATION_BADGING;
+import static tech.DevAsh.Launcher.settings.ui.SettingsActivity.NOTIFICATION_BADGING;
 
 /**
  * A {@link NotificationListenerService} that sends updates to its

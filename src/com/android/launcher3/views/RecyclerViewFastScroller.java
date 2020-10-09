@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -33,7 +32,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.TextView;
 
-import ch.deletescape.lawnchair.LawnchairPreferences;
+import tech.DevAsh.Launcher.LawnchairPreferences;
 import com.android.launcher3.BaseRecyclerView;
 import com.android.launcher3.BaseRecyclerView.PositionThumbInfo;
 import com.android.launcher3.R;

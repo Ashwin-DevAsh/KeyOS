@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
-    tools:context="ch.deletescape.lawnchair.iconpack.EditIconActivity">
+    tools:context="tech.DevAsh.Launcher.iconpack.EditIconActivity">
 
     <ImageView
         android:id="@+id/originalIcon"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="@+id/originalIcon"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ch.deletescape.lawnchair.views.SpringRecyclerView
+    <tech.DevAsh.Launcher.views.SpringRecyclerView
         android:id="@+id/iconRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/originalIcon" />
 
-    <ch.deletescape.lawnchair.views.SpringRecyclerView
+    <tech.DevAsh.Launcher.views.SpringRecyclerView
         android:id="@+id/iconPackRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"

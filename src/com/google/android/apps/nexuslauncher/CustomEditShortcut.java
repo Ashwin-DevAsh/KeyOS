@@ -3,11 +3,10 @@ package com.google.android.apps.nexuslauncher;
 import android.content.Context;
 import android.support.annotation.Keep;
 import android.view.View;
-import ch.deletescape.lawnchair.override.CustomInfoProvider;
+import tech.DevAsh.Launcher.override.CustomInfoProvider;
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
-import com.android.launcher3.R;
 import com.android.launcher3.popup.SystemShortcut;
 
 @Keep

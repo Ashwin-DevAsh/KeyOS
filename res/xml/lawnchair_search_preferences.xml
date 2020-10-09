@@ -2,21 +2,21 @@
 <android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ch.deletescape.lawnchair.globalsearch.ui.SearchProviderPreference
+    <tech.DevAsh.Launcher.globalsearch.ui.SearchProviderPreference
         android:defaultValue="@string/config_default_search_provider"
         android:key="pref_globalSearchProvider"
         android:title="@string/pref_global_search_provider" />
 
-    <ch.deletescape.lawnchair.globalsearch.ui.ExternalSearchProviderPreference
+    <tech.DevAsh.Launcher.globalsearch.ui.ExternalSearchProviderPreference
         android:defaultValue="@string/config_external_search_provider"
         android:key="pref_externalSearchProvider"
         android:title="@string/pref_external_search_provider" />
 
-    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+    <tech.DevAsh.Launcher.preferences.StyledPreferenceCategory
         android:key="prefCat_searchbarAppearance"
         android:title="@string/searchbar_appearance_title">
 
-        <ch.deletescape.lawnchair.preferences.AutoModeSeekbarPreference
+        <tech.DevAsh.Launcher.preferences.AutoModeSeekbarPreference
             android:key="pref_searchbarRadius"
             android:title="@string/pref_search_bar_radius"
             app:defaultSeekbarValue="-1.0"
@@ -25,17 +25,17 @@
             app:steps="24"
             app:summaryFormat="%.0fdp"/>
 
-        <ch.deletescape.lawnchair.preferences.StyledSwitchPreferenceCompat
+        <tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
             android:key="pref_search_hidden_apps"
             android:title="@string/title_search_hidden_apps"
             android:summary="@string/summary_search_hidden_apps"
             android:defaultValue="false" />
 
-<!--        <ch.deletescape.lawnchair.colors.preferences.ColorPickerPreference-->
+<!--        <ch.deletescape.keyOS.Launcher.colors.preferences.ColorPickerPreference-->
 <!--            android:key="pref_allappsQsbColorResolver"-->
 <!--            android:title="@string/pref_qsb_color"-->
 <!--            app:colorMode="ARGB"-->
 <!--            app:resolvers="@array/resolvers_allapps_qsb"/>-->
-    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+    </tech.DevAsh.Launcher.preferences.StyledPreferenceCategory>
 
 </android.support.v7.preference.PreferenceScreen>

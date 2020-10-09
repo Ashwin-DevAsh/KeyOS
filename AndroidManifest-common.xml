@@ -55,7 +55,7 @@
         android:supportsRtl="true" >
 
         <activity
-            android:name="ch.deletescape.lawnchair.LawnchairLauncher"
+            android:name="tech.DevAsh.Launcher.LawnchairLauncher"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"

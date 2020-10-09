@@ -36,7 +36,7 @@ import android.util.LruCache;
 import android.util.SparseArray;
 import android.view.accessibility.AccessibilityManager;
 
-import ch.deletescape.lawnchair.LawnchairIconLoader;
+import tech.DevAsh.Launcher.LawnchairIconLoader;
 import com.android.launcher3.MainThreadExecutor;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;

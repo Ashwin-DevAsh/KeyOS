@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ch.deletescape.lawnchair.colors.preferences.ColorPreviewView
+<tech.DevAsh.Launcher.colors.preferences.ColorPreviewView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

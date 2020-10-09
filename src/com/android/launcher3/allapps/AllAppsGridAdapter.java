@@ -26,16 +26,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import ch.deletescape.lawnchair.colors.ColorEngine;
-import ch.deletescape.lawnchair.colors.ColorEngine.Resolvers;
+import tech.DevAsh.Launcher.colors.ColorEngine;
+import tech.DevAsh.Launcher.colors.ColorEngine.Resolvers;
 
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.BubbleTextView;

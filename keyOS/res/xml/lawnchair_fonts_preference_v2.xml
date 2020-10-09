@@ -20,30 +20,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ch.deletescape.lawnchair.font.settingsui.GlobalFontPreference
+    <tech.DevAsh.Launcher.font.settingsui.GlobalFontPreference
         android:key="pref_font_global"
         android:icon="@drawable/ic_global_font"
         android:title="@string/pref_fonts_global_font" />
 
-    <ch.deletescape.lawnchair.preferences.StyledPreferenceCategory
+    <tech.DevAsh.Launcher.preferences.StyledPreferenceCategory
         android:title="@string/homescreen"
         android:layout="@layout/settings_category_v2"
         android:dependency="pref_font_global">
 
-        <ch.deletescape.lawnchair.font.settingsui.FontPreference
+        <tech.DevAsh.Launcher.font.settingsui.FontPreference
             android:key="pref_font_workspace"
             android:icon="@android:color/transparent"
             android:title="@string/pref_fonts_home_icons" />
 
-        <ch.deletescape.lawnchair.font.settingsui.FontPreference
+        <tech.DevAsh.Launcher.font.settingsui.FontPreference
             android:key="pref_font_smartspaceText"
             android:icon="@android:color/transparent"
             android:title="@string/pref_fonts_home_smartspace" />
 
-        <ch.deletescape.lawnchair.font.settingsui.FontPreference
+        <tech.DevAsh.Launcher.font.settingsui.FontPreference
             android:key="pref_font_deepShortcut"
             android:icon="@android:color/transparent"
             android:title="@string/pref_fonts_home_shortcuts" />
-    </ch.deletescape.lawnchair.preferences.StyledPreferenceCategory>
+    </tech.DevAsh.Launcher.preferences.StyledPreferenceCategory>
 
 </android.support.v7.preference.PreferenceScreen>

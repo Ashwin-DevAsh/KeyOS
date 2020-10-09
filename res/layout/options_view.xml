@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<ch.deletescape.lawnchair.views.OptionsPanel
+<tech.DevAsh.Launcher.views.OptionsPanel
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:launcher="http://schemas.android.com/apk/res-auto"
     android:theme="@style/HomeScreenElementTheme"
@@ -28,7 +28,7 @@
     android:visibility="invisible"
     android:weightSum="4">
 
-    <ch.deletescape.lawnchair.views.OptionsTextView
+    <tech.DevAsh.Launcher.views.OptionsTextView
         android:id="@+id/wallpaper_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         android:textColor="?attr/workspaceTextColor"
         android:textSize="12sp" />
 
-    <ch.deletescape.lawnchair.views.OptionsTextView
+    <tech.DevAsh.Launcher.views.OptionsTextView
         android:id="@+id/widget_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
         android:textColor="?attr/workspaceTextColor"
         android:textSize="12sp" />
 
-    <ch.deletescape.lawnchair.views.OptionsTextView
+    <tech.DevAsh.Launcher.views.OptionsTextView
         android:id="@+id/settings_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -76,4 +76,4 @@
         android:textColor="?attr/workspaceTextColor"
         android:textSize="12sp" />
 
-</ch.deletescape.lawnchair.views.OptionsPanel>
+</tech.DevAsh.Launcher.views.OptionsPanel>

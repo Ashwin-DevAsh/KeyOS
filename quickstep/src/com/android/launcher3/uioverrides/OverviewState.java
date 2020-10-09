@@ -21,7 +21,6 @@ import static com.android.launcher3.states.RotationHelper.REQUEST_ROTATE;
 
 import android.view.View;
 
-import ch.deletescape.lawnchair.LawnchairPreferences;
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.Launcher;

@@ -27,7 +27,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Process;
 
-import ch.deletescape.lawnchair.iconpack.LawnchairIconProvider;
+import tech.DevAsh.Launcher.iconpack.LawnchairIconProvider;
 import com.android.launcher3.FastBitmapDrawable;
 import com.android.launcher3.IconCache;
 import com.android.launcher3.IconProvider;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ch.deletescape.lawnchair.views.FadingImageView
+<tech.DevAsh.Launcher.views.FadingImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="?android:attr/selectableItemBackgroundBorderless"

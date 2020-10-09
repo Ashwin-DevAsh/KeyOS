@@ -27,19 +27,15 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.util.Log;
-import ch.deletescape.lawnchair.override.CustomInfoProvider;
-import com.android.launcher3.BuildConfig;
+import tech.DevAsh.Launcher.override.CustomInfoProvider;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.Utilities;
-import com.android.launcher3.popup.PopupPopulator;
 import com.android.launcher3.util.ComponentKey;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import ninja.sesame.lib.bridge.v1.SesameFrontend;
-import ninja.sesame.lib.bridge.v1.SesameShortcut;
 
 /**
  * Performs operations related to deep shortcuts, such as querying for them, pinning them, etc.

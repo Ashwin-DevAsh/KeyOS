@@ -26,8 +26,7 @@ import android.os.UserHandle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import android.util.DisplayMetrics;
-import ch.deletescape.lawnchair.iconpack.IconPackManager;
+import tech.DevAsh.Launcher.iconpack.IconPackManager;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.compat.UserManagerCompat;
 import com.android.launcher3.model.ModelWriter;

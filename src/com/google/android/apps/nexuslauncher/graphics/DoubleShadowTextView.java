@@ -4,11 +4,11 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import ch.deletescape.lawnchair.colors.ColorEngine;
-import ch.deletescape.lawnchair.colors.ColorEngine.OnColorChangeListener;
-import ch.deletescape.lawnchair.colors.ColorEngine.ResolveInfo;
-import ch.deletescape.lawnchair.colors.ColorEngine.Resolvers;
-import ch.deletescape.lawnchair.font.CustomFontManager;
+import tech.DevAsh.Launcher.colors.ColorEngine;
+import tech.DevAsh.Launcher.colors.ColorEngine.OnColorChangeListener;
+import tech.DevAsh.Launcher.colors.ColorEngine.ResolveInfo;
+import tech.DevAsh.Launcher.colors.ColorEngine.Resolvers;
+import tech.DevAsh.Launcher.font.CustomFontManager;
 import com.android.launcher3.views.DoubleShadowBubbleTextView;
 import org.jetbrains.annotations.NotNull;
 

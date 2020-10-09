@@ -23,7 +23,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ch.deletescape.lawnchair.adaptive.IconShapeCustomizeView
+    <tech.DevAsh.Launcher.adaptive.IconShapeCustomizeView
         android:id="@+id/customizeView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,5 +51,5 @@
         <include
             android:id="@+id/bottomRightRow"
             layout="@layout/icon_shape_corner_row" />
-    </ch.deletescape.lawnchair.adaptive.IconShapeCustomizeView>
+    </tech.DevAsh.Launcher.adaptive.IconShapeCustomizeView>
 </ScrollView>

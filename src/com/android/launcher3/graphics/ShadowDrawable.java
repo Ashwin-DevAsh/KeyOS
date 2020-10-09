@@ -33,7 +33,7 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 
-import ch.deletescape.lawnchair.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.LawnchairUtilsKt;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 
