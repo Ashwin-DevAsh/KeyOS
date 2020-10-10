@@ -18,7 +18,7 @@
 package tech.DevAsh.Launcher.preferences
 
 import android.content.Context
-import android.support.v7.preference.ListPreference
+import androidx.preference.ListPreference
 import android.util.AttributeSet
 import tech.DevAsh.Launcher.animations.AnimationType
 import tech.DevAsh.Launcher.util.buildEntries

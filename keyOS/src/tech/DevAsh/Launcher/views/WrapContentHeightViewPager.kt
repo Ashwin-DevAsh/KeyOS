@@ -18,14 +18,14 @@
 package tech.DevAsh.Launcher.views
 
 import android.content.Context
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import tech.DevAsh.Launcher.forEachChild
 import kotlin.math.max
 
-class WrapContentHeightViewPager(context: Context, attrs: AttributeSet?) : ViewPager(context, attrs) {
+class WrapContentHeightViewPager(context: Context, attrs: AttributeSet?) : androidx.viewpager.widget.ViewPager(context, attrs) {
 
     var childFilter: (View) -> Boolean = { true }
 

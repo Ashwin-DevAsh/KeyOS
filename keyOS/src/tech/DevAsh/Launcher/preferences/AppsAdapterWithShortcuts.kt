@@ -25,8 +25,8 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Handler
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.text.TextUtils
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
@@ -47,7 +47,7 @@ open class AppsAdapterWithShortcuts(
         private val context: Context,
         private val callback: Callback? = null,
         private val filter: AppFilter? = null)
-    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
 
 
     companion object {
@@ -72,7 +72,7 @@ open class AppsAdapterWithShortcuts(
         Handler(LauncherModel.getWorkerLooper()).postAtFrontOfQueue(::loadAppsList)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             TYPE_APP -> AppHolder(layoutInflater.inflate(R.layout.app_item, parent, false))
@@ -83,7 +83,7 @@ open class AppsAdapterWithShortcuts(
 
     override fun getItemCount() = items.size
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         if (holder is AppHolder) {
             holder.bind(items[position] as AppItem)
         } else if (holder is ShortcutHolder) {
@@ -177,8 +177,8 @@ open class AppsAdapterWithShortcuts(
 
     class LoadingItem : Item
 
-    inner class AppHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-            View.OnClickListener, ValueAnimator.AnimatorUpdateListener {
+    inner class AppHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView),
+                                            View.OnClickListener, ValueAnimator.AnimatorUpdateListener {
 
         private val label: TextView = itemView.findViewById(R.id.label)
         private val icon: ImageView = itemView.findViewById(R.id.icon)
@@ -232,7 +232,7 @@ open class AppsAdapterWithShortcuts(
         }
     }
 
-    inner class ShortcutHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ShortcutHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         private val label: TextView = itemView.findViewById(R.id.label)
         private val icon: ImageView = itemView.findViewById(R.id.shortcutIcon)
@@ -253,7 +253,7 @@ open class AppsAdapterWithShortcuts(
         }
     }
 
-    inner class LoadingHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class LoadingHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         init {
             val progressBar = itemView.findViewById<ProgressBar>(R.id.progress)
             progressBar.indeterminateTintList = ColorStateList.valueOf(ColorEngine.getInstance(context).accent)

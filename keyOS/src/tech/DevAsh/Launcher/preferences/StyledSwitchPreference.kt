@@ -20,7 +20,7 @@ package tech.DevAsh.Launcher.preferences
 import android.content.Context
 import android.preference.SwitchPreference
 //import android.support.v14.preference.SwitchPreference
-import android.support.v7.preference.AndroidResources
+import androidx.preference.AndroidResources
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Switch
@@ -30,18 +30,18 @@ import tech.DevAsh.Launcher.colors.ColorEngine
 
 open class StyledSwitchPreference(context: Context, attrs: AttributeSet?) : SwitchPreference(context, attrs), ColorEngine.OnColorChangeListener {
 
-    private var checkableView: View? = null
+//    private var checkableView: View? = null
 
     override fun onBindView(view: View?) {
         super.onBindView(view)
-        checkableView = view?.findViewById(AndroidResources.ANDROID_R_SWITCH_WIDGET)
+//        checkableView = view?.findViewById(AndroidResources.ANDROID_R_SWITCH_WIDGET)
         ColorEngine.getInstance(context).addColorChangeListeners(this, ColorEngine.Resolvers.ACCENT)
     }
 
     override fun onColorChange(resolveInfo: ColorEngine.ResolveInfo) {
-        if (resolveInfo.key == ColorEngine.Resolvers.ACCENT && checkableView is Switch) {
-            (checkableView as Switch).applyColor(resolveInfo.color)
-        }
+//        if (resolveInfo.key == ColorEngine.Resolvers.ACCENT && checkableView is Switch) {
+//            (checkableView as Switch).applyColor(resolveInfo.color)
+//        }
     }
 
     override fun onPrepareForRemoval() {

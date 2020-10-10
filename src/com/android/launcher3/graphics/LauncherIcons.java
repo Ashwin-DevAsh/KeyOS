@@ -26,7 +26,7 @@ import android.graphics.*;
 import android.graphics.drawable.*;
 import android.os.Process;
 import android.os.UserHandle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import tech.DevAsh.Launcher.NonAdaptiveIconDrawable;
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;

@@ -20,7 +20,7 @@ package tech.DevAsh.Launcher.font.settingsui
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
-import android.support.v7.preference.PreferenceViewHolder
+import androidx.preference.PreferenceViewHolder
 import android.util.AttributeSet
 import android.widget.TextView
 import tech.DevAsh.Launcher.font.CustomFontManager

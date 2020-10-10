@@ -16,7 +16,7 @@
 
 package tech.DevAsh.Launcher.util;
 
-import android.support.v4.util.Consumer;
+import androidx.core.util.Consumer;
 import android.util.Property;
 
 /**

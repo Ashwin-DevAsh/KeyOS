@@ -25,7 +25,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.provider.Settings
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
 
 import tech.DevAsh.Launcher.theme.ThemeManager

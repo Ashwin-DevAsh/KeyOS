@@ -18,7 +18,7 @@
 package tech.DevAsh.Launcher.settings.ui
 
 import android.content.Context
-import android.support.v7.preference.Preference
+import androidx.preference.Preference
 
 open class PreferenceController(val context: Context) {
 

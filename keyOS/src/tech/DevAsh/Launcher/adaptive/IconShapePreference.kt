@@ -22,10 +22,10 @@ package tech.DevAsh.Launcher.adaptive
 import android.content.Context
 import android.graphics.PorterDuff
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
-import android.support.v7.app.AlertDialog
-import android.support.v7.preference.ListPreference
-import android.support.v7.preference.PreferenceDialogFragmentCompat
+import androidx.fragment.app.DialogFragment
+import androidx.appcompat.app.AlertDialog
+import androidx.preference.ListPreference
+import androidx.preference.PreferenceDialogFragmentCompat
 import android.util.AttributeSet
 import android.view.View
 import tech.DevAsh.Launcher.*
@@ -102,7 +102,7 @@ class IconShapePreference(context: Context, attrs: AttributeSet?) :
         preferenceManager.showDialog(this)
     }
 
-    fun createDialogFragment(): DialogFragment {
+    fun createDialogFragment(): androidx.fragment.app.DialogFragment {
         return if (forceCustomizeMode ?: isCustomIcon) {
             CustomizeDialogFragment.newInstance(key)
         } else {

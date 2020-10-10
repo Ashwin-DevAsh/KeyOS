@@ -18,7 +18,7 @@
 package tech.DevAsh.Launcher.theme.ui
 
 import android.content.Context
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import android.util.AttributeSet
 import tech.DevAsh.Launcher.LawnchairPreferences
 import tech.DevAsh.Launcher.theme.ThemeManager

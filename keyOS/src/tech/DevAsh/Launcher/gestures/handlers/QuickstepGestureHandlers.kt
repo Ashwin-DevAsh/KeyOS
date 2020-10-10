@@ -22,7 +22,7 @@ import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import android.util.Log
 import android.view.View
 import tech.DevAsh.Launcher.gestures.GestureController

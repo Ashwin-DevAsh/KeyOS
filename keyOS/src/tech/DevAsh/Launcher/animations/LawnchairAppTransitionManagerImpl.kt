@@ -25,7 +25,7 @@ import android.content.Intent
 import android.graphics.Matrix
 import android.graphics.Rect
 import android.os.Build
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import android.util.Pair
 import android.view.View
 import android.view.animation.PathInterpolator

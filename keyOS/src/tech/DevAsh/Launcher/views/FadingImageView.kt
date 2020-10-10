@@ -20,10 +20,10 @@ package tech.DevAsh.Launcher.views
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.TransitionDrawable
-import android.support.v7.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatImageView
 import android.util.AttributeSet
 
-class FadingImageView(context: Context?, attrs: AttributeSet?) : AppCompatImageView(context, attrs) {
+class FadingImageView(context: Context?, attrs: AttributeSet?) : AppCompatImageView(context!!, attrs) {
 
     private val transparentDrawable = resources.getDrawable(android.R.color.transparent)
 

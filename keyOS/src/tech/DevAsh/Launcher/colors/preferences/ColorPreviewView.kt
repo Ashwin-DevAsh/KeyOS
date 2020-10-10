@@ -19,7 +19,7 @@ package tech.DevAsh.Launcher.colors.preferences
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v7.widget.AppCompatTextView
+import androidx.appcompat.widget.AppCompatTextView
 import android.util.AttributeSet
 import tech.DevAsh.Launcher.colors.ColorEngine
 import tech.DevAsh.Launcher.createRipple

@@ -24,7 +24,7 @@ import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.AdaptiveIconDrawable
 import android.os.Handler
-import android.support.v4.graphics.PathParser
+import androidx.core.graphics.PathParser
 import android.text.TextUtils
 import com.android.launcher3.graphics.IconShape as L3IconShape
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat

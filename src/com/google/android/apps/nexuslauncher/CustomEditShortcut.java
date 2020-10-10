@@ -1,7 +1,7 @@
 package com.google.android.apps.nexuslauncher;
 
 import android.content.Context;
-import android.support.annotation.Keep;
+import androidx.annotation.Keep;
 import android.view.View;
 import tech.DevAsh.Launcher.override.CustomInfoProvider;
 import com.android.launcher3.AbstractFloatingView;

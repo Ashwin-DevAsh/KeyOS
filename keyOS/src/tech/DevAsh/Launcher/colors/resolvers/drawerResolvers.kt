@@ -18,8 +18,8 @@
 package tech.DevAsh.Launcher.colors.resolvers
 
 import android.graphics.Color
-import android.support.annotation.Keep
-import android.support.v4.graphics.ColorUtils
+import androidx.annotation.Keep
+import androidx.core.graphics.ColorUtils
 import tech.DevAsh.Launcher.LawnchairPreferences
 import tech.DevAsh.Launcher.colors.ColorEngine
 import tech.DevAsh.Launcher.colors.ThemeAttributeColorResolver

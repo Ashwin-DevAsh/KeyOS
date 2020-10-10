@@ -20,10 +20,10 @@ package tech.DevAsh.Launcher.preferences
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Context
-import android.support.annotation.Keep
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceGroup
-import android.support.v7.preference.PreferenceViewHolder
+import androidx.annotation.Keep
+import androidx.preference.Preference
+import androidx.preference.PreferenceGroup
+import androidx.preference.PreferenceViewHolder
 import android.util.AttributeSet
 import android.view.View
 import android.widget.ImageView

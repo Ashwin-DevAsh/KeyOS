@@ -34,16 +34,16 @@ import android.os.Looper
 import android.os.UserHandle
 import android.provider.OpenableColumns
 import android.service.notification.StatusBarNotification
-import android.support.animation.FloatPropertyCompat
-import android.support.annotation.ColorInt
-import android.support.v4.content.ContextCompat
-import android.support.v4.graphics.ColorUtils
-import android.support.v4.graphics.drawable.DrawableCompat
-import android.support.v4.view.PagerAdapter
-import android.support.v7.app.AlertDialog
-import android.support.v7.graphics.Palette
-import android.support.v7.preference.Preference
-import android.support.v7.preference.PreferenceGroup
+import androidx.dynamicanimation.animation.FloatPropertyCompat
+import androidx.annotation.ColorInt
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.viewpager.widget.PagerAdapter
+import androidx.appcompat.app.AlertDialog
+import androidx.palette.graphics.Palette
+import androidx.preference.Preference
+import androidx.preference.PreferenceGroup
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.Property
@@ -432,7 +432,7 @@ fun <T>useApplicationContext(creator: (Context) -> T): (Context) -> T {
     return { it -> creator(it.applicationContext) }
 }
 
-class ViewPagerAdapter(private val pages: List<Pair<String, View>>) : PagerAdapter() {
+class ViewPagerAdapter(private val pages: List<Pair<String, View>>) : androidx.viewpager.widget.PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = pages[position].second
@@ -534,8 +534,10 @@ class ReverseInputInterpolator(private val base: Interpolator) : Interpolator {
 fun Switch.applyColor(color: Int) {
     val colorForeground = Themes.getAttrColor(context, android.R.attr.colorForeground)
     val alphaDisabled = Themes.getAlpha(context, android.R.attr.disabledAlpha)
-    val switchThumbNormal = context.resources.getColor(android.support.v7.preference.R.color.switch_thumb_normal_material_light)
-    val switchThumbDisabled = context.resources.getColor(android.support.v7.appcompat.R.color.switch_thumb_disabled_material_light)
+    val switchThumbNormal = context.resources.getColor(
+            androidx.preference.R.color.switch_thumb_normal_material_light)
+    val switchThumbDisabled = context.resources.getColor(
+            R.color.switch_thumb_disabled_material_light)
     val thstateList = ColorStateList(arrayOf(
             intArrayOf(-android.R.attr.state_enabled),
             intArrayOf(android.R.attr.state_checked),
@@ -789,7 +791,7 @@ fun Context.checkLocationAccess(): Boolean {
 }
 
 val Int.foregroundColor
-    get() = Palette.Swatch(ColorUtils.setAlphaComponent(this, 0xFF), 1).bodyTextColor
+    get() = androidx.palette.graphics.Palette.Swatch(ColorUtils.setAlphaComponent(this, 0xFF), 1).bodyTextColor
 
 val Int.luminance get() = ColorUtils.calculateLuminance(this)
 

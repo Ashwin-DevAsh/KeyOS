@@ -16,7 +16,7 @@
   ~     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <tech.DevAsh.Launcher.preferences.StyledPreferenceCategory
@@ -49,4 +49,4 @@
             android:title="@string/customnavbar_back_hiding_desc" />
     </tech.DevAsh.Launcher.preferences.StyledPreferenceCategory>
 
-</android.support.v7.preference.PreferenceScreen>
+</androidx.preference.PreferenceScreen>

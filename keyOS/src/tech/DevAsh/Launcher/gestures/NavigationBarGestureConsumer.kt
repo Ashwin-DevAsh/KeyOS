@@ -26,8 +26,8 @@ import android.graphics.Rect
 import android.media.AudioManager
 import android.os.Build
 import android.os.SystemClock
-import android.support.annotation.Keep
-import android.support.v4.content.ContextCompat
+import androidx.annotation.Keep
+import androidx.core.content.ContextCompat
 import android.view.*
 import tech.DevAsh.Launcher.LawnchairLauncher
 import tech.DevAsh.Launcher.lawnchairApp

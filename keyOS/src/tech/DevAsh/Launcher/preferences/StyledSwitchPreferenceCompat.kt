@@ -18,10 +18,10 @@
 package tech.DevAsh.Launcher.preferences
 
 import android.content.Context
-import android.support.annotation.Keep
-import android.support.v14.preference.SwitchPreference
-import android.support.v7.preference.AndroidResources
-import android.support.v7.preference.PreferenceViewHolder
+import androidx.annotation.Keep
+import androidx.preference.SwitchPreference
+import androidx.preference.AndroidResources
+import androidx.preference.PreferenceViewHolder
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Switch
@@ -42,7 +42,7 @@ open class StyledSwitchPreferenceCompat(context: Context, attrs: AttributeSet? =
 
     override fun onBindViewHolder(holder: PreferenceViewHolder?) {
         super.onBindViewHolder(holder)
-        checkableView = holder?.findViewById(AndroidResources.ANDROID_R_SWITCH_WIDGET)
+//        checkableView = holder?.findViewById(AndroidResources.ANDROID_R_SWITCH_WIDGET)
         ColorEngine.getInstance(context).addColorChangeListeners(this, ColorEngine.Resolvers.ACCENT)
     }
 

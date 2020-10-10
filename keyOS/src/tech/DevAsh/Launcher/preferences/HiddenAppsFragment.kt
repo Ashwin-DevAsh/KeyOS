@@ -18,8 +18,8 @@
 package tech.DevAsh.Launcher.preferences
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.*
 import tech.DevAsh.Launcher.LawnchairAppFilter
 import com.android.launcher3.R
@@ -34,12 +34,15 @@ class HiddenAppsFragment : RecyclerViewFragment(), SelectableAppsAdapter.Callbac
         setHasOptionsMenu(true)
     }
 
-    override fun onRecyclerViewCreated(recyclerView: RecyclerView) {
+    override fun onRecyclerViewCreated(recyclerView: androidx.recyclerview.widget.RecyclerView) {
         val context = recyclerView.context
         adapter = SelectableAppsAdapter.ofProperty(context,
                 Utilities.getLawnchairPrefs(context)::hiddenAppSet, this, LawnchairAppFilter(context))
         recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager =
+                androidx.recyclerview.widget.LinearLayoutManager(context,
+                                                                 androidx.recyclerview.widget.LinearLayoutManager.VERTICAL,
+                                                                 false)
         recyclerView.adapter = adapter
     }
 

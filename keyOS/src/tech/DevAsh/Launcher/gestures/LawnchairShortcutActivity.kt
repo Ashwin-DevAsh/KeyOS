@@ -21,8 +21,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import tech.DevAsh.Launcher.gestures.ui.HandlerListAdapter
 import tech.DevAsh.Launcher.gestures.ui.RunHandlerActivity
 import tech.DevAsh.Launcher.settings.ui.SettingsBaseActivity
@@ -41,9 +41,10 @@ class LawnchairShortcutActivity : SettingsBaseActivity() {
         setContentView(R.layout.preference_insettable_recyclerview)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        val recyclerView = findViewById<RecyclerView>(R.id.list)
+        val recyclerView = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.list)
         recyclerView.adapter = HandlerListAdapter(this, false, "", ::onSelectHandler, false)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager =
+                androidx.recyclerview.widget.LinearLayoutManager(this)
     }
 
     private fun onSelectHandler(handler: GestureHandler) {

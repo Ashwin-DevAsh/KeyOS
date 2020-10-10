@@ -20,7 +20,7 @@
 package tech.DevAsh.Launcher.settings.ui.controllers
 
 import android.content.Context
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import tech.DevAsh.Launcher.customnavbar.CustomNavBar
 import tech.DevAsh.Launcher.lawnchairApp
 import tech.DevAsh.Launcher.settings.ui.PreferenceController

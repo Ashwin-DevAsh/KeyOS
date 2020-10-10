@@ -21,7 +21,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.UserHandle
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import android.view.View
 import android.widget.Toast
 import tech.DevAsh.Launcher.animations.LawnchairAppTransitionManagerImpl

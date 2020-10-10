@@ -13,7 +13,7 @@ import android.os.Build
 import android.os.PowerManager
 import android.os.SystemClock
 import android.provider.Settings
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import android.view.View
 import tech.DevAsh.Launcher.gestures.GestureController
 import tech.DevAsh.Launcher.gestures.GestureHandler

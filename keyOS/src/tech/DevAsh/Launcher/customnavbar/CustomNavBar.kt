@@ -25,7 +25,7 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.content.pm.PackageManager
 import android.os.IBinder
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import tech.DevAsh.Launcher.lawnchairPrefs
 import tech.DevAsh.Launcher.runOnMainThread
 import tech.DevAsh.Launcher.util.LawnchairSingletonHolder

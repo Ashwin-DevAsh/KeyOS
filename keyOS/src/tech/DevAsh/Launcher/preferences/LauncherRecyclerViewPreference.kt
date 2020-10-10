@@ -19,8 +19,8 @@ package tech.DevAsh.Launcher.preferences
 
 import android.content.Context
 import android.preference.DialogPreference
-import android.support.v7.view.ContextThemeWrapper
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.view.ContextThemeWrapper
+import androidx.recyclerview.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.View
 import android.widget.TextView
@@ -50,5 +50,5 @@ abstract class LauncherRecyclerViewPreference(context: Context, attrs: Attribute
         }
     }
 
-    abstract fun onBindRecyclerView(recyclerView: RecyclerView)
+    abstract fun onBindRecyclerView(recyclerView: androidx.recyclerview.widget.RecyclerView)
 }

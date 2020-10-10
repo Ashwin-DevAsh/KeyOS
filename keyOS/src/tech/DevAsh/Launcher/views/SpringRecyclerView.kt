@@ -19,18 +19,18 @@ package tech.DevAsh.Launcher.views
 
 import android.content.Context
 import android.graphics.Canvas
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.util.AttributeSet
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import tech.DevAsh.Launcher.colors.ColorEngine
 import tech.DevAsh.Launcher.getColorAccent
 import tech.DevAsh.Launcher.getColorAttr
 
 open class SpringRecyclerView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : RecyclerView(context, attrs, defStyleAttr) {
+) : androidx.recyclerview.widget.RecyclerView(context, attrs, defStyleAttr) {
 
     private val springManager = SpringEdgeEffect.Manager(this)
     private val scrollBarColor by lazy {

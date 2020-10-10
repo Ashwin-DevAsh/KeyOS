@@ -18,8 +18,8 @@
 package tech.DevAsh.Launcher.perms
 
 import android.content.Context
-import android.support.annotation.DrawableRes
-import android.support.annotation.StringRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import tech.DevAsh.Launcher.*
 import tech.DevAsh.Launcher.util.LawnchairSingletonHolder
 import tech.DevAsh.Launcher.util.extensions.d

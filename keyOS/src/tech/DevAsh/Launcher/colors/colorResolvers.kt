@@ -18,7 +18,7 @@
 package tech.DevAsh.Launcher.colors
 
 import android.graphics.Color
-import android.support.annotation.Keep
+import androidx.annotation.Keep
 import android.text.TextUtils
 import tech.DevAsh.Launcher.getColorAttr
 import tech.DevAsh.Launcher.theme.ThemeOverride

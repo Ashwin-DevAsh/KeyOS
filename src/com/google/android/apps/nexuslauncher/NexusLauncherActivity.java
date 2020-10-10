@@ -2,7 +2,7 @@ package com.google.android.apps.nexuslauncher;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.Utilities;
 import com.google.android.libraries.gsa.launcherclient.LauncherClient;

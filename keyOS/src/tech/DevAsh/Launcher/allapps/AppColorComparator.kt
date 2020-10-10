@@ -18,7 +18,7 @@
 package tech.DevAsh.Launcher.allapps
 
 import android.content.Context
-import android.support.v4.graphics.ColorUtils
+import androidx.core.graphics.ColorUtils
 import com.android.launcher3.AppInfo
 import com.android.launcher3.allapps.AppInfoComparator
 

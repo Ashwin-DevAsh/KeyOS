@@ -19,7 +19,7 @@ package tech.DevAsh.Launcher.font.settingsui
 
 import android.content.Context
 import android.os.Build
-import android.support.v7.preference.PreferenceViewHolder
+import androidx.preference.PreferenceViewHolder
 import android.util.AttributeSet
 import android.widget.Button
 import android.widget.ImageView
