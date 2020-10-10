@@ -207,8 +207,6 @@
 
     <!-- Section 11 -->
 
-    <string name="about">About</string>
-
     <string name="title_attribouter_rate">Rate</string>
     <string name="title_attribouter_website">Website</string>
 
@@ -232,7 +230,6 @@
     <string name="icon_pack">Icon Pack</string>
     <string name="home_widget">At a Glance</string>
 
-    <string name="about_app_version">Version</string>
     <string name="title_disable_suggestions_prompt">Disable App Suggestions</string>
     <string name="msg_disable_suggestions_prompt">"Usage data will be deleted."</string>
 
@@ -292,8 +289,6 @@
 
     <string name="error_no_browser">No browser found.</string>
     <string name="icon_pack_external_picker">Open External Picker</string>
-
-    <string name="week_day_format">%1$s, %2$s</string>
 
     <string name="reset">Reset</string>
 
