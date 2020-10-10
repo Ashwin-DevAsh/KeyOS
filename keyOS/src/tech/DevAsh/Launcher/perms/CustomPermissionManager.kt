@@ -22,7 +22,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import tech.DevAsh.Launcher.*
 import tech.DevAsh.Launcher.util.LawnchairSingletonHolder
-import tech.DevAsh.Launcher.util.extensions.d
 import com.android.launcher3.R
 
 class CustomPermissionManager private constructor(private val context: Context) {
@@ -32,9 +31,7 @@ class CustomPermissionManager private constructor(private val context: Context) 
     fun checkPermission(permission: String) = grantedPerms.contains(permission)
 
     fun checkOrRequestPermission(permission: String, @StringRes explanation: Int?, callback: (allowed: Boolean) -> Unit) {
-        deniedPerms.forEach {
-            it.d()
-        }
+
         if (!DEBUG_PROMPT_ALWAYS) {
             if (deniedPerms.contains(permission)) {
                 callback(false)

@@ -39,7 +39,6 @@ import tech.DevAsh.Launcher.checkLocationAccess
 import tech.DevAsh.Launcher.ensureOnMainThread
 import tech.DevAsh.Launcher.useApplicationContext
 import tech.DevAsh.Launcher.util.SingletonHolder
-import tech.DevAsh.Launcher.util.extensions.d
 import com.android.launcher3.BuildConfig
 import java.util.*
 
@@ -81,7 +80,6 @@ class TwilightManager(private val context: Context) : Handler.Callback, Location
     init {
         context.registerReceiver(object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
-                d("onAlarm")
                 updateTwilightState()
             }
         }, IntentFilter(ACTION_UPDATE_TWILIGHT))

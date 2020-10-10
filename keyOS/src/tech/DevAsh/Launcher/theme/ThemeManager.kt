@@ -27,7 +27,6 @@ import tech.DevAsh.Launcher.twilight.TwilightListener
 import tech.DevAsh.Launcher.twilight.TwilightManager
 import tech.DevAsh.Launcher.twilight.TwilightState
 import tech.DevAsh.Launcher.util.SingletonHolder
-import tech.DevAsh.Launcher.util.extensions.d
 import tech.DevAsh.Launcher.util.hasFlag
 import tech.DevAsh.Launcher.util.removeFlag
 import com.android.launcher3.R
@@ -91,7 +90,6 @@ class ThemeManager(val context: Context) : WallpaperColorInfo.OnChangeListener, 
     private var isDuringNight = false
         set(value) {
             field = value
-            d("isDuringNight = $value")
             if (!prefs.launcherTheme.hasFlag(THEME_FOLLOW_DAYLIGHT)) return
             if (themeFlags.hasFlag(THEME_DARK) != value) {
                 updateTheme()
@@ -102,7 +100,6 @@ class ThemeManager(val context: Context) : WallpaperColorInfo.OnChangeListener, 
         set(value) {
             if (field != value) {
                 field = value
-                d("colorEngineDarkText = $value")
                 updateTheme()
             }
         }

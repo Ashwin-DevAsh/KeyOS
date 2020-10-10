@@ -26,7 +26,6 @@ import tech.DevAsh.Launcher.colors.resolvers.*
 import tech.DevAsh.Launcher.theme.ThemeOverride
 import tech.DevAsh.Launcher.util.SingletonHolder
 import tech.DevAsh.Launcher.util.ThemedContextProvider
-import tech.DevAsh.Launcher.util.extensions.d
 import com.android.launcher3.Utilities
 import java.lang.reflect.Constructor
 
@@ -87,7 +86,6 @@ class ColorEngine private constructor(val context: Context) : LawnchairPreferenc
     }
 
     fun createColorResolverNullable(key: String, string: String): ColorResolver? {
-        d("Creating new resolver for $key")
         var resolver: ColorResolver? = null
         try {
             val parts = string.split("|")

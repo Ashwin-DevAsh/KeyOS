@@ -1000,7 +1000,7 @@ public final class Utilities {
         LauncherAppState las = LauncherAppState.getInstanceNoCreate();
         if (las != null) {
             Context context = las.getContext();
-            return LawnchairAppKt.getLawnchairApp(context).getRecentsEnabled();
+            return false;
         }
         return false;
     }

@@ -27,7 +27,6 @@ import android.view.View
 import tech.DevAsh.Launcher.settings.ui.PreferenceController
 import tech.DevAsh.Launcher.settings.ui.SubPreference
 import tech.DevAsh.Launcher.settings.ui.SwitchSubPreference
-import tech.DevAsh.Launcher.util.extensions.d
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import org.xmlpull.v1.XmlPullParser
@@ -137,7 +136,6 @@ class SearchIndex(private val context: Context) {
             providerField.isAccessible = true
             provider = providerField.get(null) as? SliceProvider ?: return null
         } catch (t: Throwable) {
-            d("Couldn't get slice provider", t)
             return null
         }
         return provider.getSlice(context, attrs)

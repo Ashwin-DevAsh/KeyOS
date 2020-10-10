@@ -21,7 +21,6 @@ package tech.DevAsh.Launcher.adaptive
 
 import android.graphics.Path
 import android.graphics.PointF
-import tech.DevAsh.Launcher.util.extensions.e
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import java.lang.Exception
@@ -266,7 +265,6 @@ open class IconShape(val topLeft: Corner,
                 else -> try {
                     parseCustomShape(value)
                 } catch (ex: Exception) {
-                    e("Error creating shape $value", ex)
                     null
                 }
             }

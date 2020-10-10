@@ -29,7 +29,6 @@ import com.android.quickstep.TouchInteractionService
 @Keep
 class LawnstepController(context: Context) : PreferenceController(context) {
 
-    override val isVisible = context.lawnchairApp.recentsEnabled
     override val onClick = Preference.OnPreferenceClickListener {
         if (!TouchInteractionService.isConnected()) {
             Toast.makeText(context, R.string.recents_not_connected, Toast.LENGTH_LONG).show()

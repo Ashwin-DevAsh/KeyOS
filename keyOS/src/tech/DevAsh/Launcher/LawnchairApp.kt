@@ -29,7 +29,6 @@ import androidx.annotation.Keep
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
 
 import tech.DevAsh.Launcher.theme.ThemeManager
-import tech.DevAsh.Launcher.util.extensions.d
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.Utilities
 import com.android.quickstep.RecentsActivity
@@ -39,12 +38,9 @@ import com.squareup.leakcanary.LeakCanary
 class LawnchairApp : Application() {
 
     val activityHandler = ActivityHandler()
-    val recentsEnabled by lazy { checkRecentsComponent() }
     var accessibilityService: LawnchairAccessibilityService? = null
 
-    init {
-        d("Hidden APIs allowed: ${Utilities.HIDDEN_APIS_ALLOWED}")
-    }
+
 
     override fun onCreate() {
         super.onCreate()
@@ -128,35 +124,6 @@ class LawnchairApp : Application() {
         }
     }
 
-    @Keep
-    fun checkRecentsComponent(): Boolean {
-        if (!Utilities.ATLEAST_P) {
-            d("API < P, disabling recents")
-            return false
-        }
-        if (!Utilities.HIDDEN_APIS_ALLOWED) {
-            d("Hidden APIs not allowed, disabling recents")
-            return false
-        }
-
-        val resId = resources.getIdentifier("config_recentsComponentName", "string", "android")
-        if (resId == 0) {
-            d("config_recentsComponentName not found, disabling recents")
-            return false
-        }
-        val recentsComponent = ComponentName.unflattenFromString(resources.getString(resId))
-        if (recentsComponent == null) {
-            d("config_recentsComponentName is empty, disabling recents")
-            return false
-        }
-        val isRecentsComponent = recentsComponent.packageName == packageName
-                && recentsComponent.className == RecentsActivity::class.java.name
-        if (!isRecentsComponent) {
-            d("config_recentsComponentName ($recentsComponent) is not Lawnchair, disabling recents")
-            return false
-        }
-        return true
-    }
 }
 
 val Context.lawnchairApp get() = applicationContext as LawnchairApp

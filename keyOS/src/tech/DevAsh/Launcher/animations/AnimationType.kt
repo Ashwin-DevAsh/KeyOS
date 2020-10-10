@@ -28,7 +28,6 @@ import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup
 import tech.DevAsh.Launcher.lawnchairPrefs
-import tech.DevAsh.Launcher.util.extensions.w
 import com.android.launcher3.*
 import com.android.launcher3.BaseActivity.INVISIBLE_BY_APP_TRANSITIONS
 import com.android.launcher3.anim.Interpolators.AGGRESSIVE_EASE
@@ -147,7 +146,6 @@ abstract class AnimationType {
             if (!hasControlRemoteAppTransitionPermission(launcher)) {
                 val prefs = launcher.lawnchairPrefs
                 if (prefs.useScaleAnim) {
-                    w("scale anim is not supported, turning it off")
                     prefs.useScaleAnim = false
                 }
 

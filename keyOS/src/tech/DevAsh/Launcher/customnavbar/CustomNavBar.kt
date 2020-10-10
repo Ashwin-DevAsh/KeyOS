@@ -29,7 +29,6 @@ import androidx.core.content.ContextCompat
 import tech.DevAsh.Launcher.lawnchairPrefs
 import tech.DevAsh.Launcher.runOnMainThread
 import tech.DevAsh.Launcher.util.LawnchairSingletonHolder
-import tech.DevAsh.Launcher.util.extensions.e
 import com.android.launcher3.LauncherAppState
 import com.android.launcher3.util.PackageManagerHelper
 import xyz.paphonb.systemuituner.ICustomNavBar
@@ -92,7 +91,6 @@ class CustomNavBar(private val context: Context) {
             try {
                 context.bindService(serviceIntent, cnbServiceConnection, Context.BIND_AUTO_CREATE)
             } catch (t: Throwable) {
-                e("Failed to rebind", t)
             }
         } else if (!enableIntegration && cnbService != null) {
             cnbService?.setBackButtonHidden(false)

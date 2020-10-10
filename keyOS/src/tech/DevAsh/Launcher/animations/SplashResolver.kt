@@ -27,7 +27,6 @@ import tech.DevAsh.Launcher.getIntAttr
 import tech.DevAsh.Launcher.settings.ui.SettingsActivity
 import tech.DevAsh.Launcher.theme.ThemeOverride
 import tech.DevAsh.Launcher.util.LawnchairSingletonHolder
-import tech.DevAsh.Launcher.util.extensions.d
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.Utilities
 
@@ -57,15 +56,9 @@ class SplashResolver(private val context: Context) {
     data class SplashData(val background: Drawable?, val statusColor: Int, val navColor: Int,
                           val layoutInDisplayCutoutMode: Int) {
 
-        init {
-            dump()
-        }
 
-        fun dump() {
-            d("statusColor: ${String.format("%08x", statusColor)}")
-            d("navColor: ${String.format("%08x", navColor)}")
-            d("layoutInDisplayCutoutMode: $layoutInDisplayCutoutMode")
-        }
+
+
     }
 
     companion object : LawnchairSingletonHolder<SplashResolver>(::SplashResolver)

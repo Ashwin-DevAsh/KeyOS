@@ -33,8 +33,6 @@ import android.widget.Toast
 import tech.DevAsh.Launcher.adaptive.AdaptiveIconGenerator
 import tech.DevAsh.Launcher.get
 import tech.DevAsh.Launcher.toTitleCase
-import tech.DevAsh.Launcher.util.extensions.d
-import tech.DevAsh.Launcher.util.extensions.e
 import com.android.launcher3.*
 import com.android.launcher3.compat.LauncherAppsCompat
 import com.android.launcher3.compat.UserManagerCompat
@@ -64,7 +62,6 @@ class IconPackImpl(context: Context, packPackageName: String) : IconPack(context
 
     init {
         if (prefs.showDebugInfo) {
-            d("init pack $packPackageName on ${Looper.myLooper()!!.thread.name}", Throwable())
         }
         executeLoadPack()
     }
@@ -158,7 +155,6 @@ class IconPackImpl(context: Context, packPackageName: String) : IconPack(context
                 }
             }
             val endTime = System.currentTimeMillis()
-            d("completed parsing pack $packPackageName in ${endTime - startTime}ms")
             return
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
@@ -210,7 +206,6 @@ class IconPackImpl(context: Context, packPackageName: String) : IconPack(context
                 }
                 return drawable.mutate()
             } catch (ex: Resources.NotFoundException) {
-                e("Can't get drawable for name ${entry.icon} ($drawableId)", ex)
             }
         }
         return null
@@ -246,7 +241,6 @@ class IconPackImpl(context: Context, packPackageName: String) : IconPack(context
                 }
                 return drawable.mutate()
             } catch (ex: Resources.NotFoundException) {
-                e("Can't get drawable for $component ($drawableId)", ex)
             }
         }
 
@@ -312,7 +306,6 @@ class IconPackImpl(context: Context, packPackageName: String) : IconPack(context
         var entry: Entry
         try {
             val parser = getXml("drawable")
-            d("initialized parser for pack $packPackageName in ${System.currentTimeMillis() - startTime}ms")
             while (parser != null && parser.next() != XmlPullParser.END_DOCUMENT) {
                 if (cancel()) return
                 if (parser.eventType != XmlPullParser.START_TAG) continue
@@ -369,7 +362,6 @@ class IconPackImpl(context: Context, packPackageName: String) : IconPack(context
         return try {
             if (id != 0) packResources.getDrawableForDensity(id, density) else null
         } catch (ex: Resources.NotFoundException) {
-            e("Can't get drawable $id($name) from $packPackageName", ex)
             null
         }
     }
