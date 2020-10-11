@@ -55,7 +55,7 @@
         android:supportsRtl="true" >
 
         <activity
-            android:name="tech.DevAsh.Launcher.LawnchairLauncher"
+            android:name="tech.DevAsh.Launcher.KioskLauncher"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
@@ -71,8 +71,6 @@
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.MONKEY"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.LAUNCHER_APP"/>
             </intent-filter>
         </activity>
 

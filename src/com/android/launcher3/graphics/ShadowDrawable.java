@@ -33,7 +33,7 @@ import android.os.Build;
 import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
 
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 
@@ -160,7 +160,7 @@ public class ShadowDrawable extends Drawable {
         ShadowDrawable sd = new ShadowDrawable();
         sd.setChild(d);
         sd.mState.mShadowColor = ContextCompat.getColor(context, shadowColorRes);
-        sd.mState.mShadowSize = (int) LawnchairUtilsKt.dpToPx(elevationDps);
+        sd.mState.mShadowSize = (int) KioskUtilsKt.dpToPx(elevationDps);
         sd.mState.mDarkTintColor = ContextCompat.getColor(context, darkTintColorRes);
         sd.mState.mIntrinsicHeight = d.getIntrinsicHeight() + 2 * sd.mState.mShadowSize;
         sd.mState.mIntrinsicWidth = d.getIntrinsicWidth() + 2 * sd.mState.mShadowSize;

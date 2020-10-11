@@ -14,7 +14,7 @@ import android.os.ParcelFileDescriptor;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.util.Log;
-import tech.DevAsh.Launcher.LawnchairAppFilter;
+import tech.DevAsh.Launcher.KioskAppFilter;
 import tech.DevAsh.Launcher.allapps.FuzzyAppSearchAlgorithm;
 import com.android.launcher3.AllAppsList;
 import com.android.launcher3.AppFilter;
@@ -180,7 +180,7 @@ public class AppSearchProvider extends ContentProvider
     }
 
     public AppFilter getBaseFilter() {
-        if (mBaseFilter == null) mBaseFilter = new LawnchairAppFilter(getContext());
+        if (mBaseFilter == null) mBaseFilter = new KioskAppFilter(getContext());
         return mBaseFilter;
     }
 

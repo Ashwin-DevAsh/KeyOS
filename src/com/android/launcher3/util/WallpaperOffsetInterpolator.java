@@ -12,7 +12,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.animation.Interpolator;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.Workspace;
@@ -41,13 +41,13 @@ public class WallpaperOffsetInterpolator extends BroadcastReceiver {
     private boolean mLockedToDefaultPage;
     private int mNumScreens;
 
-    private LawnchairPreferences prefs;
+    private KioskPreferences prefs;
 
     public WallpaperOffsetInterpolator(Workspace workspace) {
         mWorkspace = workspace;
         mIsRtl = Utilities.isRtl(workspace.getResources());
         mHandler = new OffsetHandler(workspace.getContext());
-        prefs = Utilities.getLawnchairPrefs(workspace.getContext());
+        prefs = Utilities.getKioskPrefs(workspace.getContext());
     }
 
     /**

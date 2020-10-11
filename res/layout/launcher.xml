@@ -20,8 +20,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <tech.DevAsh.Launcher.views.LawnchairBackgroundView
-        android:id="@+id/lawnchair_background"
+    <tech.DevAsh.Launcher.views.KioskBackgroundView
+        android:id="@+id/Kiosk_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

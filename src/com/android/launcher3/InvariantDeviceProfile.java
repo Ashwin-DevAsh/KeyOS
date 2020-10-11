@@ -29,7 +29,7 @@ import android.util.Xml;
 import android.view.Display;
 import android.view.WindowManager;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.settings.IconScale;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.util.Thunk;
@@ -195,9 +195,9 @@ public class InvariantDeviceProfile {
         landscapeAllAppsIconSizeOriginal = interpolatedDeviceProfileOut.landscapeIconSize;
         iconTextSize = interpolatedDeviceProfileOut.iconTextSize;
 
-        new IconScale(Utilities.getLawnchairPrefs(context), "iconSize", this);
-        new IconScale(Utilities.getLawnchairPrefs(context), "allAppsIconSize", this);
-        new IconScale(Utilities.getLawnchairPrefs(context), "hotseatIconSize", "iconSize",this);
+        new IconScale(Utilities.getKioskPrefs(context), "iconSize", this);
+        new IconScale(Utilities.getKioskPrefs(context), "allAppsIconSize", this);
+        new IconScale(Utilities.getKioskPrefs(context), "hotseatIconSize", "iconSize",this);
 
         // Initialize these *after* the icon scale has been applied, this ensures we load icons of proper resolution
         iconBitmapSize = Utilities.pxFromDp(max(max(iconSize, allAppsIconSize), hotseatIconSize), dm);
@@ -416,7 +416,7 @@ public class InvariantDeviceProfile {
         return x * aspectRatio + y;
     }
 
-    public void onDockStyleChanged(LawnchairPreferences prefs) {
+    public void onDockStyleChanged(KioskPreferences prefs) {
         portraitProfile.onValueChanged("", prefs, false);
         landscapeProfile.onValueChanged("", prefs, false);
     }

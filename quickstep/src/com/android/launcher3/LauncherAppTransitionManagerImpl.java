@@ -54,9 +54,9 @@ import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Keep;
-import tech.DevAsh.Launcher.LawnchairLauncher;
+import tech.DevAsh.Launcher.KioskLauncher;
 import tech.DevAsh.Launcher.util.InvertedMultiValueAlpha;
-import tech.DevAsh.Launcher.views.LawnchairBackgroundView;
+import tech.DevAsh.Launcher.views.KioskBackgroundView;
 import com.android.launcher3.DeviceProfile.OnDeviceProfileChangeListener;
 import com.android.launcher3.InsettableFrameLayout.LayoutParams;
 import com.android.launcher3.anim.AnimatorPlaybackController;
@@ -386,10 +386,10 @@ public class LauncherAppTransitionManagerImpl extends LauncherAppTransitionManag
             transY.setDuration(350);
             launcherAnimator.play(transY);
 
-            LawnchairBackgroundView background = LawnchairLauncher.getLauncher(mLauncher).getBackground();
-            background.getBlurAlphas().getProperty(LawnchairBackgroundView.ALPHA_INDEX_TRANSITIONS).setValue(blurAlphas[0]);
+            KioskBackgroundView background = KioskLauncher.getLauncher(mLauncher).getBackground();
+            background.getBlurAlphas().getProperty(KioskBackgroundView.ALPHA_INDEX_TRANSITIONS).setValue(blurAlphas[0]);
             ObjectAnimator blurAlpha = ObjectAnimator.ofFloat(background.getBlurAlphas().getProperty(
-                    LawnchairBackgroundView.ALPHA_INDEX_TRANSITIONS),
+                    KioskBackgroundView.ALPHA_INDEX_TRANSITIONS),
                     InvertedMultiValueAlpha.VALUE, blurAlphas);
             blurAlpha.setDuration(217);
             blurAlpha.setInterpolator(LINEAR);
@@ -819,10 +819,10 @@ public class LauncherAppTransitionManagerImpl extends LauncherAppTransitionManag
         workspaceAnimator.setDuration(333);
         workspaceAnimator.setInterpolator(Interpolators.DEACCEL_1_7);
 
-        LawnchairBackgroundView background = LawnchairLauncher.getLauncher(mLauncher).getBackground();
-        background.getBlurAlphas().getProperty(LawnchairBackgroundView.ALPHA_INDEX_TRANSITIONS).setValue(1f);
+        KioskBackgroundView background = KioskLauncher.getLauncher(mLauncher).getBackground();
+        background.getBlurAlphas().getProperty(KioskBackgroundView.ALPHA_INDEX_TRANSITIONS).setValue(1f);
         workspaceAnimator.play(ObjectAnimator.ofFloat(background.getBlurAlphas().getProperty(
-                LawnchairBackgroundView.ALPHA_INDEX_TRANSITIONS),
+                KioskBackgroundView.ALPHA_INDEX_TRANSITIONS),
                 InvertedMultiValueAlpha.VALUE, 1f, 0f));
 
         mDragLayer.getScrim().hideSysUiScrim(true);
@@ -845,8 +845,8 @@ public class LauncherAppTransitionManagerImpl extends LauncherAppTransitionManag
         mDragLayer.setScaleX(1f);
         mDragLayer.setScaleY(1f);
         mDragLayer.getScrim().hideSysUiScrim(false);
-        LawnchairLauncher.getLauncher(mLauncher).getBackground().getBlurAlphas()
-                .getProperty(LawnchairBackgroundView.ALPHA_INDEX_TRANSITIONS).setValue(0f);
+        KioskLauncher.getLauncher(mLauncher).getBackground().getBlurAlphas()
+                .getProperty(KioskBackgroundView.ALPHA_INDEX_TRANSITIONS).setValue(0f);
     }
 
     protected boolean hasControlRemoteAppTransitionPermission() {

@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.colors
@@ -27,7 +27,7 @@ import com.android.launcher3.Utilities
 import com.android.launcher3.uioverrides.WallpaperColorInfo
 
 @Keep
-class LawnchairAccentResolver(config: Config) : ColorEngine.ColorResolver(config), ColorEngine.OnColorChangeListener {
+class KioskAccentResolver(config: Config) : ColorEngine.ColorResolver(config), ColorEngine.OnColorChangeListener {
 
     override fun startListening() {
         super.startListening()
@@ -45,7 +45,7 @@ class LawnchairAccentResolver(config: Config) : ColorEngine.ColorResolver(config
 
     override fun resolveColor() = engine.accent
 
-    override fun getDisplayName() = engine.context.getString(R.string.lawnchair_accent) as String
+    override fun getDisplayName() = engine.context.getString(R.string.Kiosk_accent) as String
 }
 
 @Keep

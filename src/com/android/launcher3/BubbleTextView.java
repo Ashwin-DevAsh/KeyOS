@@ -40,9 +40,9 @@ import android.view.ViewConfiguration;
 import android.view.ViewDebug;
 import android.widget.TextView;
 
-import tech.DevAsh.Launcher.LawnchairLauncher;
-import tech.DevAsh.Launcher.LawnchairPreferences;
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskLauncher;
+import tech.DevAsh.Launcher.KioskPreferences;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import tech.DevAsh.Launcher.colors.ColorEngine;
 import tech.DevAsh.Launcher.colors.ColorEngine.ResolveInfo;
 import tech.DevAsh.Launcher.colors.ColorEngine.Resolvers;
@@ -159,7 +159,7 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver, 
 
     public BubbleTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        mActivity = LawnchairUtilsKt.getBaseDraggingActivityOrNull(context);
+        mActivity = KioskUtilsKt.getBaseDraggingActivityOrNull(context);
         if (mActivity == null) {
             mLayoutHorizontal = false;
             mIconSize = 0;
@@ -180,7 +180,7 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver, 
 
         int display = a.getInteger(R.styleable.BubbleTextView_iconDisplay, DISPLAY_WORKSPACE);
         int defaultIconSize = grid.iconSizePx;
-        LawnchairPreferences prefs = Utilities.getLawnchairPrefs(context);
+        KioskPreferences prefs = Utilities.getKioskPrefs(context);
         if (display == DISPLAY_WORKSPACE) {
             mHideText = prefs.getHideAppLabels();
             setTextSize(TypedValue.COMPLEX_UNIT_PX, isTextHidden() ? 0 : grid.iconTextSizePx);
@@ -407,9 +407,9 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver, 
                 break;
         }
 
-        Launcher launcher = LawnchairUtilsKt.getLauncherOrNull(getContext());
-        if (launcher instanceof LawnchairLauncher && mSwipeUpHandler != null) {
-            ((LawnchairLauncher) launcher).getGestureController()
+        Launcher launcher = KioskUtilsKt.getLauncherOrNull(getContext());
+        if (launcher instanceof KioskLauncher && mSwipeUpHandler != null) {
+            ((KioskLauncher) launcher).getGestureController()
                     .setSwipeUpOverride(mSwipeUpHandler, event.getDownTime());
         }
 
@@ -537,7 +537,7 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver, 
         Object tag = getParent() instanceof FolderIcon ? ((View) getParent()).getTag() : getTag();
         ItemInfo info = tag instanceof ItemInfo ? (ItemInfo) tag : null;
         if (info != null && info.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
-            return !Utilities.getLawnchairPrefs(getContext()).getHideDockLabels();
+            return !Utilities.getKioskPrefs(getContext()).getHideDockLabels();
         }
         return true;
     }

@@ -1,20 +1,20 @@
 /*
- *     Copyright (C) 2019 Lawnchair Team.
+ *     Copyright (C) 2019 Kiosk Team.
  *
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.adaptive
@@ -36,7 +36,7 @@ import com.android.launcher3.R
 
 class IconShapePreference(context: Context, attrs: AttributeSet?) :
         ListPreference(context, attrs),
-        LawnchairPreferences.OnPreferenceChangeListener,
+        KioskPreferences.OnPreferenceChangeListener,
         ControlledPreference by ControlledPreference.Delegate(context, attrs) {
 
     private var iconShape = IconShapeManager.getInstance(context).iconShape
@@ -80,15 +80,15 @@ class IconShapePreference(context: Context, attrs: AttributeSet?) :
 
     override fun onAttached() {
         super.onAttached()
-        context.lawnchairPrefs.addOnPreferenceChangeListener("pref_iconShape", this)
+        context.KioskPrefs.addOnPreferenceChangeListener("pref_iconShape", this)
     }
 
     override fun onDetached() {
         super.onDetached()
-        context.lawnchairPrefs.removeOnPreferenceChangeListener("pref_iconShape", this)
+        context.KioskPrefs.removeOnPreferenceChangeListener("pref_iconShape", this)
     }
 
-    override fun onValueChanged(key: String, prefs: LawnchairPreferences, force: Boolean) {
+    override fun onValueChanged(key: String, prefs: KioskPreferences, force: Boolean) {
         iconShape = IconShapeManager.getInstance(context).iconShape
     }
 

@@ -23,7 +23,7 @@ import android.service.notification.StatusBarNotification;
 import androidx.annotation.NonNull;
 import android.util.Log;
 
-import tech.DevAsh.Launcher.popup.LawnchairShortcut;
+import tech.DevAsh.Launcher.popup.KioskShortcut;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.Utilities;
@@ -210,7 +210,7 @@ public class PopupDataProvider implements NotificationListener.NotificationsChan
     public @NonNull List<SystemShortcut> getEnabledSystemShortcutsForItem(ItemInfo info) {
         List<SystemShortcut> systemShortcuts = new ArrayList<>();
         for (SystemShortcut systemShortcut :
-                LawnchairShortcut.Companion.getInstance(mLauncher).getEnabledShortcuts()) {
+                KioskShortcut.Companion.getInstance(mLauncher).getEnabledShortcuts()) {
             if (systemShortcut.getOnClickListener(mLauncher, info) != null) {
                 systemShortcuts.add(systemShortcut);
             }

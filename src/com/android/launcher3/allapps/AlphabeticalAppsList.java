@@ -19,7 +19,7 @@ import android.content.Context;
 import android.content.pm.LauncherActivityInfo;
 
 import android.os.UserHandle;
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.IconCache;
 import com.android.launcher3.Launcher;
@@ -130,7 +130,7 @@ public class AlphabeticalAppsList implements AllAppsStore.OnUpdateListener {
     private final int mNumAppsPerRow;
     private int mNumAppRowsInAdapter;
     private ItemInfoMatcher mItemFilter;
-    private LawnchairPreferences prefs;
+    private KioskPreferences prefs;
 
     private List<String> mSearchSuggestions;
 
@@ -140,7 +140,7 @@ public class AlphabeticalAppsList implements AllAppsStore.OnUpdateListener {
         mAppNameComparator = new AppInfoComparator(context);
         mNumAppsPerRow = mLauncher.getDeviceProfile().inv.numColsDrawer;
         mAllAppsStore.addUpdateListener(this);
-        prefs = Utilities.getLawnchairPrefs(context);
+        prefs = Utilities.getKioskPrefs(context);
     }
 
     public void updateItemFilter(ItemInfoMatcher itemFilter) {

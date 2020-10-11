@@ -79,7 +79,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 import tech.DevAsh.Launcher.HiddenApiCompat;
-import tech.DevAsh.Launcher.LawnchairAppKt;
+import tech.DevAsh.Launcher.KioskAppKt;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.config.FeatureFlags;
 
@@ -109,8 +109,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import tech.DevAsh.Launcher.LawnchairLauncher;
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskLauncher;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.settings.ui.SettingsActivity;
 
 /**
@@ -566,7 +566,7 @@ public final class Utilities {
     }
 
     public static SharedPreferences getPrefs(Context context) {
-        return getLawnchairPrefs(context).getSharedPrefs();
+        return getKioskPrefs(context).getSharedPrefs();
     }
 
     public static SharedPreferences getDevicePrefs(Context context) {
@@ -671,14 +671,14 @@ public final class Utilities {
     }
 
     @NonNull
-    public static LawnchairPreferences getLawnchairPrefs(Context context) {
-        return LawnchairPreferences.Companion.getInstance(context);
+    public static KioskPreferences getKioskPrefs(Context context) {
+        return KioskPreferences.Companion.getInstance(context);
     }
 
     private static List<Runnable> onStart = new ArrayList<>();
 
     /**
-     * ATTENTION: Only ever call this from within LawnchairLauncher.kt
+     * ATTENTION: Only ever call this from within KioskLauncher.kt
      */
     public /* private */ static void onLauncherStart() {
         Log.d(TAG, "onLauncherStart: " + onStart.size());
@@ -851,18 +851,18 @@ public final class Utilities {
 
     public static void requestNeededPermission(Activity activity) {
         if (shouldRequestIMEIPermission()) {
-            ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.READ_PHONE_STATE}, LawnchairLauncher.REQUEST_PERMISSION_NEEDED_ACCESS);
+            ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.READ_PHONE_STATE}, KioskLauncher.REQUEST_PERMISSION_NEEDED_ACCESS);
         } else {
-            ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, LawnchairLauncher.REQUEST_PERMISSION_NEEDED_ACCESS);
+            ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, KioskLauncher.REQUEST_PERMISSION_NEEDED_ACCESS);
         }
     }
 
     public static void requestStoragePermission(Activity activity) {
-        ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, LawnchairLauncher.REQUEST_PERMISSION_STORAGE_ACCESS);
+        ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, KioskLauncher.REQUEST_PERMISSION_STORAGE_ACCESS);
     }
 
     public static void requestLocationPermission(Activity activity) {
-        ActivityCompat.requestPermissions(activity, new String[]{permission.ACCESS_COARSE_LOCATION}, LawnchairLauncher.REQUEST_PERMISSION_LOCATION_ACCESS);
+        ActivityCompat.requestPermissions(activity, new String[]{permission.ACCESS_COARSE_LOCATION}, KioskLauncher.REQUEST_PERMISSION_LOCATION_ACCESS);
     }
 
     public static int parseResourceIdentifier(Resources res, String identifier, String packageName) {

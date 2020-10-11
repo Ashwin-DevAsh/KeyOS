@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.colors.ColorEngine;
 import tech.DevAsh.Launcher.colors.ColorEngine.ResolveInfo;
 import tech.DevAsh.Launcher.colors.ColorEngine.Resolvers;
@@ -30,7 +30,7 @@ public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
     public float Dy;
     private TextView mHint;
     boolean mDoNotRemoveFallback;
-    private LawnchairPreferences prefs;
+    private KioskPreferences prefs;
     private int mForegroundColor;
 
     private final boolean mLowPerformanceMode;
@@ -51,7 +51,7 @@ public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
         this.Dt = getResources().getDimensionPixelSize(R.dimen.qsb_margin_top_adjusting);
         this.Dy = getResources().getDimensionPixelSize(R.dimen.all_apps_search_vertical_offset);
         setClipToPadding(false);
-        prefs = LawnchairPreferences.Companion.getInstanceNoCreate();
+        prefs = KioskPreferences.Companion.getInstanceNoCreate();
 
         mLowPerformanceMode = prefs.getLowPerformanceMode();
     }
@@ -70,7 +70,7 @@ public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
 ////            mActivity.getAllAppsController().setScrollRangeDelta(0);
 //        } else {
 ////            float delta = HotseatQsbWidget.getBottomMargin(mActivity, false) + Dy;
-//            LawnchairPreferences prefs = LawnchairPreferences.Companion.getInstance(getContext());
+//            KioskPreferences prefs = KioskPreferences.Companion.getInstance(getContext());
 //            if (!prefs.getDockHide()) {
 //                delta += mlp.height + mlp.topMargin;
 ////                if (!prefs.getDockSearchBar()) {

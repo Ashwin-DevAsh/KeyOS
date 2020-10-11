@@ -59,7 +59,7 @@ public class DeepShortcutTextView extends BubbleTextView {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        if (Utilities.getLawnchairPrefs(getContext()).getLockDesktop()) {
+        if (Utilities.getKioskPrefs(getContext()).getLockDesktop()) {
             setCompoundDrawables(null, null, null, null);
             mDragHandleWidth = 0;
             mDragHandleBounds.set(0, 0, 0, 0);

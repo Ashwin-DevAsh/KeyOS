@@ -38,7 +38,7 @@ import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 import android.text.TextUtils;
 import android.util.Log;
-import tech.DevAsh.Launcher.iconpack.LawnchairIconProvider;
+import tech.DevAsh.Launcher.iconpack.KioskIconProvider;
 import tech.DevAsh.Launcher.override.AppInfoProvider;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.UserManagerCompat;
@@ -125,7 +125,7 @@ public class IconCache {
         // Always prefer RGB_565 config for low res. If the bitmap has transparency, it will
         // automatically be loaded as ALPHA_8888.
         mLowResOptions.inPreferredConfig = Bitmap.Config.RGB_565;
-        if (Utilities.getLawnchairPrefs(context).getAlwaysClearIconCache()) {
+        if (Utilities.getKioskPrefs(context).getAlwaysClearIconCache()) {
             Log.d(TAG, "IconCache: Clearing icon cache in constructor");
             clear();
         }
@@ -196,8 +196,8 @@ public class IconCache {
     }
 
     public Drawable getFullResIcon(LauncherActivityInfo info, ItemInfo itemInfo, boolean flattenDrawable) {
-        if (mIconProvider instanceof LawnchairIconProvider)
-            return ((LawnchairIconProvider) mIconProvider).getIcon(info, itemInfo, mIconDpi, flattenDrawable);
+        if (mIconProvider instanceof KioskIconProvider)
+            return ((KioskIconProvider) mIconProvider).getIcon(info, itemInfo, mIconDpi, flattenDrawable);
         return mIconProvider.getIcon(info, mIconDpi, flattenDrawable);
     }
 

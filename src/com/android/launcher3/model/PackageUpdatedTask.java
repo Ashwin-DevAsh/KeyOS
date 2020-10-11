@@ -23,8 +23,8 @@ import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskPreferences;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.AllAppsList;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.IconCache;
@@ -100,7 +100,7 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
         ItemInfoMatcher matcher = ItemInfoMatcher.ofPackages(packageSet, mUser);
         switch (mOp) {
             case OP_ADD: {
-                LawnchairPreferences prefs = Utilities.getLawnchairPrefs(context);
+                KioskPreferences prefs = Utilities.getKioskPrefs(context);
                 for (int i = 0; i < N; i++) {
                     if (DEBUG) Log.d(TAG, "mAllAppsList.addPackage " + packages[i]);
                     iconCache.updateIconsForPkg(packages[i], mUser);
@@ -108,7 +108,7 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
                         appsList.removePackage(packages[i], Process.myUserHandle());
                     }
                     appsList.addPackage(context, packages[i], mUser);
-                    if (!LawnchairUtilsKt.workspaceContains(dataModel, packages[i], Process.myUserHandle())) {
+                    if (!KioskUtilsKt.workspaceContains(dataModel, packages[i], Process.myUserHandle())) {
                         SessionCommitReceiver.queueAppIconAddition(context, packages[i], mUser);
                     }
                 }

@@ -18,7 +18,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.theme.ThemeManager;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.Insettable;
@@ -128,12 +128,12 @@ public class WorkspacePageIndicator extends View implements Insettable, PageIndi
         mActiveAlpha = darkText ? BLACK_ALPHA : WHITE_ALPHA;
         mLinePaint.setColor(darkText ? Color.BLACK : Color.WHITE);
 
-        LawnchairPreferences prefs = Utilities.getLawnchairPrefs(context);
+        KioskPreferences prefs = Utilities.getKioskPrefs(context);
         mUseBottomLine = false;
     }
 
     public void updateLineHeight() {
-        boolean show = Utilities.getLawnchairPrefs(getContext()).getDockShowPageIndicator();
+        boolean show = Utilities.getKioskPrefs(getContext()).getDockShowPageIndicator();
         mLineHeight = !show ? 0 : getResources()
                 .getDimensionPixelSize(R.dimen.dynamic_grid_page_indicator_line_height);
     }

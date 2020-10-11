@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.gestures.handlers
@@ -24,13 +24,13 @@ import android.os.UserHandle
 import androidx.annotation.Keep
 import android.view.View
 import android.widget.Toast
-import tech.DevAsh.Launcher.animations.LawnchairAppTransitionManagerImpl
+import tech.DevAsh.Launcher.animations.KioskAppTransitionManagerImpl
 import tech.DevAsh.Launcher.gestures.GestureController
 import tech.DevAsh.Launcher.gestures.GestureHandler
 import tech.DevAsh.Launcher.gestures.ui.SelectAppActivity
 import tech.DevAsh.Launcher.getIcon
 import com.android.launcher3.LauncherState
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPrefs
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import com.android.launcher3.compat.LauncherAppsCompat
@@ -75,7 +75,7 @@ class OpenOverviewGestureHandler(context: Context, config: JSONObject?) : Gestur
     override val requiresForeground = true
 
     override fun onGestureTrigger(controller: GestureController, view: View?) {
-        if (context.lawnchairPrefs.usePopupMenuView) {
+        if (context.KioskPrefs.usePopupMenuView) {
             OptionsPopupView.showDefaultOptions(controller.launcher,
                     controller.touchDownPoint.x, controller.touchDownPoint.y)
         } else {
@@ -220,7 +220,7 @@ class StartAppGestureHandler(context: Context, config: JSONObject?) : GestureHan
                     Toast.makeText(context, R.string.failed, Toast.LENGTH_LONG).show()
                 }
                 val transitionManager = controller.launcher.launcherAppTransitionManager
-                        as? LawnchairAppTransitionManagerImpl
+                        as? KioskAppTransitionManagerImpl
                 transitionManager?.playLaunchAnimation(controller.launcher, view,
                         Intent().setComponent(target!!.componentName))
             }

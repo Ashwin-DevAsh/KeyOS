@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.adaptive;
@@ -31,9 +31,9 @@ import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 import android.util.Log;
 import android.util.SparseIntArray;
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
-import tech.DevAsh.Launcher.iconpack.LawnchairIconProvider;
+import tech.DevAsh.Launcher.iconpack.KioskIconProvider;
 
 import com.android.launcher3.Utilities;
 import com.android.launcher3.graphics.ColorExtractor;
@@ -82,7 +82,7 @@ public class AdaptiveIconGenerator {
     public AdaptiveIconGenerator(Context context, @NonNull Drawable icon) {
         this.context = context;
         this.icon = AdaptiveIconCompat.wrap(icon);
-        LawnchairPreferences prefs = Utilities.getLawnchairPrefs(context);
+        KioskPreferences prefs = Utilities.getKioskPrefs(context);
         shouldWrap = false;
         extractColor = shouldWrap && prefs.getColorizedLegacyTreatment();
         treatWhite = extractColor && prefs.getEnableWhiteOnlyTreatment();
@@ -301,7 +301,7 @@ public class AdaptiveIconGenerator {
 
     private void initTmpIfNeeded() {
         if (tmp == null) {
-            tmp = LawnchairIconProvider.getAdaptiveIconDrawableWrapper(context);
+            tmp = KioskIconProvider.getAdaptiveIconDrawableWrapper(context);
             tmp.setBounds(0, 0, 1, 1);
         }
     }

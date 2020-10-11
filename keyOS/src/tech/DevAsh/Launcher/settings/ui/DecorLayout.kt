@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.settings.ui
@@ -142,7 +142,7 @@ class DecorLayout(context: Context, private val window: Window) : InsettableFram
 
     override fun onClick(v: View?) {
         if (tapCount == 6 && allowDevOptions()) {
-            Utilities.getLawnchairPrefs(context).developerOptionsEnabled = true
+            Utilities.getKioskPrefs(context).developerOptionsEnabled = true
             Snackbar.make(
                     findViewById(R.id.content),
                     R.string.developer_options_enabled,
@@ -156,7 +156,7 @@ class DecorLayout(context: Context, private val window: Window) : InsettableFram
     private fun allowDevOptions(): Boolean {
         return try {
             File(Environment.getExternalStoragePublicDirectory(
-                    Environment.DIRECTORY_DOCUMENTS), "Lawnchair/dev").exists()
+                    Environment.DIRECTORY_DOCUMENTS), "Kiosk/dev").exists()
         } catch (e: SecurityException) {
             false
         }

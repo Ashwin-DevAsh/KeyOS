@@ -47,7 +47,7 @@ import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.colors.ColorEngine.Resolvers;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.accessibility.DragAndDropAccessibilityDelegate;
@@ -184,7 +184,7 @@ public class CellLayout extends ViewGroup {
     private DragAndDropAccessibilityDelegate mTouchHelper;
     private boolean mUseTouchHelper = false;
 
-    private final LawnchairPreferences mPrefs;
+    private final KioskPreferences mPrefs;
 
     public CellLayout(Context context) {
         this(context, null);
@@ -207,7 +207,7 @@ public class CellLayout extends ViewGroup {
         setClipChildren(false);
         mLauncher = Launcher.getLauncher(context);
 
-        mPrefs = Utilities.getLawnchairPrefs(context);
+        mPrefs = Utilities.getKioskPrefs(context);
 
         DeviceProfile grid = mLauncher.getDeviceProfile();
 

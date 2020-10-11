@@ -32,7 +32,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.LongSparseArray;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.IconCache;
 import com.android.launcher3.InvariantDeviceProfile;
@@ -96,7 +96,7 @@ public class LoaderCursor extends CursorWrapper {
     public int itemType;
     public int restoreFlag;
 
-    private final LawnchairPreferences prefs;
+    private final KioskPreferences prefs;
 
     public LoaderCursor(Cursor c, LauncherAppState app) {
         super(c);
@@ -122,7 +122,7 @@ public class LoaderCursor extends CursorWrapper {
         restoredIndex = getColumnIndexOrThrow(LauncherSettings.Favorites.RESTORED);
         intentIndex = getColumnIndexOrThrow(LauncherSettings.Favorites.INTENT);
 
-        prefs = Utilities.getLawnchairPrefs(mContext);
+        prefs = Utilities.getKioskPrefs(mContext);
     }
 
     @Override
@@ -414,7 +414,7 @@ public class LoaderCursor extends CursorWrapper {
                 return false;
             }
 
-            int hotseatRows = Utilities.getLawnchairPrefs(mContext).getDockRowsCount();
+            int hotseatRows = Utilities.getKioskPrefs(mContext).getDockRowsCount();
             int hotseatSize = mIDP.numHotseatIcons;
             int hotseatX = (int) (item.screenId % hotseatSize);
             int hotseatY = (int) (item.screenId / hotseatSize);

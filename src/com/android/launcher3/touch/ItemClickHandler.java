@@ -32,7 +32,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.BubbleTextView;
 import com.android.launcher3.FolderInfo;
@@ -154,7 +154,7 @@ public class ItemClickHandler {
                                 .removeAbandonedPromise(packageName, Process.myUserHandle()))
                 .create();
         dialog.show();
-        LawnchairUtilsKt.applyAccent(dialog);
+        KioskUtilsKt.applyAccent(dialog);
     }
 
     private static void startMarketIntentForPackage(View v, Launcher launcher, String packageName) {

@@ -256,7 +256,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         TraceHelper.partitionSection("Launcher-onCreate", "super call");
 
         LauncherAppState app = LauncherAppState.getInstance(this);
-        LawnchairPreferences prefs = Utilities.getLawnchairPrefs(this);
+        KioskPreferences prefs = Utilities.getKioskPrefs(this);
 
         // 首次使用显示加载中
         if (!prefs.getDesktopInitialized()) {
@@ -961,7 +961,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         mDragLayer = findViewById(R.id.drag_layer);
         mFocusHandler = mDragLayer.getFocusIndicatorHelper();
         mWorkspace = mDragLayer.findViewById(R.id.workspace);
-        if (Utilities.getLawnchairPrefs(this).getUsePillQsb()) {
+        if (Utilities.getKioskPrefs(this).getUsePillQsb()) {
             mQsbContainer = mDragLayer.findViewById(R.id.workspace_blocked_row);
         }
         mWorkspace.initParentViews(mDragLayer);
@@ -1283,8 +1283,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
                     mWorkspace.post(mWorkspace::moveToDefaultScreen);
                 }
 
-                if (!handled && this instanceof LawnchairLauncher) {
-                    ((LawnchairLauncher) this).getGestureController().onPressHome();
+                if (!handled && this instanceof KioskLauncher) {
+                    ((KioskLauncher) this).getGestureController().onPressHome();
                 }
             }
 
@@ -1631,8 +1631,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
             LauncherState lastState = mStateManager.getLastState();
             mStateManager.goToState(lastState);
         } else {
-            if (this instanceof LawnchairLauncher) {
-                ((LawnchairLauncher) this).getGestureController().onPressBack();
+            if (this instanceof KioskLauncher) {
+                ((KioskLauncher) this).getGestureController().onPressBack();
             }
         }
     }
@@ -2474,14 +2474,14 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
 
     public ArrayList<ComponentKey> getRecentLaunchedApps() {
         if (mRecentLaunchedApps == null) {
-            LawnchairPreferences prefs = Utilities.getLawnchairPrefs(this);
+            KioskPreferences prefs = Utilities.getKioskPrefs(this);
             mRecentLaunchedApps =  prefs.getRecentLaunchedApps().toList();
         }
         return mRecentLaunchedApps;
     }
 
     public void setRecentLaunchedApps(ArrayList<ComponentKey> recentLaunchedApps) {
-        LawnchairPreferences prefs = Utilities.getLawnchairPrefs(this);
+        KioskPreferences prefs = Utilities.getKioskPrefs(this);
         prefs.getRecentLaunchedApps().replaceWith(recentLaunchedApps);
     }
 
@@ -2509,7 +2509,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
                 }
             }
         });
-        LawnchairPreferences prefs = Utilities.getLawnchairPrefs(this);
+        KioskPreferences prefs = Utilities.getKioskPrefs(this);
         prefs.setDesktopInitialized(true);
     }
 }

@@ -3,14 +3,14 @@ package com.google.android.apps.nexuslauncher;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.UserHandle;
-import tech.DevAsh.Launcher.LawnchairAppFilter;
+import tech.DevAsh.Launcher.KioskAppFilter;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.util.ComponentKey;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class CustomAppFilter extends LawnchairAppFilter {
+public class CustomAppFilter extends KioskAppFilter {
     private final Context mContext;
 
     public CustomAppFilter(Context context) {
@@ -42,10 +42,10 @@ public class CustomAppFilter extends LawnchairAppFilter {
 
     @SuppressWarnings("ConstantConditions") // This can't be null anyway
     private static Set<String> getHiddenApps(Context context) {
-        return Utilities.getLawnchairPrefs(context).getHiddenAppSet();
+        return Utilities.getKioskPrefs(context).getHiddenAppSet();
     }
 
     public static void setHiddenApps(Context context, Set<String> hiddenApps) {
-        Utilities.getLawnchairPrefs(context).setHiddenAppSet(hiddenApps);
+        Utilities.getKioskPrefs(context).setHiddenAppSet(hiddenApps);
     }
 }

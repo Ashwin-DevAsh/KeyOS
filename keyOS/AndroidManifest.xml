@@ -96,7 +96,7 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
 
-    <!-- Used for Google/Lawnchair predictions, solely used to read bt connection state -->
+    <!-- Used for Google/Kiosk predictions, solely used to read bt connection state -->
     <uses-permission android:name="android.permission.BLUETOOTH"/>
 
     <uses-permission android:name="org.pixelexperience.weather.client.READ_WEATHER"/>
@@ -111,7 +111,7 @@
     <uses-permission android:name="xyz.paphonb.systemuituner.permission.MODIFY_NAVBAR"/>
 
     <application
-        android:name="tech.DevAsh.Launcher.LawnchairApp">
+        android:name="tech.DevAsh.Launcher.KioskApp">
 
 
 
@@ -186,8 +186,8 @@
         <!-- Actions -->
         <activity
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/lawnchair_actions"
-            android:name="tech.DevAsh.Launcher.gestures.LawnchairShortcutActivity"
+            android:label="@string/Kiosk_actions"
+            android:name="tech.DevAsh.Launcher.gestures.KioskShortcutActivity"
             android:theme="@style/SettingsTheme.V2">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT"/>
@@ -199,7 +199,7 @@
             android:theme="@style/SettingsTheme.V2.Transparent"
             android:taskAffinity="${applicationId}.tasks.RUN_HANDLER">
             <intent-filter>
-                <action android:name="ch.deletescape.lawnchair.START_ACTION"/>
+                <action android:name="ch.deletescape.Kiosk.START_ACTION"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
@@ -243,7 +243,7 @@
         </receiver>
 
 <!--        <service-->
-<!--            android:name="ch.deletescape.keyOS.Launcher.LawnchairAccessibilityService"-->
+<!--            android:name="ch.deletescape.keyOS.Launcher.KioskAccessibilityService"-->
 <!--            android:label="@string/derived_app_name"-->
 <!--            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
 <!--            <intent-filter>-->

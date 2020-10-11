@@ -293,12 +293,12 @@ public class TaskSystemShortcut<T extends SystemShortcut> extends SystemShortcut
                 final String packageName = task.key.getPackageName();
                 int userId = task.key.userId;
                 // TODO: This workaround for dynamic labels hurts and I feel like it might actually
-                // be smarter to make a seperate shortcut for when the task is Lawnchair
+                // be smarter to make a seperate shortcut for when the task is Kiosk
                 labelResId = R.string.recent_task_option_force_stop;
                 iconResId = R.drawable.ic_remove_no_shadow;
-                // If this is Lawnchair itself we simply ignore device admin state
+                // If this is Kiosk itself we simply ignore device admin state
                 if (BuildConfig.APPLICATION_ID.equals(packageName)) {
-                    labelResId = R.string.restart_lawnchair_pref_title;
+                    labelResId = R.string.restart_Kiosk_pref_title;
                     iconResId = R.drawable.ic_restart;
                 } else if (dpm.packageHasActiveAdmins(packageName)) {
                     return null;
@@ -312,7 +312,7 @@ public class TaskSystemShortcut<T extends SystemShortcut> extends SystemShortcut
                 }
                 return v -> {
                     try {
-                        final boolean dismissTasks = Utilities.getLawnchairPrefs(activity).getDismissTasksOnKill();
+                        final boolean dismissTasks = Utilities.getKioskPrefs(activity).getDismissTasksOnKill();
                         ActivityManager.getService().forceStopPackage(packageName, userId);
                         if (dismissTasks) recentsView.removeIgnoreResetTask(taskView);
                         dismissTaskMenuView(activity);

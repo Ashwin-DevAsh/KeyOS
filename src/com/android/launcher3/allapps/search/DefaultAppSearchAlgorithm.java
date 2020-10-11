@@ -21,7 +21,7 @@ import android.content.pm.LauncherActivityInfo;
 import android.os.Handler;
 import android.os.UserHandle;
 
-import tech.DevAsh.Launcher.LawnchairAppFilter;
+import tech.DevAsh.Launcher.KioskAppFilter;
 
 import com.android.launcher3.AppFilter;
 import com.android.launcher3.AppInfo;
@@ -52,7 +52,7 @@ public class DefaultAppSearchAlgorithm implements SearchAlgorithm {
         mContext = context;
         mApps = apps;
         mResultHandler = new Handler();
-        mBaseFilter = new LawnchairAppFilter(context);
+        mBaseFilter = new KioskAppFilter(context);
     }
 
     @Override

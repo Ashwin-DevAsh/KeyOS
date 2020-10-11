@@ -1,35 +1,35 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.theme.ui
@@ -38,8 +38,8 @@ import android.content.Context
 import androidx.annotation.Keep
 import android.text.TextUtils
 import android.util.AttributeSet
-import tech.DevAsh.Launcher.LawnchairPreferences
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPreferences
+import tech.DevAsh.Launcher.KioskPrefs
 import tech.DevAsh.Launcher.settings.ui.PreferenceDialogPreference
 import tech.DevAsh.Launcher.theme.ThemeManager
 import tech.DevAsh.Launcher.util.hasFlag
@@ -48,9 +48,9 @@ import com.android.launcher3.R
 
 @Keep
 class ThemePreference(context: Context, attrs: AttributeSet?) : PreferenceDialogPreference(context, attrs),
-        LawnchairPreferences.OnPreferenceChangeListener {
+        KioskPreferences.OnPreferenceChangeListener {
 
-    private val prefs = context.lawnchairPrefs
+    private val prefs = context.KioskPrefs
 
     override fun onAttached() {
         super.onAttached()
@@ -64,7 +64,7 @@ class ThemePreference(context: Context, attrs: AttributeSet?) : PreferenceDialog
         prefs.removeOnPreferenceChangeListener("pref_launcherTheme", this)
     }
 
-    override fun onValueChanged(key: String, prefs: LawnchairPreferences, force: Boolean) {
+    override fun onValueChanged(key: String, prefs: KioskPreferences, force: Boolean) {
         reloadSummary()
     }
 

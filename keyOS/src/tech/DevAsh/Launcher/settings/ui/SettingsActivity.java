@@ -65,10 +65,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import tech.DevAsh.Launcher.FakeLauncherKt;
-import tech.DevAsh.Launcher.LawnchairLauncher;
-import tech.DevAsh.Launcher.LawnchairPreferences;
-import tech.DevAsh.Launcher.LawnchairPreferencesChangeCallback;
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskLauncher;
+import tech.DevAsh.Launcher.KioskPreferences;
+import tech.DevAsh.Launcher.KioskPreferencesChangeCallback;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import tech.DevAsh.Launcher.adaptive.IconShapePreference;
 import tech.DevAsh.Launcher.colors.ColorEngine;
 import tech.DevAsh.Launcher.colors.overrides.ThemedEditTextPreferenceDialogFragmentCompat;
@@ -218,7 +218,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
         if (shouldShowSearch()) {
             Toolbar toolbar = findViewById(R.id.search_action_bar);
             toolbar.getMenu().clear();
-            LawnchairPreferences prefs = Utilities.getLawnchairPrefs(this);
+            KioskPreferences prefs = Utilities.getKioskPrefs(this);
             if (prefs.getEnableFools()) {
                 toolbar.inflateMenu(R.menu.menu_toggle_fools);
                 MenuItem foolsItem = toolbar.getMenu().findItem(R.id.action_toggle_fools);
@@ -250,7 +250,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
                     case R.id.action_change_default_home:
                         FakeLauncherKt.changeDefaultHome(this);
                         break;
-                    case R.id.action_restart_lawnchair:
+                    case R.id.action_restart_Kiosk:
                         Utilities.killLauncher();
                         break;
                     case R.id.action_dev_options:
@@ -258,7 +258,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
                         intent.putExtra(SettingsActivity.SubSettingsFragment.TITLE,
                                 getString(R.string.developer_options_title));
                         intent.putExtra(SettingsActivity.SubSettingsFragment.CONTENT_RES_ID,
-                                R.xml.lawnchair_dev_options_preference);
+                                R.xml.kiosk_dev_options_preference);
                         intent.putExtra(SettingsBaseActivity.EXTRA_FROM_SETTINGS, true);
                         startActivity(intent);
                         break;
@@ -578,21 +578,20 @@ public class SettingsActivity extends SettingsBaseActivity implements
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            mShowDevOptions = Utilities.getLawnchairPrefs(getActivity()).getDeveloperOptionsEnabled();
+            mShowDevOptions = Utilities.getKioskPrefs(getActivity()).getDeveloperOptionsEnabled();
             getPreferenceManager().setSharedPreferencesName(LauncherFiles.SHARED_PREFERENCES_KEY);
             context = getActivity();
         }
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            addPreferencesFromResource(R.xml.lawnchair_preferences);
             onPreferencesAdded(getPreferenceScreen());
         }
 
         @Override
         public void onResume() {
             super.onResume();
-            boolean dev = Utilities.getLawnchairPrefs(getActivity()).getDeveloperOptionsEnabled();
+            boolean dev = Utilities.getKioskPrefs(getActivity()).getDeveloperOptionsEnabled();
             if (dev != mShowDevOptions) {
                 getActivity().recreate();
             }
@@ -628,7 +627,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
             mContext = getActivity();
 
             getPreferenceManager().setSharedPreferencesName(LauncherFiles.SHARED_PREFERENCES_KEY);
-            if (getContent() == R.xml.lawnchair_desktop_preferences) {
+            if (getContent() == R.xml.kiosk_desktop_preferences) {
                 if (getResources().getBoolean(R.bool.notification_badging_enabled)) {
                     ButtonPreference iconBadgingPref =
                             (ButtonPreference) findPreference(ICON_BADGING_PREFERENCE_KEY);
@@ -639,19 +638,19 @@ public class SettingsActivity extends SettingsBaseActivity implements
                     mIconBadgingObserver
                             .register(NOTIFICATION_BADGING, NOTIFICATION_ENABLED_LISTENERS);
                 }
-            } else if (getContent() == R.xml.lawnchair_theme_preferences) {
+            } else if (getContent() == R.xml.kiosk_theme_preferences) {
                 Preference resetIconsPreference = findPreference("pref_resetCustomIcons");
                 resetIconsPreference.setOnPreferenceClickListener(preference -> {
                     new SettingsActivity.ResetIconsConfirmation()
                             .show(getFragmentManager(), "reset_icons");
                     return true;
                 });
-            } else if (getContent() == R.xml.lawnchair_dev_options_preference) {
+            } else if (getContent() == R.xml.kiosk_dev_options_preference) {
                 findPreference("kill").setOnPreferenceClickListener(this);
                 findPreference("addSettingsShortcut").setOnPreferenceClickListener(this);
 
                 findPreference("appInfo").setOnPreferenceClickListener(this);
-            } else if (getContent() == R.xml.lawnchair_about_preferences) {
+            } else if (getContent() == R.xml.kiosk_about_preferences) {
                 findPreference("play_store").setOnPreferenceClickListener(this);
                 findPreference("github").setOnPreferenceClickListener(this);
                 findPreference("based_on").setOnPreferenceClickListener(this);
@@ -680,14 +679,6 @@ public class SettingsActivity extends SettingsBaseActivity implements
             super.onResume();
             setActivityTitle();
 
-            if (getContent() == R.xml.lawnchair_integration_preferences) {
-                SwitchPreference minusOne = (SwitchPreference) findPreference(
-                        ENABLE_MINUS_ONE_PREF);
-//                if (minusOne != null && !FeedBridge.Companion.getInstance(getActivity())
-//                        .isInstalled()) {
-//                    minusOne.setChecked(false);
-//                }
-            }
         }
 
         protected void setActivityTitle() {
@@ -798,14 +789,14 @@ public class SettingsActivity extends SettingsBaseActivity implements
                     break;
                 case "appInfo":
                     ComponentName componentName = new ComponentName(getActivity(),
-                            LawnchairLauncher.class);
+                            KioskLauncher.class);
                     LauncherAppsCompat.getInstance(getContext())
                             .showAppDetailsForProfile(componentName,
                                     android.os.Process.myUserHandle());
                     break;
                 case "screenshot":
                     final Context context = getActivity();
-                    LawnchairLauncher.Companion.takeScreenshot(getActivity(), new Handler(),
+                    KioskLauncher.Companion.takeScreenshot(getActivity(), new Handler(),
                             new Function1<Uri, Unit>() {
                                 @Override
                                 public Unit invoke(Uri uri) {
@@ -882,7 +873,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
         @Override
         public void onStart() {
             super.onStart();
-            LawnchairUtilsKt.applyAccent(((AlertDialog) getDialog()));
+            KioskUtilsKt.applyAccent(((AlertDialog) getDialog()));
         }
     }
 
@@ -966,7 +957,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
         @Override
         public void onStart() {
             super.onStart();
-            LawnchairUtilsKt.applyAccent(((AlertDialog) getDialog()));
+            KioskUtilsKt.applyAccent(((AlertDialog) getDialog()));
         }
 
         @Override
@@ -996,7 +987,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
         @Override
         public void onStart() {
             super.onStart();
-            LawnchairUtilsKt.applyAccent(((AlertDialog) getDialog()));
+            KioskUtilsKt.applyAccent(((AlertDialog) getDialog()));
         }
 
         @Override
@@ -1004,7 +995,7 @@ public class SettingsActivity extends SettingsBaseActivity implements
             Context context = getContext();
 
             // Clear custom app icons
-            LawnchairPreferences prefs = Utilities.getLawnchairPrefs(context);
+            KioskPreferences prefs = Utilities.getKioskPrefs(context);
             Set<ComponentKey> toUpdateSet = prefs.getCustomAppIcon().toMap().keySet();
             prefs.beginBlockingEdit();
             prefs.getCustomAppIcon().clear();
@@ -1017,8 +1008,8 @@ public class SettingsActivity extends SettingsBaseActivity implements
             writer.commit();
 
             // Reload changes
-            LawnchairUtilsKt.reloadIconsFromComponents(context, toUpdateSet);
-            LawnchairPreferencesChangeCallback prefsCallback = prefs.getOnChangeCallback();
+            KioskUtilsKt.reloadIconsFromComponents(context, toUpdateSet);
+            KioskPreferencesChangeCallback prefsCallback = prefs.getOnChangeCallback();
             if (prefsCallback != null) {
                 prefsCallback.reloadAll();
             }
@@ -1033,19 +1024,13 @@ public class SettingsActivity extends SettingsBaseActivity implements
                     .setTitle(R.string.bridge_missing_title)
                     .setMessage(R.string.bridge_missing_message)
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setNeutralButton(R.string.get_lawnfeed, new DialogInterface.OnClickListener() {
-
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                        }
-                    })
                     .create();
         }
 
         @Override
         public void onStart() {
             super.onStart();
-            LawnchairUtilsKt.applyAccent(((AlertDialog) getDialog()));
+            KioskUtilsKt.applyAccent(((AlertDialog) getDialog()));
         }
     }
 

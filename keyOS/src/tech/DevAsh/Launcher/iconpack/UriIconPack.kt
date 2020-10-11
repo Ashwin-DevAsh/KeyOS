@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.iconpack
@@ -34,7 +34,7 @@ import com.android.launcher3.shortcuts.ShortcutInfoCompat
 import com.android.launcher3.util.ComponentKey
 import java.io.FileDescriptor
 
-class UriIconPack(context: Context) : IconPack(context, "lawnchairUriPack") {
+class UriIconPack(context: Context) : IconPack(context, "KioskUriPack") {
 
     override val packInfo = IconPackList.DefaultPackInfo(context)
     override val entries = listOf<Entry>()
@@ -72,7 +72,7 @@ class UriIconPack(context: Context) : IconPack(context, "lawnchairUriPack") {
 
     override fun getIcon(launcherActivityInfo: LauncherActivityInfo, iconDpi: Int,
                          flattenDrawable: Boolean, customIconEntry: IconPackManager.CustomIconEntry?,
-                         iconProvider: LawnchairIconProvider?): Drawable? {
+                         iconProvider: KioskIconProvider?): Drawable? {
         val entry = getUriEntry(customIconEntry)
         val icon = entry?.drawable
         if (icon != null) {
@@ -85,7 +85,7 @@ class UriIconPack(context: Context) : IconPack(context, "lawnchairUriPack") {
 
     override fun newIcon(icon: Bitmap, itemInfo: ItemInfo,
                          customIconEntry: IconPackManager.CustomIconEntry?,
-                         drawableFactory: LawnchairDrawableFactory): FastBitmapDrawable? {
+                         drawableFactory: KioskDrawableFactory): FastBitmapDrawable? {
         return FastBitmapDrawable(icon)
     }
 
@@ -120,7 +120,7 @@ class UriIconPack(context: Context) : IconPack(context, "lawnchairUriPack") {
         }
 
         override fun toCustomEntry(): IconPackManager.CustomIconEntry {
-            return IconPackManager.CustomIconEntry("lawnchairUriPack", "$uri", "$adaptive")
+            return IconPackManager.CustomIconEntry("KioskUriPack", "$uri", "$adaptive")
         }
 
         companion object {

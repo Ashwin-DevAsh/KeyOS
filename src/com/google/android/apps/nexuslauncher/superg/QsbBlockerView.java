@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 import android.widget.FrameLayout;
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.BubbleTextView;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.ItemInfo;
@@ -55,7 +55,7 @@ public class QsbBlockerView extends FrameLayout implements OnStateChangeListener
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         if (mView != null && mState == 2) {
-            Launcher launcher = LawnchairUtilsKt.getLauncherOrNull(getContext());
+            Launcher launcher = KioskUtilsKt.getLauncherOrNull(getContext());
             int size;
             if (launcher != null) {
                 DeviceProfile deviceProfile = launcher.getDeviceProfile();

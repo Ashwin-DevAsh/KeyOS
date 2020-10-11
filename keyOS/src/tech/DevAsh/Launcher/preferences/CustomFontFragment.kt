@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.preferences
@@ -29,7 +29,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPrefs
 import tech.DevAsh.Launcher.uiWorkerHandler
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
@@ -44,7 +44,7 @@ class CustomFontFragment : androidx.fragment.app.Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val prefs = view.context.lawnchairPrefs
+        val prefs = view.context.KioskPrefs
 
         val fontName = view.findViewById<TextView>(R.id.font_name)
         val submitButton = view.findViewById<View>(R.id.button)
@@ -67,7 +67,7 @@ class CustomFontFragment : androidx.fragment.app.Fragment() {
             override fun onTypefaceRetrieved(typeface: Typeface) {
                 super.onTypefaceRetrieved(typeface)
 
-                val prefs = context.lawnchairPrefs
+                val prefs = context.KioskPrefs
                 prefs.blockingEdit { customFontName = fontName }
                 Utilities.restartLauncher(context)
             }

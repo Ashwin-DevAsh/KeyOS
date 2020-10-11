@@ -30,7 +30,7 @@ import androidx.annotation.Nullable;
 import android.util.Log;
 import tech.DevAsh.Launcher.NonAdaptiveIconDrawable;
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
-import tech.DevAsh.Launcher.iconpack.LawnchairIconProvider;
+import tech.DevAsh.Launcher.iconpack.KioskIconProvider;
 import com.android.launcher3.*;
 import com.android.launcher3.model.PackageItemInfo;
 import com.android.launcher3.shortcuts.DeepShortcutManager;
@@ -244,7 +244,7 @@ public class LauncherIcons implements AutoCloseable {
         if (Utilities.ATLEAST_OREO) {
             boolean[] outShape = new boolean[1];
             if (mWrapperIcon == null || !mWrapperIcon.isMaskValid()) {
-                mWrapperIcon = LawnchairIconProvider.getAdaptiveIconDrawableWrapper(mContext);
+                mWrapperIcon = KioskIconProvider.getAdaptiveIconDrawableWrapper(mContext);
             }
             AdaptiveIconCompat dr = (AdaptiveIconCompat) mWrapperIcon;
             dr.setBounds(0, 0, 1, 1);
@@ -360,8 +360,8 @@ public class LauncherIcons implements AutoCloseable {
     public BitmapInfo createShortcutIcon(ShortcutInfoCompat shortcutInfo,
             boolean badged, @Nullable Provider<Bitmap> fallbackIconProvider) {
         Drawable unbadgedDrawable;
-        if (iconProvider instanceof LawnchairIconProvider) {
-            unbadgedDrawable = ((LawnchairIconProvider) iconProvider).getIcon(shortcutInfo, mFillResIconDpi);
+        if (iconProvider instanceof KioskIconProvider) {
+            unbadgedDrawable = ((KioskIconProvider) iconProvider).getIcon(shortcutInfo, mFillResIconDpi);
         } else {
             unbadgedDrawable = DeepShortcutManager.getInstance(mContext)
                     .getShortcutIconDrawable(shortcutInfo, mFillResIconDpi);

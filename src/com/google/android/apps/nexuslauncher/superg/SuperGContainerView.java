@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import tech.DevAsh.Launcher.colors.ColorEngine;
 import tech.DevAsh.Launcher.colors.ColorEngine.OnColorChangeListener;
 import tech.DevAsh.Launcher.colors.ColorEngine.ResolveInfo;
@@ -109,7 +109,7 @@ public class SuperGContainerView extends BaseGContainerView implements OnColorCh
     @Override
     protected void applyQsbColor() {
         super.applyQsbColor();
-        float radius = LawnchairUtilsKt.dpToPx(100);
-        mQsbView.setBackground(LawnchairUtilsKt.createRipplePill(getContext(), mQsbColor, radius));
+        float radius = KioskUtilsKt.dpToPx(100);
+        mQsbView.setBackground(KioskUtilsKt.createRipplePill(getContext(), mQsbColor, radius));
     }
 }

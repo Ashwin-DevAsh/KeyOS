@@ -31,7 +31,7 @@ import android.os.CancellationSignal;
 import android.util.Base64;
 
 import tech.DevAsh.Launcher.ClockVisibilityManager;
-import tech.DevAsh.Launcher.LawnchairLauncher;
+import tech.DevAsh.Launcher.KioskLauncher;
 import tech.DevAsh.Launcher.gestures.VerticalSwipeGestureController;
 import tech.DevAsh.Launcher.touch.PinchStateChangeTouchController;
 import com.android.launcher3.AbstractFloatingView;
@@ -114,8 +114,8 @@ public class UiFactory {
     }
 
     public static boolean hasBackGesture(Launcher launcher) {
-        if (launcher instanceof LawnchairLauncher) {
-            return ((LawnchairLauncher) launcher).getGestureController().getHasBackGesture();
+        if (launcher instanceof KioskLauncher) {
+            return ((KioskLauncher) launcher).getGestureController().getHasBackGesture();
         } else {
             return false;
         }
@@ -153,7 +153,7 @@ public class UiFactory {
                 WindowManagerWrapper.getInstance().setShelfHeight(
                         (state == NORMAL || state == OVERVIEW) && launcher.isUserActive()
                                 && !profile.isVerticalBarLayout(),
-                        ((LawnchairLauncher) launcher).getShelfHeight());
+                        ((KioskLauncher) launcher).getShelfHeight());
             } catch (Exception ignore) {
 
             }

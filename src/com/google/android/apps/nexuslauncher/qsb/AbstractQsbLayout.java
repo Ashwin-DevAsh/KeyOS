@@ -460,7 +460,7 @@ public abstract class AbstractQsbLayout extends FrameLayout implements OnSharedP
     }
 
     public static float getCornerRadius(Context context, float defaultRadius) {
-        float radius = round(Utilities.getLawnchairPrefs(context).getSearchBarRadius());
+        float radius = round(Utilities.getKioskPrefs(context).getSearchBarRadius());
         if (radius > 0f) {
             return radius;
         }

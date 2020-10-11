@@ -26,7 +26,7 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
-import tech.DevAsh.Launcher.LawnchairLauncher;
+import tech.DevAsh.Launcher.KioskLauncher;
 import tech.DevAsh.Launcher.folder.FirstItemProvider;
 import tech.DevAsh.Launcher.iconpack.IconPack;
 import tech.DevAsh.Launcher.iconpack.IconPackManager;
@@ -194,7 +194,7 @@ public class FolderInfo extends ItemInfo {
     }
 
     public Drawable getIcon(Context context) {
-        Launcher launcher = LawnchairLauncher.getLauncher(context);
+        Launcher launcher = KioskLauncher.getLauncher(context);
         Drawable icn = getIconInternal(launcher);
         if (icn != null)  {
             return icn;
@@ -227,17 +227,17 @@ public class FolderInfo extends ItemInfo {
     }
 
     public boolean usingCustomIcon(Context context) {
-        Launcher launcher = LawnchairLauncher.getLauncher(context);
+        Launcher launcher = KioskLauncher.getLauncher(context);
         return getIconInternal(launcher) != null;
     }
 
     private boolean hasCustomIcon(Context context) {
-        Launcher launcher = LawnchairLauncher.getLauncher(context);
+        Launcher launcher = KioskLauncher.getLauncher(context);
         return getIconInternal(launcher) != null;
     }
 
     public void clearCustomIcon(Context context) {
-        Launcher launcher = LawnchairLauncher.getLauncher(context);
+        Launcher launcher = KioskLauncher.getLauncher(context);
         CustomInfoProvider<FolderInfo> infoProvider = CustomInfoProvider.Companion.forItem(launcher, this);
         if (infoProvider != null) {
             infoProvider.setIcon(this, null);

@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.gestures
@@ -29,9 +29,9 @@ import android.os.SystemClock
 import androidx.annotation.Keep
 import androidx.core.content.ContextCompat
 import android.view.*
-import tech.DevAsh.Launcher.LawnchairLauncher
-import tech.DevAsh.Launcher.lawnchairApp
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskLauncher
+import tech.DevAsh.Launcher.KioskApp
+import tech.DevAsh.Launcher.KioskPrefs
 import tech.DevAsh.Launcher.root.RootHelperManager
 import com.android.launcher3.LauncherAppState
 import com.android.launcher3.R
@@ -47,7 +47,7 @@ class NavigationBarGestureConsumer(private val context: Context, target: TouchCo
                                    @NavigationBarCompat.HitTarget private val downTarget: Int) :
         PassThroughTouchConsumer(target) {
 
-    private val launcher get() = LauncherAppState.getInstance(context).launcher as? LawnchairLauncher
+    private val launcher get() = LauncherAppState.getInstance(context).launcher as? KioskLauncher
     private val controller get() = launcher?.gestureController
     private var displayRotation = 0
     private val stableInsets = Rect()
@@ -70,7 +70,7 @@ class NavigationBarGestureConsumer(private val context: Context, target: TouchCo
     private var quickScrubDragSlop = 0
     private var activePointerId = MotionEvent.INVALID_POINTER_ID
     private val isRtl = context.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
-    private val swipeForBack = launcher != null && context.lawnchairPrefs.swipeLeftToGoBack
+    private val swipeForBack = launcher != null && context.KioskPrefs.swipeLeftToGoBack
 
     override fun accept(ev: MotionEvent) {
         when (ev.actionMasked) {
@@ -142,7 +142,7 @@ class NavigationBarGestureConsumer(private val context: Context, target: TouchCo
             }
             return true
         }
-        return context.lawnchairApp.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
+        return false
     }
 
     private fun playClickEffect() {

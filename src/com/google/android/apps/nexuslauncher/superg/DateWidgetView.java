@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
@@ -37,7 +37,7 @@ public class DateWidgetView extends LinearLayout implements TextWatcher {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        Launcher launcher = LawnchairUtilsKt.getLauncherOrNull(getContext());
+        Launcher launcher = KioskUtilsKt.getLauncherOrNull(getContext());
         int marginEnd;
         if (launcher != null) {
             DeviceProfile deviceProfile = Launcher.getLauncher(getContext()).getDeviceProfile();

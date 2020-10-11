@@ -32,7 +32,7 @@ import android.provider.Settings;
 import androidx.annotation.WorkerThread;
 import android.util.Log;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.customnavbar.CustomNavBar;
 import com.android.launcher3.MainThreadExecutor;
 import com.android.launcher3.Utilities;
@@ -51,7 +51,7 @@ import java.util.concurrent.ExecutionException;
  *
  * @see com.android.systemui.shared.system.NavigationBarCompat.InteractionType and associated flags.
  */
-public class OverviewInteractionState implements LawnchairPreferences.OnPreferenceChangeListener {
+public class OverviewInteractionState implements KioskPreferences.OnPreferenceChangeListener {
 
     private static final String TAG = "OverviewFlags";
 
@@ -114,7 +114,7 @@ public class OverviewInteractionState implements LawnchairPreferences.OnPreferen
             mSwipeUpSettingObserver.register();
         } else {
             mSwipeUpSettingObserver = null;
-            Utilities.getLawnchairPrefs(context).addOnPreferenceChangeListener("pref_swipe_up_to_switch_apps_enabled", this);
+            Utilities.getKioskPrefs(context).addOnPreferenceChangeListener("pref_swipe_up_to_switch_apps_enabled", this);
             mSwipeUpEnabled = getSystemBooleanRes(SWIPE_UP_ENABLED_DEFAULT_RES_NAME);
         }
     }
@@ -130,7 +130,7 @@ public class OverviewInteractionState implements LawnchairPreferences.OnPreferen
     public void setBackButtonAlpha(float alpha, boolean animate) {
         if (!mSwipeUpEnabled) {
             alpha = 1;
-        } else if (Utilities.getLawnchairPrefs(mContext).getSwipeLeftToGoBack()) {
+        } else if (Utilities.getKioskPrefs(mContext).getSwipeLeftToGoBack()) {
             alpha = 0;
         }
         mUiHandler.removeMessages(MSG_SET_BACK_BUTTON_ALPHA);
@@ -268,7 +268,7 @@ public class OverviewInteractionState implements LawnchairPreferences.OnPreferen
     }
 
     @Override
-    public void onValueChanged(@NotNull String key, @NotNull LawnchairPreferences prefs, boolean force) {
+    public void onValueChanged(@NotNull String key, @NotNull KioskPreferences prefs, boolean force) {
         mBgHandler.removeMessages(MSG_SET_SWIPE_UP_ENABLED);
         mBgHandler.obtainMessage(MSG_SET_SWIPE_UP_ENABLED, prefs.getSwipeUpToSwitchApps() ? 1 : 0, 0).sendToTarget();
     }

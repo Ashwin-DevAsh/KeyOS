@@ -40,7 +40,7 @@ import android.util.Log;
 import android.util.LongSparseArray;
 import android.util.MutableInt;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.iconpack.IconPackManager;
 import tech.DevAsh.Launcher.model.HomeWidgetMigrationTask;
 import com.android.launcher3.AllAppsList;
@@ -228,7 +228,7 @@ public class LoaderTask implements Runnable {
         }
         TraceHelper.endSection(TAG);
 
-        LawnchairPreferences prefs = Utilities.getLawnchairPrefs(mApp.getContext());
+        KioskPreferences prefs = Utilities.getKioskPrefs(mApp.getContext());
         if (!prefs.getDesktopInitialized()) {
             mApp.getLauncher().dismissLoading();
         }

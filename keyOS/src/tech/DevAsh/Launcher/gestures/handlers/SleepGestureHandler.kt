@@ -17,7 +17,7 @@ import androidx.annotation.Keep
 import android.view.View
 import tech.DevAsh.Launcher.gestures.GestureController
 import tech.DevAsh.Launcher.gestures.GestureHandler
-import tech.DevAsh.Launcher.lawnchairApp
+import tech.DevAsh.Launcher.KioskApp
 import tech.DevAsh.Launcher.root.RootHelperManager
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
@@ -87,7 +87,6 @@ class SleepMethodPieAccessibility(context: Context) : SleepGestureHandler.SleepM
 
     @TargetApi(Build.VERSION_CODES.P)
     override fun sleep(controller: GestureController) {
-        context.lawnchairApp.performGlobalAction(AccessibilityService.GLOBAL_ACTION_LOCK_SCREEN)
     }
 }
 

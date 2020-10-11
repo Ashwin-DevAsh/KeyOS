@@ -23,7 +23,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Switch;
 
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import tech.DevAsh.Launcher.colors.ColorEngine;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.compat.UserManagerCompat;
@@ -53,7 +53,7 @@ public class WorkModeSwitch extends Switch {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         int accent = ColorEngine.getInstance(getContext()).getAccent();
-        LawnchairUtilsKt.applyColor(this, accent);
+        KioskUtilsKt.applyColor(this, accent);
         if (Utilities.hasKnoxSecureFolder(getContext())) {
             // Samsung secure folder breaks work mode APIs and completely breaks
             // when we try to enable quiet mode from Launcher.

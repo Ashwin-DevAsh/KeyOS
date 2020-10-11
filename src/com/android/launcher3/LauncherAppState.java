@@ -24,7 +24,7 @@ import android.content.IntentFilter;
 import android.os.Looper;
 import android.util.Log;
 
-import tech.DevAsh.Launcher.LawnchairAppKt;
+import tech.DevAsh.Launcher.KioskAppKt;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.PackageInstallerCompat;
 import com.android.launcher3.compat.UserManagerCompat;
@@ -58,7 +58,7 @@ public class LauncherAppState {
         if (INSTANCE == null) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 INSTANCE = new LauncherAppState(context.getApplicationContext());
-                LawnchairAppKt.getLawnchairApp(context).onLauncherAppStateCreated();
+                KioskAppKt.getKioskApp(context).onLauncherAppStateCreated();
             } else {
                 try {
                     return new MainThreadExecutor().submit(new Callable<LauncherAppState>() {

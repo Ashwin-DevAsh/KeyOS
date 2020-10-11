@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.override
@@ -21,7 +21,7 @@ import android.content.Context
 import android.content.pm.LauncherActivityInfo
 import tech.DevAsh.Launcher.ensureOnMainThread
 import tech.DevAsh.Launcher.iconpack.IconPackManager
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPrefs
 import tech.DevAsh.Launcher.useApplicationContext
 import tech.DevAsh.Launcher.util.SingletonHolder
 import com.android.launcher3.AppInfo
@@ -31,7 +31,7 @@ import com.android.launcher3.util.ComponentKey
 
 class AppInfoProvider private constructor(context: Context) : CustomInfoProvider<AppInfo>(context) {
 
-    private val prefs = context.lawnchairPrefs
+    private val prefs = context.KioskPrefs
     private val launcherApps by lazy { LauncherAppsCompat.getInstance(context) }
 
     override fun getTitle(info: AppInfo): String {

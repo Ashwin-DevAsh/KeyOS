@@ -30,7 +30,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.override.CustomInfoProvider;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.FolderInfo;
@@ -89,7 +89,7 @@ public class CustomBottomSheet extends WidgetsBottomSheet {
                 }
             }
 //            if (mInfoProvider != null) {
-//                LawnchairLauncher launcher = LawnchairLauncher.Companion.getLauncher(getContext());
+//                KioskLauncher launcher = KioskLauncher.Companion.getLauncher(getContext());
 //                icon.setOnClickListener(v -> {
 //                    ItemInfo editItem;
 //                    editItem = mItemInfo;
@@ -156,7 +156,7 @@ public class CustomBottomSheet extends WidgetsBottomSheet {
         private final static String PREF_HIDE = "pref_app_hide";
         public final static int requestCode = "swipeUp".hashCode() & 65535;
 
-        private LawnchairPreferences prefs;
+        private KioskPreferences prefs;
 
         private ComponentKey mKey;
 
@@ -177,7 +177,7 @@ public class CustomBottomSheet extends WidgetsBottomSheet {
             boolean isApp = itemInfo instanceof AppInfo || itemInfo.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION;
 
             PreferenceScreen screen = getPreferenceScreen();
-            prefs = Utilities.getLawnchairPrefs(getActivity());
+            prefs = Utilities.getKioskPrefs(getActivity());
             if (!(itemInfo instanceof FolderInfo)) {
                 mKey = new ComponentKey(itemInfo.getTargetComponent(), itemInfo.user);
             }

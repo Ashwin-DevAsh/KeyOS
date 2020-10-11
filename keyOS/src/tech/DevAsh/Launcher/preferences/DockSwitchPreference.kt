@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.preferences
@@ -24,14 +24,14 @@ import android.view.View
 import android.widget.Switch
 import tech.DevAsh.Launcher.applyColor
 import tech.DevAsh.Launcher.getColorEngineAccent
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPrefs
 import tech.DevAsh.Launcher.settings.ui.search.SearchIndex
 import com.android.launcher3.Utilities
 import kotlin.reflect.KMutableProperty1
 
 class DockSwitchPreference(context: Context, attrs: AttributeSet? = null) : StyledSwitchPreferenceCompat(context, attrs) {
 
-    private val prefs = Utilities.getLawnchairPrefs(context)
+    private val prefs = Utilities.getKioskPrefs(context)
     private val currentStyle get() = prefs.dockStyles.currentStyle
     private val inverted get() = key == "enableGradient"
 
@@ -80,7 +80,7 @@ class DockSwitchPreference(context: Context, attrs: AttributeSet? = null) : Styl
             private val key: String)
         : Switch(context) {
 
-        private val currentStyle get() = context.lawnchairPrefs.dockStyles.currentStyle
+        private val currentStyle get() = context.KioskPrefs.dockStyles.currentStyle
         private val inverted get() = key == "enableGradient"
 
         @Suppress("UNCHECKED_CAST")
@@ -97,12 +97,12 @@ class DockSwitchPreference(context: Context, attrs: AttributeSet? = null) : Styl
 
         override fun onAttachedToWindow() {
             super.onAttachedToWindow()
-            context.lawnchairPrefs.dockStyles.addListener(listener)
+            context.KioskPrefs.dockStyles.addListener(listener)
         }
 
         override fun onDetachedFromWindow() {
             super.onDetachedFromWindow()
-            context.lawnchairPrefs.dockStyles.removeListener(listener)
+            context.KioskPrefs.dockStyles.removeListener(listener)
         }
 
         private fun onChange() {

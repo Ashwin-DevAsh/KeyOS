@@ -24,7 +24,7 @@ import android.view.MotionEvent;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 
 public class Hotseat extends FrameLayout implements Insettable {
 
@@ -73,7 +73,7 @@ public class Hotseat extends FrameLayout implements Insettable {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        LawnchairPreferences prefs = Utilities.getLawnchairPrefs(getContext());
+        KioskPreferences prefs = Utilities.getKioskPrefs(getContext());
         if (prefs.getDockHide()) {
             setVisibility(GONE);
         }
@@ -84,7 +84,7 @@ public class Hotseat extends FrameLayout implements Insettable {
         mContent.removeAllViewsInLayout();
         mHasVerticalHotseat = hasVerticalHotseat;
         InvariantDeviceProfile idp = mLauncher.getDeviceProfile().inv;
-        int rows = Utilities.getLawnchairPrefs(mLauncher).getDockRowsCount();
+        int rows = Utilities.getKioskPrefs(mLauncher).getDockRowsCount();
         if (hasVerticalHotseat) {
             mContent.setGridSize(rows, idp.numHotseatIcons);
         } else {

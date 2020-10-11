@@ -151,7 +151,7 @@ public class WorkspaceAndHotseatScrim implements
                 view.getResources().getDisplayMetrics());
 
         mHasSysUiScrim = !ThemeManager.Companion.getInstance(mLauncher).getSupportsDarkText()
-                && Utilities.getLawnchairPrefs(mLauncher).getShowTopShadow();
+                && Utilities.getKioskPrefs(mLauncher).getShowTopShadow();
         if (mHasSysUiScrim) {
             mTopScrim = Themes.getAttrDrawable(view.getContext(), R.attr.workspaceStatusBarScrim);
             mBottomMask = createDitheredAlphaMask();

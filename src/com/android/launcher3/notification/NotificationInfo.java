@@ -27,7 +27,7 @@ import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
 import android.view.View;
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherAppState;
@@ -72,7 +72,7 @@ public class NotificationInfo implements View.OnClickListener {
         // Load the icon. Since it is backed by ashmem, we won't copy the entire bitmap
         // into our process as long as we don't touch it and it exists in systemui.
         Icon icon = mBadgeIcon == Notification.BADGE_ICON_SMALL ? null : notification.getLargeIcon();
-        Resources res = LawnchairUtilsKt.resourcesForApplication(context, statusBarNotification.getPackageName());
+        Resources res = KioskUtilsKt.resourcesForApplication(context, statusBarNotification.getPackageName());
         if (icon == null) {
             // Use the small icon.
             if (Utilities.ATLEAST_MARSHMALLOW) {

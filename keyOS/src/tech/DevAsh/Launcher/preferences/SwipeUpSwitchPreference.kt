@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Switch
 import tech.DevAsh.Launcher.applyColor
 import tech.DevAsh.Launcher.getColorEngineAccent
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPrefs
 import tech.DevAsh.Launcher.settings.ui.search.SearchIndex
 import com.android.launcher3.Utilities
 import com.android.quickstep.OverviewInteractionState
@@ -66,14 +66,14 @@ class SwipeUpSwitchPreference(context: Context, attrs: AttributeSet? = null) : S
                 } catch (ignored: Exception) {
                 }
             }
-            context.lawnchairPrefs.swipeUpToSwitchApps = value
+            context.KioskPrefs.swipeUpToSwitchApps = value
             return true
         }
     }
 
     companion object {
 
-        private const val securePrefName = SettingsCompat.SWIPE_UP_SETTING_NAME
+        private  val securePrefName = SettingsCompat.SWIPE_UP_SETTING_NAME
 
         @Keep
         @JvmStatic

@@ -224,9 +224,8 @@ dependencies {
     implementation 'com.google.protobuf.nano:protobuf-javanano:3.0.0-alpha-7'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.github.KwabenBerko:OpenWeatherMap-Android-Library:2.0.1'
-    implementation 'com.github.LawnchairLauncher:chroma:1.2.6'
-    implementation 'com.github.LawnchairLauncher:hoko-lite:4e0d797'
-    implementation('com.github.LawnchairLauncher:attribouter-y:0.1.6') {
+    implementation 'com.hoko:hoko-blur:1.3.5'
+    implementation('com.github.lawnchairLauncher:attribouter-y:0.1.6') {
         // The "MaterialButton" styleable defines an attr named iconSize which breaks compatibility with our source base
         exclude group: 'com.android.support', module: 'design'
     }

@@ -121,7 +121,7 @@ public class LauncherAppWidgetHostView extends AppWidgetHostView
     @Override
     public void setAppWidget(int appWidgetId, AppWidgetProviderInfo info) {
         super.setAppWidget(appWidgetId, info);
-        if (info != null && Utilities.getLawnchairPrefs(getContext()).getAllowFullWidthWidgets()) {
+        if (info != null && Utilities.getKioskPrefs(getContext()).getAllowFullWidthWidgets()) {
             setPadding(0, 0, 0, 0);
         } else if (info instanceof CustomAppWidgetProviderInfo) {
             if (((CustomAppWidgetProviderInfo) info).noPadding) {

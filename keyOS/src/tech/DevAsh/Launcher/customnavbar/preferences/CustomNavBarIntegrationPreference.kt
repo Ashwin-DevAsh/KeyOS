@@ -1,20 +1,20 @@
 /*
- *     Copyright (C) 2019 Lawnchair Team.
+ *     Copyright (C) 2019 Kiosk Team.
  *
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.customnavbar.preferences
@@ -22,7 +22,7 @@ package tech.DevAsh.Launcher.customnavbar.preferences
 import android.content.Context
 import android.util.AttributeSet
 import tech.DevAsh.Launcher.BlankActivity
-import tech.DevAsh.Launcher.LawnchairLauncher
+import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.Launcher.customnavbar.CustomNavBar
 import tech.DevAsh.Launcher.preferences.ResumablePreference
 import tech.DevAsh.Launcher.preferences.StyledSwitchPreferenceCompat
@@ -59,7 +59,7 @@ class CustomNavBarIntegrationPreference(context: Context, attrs: AttributeSet?) 
             } else {
                 BlankActivity.requestPermission(
                         context, CustomNavBar.MODIFY_NAVBAR_PERMISSION,
-                        LawnchairLauncher.REQUEST_PERMISSION_MODIFY_NAVBAR) {
+                        KioskLauncher.REQUEST_PERMISSION_MODIFY_NAVBAR) {
                     if (it) {
                         super.onClick()
                     }

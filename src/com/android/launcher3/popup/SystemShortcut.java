@@ -5,8 +5,8 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 
-import tech.DevAsh.Launcher.LawnchairLauncher;
-import tech.DevAsh.Launcher.animations.LawnchairAppTransitionManagerImpl;
+import tech.DevAsh.Launcher.KioskLauncher;
+import tech.DevAsh.Launcher.animations.KioskAppTransitionManagerImpl;
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.BaseDraggingActivity;
 import com.android.launcher3.ItemInfo;
@@ -63,7 +63,7 @@ public abstract class SystemShortcut<T extends BaseDraggingActivity> extends Ite
         @Override
         public View.OnClickListener getOnClickListener(final Launcher launcher,
                 final ItemInfo itemInfo) {
-            if (Utilities.getLawnchairPrefs(launcher).getLockDesktop()) {
+            if (Utilities.getKioskPrefs(launcher).getLockDesktop()) {
                 return null;
             }
             if (!DeepShortcutManager.supportsShortcuts(itemInfo)) {
@@ -102,10 +102,10 @@ public abstract class SystemShortcut<T extends BaseDraggingActivity> extends Ite
                 Bundle opts = activity.getActivityLaunchOptionsAsBundle(view);
                 Intent intent = new PackageManagerHelper(activity).startDetailsActivityForInfo(
                         itemInfo, sourceBounds, opts);
-                if (intent != null && activity instanceof LawnchairLauncher) {
+                if (intent != null && activity instanceof KioskLauncher) {
                     LauncherAppTransitionManager manager =
-                            ((LawnchairLauncher) activity).getLauncherAppTransitionManager();
-                    ((LawnchairAppTransitionManagerImpl) manager).playLaunchAnimation(
+                            ((KioskLauncher) activity).getLauncherAppTransitionManager();
+                    ((KioskAppTransitionManagerImpl) manager).playLaunchAnimation(
                             (Launcher) activity, null, intent);
                 }
             };

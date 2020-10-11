@@ -16,7 +16,7 @@
 
 package com.android.launcher3;
 
-import static tech.DevAsh.Launcher.views.LawnchairBackgroundView.ALPHA_INDEX_STATE;
+import static tech.DevAsh.Launcher.views.KioskBackgroundView.ALPHA_INDEX_STATE;
 import static com.android.launcher3.LauncherAnimUtils.DRAWABLE_ALPHA;
 import static com.android.launcher3.LauncherAnimUtils.SCALE_PROPERTY;
 import static com.android.launcher3.LauncherState.HOTSEAT_ICONS;
@@ -32,9 +32,9 @@ import static com.android.launcher3.graphics.WorkspaceAndHotseatScrim.SYSUI_PROG
 
 import android.view.View;
 import android.view.animation.Interpolator;
-import tech.DevAsh.Launcher.LawnchairLauncher;
+import tech.DevAsh.Launcher.KioskLauncher;
 import tech.DevAsh.Launcher.util.InvertedMultiValueAlpha;
-import tech.DevAsh.Launcher.views.LawnchairBackgroundView;
+import tech.DevAsh.Launcher.views.KioskBackgroundView;
 import tech.DevAsh.Launcher.views.OptionsPanel;
 import com.android.launcher3.LauncherState.PageAlphaProvider;
 import com.android.launcher3.LauncherStateManager.AnimationConfig;
@@ -100,7 +100,7 @@ public class WorkspaceStateTransitionAnimation {
         }
 
         // Set options view
-        OptionsPanel optionsPanel = LawnchairLauncher.getLauncher(mLauncher).getOptionsView();
+        OptionsPanel optionsPanel = KioskLauncher.getLauncher(mLauncher).getOptionsView();
         propertySetter.setViewAlpha(optionsPanel, (elements & OPTIONS_VIEW) != 0 ? 1 : 0, fadeInterpolator);
 
         // Set search view
@@ -123,7 +123,7 @@ public class WorkspaceStateTransitionAnimation {
                 LINEAR);
         propertySetter.setFloat(scrim, SYSUI_PROGRESS, state.hasSysUiScrim ? 1 : 0, LINEAR);
 
-        LawnchairBackgroundView background = LawnchairLauncher.getLauncher(mLauncher).getBackground();
+        KioskBackgroundView background = KioskLauncher.getLauncher(mLauncher).getBackground();
         propertySetter.setFloat(background.getBlurAlphas().getProperty(ALPHA_INDEX_STATE),
                 InvertedMultiValueAlpha.VALUE,
                 state.getWorkspaceBlurAlpha(mLauncher),

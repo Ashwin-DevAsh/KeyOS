@@ -227,11 +227,11 @@ public class IconShapeOverride {
             mHandler.post(() -> {
                 AdaptiveIconCompat.resetMask();
                 IconShape.init(mContext);
-                Utilities.getLawnchairPrefs(mContext).getRecreate().invoke();
+                Utilities.getKioskPrefs(mContext).getRecreate().invoke();
             });
 
             // Schedule restart
-//            LawnchairLauncher launcher = ((LawnchairLauncher) LauncherAppState.getInstanceNoCreate().getLauncher());
+//            KioskLauncher launcher = ((KioskLauncher) LauncherAppState.getInstanceNoCreate().getLauncher());
 //            if (launcher != null) {
 //                launcher.scheduleRestart();
 //            } else {

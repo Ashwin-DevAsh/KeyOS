@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.iconpack
@@ -32,7 +32,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.text.TextUtils
 import tech.DevAsh.Launcher.asNonEmpty
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPrefs
 import tech.DevAsh.Launcher.override.AppInfoProvider
 import tech.DevAsh.Launcher.override.CustomInfoProvider
 import tech.DevAsh.Launcher.runOnMainThread
@@ -44,7 +44,7 @@ import kotlin.collections.HashMap
 
 class IconPackManager(private val context: Context) {
 
-    val prefs = context.lawnchairPrefs
+    val prefs = context.KioskPrefs
     private val appInfoProvider = AppInfoProvider.getInstance(context)
     val defaultPack = DefaultPack(context)
     val uriPack = UriIconPack(context)
@@ -101,7 +101,7 @@ class IconPackManager(private val context: Context) {
 
     fun getIcon(launcherActivityInfo: LauncherActivityInfo,
                 iconDpi: Int, flattenDrawable: Boolean, itemInfo: ItemInfo?,
-                iconProvider: LawnchairIconProvider?): Drawable {
+                iconProvider: KioskIconProvider?): Drawable {
         val customEntry = CustomInfoProvider.forItem<ItemInfo>(context, itemInfo)?.getIcon(itemInfo!!)
                 ?: appInfoProvider.getCustomIconEntry(launcherActivityInfo)
         val customPack = customEntry?.run {
@@ -125,7 +125,7 @@ class IconPackManager(private val context: Context) {
         return defaultPack.getIcon(shortcutInfo, iconDpi)
     }
 
-    fun newIcon(icon: Bitmap, itemInfo: ItemInfo, drawableFactory: LawnchairDrawableFactory): FastBitmapDrawable {
+    fun newIcon(icon: Bitmap, itemInfo: ItemInfo, drawableFactory: KioskDrawableFactory): FastBitmapDrawable {
         val key = itemInfo.targetComponent?.let { ComponentKey(it, itemInfo.user) }
         val customEntry = CustomInfoProvider.forItem<ItemInfo>(context, itemInfo)?.getIcon(itemInfo)
                 ?: key?.let { appInfoProvider.getCustomIconEntry(it) }
@@ -179,7 +179,7 @@ class IconPackManager(private val context: Context) {
     }
 
     fun onPacksUpdated() {
-        context.lawnchairPrefs.reloadIcons()
+        context.KioskPrefs.reloadIcons()
         runOnMainThread { listeners.forEach { it.invoke() } }
     }
 
@@ -214,7 +214,7 @@ class IconPackManager(private val context: Context) {
             private fun parseLegacy(string: String): CustomIconEntry? {
                 val parts = string.split("/")
                 val icon = TextUtils.join("/", parts.subList(1, parts.size))
-                if (parts[0] == "lawnchairUriPack" && !icon.isNullOrBlank()) {
+                if (parts[0] == "KioskUriPack" && !icon.isNullOrBlank()) {
                     val iconParts = icon.split("|")
                     return CustomIconEntry(parts[0], iconParts[0].asNonEmpty(), iconParts[1].asNonEmpty())
                 }

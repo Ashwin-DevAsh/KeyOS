@@ -81,10 +81,10 @@
     <string name="app_filter_class" translatable="false">com.google.android.apps.nexuslauncher.CustomAppFilter</string>
 
     <!-- Name of an icon provider class. -->
-    <string name="icon_provider_class" translatable="false">tech.DevAsh.Launcher.iconpack.LawnchairIconProvider</string>
+    <string name="icon_provider_class" translatable="false">tech.DevAsh.Launcher.iconpack.KioskIconProvider</string>
 
     <!-- Name of a drawable factory class. -->
-    <string name="drawable_factory_class" translatable="false">tech.DevAsh.Launcher.iconpack.LawnchairDrawableFactory</string>
+    <string name="drawable_factory_class" translatable="false">tech.DevAsh.Launcher.iconpack.KioskDrawableFactory</string>
 
     <!-- Name of a custom shortcut class. -->
 

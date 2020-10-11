@@ -27,7 +27,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Process;
 
-import tech.DevAsh.Launcher.iconpack.LawnchairIconProvider;
+import tech.DevAsh.Launcher.iconpack.KioskIconProvider;
 import com.android.launcher3.FastBitmapDrawable;
 import com.android.launcher3.IconCache;
 import com.android.launcher3.IconProvider;
@@ -78,8 +78,8 @@ class PinShortcutRequestActivityInfo extends ShortcutConfigActivityInfo {
     public Drawable getFullResIcon(IconCache cache) {
         int iconDpi = LauncherAppState.getIDP(mContext).fillResIconDpi;
         Drawable d;
-        if (mIconProvider instanceof LawnchairIconProvider) {
-            d = ((LawnchairIconProvider) mIconProvider).getIcon(new ShortcutInfoCompat(mInfo), iconDpi);
+        if (mIconProvider instanceof KioskIconProvider) {
+            d = ((KioskIconProvider) mIconProvider).getIcon(new ShortcutInfoCompat(mInfo), iconDpi);
         } else {
             d = mContext.getSystemService(LauncherApps.class)
                     .getShortcutIconDrawable(mInfo, iconDpi);

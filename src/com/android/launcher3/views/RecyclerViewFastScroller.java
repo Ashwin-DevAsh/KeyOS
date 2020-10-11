@@ -32,7 +32,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.TextView;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.BaseRecyclerView;
 import com.android.launcher3.BaseRecyclerView.PositionThumbInfo;
 import com.android.launcher3.R;
@@ -111,7 +111,7 @@ public class RecyclerViewFastScroller extends View {
     private int mDownY;
     private int mLastY;
 
-    private LawnchairPreferences prefs;
+    private KioskPreferences prefs;
 
     public RecyclerViewFastScroller(Context context) {
         this(context, null);
@@ -148,7 +148,7 @@ public class RecyclerViewFastScroller extends View {
         mCanThumbDetach = ta.getBoolean(R.styleable.RecyclerViewFastScroller_canThumbDetach, false);
         ta.recycle();
 
-        prefs = Utilities.getLawnchairPrefs(context);
+        prefs = Utilities.getKioskPrefs(context);
     }
 
     public void setRecyclerView(BaseRecyclerView rv, TextView popupView) {

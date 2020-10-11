@@ -543,7 +543,7 @@ public class PopupContainerWithArrow extends ArrowPopup implements DragSource,
 
     @Override
     public boolean onLongClick(View v) {
-        if (Utilities.getLawnchairPrefs(mLauncher).getLockDesktop()) return false;
+        if (Utilities.getKioskPrefs(mLauncher).getLockDesktop()) return false;
         if (!ItemLongClickListener.canStartDrag(mLauncher)) return false;
         // Return early if not the correct view
         if (!(v.getParent() instanceof DeepShortcutView)) return false;

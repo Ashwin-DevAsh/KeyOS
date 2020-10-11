@@ -25,13 +25,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.settings.ui.SettingsActivity;
 import com.android.launcher3.CellLayout.ContainerType;
 import com.android.launcher3.widget.LauncherAppWidgetHostView;
 import org.jetbrains.annotations.NotNull;
 
-public class ShortcutAndWidgetContainer extends ViewGroup implements LawnchairPreferences.OnPreferenceChangeListener {
+public class ShortcutAndWidgetContainer extends ViewGroup implements KioskPreferences.OnPreferenceChangeListener {
     static final String TAG = "ShortcutAndWidgetContainer";
 
     // These are temporary variables to prevent having to allocate a new object just to
@@ -49,14 +49,14 @@ public class ShortcutAndWidgetContainer extends ViewGroup implements LawnchairPr
     private Launcher mLauncher;
     private boolean mInvertIfRtl = false;
 
-    private LawnchairPreferences mPrefs;
+    private KioskPreferences mPrefs;
 
     public ShortcutAndWidgetContainer(Context context, @ContainerType int containerType) {
         super(context);
         mLauncher = Launcher.getLauncher(context);
         mWallpaperManager = WallpaperManager.getInstance(context);
         mContainerType = containerType;
-        mPrefs = Utilities.getLawnchairPrefs(context);
+        mPrefs = Utilities.getKioskPrefs(context);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class ShortcutAndWidgetContainer extends ViewGroup implements LawnchairPr
     }
 
     @Override
-    public void onValueChanged(@NotNull String key, @NotNull LawnchairPreferences prefs, boolean force) {
+    public void onValueChanged(@NotNull String key, @NotNull KioskPreferences prefs, boolean force) {
         setClipChildren(!prefs.getAllowOverlap());
         setClipToPadding(!prefs.getAllowOverlap());
         setClipToOutline(!prefs.getAllowOverlap());

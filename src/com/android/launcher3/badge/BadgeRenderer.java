@@ -28,7 +28,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.Log;
 
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.graphics.ShadowGenerator;
 
 /**
@@ -116,7 +116,7 @@ public class BadgeRenderer {
 
         // TODO: Add an option to change the text font?
         if (mDisplayCount && numNotifications > 0) {
-            mTextPaint.setColor(LawnchairUtilsKt.getForegroundColor(color));
+            mTextPaint.setColor(KioskUtilsKt.getForegroundColor(color));
             String text = String.valueOf(Math.min(numNotifications, MAX_COUNT));
             mTextPaint.getTextBounds(text, 0, text.length(), mTmp);
             float x = (-mTmp.width() / 2f - mTmp.left) * getAdjustment(numNotifications);

@@ -27,12 +27,12 @@ import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.view.Surface;
 import android.view.WindowManager;
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.CellLayout.ContainerType;
 import com.android.launcher3.badge.BadgeRenderer;
 import com.android.launcher3.graphics.IconNormalizer;
 
-public class DeviceProfile implements LawnchairPreferences.OnPreferenceChangeListener {
+public class DeviceProfile implements KioskPreferences.OnPreferenceChangeListener {
 
     private Context mContext;
 
@@ -135,7 +135,7 @@ public class DeviceProfile implements LawnchairPreferences.OnPreferenceChangeLis
     private final Point minSize;
     private final Point maxSize;
 
-    private final LawnchairPreferences prefs;
+    private final KioskPreferences prefs;
 
     public DeviceProfile(Context context, InvariantDeviceProfile inv,
             Point minSize, Point maxSize,
@@ -202,7 +202,7 @@ public class DeviceProfile implements LawnchairPreferences.OnPreferenceChangeLis
 
         workspaceCellPaddingXPx = res.getDimensionPixelSize(R.dimen.dynamic_grid_cell_padding_x);
 
-        prefs = Utilities.getLawnchairPrefs(context);
+        prefs = Utilities.getKioskPrefs(context);
         prefs.addOnPreferenceChangeListener(this, "pref_fullWidthWidgets",
                 "pref_twoRowDock", "pref_dockScale", "pref_iconTextScaleSB", "pref_folderIconScale",
                 "pref_displayNotificationCount");
@@ -257,7 +257,7 @@ public class DeviceProfile implements LawnchairPreferences.OnPreferenceChangeLis
      * should be enough to apply this.
      */
     @Override
-    public void onValueChanged(String key, LawnchairPreferences prefs, boolean force) {
+    public void onValueChanged(String key, KioskPreferences prefs, boolean force) {
         Resources res = mContext.getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
 
@@ -526,7 +526,7 @@ public class DeviceProfile implements LawnchairPreferences.OnPreferenceChangeLis
                 padding.set(availablePaddingX / 2, topWorkspacePadding + availablePaddingY / 2,
                         availablePaddingX / 2, paddingBottom + availablePaddingY / 2);
             } else {
-                int horizontalPadding = Utilities.getLawnchairPrefs(mContext)
+                int horizontalPadding = Utilities.getKioskPrefs(mContext)
                         .getAllowFullWidthWidgets() ? 0 : desiredWorkspaceLeftRightMarginPx;
 
                 // Pad the top and bottom of the workspace with search/hotseat bar sizes

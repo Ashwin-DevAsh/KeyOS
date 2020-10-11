@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.views
@@ -28,7 +28,7 @@ import android.view.View
 import android.widget.EdgeEffect
 import tech.DevAsh.Launcher.KFloatProperty
 import tech.DevAsh.Launcher.KFloatPropertyCompat
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPrefs
 import com.android.launcher3.touch.OverScroll
 import kotlin.reflect.KMutableProperty0
 
@@ -40,7 +40,7 @@ class SpringEdgeEffect(
         private val velocityMultiplier: Float,
         private val reverseAbsorb: Boolean) : EdgeEffect(context) {
 
-    private val prefs = context.lawnchairPrefs
+    private val prefs = context.KioskPrefs
 
     private val shiftProperty = KFloatProperty(target, "value")
     private val spring = SpringAnimation(this, KFloatPropertyCompat(target, "value"), 0f).apply {

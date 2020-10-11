@@ -24,7 +24,7 @@ import android.graphics.Path;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.R;
 import com.android.launcher3.util.Themes;
 
@@ -51,7 +51,7 @@ public class CaretDrawable extends Drawable {
         final int strokeWidth = res.getDimensionPixelSize(R.dimen.all_apps_caret_stroke_width);
         final int shadowSpread = res.getDimensionPixelSize(R.dimen.all_apps_caret_shadow_spread);
 
-        boolean isLauncher = LawnchairUtilsKt.getLauncherOrNull(context) != null;
+        boolean isLauncher = KioskUtilsKt.getLauncherOrNull(context) != null;
         mWorkspaceTextColor = Themes.getAttrColor(context, isLauncher
                 ? R.attr.workspaceTextColor : android.R.attr.textColorPrimary);
         mCaretPaint.setColor(mWorkspaceTextColor);

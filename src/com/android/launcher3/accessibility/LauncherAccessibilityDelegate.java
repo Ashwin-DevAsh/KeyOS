@@ -16,7 +16,7 @@ import android.view.View.AccessibilityDelegate;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.AppWidgetResizeFrame;
 import com.android.launcher3.BubbleTextView;
@@ -228,7 +228,7 @@ public class LauncherAccessibilityDelegate extends AccessibilityDelegate impleme
                     }
                 }).create();
             dialog.show();
-            LawnchairUtilsKt.applyAccent(dialog);
+            KioskUtilsKt.applyAccent(dialog);
             return true;
         } else if (action == DEEP_SHORTCUTS) {
             return PopupContainerWithArrow.showForIcon((BubbleTextView) host) != null;

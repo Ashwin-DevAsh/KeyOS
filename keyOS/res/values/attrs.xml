@@ -6,7 +6,7 @@
 
     <attr name="content" format="reference" />
 
-    <!-- Lawnchair -->
+    <!-- Kiosk -->
     <declare-styleable name="SubPreference">
         <attr name="content" />
         <attr name="longClickContent" format="reference" />

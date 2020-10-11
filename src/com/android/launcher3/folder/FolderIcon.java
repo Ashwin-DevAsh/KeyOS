@@ -37,8 +37,8 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import tech.DevAsh.Launcher.LawnchairLauncher;
-import tech.DevAsh.Launcher.LawnchairUtilsKt;
+import tech.DevAsh.Launcher.KioskLauncher;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 import tech.DevAsh.Launcher.gestures.BlankGestureHandler;
 import tech.DevAsh.Launcher.gestures.GestureController;
 import tech.DevAsh.Launcher.gestures.GestureHandler;
@@ -714,9 +714,9 @@ public class FolderIcon extends FrameLayout implements FolderListener, OnResumeC
                 break;
         }
 
-        Launcher launcher = LawnchairUtilsKt.getLauncherOrNull(getContext());
-        if (launcher instanceof LawnchairLauncher && mSwipeUpHandler != null) {
-            ((LawnchairLauncher) launcher).getGestureController()
+        Launcher launcher = KioskUtilsKt.getLauncherOrNull(getContext());
+        if (launcher instanceof KioskLauncher && mSwipeUpHandler != null) {
+            ((KioskLauncher) launcher).getGestureController()
                     .setSwipeUpOverride(mSwipeUpHandler, event.getDownTime());
         }
 

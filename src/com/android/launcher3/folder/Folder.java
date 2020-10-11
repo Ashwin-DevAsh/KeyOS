@@ -428,7 +428,7 @@ public class Folder extends AbstractFloatingView implements DragSource,
         // the folder itself.
         requestFocus();
         super.onAttachedToWindow();
-        if (mFolderIcon != null && mFolderIcon.isCustomIcon && Utilities.getLawnchairPrefs(getContext()).getFolderBgColored()) {
+        if (mFolderIcon != null && mFolderIcon.isCustomIcon && Utilities.getKioskPrefs(getContext()).getFolderBgColored()) {
             setBackgroundTintList(ColorStateList.valueOf(mFolderIcon.getFolderName().getBadgeColor()));
         }
     }

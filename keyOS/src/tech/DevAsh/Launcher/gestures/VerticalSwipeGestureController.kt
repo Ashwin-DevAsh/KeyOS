@@ -1,24 +1,24 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.gestures
 
 import android.view.MotionEvent
-import tech.DevAsh.Launcher.LawnchairLauncher
+import tech.DevAsh.Launcher.KioskLauncher
 import com.android.launcher3.Launcher
 import com.android.launcher3.util.TouchController
 import com.android.launcher3.LauncherState
@@ -41,7 +41,7 @@ class VerticalSwipeGestureController(private val launcher: Launcher) : TouchCont
     private val triggerVelocity = 2.25f
     private val notificationsCloseVelocity = 0.35f
 
-    private val controller by lazy { LawnchairLauncher.getLauncher(launcher).gestureController }
+    private val controller by lazy { KioskLauncher.getLauncher(launcher).gestureController }
     private val gesture by lazy { controller.verticalSwipeGesture }
     private val detector by lazy { SwipeDetector(launcher, this, SwipeDetector.VERTICAL) }
     private var noIntercept = false

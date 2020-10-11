@@ -217,7 +217,7 @@ public class WidgetsListAdapter extends Adapter<WidgetsRowViewHolder> {
 
         @Override
         public int compare(WidgetListRowEntry a, WidgetListRowEntry b) {
-            // Display Lawnchair at the top of the list
+            // Display Kiosk at the top of the list
             boolean leftIsLC = a.pkgItem.packageName.equals(BuildConfig.APPLICATION_ID);
             boolean rightIsLc = b.pkgItem.packageName.equals(BuildConfig.APPLICATION_ID);
             if (leftIsLC || rightIsLc) {

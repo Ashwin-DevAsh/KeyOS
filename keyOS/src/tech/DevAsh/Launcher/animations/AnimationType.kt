@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.animations
@@ -27,7 +27,7 @@ import android.content.Intent
 import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPrefs
 import com.android.launcher3.*
 import com.android.launcher3.BaseActivity.INVISIBLE_BY_APP_TRANSITIONS
 import com.android.launcher3.anim.Interpolators.AGGRESSIVE_EASE
@@ -46,7 +46,7 @@ abstract class AnimationType {
     }
 
     open fun playLaunchAnimation(launcher: Launcher, v: View?, intent: Intent,
-                                 manager: LawnchairAppTransitionManagerImpl) {
+                                 manager: KioskAppTransitionManagerImpl) {
 
     }
 
@@ -141,10 +141,10 @@ abstract class AnimationType {
         }
 
         override fun playLaunchAnimation(launcher: Launcher, v: View?, intent: Intent,
-                                         manager: LawnchairAppTransitionManagerImpl) {
+                                         manager: KioskAppTransitionManagerImpl) {
             val view = v ?: lastView?.get() ?: return
             if (!hasControlRemoteAppTransitionPermission(launcher)) {
-                val prefs = launcher.lawnchairPrefs
+                val prefs = launcher.KioskPrefs
                 if (prefs.useScaleAnim) {
                     prefs.useScaleAnim = false
                 }
@@ -310,7 +310,7 @@ abstract class AnimationType {
         }
 
         fun hasControlRemoteAppTransitionPermission(context: Context): Boolean {
-            return !context.lawnchairPrefs.forceFakePieAnims
+            return !context.KioskPrefs.forceFakePieAnims
                     && Utilities.hasPermission(context, CONTROL_REMOTE_APP_TRANSITION_PERMISSION)
         }
     }

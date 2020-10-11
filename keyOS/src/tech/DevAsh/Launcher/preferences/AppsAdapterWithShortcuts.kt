@@ -1,18 +1,18 @@
 /*
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.preferences
@@ -36,7 +36,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import tech.DevAsh.Launcher.colors.ColorEngine
-import tech.DevAsh.Launcher.iconpack.LawnchairIconProvider
+import tech.DevAsh.Launcher.iconpack.KioskIconProvider
 import tech.DevAsh.Launcher.isVisible
 import com.android.launcher3.*
 import com.android.launcher3.shortcuts.DeepShortcutManager
@@ -168,8 +168,8 @@ open class AppsAdapterWithShortcuts(
 
         val label = if (!TextUtils.isEmpty(info.longLabel)) info.longLabel else info.shortLabel
         // TODO: debug why wrong icons are loaded from the provider at times
-        val iconDrawable = if (iconProvider is LawnchairIconProvider && false) {
-                (iconProvider as LawnchairIconProvider).getIcon(info, iconDpi)
+        val iconDrawable = if (iconProvider is KioskIconProvider && false) {
+                (iconProvider as KioskIconProvider).getIcon(info, iconDpi)
             } else {
                 shortcutManager.getShortcutIconDrawable(info, DisplayMetrics.DENSITY_XXHIGH)
             }

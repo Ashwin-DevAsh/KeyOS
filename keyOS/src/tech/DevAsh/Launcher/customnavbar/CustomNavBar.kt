@@ -1,20 +1,20 @@
 /*
- *     Copyright (C) 2019 Lawnchair Team.
+ *     Copyright (C) 2019 Kiosk Team.
  *
- *     This file is part of Lawnchair Launcher.
+ *     This file is part of Kiosk Launcher.
  *
- *     Lawnchair Launcher is free software: you can redistribute it and/or modify
+ *     Kiosk Launcher is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Lawnchair Launcher is distributed in the hope that it will be useful,
+ *     Kiosk Launcher is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with Lawnchair Launcher.  If not, see <https://www.gnu.org/licenses/>.
+ *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 package tech.DevAsh.Launcher.customnavbar
@@ -26,9 +26,9 @@ import android.content.ServiceConnection
 import android.content.pm.PackageManager
 import android.os.IBinder
 import androidx.core.content.ContextCompat
-import tech.DevAsh.Launcher.lawnchairPrefs
+import tech.DevAsh.Launcher.KioskPrefs
 import tech.DevAsh.Launcher.runOnMainThread
-import tech.DevAsh.Launcher.util.LawnchairSingletonHolder
+import tech.DevAsh.Launcher.util.KioskSingletonHolder
 import com.android.launcher3.LauncherAppState
 import com.android.launcher3.util.PackageManagerHelper
 import xyz.paphonb.systemuituner.ICustomNavBar
@@ -38,7 +38,7 @@ class CustomNavBar(private val context: Context) {
     val isInstalled get() = PackageManagerHelper.isAppEnabled(context.packageManager, PACKAGE, 0)
     val testVersionInstalled = context.packageManager.resolveService(CustomNavBar.serviceIntent, 0) != null
     val isPermissionGranted get() = ContextCompat.checkSelfPermission(context, MODIFY_NAVBAR_PERMISSION) == PackageManager.PERMISSION_GRANTED
-    var enableIntegration by context.lawnchairPrefs.BooleanPref("pref_cnbIntegration", false) {
+    var enableIntegration by context.KioskPrefs.BooleanPref("pref_cnbIntegration", false) {
         rebindService()
     }
     private var cnbService: ICustomNavBar? = null
@@ -99,7 +99,7 @@ class CustomNavBar(private val context: Context) {
         }
     }
 
-    companion object : LawnchairSingletonHolder<CustomNavBar>(::CustomNavBar) {
+    companion object : KioskSingletonHolder<CustomNavBar>(::CustomNavBar) {
 
         const val PACKAGE = "xyz.paphonb.systemuituner"
         private const val NAVBAR_SERVICE_ACTION = "$PACKAGE.intent.action.NAVBAR_SERVICE"

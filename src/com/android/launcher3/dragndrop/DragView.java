@@ -43,10 +43,10 @@ import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.dynamicanimation.animation.SpringForce;
 import android.view.View;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import tech.DevAsh.Launcher.iconpack.IconPackManager;
-import tech.DevAsh.Launcher.iconpack.LawnchairIconProvider;
+import tech.DevAsh.Launcher.iconpack.KioskIconProvider;
 import com.android.launcher3.*;
 import com.android.launcher3.anim.Interpolators;
 import com.android.launcher3.compat.LauncherAppsCompat;
@@ -115,7 +115,7 @@ public class DragView extends View {
     private ColorMatrixColorFilter mBaseFilter;
 
     private final IconProvider iconProvider;
-    private final LawnchairPreferences prefs;
+    private final KioskPreferences prefs;
 
     /**
      * Construct the drag view.
@@ -189,7 +189,7 @@ public class DragView extends View {
         mBlurSizeOutline = getResources().getDimensionPixelSize(R.dimen.blur_size_medium_outline);
         setElevation(getResources().getDimension(R.dimen.drag_elevation));
 
-        prefs = Utilities.getLawnchairPrefs(mLauncher);
+        prefs = Utilities.getKioskPrefs(mLauncher);
     }
 
     /**
@@ -356,8 +356,8 @@ public class DragView extends View {
             } else {
                 outObj[0] = si.get(0);
                 int iconDpi = appState.getInvariantDeviceProfile().fillResIconDpi;
-                if (iconProvider instanceof LawnchairIconProvider) {
-                    return ((LawnchairIconProvider) iconProvider).getIcon(si.get(0), iconDpi);
+                if (iconProvider instanceof KioskIconProvider) {
+                    return ((KioskIconProvider) iconProvider).getIcon(si.get(0), iconDpi);
                 }
                 return sm.getShortcutIconDrawable(si.get(0), iconDpi);
             }

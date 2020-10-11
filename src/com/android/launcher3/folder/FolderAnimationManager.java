@@ -33,7 +33,7 @@ import android.util.Pair;
 import android.util.Property;
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.BubbleTextView;
 import com.android.launcher3.CellLayout;
@@ -76,7 +76,7 @@ public class FolderAnimationManager {
 
     private final PreviewItemDrawingParams mTmpParams = new PreviewItemDrawingParams(0, 0, 0, 0);
 
-    private final LawnchairPreferences prefs;
+    private final KioskPreferences prefs;
 
     public FolderAnimationManager(Folder folder, boolean isOpening) {
         mFolder = folder;
@@ -102,7 +102,7 @@ public class FolderAnimationManager {
         mLargeFolderPreviewItemCloseInterpolator = AnimationUtils.loadInterpolator(mContext,
                 R.interpolator.large_folder_preview_item_close_interpolator);
 
-        prefs = Utilities.getLawnchairPrefs(folder.getContext());
+        prefs = Utilities.getKioskPrefs(folder.getContext());
     }
 
 

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="action_open_notifications_class" translatable="false">ch.deletescape.lawnchair.gestures.handlers.NotificationsOpenGestureHandler</string>
-    <string name="action_open_search_class" translatable="false">ch.deletescape.lawnchair.gestures.handlers.StartAppSearchGestureHandler</string>
-    <string name="action_open_overview_class" translatable="false">ch.deletescape.lawnchair.gestures.handlers.OpenOverviewGestureHandler</string>
-    <string name="action_do_nothing_class" translatable="false">ch.deletescape.lawnchair.gestures.BlankGestureHandler</string>
+    <string name="action_open_notifications_class" translatable="false">ch.deletescape.Kiosk.gestures.handlers.NotificationsOpenGestureHandler</string>
+    <string name="action_open_search_class" translatable="false">ch.deletescape.Kiosk.gestures.handlers.StartAppSearchGestureHandler</string>
+    <string name="action_open_overview_class" translatable="false">ch.deletescape.Kiosk.gestures.handlers.OpenOverviewGestureHandler</string>
+    <string name="action_do_nothing_class" translatable="false">ch.deletescape.Kiosk.gestures.BlankGestureHandler</string>
     <string name="default_owm_key" translatable="false">17a6438b1d63d5b05f7039e7cb52cde7</string>
-    <string name="action_switch_apps_class" translatable="false">ch.deletescape.lawnchair.gestures.SwitchAppsGestureHandler</string>
+    <string name="action_switch_apps_class" translatable="false">ch.deletescape.Kiosk.gestures.SwitchAppsGestureHandler</string>
 
     <!-- Section 1 -->
 
     <string name="search_menu">Search</string>
     <string name="search_no_results">No Results</string>
 
-    <string name="restart_lawnchair_pref_title">Restart</string>
+    <string name="restart_Kiosk_pref_title">Restart</string>
     <string name="developer_options_title">Developer Options</string>
     <string name="change_default_home">Set as Home App</string>
 
@@ -58,7 +58,7 @@
     <string name="theme_use_black">Use Pure Black</string>
     <string name="theme_use_dark_text">Use Dark Text</string>
 
-    <string name="lawnchair_accent">Accent Color</string>
+    <string name="Kiosk_accent">Accent Color</string>
     <string name="color_pixel_accent">Google Blue</string>
     <string name="color_system_accent">Set by System</string>
     <string name="color_wallpaper_main">Wallpaper — Primary</string>
@@ -191,7 +191,7 @@
     <string name="action_none">Do Nothing</string>
     <string name="action_sleep">Sleep</string>
     <string name="action_sleep_timeout">Sleep Using Screen Timeout</string>
-    <string name="action_open_settings">Open Lawnchair Settings</string>
+    <string name="action_open_settings">Open Kiosk Settings</string>
     <string name="action_open_notifications">Open Notification Panel</string>
     <string name="action_overlay">Open Google Feed</string>
     <string name="action_open_app">Open App</string>
@@ -245,7 +245,7 @@
     <string name="failed">Something went wrong.</string>
 
     <string name="developer_options_enabled">Developer Options enabled.</string>
-    <string name="restart_lawnchair_pref_summary">Reapply settings.</string>
+    <string name="restart_Kiosk_pref_summary">Reapply settings.</string>
 
     <string name="show_debug_info_pref_title">Show Component Names</string>
     <string name="debug_component_name">Component Name</string>
@@ -307,7 +307,7 @@
     <string name="drag_to_disable_packs">Drag Down to Disable</string>
     <string name="enabled_icon_packs">Applied</string>
 
-    <string name="lawnchair_actions">Actions</string>
+    <string name="Kiosk_actions">Actions</string>
 
     <string name="bridge_missing_title">Get Lawnfeed</string>
     <string name="bridge_missing_message">To use Google Feed, get Lawnfeed.</string>
@@ -383,7 +383,6 @@
     <string name="icon_shape_corner_squircle">Smooth</string>
     <string name="icon_shape_corner_cut">Cut</string>
 
-    <string name="get_lawnfeed">Get Lawnfeed</string>
 
     <!-- Section 13 -->
 

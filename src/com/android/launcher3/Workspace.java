@@ -54,9 +54,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import tech.DevAsh.Launcher.ClockVisibilityManager;
-import tech.DevAsh.Launcher.LawnchairLauncher;
-import tech.DevAsh.Launcher.LawnchairPreferences;
-import tech.DevAsh.Launcher.views.LawnchairBackgroundView;
+import tech.DevAsh.Launcher.KioskLauncher;
+import tech.DevAsh.Launcher.KioskPreferences;
+import tech.DevAsh.Launcher.views.KioskBackgroundView;
 import com.android.launcher3.Launcher.LauncherOverlay;
 import com.android.launcher3.LauncherAppWidgetHost.ProviderChangedListener;
 import com.android.launcher3.LauncherStateManager.AnimationConfig;
@@ -276,7 +276,7 @@ public class Workspace extends PagedView<PageIndicatorDots>
 
         mWallpaperOffset = new WallpaperOffsetInterpolator(this);
 
-        mPillQsb = FeatureFlags.QSB_ON_FIRST_SCREEN && Utilities.getLawnchairPrefs(context).getUsePillQsb();
+        mPillQsb = FeatureFlags.QSB_ON_FIRST_SCREEN && Utilities.getKioskPrefs(context).getUsePillQsb();
 
         setHapticFeedbackEnabled(false);
         initWorkspace();
@@ -1233,9 +1233,9 @@ public class Workspace extends PagedView<PageIndicatorDots>
         mLauncher.getDragLayer().setTranslationX(transX);
         mLauncher.getDragLayer().getAlphaProperty(ALPHA_INDEX_OVERLAY).setValue(alpha);
 
-        if (mLauncher instanceof LawnchairLauncher) {
-            ((LawnchairLauncher) mLauncher).getBackground().getBlurAlphas().getProperty(
-                    LawnchairBackgroundView.ALPHA_INDEX_OVERLAY).setValue(1 - alpha);
+        if (mLauncher instanceof KioskLauncher) {
+            ((KioskLauncher) mLauncher).getBackground().getBlurAlphas().getProperty(
+                    KioskBackgroundView.ALPHA_INDEX_OVERLAY).setValue(1 - alpha);
         }
 
         // TODO: implement this
@@ -1662,7 +1662,7 @@ public class Workspace extends PagedView<PageIndicatorDots>
             }
         }
 
-        if (Utilities.getLawnchairPrefs(mLauncher).getLockDesktop()) {
+        if (Utilities.getKioskPrefs(mLauncher).getLockDesktop()) {
             child.setVisibility(View.VISIBLE);
 
             if (dragOptions.preDragCondition != null) {
@@ -3604,7 +3604,7 @@ public class Workspace extends PagedView<PageIndicatorDots>
         }
     }
     public void organizeCurrentPage() {
-        LawnchairPreferences prefs = new LawnchairPreferences(mLauncher);
+        KioskPreferences prefs = new KioskPreferences(mLauncher);
         if (prefs.getDisableAutoFill()) {
             return;
         }

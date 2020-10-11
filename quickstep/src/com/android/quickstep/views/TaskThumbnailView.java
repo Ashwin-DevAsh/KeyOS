@@ -34,7 +34,7 @@ import android.util.FloatProperty;
 import android.util.Property;
 import android.view.View;
 
-import tech.DevAsh.Launcher.LawnchairPreferences;
+import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.BaseActivity;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.R;
@@ -52,7 +52,7 @@ import org.jetbrains.annotations.NotNull;
  * A task in the Recents view.
  */
 public class TaskThumbnailView extends View implements
-    LawnchairPreferences.OnPreferenceChangeListener {
+    KioskPreferences.OnPreferenceChangeListener {
 
     private static final LightingColorFilter[] sDimFilterCache = new LightingColorFilter[256];
     private static final LightingColorFilter[] sHighlightFilterCache = new LightingColorFilter[256];
@@ -117,14 +117,14 @@ public class TaskThumbnailView extends View implements
         mBackgroundPaint.setColor(Color.WHITE);
         mActivity = BaseActivity.fromContext(context);
         mIsDarkTextTheme = Themes.getAttrBoolean(mActivity, R.attr.isWorkspaceDarkText);
-        Utilities.getLawnchairPrefs(context)
+        Utilities.getKioskPrefs(context)
             .addOnPreferenceChangeListener("pref_recents_radius", this);
     }
 
     @Override
-    public void onValueChanged(@NotNull String key, @NotNull LawnchairPreferences prefs,
+    public void onValueChanged(@NotNull String key, @NotNull KioskPreferences prefs,
         boolean force) {
-        mCornerRadius = Utilities.getLawnchairPrefs(getContext()).getRecentsRadius();
+        mCornerRadius = Utilities.getKioskPrefs(getContext()).getRecentsRadius();
         if (!force) {
             invalidate();
         }
