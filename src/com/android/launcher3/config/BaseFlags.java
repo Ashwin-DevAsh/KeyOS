@@ -26,7 +26,7 @@ import com.android.launcher3.BuildConfig;
  *
  * This class is kept package-private to prevent direct access.
  */
-abstract class BaseFlags {
+class BaseFlags {
 
     BaseFlags() {}
 
@@ -40,7 +40,7 @@ abstract class BaseFlags {
     // When enabled allows use of spring motions on the icons.
     public static final boolean LAUNCHER3_SPRING_ICONS = true;
     // When enabled, app shortcuts are extracted from the package XML.
-    public static final boolean LAUNCHER3_BACKPORT_SHORTCUTS = false;
+    public static final boolean LAUNCHER3_BACKPORT_SHORTCUTS = true;
 
     // Feature flag to enable moving the QSB on the 0th screen of the workspace.
     public static boolean QSB_ON_FIRST_SCREEN = false;

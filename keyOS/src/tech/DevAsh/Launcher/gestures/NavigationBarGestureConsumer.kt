@@ -32,7 +32,6 @@ import android.view.*
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.Launcher.KioskApp
 import tech.DevAsh.Launcher.KioskPrefs
-import tech.DevAsh.Launcher.root.RootHelperManager
 import com.android.launcher3.LauncherAppState
 import com.android.launcher3.R
 import com.android.quickstep.OverviewInteractionState
@@ -135,13 +134,7 @@ class NavigationBarGestureConsumer(private val context: Context, target: TouchCo
     }
 
     private fun performBackPress(): Boolean {
-        if (RootHelperManager.isAvailable) {
-            RootHelperManager.getInstance(context).run {
-                it.sendKeyEvent(KeyEvent.KEYCODE_BACK, KeyEvent.ACTION_DOWN, 0, downTime, SystemClock.uptimeMillis())
-                it.sendKeyEvent(KeyEvent.KEYCODE_BACK, KeyEvent.ACTION_UP, 0, downTime, SystemClock.uptimeMillis())
-            }
-            return true
-        }
+
         return false
     }
 

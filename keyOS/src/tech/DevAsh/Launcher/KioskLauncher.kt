@@ -44,7 +44,6 @@ import tech.DevAsh.Launcher.gestures.GestureController
 import tech.DevAsh.Launcher.iconpack.EditIconActivity
 import tech.DevAsh.Launcher.iconpack.IconPackManager
 import tech.DevAsh.Launcher.override.CustomInfoProvider
-import tech.DevAsh.Launcher.root.RootHelperManager
 import tech.DevAsh.Launcher.sensors.BrightnessManager
 import tech.DevAsh.Launcher.theme.ThemeOverride
 import tech.DevAsh.Launcher.views.KioskBackgroundView
@@ -87,9 +86,6 @@ open class KioskLauncher : NexusLauncherActivity(),
         KioskPrefs.registerCallback(prefCallback)
         KioskPrefs.addOnPreferenceChangeListener(hideStatusBarKey, this)
 
-        if (KioskPrefs.autoLaunchRoot) {
-            RootHelperManager.getInstance(this).run {  }
-        }
 
         ColorEngine.getInstance(this).addColorChangeListeners(this, *colorsToWatch)
     }

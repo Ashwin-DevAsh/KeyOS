@@ -18,7 +18,6 @@ import android.view.View
 import tech.DevAsh.Launcher.gestures.GestureController
 import tech.DevAsh.Launcher.gestures.GestureHandler
 import tech.DevAsh.Launcher.KioskApp
-import tech.DevAsh.Launcher.root.RootHelperManager
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import org.json.JSONObject
@@ -37,7 +36,6 @@ class SleepGestureHandler(context: Context, config: JSONObject?) : GestureHandle
     private val method: SleepMethod? by lazy {
         listOf(
                 SleepMethodPowerManager(context),
-                SleepMethodRoot(context),
                 SleepMethodPieAccessibility(context),
                 SleepMethodDeviceAdmin(context)
         ).firstOrNull { it.supported }
@@ -73,14 +71,7 @@ class SleepMethodPowerManager(context: Context) : SleepGestureHandler.SleepMetho
 
 }
 
-class SleepMethodRoot(context: Context) : SleepGestureHandler.SleepMethod(context) {
-    override val supported = RootHelperManager.isAvailable
 
-    override fun sleep(controller: GestureController) {
-        RootHelperManager.getInstance(context).run(IRootHelper::goToSleep)
-    }
-
-}
 
 class SleepMethodPieAccessibility(context: Context) : SleepGestureHandler.SleepMethod(context) {
     override val supported = Utilities.ATLEAST_P
