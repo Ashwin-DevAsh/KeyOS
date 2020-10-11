@@ -28,6 +28,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowShowWallpaper">false</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="fontFamily">@font/roboto_medium</item>
         <item name="android:navigationBarColor">@color/colorPrimary</item>
@@ -35,11 +36,11 @@
     </style>
 
 
-    <style name="heading" parent="AppTheme">
+    <style name="heading" parent="keyOS">
         <item name="fontFamily">@font/poppins_medium</item>
     </style>
 
-    <style name="splashScreen" parent="AppTheme">
+    <style name="splashScreen" parent="keyOS">
         <item name="fontFamily">@font/aguafina_script</item>
     </style>
     <style name="AppBottomSheetDialogTheme"

@@ -2,6 +2,7 @@ package tech.DevAsh.keyOS.Database;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import java.util.ArrayList;
 
 public class Calls extends RealmObject {
     public Calls(
@@ -31,7 +32,7 @@ public class Calls extends RealmObject {
     public Boolean whitelistCalls = false;
     public Boolean blackListCalls = false;
     public Boolean automaticWhitelist = false;
-    public RealmList<Contact> whiteListContacts;
-    public RealmList<Contact> blacklistContacts;
+    public RealmList<Contact> whiteListContacts = new RealmList();
+    public RealmList<Contact> blacklistContacts = new RealmList();
 
 }

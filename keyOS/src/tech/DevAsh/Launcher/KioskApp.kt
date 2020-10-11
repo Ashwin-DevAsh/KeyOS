@@ -32,17 +32,19 @@ import tech.DevAsh.Launcher.theme.ThemeManager
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.Utilities
 import com.android.quickstep.RecentsActivity
+import io.realm.Realm
+import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.KeyOS.SplashScreen
 
 
 class KioskApp : Application() {
 
     val activityHandler = ActivityHandler()
 
-
-
     override fun onCreate() {
+        RealmHelper.init(this)
+        SplashScreen.getUsers()
         super.onCreate()
-
     }
 
     fun onLauncherAppStateCreated() {
