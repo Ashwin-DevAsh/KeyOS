@@ -165,16 +165,6 @@ android {
             manifest.srcFile "tests/AndroidManifest.xml"
         }
 
-//        aosp {
-//            java.srcDirs = ['src_flags', "src_ui_overrides"]
-//        }
-//
-//        l3go {
-//            res.srcDirs = ['go/res']
-//            java.srcDirs = ['go/src_flags', "src_ui_overrides"]
-//            manifest.srcFile "go/AndroidManifest.xml"
-//        }
-
         quickstep {
             res.srcDirs = ['quickstep/res']
             java.srcDirs = ['src_flags', 'quickstep/src']
