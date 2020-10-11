@@ -8,6 +8,7 @@ buildscript {
         maven { url = "https://storage.googleapis.com/r8-releases/raw" }
     }
     dependencies {
+        classpath "io.realm:realm-gradle-plugin:6.0.2"
         classpath 'com.android.tools.build:gradle:4.0.2'
         classpath 'com.android.tools:r8:2.1.67'
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.9'
@@ -283,3 +284,5 @@ protobuf {
 }
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
