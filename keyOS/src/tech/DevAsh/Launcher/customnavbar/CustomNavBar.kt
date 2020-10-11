@@ -31,7 +31,6 @@ import tech.DevAsh.Launcher.runOnMainThread
 import tech.DevAsh.Launcher.util.KioskSingletonHolder
 import com.android.launcher3.LauncherAppState
 import com.android.launcher3.util.PackageManagerHelper
-import xyz.paphonb.systemuituner.ICustomNavBar
 
 class CustomNavBar(private val context: Context) {
 
@@ -41,19 +40,13 @@ class CustomNavBar(private val context: Context) {
     var enableIntegration by context.KioskPrefs.BooleanPref("pref_cnbIntegration", false) {
         rebindService()
     }
-    private var cnbService: ICustomNavBar? = null
     private val cnbServiceConnection = object : ServiceConnection {
 
         override fun onServiceConnected(name: ComponentName?, service: IBinder) {
-            cnbService = ICustomNavBar.Stub.asInterface(service).also {
-                if (isBackButtonHidden) {
-                    it.setBackButtonHidden(isBackButtonHidden)
-                }
-            }
+
         }
 
         override fun onServiceDisconnected(name: ComponentName?) {
-            cnbService = null
         }
     }
 
@@ -67,7 +60,6 @@ class CustomNavBar(private val context: Context) {
             if (field != value) {
                 field = value
                 if (value) rebindService()
-                cnbService?.setBackButtonHidden(value)
                 runOnMainThread(::forceUpdateLightNavBar)
             }
         }
@@ -87,16 +79,7 @@ class CustomNavBar(private val context: Context) {
     }
 
     private fun rebindService() {
-        if (enableIntegration && cnbService == null) {
-            try {
-                context.bindService(serviceIntent, cnbServiceConnection, Context.BIND_AUTO_CREATE)
-            } catch (t: Throwable) {
-            }
-        } else if (!enableIntegration && cnbService != null) {
-            cnbService?.setBackButtonHidden(false)
-            cnbService = null
-            context.unbindService(cnbServiceConnection)
-        }
+
     }
 
     companion object : KioskSingletonHolder<CustomNavBar>(::CustomNavBar) {

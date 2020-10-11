@@ -32,7 +32,7 @@
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher_home"
         android:label="@string/derived_app_name"
-        android:theme="@style/AppTheme"
+        android:theme="@style/keyOS"
         android:largeHeap="@bool/config_largeHeap"
         android:restoreAnyVersion="true"
         android:supportsRtl="true"
@@ -45,38 +45,6 @@
                 <action android:name="android.intent.action.QUICKSTEP_SERVICE" />
             </intent-filter>
         </service>
-
-        <!-- STOPSHIP: Change exported to false once all the integration is complete.
-        It is set to true so that the activity can be started from command line -->
-<!--        <activity android:name="com.android.quickstep.RecentsActivity"-->
-<!--            android:exported="true"-->
-<!--            android:excludeFromRecents="true"-->
-<!--            android:launchMode="singleTask"-->
-<!--            android:clearTaskOnLaunch="true"-->
-<!--            android:stateNotNeeded="true"-->
-<!--            android:theme="@style/LauncherTheme"-->
-<!--            android:screenOrientation="unspecified"-->
-<!--            android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenSize|screenLayout|smallestScreenSize"-->
-<!--            android:resizeableActivity="true"-->
-<!--            android:resumeWhilePausing="true"-->
-<!--            android:taskAffinity="" />-->
-
-        <!-- Content provider to settings search -->
-<!--        <provider-->
-<!--            android:name="com.android.quickstep.LauncherSearchIndexablesProvider"-->
-<!--            android:authorities="${applicationId}"-->
-<!--            android:grantUriPermissions="true"-->
-<!--            android:multiprocess="true"-->
-<!--            android:permission="android.permission.READ_SEARCH_INDEXABLES"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />-->
-<!--            </intent-filter>-->
-<!--        </provider>-->
-
-<!--        <service-->
-<!--            android:name="com.android.launcher3.uioverrides.dynamicui.WallpaperManagerCompatVL$ColorExtractionService"-->
-<!--            tools:node="remove" />-->
 
     </application>
 

@@ -16,4 +16,16 @@
   ~     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<resources></resources>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="lightBackground">#10000000</color>
+    <color name="buttonColor">#1E1F20</color>
+    <color name="green">#50D467</color>
+    <color name="colorAccent">#1E1F20</color>
+
+    <color name="Dark.Background">#424242</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+</resources>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingVertical="20dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/basic"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:id="@+id/allow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_vertical"
+                android:text="Allow"
+                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    app:srcCompat="@drawable/ios_forward"
+                    android:layout_height="20dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/deny"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_vertical"
+                android:text="Deny"
+                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    app:srcCompat="@drawable/ios_forward"
+                    android:layout_height="20dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/advance"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:id="@+id/alwaysOn"
+
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Always on"
+                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    app:srcCompat="@drawable/ios_forward"
+                    android:layout_height="20dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/alwaysOff"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_vertical"
+                android:text="Always off"
+                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    app:srcCompat="@drawable/ios_forward"
+                    android:layout_height="20dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/additional"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/whitelist"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_vertical"
+                android:text="Whitelist calls"
+                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    app:srcCompat="@drawable/ios_forward"
+                    android:layout_height="20dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/blacklist"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_vertical"
+                android:text="Blacklist calls"
+                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    app:srcCompat="@drawable/ios_forward"
+                    android:layout_height="20dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:id="@+id/denyIncoming"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Deny incoming calls"
+                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    app:srcCompat="@drawable/ios_forward"
+                    android:layout_height="20dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/denyOutgoing"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_vertical"
+                android:text="Deny outgoing calls"
+                android:textSize="16dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    app:srcCompat="@drawable/ios_forward"
+                    android:layout_height="20dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

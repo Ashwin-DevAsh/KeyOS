@@ -32,7 +32,6 @@ import tech.DevAsh.Launcher.theme.ThemeManager
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.Utilities
 import com.android.quickstep.RecentsActivity
-import com.squareup.leakcanary.LeakCanary
 
 
 class KioskApp : Application() {
@@ -43,14 +42,7 @@ class KioskApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        if (BuildConfig.HAS_LEAKCANARY && KioskPrefs.initLeakCanary) {
-            if (LeakCanary.isInAnalyzerProcess(this)) {
-                // This process is dedicated to LeakCanary for heap analysis.
-                // You should not init your app in this process.
-                return
-            }
-            LeakCanary.install(this)
-        }
+
     }
 
     fun onLauncherAppStateCreated() {

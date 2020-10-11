@@ -24,7 +24,6 @@ import tech.DevAsh.Launcher.*
 import tech.DevAsh.Launcher.colors.ColorEngine
 import tech.DevAsh.Launcher.colors.ThemeAttributeColorResolver
 import tech.DevAsh.Launcher.twilight.TwilightListener
-import tech.DevAsh.Launcher.twilight.TwilightManager
 import tech.DevAsh.Launcher.twilight.TwilightState
 import tech.DevAsh.Launcher.util.SingletonHolder
 import tech.DevAsh.Launcher.util.hasFlag
@@ -73,17 +72,13 @@ class ThemeManager(val context: Context) : WallpaperColorInfo.OnChangeListener, 
         return strings.getOrNull(index) ?: context.resources.getString(R.string.theme_auto)
     }
 
-    private val twilightManager by lazy { TwilightManager.getInstance(context) }
     private val handler = Handler()
     private var listenToTwilight = false
         set(value) {
             if (field != value) {
                 field = value
                 if (value) {
-                    twilightManager.registerListener(this, handler)
-                    onTwilightStateChanged(twilightManager.lastTwilightState)
                 } else {
-                    twilightManager.unregisterListener(this)
                 }
             }
         }
@@ -186,10 +181,7 @@ class ThemeManager(val context: Context) : WallpaperColorInfo.OnChangeListener, 
             listenToTwilight = false
             return theme
         }
-        if (twilightManager.isAvailable) {
-            listenToTwilight = true
-            return theme
-        }
+
 
         BlankActivity.requestPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION,
                 KioskLauncher.REQUEST_PERMISSION_LOCATION_ACCESS) { granted ->

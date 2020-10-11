@@ -111,9 +111,30 @@
     <uses-permission android:name="xyz.paphonb.systemuituner.permission.MODIFY_NAVBAR"/>
 
     <application
+        android:theme="@style/keyOS"
         android:name="tech.DevAsh.Launcher.KioskApp">
 
 
+        <activity
+            android:name="tech.DevAsh.Launcher.SplashScreen"
+            android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true"
+            android:theme="@style/splashScreen"
+            android:stateNotNeeded="true"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="unspecified"
+            android:configChanges="keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:resizeableActivity="true"
+            android:resumeWhilePausing="true"
+            android:taskAffinity=""
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER_APP"/>
+            </intent-filter>
+        </activity>
 
 
         <activity

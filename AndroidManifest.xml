@@ -61,7 +61,7 @@
         android:largeHeap="@bool/config_largeHeap"
         android:restoreAnyVersion="true"
         android:supportsRtl="true"
-        tools:replace="android:icon,android:label"
+        tools:replace="android:theme,android:icon,android:label"
         tools:ignore="ManifestResource">
 
         <!--

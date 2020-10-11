@@ -21,7 +21,6 @@ import tech.DevAsh.Launcher.KioskApp
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import org.json.JSONObject
-import tech.DevAsh.Launcher.root.IRootHelper
 import java.lang.reflect.Method
 
 @Keep

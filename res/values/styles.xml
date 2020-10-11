@@ -18,6 +18,42 @@
 -->
 
 <resources>
+
+    <!--    for keyOS-->
+    <style name="keyOS" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="statusBarBackground">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowShowWallpaper">false</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+    </style>
+
+
+    <style name="heading" parent="AppTheme">
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="splashScreen" parent="AppTheme">
+        <item name="fontFamily">@font/aguafina_script</item>
+    </style>
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+    <style name="AppModalStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="background">@drawable/background_sheet</item>
+    </style>
+
+    <!--    over-->
+
+
     <!-- Launcher theme -->
     <style name="BaseLauncherTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -57,7 +93,7 @@
         <item name="android:alertDialogTheme">@style/SettingsTheme.V2.Dialog</item>
     </style>
 
-    <style name="LauncherTheme" parent="@style/BaseLauncherThemeWithCustomAttrs"></style>
+    <style name="LauncherTheme" parent="@style/BaseLauncherThemeWithCustomAttrs"/>
 
     <style name="LauncherTheme.DarkText" parent="@style/LauncherTheme">
         <item name="workspaceTextColor">#FF212121</item>

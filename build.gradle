@@ -1,5 +1,3 @@
-//import org.gradle.api.tasks.wrapper.Wrapper.DistributionType
-
 buildscript {
     ext.kotlin_version = '1.4.10'
     repositories {
@@ -19,7 +17,6 @@ buildscript {
 tasks {
     wrapper {
         gradleVersion = "5.5.1"
-//        distributionType = DistributionType.ALL
     }
 }
 
@@ -213,17 +210,12 @@ dependencies {
     implementation 'com.github.florent37:fiftyshadesof:1.0.0'
     implementation 'com.google.protobuf.nano:protobuf-javanano:3.0.0-alpha-7'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.github.KwabenBerko:OpenWeatherMap-Android-Library:2.0.1'
-    implementation 'com.hoko:hoko-blur:1.3.5'
-    implementation('com.github.lawnchairLauncher:attribouter-y:0.1.6') {
-        // The "MaterialButton" styleable defines an attr named iconSize which breaks compatibility with our source base
-        exclude group: 'com.android.support', module: 'design'
-    }
+    implementation 'com.github.LawnchairLauncher:hoko-lite:4e0d797'
+
     implementation 'com.github.bumptech.glide:glide:4.11.0'
 
     implementation 'com.github.topjohnwu.libsu:core:2.5.0'
     implementation 'eu.chainfire:librootjava:1.3.0'
-    implementation 'com.luckycatlabs:SunriseSunsetCalculator:1.2'
     implementation 'me.mvdw.recyclerviewmergeadapter:recyclerviewmergeadapter:2.1.0'
 
     implementation 'me.xdrop:fuzzywuzzy:1.2.0'
@@ -231,26 +223,41 @@ dependencies {
     quickstepImplementation project(':systemui-shared')
     keyOSImplementation files('keyOS/libs/sesame-lib.aar')
 
-    if (!isPublicBuild) {
-        // TODO: update to 2.x when we're on AndroidX
-        implementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
-        implementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
-    } else {
-        implementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
-    }
 
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation "org.mockito:mockito-core:3.3.3"
-    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
-    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test:rules:1.3.0'
-    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
-    androidTestImplementation 'androidx.annotation:annotation:1.1.0'
+
+//    for keyos
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'
+    implementation 'net.igenius:customcheckbox:1.3'
+    implementation 'com.github.woxthebox:draglistview:1.7.2'
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.github.zcweng:switch-button:0.0.3@aar'
+    implementation 'com.bitvale:switcher:1.1.0'
+    implementation 'com.github.takusemba:spotlight:2.0.1'
+    implementation 'com.nispok:snackbar:2.11.0'
+    implementation 'jp.wasabeef:blurry:3.0.0'
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    implementation 'com.google.android.gms:play-services-location:17.1.0'
+    implementation 'com.github.clans:fab:1.6.4'
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    
+
 }
 
 protobuf {
-    // Configure the protoc executable
     protoc {
         artifact = 'com.google.protobuf:protoc:3.0.0-alpha-3'
 

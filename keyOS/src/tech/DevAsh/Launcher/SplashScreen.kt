@@ -28,6 +28,7 @@ import com.android.launcher3.R
 
 class SplashScreen : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.splashScreen)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
