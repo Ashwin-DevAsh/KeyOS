@@ -1,19 +1,3 @@
-/*
- *     This file is part of Kiosk Launcher.
- *
- *     Kiosk Launcher is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
- *
- *     Kiosk Launcher is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
- *
- *     You should have received a copy of the GNU General Public License
- *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
- */
 
 package tech.DevAsh.Launcher
 
@@ -53,6 +37,8 @@ import com.android.launcher3.util.ComponentKey
 import com.android.launcher3.util.SystemUiController
 import com.android.quickstep.views.LauncherRecentsView
 import com.google.android.apps.nexuslauncher.NexusLauncherActivity
+import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.keyOS.Database.User
 import java.io.File
 import java.io.FileOutputStream
 import java.util.concurrent.Semaphore
@@ -60,7 +46,7 @@ import java.util.concurrent.Semaphore
 open class KioskLauncher : NexusLauncherActivity(),
         KioskPreferences.OnPreferenceChangeListener,
         ColorEngine.OnColorChangeListener {
-    val hideStatusBarKey = "pref_hideStatusBar"
+    private val hideStatusBarKey = "pref_hideStatusBar"
     val gestureController by lazy { GestureController(this) }
     val background by lazy { findViewById<KioskBackgroundView>(R.id.Kiosk_background)!! }
     val dummyView by lazy { findViewById<View>(R.id.dummy_view)!! }
@@ -77,24 +63,17 @@ open class KioskLauncher : NexusLauncherActivity(),
     private val colorsToWatch = arrayOf(ColorEngine.Resolvers.WORKSPACE_ICON_LABEL)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
-
         hookGoogleSansDialogTitle()
-
         KioskPrefs.registerCallback(prefCallback)
         KioskPrefs.addOnPreferenceChangeListener(hideStatusBarKey, this)
-
-
         ColorEngine.getInstance(this).addColorChangeListeners(this, *colorsToWatch)
     }
 
     override fun startActivitySafely(v: View?, intent: Intent, item: ItemInfo?): Boolean {
         val success = super.startActivitySafely(v, intent, item)
         if (success) {
-            (launcherAppTransitionManager as KioskAppTransitionManagerImpl)
-                    .overrideResumeAnimation(this)
+
             (launcherAppTransitionManager as KioskAppTransitionManagerImpl)
                     .playLaunchAnimation(this, v, intent)
         }
@@ -102,6 +81,8 @@ open class KioskLauncher : NexusLauncherActivity(),
     }
 
     override fun onStart() {
+        (launcherAppTransitionManager as KioskAppTransitionManagerImpl)
+                .overrideResumeAnimation(this)
         super.onStart()
 
     }
@@ -171,18 +152,13 @@ open class KioskLauncher : NexusLauncherActivity(),
         super.onResume()
         recreateIfPending()
         restartIfPending()
-        // KioskPrefs.checkFools()
-
         BrightnessManager.getInstance(this).startListening()
-
         paused = false
     }
 
     override fun onPause() {
         super.onPause()
-
         BrightnessManager.getInstance(this).stopListening()
-
         paused = true
     }
 

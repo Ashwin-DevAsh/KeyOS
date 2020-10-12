@@ -153,6 +153,10 @@
             android:name="tech.DevAsh.KeyOS.Config.Mode" />
         <activity
             android:theme="@style/keyOS"
+            android:autoRemoveFromRecents="true"
+            android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true"
+            android:stateNotNeeded="true"
             android:name="tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt"
             android:windowSoftInputMode="adjustResize" />
         <activity

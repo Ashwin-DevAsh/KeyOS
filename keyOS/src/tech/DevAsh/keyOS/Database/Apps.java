@@ -69,8 +69,9 @@ public class Apps extends RealmObject {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Apps)) return false;
+        if(o instanceof String){
+          return  this.packageName == o;
+        }
         Apps that = (Apps) o;
         return Objects.equals(packageName, that.packageName);
     }

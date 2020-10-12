@@ -214,7 +214,7 @@
 
     <!-- Section 12 -->
 
-    <string name="settings_button_text">Home Settings</string>
+    <string name="settings_button_text">Settings</string>
     <string name="wallpaper_button_text">Wallpaper</string>
 
     <string name="customize">Customize</string>

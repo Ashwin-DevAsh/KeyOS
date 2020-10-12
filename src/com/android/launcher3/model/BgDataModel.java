@@ -29,6 +29,7 @@ import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.config.FeatureFlags;
+import com.android.launcher3.folder.Folder;
 import com.android.launcher3.logging.DumpTargetWrapper;
 import com.android.launcher3.model.nano.LauncherDumpProto;
 import com.android.launcher3.model.nano.LauncherDumpProto.ContainerType;
@@ -51,6 +52,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import tech.DevAsh.KeyOS.Database.UserContext;
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
+import tech.DevAsh.keyOS.Database.Apps;
 
 /**
  * All the data stored in-memory and managed by the LauncherModel
@@ -220,8 +225,7 @@ public class BgDataModel {
 
 
         // Traverse target wrapper
-        ArrayList<DumpTarget> targetList = new ArrayList<>();
-        targetList.addAll(hotseat.getFlattenedList());
+        ArrayList<DumpTarget> targetList = new ArrayList<>(hotseat.getFlattenedList());
         for (int i = 0; i < workspaces.size(); i++) {
             targetList.addAll(workspaces.valueAt(i).getFlattenedList());
         }
@@ -230,7 +234,6 @@ public class BgDataModel {
             for (int i = 0; i < targetList.size(); i++) {
                 writer.println(prefix + DumpTargetWrapper.getDumpTargetStr(targetList.get(i)));
             }
-            return;
         } else {
             LauncherDumpProto.LauncherImpression proto = new LauncherDumpProto.LauncherImpression();
             proto.targets = new DumpTarget[targetList.size()];
@@ -297,16 +300,31 @@ public class BgDataModel {
     }
 
     public synchronized void addItem(Context context, ItemInfo item, boolean newItem) {
+
         itemsIdMap.put(item.id, item);
+
+
         switch (item.itemType) {
             case LauncherSettings.Favorites.ITEM_TYPE_FOLDER:
-                folders.put(item.id, (FolderInfo) item);
+                FolderInfo folderInfo = (FolderInfo) item;
+                folders.put(item.id, folderInfo);
+                ArrayList<ShortcutInfo> folderContent = new ArrayList<>(folderInfo.contents);
+                for(ShortcutInfo shortcutInfo : folderContent){
+                   if(!Kiosk.INSTANCE.isAllowedPackage(shortcutInfo.getPackageName())){
+                       folderInfo.contents.remove(shortcutInfo);
+                   }
+                }
                 workspaceItems.add(item);
                 break;
             case LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT: {
                 if (Utilities.ATLEAST_NOUGAT_MR1) {
                     // Increment the count for the given shortcut
                     ShortcutKey pinnedShortcut = ShortcutKey.fromItemInfo(item);
+
+                    if(!Kiosk.INSTANCE.isAllowedPackage(pinnedShortcut.componentName.getPackageName())){
+                        return;
+                    }
+
                     MutableInt count = pinnedShortcutCounts.get(pinnedShortcut);
                     if (count == null) {
                         count = new MutableInt(1);
@@ -324,9 +342,10 @@ public class BgDataModel {
             }
             case LauncherSettings.Favorites.ITEM_TYPE_APPLICATION:
             case LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT:
-                if (item.container == LauncherSettings.Favorites.CONTAINER_DESKTOP ||
-                        item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
-                    workspaceItems.add(item);
+                if(!Kiosk.INSTANCE.isAllowedPackage(item.getTargetComponent().getPackageName())){
+                    System.out.println("Blocked");
+                }else if (item.container == LauncherSettings.Favorites.CONTAINER_DESKTOP || item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
+                       workspaceItems.add(item);
                 } else {
                     if (newItem) {
                         if (!folders.containsKey(item.container)) {
@@ -343,7 +362,11 @@ public class BgDataModel {
                 break;
             case LauncherSettings.Favorites.ITEM_TYPE_APPWIDGET:
             case LauncherSettings.Favorites.ITEM_TYPE_CUSTOM_APPWIDGET:
-                appWidgets.add((LauncherAppWidgetInfo) item);
+                LauncherAppWidgetInfo launcherAppWidgetInfo = (LauncherAppWidgetInfo) item;
+                if(!Kiosk.INSTANCE.isAllowedPackage(launcherAppWidgetInfo.providerName.getPackageName())){
+                    return;
+                }
+                appWidgets.add(launcherAppWidgetInfo);
                 break;
         }
     }

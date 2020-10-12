@@ -98,7 +98,6 @@ class KioskPreferences(val context: Context) : SharedPreferences.OnSharedPrefere
         override fun unflattenValue(value: String) = value
     }
     var launcherTheme by StringIntPref("pref_launcherTheme", 1) { ThemeManager.getInstance(context).updateTheme() }
-    val enableLegacyTreatment by BooleanPref("pref_enableLegacyTreatment", kioskConfig.enableLegacyTreatment, reloadIcons)
     val colorizedLegacyTreatment by BooleanPref("pref_colorizeGeneratedBackgrounds", kioskConfig.enableColorizedLegacyTreatment, reloadIcons)
     val enableWhiteOnlyTreatment by BooleanPref("pref_enableWhiteOnlyTreatment", kioskConfig.enableWhiteOnlyTreatment, reloadIcons)
     val hideStatusBar by BooleanPref("pref_hideStatusBar", kioskConfig.hideStatusBar, doNothing)
@@ -177,7 +176,6 @@ class KioskPreferences(val context: Context) : SharedPreferences.OnSharedPrefere
     // This purely exists to abuse preference change listeners, the value is never actually read.
     var searchBarRadius by DimensionPref("pref_searchbarRadius", -1f)
     val searchHiddenApps by BooleanPref("pref_search_hidden_apps", false)
-    val allAppsSearch by BooleanPref("pref_allAppsSearch", true, recreate)
     var allAppsGlobalSearch by BooleanPref("pref_allAppsGoogleSearch", true, doNothing)
 
     // Quickstep
@@ -195,7 +193,7 @@ class KioskPreferences(val context: Context) : SharedPreferences.OnSharedPrefere
     var noFools by BooleanPref("pref_noFools2019", false) { Utilities.restartLauncher(context) }
     val enableFools get() = forceEnableFools || is1stApril()
     val showFools get() = !noFools && enableFools
-    var desktopInitialized by BooleanPref("flag_desktop_initiated", false)
+    var desktopInitialized  by BooleanPref("flag_desktop_initiated", false)
 
     private val was1stApril = is1stApril()
 
@@ -250,7 +248,7 @@ class KioskPreferences(val context: Context) : SharedPreferences.OnSharedPrefere
         onChangeCallback?.reloadApps()
     }
 
-    private fun reloadAll() {
+    fun reloadAll() {
         onChangeCallback?.reloadAll()
     }
 

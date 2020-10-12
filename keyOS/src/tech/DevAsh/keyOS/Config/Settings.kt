@@ -13,17 +13,20 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.android.launcher3.Launcher
 import com.android.launcher3.R
-
-import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
-import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
+import com.android.launcher3.Utilities
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.keyOS.activity_settings.*
 import kotlinx.android.synthetic.keyOS.sheet_options.view.*
+import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
+import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
+import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
+import tech.DevAsh.Launcher.KioskPreferences
 import tech.DevAsh.keyOS.Database.BasicSettings
 
 
@@ -47,13 +50,13 @@ class Settings : AppCompatActivity() {
 
     private fun controlLaunchButton(){
         val bottomDown: Animation = AnimationUtils.loadAnimation(
-            this,
-            R.anim.button_down
-        )
+                this,
+                R.anim.button_down
+                                                                )
         val bottomUp: Animation = AnimationUtils.loadAnimation(
-            this,
-            R.anim.button_up
-        )
+                this,
+                R.anim.button_up
+                                                              )
 
         launchContainer.cardElevation=10f
         scroller.setOnScrollChangeListener { _, _, scrollY, _, _ ->
@@ -62,6 +65,7 @@ class Settings : AppCompatActivity() {
                     launchContainer.startAnimation(bottomDown)
                     launchContainer.visibility=View.GONE
                 }
+                
             }
             if(scrollY < 100){
                 if(launchContainer.visibility==View.GONE){
@@ -86,7 +90,7 @@ class Settings : AppCompatActivity() {
         }
 
         password?.setOnClickListener {
-            startActivity(Intent(this,Password::class.java))
+            startActivity(Intent(this, Password::class.java))
         }
 
 
@@ -115,11 +119,15 @@ class Settings : AppCompatActivity() {
 
         services.setOnClickListener {
             AllowApps.type="Allow Services"
-            startActivity(Intent(this,AllowApps::class.java))
+            startActivity(Intent(this, AllowApps::class.java))
         }
 
         phone.setOnClickListener {
-            startActivity(Intent(this,PhoneCalls::class.java))
+            startActivity(Intent(this, PhoneCalls::class.java))
+        }
+
+        exit.setOnClickListener {
+            Kiosk.exitKiosk(this)
         }
     }
 
@@ -147,11 +155,13 @@ class Settings : AppCompatActivity() {
     override fun onBackPressed() {
         saveData()
         if(isFromLauncher){
-            val selector = Intent(Intent.ACTION_MAIN)
-            selector.addCategory(Intent.CATEGORY_HOME)
-            selector.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(selector)
-            finish()
+            Utilities.restartLauncher(this)
+//            val selector = Intent(Intent.ACTION_MAIN)
+//            selector.addCategory(Intent.CATEGORY_HOME)
+//            selector.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//            selector.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+//            startActivity(selector)
+//            finish()
         }else{
             super.onBackPressed()
         }
@@ -160,12 +170,12 @@ class Settings : AppCompatActivity() {
 
     private fun saveData(){
         val basicSettings = BasicSettings(
-            wifiMode.text.toString(),
-            hotspotMode.text.toString(),
-            bluetoothMode.text.toString(),
-            mobiledataMode.text.toString(),
-            notificationPanel.isChecked
-        )
+                wifiMode.text.toString(),
+                hotspotMode.text.toString(),
+                bluetoothMode.text.toString(),
+                mobiledataMode.text.toString(),
+                notificationPanel.isChecked
+                                         )
         UserContext.user!!.basicSettings = (basicSettings)
         RealmHelper.updateUser(UserContext.user!!)
     }
@@ -173,18 +183,18 @@ class Settings : AppCompatActivity() {
 
 
     private fun openBottomSheet(
-        mode: TextView,
-        advanceOptions: Boolean = true,
-        additionalOption: Boolean = false
-    ){
+            mode: TextView,
+            advanceOptions: Boolean = true,
+            additionalOption: Boolean = false
+                               ){
 
         val options = BottomSheetDialog(this)
         val sheetView: View = LayoutInflater.from(this).inflate(R.layout.sheet_options, null)
 
         fun onModeClick(
-            clickView: View,
-            option: String
-        ){
+                clickView: View,
+                option: String
+                       ){
             clickView.setOnClickListener{
                 mode.text = option
                 options.cancel()
@@ -234,11 +244,11 @@ class Settings : AppCompatActivity() {
         val kioskLauncher = ComponentName(context, KioskLauncher::class.java)
 
         packageManager.setComponentEnabledSetting(helperLauncher,
-            PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-            PackageManager.DONT_KILL_APP)
+                                                  PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                                                  PackageManager.DONT_KILL_APP)
         packageManager.setComponentEnabledSetting(kioskLauncher,
-            PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-            PackageManager.DONT_KILL_APP)
+                                                  PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                                                  PackageManager.DONT_KILL_APP)
 
         val selector = Intent(Intent.ACTION_MAIN)
         selector.addCategory(Intent.CATEGORY_HOME)
@@ -246,8 +256,8 @@ class Settings : AppCompatActivity() {
         context.startActivity(selector)
 
         packageManager.setComponentEnabledSetting(helperLauncher,
-            PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
-            PackageManager.DONT_KILL_APP)
+                                                  PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
+                                                  PackageManager.DONT_KILL_APP)
     }
 
     override fun onRestart() {
@@ -255,12 +265,12 @@ class Settings : AppCompatActivity() {
         if(PermissionsHelper.openedForPermission){
             PermissionsHelper.openedForPermission=false
             Handler().postDelayed({
-                if (PermissionsHelper.checkImportantPermissions(this)) {
-                    checkPermissionAndLaunch()
-                } else {
-                    permissionsBottomSheet.show(supportFragmentManager, "TAG")
-                }
-            }, 250)
+                                      if (PermissionsHelper.checkImportantPermissions(this)) {
+                                          checkPermissionAndLaunch()
+                                      } else {
+                                          permissionsBottomSheet.show(supportFragmentManager, "TAG")
+                                      }
+                                  }, 250)
         }
         super.onRestart()
     }

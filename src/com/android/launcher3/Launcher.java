@@ -73,6 +73,7 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import tech.DevAsh.KeyOS.Database.RealmHelper;
 import tech.DevAsh.Launcher.*;
 import com.android.launcher3.DropTarget.DragObject;
 import com.android.launcher3.LauncherStateManager.StateListener;
@@ -137,6 +138,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import tech.DevAsh.keyOS.Database.User;
 
 /**
  * Default launcher application.
@@ -250,6 +252,9 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        RealmHelper.INSTANCE.init(this);
+        User.getUsers();
+
         TraceHelper.beginSection("Launcher-onCreate");
 
         super.onCreate(savedInstanceState);
@@ -258,7 +263,6 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         LauncherAppState app = LauncherAppState.getInstance(this);
         KioskPreferences prefs = Utilities.getKioskPrefs(this);
 
-        // 首次使用显示加载中
         if (!prefs.getDesktopInitialized()) {
             if (mProgressDialog == null) {
                 mProgressDialog = new ProgressDialog(Launcher.this);

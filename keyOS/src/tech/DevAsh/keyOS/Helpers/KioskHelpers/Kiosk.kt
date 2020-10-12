@@ -2,18 +2,24 @@ package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 
 import android.app.Activity
 import android.content.ComponentName
-import androidx.appcompat.app.AppCompatActivity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import androidx.appcompat.app.AppCompatActivity
+import com.android.launcher3.Launcher
 import tech.DevAsh.KeyOS.Config.Settings
+import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
+import tech.DevAsh.Launcher.KioskApp
 import tech.DevAsh.Launcher.KioskLauncher
+import tech.DevAsh.keyOS.Database.Apps
 
 object Kiosk {
     private var usageIntent:Intent?=null
     var accessibilityService:Intent?=null
+
+
     private fun getUsageAccessService(context: Context):Intent{
         if(usageIntent==null){
             usageIntent = Intent(context, UsageAccessService::class.java)
@@ -45,11 +51,16 @@ object Kiosk {
     }
 
     fun openKioskSettings(context: Activity){
-        val intent = Intent( context, Settings::class.java)
+        val intent = Intent(context, Settings::class.java)
         intent.putExtra("isFromLauncher", true)
         context.startActivity(intent)
-        stopKiosk( context)
+        stopKiosk(context)
         context.finishAffinity()
+    }
+
+    fun isAllowedPackage(packageName: String):Boolean{
+       return user!!.allowedApps.contains(
+               Apps(packageName))
     }
 
     fun exitKiosk(context: AppCompatActivity){

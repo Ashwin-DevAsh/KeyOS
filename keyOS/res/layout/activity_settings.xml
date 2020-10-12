@@ -5,7 +5,7 @@
     android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Config.Settings">
+   >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -33,6 +33,7 @@
                 android:layout_centerInParent="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="5dp"
+                android:id="@+id/exit"
                 app:srcCompat="@drawable/exit"
                 android:layout_height="50dp"/>
 

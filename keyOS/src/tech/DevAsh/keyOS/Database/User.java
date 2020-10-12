@@ -1,7 +1,12 @@
 package tech.DevAsh.keyOS.Database;
 
+import io.realm.Realm;
+import io.realm.Realm.Transaction;
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import java.util.Objects;
+import org.jetbrains.annotations.NotNull;
+import tech.DevAsh.KeyOS.Database.UserContext;
 
 public class User extends RealmObject {
     public RealmList<Apps> allowedApps = new RealmList();
@@ -49,4 +54,32 @@ public class User extends RealmObject {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+
+      static public void getUsers(){
+            try {
+                UserContext.INSTANCE.setUser(Realm.getDefaultInstance()
+                        .copyFromRealm(
+                                Realm.getDefaultInstance().where(User.class).findFirst()));
+            } catch (Throwable throwable){
+                Realm.getDefaultInstance().executeTransactionAsync(
+                        realm -> {
+                            UserContext.INSTANCE.setUser(new User(
+                                    new RealmList<Apps>(),
+                                    new RealmList<Apps>(),
+                                    new BasicSettings(),
+                                    new Calls(),
+                                    "",
+                                    "1234"));
+                            realm.insertOrUpdate(Objects.requireNonNull(UserContext.INSTANCE.getUser()));
+                            UserContext.INSTANCE.setUser(Realm.getDefaultInstance()
+                                    .copyFromRealm(Objects.requireNonNull(
+                                            Realm.getDefaultInstance().where(User.class)
+                                                    .findFirst())));
+                        }
+
+                );
+            }
+        }
+
 }

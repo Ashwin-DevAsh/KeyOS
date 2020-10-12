@@ -24,6 +24,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
 import android.provider.Settings
 import androidx.annotation.Keep
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
@@ -34,16 +35,24 @@ import com.android.launcher3.Utilities
 import com.android.quickstep.RecentsActivity
 import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.LoadAppsAndServices
 import tech.DevAsh.KeyOS.SplashScreen
+import tech.DevAsh.keyOS.Database.User
 
 
 class KioskApp : Application() {
 
     val activityHandler = ActivityHandler()
+    var loadAppsAndServices = LoadAppsAndServices(this)
+
 
     override fun onCreate() {
         RealmHelper.init(this)
-        SplashScreen.getUsers()
+        Handler().post{
+            User.getUsers()
+            loadAppsAndServices.execute()
+        }
         super.onCreate()
     }
 

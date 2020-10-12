@@ -21,16 +21,11 @@ import tech.DevAsh.keyOS.Database.User
 
 
 class SplashScreen : AppCompatActivity() {
-    var loadAppsAndServices = LoadAppsAndServices(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         RealmHelper.init(this)
-        Handler().post{
-            getUsers()
-            loadAppsAndServices.execute()
-        }
         openActivity()
     }
 
@@ -41,27 +36,7 @@ class SplashScreen : AppCompatActivity() {
         }, 2000)
     }
 
-    companion object{
-     fun getUsers(){
-        try {
-            UserContext.user = Realm.getDefaultInstance()
-                .copyFromRealm(Realm.getDefaultInstance().where(User::class.java).findFirst()!!)
-        } catch (e: Throwable){
-            Realm.getDefaultInstance().executeTransactionAsync{
-                UserContext.user = User(
-                        RealmList<Apps>(),
-                        RealmList<Apps>(),
-                        BasicSettings(),
-                        Calls(),
-                        "",
-                        "1234")
-                it.insertOrUpdate(UserContext.user!!)
-                UserContext.user = Realm.getDefaultInstance()
-                    .copyFromRealm(Realm.getDefaultInstance().where(User::class.java).findFirst()!!)
-            }
-        }
-     }
-    }
+
 }
 
 class LoadAppsAndServices(val context: Context) :AsyncTask<Any,Any,Any>(){

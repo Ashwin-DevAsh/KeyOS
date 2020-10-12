@@ -6,6 +6,8 @@ import androidx.annotation.Nullable;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.Utilities;
 import com.google.android.libraries.gsa.launcherclient.LauncherClient;
+import tech.DevAsh.KeyOS.Database.RealmHelper;
+import tech.DevAsh.keyOS.Database.User;
 
 public class NexusLauncherActivity extends Launcher {
     private NexusLauncher mLauncher;
@@ -18,10 +20,6 @@ public class NexusLauncherActivity extends Launcher {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        SharedPreferences prefs = Utilities.getPrefs(this);
-//        if (!FeedBridge.Companion.getInstance(this).isInstalled()) {
-//            prefs.edit().putBoolean(SettingsActivity.ENABLE_MINUS_ONE_PREF, false).apply();
-//        }
     }
 
     @Nullable
