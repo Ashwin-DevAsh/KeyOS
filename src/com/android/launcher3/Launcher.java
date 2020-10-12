@@ -74,6 +74,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import tech.DevAsh.KeyOS.Database.RealmHelper;
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.*;
 import com.android.launcher3.DropTarget.DragObject;
 import com.android.launcher3.LauncherStateManager.StateListener;
@@ -254,6 +255,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
 
         RealmHelper.INSTANCE.init(this);
         User.getUsers();
+
+        Kiosk.INSTANCE.startKiosk(this);
 
         TraceHelper.beginSection("Launcher-onCreate");
 
