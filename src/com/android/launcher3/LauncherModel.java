@@ -339,14 +339,14 @@ public class LauncherModel extends BroadcastReceiver
     }
 
     public void onPackagesRemoved(UserHandle user, String... packages) {
-        int op = PackageUpdatedTask.OP_REMOVE;
-        enqueueModelUpdateTask(new PackageUpdatedTask(op, user, packages));
+//        int op = PackageUpdatedTask.OP_REMOVE;
+//        enqueueModelUpdateTask(new PackageUpdatedTask(op, user, packages));
     }
 
     @Override
     public void onPackageAdded(String packageName, UserHandle user) {
-        int op = PackageUpdatedTask.OP_ADD;
-        enqueueModelUpdateTask(new PackageUpdatedTask(op, user, packageName));
+//        int op = PackageUpdatedTask.OP_ADD;
+//        enqueueModelUpdateTask(new PackageUpdatedTask(op, user, packageName));
     }
 
     @Override

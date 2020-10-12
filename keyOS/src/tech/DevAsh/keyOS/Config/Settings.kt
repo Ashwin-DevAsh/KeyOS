@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
+import android.os.UserHandle
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
@@ -13,9 +14,9 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.android.launcher3.Launcher
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
+import com.android.launcher3.model.PackageUpdatedTask
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.keyOS.activity_settings.*
 import kotlinx.android.synthetic.keyOS.sheet_options.view.*
@@ -26,7 +27,6 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
-import tech.DevAsh.Launcher.KioskPreferences
 import tech.DevAsh.keyOS.Database.BasicSettings
 
 
@@ -156,6 +156,7 @@ class Settings : AppCompatActivity() {
         saveData()
         if(isFromLauncher){
             Utilities.restartLauncher(this)
+//           PackageUpdatedTask(PackageUpdatedTask.OP_RELOAD, android.os.Process.myUserHandle())
 //            val selector = Intent(Intent.ACTION_MAIN)
 //            selector.addCategory(Intent.CATEGORY_HOME)
 //            selector.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

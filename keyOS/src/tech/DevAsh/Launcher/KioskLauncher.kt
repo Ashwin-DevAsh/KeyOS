@@ -100,6 +100,7 @@ open class KioskLauncher : NexusLauncherActivity(),
         Utilities.onLauncherStart()
     }
 
+
     override fun onRestart() {
         startKiosk(this)
         super.onRestart()

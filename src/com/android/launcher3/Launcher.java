@@ -1244,7 +1244,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     public int getOrientation() { return mOldConfig.orientation; }
 
     @Override
-    protected void onNewIntent(Intent intent) {
+    protected void onNewIntent(Intent intent){
         TraceHelper.beginSection("NEW_INTENT");
         super.onNewIntent(intent);
 

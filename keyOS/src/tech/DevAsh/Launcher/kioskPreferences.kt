@@ -192,8 +192,7 @@ class KioskPreferences(val context: Context) : SharedPreferences.OnSharedPrefere
     var autoLaunchRoot by BooleanPref("internal_auto_launch_root")
     var noFools by BooleanPref("pref_noFools2019", false) { Utilities.restartLauncher(context) }
     val enableFools get() = forceEnableFools || is1stApril()
-    val showFools get() = !noFools && enableFools
-    var desktopInitialized  by BooleanPref("flag_desktop_initiated", false)
+    var desktopInitialized = false //  by BooleanPref("flag_desktop_initiated", false)
 
     private val was1stApril = is1stApril()
 

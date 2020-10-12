@@ -2,10 +2,12 @@ package tech.DevAsh.KeyOS.Config
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Process
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.launcher3.R
+import com.android.launcher3.model.PackageUpdatedTask
 import io.realm.RealmList
 import kotlinx.android.synthetic.keyOS.activity_allow_apps.*
 import tech.DevAsh.KeyOS.Config.Adapters.AllowItemAdapter
@@ -128,6 +130,14 @@ class AllowApps : AppCompatActivity() {
     private fun saveData(){
         when(type){
             "Allow Apps"->{
+                for(i in AppsContext.allApps){
+                    if(adapter?.allowedItems!!.contains(Apps(i.packageName))){
+                        PackageUpdatedTask(PackageUpdatedTask.OP_ADD, Process.myUserHandle(),i.packageName)
+                    }else{
+                        PackageUpdatedTask(PackageUpdatedTask.OP_REMOVE, Process.myUserHandle(),i.packageName)
+                    }
+                }
+
                 AppsContext.allowedApps = ArrayList(adapter?.allowedItems!!)
                 val allowedApps = getRealmList(AppsContext.allowedApps)
                 UserContext.user?.allowedApps = allowedApps

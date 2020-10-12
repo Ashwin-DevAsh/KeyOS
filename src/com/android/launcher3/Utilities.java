@@ -593,9 +593,8 @@ public final class Utilities {
         if (ATLEAST_NOUGAT) {
             try {
                 WallpaperManager wm = context.getSystemService(WallpaperManager.class);
-                return (Boolean) wm.getClass().getDeclaredMethod("isSetWallpaperAllowed")
-                        .invoke(wm);
-            } catch (Exception e) { }
+                return (Boolean) wm.getClass().getDeclaredMethod("isSetWallpaperAllowed").invoke(wm);
+            } catch (Exception ignored) { }
         }
         return true;
     }
