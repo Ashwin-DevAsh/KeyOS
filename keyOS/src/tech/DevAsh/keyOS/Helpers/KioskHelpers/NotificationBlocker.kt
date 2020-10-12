@@ -13,7 +13,7 @@ object NotificationBlocker {
          collapseNotificationHandler.postDelayed(object : Runnable {
              @SuppressLint("WrongConstant")
              override fun run() {
-                 if (UserContext.user!!.basicSettings.notificationPanel && !pause) {
+                 if (!UserContext.user!!.basicSettings.notificationPanel && !pause) {
                      val statusBarService = context.getSystemService("statusbar")
                      val statusBarManager = Class.forName("android.app.StatusBarManager")
                      val collapseStatusBar = statusBarManager.getMethod("collapsePanels")

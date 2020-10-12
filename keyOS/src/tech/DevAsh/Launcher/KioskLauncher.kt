@@ -38,6 +38,7 @@ import com.android.launcher3.util.SystemUiController
 import com.android.quickstep.views.LauncherRecentsView
 import com.google.android.apps.nexuslauncher.NexusLauncherActivity
 import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.NotificationBlocker
 import tech.DevAsh.keyOS.Database.User
 import java.io.File
 import java.io.FileOutputStream
@@ -46,6 +47,8 @@ import java.util.concurrent.Semaphore
 open class KioskLauncher : NexusLauncherActivity(),
         KioskPreferences.OnPreferenceChangeListener,
         ColorEngine.OnColorChangeListener {
+
+
     private val hideStatusBarKey = "pref_hideStatusBar"
     val gestureController by lazy { GestureController(this) }
     val background by lazy { findViewById<KioskBackgroundView>(R.id.Kiosk_background)!! }
@@ -87,6 +90,10 @@ open class KioskLauncher : NexusLauncherActivity(),
 
     }
 
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        NotificationBlocker.collapseNow(this)
+        super.onWindowFocusChanged(hasFocus)
+    }
 
     override fun finishBindingItems(currentScreen: Int) {
         super.finishBindingItems(currentScreen)

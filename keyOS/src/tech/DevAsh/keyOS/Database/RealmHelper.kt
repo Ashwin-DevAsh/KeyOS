@@ -10,7 +10,7 @@ object RealmHelper {
     }
 
     fun updateUser(user: User){
-        Realm.getDefaultInstance().executeTransactionAsync{
+        Realm.getDefaultInstance().executeTransaction{
             it.delete(User::class.java)
             it.insertOrUpdate(user)
             UserContext.user = Realm.getDefaultInstance()
