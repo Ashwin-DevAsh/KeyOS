@@ -75,10 +75,10 @@ open class AppsAdapter(
     }
 
     protected open fun loadAppsList() {
-//        apps.addAll(getAppsList(context)
-//                .map { App(context, it) }
-//                .sortedWith(comparator))
-//        handler.postAtFrontOfQueue(::onAppsListLoaded)
+        apps.addAll(getAppsList(context)
+                .map { App(context, it) }
+                .sortedWith(comparator))
+        handler.postAtFrontOfQueue(::onAppsListLoaded)
     }
 
     protected open fun onAppsListLoaded() {

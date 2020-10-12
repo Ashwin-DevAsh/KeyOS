@@ -78,6 +78,7 @@ import android.view.animation.Interpolator;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.HiddenApiCompat;
 import tech.DevAsh.Launcher.KioskAppKt;
 import com.android.launcher3.compat.LauncherAppsCompat;
@@ -680,7 +681,7 @@ public final class Utilities {
     /**
      * ATTENTION: Only ever call this from within KioskLauncher.kt
      */
-    public /* private */ static void onLauncherStart() {
+    public static void onLauncherStart() {
         Log.d(TAG, "onLauncherStart: " + onStart.size());
         for(Runnable r : onStart)
             r.run();

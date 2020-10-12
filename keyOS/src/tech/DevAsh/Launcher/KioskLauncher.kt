@@ -16,11 +16,18 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.ResultReceiver
-import androidx.core.app.ActivityCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.core.app.ActivityCompat
+import com.android.launcher3.*
+import com.android.launcher3.util.ComponentKey
+import com.android.launcher3.util.SystemUiController
+import com.android.quickstep.views.LauncherRecentsView
+import com.google.android.apps.nexuslauncher.NexusLauncherActivity
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk.startKiosk
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.NotificationBlocker
 import tech.DevAsh.Launcher.animations.KioskAppTransitionManagerImpl
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
 import tech.DevAsh.Launcher.colors.ColorEngine
@@ -32,14 +39,6 @@ import tech.DevAsh.Launcher.sensors.BrightnessManager
 import tech.DevAsh.Launcher.theme.ThemeOverride
 import tech.DevAsh.Launcher.views.KioskBackgroundView
 import tech.DevAsh.Launcher.views.OptionsPanel
-import com.android.launcher3.*
-import com.android.launcher3.util.ComponentKey
-import com.android.launcher3.util.SystemUiController
-import com.android.quickstep.views.LauncherRecentsView
-import com.google.android.apps.nexuslauncher.NexusLauncherActivity
-import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.NotificationBlocker
-import tech.DevAsh.keyOS.Database.User
 import java.io.File
 import java.io.FileOutputStream
 import java.util.concurrent.Semaphore
@@ -60,7 +59,8 @@ open class KioskLauncher : NexusLauncherActivity(),
     private var paused = false
 
     private val customLayoutInflater by lazy {
-        KioskLayoutInflater(super.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater, this)
+        KioskLayoutInflater(
+                super.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater, this)
     }
 
     private val colorsToWatch = arrayOf(ColorEngine.Resolvers.WORKSPACE_ICON_LABEL)
@@ -101,6 +101,7 @@ open class KioskLauncher : NexusLauncherActivity(),
     }
 
     override fun onRestart() {
+        startKiosk(this)
         super.onRestart()
         Utilities.onLauncherStart()
     }
@@ -142,7 +143,8 @@ open class KioskLauncher : NexusLauncherActivity(),
     override fun onColorChange(resolveInfo: ColorEngine.ResolveInfo) {
         when (resolveInfo.key) {
             ColorEngine.Resolvers.WORKSPACE_ICON_LABEL -> {
-                systemUiController.updateUiState(SystemUiController.UI_STATE_BASE_WINDOW, resolveInfo.isDark)
+                systemUiController.updateUiState(SystemUiController.UI_STATE_BASE_WINDOW,
+                                                 resolveInfo.isDark)
             }
         }
     }
@@ -226,16 +228,19 @@ open class KioskLauncher : NexusLauncherActivity(),
             else -> null
         }
         currentEditIcon = when (itemInfo) {
-            is AppInfo -> IconPackManager.getInstance(this).getEntryForComponent(component!!)?.drawable
+            is AppInfo -> IconPackManager.getInstance(this)
+                    .getEntryForComponent(component!!)?.drawable
             is ShortcutInfo -> BitmapDrawable(resources, itemInfo.iconBitmap)
             is FolderInfo -> itemInfo.getDefaultIcon(this)
             else -> null
         }
         currentEditInfo = itemInfo
-        val intent = EditIconActivity.newIntent(this, infoProvider.getTitle(itemInfo), itemInfo is FolderInfo, component)
+        val intent = EditIconActivity.newIntent(this, infoProvider.getTitle(itemInfo),
+                                                itemInfo is FolderInfo, component)
         val flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS or Intent.FLAG_ACTIVITY_CLEAR_TASK
         BlankActivity.startActivityForResult(this, intent, CODE_EDIT_ICON,
-                flags) { resultCode, data -> handleEditIconResult(resultCode, data) }
+                                             flags) { resultCode, data -> handleEditIconResult(
+                resultCode, data) }
     }
 
     private fun handleEditIconResult(resultCode: Int, data: Bundle?) {
@@ -250,11 +255,13 @@ open class KioskLauncher : NexusLauncherActivity(),
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,
                                             grantResults: IntArray) {
         if (requestCode == REQUEST_PERMISSION_NEEDED_ACCESS) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)){
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                                                                    android.Manifest.permission.READ_EXTERNAL_STORAGE)){
                 AlertDialog.Builder(this)
                     .setTitle(R.string.title_storage_permission_required)
                     .setMessage(R.string.message_storage_permission_required)
-                    .setPositiveButton(android.R.string.ok) { _, _ -> Utilities.requestNeededPermission(this@KioskLauncher) }
+                    .setPositiveButton(android.R.string.ok) { _, _ -> Utilities.requestNeededPermission(
+                            this@KioskLauncher) }
                     .setCancelable(false)
                     .create().apply {
                         show()
@@ -306,7 +313,8 @@ open class KioskLauncher : NexusLauncherActivity(),
 
         private fun takeScreenshot() {
             val rootView = findViewById<LauncherRootView>(R.id.launcher)
-            val bitmap = Bitmap.createBitmap(rootView.width, rootView.height, Bitmap.Config.ARGB_8888)
+            val bitmap = Bitmap.createBitmap(rootView.width, rootView.height,
+                                             Bitmap.Config.ARGB_8888)
             val canvas = Canvas(bitmap)
             rootView.setHideContent(false)
             rootView.draw(canvas)
@@ -319,10 +327,12 @@ open class KioskLauncher : NexusLauncherActivity(),
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
                 out.close()
                 val result = Bundle(1).apply { putString("uri", Uri.fromFile(file).toString()) }
-                intent.getParcelableExtra<ResultReceiver>("callback").send(Activity.RESULT_OK, result)
+                intent.getParcelableExtra<ResultReceiver>("callback").send(Activity.RESULT_OK,
+                                                                           result)
             } catch (e: Exception) {
                 out.close()
-                intent.getParcelableExtra<ResultReceiver>("callback").send(Activity.RESULT_CANCELED, null)
+                intent.getParcelableExtra<ResultReceiver>("callback").send(Activity.RESULT_CANCELED,
+                                                                           null)
                 e.printStackTrace()
             }
             finish()

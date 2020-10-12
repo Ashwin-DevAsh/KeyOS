@@ -869,9 +869,8 @@ public class LoaderTask implements Runnable {
         }
 
         if (FeatureFlags.LAUNCHER3_PROMISE_APPS_IN_ALL_APPS) {
-            // get all active sessions and add them to the all apps list
-            for (PackageInstaller.SessionInfo info :
-                    mPackageInstaller.getAllVerifiedSessions()) {
+            // get all active sessions and add them to the all apps lis
+            for (PackageInstaller.SessionInfo info : mPackageInstaller.getAllVerifiedSessions()) {
                 mBgAllAppsList.addPromiseApp(mApp.getContext(),
                         PackageInstallerCompat.PackageInstallInfo.fromInstallingState(info));
             }

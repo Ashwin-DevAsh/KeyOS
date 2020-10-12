@@ -1213,7 +1213,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         return mQsbContainer;
     }
 
-    public Hotseat getHotseat() {
+    public Hotseat getHotSeat() {
         return mHotseat;
     }
 

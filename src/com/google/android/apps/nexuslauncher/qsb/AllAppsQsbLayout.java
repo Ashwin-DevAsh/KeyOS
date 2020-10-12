@@ -137,7 +137,7 @@ public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
 //            return (i - this.mSearchView.getActiveRecyclerView().getPaddingLeft()) - this.mSearchView
 //                    .getActiveRecyclerView().getPaddingRight();
 //        }
-        View view = this.mActivity.getHotseat().getLayout();
+        View view = this.mActivity.getHotSeat().getLayout();
         return (i - view.getPaddingLeft()) - view.getPaddingRight();
     }
 

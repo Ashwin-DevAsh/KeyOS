@@ -160,6 +160,7 @@
             android:name="tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:theme="@style/keyOS"
             android:name="tech.DevAsh.KeyOS.Config.Password"
             android:windowSoftInputMode="adjustResize" />
         <activity
