@@ -15,23 +15,30 @@
  */
 package com.android.launcher3.views
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.RectF
+import android.graphics.drawable.ColorDrawable
 import android.util.ArrayMap
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
-import com.android.launcher3.*
-import kotlin.jvm.JvmOverloads
+import com.android.launcher3.Launcher
+import com.android.launcher3.LauncherState
+import com.android.launcher3.R
+import com.android.launcher3.Utilities
 import com.android.launcher3.popup.ArrowPopup
-import com.android.launcher3.userevent.nano.LauncherLogProto
 import com.android.launcher3.shortcuts.DeepShortcutView
+import com.android.launcher3.userevent.nano.LauncherLogProto
 import com.android.launcher3.widget.WidgetsFullSheet
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt
-import java.util.ArrayList
+import java.util.*
+
 
 /**
  * Popup shown on long pressing an empty space in launcher
@@ -156,7 +163,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
         fun startSettings(view: View?): Boolean {
 
             val launcher = Launcher.getLauncher(view?.context);
-            launcher.startActivitySafely(view,  Intent(launcher, PasswordPrompt::class.java)
+            launcher.startActivitySafely(view, Intent(launcher, PasswordPrompt::class.java)
                     .setPackage(launcher.packageName)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null);
 
@@ -174,7 +181,19 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
          * on the home screen.
          */
         fun startWallpaperPicker(v: View): Boolean {
-           return true
+
+
+
+
+            val launcher = Launcher.getLauncher(v.context)
+
+
+            val dialog = BottomSheetDialog(launcher)
+            dialog.setContentView(R.layout.fragment_password_prompt_sheet)
+            dialog.setCanceledOnTouchOutside(false)
+            dialog.show()
+
+            return true
         }
     }
 }

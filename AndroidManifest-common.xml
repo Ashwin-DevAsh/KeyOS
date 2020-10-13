@@ -49,6 +49,7 @@
         android:fullBackupOnly="true"
         android:fullBackupContent="@xml/backupscheme"
         android:hardwareAccelerated="true"
+        android:theme="@style/AppTheme"
         android:icon="@drawable/ic_launcher_home"
         android:label="@string/derived_app_name"
         android:largeHeap="@bool/config_largeHeap"
@@ -60,6 +61,7 @@
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
+
             android:autoRemoveFromRecents="true"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="unspecified"

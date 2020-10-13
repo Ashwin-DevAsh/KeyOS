@@ -3,6 +3,7 @@ package tech.DevAsh.Launcher
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.FragmentManager
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
@@ -21,6 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.FragmentActivity
 import com.android.launcher3.*
 import com.android.launcher3.util.ComponentKey
 import com.android.launcher3.util.SystemUiController
@@ -44,8 +46,10 @@ import java.io.FileOutputStream
 import java.util.concurrent.Semaphore
 
 open class KioskLauncher : NexusLauncherActivity(),
-        KioskPreferences.OnPreferenceChangeListener,
+
+                           KioskPreferences.OnPreferenceChangeListener,
         ColorEngine.OnColorChangeListener {
+
 
 
     private val hideStatusBarKey = "pref_hideStatusBar"
@@ -375,17 +379,6 @@ open class KioskLauncher : NexusLauncherActivity(),
                     ?: LauncherAppState.getInstance(context).launcher as KioskLauncher
         }
 
-        fun takeScreenshotSync(context: Context): Uri? {
-            var uri: Uri? = null
-            val waiter = Semaphore(0)
-            takeScreenshot(context, uiWorkerHandler) {
-                uri = it
-                waiter.release()
-            }
-            waiter.acquireUninterruptibly()
-            waiter.release()
-            return uri
-        }
 
         fun takeScreenshot(context: Context, handler: Handler = Handler(), callback: (Uri?) -> Unit) {
             context.startActivity(Intent(context, Screenshot::class.java).apply {

@@ -35,6 +35,11 @@
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
+    <style name="CustomDialog" parent="Theme.MaterialComponents.BottomSheetDialog">
+<!--        <item name="background">@drawable/background_sheet</item>-->
+<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+    </style>
+
 
     <style name="heading" parent="keyOS">
         <item name="fontFamily">@font/poppins_medium</item>
