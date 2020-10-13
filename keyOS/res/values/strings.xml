@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="action_open_notifications_class" translatable="false">ch.deletescape.Kiosk.gestures.handlers.NotificationsOpenGestureHandler</string>
-    <string name="action_open_search_class" translatable="false">ch.deletescape.Kiosk.gestures.handlers.StartAppSearchGestureHandler</string>
-    <string name="action_open_overview_class" translatable="false">ch.deletescape.Kiosk.gestures.handlers.OpenOverviewGestureHandler</string>
-    <string name="action_do_nothing_class" translatable="false">ch.deletescape.Kiosk.gestures.BlankGestureHandler</string>
-    <string name="default_owm_key" translatable="false">17a6438b1d63d5b05f7039e7cb52cde7</string>
-    <string name="action_switch_apps_class" translatable="false">ch.deletescape.Kiosk.gestures.SwitchAppsGestureHandler</string>
-
     <!-- Section 1 -->
 
     <string name="search_menu">Search</string>
@@ -22,9 +15,6 @@
     <string name="theme_dark_theme_mode_off">Disabled</string>
 
     <!-- Section 2 -->
-
-    <string name="theme_title">Theme</string>
-    <string name="pixel_ui_pref_summary">Icons, Colors, Blur</string>
 
     <string name="pref_icon_packs">Icon Packs</string>
     <string name="icon_pack_default">System Icons</string>
@@ -73,13 +63,9 @@
 
     <!-- Section 3 -->
 
-    <string name="general_pref_title">Desktop</string>
-    <string name="general_pref_summary">Layout, Lock Desktop, Transitions</string>
-
     <string name="grid_size">Grid Size</string>
     <string name="grid_size_width">Width</string>
     <string name="grid_size_height">Height</string>
-    <string name="num_hotseat_icons_pref_title">Icon Count</string>
 
     <string name="overlap_placement">Allow Overlaps</string>
 
@@ -91,8 +77,6 @@
     <string name="icon_text_scale_pref_title">Text Size</string>
 
     <string name="icon_scale_pref_title">Icon Size</string>
-
-    <string name="auto_add_shortcuts_label">Add New Shortcuts to Desktop</string>
 
     <string name="pref_icon_popup_menu">Shortcut Bubble</string>
 
@@ -127,23 +111,12 @@
     <!-- Section 4 -->
 
     <!-- Note: replaces hard-coded copy (“Home widget”). -->
-    <string name="smartspace_preferences_in_settings_desc">Date &amp; Time, Data Sources</string>
 
     <string name="pref_smartspace_widget_provider">Weather Source</string>
-    <string name="google_app">Google App</string>
 
     <!-- Section 5 -->
 
-    <string name="dock_pref_title">Dock</string>
-    <string name="dock_pref_summary">Layout, Style, Indicators</string>
-
     <string name="theme_based">Set by Theme</string>
-
-    <string name="radius">Corner Radius</string>
-
-    <string name="hotseat_show_page_indicator">Show Page Indicator</string>
-
-    <string name="two_row_dock">Show Second Row</string>
 
     <!-- Section 6 -->
 
@@ -157,7 +130,6 @@
     <!-- Section 7 -->
 
     <string name="search">Search</string>
-    <string name="search_pref_summary">Layout, Style, Search Engine</string>
 
     <string name="pref_global_search_provider">Search Engine</string>
     <string name="google">Google App</string>
@@ -178,16 +150,6 @@
 
     <!-- Section 9 -->
 
-    <string name="gestures_pref_title">Gestures</string>
-    <string name="gestures_pref_summary">Double Tap, Swipe up from Dock</string>
-
-    <string name="gesture_double_tap">Double Tap</string>
-    <string name="gesture_long_press">Touch &amp; Hold</string>
-    <string name="gesture_press_home">Home Button Tap</string>
-    <string name="gesture_press_back">Back Button Tap</string>
-    <string name="gesture_swipe_down">Swipe Down</string>
-    <string name="gesture_swipe_up">Swipe Up</string>
-
     <string name="action_none">Do Nothing</string>
     <string name="action_sleep">Sleep</string>
     <string name="action_sleep_timeout">Sleep Using Screen Timeout</string>
@@ -198,19 +160,11 @@
 
     <!-- Section 10 -->
 
-    <string name="backups">Back Up &amp; Restore</string>
-    <string name="backup_pref_summary">Save Home Setup, Restore Backups</string>
-
     <string name="homescreen">Desktop Layout</string>
 
     <string name="custom">Custom</string>
 
     <!-- Section 11 -->
-
-    <string name="title_attribouter_rate">Rate</string>
-    <string name="title_attribouter_website">Website</string>
-
-    <string name="title_attribouter_licenses">Attribution</string>
 
     <!-- Section 12 -->
 
@@ -228,7 +182,6 @@
     <string name="adaptive_icon">Adaptive Icon</string>
 
     <string name="icon_pack">Icon Pack</string>
-    <string name="home_widget">At a Glance</string>
 
     <string name="title_disable_suggestions_prompt">Disable App Suggestions</string>
     <string name="msg_disable_suggestions_prompt">"Usage data will be deleted."</string>
@@ -251,10 +204,6 @@
     <string name="debug_component_name">Component Name</string>
     <string name="debug_component_name_copied">Copied to clipboard.</string>
 
-    <string name="dock_style_pref_title">Dock Style</string>
-
-    <string name="dock_style_hidden">Hidden</string>
-
     <string name="add_settings_shortcut_title">Add Shortcut to Desktop</string>
 
     <string name="low_performance_mode_pref_title">Low Performance Mode</string>
@@ -266,16 +215,6 @@
 
     <string name="pref_category_layout">Layout</string>
 
-    <string name="title_attribouter_email">Email</string>
-
-    <string name="title_attribouter_version">Version %1$s</string>
-    <string name="title_attribouter_license">License</string>
-    <string name="title_attribouter_license_permissions">Permissions</string>
-    <string name="title_attribouter_license_conditions">Conditions</string>
-    <string name="title_attribouter_license_limitations">Limitations</string>
-    <string name="title_attribouter_more_info">Details</string>
-    <string name="title_attribouter_translators">Translators</string>
-
     <string name="debug_crash_launcher">Force Stop</string>
 
     <string name="action_last_task">Launch Last Used App</string>
@@ -284,8 +223,6 @@
     <string name="action_app_search">Launch App Search</string>
     <string name="action_close_notifications">Close Notification Panel</string>
     <string name="action_open_app_with_target">Open “%s”</string>
-
-    <string name="default_city">Lucerne, CH</string>
 
     <string name="error_no_browser">No browser found.</string>
     <string name="icon_pack_external_picker">Open External Picker</string>
@@ -319,8 +256,6 @@
     <string name="theme_black_dark_text">Black w/ Dark Text</string>
     <string name="theme_dark_theme_mode_follow_wallpaper">@string/theme_auto</string>
     <string name="theme_dark_theme_mode_follow_system">@string/theme_auto_night_mode</string>
-
-    <string name="recents_not_connected">QuickSwitch is disabled.</string>
 
     <string name="recent_task_option_popup_window">Dialog</string>
 
@@ -360,8 +295,6 @@
 
     <string name="pref_show_dev_options">Show in Settings</string>
 
-    <string name="dock_scale">Dock Size</string>
-
     <string name="open_image_picker">Open Photos</string>
     <string name="import_icon">Import Icon</string>
     <string name="import_as_adaptive">Import Adaptive Icon</string>
@@ -386,16 +319,6 @@
 
     <!-- Section 13 -->
 
-    <string name="quickstep_pref_title">Recents</string>
-    <string name="quickstep_pref_summary">Gestures, Style, Navigation</string>
-
-    <string name="swipe_up_to_switch_apps_title">Swipe up to Switch Apps</string>
-    <string name="swipe_left_to_go_back_title">Swipe Left to Go Back</string>
-
-    <string name="pref_category_nav_swipe_up_gestures">Swipe Up</string>
-    <string name="gesture_nav_swipe_up_left">From Left</string>
-    <string name="gesture_nav_swipe_up_center">From Center</string>
-    <string name="gesture_nav_swipe_up_right">From Right</string>
     <string name="action_switch_apps">Switch Apps</string>
 
     <string name="icon_shape_system_default">Set by System</string>

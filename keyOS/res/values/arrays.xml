@@ -22,18 +22,6 @@
         <item>14</item> <!-- 01110 -->
     </string-array>
 
-    <string-array name="dockStyles">
-        <item>@string/theme_default</item>
-        <item>@string/dock_style_hidden</item>
-        <item>@string/custom</item>
-    </string-array>
-
-    <string-array name="dockStyleValues">
-        <item>1</item>
-        <item>2</item>
-        <item>0</item>
-    </string-array>
-
     <string-array name="feedThemes">
         <item>@string/theme_based</item>
         <item>@string/theme_light</item>

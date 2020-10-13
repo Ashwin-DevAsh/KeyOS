@@ -111,8 +111,6 @@ android {
             applicationId 'tech.DevAsh.keyOS'
             testApplicationId 'tech.DevAsh.keyOS.tests'
 
-            resValue "string", "xmlApplicationId", applicationId
-            resValue "string", "settingsApplicationId", "package:$applicationId"
 
             buildConfigField "boolean", "HAS_LEAKCANARY", "false"
             buildConfigField "boolean", "DEBUG_STRICT_MODE", "false"
