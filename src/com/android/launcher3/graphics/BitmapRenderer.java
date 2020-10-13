@@ -20,7 +20,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Picture;
 import android.os.Build;
-
 import com.android.launcher3.Utilities;
 
 public class BitmapRenderer {

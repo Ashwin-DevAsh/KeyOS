@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
-
 import tech.DevAsh.Launcher.KioskLauncher;
 import tech.DevAsh.Launcher.animations.KioskAppTransitionManagerImpl;
 import com.android.launcher3.AbstractFloatingView;
@@ -21,7 +20,6 @@ import com.android.launcher3.util.InstantAppResolver;
 import com.android.launcher3.util.PackageManagerHelper;
 import com.android.launcher3.util.PackageUserKey;
 import com.android.launcher3.widget.WidgetsBottomSheet;
-
 import java.util.List;
 
 /**

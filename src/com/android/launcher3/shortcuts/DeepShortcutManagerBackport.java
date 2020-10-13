@@ -18,7 +18,6 @@ package com.android.launcher3.shortcuts;
 
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.LauncherActivityInfo;
 import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager;
@@ -27,18 +26,13 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
-
 import com.android.launcher3.Utilities;
 import com.android.launcher3.config.FeatureFlags;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.xmlpull.v1.XmlPullParser;
 
 public class DeepShortcutManagerBackport {
     static Drawable getShortcutIconDrawable(ShortcutInfoCompat shortcutInfo, int density) {

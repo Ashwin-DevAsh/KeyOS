@@ -35,7 +35,6 @@ import android.util.Log;
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.dragndrop.FolderAdaptiveIcon;
-
 import java.nio.ByteBuffer;
 
 public class IconNormalizer {

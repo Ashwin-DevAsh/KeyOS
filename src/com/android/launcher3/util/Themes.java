@@ -21,7 +21,6 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.drawable.Drawable;
-
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.util.TypedValue;

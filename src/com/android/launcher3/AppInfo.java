@@ -25,7 +25,6 @@ import android.os.Build;
 import android.os.Process;
 import android.os.UserHandle;
 import com.android.launcher3.compat.UserManagerCompat;
-import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.PackageManagerHelper;
 import java.io.Serializable;

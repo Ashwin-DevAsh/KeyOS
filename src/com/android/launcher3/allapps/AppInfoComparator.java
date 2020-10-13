@@ -18,12 +18,10 @@ package com.android.launcher3.allapps;
 import android.content.Context;
 import android.os.Process;
 import android.os.UserHandle;
-
 import tech.DevAsh.Launcher.override.AppInfoProvider;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.compat.UserManagerCompat;
 import com.android.launcher3.util.LabelComparator;
-
 import java.util.Comparator;
 
 /**

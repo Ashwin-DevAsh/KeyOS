@@ -20,7 +20,6 @@ import android.appwidget.AppWidgetHostView;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Process;
-
 import com.android.launcher3.model.PackageItemInfo;
 import com.android.launcher3.util.ContentWriter;
 

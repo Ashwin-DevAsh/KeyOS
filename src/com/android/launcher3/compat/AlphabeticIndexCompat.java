@@ -6,9 +6,7 @@ import android.icu.text.AlphabeticIndex;
 import android.os.Build;
 import android.os.LocaleList;
 import android.util.Log;
-
 import com.android.launcher3.Utilities;
-
 import java.lang.reflect.Method;
 import java.util.Locale;
 

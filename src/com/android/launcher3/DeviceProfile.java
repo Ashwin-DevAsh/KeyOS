@@ -27,10 +27,10 @@ import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.view.Surface;
 import android.view.WindowManager;
-import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.CellLayout.ContainerType;
 import com.android.launcher3.badge.BadgeRenderer;
 import com.android.launcher3.graphics.IconNormalizer;
+import tech.DevAsh.Launcher.KioskPreferences;
 
 public class DeviceProfile implements KioskPreferences.OnPreferenceChangeListener {
 

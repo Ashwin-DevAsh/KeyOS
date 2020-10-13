@@ -17,16 +17,13 @@ package com.android.launcher3.logging;
 
 import android.os.Process;
 import android.text.TextUtils;
-
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherAppWidgetInfo;
 import com.android.launcher3.LauncherSettings;
-import com.android.launcher3.model.nano.LauncherDumpProto;
 import com.android.launcher3.model.nano.LauncherDumpProto.ContainerType;
 import com.android.launcher3.model.nano.LauncherDumpProto.DumpTarget;
 import com.android.launcher3.model.nano.LauncherDumpProto.ItemType;
 import com.android.launcher3.model.nano.LauncherDumpProto.UserType;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,9 +101,9 @@ public class DumpTargetWrapper {
             return "";
         }
         switch (t.type) {
-            case LauncherDumpProto.DumpTarget.Type.ITEM:
+            case DumpTarget.Type.ITEM:
                 return getItemStr(t);
-            case LauncherDumpProto.DumpTarget.Type.CONTAINER:
+            case DumpTarget.Type.CONTAINER:
                 String str = LoggerUtils.getFieldName(t.containerType, ContainerType.class);
                 if (t.containerType == ContainerType.WORKSPACE) {
                     str += " id=" + t.pageId;

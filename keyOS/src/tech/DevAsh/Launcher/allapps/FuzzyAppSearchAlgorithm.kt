@@ -26,34 +26,17 @@ import tech.DevAsh.Launcher.KioskPrefs
 import com.android.launcher3.AppFilter
 import com.android.launcher3.AppInfo
 import com.android.launcher3.LauncherAppState
-import com.android.launcher3.allapps.search.AllAppsSearchBarController
-import com.android.launcher3.allapps.search.SearchAlgorithm
 import com.android.launcher3.compat.LauncherAppsCompat
 import com.android.launcher3.compat.UserManagerCompat
 import me.xdrop.fuzzywuzzy.FuzzySearch
 import me.xdrop.fuzzywuzzy.ToStringFunction
 
-class FuzzyAppSearchAlgorithm(private val context: Context, private val apps: List<AppInfo>) :
-        SearchAlgorithm {
+class FuzzyAppSearchAlgorithm(private val context: Context, private val apps: List<AppInfo>) {
 
     private var resultHandler: Handler = Handler()
     private var suggestionsHandler: Handler = Handler()
     private var filter: AppFilter = AppFilter.newInstance(context)
 
-    override fun doSearch(query: String, callback: AllAppsSearchBarController.Callbacks) {
-        val res = query(context, query, apps, filter).map { it.toComponentKey() }
-        resultHandler.post {
-            callback.onSearchResult(query, ArrayList(res))
-        }
-
-    }
-
-    override fun cancel(interruptActiveRequests: Boolean) {
-        if (interruptActiveRequests) {
-            resultHandler.removeCallbacksAndMessages(null)
-            suggestionsHandler.removeCallbacksAndMessages(null)
-        }
-    }
 
 
 

@@ -15,11 +15,9 @@
  */
 package com.android.launcher3.logging;
 
-import android.content.Context;
 import android.util.ArrayMap;
 import android.util.SparseArray;
 import android.view.View;
-
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.ButtonDropTarget;
 import com.android.launcher3.ItemInfo;
@@ -33,7 +31,6 @@ import com.android.launcher3.userevent.nano.LauncherLogProto.LauncherEvent;
 import com.android.launcher3.userevent.nano.LauncherLogProto.Target;
 import com.android.launcher3.userevent.nano.LauncherLogProto.TipType;
 import com.android.launcher3.util.InstantAppResolver;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 

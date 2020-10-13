@@ -16,13 +16,12 @@
 
 package com.android.launcher3;
 
-import android.Manifest;
 import android.Manifest.permission;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.AlarmManager;
 import android.app.WallpaperManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
@@ -36,7 +35,14 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
-import android.graphics.*;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -51,11 +57,11 @@ import android.os.Process;
 import android.os.TransactionTooLargeException;
 import android.os.UserHandle;
 import android.provider.Settings;
-import androidx.core.app.NotificationCompat;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
@@ -73,17 +79,17 @@ import android.util.Property;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
-import android.view.animation.Interpolator;
-
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Interpolator;
 import android.widget.Toast;
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.HiddenApiCompat;
 import tech.DevAsh.Launcher.KioskAppKt;
+import tech.DevAsh.Launcher.KioskLauncher;
+import tech.DevAsh.Launcher.KioskPreferences;
+import tech.DevAsh.Launcher.settings.ui.SettingsActivity;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.config.FeatureFlags;
-
 import com.android.launcher3.graphics.BitmapInfo;
 import com.android.launcher3.graphics.LauncherIcons;
 import com.android.launcher3.util.PackageManagerHelper;
@@ -110,10 +116,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import tech.DevAsh.Launcher.KioskLauncher;
-import tech.DevAsh.Launcher.KioskPreferences;
-import tech.DevAsh.Launcher.settings.ui.SettingsActivity;
-
 /**
  * Various utilities shared amongst the Launcher's classes.
  */
@@ -134,25 +136,25 @@ public final class Utilities {
             Build.VERSION.CODENAME.charAt(0) >= 'Q' && Build.VERSION.CODENAME.charAt(0) <= 'Z';
 
     public static final boolean ATLEAST_P =
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.P;
+            Build.VERSION.SDK_INT >= VERSION_CODES.P;
 
     public static final boolean ATLEAST_OREO_MR1 =
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1;
+            Build.VERSION.SDK_INT >= VERSION_CODES.O_MR1;
 
     public static final boolean ATLEAST_OREO =
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
+            Build.VERSION.SDK_INT >= VERSION_CODES.O;
 
     public static final boolean ATLEAST_NOUGAT_MR1 =
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1;
+            Build.VERSION.SDK_INT >= VERSION_CODES.N_MR1;
 
     public static final boolean ATLEAST_NOUGAT =
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
+            Build.VERSION.SDK_INT >= VERSION_CODES.N;
 
     public static final boolean ATLEAST_MARSHMALLOW =
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+            Build.VERSION.SDK_INT >= VERSION_CODES.M;
 
     public static final boolean ATLEAST_LOLLIPOP_MR1 =
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1;
+            Build.VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP_MR1;
 
     public static boolean HIDDEN_APIS_ALLOWED = !ATLEAST_P || HiddenApiCompat.checkIfAllowed();
 
@@ -593,8 +595,9 @@ public final class Utilities {
         if (ATLEAST_NOUGAT) {
             try {
                 WallpaperManager wm = context.getSystemService(WallpaperManager.class);
-                return (Boolean) wm.getClass().getDeclaredMethod("isSetWallpaperAllowed").invoke(wm);
-            } catch (Exception ignored) { }
+                return (Boolean) wm.getClass().getDeclaredMethod("isSetWallpaperAllowed")
+                        .invoke(wm);
+            } catch (Exception e) { }
         }
         return true;
     }
@@ -680,7 +683,7 @@ public final class Utilities {
     /**
      * ATTENTION: Only ever call this from within KioskLauncher.kt
      */
-    public static void onLauncherStart() {
+    public /* private */ static void onLauncherStart() {
         Log.d(TAG, "onLauncherStart: " + onStart.size());
         for(Runnable r : onStart)
             r.run();
@@ -829,7 +832,7 @@ public final class Utilities {
     }
 
     public static boolean hasStoragePermission(Context context) {
-        return hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE);
+        return hasPermission(context, permission.READ_EXTERNAL_STORAGE);
     }
 
     public static boolean hasPermission(Context context, String permission) {
@@ -838,11 +841,11 @@ public final class Utilities {
     }
 
     public static boolean hasNeededPermission(Context context) {
-        return hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) && hasPermission(context, Manifest.permission.READ_PHONE_STATE);
+        return hasPermission(context, permission.READ_EXTERNAL_STORAGE) && hasPermission(context, permission.READ_PHONE_STATE);
     }
 
     public static boolean isAtLeastAndroidQ() {
-        return android.os.Build.VERSION.SDK_INT >= 29;
+        return Build.VERSION.SDK_INT >= 29;
     }
 
     public static boolean shouldRequestIMEIPermission() {
@@ -851,14 +854,14 @@ public final class Utilities {
 
     public static void requestNeededPermission(Activity activity) {
         if (shouldRequestIMEIPermission()) {
-            ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.READ_PHONE_STATE}, KioskLauncher.REQUEST_PERMISSION_NEEDED_ACCESS);
+            ActivityCompat.requestPermissions(activity, new String[]{permission.READ_EXTERNAL_STORAGE, permission.READ_PHONE_STATE}, KioskLauncher.REQUEST_PERMISSION_NEEDED_ACCESS);
         } else {
-            ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, KioskLauncher.REQUEST_PERMISSION_NEEDED_ACCESS);
+            ActivityCompat.requestPermissions(activity, new String[]{permission.READ_EXTERNAL_STORAGE}, KioskLauncher.REQUEST_PERMISSION_NEEDED_ACCESS);
         }
     }
 
     public static void requestStoragePermission(Activity activity) {
-        ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, KioskLauncher.REQUEST_PERMISSION_STORAGE_ACCESS);
+        ActivityCompat.requestPermissions(activity, new String[]{permission.READ_EXTERNAL_STORAGE}, KioskLauncher.REQUEST_PERMISSION_STORAGE_ACCESS);
     }
 
     public static void requestLocationPermission(Activity activity) {
@@ -895,7 +898,8 @@ public final class Utilities {
     }
 
     public static Boolean hasKnoxSecureFolder(Context context) {
-        return PackageManagerHelper.isAppInstalled(context.getPackageManager(), "com.samsung.knox.securefolder", 0);
+        return PackageManagerHelper
+                .isAppInstalled(context.getPackageManager(), "com.samsung.knox.securefolder", 0);
     }
 
     public static void openURLinBrowser(Context context, String url) {
@@ -989,7 +993,6 @@ public final class Utilities {
     /**
      * Utility method to post a runnable on the handler, skipping the synchronization barriers.
      */
-    @androidx.annotation.RequiresApi(api = VERSION_CODES.LOLLIPOP_MR1)
     public static void postAsyncCallback(Handler handler, Runnable callback) {
         Message msg = Message.obtain(handler, callback);
         msg.setAsynchronous(true);
@@ -997,11 +1000,11 @@ public final class Utilities {
     }
 
     public static boolean isRecentsEnabled() {
-        LauncherAppState las = LauncherAppState.getInstanceNoCreate();
-        if (las != null) {
-            Context context = las.getContext();
-            return false;
-        }
+//        LauncherAppState las = LauncherAppState.getInstanceNoCreate();
+//        if (las != null) {
+//            Context context = las.getContext();
+//            return KioskAppKt.getKioskApp(context).getRecentsEnabled();
+//        }
         return false;
     }
 
@@ -1054,7 +1057,7 @@ public final class Utilities {
 
     public static boolean hasWriteSecureSettingsPermission(Context context) {
         return ContextCompat.checkSelfPermission(context,
-                android.Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED;
+                permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED;
     }
 
     static int sDebugNotificationId = 1;
@@ -1067,7 +1070,7 @@ public final class Utilities {
 
                 String channelId = "default_channel_id";
                 String channelDescription = "Default Channel";
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                if (Build.VERSION.SDK_INT >= VERSION_CODES.O) {
                     // Check if notification channel exists and if not create one
                     NotificationChannel notificationChannel = mNotificationManager.getNotificationChannel(channelId);
                     if (notificationChannel == null) {

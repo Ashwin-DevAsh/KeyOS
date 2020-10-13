@@ -19,16 +19,11 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import androidx.core.graphics.ColorUtils;
 import android.util.SparseArray;
 import com.android.launcher3.Utilities;
 import java.util.HashSet;
 import java.util.Set;
 import kotlin.collections.ArraysKt;
-
-import static java.lang.Math.min;
-import static java.lang.Math.max;
-import static java.lang.Math.round;
 
 /**
  * Utility class for extracting colors from a bitmap.

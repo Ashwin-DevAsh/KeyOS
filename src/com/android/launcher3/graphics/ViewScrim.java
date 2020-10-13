@@ -20,7 +20,6 @@ import android.graphics.Canvas;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewParent;
-
 import com.android.launcher3.R;
 
 /**

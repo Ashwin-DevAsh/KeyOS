@@ -20,7 +20,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageInstaller;
 import androidx.annotation.NonNull;
-
 import java.util.HashMap;
 import java.util.List;
 

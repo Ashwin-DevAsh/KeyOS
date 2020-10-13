@@ -21,7 +21,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.BaseColumns;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -154,7 +153,7 @@ public class LauncherSettings {
         static final String containerToString(int container) {
             switch (container) {
                 case CONTAINER_DESKTOP: return "desktop";
-                case CONTAINER_HOTSEAT: return "desktop";
+                case CONTAINER_HOTSEAT: return "hotseat";
                 default: return String.valueOf(container);
             }
         }

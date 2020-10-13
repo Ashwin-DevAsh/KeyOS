@@ -17,12 +17,11 @@
 package com.android.launcher3;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-
+import androidx.recyclerview.widget.RecyclerView;
 import tech.DevAsh.Launcher.colors.ColorEngine;
 import tech.DevAsh.Launcher.colors.ColorEngine.OnColorChangeListener;
 import tech.DevAsh.Launcher.colors.ColorEngine.ResolveInfo;

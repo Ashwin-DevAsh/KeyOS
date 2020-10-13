@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import com.android.launcher3.LauncherAppWidgetProviderInfo;
 import com.android.launcher3.Utilities;
 
@@ -101,8 +100,8 @@ public class CustomAppWidgetProviderInfo extends LauncherAppWidgetProviderInfo
         out.writeInt(minSpanY);
     }
 
-    public static final Parcelable.Creator<CustomAppWidgetProviderInfo> CREATOR
-            = new Parcelable.Creator<CustomAppWidgetProviderInfo>() {
+    public static final Creator<CustomAppWidgetProviderInfo> CREATOR
+            = new Creator<CustomAppWidgetProviderInfo>() {
 
         @Override
         public CustomAppWidgetProviderInfo createFromParcel(Parcel parcel) {

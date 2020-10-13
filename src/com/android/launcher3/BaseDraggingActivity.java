@@ -26,21 +26,19 @@ import android.os.Bundle;
 import android.os.Process;
 import android.os.StrictMode;
 import android.os.UserHandle;
-import androidx.annotation.NonNull;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.View;
 import android.widget.Toast;
-
-import tech.DevAsh.Launcher.theme.ThemeOverride;
-import tech.DevAsh.Launcher.theme.ThemeOverride.ThemeSet;
+import androidx.annotation.NonNull;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.badge.BadgeInfo;
 import com.android.launcher3.compat.LauncherAppsCompat;
+import com.android.launcher3.shortcuts.DeepShortcutManager;
 import com.android.launcher3.uioverrides.DisplayRotationListener;
 import com.android.launcher3.uioverrides.WallpaperColorInfo;
-import com.android.launcher3.shortcuts.DeepShortcutManager;
 import com.android.launcher3.views.BaseDragLayer;
+import tech.DevAsh.Launcher.theme.ThemeOverride;
 
 /**
  * Extension of BaseActivity allowing support for drag-n-drop
@@ -79,7 +77,7 @@ public abstract class BaseDraggingActivity extends BaseActivity
     }
 
     @NonNull
-    protected ThemeSet getLauncherThemeSet() {
+    protected ThemeOverride.ThemeSet getLauncherThemeSet() {
         return new ThemeOverride.Launcher();
     }
 
@@ -205,7 +203,7 @@ public abstract class BaseDraggingActivity extends BaseActivity
                 StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll()
                         .penaltyLog().build());
 
-                if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT) {
+                if (info.itemType == Favorites.ITEM_TYPE_DEEP_SHORTCUT) {
                     String id = ((ShortcutInfo) info).getDeepShortcutId();
                     String packageName = intent.getPackage();
                     DeepShortcutManager.getInstance(this).startShortcut(

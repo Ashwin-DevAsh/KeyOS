@@ -23,7 +23,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

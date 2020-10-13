@@ -19,7 +19,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.widget.WidgetAddFlowHandler;
 
@@ -107,8 +106,8 @@ public class PendingRequestArgs extends ItemInfo implements Parcelable {
         return args;
     }
 
-    public static final Parcelable.Creator<PendingRequestArgs> CREATOR =
-            new Parcelable.Creator<PendingRequestArgs>() {
+    public static final Creator<PendingRequestArgs> CREATOR =
+            new Creator<PendingRequestArgs>() {
                 public PendingRequestArgs createFromParcel(Parcel source) {
                     return new PendingRequestArgs(source);
                 }

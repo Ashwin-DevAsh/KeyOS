@@ -4,7 +4,6 @@ import android.app.backup.BackupAgent;
 import android.app.backup.BackupDataInput;
 import android.app.backup.BackupDataOutput;
 import android.os.ParcelFileDescriptor;
-
 import com.android.launcher3.logging.FileLog;
 import com.android.launcher3.provider.RestoreDbTask;
 

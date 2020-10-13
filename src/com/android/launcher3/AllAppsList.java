@@ -25,12 +25,10 @@ import android.os.UserHandle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.util.Log;
-
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.PackageInstallerCompat;
 import com.android.launcher3.util.FlagOp;
 import com.android.launcher3.util.ItemInfoMatcher;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -84,7 +82,8 @@ public class AllAppsList {
         added.add(info);
     }
 
-    public void addPromiseApp(Context context, PackageInstallerCompat.PackageInstallInfo installInfo) {
+    public void addPromiseApp(Context context,
+                              PackageInstallerCompat.PackageInstallInfo installInfo) {
         ApplicationInfo applicationInfo = LauncherAppsCompat.getInstance(context)
                 .getApplicationInfo(installInfo.packageName, 0, Process.myUserHandle());
         // only if not yet installed
@@ -220,7 +219,8 @@ public class AllAppsList {
      * Add and remove icons for this package, depending on visibility.
      */
     public void reloadPackages(Context context, UserHandle user) {
-        for (final LauncherActivityInfo info : LauncherAppsCompat.getInstance(context).getActivityList(null, user)) {
+        for (final LauncherActivityInfo info : LauncherAppsCompat
+                .getInstance(context).getActivityList(null, user)) {
             AppInfo applicationInfo = findAppInfo(info.getComponentName(), user);
             if (applicationInfo == null) {
                 add(new AppInfo(context, info, user), info);
@@ -254,7 +254,8 @@ public class AllAppsList {
      *
      * @return the corresponding AppInfo or null
      */
-    private @Nullable AppInfo findAppInfo(@NonNull ComponentName componentName,
+    private @Nullable
+    AppInfo findAppInfo(@NonNull ComponentName componentName,
                                           @NonNull UserHandle user) {
         for (AppInfo info: data) {
             if (componentName.equals(info.componentName) && user.equals(info.user)) {

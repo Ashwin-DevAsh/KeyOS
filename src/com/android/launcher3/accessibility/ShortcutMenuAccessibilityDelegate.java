@@ -21,7 +21,6 @@ import static com.android.launcher3.LauncherState.NORMAL;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
-
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
@@ -30,7 +29,6 @@ import com.android.launcher3.R;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.notification.NotificationMainView;
 import com.android.launcher3.shortcuts.DeepShortcutView;
-
 import java.util.ArrayList;
 
 /**

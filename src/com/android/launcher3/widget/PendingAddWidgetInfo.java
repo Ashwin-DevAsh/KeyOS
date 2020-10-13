@@ -17,7 +17,6 @@ package com.android.launcher3.widget;
 
 import android.appwidget.AppWidgetHostView;
 import android.os.Bundle;
-
 import com.android.launcher3.LauncherAppWidgetProviderInfo;
 import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.PendingAddItemInfo;

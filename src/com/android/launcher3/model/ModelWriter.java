@@ -25,9 +25,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-
 import tech.DevAsh.Launcher.iconpack.IconPackManager;
-import com.android.launcher3.*;
 import com.android.launcher3.FolderInfo;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherAppState;
@@ -35,14 +33,15 @@ import com.android.launcher3.LauncherAppWidgetHost;
 import com.android.launcher3.LauncherAppWidgetInfo;
 import com.android.launcher3.LauncherModel;
 import com.android.launcher3.LauncherModel.Callbacks;
+import com.android.launcher3.LauncherProvider;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.LauncherSettings.Settings;
 import com.android.launcher3.ShortcutInfo;
+import com.android.launcher3.Utilities;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.util.ContentWriter;
 import com.android.launcher3.util.ItemInfoMatcher;
 import com.android.launcher3.util.LooperExecutor;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -312,12 +311,12 @@ public class ModelWriter {
 
         enqueueDeleteRunnable(() -> {
             ContentResolver cr = mContext.getContentResolver();
-            cr.delete(LauncherSettings.Favorites.CONTENT_URI,
-                    LauncherSettings.Favorites.CONTAINER + "=" + info.id, null);
+            cr.delete(Favorites.CONTENT_URI,
+                    Favorites.CONTAINER + "=" + info.id, null);
             mBgDataModel.removeItem(mContext, info.contents);
             info.contents.clear();
 
-            cr.delete(LauncherSettings.Favorites.getContentUri(info.id), null, null);
+            cr.delete(Favorites.getContentUri(info.id), null, null);
             mBgDataModel.removeItem(mContext, info);
             verifier.verifyModel();
         });

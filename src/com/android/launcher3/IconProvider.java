@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.LauncherActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import java.util.Locale;
 

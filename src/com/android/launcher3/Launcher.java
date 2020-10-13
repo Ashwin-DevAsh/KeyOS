@@ -20,8 +20,8 @@ import static android.content.pm.ActivityInfo.CONFIG_ORIENTATION;
 import static android.content.pm.ActivityInfo.CONFIG_SCREEN_SIZE;
 import static com.android.launcher3.AbstractFloatingView.TYPE_SNACKBAR;
 import static com.android.launcher3.LauncherAnimUtils.SPRING_LOADED_EXIT_DELAY;
-import static com.android.launcher3.LauncherState.SEARCH;
 import static com.android.launcher3.LauncherState.NORMAL;
+import static com.android.launcher3.LauncherState.SEARCH;
 import static com.android.launcher3.dragndrop.DragLayer.ALPHA_INDEX_LAUNCHER_LOAD;
 import static com.android.launcher3.logging.LoggerUtils.newTarget;
 
@@ -49,13 +49,14 @@ import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Point;
 import android.os.Build;
-import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.Process;
+import android.os.StrictMode;
+import android.os.StrictMode.OnVmViolationListener;
 import android.os.UserHandle;
-import androidx.annotation.Nullable;
+import android.os.strictmode.Violation;
 import android.text.TextUtils;
 import android.text.method.TextKeyListener;
 import android.util.Log;
@@ -71,10 +72,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Toast;
-
-import androidx.annotation.RequiresApi;
-import tech.DevAsh.KeyOS.Database.RealmHelper;
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
+import androidx.annotation.Nullable;
 import tech.DevAsh.Launcher.*;
 import com.android.launcher3.DropTarget.DragObject;
 import com.android.launcher3.LauncherStateManager.StateListener;
@@ -108,6 +106,7 @@ import com.android.launcher3.userevent.nano.LauncherLogProto.Target;
 import com.android.launcher3.util.ActivityResultInfo;
 import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.ItemInfoMatcher;
+import com.android.launcher3.util.LooperExecutor;
 import com.android.launcher3.util.MultiHashMap;
 import com.android.launcher3.util.MultiValueAlpha;
 import com.android.launcher3.util.MultiValueAlpha.AlphaProperty;
@@ -130,7 +129,6 @@ import com.android.launcher3.widget.WidgetHostViewLoader;
 import com.android.launcher3.widget.WidgetListRowEntry;
 import com.android.launcher3.widget.WidgetsFullSheet;
 import com.android.launcher3.widget.custom.CustomWidgetParser;
-
 import com.google.android.apps.nexuslauncher.NexusLauncherActivity;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -139,7 +137,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import tech.DevAsh.keyOS.Database.User;
 
 /**
  * Default launcher application.
@@ -193,7 +190,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     private LauncherAppTransitionManager mAppTransitionManager;
     private Configuration mOldConfig;
 
-    @Thunk Workspace mWorkspace;
+    @Thunk
+    Workspace mWorkspace;
     private View mLauncherView;
     @Thunk DragLayer mDragLayer;
     private DragController mDragController;
@@ -207,7 +205,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     @Thunk Hotseat mHotseat;
     @Thunk PageIndicatorDots mPageIndicatorDots;
 
-//    private DropTargetBar mDropTargetBar;
+    private DropTargetBar mDropTargetBar;
 
     // Main container view for the all apps screen.
 
@@ -253,11 +251,6 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        RealmHelper.INSTANCE.init(this);
-        User.getUsers();
-
-        Kiosk.INSTANCE.startKiosk(this);
-
         TraceHelper.beginSection("Launcher-onCreate");
 
         super.onCreate(savedInstanceState);
@@ -266,6 +259,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         LauncherAppState app = LauncherAppState.getInstance(this);
         KioskPreferences prefs = Utilities.getKioskPrefs(this);
 
+        // 首次使用显示加载中
         if (!prefs.getDesktopInitialized()) {
             if (mProgressDialog == null) {
                 mProgressDialog = new ProgressDialog(Launcher.this);
@@ -776,7 +770,6 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     private void logOnDelayedResume() {
     }
 
-    @RequiresApi(api = VERSION_CODES.LOLLIPOP_MR1)
     @Override
     protected void onResume() {
         TraceHelper.beginSection("ON_RESUME");
@@ -801,7 +794,6 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         UiFactory.onLauncherStateOrResumeChanged(this);
 
         mWorkspace.organizeCurrentPage();
-
 
 
         TraceHelper.endSection("ON_RESUME");
@@ -992,12 +984,14 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         mDragController.addDragListener(mWorkspace);
 
         // Get the search/delete/uninstall bar
-//        mDropTargetBar = mDragLayer.findViewById(R.id.drop_target_bar);
+        mDropTargetBar = mDragLayer.findViewById(R.id.drop_target_bar);
+
+        mDropTargetBar.setVisibility(View.VISIBLE);
 
 
         // Setup the drag controller (drop targets have to be added in reverse order in priority)
         mDragController.setMoveTarget(mWorkspace);
-//        mDropTargetBar.setup(mDragController);
+        mDropTargetBar.setup(mDragController);
     }
 
     /**
@@ -1213,7 +1207,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         return mQsbContainer;
     }
 
-    public Hotseat getHotSeat() {
+    public Hotseat getHotseat() {
         return mHotseat;
     }
 
@@ -1221,9 +1215,9 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         return (T) mOverviewPanel;
     }
 
-//    public DropTargetBar getDropTargetBar() {
-//        return mDropTargetBar;
-//    }
+    public DropTargetBar getDropTargetBar() {
+        return mDropTargetBar;
+    }
 
     public LauncherAppWidgetHost getAppWidgetHost() {
         return mAppWidgetHost;
@@ -1244,7 +1238,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     public int getOrientation() { return mOldConfig.orientation; }
 
     @Override
-    protected void onNewIntent(Intent intent){
+    protected void onNewIntent(Intent intent) {
         TraceHelper.beginSection("NEW_INTENT");
         super.onNewIntent(intent);
 

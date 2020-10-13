@@ -52,7 +52,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.Alarm;
 import com.android.launcher3.AppInfo;
@@ -70,7 +69,6 @@ import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherModel;
 import com.android.launcher3.LauncherSettings;
-import com.android.launcher3.LauncherState;
 import com.android.launcher3.OnAlarmListener;
 import com.android.launcher3.PagedView;
 import com.android.launcher3.R;
@@ -87,7 +85,6 @@ import com.android.launcher3.pageindicators.PageIndicatorDots;
 import com.android.launcher3.util.Thunk;
 import com.android.launcher3.views.ClipPathView;
 import com.android.launcher3.widget.PendingAddShortcutInfo;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -150,7 +147,8 @@ public class Folder extends AbstractFloatingView implements DragSource,
 
     @Thunk FolderIcon mFolderIcon;
 
-    @Thunk FolderPagedView mContent;
+    @Thunk
+    FolderPagedView mContent;
     public ExtendedEditText mFolderName;
     private PageIndicatorDots mPageIndicator;
 
@@ -329,7 +327,7 @@ public class Folder extends AbstractFloatingView implements DragSource,
     }
 
     @Override
-    public void onDragStart(DropTarget.DragObject dragObject, DragOptions options) {
+    public void onDragStart(DragObject dragObject, DragOptions options) {
         if (dragObject.dragSource != this) {
             return;
         }
@@ -782,7 +780,8 @@ public class Folder extends AbstractFloatingView implements DragSource,
             mPrevTargetRank = mTargetRank;
 
             if (d.stateAnnouncer != null) {
-                d.stateAnnouncer.announce(getContext().getString(R.string.move_to_position, mTargetRank + 1));
+                d.stateAnnouncer.announce(getContext().getString(R.string.move_to_position,
+                        mTargetRank + 1));
             }
         }
 
@@ -1536,9 +1535,9 @@ public class Folder extends AbstractFloatingView implements DragSource,
             } else if (!dl.isEventOverView(this, ev)) {
                 if (mLauncher.getAccessibilityDelegate().isInAccessibleDrag()) {
                     // Do not close the container if in drag and drop.
-//                    if (!dl.isEventOverView(mLauncher.getDropTargetBar(), ev)) {
-//                        return true;
-//                    }
+                    if (!dl.isEventOverView(mLauncher.getDropTargetBar(), ev)) {
+                        return true;
+                    }
                 } else {
                     close(true);
                     return true;

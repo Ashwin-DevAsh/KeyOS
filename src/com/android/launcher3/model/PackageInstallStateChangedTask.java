@@ -19,7 +19,6 @@ import android.content.ComponentName;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Process;
-
 import com.android.launcher3.AllAppsList;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.ItemInfo;
@@ -32,7 +31,6 @@ import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.compat.PackageInstallerCompat;
 import com.android.launcher3.compat.PackageInstallerCompat.PackageInstallInfo;
 import com.android.launcher3.util.InstantAppResolver;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 

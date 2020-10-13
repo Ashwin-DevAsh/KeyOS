@@ -3,7 +3,6 @@ package com.android.launcher3.shortcuts;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.UserHandle;
-
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.util.ComponentKey;
 

@@ -36,7 +36,6 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.AdapterView;
 import android.widget.Advanceable;
 import android.widget.RemoteViews;
-
 import com.android.launcher3.CheckLongPressHelper;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
@@ -48,7 +47,6 @@ import com.android.launcher3.StylusEventHelper;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.dragndrop.DragLayer;
 import com.android.launcher3.views.BaseDragLayer.TouchCompleteListener;
-
 import com.android.launcher3.widget.custom.CustomAppWidgetProviderInfo;
 import java.util.ArrayList;
 

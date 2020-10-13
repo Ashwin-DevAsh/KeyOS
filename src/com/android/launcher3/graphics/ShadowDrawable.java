@@ -32,15 +32,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
-
 import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
-
+import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
 
 /**
  * A drawable which adds shadow around a child drawable.

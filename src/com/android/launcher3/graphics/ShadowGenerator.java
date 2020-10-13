@@ -28,7 +28,6 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import androidx.core.graphics.ColorUtils;
-
 import com.android.launcher3.LauncherAppState;
 
 /**

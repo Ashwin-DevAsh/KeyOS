@@ -20,7 +20,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.accessibility.LauncherAccessibilityDelegate;
 import com.android.launcher3.dragndrop.DragOptions;
@@ -52,7 +51,7 @@ public class DeleteDropTarget extends ButtonDropTarget {
     }
 
     @Override
-    public void onDragStart(DropTarget.DragObject dragObject, DragOptions options) {
+    public void onDragStart(DragObject dragObject, DragOptions options) {
         super.onDragStart(dragObject, options);
         setTextBasedOnDragSource(dragObject.dragInfo);
         setControlTypeBasedOnDragSource(dragObject.dragInfo);

@@ -9,9 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Handler;
-import androidx.annotation.WorkerThread;
 import android.util.Log;
-
+import androidx.annotation.WorkerThread;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.model.LoaderTask;
@@ -88,8 +87,8 @@ public class AppWidgetsRestoredReceiver extends BroadcastReceiver {
             String[] widgetIdParams = new String[] { Integer.toString(oldWidgetIds[i]) };
             int result = new ContentWriter(context, new ContentWriter.CommitParams(
                     "appWidgetId=? and (restored & 1) = 1", widgetIdParams))
-                    .put(LauncherSettings.Favorites.APPWIDGET_ID, newWidgetIds[i])
-                    .put(LauncherSettings.Favorites.RESTORED, state)
+                    .put(Favorites.APPWIDGET_ID, newWidgetIds[i])
+                    .put(Favorites.RESTORED, state)
                     .commit();
 
             if (result == 0) {

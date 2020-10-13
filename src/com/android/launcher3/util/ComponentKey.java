@@ -20,10 +20,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.os.Process;
 import android.os.UserHandle;
-
 import com.android.launcher3.Utilities;
 import com.android.launcher3.compat.UserManagerCompat;
-
 import java.util.Arrays;
 
 public class ComponentKey {

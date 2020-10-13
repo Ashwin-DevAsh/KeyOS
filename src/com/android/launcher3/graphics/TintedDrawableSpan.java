@@ -21,7 +21,6 @@ import android.graphics.Paint;
 import android.graphics.Paint.FontMetricsInt;
 import android.graphics.drawable.Drawable;
 import android.text.style.DynamicDrawableSpan;
-
 import com.android.launcher3.Utilities;
 
 /**

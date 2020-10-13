@@ -29,7 +29,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.LauncherActivityInfo;
-import android.content.pm.PackageInstaller;
 import android.content.pm.PackageInstaller.SessionInfo;
 import android.graphics.Bitmap;
 import android.os.Handler;
@@ -39,8 +38,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.LongSparseArray;
 import android.util.MutableInt;
-
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.iconpack.IconPackManager;
 import tech.DevAsh.Launcher.model.HomeWidgetMigrationTask;
@@ -75,7 +72,6 @@ import com.android.launcher3.util.MultiHashMap;
 import com.android.launcher3.util.PackageManagerHelper;
 import com.android.launcher3.util.Provider;
 import com.android.launcher3.util.TraceHelper;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -842,9 +838,6 @@ public class LoaderTask implements Runnable {
     }
 
     private void loadAllApps() {
-
-        //loading all apps
-
         final List<UserHandle> profiles = mUserManager.getUserProfiles();
 
         // Clear the list of apps
@@ -861,16 +854,14 @@ public class LoaderTask implements Runnable {
             for (int i = 0; i < apps.size(); i++) {
                 LauncherActivityInfo app = apps.get(i);
                 // This builds the icon bitmaps.
-                if(Kiosk.INSTANCE.isAllowedPackage(app.getApplicationInfo().packageName)){
-                    mBgAllAppsList.add(new AppInfo(app, user, quietMode), app);
-
-                }
+                mBgAllAppsList.add(new AppInfo(app, user, quietMode), app);
             }
         }
 
         if (FeatureFlags.LAUNCHER3_PROMISE_APPS_IN_ALL_APPS) {
-            // get all active sessions and add them to the all apps lis
-            for (PackageInstaller.SessionInfo info : mPackageInstaller.getAllVerifiedSessions()) {
+            // get all active sessions and add them to the all apps list
+            for (SessionInfo info :
+                    mPackageInstaller.getAllVerifiedSessions()) {
                 mBgAllAppsList.addPromiseApp(mApp.getContext(),
                         PackageInstallerCompat.PackageInstallInfo.fromInstallingState(info));
             }

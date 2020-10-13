@@ -18,29 +18,27 @@ package com.android.launcher3;
 
 import static java.lang.Math.max;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.Point;
-import androidx.annotation.VisibleForTesting;
 import android.util.DisplayMetrics;
 import android.util.Xml;
 import android.view.Display;
 import android.view.WindowManager;
-
+import androidx.annotation.VisibleForTesting;
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.settings.IconScale;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.util.Thunk;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 public class InvariantDeviceProfile {
 
@@ -126,25 +124,24 @@ public class InvariantDeviceProfile {
                 p.defaultLayoutId, p.demoModeLayoutId);
     }
 
-    //pref
     private InvariantDeviceProfile(String n, float w, float h, int r, int c, int fr, int fc,
             float is, float lis, float its, int hs, int dlId, int dmlId) {
         name = n;
         minWidthDps = w;
         minHeightDps = h;
         numRows = r;
-        numColumns = 4;
+        numColumns = c;
         numFolderRows = fr;
         numFolderColumns = fc;
         iconSize = is * 1.08f;
         landscapeIconSize = lis * 1.08f;
         iconTextSize = its * 0.98f;
-        numHotseatIcons = 4;
+        numHotseatIcons = hs;
         defaultLayoutId = dlId;
         demoModeLayoutId = dmlId;
     }
 
- 
+    @TargetApi(23)
     public InvariantDeviceProfile(Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
@@ -303,7 +300,8 @@ public class InvariantDeviceProfile {
         }
     }
 
-    @Thunk float dist(float x0, float y0, float x1, float y1) {
+    @Thunk
+    float dist(float x0, float y0, float x1, float y1) {
         return (float) Math.hypot(x1 - x0, y1 - y0);
     }
 

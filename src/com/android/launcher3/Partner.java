@@ -21,7 +21,6 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Pair;
-
 import java.io.File;
 
 /**

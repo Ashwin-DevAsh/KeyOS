@@ -17,19 +17,17 @@ package com.android.launcher3.model;
 
 import android.os.UserHandle;
 import android.util.Log;
-
 import com.android.launcher3.AllAppsList;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherModel;
-import com.android.launcher3.LauncherModel.ModelUpdateTask;
 import com.android.launcher3.LauncherModel.CallbackTask;
 import com.android.launcher3.LauncherModel.Callbacks;
+import com.android.launcher3.LauncherModel.ModelUpdateTask;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.ItemInfoMatcher;
 import com.android.launcher3.util.MultiHashMap;
 import com.android.launcher3.widget.WidgetListRowEntry;
-
 import java.util.ArrayList;
 import java.util.concurrent.Executor;
 

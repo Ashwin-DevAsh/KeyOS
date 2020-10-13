@@ -29,7 +29,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Log;
-
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.MainThreadExecutor;

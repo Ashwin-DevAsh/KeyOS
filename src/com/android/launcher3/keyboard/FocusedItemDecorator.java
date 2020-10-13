@@ -17,12 +17,12 @@
 package com.android.launcher3.keyboard;
 
 import android.graphics.Canvas;
+
+import android.view.View;
+import android.view.View.OnFocusChangeListener;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration;
 import androidx.recyclerview.widget.RecyclerView.State;
-import android.view.View;
-import android.view.View.OnFocusChangeListener;
-
 import com.android.launcher3.keyboard.FocusIndicatorHelper.SimpleFocusIndicatorHelper;
 
 /**

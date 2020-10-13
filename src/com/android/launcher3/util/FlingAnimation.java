@@ -9,7 +9,6 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
-
 import com.android.launcher3.ButtonDropTarget;
 import com.android.launcher3.DropTarget.DragObject;
 import com.android.launcher3.Launcher;

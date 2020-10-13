@@ -2,10 +2,8 @@ package com.android.launcher3.util;
 
 import android.os.UserHandle;
 import android.service.notification.StatusBarNotification;
-
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.shortcuts.DeepShortcutManager;
-
 import java.util.Arrays;
 
 /** Creates a hash key based on package name and user. */

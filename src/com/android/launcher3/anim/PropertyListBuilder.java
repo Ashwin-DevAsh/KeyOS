@@ -2,7 +2,6 @@ package com.android.launcher3.anim;
 
 import android.animation.PropertyValuesHolder;
 import android.view.View;
-
 import java.util.ArrayList;
 
 /**

@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteFullException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 import com.android.launcher3.Utilities;
 import com.android.launcher3.config.FeatureFlags;
 

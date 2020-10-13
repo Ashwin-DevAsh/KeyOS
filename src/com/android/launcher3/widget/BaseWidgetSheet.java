@@ -15,8 +15,6 @@
  */
 package com.android.launcher3.widget;
 
-import static com.android.launcher3.logging.LoggerUtils.newContainerTarget;
-
 import android.content.Context;
 import android.graphics.Point;
 import android.util.AttributeSet;
@@ -24,17 +22,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.Toast;
-
 import com.android.launcher3.DragSource;
 import com.android.launcher3.DropTarget.DragObject;
-import com.android.launcher3.ItemInfo;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.dragndrop.DragOptions;
 import com.android.launcher3.graphics.ColorScrim;
 import com.android.launcher3.touch.ItemLongClickListener;
-import com.android.launcher3.userevent.nano.LauncherLogProto.ContainerType;
-import com.android.launcher3.userevent.nano.LauncherLogProto.Target;
 import com.android.launcher3.util.SystemUiController;
 import com.android.launcher3.util.Themes;
 import com.android.launcher3.views.AbstractSlideInView;

@@ -23,7 +23,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-
 import tech.DevAsh.Launcher.font.CustomFontManager;
 import com.android.launcher3.util.UiThreadHelper;
 

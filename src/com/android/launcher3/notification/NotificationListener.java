@@ -16,6 +16,8 @@
 
 package com.android.launcher3.notification;
 
+import static tech.DevAsh.Launcher.settings.ui.SettingsActivity.NOTIFICATION_BADGING;
+
 import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -25,18 +27,17 @@ import android.os.Looper;
 import android.os.Message;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
+//import androidx.annotation.Keep;
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.Pair;
-
 import com.android.launcher3.LauncherModel;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.util.PackageUserKey;
 import com.android.launcher3.util.SettingsObserver;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -44,8 +45,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import static tech.DevAsh.Launcher.settings.ui.SettingsActivity.NOTIFICATION_BADGING;
 
 /**
  * A {@link NotificationListenerService} that sends updates to its
@@ -160,7 +159,8 @@ public class NotificationListener extends NotificationListenerService {
         sIsCreated = false;
     }
 
-    public static @Nullable NotificationListener getInstanceIfConnected() {
+    public static @Nullable
+    NotificationListener getInstanceIfConnected() {
         return sIsConnected ? sNotificationListenerInstance : null;
     }
 

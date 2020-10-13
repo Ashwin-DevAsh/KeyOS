@@ -18,7 +18,6 @@ package com.android.launcher3.model;
 
 import android.os.Looper;
 import android.util.Log;
-
 import com.android.launcher3.AllAppsList;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.InvariantDeviceProfile;
@@ -36,7 +35,6 @@ import com.android.launcher3.util.LooperIdleLock;
 import com.android.launcher3.util.MultiHashMap;
 import com.android.launcher3.util.ViewOnDrawExecutor;
 import com.android.launcher3.widget.WidgetListRowEntry;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,7 +45,7 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 
 /**
- * Helper class to handle results of {@link com.android.launcher3.model.LoaderTask}.
+ * Helper class to handle results of {@link LoaderTask}.
  */
 public class LoaderResults {
 

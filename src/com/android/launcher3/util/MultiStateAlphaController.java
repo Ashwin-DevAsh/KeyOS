@@ -23,7 +23,6 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
-
 import java.util.Arrays;
 
 /**

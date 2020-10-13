@@ -17,7 +17,6 @@ package com.android.launcher3.model;
 
 import android.content.Context;
 import android.os.UserHandle;
-
 import com.android.launcher3.AllAppsList;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherAppState;
@@ -30,7 +29,6 @@ import com.android.launcher3.shortcuts.ShortcutKey;
 import com.android.launcher3.util.ItemInfoMatcher;
 import com.android.launcher3.util.MultiHashMap;
 import com.android.launcher3.util.Provider;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

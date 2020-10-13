@@ -36,7 +36,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.animation.Interpolator;
 import android.widget.TextView;
-
 import tech.DevAsh.Launcher.touch.WorkspaceOptionModeTouchHelper;
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.CellLayout;
@@ -54,7 +53,6 @@ import com.android.launcher3.keyboard.ViewGroupFocusHelper;
 import com.android.launcher3.uioverrides.UiFactory;
 import com.android.launcher3.util.Thunk;
 import com.android.launcher3.views.BaseDragLayer;
-
 import java.util.ArrayList;
 
 /**
@@ -71,14 +69,18 @@ public class DragLayer extends BaseDragLayer<Launcher> {
     public static final int ANIMATION_END_DISAPPEAR = 0;
     public static final int ANIMATION_END_REMAIN_VISIBLE = 2;
 
-    @Thunk DragController mDragController;
+    @Thunk
+    DragController mDragController;
 
     // Variables relating to animation of views after drop
     private ValueAnimator mDropAnim = null;
     private final TimeInterpolator mCubicEaseOutInterpolator = Interpolators.DEACCEL_1_5;
-    @Thunk DragView mDropView = null;
-    @Thunk int mAnchorViewInitialScrollX = 0;
-    @Thunk View mAnchorView = null;
+    @Thunk
+    DragView mDropView = null;
+    @Thunk
+    int mAnchorViewInitialScrollX = 0;
+    @Thunk
+    View mAnchorView = null;
 
     private boolean mHoverPointClosesFolder = false;
 
@@ -146,9 +148,9 @@ public class DragLayer extends BaseDragLayer<Launcher> {
         return super.findActiveController(ev);
     }
 
-//    private boolean isEventOverAccessibleDropTargetBar(MotionEvent ev) {
-//        return isInAccessibleDrag() && isEventOverView(mActivity.getDropTargetBar(), ev);
-//    }
+    private boolean isEventOverAccessibleDropTargetBar(MotionEvent ev) {
+        return isInAccessibleDrag() && isEventOverView(mActivity.getDropTargetBar(), ev);
+    }
 
     @Override
     public boolean onInterceptHoverEvent(MotionEvent ev) {
@@ -167,8 +169,8 @@ public class DragLayer extends BaseDragLayer<Launcher> {
                 boolean isOverFolderOrSearchBar;
                 switch (action) {
                     case MotionEvent.ACTION_HOVER_ENTER:
-                        isOverFolderOrSearchBar = isEventOverView(topView, ev);
-//                                isEventOverAccessibleDropTargetBar(ev);
+                        isOverFolderOrSearchBar = isEventOverView(topView, ev) ||
+                                isEventOverAccessibleDropTargetBar(ev);
                         if (!isOverFolderOrSearchBar) {
                             sendTapOutsideFolderAccessibilityEvent(currentFolder.isEditingName());
                             mHoverPointClosesFolder = true;
@@ -177,8 +179,8 @@ public class DragLayer extends BaseDragLayer<Launcher> {
                         mHoverPointClosesFolder = false;
                         break;
                     case MotionEvent.ACTION_HOVER_MOVE:
-                        isOverFolderOrSearchBar = isEventOverView(topView, ev);
-//                                isEventOverAccessibleDropTargetBar(ev);
+                        isOverFolderOrSearchBar = isEventOverView(topView, ev) ||
+                                isEventOverAccessibleDropTargetBar(ev);
                         if (!isOverFolderOrSearchBar && !mHoverPointClosesFolder) {
                             sendTapOutsideFolderAccessibilityEvent(currentFolder.isEditingName());
                             mHoverPointClosesFolder = true;
@@ -226,7 +228,7 @@ public class DragLayer extends BaseDragLayer<Launcher> {
         if (topView != null) {
             addAccessibleChildToList(topView, childrenForAccessibility);
             if (isInAccessibleDrag()) {
-//                addAccessibleChildToList(mActivity.getDropTargetBar(), childrenForAccessibility);
+                addAccessibleChildToList(mActivity.getDropTargetBar(), childrenForAccessibility);
             }
         } else {
             super.addChildrenForAccessibility(childrenForAccessibility);

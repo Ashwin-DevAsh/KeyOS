@@ -55,7 +55,6 @@ import com.android.launcher3.FolderInfo.FolderListener;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.Launcher.OnResumeCallback;
-import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.OnAlarmListener;
 import com.android.launcher3.R;
@@ -83,10 +82,13 @@ import java.util.Set;
  * An icon that can appear on in the workspace representing an {@link Folder}.
  */
 public class FolderIcon extends FrameLayout implements FolderListener, OnResumeCallback {
-    @Thunk Launcher mLauncher;
-    @Thunk Folder mFolder;
+    @Thunk
+    Launcher mLauncher;
+    @Thunk
+    Folder mFolder;
     private FolderInfo mInfo;
-    @Thunk static boolean sStaticValuesDirty = true;
+    @Thunk
+    static boolean sStaticValuesDirty = true;
 
     private CheckLongPressHelper mLongPressHelper;
     private StylusEventHelper mStylusEventHelper;
@@ -99,7 +101,8 @@ public class FolderIcon extends FrameLayout implements FolderListener, OnResumeC
     // Delay when drag enters until the folder opens, in miliseconds.
     private static final int ON_OPEN_DELAY = 800;
 
-    @Thunk BubbleTextView mFolderName;
+    @Thunk
+    BubbleTextView mFolderName;
 
     PreviewBackground mBackground = new PreviewBackground();
     private boolean mBackgroundIsVisible = true;
@@ -177,7 +180,7 @@ public class FolderIcon extends FrameLayout implements FolderListener, OnResumeC
         icon.mFolderName = icon.findViewById(R.id.folder_icon_name);
         icon.mFolderName.setText(folderInfo.getIconTitle());
         icon.mFolderName.setCompoundDrawablePadding(0);
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) icon.mFolderName.getLayoutParams();
+        LayoutParams lp = (LayoutParams) icon.mFolderName.getLayoutParams();
         lp.topMargin = grid.iconSizePx + grid.iconDrawablePaddingPx;
         icon.setTag(folderInfo);
         icon.setOnClickListener(ItemClickHandler.INSTANCE);
@@ -212,7 +215,7 @@ public class FolderIcon extends FrameLayout implements FolderListener, OnResumeC
         applySwipeUpAction(mInfo);
         setOnClickListener(ItemClickHandler.INSTANCE);
 
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mFolderName.getLayoutParams();
+        LayoutParams lp = (LayoutParams) mFolderName.getLayoutParams();
         DeviceProfile grid = mLauncher.getDeviceProfile();
         mFolderName.setTag(null);
 
@@ -258,9 +261,9 @@ public class FolderIcon extends FrameLayout implements FolderListener, OnResumeC
 
     private boolean willAcceptItem(ItemInfo item) {
         final int itemType = item.itemType;
-        return ((itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION ||
-                itemType == LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT ||
-                itemType == LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT) &&
+        return ((itemType == Favorites.ITEM_TYPE_APPLICATION ||
+                itemType == Favorites.ITEM_TYPE_SHORTCUT ||
+                itemType == Favorites.ITEM_TYPE_DEEP_SHORTCUT) &&
                 item != mInfo && !mFolder.isOpen());
     }
 
@@ -736,7 +739,7 @@ public class FolderIcon extends FrameLayout implements FolderListener, OnResumeC
 
     public void clearLeaveBehindIfExists() {
         ((CellLayout.LayoutParams) getLayoutParams()).canReorder = true;
-        if (mInfo != null && mInfo.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
+        if (mInfo != null && mInfo.container == Favorites.CONTAINER_HOTSEAT) {
             CellLayout cl = (CellLayout) getParent().getParent();
             cl.clearFolderLeaveBehind();
         }
@@ -746,7 +749,7 @@ public class FolderIcon extends FrameLayout implements FolderListener, OnResumeC
         CellLayout.LayoutParams lp = (CellLayout.LayoutParams) getLayoutParams();
         // While the folder is open, the position of the icon cannot change.
         lp.canReorder = false;
-        if (mInfo != null && mInfo.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
+        if (mInfo != null && mInfo.container == Favorites.CONTAINER_HOTSEAT) {
             CellLayout cl = (CellLayout) getParent().getParent();
             cl.setFolderLeaveBehindCell(lp.cellX, lp.cellY);
         }

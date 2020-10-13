@@ -10,7 +10,6 @@ import android.os.Process;
 import android.os.UserHandle;
 import androidx.annotation.Nullable;
 import android.util.Log;
-
 import com.android.launcher3.AppFilter;
 import com.android.launcher3.IconCache;
 import com.android.launcher3.InvariantDeviceProfile;
@@ -27,13 +26,11 @@ import com.android.launcher3.util.PackageUserKey;
 import com.android.launcher3.util.Preconditions;
 import com.android.launcher3.widget.WidgetItemComparator;
 import com.android.launcher3.widget.WidgetListRowEntry;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 
 /**
  * Widgets data model that is used by the adapters of the widget views and controllers.
@@ -64,12 +61,10 @@ public class WidgetsModel {
 
         WidgetItemComparator widgetComparator = new WidgetItemComparator();
         for (Map.Entry<PackageItemInfo, ArrayList<WidgetItem>> entry : mWidgetsList.entrySet()) {
-            if(Kiosk.INSTANCE.isAllowedPackage(entry.getKey().packageName)){
-                WidgetListRowEntry row = new WidgetListRowEntry(entry.getKey(), entry.getValue());
-                row.titleSectionName = indexer.computeSectionName(row.pkgItem.title);
-                Collections.sort(row.widgets, widgetComparator);
-                result.add(row);
-            }
+            WidgetListRowEntry row = new WidgetListRowEntry(entry.getKey(), entry.getValue());
+            row.titleSectionName = indexer.computeSectionName(row.pkgItem.title);
+            Collections.sort(row.widgets, widgetComparator);
+            result.add(row);
         }
         return result;
     }

@@ -36,6 +36,8 @@
     <dimen name="v1_dynamic_grid_hotseat_bottom_padding">8dp</dimen>
     <dimen name="v1_dynamic_grid_hotseat_size">80dp</dimen>
 
+    <dimen name="drop_target_text_size">14sp</dimen>
+
     <!-- Extra bottom padding for non-tall devices. -->
 
     <!-- Hotseat/all-apps scrim -->

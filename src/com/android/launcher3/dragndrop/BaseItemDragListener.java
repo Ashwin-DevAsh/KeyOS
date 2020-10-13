@@ -30,7 +30,6 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
-
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.DragSource;
 import com.android.launcher3.DropTarget.DragObject;
@@ -38,7 +37,6 @@ import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
 import com.android.launcher3.states.InternalStateHandler;
 import com.android.launcher3.widget.PendingItemDragHelper;
-
 import java.util.UUID;
 
 /**

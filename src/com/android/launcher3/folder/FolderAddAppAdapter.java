@@ -28,11 +28,9 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.IconCache;
 import com.android.launcher3.R;
-
+import com.android.launcher3.ShortcutInfo;
 import java.util.ArrayList;
 import java.util.List;
 

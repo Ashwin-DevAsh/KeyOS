@@ -19,7 +19,6 @@ import android.appwidget.AppWidgetProviderInfo;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherAppWidgetInfo;
@@ -91,8 +90,8 @@ public class WidgetAddFlowHandler implements Parcelable {
         return LauncherAppWidgetProviderInfo.fromProviderInfo(context, mProviderInfo);
     }
 
-    public static final Parcelable.Creator<WidgetAddFlowHandler> CREATOR =
-            new Parcelable.Creator<WidgetAddFlowHandler>() {
+    public static final Creator<WidgetAddFlowHandler> CREATOR =
+            new Creator<WidgetAddFlowHandler>() {
                 public WidgetAddFlowHandler createFromParcel(Parcel source) {
                     return new WidgetAddFlowHandler(source);
                 }

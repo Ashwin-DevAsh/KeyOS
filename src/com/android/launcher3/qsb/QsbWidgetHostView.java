@@ -23,7 +23,6 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.widget.RemoteViews;
-
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
 

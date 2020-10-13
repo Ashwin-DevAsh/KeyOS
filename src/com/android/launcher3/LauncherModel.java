@@ -17,7 +17,7 @@
 package com.android.launcher3;
 
 import static com.android.launcher3.LauncherAppState.ACTION_FORCE_ROLOAD;
-import static com.android.launcher3.config.FeatureFlags.IS_DOGFOOD_BUILD;
+import static com.android.launcher3.config.BaseFlags.*;
 
 import android.content.BroadcastReceiver;
 import android.content.ContentProviderOperation;
@@ -31,11 +31,10 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Process;
 import android.os.UserHandle;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-
+import androidx.annotation.Nullable;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.PackageInstallerCompat.PackageInstallInfo;
 import com.android.launcher3.compat.UserManagerCompat;
@@ -64,7 +63,6 @@ import com.android.launcher3.util.Provider;
 import com.android.launcher3.util.Thunk;
 import com.android.launcher3.util.ViewOnDrawExecutor;
 import com.android.launcher3.widget.WidgetListRowEntry;
-
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
@@ -87,25 +85,35 @@ public class LauncherModel extends BroadcastReceiver
     static final String TAG = "Launcher.Model";
 
     private final MainThreadExecutor mUiExecutor = new MainThreadExecutor();
-    @Thunk final LauncherAppState mApp;
-    @Thunk final Object mLock = new Object();
+    @Thunk
+    final LauncherAppState mApp;
+    @Thunk
+    final Object mLock = new Object();
     @Thunk
     LoaderTask mLoaderTask;
-    @Thunk boolean mIsLoaderTaskRunning;
+    @Thunk
+    boolean mIsLoaderTaskRunning;
 
-    @Thunk static final HandlerThread sWorkerThread = new HandlerThread("launcher-loader");
-    @Thunk static final HandlerThread sUiWorkerThread = new HandlerThread("launcher-ui-loader");
-    @Thunk static final HandlerThread sIconPackThread = new HandlerThread("launcher-icon-pack");
-    @Thunk static final HandlerThread sIconPackUiThread = new HandlerThread("launcher-icon-pack-ui");
+    @Thunk
+    static final HandlerThread sWorkerThread = new HandlerThread("launcher-loader");
+    @Thunk
+    static final HandlerThread sUiWorkerThread = new HandlerThread("launcher-ui-loader");
+    @Thunk
+    static final HandlerThread sIconPackThread = new HandlerThread("launcher-icon-pack");
+    @Thunk
+    static final HandlerThread sIconPackUiThread = new HandlerThread("launcher-icon-pack-ui");
     static {
         sWorkerThread.start();
         sUiWorkerThread.start();
         sIconPackThread.start();
         sIconPackUiThread.start();
     }
-    @Thunk static final Handler sWorker = new Handler(sWorkerThread.getLooper());
-    @Thunk static final Handler sUiWorker = new Handler(sUiWorkerThread.getLooper());
-    @Thunk static final Handler sIconPack = new Handler(sIconPackThread.getLooper());
+    @Thunk
+    static final Handler sWorker = new Handler(sWorkerThread.getLooper());
+    @Thunk
+    static final Handler sUiWorker = new Handler(sUiWorkerThread.getLooper());
+    @Thunk
+    static final Handler sIconPack = new Handler(sIconPackThread.getLooper());
 
     // Indicates whether the current model data is valid or not.
     // We start off with everything not loaded. After that, we assume that
@@ -118,7 +126,8 @@ public class LauncherModel extends BroadcastReceiver
         }
     }
 
-    @Thunk WeakReference<Callbacks> mCallbacks;
+    @Thunk
+    WeakReference<Callbacks> mCallbacks;
 
     // < only access in worker thread >
     private final AllAppsList mBgAllAppsList;
@@ -339,14 +348,14 @@ public class LauncherModel extends BroadcastReceiver
     }
 
     public void onPackagesRemoved(UserHandle user, String... packages) {
-//        int op = PackageUpdatedTask.OP_REMOVE;
-//        enqueueModelUpdateTask(new PackageUpdatedTask(op, user, packages));
+        int op = PackageUpdatedTask.OP_REMOVE;
+        enqueueModelUpdateTask(new PackageUpdatedTask(op, user, packages));
     }
 
     @Override
     public void onPackageAdded(String packageName, UserHandle user) {
-//        int op = PackageUpdatedTask.OP_ADD;
-//        enqueueModelUpdateTask(new PackageUpdatedTask(op, user, packageName));
+        int op = PackageUpdatedTask.OP_ADD;
+        enqueueModelUpdateTask(new PackageUpdatedTask(op, user, packageName));
     }
 
     @Override

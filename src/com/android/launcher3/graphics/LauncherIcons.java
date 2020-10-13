@@ -16,14 +16,26 @@
 
 package com.android.launcher3.graphics;
 
+import static android.graphics.Paint.DITHER_FLAG;
+import static android.graphics.Paint.FILTER_BITMAP_FLAG;
+import static com.android.launcher3.graphics.ShadowGenerator.BLUR_FACTOR;
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Intent.ShortcutIconResource;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.graphics.*;
-import android.graphics.drawable.*;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.PaintFlagsDrawFilter;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.PaintDrawable;
 import android.os.Process;
 import android.os.UserHandle;
 import androidx.annotation.Nullable;
@@ -31,16 +43,20 @@ import android.util.Log;
 import tech.DevAsh.Launcher.NonAdaptiveIconDrawable;
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import tech.DevAsh.Launcher.iconpack.KioskIconProvider;
-import com.android.launcher3.*;
+import com.android.launcher3.AppInfo;
+import com.android.launcher3.FastBitmapDrawable;
+import com.android.launcher3.IconCache;
+import com.android.launcher3.IconProvider;
+import com.android.launcher3.InvariantDeviceProfile;
+import com.android.launcher3.ItemInfoWithIcon;
+import com.android.launcher3.LauncherAppState;
+import com.android.launcher3.R;
+import com.android.launcher3.Utilities;
 import com.android.launcher3.model.PackageItemInfo;
 import com.android.launcher3.shortcuts.DeepShortcutManager;
 import com.android.launcher3.shortcuts.ShortcutInfoCompat;
 import com.android.launcher3.util.Provider;
 import com.android.launcher3.util.Themes;
-
-import static android.graphics.Paint.DITHER_FLAG;
-import static android.graphics.Paint.FILTER_BITMAP_FLAG;
-import static com.android.launcher3.graphics.ShadowGenerator.BLUR_FACTOR;
 
 /**
  * Helper methods for generating various launcher icons

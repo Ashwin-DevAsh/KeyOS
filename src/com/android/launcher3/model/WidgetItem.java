@@ -4,13 +4,11 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Process;
 import android.os.UserHandle;
-
 import com.android.launcher3.InvariantDeviceProfile;
 import com.android.launcher3.LauncherAppWidgetProviderInfo;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.compat.ShortcutConfigActivityInfo;
 import com.android.launcher3.util.ComponentKey;
-
 import java.text.Collator;
 
 /**

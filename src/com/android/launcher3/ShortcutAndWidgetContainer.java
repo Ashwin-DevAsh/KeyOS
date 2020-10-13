@@ -24,7 +24,6 @@ import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.settings.ui.SettingsActivity;
 import com.android.launcher3.CellLayout.ContainerType;
@@ -38,7 +37,8 @@ public class ShortcutAndWidgetContainer extends ViewGroup implements KioskPrefer
     // return an (x, y) value from helper functions. Do NOT use them to maintain other state.
     private final int[] mTmpCellXY = new int[2];
 
-    @ContainerType private final int mContainerType;
+    @ContainerType
+    private final int mContainerType;
     private final WallpaperManager mWallpaperManager;
 
     private int mCellWidth;

@@ -22,12 +22,10 @@ import android.os.UserHandle;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Switch;
-
 import tech.DevAsh.Launcher.KioskUtilsKt;
 import tech.DevAsh.Launcher.colors.ColorEngine;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.compat.UserManagerCompat;
-
 import java.util.List;
 
 public class WorkModeSwitch extends Switch {

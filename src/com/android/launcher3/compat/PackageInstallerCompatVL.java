@@ -26,13 +26,11 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.text.TextUtils;
 import android.util.SparseArray;
-
 import com.android.launcher3.IconCache;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherModel;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.util.Thunk;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -42,9 +40,11 @@ public class PackageInstallerCompatVL extends PackageInstallerCompat {
 
     private static final boolean DEBUG = false;
 
-    @Thunk final SparseArray<String> mActiveSessions = new SparseArray<>();
+    @Thunk
+    final SparseArray<String> mActiveSessions = new SparseArray<>();
 
-    @Thunk final PackageInstaller mInstaller;
+    @Thunk
+    final PackageInstaller mInstaller;
     private final IconCache mCache;
     private final Handler mWorker;
     private final Context mAppContext;
@@ -72,7 +72,8 @@ public class PackageInstallerCompatVL extends PackageInstallerCompat {
         return activePackages;
     }
 
-    @Thunk void addSessionInfoToCache(SessionInfo info, UserHandle user) {
+    @Thunk
+    void addSessionInfoToCache(SessionInfo info, UserHandle user) {
         String packageName = info.getAppPackageName();
         if (packageName != null) {
             mCache.cachePackageInstallInfo(packageName, user, info.getAppIcon(),
@@ -85,7 +86,8 @@ public class PackageInstallerCompatVL extends PackageInstallerCompat {
         mInstaller.unregisterSessionCallback(mCallback);
     }
 
-    @Thunk void sendUpdate(PackageInstallInfo info) {
+    @Thunk
+    void sendUpdate(PackageInstallInfo info) {
         LauncherAppState app = LauncherAppState.getInstanceNoCreate();
         if (app != null) {
             app.getModel().setPackageState(info);
@@ -151,7 +153,7 @@ public class PackageInstallerCompatVL extends PackageInstallerCompat {
         }
     };
 
-    private PackageInstaller.SessionInfo verify(PackageInstaller.SessionInfo sessionInfo) {
+    private SessionInfo verify(SessionInfo sessionInfo) {
         if (sessionInfo == null
                 || sessionInfo.getInstallerPackageName() == null
                 || TextUtils.isEmpty(sessionInfo.getAppPackageName())) {

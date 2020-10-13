@@ -20,15 +20,13 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.customview.widget.ExploreByTouchHelper;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.accessibility.AccessibilityEvent;
-
+import androidx.customview.widget.ExploreByTouchHelper;
 import com.android.launcher3.CellLayout;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
-
 import java.util.List;
 
 /**

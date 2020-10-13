@@ -22,7 +22,6 @@ import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
-
 import com.android.launcher3.ButtonDropTarget;
 import com.android.launcher3.DropTarget;
 import com.android.launcher3.Launcher;
@@ -107,7 +106,7 @@ public class FlingToDeleteHelper {
      */
     private PointF isFlingingToDelete() {
         if (mDropTarget == null) {
-//            mDropTarget = (ButtonDropTarget) mLauncher.findViewById(R.id.delete_target_text);
+            mDropTarget = (ButtonDropTarget) mLauncher.findViewById(R.id.delete_target_text);
         }
         if (mDropTarget == null || !mDropTarget.isDropEnabled()) return null;
         ViewConfiguration config = ViewConfiguration.get(mLauncher);

@@ -17,7 +17,6 @@
 package com.android.launcher3.util;
 
 import static android.database.sqlite.SQLiteDatabase.NO_LOCALIZED_COLLATORS;
-
 import static com.android.launcher3.Utilities.ATLEAST_P;
 
 import android.content.Context;

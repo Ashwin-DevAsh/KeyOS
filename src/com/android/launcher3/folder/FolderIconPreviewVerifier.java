@@ -16,10 +16,10 @@
 
 package com.android.launcher3.folder;
 
+import static com.android.launcher3.folder.NineFolderIconLayoutRule.MAX_NUM_ITEMS_IN_PREVIEW;
+
 import com.android.launcher3.FolderInfo;
 import com.android.launcher3.InvariantDeviceProfile;
-
-import static com.android.launcher3.folder.NineFolderIconLayoutRule.MAX_NUM_ITEMS_IN_PREVIEW;
 
 /**
  * Verifies whether an item in a Folder is displayed in the FolderIcon preview.

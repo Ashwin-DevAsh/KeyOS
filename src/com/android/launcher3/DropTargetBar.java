@@ -30,7 +30,6 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewPropertyAnimator;
 import android.widget.FrameLayout;
-
 import com.android.launcher3.anim.Interpolators;
 import com.android.launcher3.dragndrop.DragController;
 import com.android.launcher3.dragndrop.DragController.DragListener;
@@ -79,7 +78,7 @@ public class DropTargetBar extends FrameLayout
 
     @Override
     public void setInsets(Rect insets) {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
+        LayoutParams lp = (LayoutParams) getLayoutParams();
         DeviceProfile grid = Launcher.getLauncher(getContext()).getDeviceProfile();
         mIsVertical = grid.isVerticalBarLayout();
 

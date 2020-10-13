@@ -17,7 +17,6 @@
 package com.android.launcher3.accessibility;
 
 import android.view.ViewGroup;
-
 import com.android.launcher3.CellLayout;
 import com.android.launcher3.DropTarget.DragObject;
 import com.android.launcher3.Launcher;

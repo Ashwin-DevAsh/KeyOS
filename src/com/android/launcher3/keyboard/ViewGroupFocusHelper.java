@@ -18,7 +18,6 @@ package com.android.launcher3.keyboard;
 
 import android.graphics.Rect;
 import android.view.View;
-
 import com.android.launcher3.PagedView;
 
 /**

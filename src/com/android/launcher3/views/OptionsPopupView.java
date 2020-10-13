@@ -31,7 +31,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.Toast;
-
 import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherState;
 import com.android.launcher3.R;
@@ -42,10 +41,8 @@ import com.android.launcher3.userevent.nano.LauncherLogProto.Action;
 import com.android.launcher3.userevent.nano.LauncherLogProto.ControlType;
 import com.android.launcher3.util.PackageManagerHelper;
 import com.android.launcher3.widget.WidgetsFullSheet;
-
 import java.util.ArrayList;
 import java.util.List;
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt;
 
 /**
  * Popup shown on long pressing an empty space in launcher
@@ -106,6 +103,7 @@ public class OptionsPopupView extends ArrowPopup
 
     @Override
     public void logActionCommand(int command) {
+        // TODO:
     }
 
     @Override
@@ -152,7 +150,8 @@ public class OptionsPopupView extends ArrowPopup
         }
         options.add(new OptionItem(R.string.button_overview_mode, R.drawable.ic_pages, -1,
                 OptionsPopupView::startOrganizer));
-        options.add(new OptionItem(R.string.settings_button_text, R.drawable.ic_setting, ControlType.SETTINGS_BUTTON, OptionsPopupView::startSettings));
+        options.add(new OptionItem(R.string.settings_button_text, R.drawable.ic_setting,
+                ControlType.SETTINGS_BUTTON, OptionsPopupView::startSettings));
 
         show(launcher, target, options);
     }
@@ -173,15 +172,9 @@ public class OptionsPopupView extends ArrowPopup
 
     public static boolean startSettings(View view) {
         Launcher launcher = Launcher.getLauncher(view.getContext());
-        launcher.startActivitySafely(view,
-                new Intent(launcher,PasswordPrompt.class)
-                        .setPackage(launcher.getPackageName()
-                ),null);
-
-//        Launcher launcher = Launcher.getLauncher(view.getContext());
-//        launcher.startActivitySafely(view, new Intent(Intent.ACTION_APPLICATION_PREFERENCES)
-//                .setPackage(launcher.getPackageName())
-//                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null);
+        launcher.startActivitySafely(view, new Intent(Intent.ACTION_APPLICATION_PREFERENCES)
+                .setPackage(launcher.getPackageName())
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null);
         return true;
     }
 

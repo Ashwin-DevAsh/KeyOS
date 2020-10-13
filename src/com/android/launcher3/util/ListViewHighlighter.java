@@ -28,7 +28,6 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AbsListView.RecyclerListener;
 import android.widget.ListView;
-
 import com.android.launcher3.R;
 
 /**

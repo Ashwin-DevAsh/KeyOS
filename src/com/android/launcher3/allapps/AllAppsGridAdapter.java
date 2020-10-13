@@ -21,15 +21,15 @@ import android.content.res.Resources;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityRecordCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
-
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import tech.DevAsh.Launcher.colors.ColorEngine;
 import tech.DevAsh.Launcher.colors.ColorEngine.Resolvers;
 
@@ -42,7 +42,6 @@ import com.android.launcher3.compat.UserManagerCompat;
 import com.android.launcher3.touch.ItemClickHandler;
 import com.android.launcher3.touch.ItemLongClickListener;
 import com.android.launcher3.util.PackageManagerHelper;
-
 import java.util.List;
 
 /**
@@ -319,10 +318,6 @@ public class AllAppsGridAdapter extends RecyclerView.Adapter<AllAppsGridAdapter.
                         ? R.string.work_mode_off_label : R.string.work_mode_on_label);
                 break;
             case VIEW_TYPE_SEARCH_SUGGESTION:
-                ViewGroup group = (ViewGroup) holder.itemView;
-                TextView textView = group.findViewById(R.id.suggestion);
-                String suggestion = mApps.getAdapterItems().get(position).suggestion;
-                textView.setText(suggestion);
 
                 break;
         }
@@ -344,14 +339,13 @@ public class AllAppsGridAdapter extends RecyclerView.Adapter<AllAppsGridAdapter.
 
     @Override
     public int getItemViewType(int position) {
-        AlphabeticalAppsList.AdapterItem item = mApps.getAdapterItems().get(position);
+        AdapterItem item = mApps.getAdapterItems().get(position);
         return item.viewType;
     }
 
     public int getDrawerTextColor() {
         return ColorEngine.getInstance(mLauncher).getResolver(Resolvers.ALLAPPS_ICON_LABEL).resolveColor();
     }
-
 
 
 

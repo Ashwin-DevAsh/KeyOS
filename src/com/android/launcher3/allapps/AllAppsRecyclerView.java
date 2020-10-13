@@ -22,12 +22,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.SparseIntArray;
 import android.view.MotionEvent;
 import android.view.View;
-
+import androidx.recyclerview.widget.RecyclerView;
 import tech.DevAsh.Launcher.colors.ColorEngine.ColorResolver;
 import tech.DevAsh.Launcher.colors.ColorEngine.ResolveInfo;
 import com.android.launcher3.BaseRecyclerView;
@@ -37,7 +36,6 @@ import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.R;
 import com.android.launcher3.graphics.DrawableFactory;
 import com.android.launcher3.views.RecyclerViewFastScroller;
-
 import java.util.List;
 import org.jetbrains.annotations.NotNull;
 

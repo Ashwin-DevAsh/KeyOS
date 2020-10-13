@@ -37,7 +37,6 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
-
 import android.widget.FrameLayout;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.Insettable;

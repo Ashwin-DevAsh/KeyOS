@@ -20,7 +20,6 @@ import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_POINTER_UP;
 import static android.view.MotionEvent.ACTION_UP;
 import static android.view.ViewConfiguration.getLongPressTimeout;
-
 import static com.android.launcher3.LauncherState.NORMAL;
 
 import android.graphics.PointF;
@@ -29,7 +28,6 @@ import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-
 import tech.DevAsh.Launcher.touch.GestureTouchListener;
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.CellLayout;

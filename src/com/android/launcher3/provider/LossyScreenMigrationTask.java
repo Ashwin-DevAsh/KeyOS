@@ -21,14 +21,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Point;
-
 import com.android.launcher3.InvariantDeviceProfile;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.Workspace;
 import com.android.launcher3.model.GridSizeMigrationTask;
 import com.android.launcher3.util.LongArrayMap;
-
 import java.util.ArrayList;
 
 /**

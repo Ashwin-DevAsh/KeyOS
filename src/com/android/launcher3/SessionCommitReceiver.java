@@ -30,14 +30,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.os.Process;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
-
 import com.android.launcher3.compat.LauncherAppsCompat;
-
 import java.util.List;
 
 /**

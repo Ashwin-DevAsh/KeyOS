@@ -15,7 +15,6 @@ import tech.DevAsh.Launcher.colors.ColorEngine.Resolvers;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
-import com.google.android.apps.nexuslauncher.search.SearchThread;
 import org.jetbrains.annotations.NotNull;
 
 public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
@@ -26,7 +25,6 @@ public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
     private int mShadowAlpha;
     private Bitmap Dv;
     private boolean mUseFallbackSearch;
-    private FallbackAppsSearchView mFallback;
     public float Dy;
     private TextView mHint;
     boolean mDoNotRemoveFallback;
@@ -137,8 +135,9 @@ public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
 //            return (i - this.mSearchView.getActiveRecyclerView().getPaddingLeft()) - this.mSearchView
 //                    .getActiveRecyclerView().getPaddingRight();
 //        }
-        View view = this.mActivity.getHotSeat().getLayout();
-        return (i - view.getPaddingLeft()) - view.getPaddingRight();
+//        View view = this.mActivity.getHotSeat().getLayout();
+//        return (i - view.getPaddingLeft()) - view.getPaddingRight();
+        return 0;
     }
 
 
@@ -178,32 +177,15 @@ public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
     }
 
     private void ensureFallbackView() {
-        if (mFallback == null) {
-            setOnClickListener(null);
-            mFallback = (FallbackAppsSearchView) this.mActivity.getLayoutInflater()
-                    .inflate(R.layout.all_apps_google_search_fallback, this, false);
-            mFallback.DJ = this;
-            mFallback.DI.initialize(new SearchThread(mFallback.getContext()), mFallback,
-                    Launcher.getLauncher(mFallback.getContext()), mFallback);
-            addView(this.mFallback);
-            mFallback.setTextColor(mForegroundColor);
-        }
+
     }
 
     private void removeFallbackView() {
-        if (mFallback != null) {
-            mFallback.clearSearchResult();
-            setOnClickListener(this);
-            removeView(mFallback);
-            mFallback = null;
-        }
+
     }
 
     private void resetFallbackView() {
-        if (mFallback != null) {
-            mFallback.reset();
-            mFallback.clearSearchResult();
-        }
+
     }
 
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
@@ -238,9 +220,7 @@ public class AllAppsQsbLayout extends AbstractQsbLayout implements o,
     }
 
     protected final boolean dK() {
-        if (this.mFallback != null) {
-            return false;
-        }
+
         return super.dK();
     }
 

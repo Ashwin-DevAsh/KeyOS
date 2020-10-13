@@ -37,14 +37,12 @@ import android.animation.AnimatorSet;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.IntDef;
-
 import com.android.launcher3.anim.AnimationSuccessListener;
 import com.android.launcher3.anim.AnimatorPlaybackController;
 import com.android.launcher3.anim.AnimatorSetBuilder;
 import com.android.launcher3.anim.PropertySetter;
 import com.android.launcher3.anim.PropertySetter.AnimatedPropertySetter;
 import com.android.launcher3.uioverrides.UiFactory;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;

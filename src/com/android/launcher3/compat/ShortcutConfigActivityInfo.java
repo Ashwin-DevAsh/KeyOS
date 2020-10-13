@@ -31,7 +31,6 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.util.Log;
 import android.widget.Toast;
-
 import com.android.launcher3.IconCache;
 import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.R;

@@ -5,10 +5,8 @@ import android.os.HandlerThread;
 import android.os.Message;
 import android.util.Log;
 import android.util.Pair;
-
 import com.android.launcher3.Utilities;
 import com.android.launcher3.config.FeatureFlags;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

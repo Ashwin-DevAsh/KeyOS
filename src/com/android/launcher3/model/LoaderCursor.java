@@ -31,7 +31,6 @@ import android.provider.BaseColumns;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.LongSparseArray;
-
 import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.IconCache;
@@ -49,7 +48,6 @@ import com.android.launcher3.logging.FileLog;
 import com.android.launcher3.util.ContentWriter;
 import com.android.launcher3.util.GridOccupancy;
 import com.android.launcher3.util.LongArrayMap;
-
 import java.net.URISyntaxException;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;

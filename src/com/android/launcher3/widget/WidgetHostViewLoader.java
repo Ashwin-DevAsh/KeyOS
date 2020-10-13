@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-
 import com.android.launcher3.AppWidgetResizeFrame;
 import com.android.launcher3.DropTarget;
 import com.android.launcher3.Launcher;
@@ -28,7 +27,8 @@ public class WidgetHostViewLoader implements DragController.DragListener {
     private Runnable mBindWidgetRunnable = null;
 
     // TODO: technically, this class should not have to know the existence of the launcher.
-    @Thunk Launcher mLauncher;
+    @Thunk
+    Launcher mLauncher;
     @Thunk Handler mHandler;
     @Thunk final View mView;
     @Thunk final PendingAddWidgetInfo mInfo;

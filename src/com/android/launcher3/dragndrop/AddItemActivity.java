@@ -16,8 +16,6 @@
 
 package com.android.launcher3.dragndrop;
 
-import static com.android.launcher3.logging.LoggerUtils.newItemTarget;
-
 import android.annotation.TargetApi;
 import android.app.ActivityOptions;
 import android.appwidget.AppWidgetManager;
@@ -36,7 +34,6 @@ import android.view.View;
 import android.view.View.DragShadowBuilder;
 import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
-
 import android.widget.Button;
 import tech.DevAsh.Launcher.colors.ColorEngine;
 import com.android.launcher3.BaseActivity;

@@ -24,17 +24,15 @@ import static com.android.launcher3.compat.AccessibilityManagerCompat.sendCustom
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import androidx.annotation.IntDef;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
-
+import androidx.annotation.IntDef;
 import com.android.launcher3.userevent.nano.LauncherLogProto.Action;
 import com.android.launcher3.util.TouchController;
 import com.android.launcher3.views.BaseDragLayer;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

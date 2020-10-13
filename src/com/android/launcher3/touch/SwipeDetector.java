@@ -20,10 +20,10 @@ import static android.view.MotionEvent.INVALID_POINTER_ID;
 import android.content.Context;
 import android.graphics.PointF;
 import androidx.annotation.NonNull;
-import androidx.annotation.VisibleForTesting;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import androidx.annotation.VisibleForTesting;
 
 /**
  * One dimensional scroll/drag/swipe gesture detector.

@@ -26,7 +26,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.android.launcher3.Insettable;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherAppState;
@@ -35,7 +34,6 @@ import com.android.launcher3.Utilities;
 import com.android.launcher3.anim.Interpolators;
 import com.android.launcher3.model.WidgetItem;
 import com.android.launcher3.util.PackageUserKey;
-
 import java.util.List;
 
 /**
@@ -105,7 +103,7 @@ public class WidgetsBottomSheet extends BaseWidgetSheet implements Insettable {
 
         if (widgets.size() == 1) {
             // If there is only one widget, we want to center it instead of left-align.
-            WidgetsBottomSheet.LayoutParams params = (WidgetsBottomSheet.LayoutParams)
+            LayoutParams params = (LayoutParams)
                     widgetRow.getLayoutParams();
             params.gravity = Gravity.CENTER_HORIZONTAL;
         } else {

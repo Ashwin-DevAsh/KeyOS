@@ -21,7 +21,6 @@ import android.view.KeyEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.folder.Folder;
 import com.android.launcher3.folder.FolderPagedView;
@@ -335,7 +334,7 @@ public class FocusHelper {
         CellLayout iconLayout = (CellLayout) parent.getParent();
         final Workspace workspace = (Workspace) iconLayout.getParent();
         final ViewGroup dragLayer = (ViewGroup) workspace.getParent();
-//        final ViewGroup tabs = (ViewGroup) dragLayer.findViewById(R.id.drop_target_bar);
+        final ViewGroup tabs = (ViewGroup) dragLayer.findViewById(R.id.drop_target_bar);
         final Hotseat hotseat = (Hotseat) dragLayer.findViewById(R.id.hotseat);
 
         final ItemInfo itemInfo = (ItemInfo) v.getTag();
@@ -368,7 +367,7 @@ public class FocusHelper {
         switch (newIconIndex) {
             case FocusLogic.NOOP:
                 if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
-//                    newIcon = tabs;
+                    newIcon = tabs;
                 }
                 break;
             case FocusLogic.PREVIOUS_PAGE_RIGHT_COLUMN:
@@ -473,7 +472,8 @@ public class FocusHelper {
     /**
      * Private helper method to get the CellLayoutChildren given a CellLayout index.
      */
-    @Thunk static ShortcutAndWidgetContainer getCellLayoutChildrenForIndex(
+    @Thunk
+    static ShortcutAndWidgetContainer getCellLayoutChildrenForIndex(
             ViewGroup container, int i) {
         CellLayout parent = (CellLayout) container.getChildAt(i);
         return parent.getShortcutsAndWidgets();
@@ -482,7 +482,8 @@ public class FocusHelper {
     /**
      * Helper method to be used for playing sound effects.
      */
-    @Thunk static void playSoundEffect(int keyCode, View v) {
+    @Thunk
+    static void playSoundEffect(int keyCode, View v) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_LEFT:
                 v.playSoundEffect(SoundEffectConstants.NAVIGATION_LEFT);

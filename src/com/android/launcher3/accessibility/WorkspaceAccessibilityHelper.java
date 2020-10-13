@@ -21,7 +21,6 @@ import android.graphics.Rect;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.view.View;
-
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.CellLayout;
 import com.android.launcher3.FolderInfo;

@@ -21,11 +21,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import androidx.annotation.Keep;
 import android.util.Log;
-
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
-
 import java.util.Collections;
 import java.util.List;
 

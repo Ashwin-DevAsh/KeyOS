@@ -20,9 +20,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.LauncherApps;
 import android.service.notification.StatusBarNotification;
-import androidx.annotation.NonNull;
 import android.util.Log;
-
+import androidx.annotation.NonNull;
 import tech.DevAsh.Launcher.popup.KioskShortcut;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
@@ -38,7 +37,6 @@ import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.MultiHashMap;
 import com.android.launcher3.util.PackageUserKey;
 import com.android.launcher3.widget.WidgetListRowEntry;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -194,7 +192,8 @@ public class PopupDataProvider implements NotificationListener.NotificationsChan
         return mPackageUserToBadgeInfos.get(PackageUserKey.fromItemInfo(info));
     }
 
-    public @NonNull List<NotificationKeyData> getNotificationKeysForItem(ItemInfo info) {
+    public @NonNull
+    List<NotificationKeyData> getNotificationKeysForItem(ItemInfo info) {
         BadgeInfo badgeInfo = getBadgeInfoForItem(info);
         return badgeInfo == null ? Collections.EMPTY_LIST : badgeInfo.getNotificationKeys();
     }

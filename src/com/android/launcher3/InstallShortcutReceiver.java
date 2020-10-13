@@ -37,7 +37,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.util.Pair;
-
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.UserManagerCompat;
 import com.android.launcher3.graphics.BitmapInfo;
@@ -49,11 +48,6 @@ import com.android.launcher3.util.PackageManagerHelper;
 import com.android.launcher3.util.Preconditions;
 import com.android.launcher3.util.Provider;
 import com.android.launcher3.util.Thunk;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONStringer;
-
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -61,6 +55,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
 
 public class InstallShortcutReceiver extends BroadcastReceiver {
 
@@ -672,7 +669,7 @@ public class InstallShortcutReceiver extends BroadcastReceiver {
     public static void installNewAppShortcuts(Context context, ArrayList<AppInfo> apps) {
         ArrayList<Pair<ItemInfo, Object>> installQueue = new ArrayList<>();
         for(AppInfo app : apps) {
-            android.content.pm.LauncherActivityInfo info = LauncherAppsCompat.getInstance(context)
+            LauncherActivityInfo info = LauncherAppsCompat.getInstance(context)
                     .resolveActivity(app.intent, app.user);
             if (info == null) {
                 continue;

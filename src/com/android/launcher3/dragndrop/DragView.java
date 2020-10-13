@@ -16,6 +16,8 @@
 
 package com.android.launcher3.dragndrop;
 
+import static com.android.launcher3.ItemInfoWithIcon.FLAG_ICON_BADGED;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.FloatArrayEvaluator;
@@ -38,16 +40,28 @@ import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+
+import android.view.View;
 import androidx.dynamicanimation.animation.FloatPropertyCompat;
 import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.dynamicanimation.animation.SpringForce;
-import android.view.View;
-
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.iconpack.AdaptiveIconCompat;
 import tech.DevAsh.Launcher.iconpack.IconPackManager;
 import tech.DevAsh.Launcher.iconpack.KioskIconProvider;
-import com.android.launcher3.*;
+import com.android.launcher3.FastBitmapDrawable;
+import com.android.launcher3.FolderInfo;
+import com.android.launcher3.IconProvider;
+import com.android.launcher3.ItemInfo;
+import com.android.launcher3.ItemInfoWithIcon;
+import com.android.launcher3.Launcher;
+import com.android.launcher3.LauncherAnimUtils;
+import com.android.launcher3.LauncherAppState;
+import com.android.launcher3.LauncherModel;
+import com.android.launcher3.LauncherSettings.Favorites;
+import com.android.launcher3.R;
+import com.android.launcher3.ShortcutInfo;
+import com.android.launcher3.Utilities;
 import com.android.launcher3.anim.Interpolators;
 import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.ShortcutConfigActivityInfo;
@@ -59,11 +73,8 @@ import com.android.launcher3.shortcuts.ShortcutKey;
 import com.android.launcher3.util.Themes;
 import com.android.launcher3.util.Thunk;
 import com.android.launcher3.widget.PendingAddShortcutInfo;
-
 import java.util.Arrays;
 import java.util.List;
-
-import static com.android.launcher3.ItemInfoWithIcon.FLAG_ICON_BADGED;
 
 public class DragView extends View {
     private static final ColorMatrix sTempMatrix1 = new ColorMatrix();
@@ -182,7 +193,7 @@ public class DragView extends View {
         mScaleOnDrop = scaleOnDrop;
 
         // Force a measure, because Workspace uses getMeasuredHeight() before the layout pass
-        int ms = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        int ms = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
         measure(ms, ms);
         mPaint = new Paint(Paint.FILTER_BITMAP_FLAG);
 
@@ -201,9 +212,9 @@ public class DragView extends View {
         if (!(FeatureFlags.LAUNCHER3_SPRING_ICONS && Utilities.ATLEAST_OREO)) {
             return;
         }
-        if (info.itemType != LauncherSettings.Favorites.ITEM_TYPE_APPLICATION &&
-                info.itemType != LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT &&
-                info.itemType != LauncherSettings.Favorites.ITEM_TYPE_FOLDER) {
+        if (info.itemType != Favorites.ITEM_TYPE_APPLICATION &&
+                info.itemType != Favorites.ITEM_TYPE_DEEP_SHORTCUT &&
+                info.itemType != Favorites.ITEM_TYPE_FOLDER) {
             return;
         }
         if (info instanceof FolderInfo && ((FolderInfo) info).usingCustomIcon(mLauncher)) {
@@ -334,13 +345,13 @@ public class DragView extends View {
     private Drawable getFullDrawable(ItemInfo info, LauncherAppState appState, Object[] outObj) {
         IconPackManager.CustomIconEntry customIconEntry = (info instanceof ShortcutInfo) ?
                 ((ShortcutInfo) info).customIconEntry : null;
-        if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION || customIconEntry != null) {
+        if (info.itemType == Favorites.ITEM_TYPE_APPLICATION || customIconEntry != null) {
             LauncherActivityInfo activityInfo = LauncherAppsCompat.getInstance(mLauncher)
                     .resolveActivity(info.getIntent(), info.user);
             outObj[0] = activityInfo;
             return (activityInfo != null) ? appState.getIconCache()
                     .getFullResIcon(activityInfo, info, false) : null;
-        } else if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT) {
+        } else if (info.itemType == Favorites.ITEM_TYPE_DEEP_SHORTCUT) {
             if (info instanceof PendingAddShortcutInfo) {
                 ShortcutConfigActivityInfo activityInfo =
                         ((PendingAddShortcutInfo) info).activityInfo;
@@ -361,7 +372,7 @@ public class DragView extends View {
                 }
                 return sm.getShortcutIconDrawable(si.get(0), iconDpi);
             }
-        } else if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_FOLDER) {
+        } else if (info.itemType == Favorites.ITEM_TYPE_FOLDER) {
             FolderAdaptiveIcon icon =  FolderAdaptiveIcon.createFolderAdaptiveIcon(
                     mLauncher, info.id, new Point(mBitmap.getWidth(), mBitmap.getHeight()));
             if (icon == null) {
@@ -384,7 +395,7 @@ public class DragView extends View {
     @TargetApi(Build.VERSION_CODES.O)
     private Drawable getBadge(ItemInfo info, LauncherAppState appState, Object obj) {
         int iconSize = appState.getInvariantDeviceProfile().iconBitmapSize;
-        if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT) {
+        if (info.itemType == Favorites.ITEM_TYPE_DEEP_SHORTCUT) {
             boolean iconBadged = (info instanceof ItemInfoWithIcon)
                     && (((ItemInfoWithIcon) info).runtimeStatusFlags & FLAG_ICON_BADGED) > 0;
             if ((info.id == ItemInfo.NO_ID && !iconBadged)
@@ -400,7 +411,7 @@ public class DragView extends View {
             float insetFraction = (iconSize - badgeSize) / iconSize;
             return new InsetDrawable(new FastBitmapDrawable(badge),
                     insetFraction, insetFraction, 0, 0);
-        } else if (info.itemType == LauncherSettings.Favorites.ITEM_TYPE_FOLDER) {
+        } else if (info.itemType == Favorites.ITEM_TYPE_FOLDER) {
             return obj instanceof FolderAdaptiveIcon ? ((FolderAdaptiveIcon) obj).getBadge() : new FixedSizeEmptyDrawable(iconSize);
         } else {
             return mLauncher.getPackageManager()

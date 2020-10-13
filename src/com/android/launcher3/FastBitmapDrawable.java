@@ -33,7 +33,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.Property;
 import android.util.SparseArray;
-
 import com.android.launcher3.graphics.BitmapInfo;
 
 public class FastBitmapDrawable extends Drawable {

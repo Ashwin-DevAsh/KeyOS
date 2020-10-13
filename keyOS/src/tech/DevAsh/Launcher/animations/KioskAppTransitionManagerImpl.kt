@@ -403,7 +403,7 @@ class KioskAppTransitionManagerImpl(context: Context) : LauncherAppTransitionMan
     private fun findWorkspaceIconForComponent(component: ComponentKey, allowFolder: Boolean = false): View? {
         return findInViews(Workspace.ItemOperator { info, _ ->
             matchesComponent(info, component, allowFolder)
-        }, launcher.workspace.currentContainer, launcher.hotSeat.layout.shortcutsAndWidgets)
+        }, launcher.workspace.currentContainer)
     }
 
     private fun matchesComponent(info: ItemInfo?, component: ComponentKey, allowFolder: Boolean): Boolean {

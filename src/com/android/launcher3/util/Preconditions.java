@@ -17,7 +17,6 @@
 package com.android.launcher3.util;
 
 import android.os.Looper;
-
 import androidx.annotation.Keep;
 import com.android.launcher3.LauncherModel;
 import com.android.launcher3.config.FeatureFlags;

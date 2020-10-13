@@ -20,7 +20,11 @@ import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.*;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.LauncherActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -52,7 +56,6 @@ import com.android.launcher3.util.Preconditions;
 import com.android.launcher3.util.Provider;
 import com.android.launcher3.util.SQLiteCacheHelper;
 import com.android.launcher3.util.Thunk;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -77,7 +80,8 @@ public class IconCache {
 
     private static final int LOW_RES_SCALE_FACTOR = 5;
 
-    @Thunk static final Object ICON_UPDATE_TOKEN = new Object();
+    @Thunk
+    static final Object ICON_UPDATE_TOKEN = new Object();
 
     public static class CacheEntry extends BitmapInfo {
         public CharSequence title = "";
@@ -87,21 +91,25 @@ public class IconCache {
     }
 
     private final HashMap<UserHandle, BitmapInfo> mDefaultIcons = new HashMap<>();
-    @Thunk final MainThreadExecutor mMainThreadExecutor = new MainThreadExecutor();
+    @Thunk
+    final MainThreadExecutor mMainThreadExecutor = new MainThreadExecutor();
 
     private final Context mContext;
     private final PackageManager mPackageManager;
     private final IconProvider mIconProvider;
     private final AppInfoProvider mInfoProvider;
-    @Thunk final UserManagerCompat mUserManager;
+    @Thunk
+    final UserManagerCompat mUserManager;
     private final LauncherAppsCompat mLauncherApps;
     private final HashMap<ComponentKey, CacheEntry> mCache =
             new HashMap<>(INITIAL_ICON_CACHE_CAPACITY);
     private final InstantAppResolver mInstantAppResolver;
     private final int mIconDpi;
-    @Thunk final IconDB mIconDb;
+    @Thunk
+    final IconDB mIconDb;
 
-    @Thunk final Handler mWorkerHandler;
+    @Thunk
+    final Handler mWorkerHandler;
 
     private final BitmapFactory.Options mLowResOptions;
     private final BitmapFactory.Options mHighResOptions;
@@ -158,7 +166,7 @@ public class IconCache {
         Resources resources;
         try {
             resources = mPackageManager.getResourcesForApplication(packageName);
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (NameNotFoundException e) {
             resources = null;
         }
         if (resources != null) {
@@ -174,7 +182,7 @@ public class IconCache {
         try {
             resources = mPackageManager.getResourcesForApplication(
                     info.applicationInfo);
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (NameNotFoundException e) {
             resources = null;
         }
         if (resources != null) {
@@ -382,7 +390,8 @@ public class IconCache {
      *                        the memory. This is useful then the previous bitmap was created using
      *                        old data.
      */
-    @Thunk synchronized void addIconToDBAndMemCache(LauncherActivityInfo app,
+    @Thunk
+    synchronized void addIconToDBAndMemCache(LauncherActivityInfo app,
             PackageInfo info, long userSerial, boolean replaceExisting) {
         final ComponentKey key = new ComponentKey(app.getComponentName(), app.getUser());
         CacheEntry entry = null;
@@ -766,14 +775,16 @@ public class IconCache {
      * LauncherActivityInfo list. Items are updated/added one at a time, so that the
      * worker thread doesn't get blocked.
      */
-    @Thunk class SerializedIconUpdateTask implements Runnable {
+    @Thunk
+    class SerializedIconUpdateTask implements Runnable {
         private final long mUserSerial;
         private final HashMap<String, PackageInfo> mPkgInfoMap;
         private final Stack<LauncherActivityInfo> mAppsToAdd;
         private final Stack<LauncherActivityInfo> mAppsToUpdate;
         private final HashSet<String> mUpdatedPackages = new HashSet<>();
 
-        @Thunk SerializedIconUpdateTask(long userSerial, HashMap<String, PackageInfo> pkgInfoMap,
+        @Thunk
+        SerializedIconUpdateTask(long userSerial, HashMap<String, PackageInfo> pkgInfoMap,
                 Stack<LauncherActivityInfo> appsToAdd,
                 Stack<LauncherActivityInfo> appsToUpdate) {
             mUserSerial = userSerial;

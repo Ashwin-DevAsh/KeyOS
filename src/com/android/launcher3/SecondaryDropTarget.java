@@ -26,7 +26,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import tech.DevAsh.Launcher.settings.ui.SettingsActivity;
 import com.android.launcher3.Launcher.OnResumeCallback;
 import com.android.launcher3.compat.LauncherAppsCompat;
@@ -35,7 +34,6 @@ import com.android.launcher3.logging.LoggerUtils;
 import com.android.launcher3.userevent.nano.LauncherLogProto.ControlType;
 import com.android.launcher3.userevent.nano.LauncherLogProto.Target;
 import com.android.launcher3.util.Themes;
-
 import com.android.launcher3.widget.custom.CustomAppWidgetProviderInfo;
 import java.net.URISyntaxException;
 

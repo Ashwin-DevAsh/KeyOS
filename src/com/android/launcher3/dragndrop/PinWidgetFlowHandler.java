@@ -24,7 +24,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.widget.WidgetAddFlowHandler;
@@ -70,8 +69,8 @@ public class PinWidgetFlowHandler extends WidgetAddFlowHandler implements Parcel
         return false;
     }
 
-    public static final Parcelable.Creator<PinWidgetFlowHandler> CREATOR =
-            new Parcelable.Creator<PinWidgetFlowHandler>() {
+    public static final Creator<PinWidgetFlowHandler> CREATOR =
+            new Creator<PinWidgetFlowHandler>() {
                 public PinWidgetFlowHandler createFromParcel(Parcel source) {
                     return new PinWidgetFlowHandler(source);
                 }

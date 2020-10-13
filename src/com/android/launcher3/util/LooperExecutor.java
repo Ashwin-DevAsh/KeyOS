@@ -17,7 +17,6 @@ package com.android.launcher3.util;
 
 import android.os.Handler;
 import android.os.Looper;
-
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.TimeUnit;

@@ -1,7 +1,6 @@
 package com.android.launcher3;
 
 import android.view.View;
-
 import com.android.launcher3.userevent.nano.LauncherLogProto.Action;
 
 /**

@@ -26,7 +26,6 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.widget.RemoteViews;
-
 import com.android.launcher3.R;
 
 /**

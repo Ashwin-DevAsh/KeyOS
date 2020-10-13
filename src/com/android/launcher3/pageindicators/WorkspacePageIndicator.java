@@ -17,7 +17,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
-
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.theme.ThemeManager;
 import com.android.launcher3.DeviceProfile;

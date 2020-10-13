@@ -39,13 +39,11 @@ import com.android.launcher3.DefaultLayoutParser;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherAppWidgetInfo;
 import com.android.launcher3.LauncherProvider;
-import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.LauncherSettings.Settings;
 import com.android.launcher3.LauncherSettings.WorkspaceScreens;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
-import com.android.launcher3.Workspace;
 import com.android.launcher3.compat.UserManagerCompat;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.logging.FileLog;
@@ -87,7 +85,7 @@ public class ImportDataTask {
     public boolean importWorkspace() throws Exception {
         ArrayList<Long> allScreens = LauncherDbUtils.getScreenIdsFromCursor(
                 mContext.getContentResolver().query(mOtherScreensUri, null, null, null,
-                        LauncherSettings.WorkspaceScreens.SCREEN_RANK));
+                        WorkspaceScreens.SCREEN_RANK));
         FileLog.d(TAG, "Importing DB from " + mOtherFavoritesUri);
 
         // During import we reset the screen IDs to 0-indexed values.
@@ -105,11 +103,11 @@ public class ImportDataTask {
         LongSparseArray<Long> screenIdMap = new LongSparseArray<>(count);
         for (int i = 0; i < count; i++) {
             ContentValues v = new ContentValues();
-            v.put(LauncherSettings.WorkspaceScreens._ID, i);
-            v.put(LauncherSettings.WorkspaceScreens.SCREEN_RANK, i);
+            v.put(WorkspaceScreens._ID, i);
+            v.put(WorkspaceScreens.SCREEN_RANK, i);
             screenIdMap.put(allScreens.get(i), (long) i);
             screenOps.add(ContentProviderOperation.newInsert(
-                    LauncherSettings.WorkspaceScreens.CONTENT_URI).withValues(v).build());
+                    WorkspaceScreens.CONTENT_URI).withValues(v).build());
         }
         mContext.getContentResolver().applyBatch(LauncherProvider.AUTHORITY, screenOps);
         importWorkspaceItems(allScreens.get(0), screenIdMap);
@@ -117,8 +115,8 @@ public class ImportDataTask {
         GridSizeMigrationTask.markForMigration(mContext, mMaxGridSizeX, mMaxGridSizeY, mHotseatSize);
 
         // Create empty DB flag.
-        LauncherSettings.Settings.call(mContext.getContentResolver(),
-                LauncherSettings.Settings.METHOD_CLEAR_EMPTY_DB_FLAG);
+        Settings.call(mContext.getContentResolver(),
+                Settings.METHOD_CLEAR_EMPTY_DB_FLAG);
         return true;
     }
 

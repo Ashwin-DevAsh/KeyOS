@@ -46,7 +46,6 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.colors.ColorEngine.Resolvers;
 import com.android.launcher3.LauncherSettings.Favorites;
@@ -64,7 +63,6 @@ import com.android.launcher3.util.ParcelableSparseArray;
 import com.android.launcher3.util.Themes;
 import com.android.launcher3.util.Thunk;
 import com.android.launcher3.widget.LauncherAppWidgetHostView;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -424,6 +422,9 @@ public class CellLayout extends ViewGroup {
                 (ParcelableSparseArray) parcelable : new ParcelableSparseArray();
     }
 
+    public boolean getIsDragOverlapping() {
+        return mIsDragOverlapping;
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -554,7 +555,7 @@ public class CellLayout extends ViewGroup {
         }
     }
 
-    public void setOnInterceptTouchListener(View.OnTouchListener listener) {
+    public void setOnInterceptTouchListener(OnTouchListener listener) {
         mInterceptTouchListener = listener;
     }
 
@@ -699,7 +700,9 @@ public class CellLayout extends ViewGroup {
      * @param y Y coordinate of the point
      * @param result Array of 2 ints to hold the x and y coordinate of the cell
      */
-
+    void pointToCellRounded(int x, int y, int[] result) {
+        pointToCellExact(x + (mCellWidth / 2), y + (mCellHeight / 2), result);
+    }
 
     /**
      * Given a cell coordinate, return the point that represents the upper left corner of that cell
@@ -841,7 +844,7 @@ public class CellLayout extends ViewGroup {
      * Returns the amount of space left over after subtracting padding and cells. This space will be
      * very small, a few pixels at most, and is a result of rounding down when calculating the cell
      * width in {@link DeviceProfile#calculateCellWidth(int, int)}.
-    */
+     */
     public int getUnusedHorizontalSpace() {
         return getMeasuredWidth() - getPaddingLeft() - getPaddingRight() - (mCountX * mCellWidth);
     }
@@ -2560,20 +2563,20 @@ public class CellLayout extends ViewGroup {
 
     @Override
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new CellLayout.LayoutParams(getContext(), attrs);
+        return new LayoutParams(getContext(), attrs);
     }
 
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-        return p instanceof CellLayout.LayoutParams;
+        return p instanceof LayoutParams;
     }
 
     @Override
     protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams p) {
-        return new CellLayout.LayoutParams(p);
+        return new LayoutParams(p);
     }
 
-    public static class LayoutParams extends ViewGroup.MarginLayoutParams {
+    public static class LayoutParams extends MarginLayoutParams {
         /**
          * Horizontal location of the item in the grid.
          */

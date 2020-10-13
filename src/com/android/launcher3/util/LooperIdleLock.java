@@ -18,7 +18,6 @@ package com.android.launcher3.util;
 
 import android.os.Looper;
 import android.os.MessageQueue;
-
 import com.android.launcher3.Utilities;
 
 /**

@@ -18,9 +18,7 @@ package com.android.launcher3.compat;
 
 import android.content.Context;
 import android.os.UserHandle;
-
 import com.android.launcher3.Utilities;
-
 import java.util.List;
 
 public abstract class UserManagerCompat {

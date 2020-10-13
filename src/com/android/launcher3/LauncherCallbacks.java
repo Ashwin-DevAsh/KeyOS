@@ -18,10 +18,8 @@ package com.android.launcher3;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 /**
  * LauncherCallbacks is an interface used to extend the Launcher activity. It includes many hooks

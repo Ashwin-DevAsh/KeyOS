@@ -19,7 +19,6 @@ import static com.android.launcher3.LauncherAnimUtils.SPRING_LOADED_TRANSITION_M
 import static com.android.launcher3.states.RotationHelper.REQUEST_LOCK;
 
 import android.graphics.Rect;
-
 import tech.DevAsh.Launcher.states.HomeState;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.InstallShortcutReceiver;

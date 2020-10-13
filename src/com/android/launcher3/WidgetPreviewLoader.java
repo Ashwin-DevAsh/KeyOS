@@ -28,7 +28,6 @@ import android.os.UserHandle;
 import androidx.annotation.Nullable;
 import android.util.Log;
 import android.util.LongSparseArray;
-
 import com.android.launcher3.compat.AppWidgetManagerCompat;
 import com.android.launcher3.compat.ShortcutConfigActivityInfo;
 import com.android.launcher3.compat.UserManagerCompat;
@@ -41,7 +40,6 @@ import com.android.launcher3.util.Preconditions;
 import com.android.launcher3.util.SQLiteCacheHelper;
 import com.android.launcher3.util.Thunk;
 import com.android.launcher3.widget.WidgetCell;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;

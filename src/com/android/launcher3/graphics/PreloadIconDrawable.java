@@ -30,11 +30,9 @@ import android.graphics.PathMeasure;
 import android.graphics.Rect;
 import android.util.Property;
 import android.util.SparseArray;
-
 import com.android.launcher3.FastBitmapDrawable;
 import com.android.launcher3.ItemInfoWithIcon;
 import com.android.launcher3.anim.Interpolators;
-
 import java.lang.ref.WeakReference;
 
 /**

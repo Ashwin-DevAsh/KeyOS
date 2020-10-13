@@ -17,7 +17,6 @@
 package com.android.launcher3;
 
 import android.graphics.Rect;
-
 import com.android.launcher3.accessibility.DragViewStateAnnouncer;
 import com.android.launcher3.dragndrop.DragOptions;
 import com.android.launcher3.dragndrop.DragView;

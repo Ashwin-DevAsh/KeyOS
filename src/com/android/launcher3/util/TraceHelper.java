@@ -23,7 +23,6 @@ import android.os.Trace;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.MutableLong;
-
 import com.android.launcher3.config.FeatureFlags;
 
 /**

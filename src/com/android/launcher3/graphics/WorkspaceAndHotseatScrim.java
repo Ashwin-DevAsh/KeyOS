@@ -38,7 +38,6 @@ import androidx.core.graphics.ColorUtils;
 import android.util.DisplayMetrics;
 import android.util.Property;
 import android.view.View;
-
 import tech.DevAsh.Launcher.theme.ThemeManager;
 import com.android.launcher3.CellLayout;
 import com.android.launcher3.Launcher;
@@ -175,7 +174,7 @@ public class WorkspaceAndHotseatScrim implements
             mWorkspace.computeScrollWithoutInvalidation();
             CellLayout currCellLayout = mWorkspace.getCurrentDragOverlappingLayout();
             canvas.save();
-            if (currCellLayout != null && currCellLayout != mLauncher.getHotSeat().getLayout()) {
+            if (currCellLayout != null && currCellLayout != mLauncher.getHotseat().getLayout()) {
                 // Cut a hole in the darkening scrim on the page that should be highlighted, if any.
                 mLauncher.getDragLayer()
                         .getDescendantRectRelativeToSelf(currCellLayout, mHighlightRect);

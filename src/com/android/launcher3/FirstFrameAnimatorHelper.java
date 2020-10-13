@@ -16,6 +16,8 @@
 
 package com.android.launcher3;
 
+import static com.android.launcher3.Utilities.SINGLE_FRAME_MS;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
@@ -24,8 +26,6 @@ import android.view.View;
 import android.view.ViewPropertyAnimator;
 import android.view.ViewTreeObserver;
 import com.android.launcher3.util.Thunk;
-
-import static com.android.launcher3.Utilities.SINGLE_FRAME_MS;
 
 /*
  *  This is a helper class that listens to updates from the corresponding animation.
@@ -44,7 +44,8 @@ public class FirstFrameAnimatorHelper extends AnimatorListenerAdapter
     private boolean mAdjustedSecondFrameTime;
 
     private static ViewTreeObserver.OnDrawListener sGlobalDrawListener;
-    @Thunk static long sGlobalFrameCounter;
+    @Thunk
+    static long sGlobalFrameCounter;
     private static boolean sVisible;
 
     public FirstFrameAnimatorHelper(ValueAnimator animator, View target) {

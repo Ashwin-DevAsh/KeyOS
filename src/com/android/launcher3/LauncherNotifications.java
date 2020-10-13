@@ -1,11 +1,9 @@
 package com.android.launcher3;
 
 import android.service.notification.StatusBarNotification;
-
 import com.android.launcher3.notification.NotificationKeyData;
 import com.android.launcher3.notification.NotificationListener;
 import com.android.launcher3.util.PackageUserKey;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

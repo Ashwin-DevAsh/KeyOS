@@ -20,13 +20,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInstaller.SessionInfo;
 import android.util.Log;
-
 import com.android.launcher3.FolderInfo;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherAppWidgetInfo;
 import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.util.MultiHashMap;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;

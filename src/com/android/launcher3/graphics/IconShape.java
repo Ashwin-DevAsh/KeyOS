@@ -38,22 +38,18 @@ import android.util.TypedValue;
 import android.util.Xml;
 import android.view.View;
 import android.view.ViewOutlineProvider;
-
+import androidx.annotation.Nullable;
 import tech.DevAsh.Launcher.adaptive.IconShapeManager;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.anim.RoundedRectRevealOutlineProvider;
 import com.android.launcher3.util.Themes;
 import com.android.launcher3.views.ClipPathView;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.Nullable;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 /**
  * Abstract representation of the shape of an icon shape

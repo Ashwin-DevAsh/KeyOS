@@ -19,9 +19,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.util.SparseArray;
 import android.view.animation.Interpolator;
-
 import com.android.launcher3.LauncherAnimUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 

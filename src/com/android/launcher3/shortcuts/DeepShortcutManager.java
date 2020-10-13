@@ -32,7 +32,6 @@ import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.util.ComponentKey;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

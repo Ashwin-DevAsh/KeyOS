@@ -102,7 +102,7 @@ public class Hotseat extends FrameLayout implements Insettable {
 
     @Override
     public void setInsets(Rect insets) {
-        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
+        LayoutParams lp = (LayoutParams) getLayoutParams();
         DeviceProfile grid = mLauncher.getDeviceProfile();
 
         if (grid.isVerticalBarLayout()) {

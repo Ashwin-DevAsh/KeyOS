@@ -11,7 +11,6 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.animation.Interpolator;
-
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider;
 import com.android.launcher3.Utilities;

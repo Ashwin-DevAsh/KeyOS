@@ -28,7 +28,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import androidx.core.graphics.ColorUtils;
-import android.text.TextUtils;
 import android.text.TextUtils.TruncateAt;
 import android.util.AttributeSet;
 import android.util.Property;
@@ -39,7 +38,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewDebug;
 import android.widget.TextView;
-
 import tech.DevAsh.Launcher.KioskLauncher;
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.KioskUtilsKt;
@@ -63,7 +61,6 @@ import com.android.launcher3.graphics.DrawableFactory;
 import com.android.launcher3.graphics.IconPalette;
 import com.android.launcher3.graphics.PreloadIconDrawable;
 import com.android.launcher3.model.PackageItemInfo;
-
 import java.text.NumberFormat;
 import org.jetbrains.annotations.NotNull;
 
@@ -218,7 +215,7 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver, 
     public void setLineCount(int lines) {
         setMaxLines(lines);
         setSingleLine(lines == 1);
-        setEllipsize(TextUtils.TruncateAt.END);
+        setEllipsize(TruncateAt.END);
         // This shouldn't even be needed, what is going on?!
         setLines(lines);
     }

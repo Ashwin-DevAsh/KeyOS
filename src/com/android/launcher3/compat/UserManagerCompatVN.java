@@ -21,7 +21,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Process;
 import android.os.UserHandle;
-
 import java.util.List;
 
 @TargetApi(Build.VERSION_CODES.N)

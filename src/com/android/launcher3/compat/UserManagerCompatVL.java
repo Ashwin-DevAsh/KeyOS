@@ -17,7 +17,6 @@
 package com.android.launcher3.compat;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.UserHandle;
 import android.os.UserManager;

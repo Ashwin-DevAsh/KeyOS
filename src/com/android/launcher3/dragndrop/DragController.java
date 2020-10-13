@@ -20,7 +20,6 @@ import static com.android.launcher3.LauncherAnimUtils.SPRING_LOADED_EXIT_DELAY;
 import static com.android.launcher3.LauncherState.NORMAL;
 
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Point;
@@ -31,7 +30,6 @@ import android.view.HapticFeedbackConstants;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-
 import com.android.launcher3.DragSource;
 import com.android.launcher3.DropTarget;
 import com.android.launcher3.ItemInfo;
@@ -43,7 +41,6 @@ import com.android.launcher3.util.ItemInfoMatcher;
 import com.android.launcher3.util.Thunk;
 import com.android.launcher3.util.TouchController;
 import com.android.launcher3.util.UiThreadHelper;
-
 import java.util.ArrayList;
 
 /**
@@ -52,7 +49,8 @@ import java.util.ArrayList;
 public class DragController implements DragDriver.EventListener, TouchController {
     private static final boolean PROFILE_DRAWING_DURING_DRAG = false;
 
-    @Thunk Launcher mLauncher;
+    @Thunk
+    Launcher mLauncher;
     private FlingToDeleteHelper mFlingToDeleteHelper;
 
     // temporaries to avoid gc thrash
@@ -87,9 +85,12 @@ public class DragController implements DragDriver.EventListener, TouchController
 
     private DropTarget mLastDropTarget;
 
-    @Thunk int mLastTouch[] = new int[2];
-    @Thunk long mLastTouchUpTime = -1;
-    @Thunk int mDistanceSinceScroll = 0;
+    @Thunk
+    int mLastTouch[] = new int[2];
+    @Thunk
+    long mLastTouchUpTime = -1;
+    @Thunk
+    int mDistanceSinceScroll = 0;
 
     private int mTmpPoint[] = new int[2];
     private Rect mDragLayerRect = new Rect();

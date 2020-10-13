@@ -8,7 +8,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.DrawableWrapper;
 import android.os.Build;
 import android.util.AttributeSet;
-
 import org.xmlpull.v1.XmlPullParser;
 
 /**

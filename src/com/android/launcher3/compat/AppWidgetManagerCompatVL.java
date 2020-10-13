@@ -24,14 +24,12 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.os.UserManager;
 import androidx.annotation.Nullable;
-
 import com.android.launcher3.LauncherAppWidgetInfo;
 import com.android.launcher3.LauncherAppWidgetProviderInfo;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.PackageUserKey;
 import com.android.launcher3.widget.custom.CustomWidgetParser;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;

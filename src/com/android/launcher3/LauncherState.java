@@ -18,23 +18,20 @@ package com.android.launcher3;
 import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_AUTO;
 import static android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS;
 import static android.view.accessibility.AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED;
-
 import static com.android.launcher3.anim.Interpolators.ACCEL_2;
 import static com.android.launcher3.states.RotationHelper.REQUEST_NONE;
 
 import android.graphics.Rect;
 import android.view.animation.Interpolator;
-
+import tech.DevAsh.Launcher.states.FolderState;
 import tech.DevAsh.Launcher.states.HomeState;
 import tech.DevAsh.Launcher.states.OptionsState;
-import tech.DevAsh.Launcher.states.FolderState;
 import com.android.launcher3.states.SpringLoadedState;
-import com.android.launcher3.uioverrides.SearchState;
 import com.android.launcher3.uioverrides.FastOverviewState;
 import com.android.launcher3.uioverrides.OverviewState;
+import com.android.launcher3.uioverrides.SearchState;
 import com.android.launcher3.uioverrides.UiFactory;
 import com.android.launcher3.userevent.nano.LauncherLogProto.ContainerType;
-
 import java.util.Arrays;
 
 

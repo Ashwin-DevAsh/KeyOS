@@ -26,7 +26,6 @@ import android.content.pm.ShortcutInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Process;
-
 import tech.DevAsh.Launcher.iconpack.KioskIconProvider;
 import com.android.launcher3.FastBitmapDrawable;
 import com.android.launcher3.IconCache;

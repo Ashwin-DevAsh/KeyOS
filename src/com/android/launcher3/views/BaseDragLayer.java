@@ -26,7 +26,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.FrameLayout;
-
 import com.android.launcher3.AbstractFloatingView;
 import com.android.launcher3.BaseActivity;
 import com.android.launcher3.BaseDraggingActivity;
@@ -35,7 +34,6 @@ import com.android.launcher3.Utilities;
 import com.android.launcher3.util.MultiValueAlpha;
 import com.android.launcher3.util.MultiValueAlpha.AlphaProperty;
 import com.android.launcher3.util.TouchController;
-
 import java.util.ArrayList;
 
 /**

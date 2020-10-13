@@ -1,7 +1,6 @@
 package com.android.launcher3.util;
 
 import android.graphics.Rect;
-
 import com.android.launcher3.ItemInfo;
 
 /**

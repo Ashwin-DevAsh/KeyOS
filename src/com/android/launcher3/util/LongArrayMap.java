@@ -17,7 +17,6 @@
 package com.android.launcher3.util;
 
 import android.util.LongSparseArray;
-
 import java.util.Iterator;
 
 /**
@@ -43,7 +42,8 @@ public class LongArrayMap<E> extends LongSparseArray<E> implements Iterable<E> {
         return new ValueIterator();
     }
 
-    @Thunk class ValueIterator implements Iterator<E> {
+    @Thunk
+    class ValueIterator implements Iterator<E> {
 
         private int mNextIndex = 0;
 

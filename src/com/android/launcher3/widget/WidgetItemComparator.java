@@ -17,9 +17,7 @@ package com.android.launcher3.widget;
 
 import android.os.Process;
 import android.os.UserHandle;
-
 import com.android.launcher3.model.WidgetItem;
-
 import java.text.Collator;
 import java.util.Comparator;
 

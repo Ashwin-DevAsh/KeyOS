@@ -17,7 +17,6 @@
 package com.android.launcher3;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-
 import static com.android.launcher3.LauncherState.NORMAL;
 
 import android.animation.AnimatorSet;
@@ -39,7 +38,6 @@ import android.view.View.OnClickListener;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
 import com.android.launcher3.anim.Interpolators;
 import com.android.launcher3.dragndrop.DragController;
 import com.android.launcher3.dragndrop.DragLayer;
@@ -86,7 +84,8 @@ public abstract class ButtonDropTarget extends TextView
     private int mToolTipLocation;
 
     private AnimatorSet mCurrentColorAnim;
-    @Thunk ColorMatrix mSrcFilter, mDstFilter, mCurrentFilter;
+    @Thunk
+    ColorMatrix mSrcFilter, mDstFilter, mCurrentFilter;
 
     public ButtonDropTarget(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -228,7 +227,7 @@ public abstract class ButtonDropTarget extends TextView
     }
 
     @Override
-    public void onDragStart(DropTarget.DragObject dragObject, DragOptions options) {
+    public void onDragStart(DragObject dragObject, DragOptions options) {
         mActive = supportsDrop(dragObject.dragInfo);
         mDrawable.setColorFilter(null);
         if (mCurrentColorAnim != null) {
@@ -302,7 +301,7 @@ public abstract class ButtonDropTarget extends TextView
     public abstract void completeDrop(DragObject d);
 
     @Override
-    public void getHitRectRelativeToDragLayer(android.graphics.Rect outRect) {
+    public void getHitRectRelativeToDragLayer(Rect outRect) {
         super.getHitRect(outRect);
         outRect.bottom += mBottomDragPadding;
 

@@ -15,24 +15,26 @@
  */
 package com.android.launcher3.views;
 
+
+
+import static androidx.dynamicanimation.animation.SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY;
+import static androidx.dynamicanimation.animation.SpringForce.STIFFNESS_LOW;
+import static androidx.dynamicanimation.animation.SpringForce.STIFFNESS_MEDIUM;
+
 import android.content.Context;
 import android.graphics.Canvas;
-import androidx.dynamicanimation.animation.DynamicAnimation;
-import androidx.dynamicanimation.animation.FloatPropertyCompat;
-import androidx.dynamicanimation.animation.SpringAnimation;
-import androidx.dynamicanimation.animation.SpringForce;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.EdgeEffectFactory;
 import android.util.AttributeSet;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.EdgeEffect;
 import android.widget.RelativeLayout;
-
-import static androidx.dynamicanimation.animation.SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY;
-import static androidx.dynamicanimation.animation.SpringForce.STIFFNESS_LOW;
-import static androidx.dynamicanimation.animation.SpringForce.STIFFNESS_MEDIUM;
+import androidx.annotation.NonNull;
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.FloatPropertyCompat;
+import androidx.dynamicanimation.animation.SpringAnimation;
+import androidx.dynamicanimation.animation.SpringForce;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.EdgeEffectFactory;
 
 public class SpringRelativeLayout extends RelativeLayout {
 
@@ -141,7 +143,8 @@ public class SpringRelativeLayout extends RelativeLayout {
 
     private class SpringEdgeEffectFactory extends EdgeEffectFactory {
 
-        @NonNull @Override
+        @NonNull
+        @Override
         protected EdgeEffect createEdgeEffect(RecyclerView view, int direction) {
             switch (direction) {
                 case DIRECTION_TOP:

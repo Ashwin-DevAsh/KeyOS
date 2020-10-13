@@ -22,8 +22,6 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
-
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.AllAppsList;
@@ -52,7 +50,6 @@ import com.android.launcher3.util.ItemInfoMatcher;
 import com.android.launcher3.util.LongArrayMap;
 import com.android.launcher3.util.PackageManagerHelper;
 import com.android.launcher3.util.PackageUserKey;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -101,18 +98,16 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
         ItemInfoMatcher matcher = ItemInfoMatcher.ofPackages(packageSet, mUser);
         switch (mOp) {
             case OP_ADD: {
-                for (String aPackage : packages) {
-                    if (DEBUG) Log.d(TAG, "mAllAppsList.addPackage " + aPackage);
-                    if (Kiosk.INSTANCE.isAllowedPackage(aPackage)) {
-                        iconCache.updateIconsForPkg(aPackage, mUser);
-                        if (FeatureFlags.LAUNCHER3_PROMISE_APPS_IN_ALL_APPS) {
-                            appsList.removePackage(aPackage, Process.myUserHandle());
-                        }
-                        appsList.addPackage(context, aPackage, mUser);
-                        if (!KioskUtilsKt
-                                .workspaceContains(dataModel, aPackage, Process.myUserHandle())) {
-                            SessionCommitReceiver.queueAppIconAddition(context, aPackage, mUser);
-                        }
+                KioskPreferences prefs = Utilities.getKioskPrefs(context);
+                for (int i = 0; i < N; i++) {
+                    if (DEBUG) Log.d(TAG, "mAllAppsList.addPackage " + packages[i]);
+                    iconCache.updateIconsForPkg(packages[i], mUser);
+                    if (FeatureFlags.LAUNCHER3_PROMISE_APPS_IN_ALL_APPS) {
+                        appsList.removePackage(packages[i], Process.myUserHandle());
+                    }
+                    appsList.addPackage(context, packages[i], mUser);
+                    if (!KioskUtilsKt.workspaceContains(dataModel, packages[i], Process.myUserHandle())) {
+                        SessionCommitReceiver.queueAppIconAddition(context, packages[i], mUser);
                     }
                 }
                 flagOp = FlagOp.removeFlag(ShortcutInfo.FLAG_DISABLED_NOT_AVAILABLE);
@@ -159,8 +154,8 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
                 appsList.updateDisabledFlags(matcher, flagOp);
                 break;
             case OP_RELOAD:
-//                if (DEBUG) Log.d(TAG, "mAllAppsList.reloadPackages");
-//                appsList.reloadPackages(context, mUser);
+                if (DEBUG) Log.d(TAG, "mAllAppsList.reloadPackages");
+                appsList.reloadPackages(context, mUser);
                 break;
         }
 

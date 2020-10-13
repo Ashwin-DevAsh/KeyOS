@@ -17,7 +17,6 @@ package com.android.launcher3.model;
 
 import android.content.ComponentName;
 import android.os.UserHandle;
-
 import com.android.launcher3.AllAppsList;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.IconCache;
@@ -27,7 +26,6 @@ import com.android.launcher3.LauncherModel.CallbackTask;
 import com.android.launcher3.LauncherModel.Callbacks;
 import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.ShortcutInfo;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 

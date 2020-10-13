@@ -18,13 +18,12 @@ package com.android.launcher3.widget;
 
 import android.content.Context;
 import android.graphics.Point;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener;
 import com.android.launcher3.BaseRecyclerView;
 import com.android.launcher3.R;
 
@@ -55,7 +54,10 @@ public class WidgetsRecyclerView extends BaseRecyclerView implements OnItemTouch
         addOnItemTouchListener(this);
     }
 
-
+    public WidgetsRecyclerView(Context context, AttributeSet attrs, int defStyleAttr,
+                               int defStyleRes) {
+        this(context, attrs, defStyleAttr);
+    }
 
     @Override
     protected void onFinishInflate() {

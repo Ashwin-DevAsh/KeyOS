@@ -23,7 +23,6 @@ import android.graphics.Color;
 import androidx.core.graphics.ColorUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
-
 import com.android.launcher3.BubbleTextView;
 import com.android.launcher3.R;
 

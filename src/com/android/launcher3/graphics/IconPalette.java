@@ -22,7 +22,6 @@ import android.graphics.Color;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import android.util.Log;
-
 import com.android.launcher3.R;
 import com.android.launcher3.util.Themes;
 

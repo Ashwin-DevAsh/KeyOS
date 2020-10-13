@@ -16,7 +16,6 @@
 package com.android.launcher3.graphics;
 
 import android.graphics.Bitmap;
-
 import com.android.launcher3.ItemInfoWithIcon;
 
 public class BitmapInfo {

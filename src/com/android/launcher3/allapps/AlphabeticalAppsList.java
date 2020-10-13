@@ -17,7 +17,6 @@ package com.android.launcher3.allapps;
 
 import android.content.Context;
 import android.content.pm.LauncherActivityInfo;
-
 import android.os.UserHandle;
 import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.AppInfo;
@@ -29,7 +28,6 @@ import com.android.launcher3.compat.LauncherAppsCompat;
 import com.android.launcher3.compat.UserManagerCompat;
 import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.ItemInfoMatcher;
-
 import java.util.ArrayList;
 import java.util.List;
 

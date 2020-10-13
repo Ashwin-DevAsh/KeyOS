@@ -22,7 +22,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Process;
-
 import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
@@ -38,7 +37,6 @@ import com.android.launcher3.graphics.BitmapRenderer;
 import com.android.launcher3.model.ModelWriter;
 import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.ContentWriter;
-
 import java.util.ArrayList;
 import org.jetbrains.annotations.Nullable;
 
@@ -190,7 +188,7 @@ public class FolderInfo extends ItemInfo {
     }
 
     public ComponentKey toComponentKey() {
-        return new ComponentKey(new ComponentName("ch.deletescape.keyOS.Launcher.folder", String.valueOf(id)), Process.myUserHandle());
+        return new ComponentKey(new ComponentName("tech.DevAsh.Launcher.folder", String.valueOf(id)), Process.myUserHandle());
     }
 
     public Drawable getIcon(Context context) {

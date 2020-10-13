@@ -18,7 +18,6 @@ package com.android.launcher3.util;
 import android.animation.AnimatorSet;
 import android.annotation.TargetApi;
 import android.os.Build;
-
 import java.util.ArrayList;
 import java.util.function.Consumer;
 

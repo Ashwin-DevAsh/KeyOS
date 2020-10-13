@@ -26,7 +26,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
-
 import com.android.launcher3.Insettable;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherAppState;
@@ -47,15 +46,13 @@ public class WidgetsFullSheet extends BaseWidgetSheet
 
     private final Rect mInsets = new Rect();
 
-    private  WidgetsListAdapter mAdapter;
+    private final WidgetsListAdapter mAdapter;
 
     private WidgetsRecyclerView mRecyclerView;
 
     public WidgetsFullSheet(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         LauncherAppState apps = LauncherAppState.getInstance(context);
-
-
         mAdapter = new WidgetsListAdapter(context,
                 LayoutInflater.from(context), apps.getWidgetCache(), apps.getIconCache(),
                 this, this);

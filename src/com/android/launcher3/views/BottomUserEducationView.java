@@ -15,6 +15,8 @@
  */
 package com.android.launcher3.views;
 
+import static com.android.launcher3.compat.AccessibilityManagerCompat.sendCustomAccessibilityEvent;
+
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -24,7 +26,6 @@ import android.view.LayoutInflater;
 import android.view.TouchDelegate;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
-
 import android.widget.ImageView;
 import android.widget.TextView;
 import tech.DevAsh.Launcher.colors.ColorEngine;
@@ -32,8 +33,6 @@ import com.android.launcher3.Insettable;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
 import com.android.launcher3.anim.Interpolators;
-
-import static com.android.launcher3.compat.AccessibilityManagerCompat.sendCustomAccessibilityEvent;
 
 public class BottomUserEducationView extends AbstractSlideInView implements Insettable {
 

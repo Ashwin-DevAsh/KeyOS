@@ -21,7 +21,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Process;
 import android.os.UserHandle;
-
 import com.android.launcher3.util.ContentWriter;
 
 /**

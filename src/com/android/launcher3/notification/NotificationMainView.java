@@ -33,7 +33,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.R;
@@ -41,11 +40,10 @@ import com.android.launcher3.Utilities;
 import com.android.launcher3.anim.AnimationSuccessListener;
 import com.android.launcher3.touch.OverScroll;
 import com.android.launcher3.touch.SwipeDetector;
-import com.android.launcher3.userevent.nano.LauncherLogProto;
 import com.android.launcher3.util.Themes;
 
 /**
- * A {@link android.widget.FrameLayout} that contains a single notification,
+ * A {@link FrameLayout} that contains a single notification,
  * e.g. icon + title + text.
  */
 @TargetApi(Build.VERSION_CODES.N)

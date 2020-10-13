@@ -15,18 +15,16 @@ import android.view.View;
 import android.view.View.AccessibilityDelegate;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
-
-import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.AppWidgetResizeFrame;
 import com.android.launcher3.BubbleTextView;
+import com.android.launcher3.ButtonDropTarget;
 import com.android.launcher3.CellLayout;
 import com.android.launcher3.DropTarget.DragObject;
 import com.android.launcher3.FolderInfo;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.LauncherAppWidgetInfo;
-import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.PendingAddItemInfo;
 import com.android.launcher3.R;
@@ -41,8 +39,8 @@ import com.android.launcher3.shortcuts.DeepShortcutManager;
 import com.android.launcher3.touch.ItemLongClickListener;
 import com.android.launcher3.util.Thunk;
 import com.android.launcher3.widget.LauncherAppWidgetHostView;
-
 import java.util.ArrayList;
+import tech.DevAsh.Launcher.KioskUtilsKt;
 
 public class LauncherAccessibilityDelegate extends AccessibilityDelegate implements DragListener {
 
@@ -120,11 +118,11 @@ public class LauncherAccessibilityDelegate extends AccessibilityDelegate impleme
                     ? SHORTCUTS_AND_NOTIFICATIONS : DEEP_SHORTCUTS));
         }
 
-//        for (ButtonDropTarget target : mLauncher.getDropTargetBar().getDropTargets()) {
-//            if (target.supportsAccessibilityDrop(item, host)) {
-//                info.addAction(mActions.get(target.getAccessibilityAction()));
-//            }
-//        }
+        for (ButtonDropTarget target : mLauncher.getDropTargetBar().getDropTargets()) {
+            if (target.supportsAccessibilityDrop(item, host)) {
+                info.addAction(mActions.get(target.getAccessibilityAction()));
+            }
+        }
 
         // Do not add move actions for keyboard request as this uses virtual nodes.
         if (!fromKeyboard && ((item instanceof ShortcutInfo)
@@ -194,7 +192,7 @@ public class LauncherAccessibilityDelegate extends AccessibilityDelegate impleme
             final int[] coordinates = new int[2];
             final long screenId = findSpaceOnWorkspace(item, coordinates);
             mLauncher.getModelWriter().moveItemInDatabase(info,
-                    LauncherSettings.Favorites.CONTAINER_DESKTOP,
+                    Favorites.CONTAINER_DESKTOP,
                     screenId, coordinates[0], coordinates[1]);
 
             // Bind the item in next frame so that if a new workspace page was created,
@@ -233,13 +231,13 @@ public class LauncherAccessibilityDelegate extends AccessibilityDelegate impleme
         } else if (action == DEEP_SHORTCUTS) {
             return PopupContainerWithArrow.showForIcon((BubbleTextView) host) != null;
         } else {
-//            for (ButtonDropTarget dropTarget : mLauncher.getDropTargetBar().getDropTargets()) {
-//                if (dropTarget.supportsAccessibilityDrop(item, host) &&
-//                        action == dropTarget.getAccessibilityAction()) {
-//                    dropTarget.onAccessibilityDrop(host, item);
-//                    return true;
-//                }
-//            }
+            for (ButtonDropTarget dropTarget : mLauncher.getDropTargetBar().getDropTargets()) {
+                if (dropTarget.supportsAccessibilityDrop(item, host) &&
+                        action == dropTarget.getAccessibilityAction()) {
+                    dropTarget.onAccessibilityDrop(host, item);
+                    return true;
+                }
+            }
         }
         return false;
     }

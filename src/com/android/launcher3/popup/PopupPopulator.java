@@ -22,9 +22,8 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.service.notification.StatusBarNotification;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
-
 import android.text.TextUtils;
+import androidx.annotation.VisibleForTesting;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.Launcher;
 import com.android.launcher3.ShortcutInfo;
@@ -35,7 +34,6 @@ import com.android.launcher3.shortcuts.DeepShortcutManager;
 import com.android.launcher3.shortcuts.DeepShortcutView;
 import com.android.launcher3.shortcuts.ShortcutInfoCompat;
 import com.android.launcher3.util.PackageUserKey;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -49,7 +47,8 @@ import java.util.List;
 public class PopupPopulator {
 
     public static final int MAX_SHORTCUTS = 6;
-    @VisibleForTesting static final int NUM_DYNAMIC = 2;
+    @VisibleForTesting
+    static final int NUM_DYNAMIC = 2;
     public static final int MAX_SHORTCUTS_IF_NOTIFICATIONS = 4;
 
     /**

@@ -16,22 +16,21 @@
 package com.android.launcher3.widget;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.Adapter;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
-
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.Adapter;
 import com.android.launcher3.BuildConfig;
 import com.android.launcher3.IconCache;
 import com.android.launcher3.R;
 import com.android.launcher3.WidgetPreviewLoader;
 import com.android.launcher3.model.WidgetItem;
 import com.android.launcher3.util.LabelComparator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -61,8 +60,6 @@ public class WidgetsListAdapter extends Adapter<WidgetsRowViewHolder> {
 
     private boolean mApplyBitmapDeferred;
 
-
-
     public WidgetsListAdapter(Context context, LayoutInflater layoutInflater,
             WidgetPreviewLoader widgetPreviewLoader, IconCache iconCache,
             OnClickListener iconClickListener, OnLongClickListener iconLongClickListener) {
@@ -72,7 +69,6 @@ public class WidgetsListAdapter extends Adapter<WidgetsRowViewHolder> {
         mIconLongClickListener = iconLongClickListener;
         mIndent = context.getResources().getDimensionPixelSize(R.dimen.widget_section_indent);
         mDiffReporter = new WidgetsDiffReporter(iconCache, this);
-
     }
 
     /**
@@ -99,7 +95,6 @@ public class WidgetsListAdapter extends Adapter<WidgetsRowViewHolder> {
      * Update the widget list.
      */
     public void setWidgets(ArrayList<WidgetListRowEntry> tempEntries) {
-
         WidgetListRowEntryComparator rowComparator = new WidgetListRowEntryComparator();
         Collections.sort(tempEntries, rowComparator);
         mDiffReporter.process(mEntries, tempEntries, rowComparator);

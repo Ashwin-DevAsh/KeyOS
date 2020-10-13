@@ -24,14 +24,13 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Property;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.TextView;
-
+import androidx.recyclerview.widget.RecyclerView;
 import tech.DevAsh.Launcher.KioskPreferences;
 import com.android.launcher3.BaseRecyclerView;
 import com.android.launcher3.BaseRecyclerView.PositionThumbInfo;

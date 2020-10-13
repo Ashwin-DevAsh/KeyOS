@@ -36,7 +36,6 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
-
 import com.android.launcher3.AppInfo;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherAppWidgetInfo;
@@ -46,7 +45,6 @@ import com.android.launcher3.R;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.compat.LauncherAppsCompat;
-
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -81,7 +79,7 @@ public class PackageManagerHelper {
         try {
             ApplicationInfo info = pm.getApplicationInfo(packageName, flags);
             return info != null && info.enabled;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (NameNotFoundException e) {
             return false;
         }
     }
@@ -90,7 +88,7 @@ public class PackageManagerHelper {
         try {
             ApplicationInfo info = pm.getApplicationInfo(packageName, flags);
             return info != null;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (NameNotFoundException e) {
             return false;
         }
     }
@@ -99,7 +97,7 @@ public class PackageManagerHelper {
         try {
             PackageInfo info = mPm.getPackageInfo(packageName, 0);
             return info.versionName;
-        } catch (PackageManager.NameNotFoundException ignored) {
+        } catch (NameNotFoundException ignored) {
         }
         return "";
     }

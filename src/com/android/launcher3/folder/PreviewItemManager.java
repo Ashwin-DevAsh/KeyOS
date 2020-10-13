@@ -16,6 +16,9 @@
 
 package com.android.launcher3.folder;
 
+import static com.android.launcher3.folder.FolderIcon.DROP_IN_ANIMATION_DURATION;
+import static com.android.launcher3.folder.NineFolderIconLayoutRule.MAX_NUM_ITEMS_IN_PREVIEW;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
@@ -25,17 +28,12 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
-
 import com.android.launcher3.BubbleTextView;
 import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.Utilities;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.android.launcher3.folder.NineFolderIconLayoutRule.MAX_NUM_ITEMS_IN_PREVIEW;
-import static com.android.launcher3.folder.FolderIcon.DROP_IN_ANIMATION_DURATION;
 
 /**
  * Manages the drawing and animations of {@link PreviewItemDrawingParams} for a {@link FolderIcon}.

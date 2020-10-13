@@ -21,6 +21,7 @@ import static com.android.launcher3.LauncherAnimUtils.DRAWABLE_ALPHA;
 import static com.android.launcher3.LauncherAnimUtils.SCALE_PROPERTY;
 import static com.android.launcher3.LauncherState.HOTSEAT_ICONS;
 import static com.android.launcher3.LauncherState.OPTIONS_VIEW;
+import static com.android.launcher3.LauncherState.SEARCH_VIEW;
 import static com.android.launcher3.anim.AnimatorSetBuilder.ANIM_BLUR_FADE;
 import static com.android.launcher3.anim.AnimatorSetBuilder.ANIM_WORKSPACE_FADE;
 import static com.android.launcher3.anim.AnimatorSetBuilder.ANIM_WORKSPACE_SCALE;
@@ -93,7 +94,7 @@ public class WorkspaceStateTransitionAnimation {
             Interpolator scaleInterpolator = builder.getInterpolator(ANIM_WORKSPACE_SCALE, ZOOM_OUT);
             propertySetter.setFloat(mWorkspace, SCALE_PROPERTY, mNewScale, scaleInterpolator);
             float hotseatIconsAlpha = (elements & HOTSEAT_ICONS) != 0 ? 1 : 0;
-            propertySetter.setViewAlpha(mLauncher.getHotSeat().getLayout(), hotseatIconsAlpha,
+            propertySetter.setViewAlpha(mLauncher.getHotseat().getLayout(), hotseatIconsAlpha,
                     fadeInterpolator);
             propertySetter.setViewAlpha(mLauncher.getWorkspace().getPageIndicator(),
                     hotseatIconsAlpha, fadeInterpolator);
@@ -104,7 +105,6 @@ public class WorkspaceStateTransitionAnimation {
         propertySetter.setViewAlpha(optionsPanel, (elements & OPTIONS_VIEW) != 0 ? 1 : 0, fadeInterpolator);
 
         // Set search view
-
 
         if (!config.playNonAtomicComponent()) {
             // Only the alpha and scale, handled above, are included in the atomic animation.

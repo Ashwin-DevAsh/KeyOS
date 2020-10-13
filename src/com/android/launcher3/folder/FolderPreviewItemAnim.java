@@ -18,7 +18,6 @@ package com.android.launcher3.folder;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-
 import com.android.launcher3.LauncherAnimUtils;
 
 /**

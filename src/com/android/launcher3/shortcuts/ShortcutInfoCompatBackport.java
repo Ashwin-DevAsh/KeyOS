@@ -26,15 +26,12 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Process;
 import android.os.UserHandle;
-
 import com.android.launcher3.R;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 public class ShortcutInfoCompatBackport extends ShortcutInfoCompat {
     private final static String USE_PACKAGE = "shortcut_backport_use_package";
