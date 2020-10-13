@@ -20,12 +20,14 @@ import static com.android.launcher3.util.SystemUiController.UI_STATE_OVERVIEW;
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.view.View.AccessibilityDelegate;
 import androidx.annotation.IntDef;
+import androidx.appcompat.app.AppCompatActivity;
 import com.android.launcher3.DeviceProfile.OnDeviceProfileChangeListener;
 import com.android.launcher3.uioverrides.UiFactory;
 import com.android.launcher3.userevent.nano.LauncherLogProto;
@@ -36,6 +38,7 @@ import java.lang.annotation.Retention;
 import java.util.ArrayList;
 
 public abstract class BaseActivity extends Activity {
+
 
     public static final int INVISIBLE_BY_STATE_HANDLER = 1 << 0;
     public static final int INVISIBLE_BY_APP_TRANSITIONS = 1 << 1;

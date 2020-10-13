@@ -73,6 +73,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 import tech.DevAsh.KeyOS.Database.RealmHelper;
 import tech.DevAsh.Launcher.*;
 import com.android.launcher3.DropTarget.DragObject;
@@ -148,7 +149,6 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     public static final String TAG = "Launcher";
     static final boolean LOGD = false;
 
-    static final boolean DEBUG_STRICT_MODE = BuildConfig.DEBUG_STRICT_MODE;
 
     private static final int REQUEST_CREATE_SHORTCUT = 1;
     private static final int REQUEST_CREATE_APPWIDGET = 5;
@@ -649,8 +649,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
     }
 
     @Override
-    public void onActivityResult(
-            final int requestCode, final int resultCode, final Intent data) {
+    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         handleActivityResult(requestCode, resultCode, data);
         if (mLauncherCallbacks != null) {
             mLauncherCallbacks.onActivityResult(requestCode, resultCode, data);

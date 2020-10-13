@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~     This file is part of Kiosk Launcher.
   ~
   ~     Kiosk Launcher is free software: you can redistribute it and/or modify
@@ -48,6 +47,8 @@
     <dimen name="qsb_radius_square">8dp</dimen>
     <dimen name="qsb_radius_squircle">16dp</dimen>
     <dimen name="hotseat_navbar_padding">12dp</dimen>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
 
     <!-- Smartspace dimens -->
 </resources>

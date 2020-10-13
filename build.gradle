@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath "io.realm:realm-gradle-plugin:6.0.2"
-        classpath 'com.android.tools.build:gradle:4.0.2'
+        classpath 'com.android.tools.build:gradle:4.1.0'
         classpath 'com.android.tools:r8:2.1.67'
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.9'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -200,8 +200,8 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'androidx.palette:palette:1.0.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.palette:palette-ktx:1.0.0'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
     implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
 
