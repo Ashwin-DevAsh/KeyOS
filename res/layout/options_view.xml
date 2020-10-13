@@ -14,13 +14,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<tech.DevAsh.Launcher.views.OptionsPanel
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<tech.DevAsh.Launcher.views.OptionsPanel xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:launcher="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
     android:theme="@style/HomeScreenElementTheme"
     launcher:layout_ignoreInsets="true"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="70dp"
     android:layout_gravity="center_horizontal|bottom"
     android:alpha="0"
     android:gravity="center"
@@ -28,52 +28,129 @@
     android:visibility="invisible"
     android:weightSum="4">
 
-    <tech.DevAsh.Launcher.views.OptionsTextView
-        android:id="@+id/wallpaper_button"
+    <RelativeLayout
+        android:id="@+id/settings_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:drawablePadding="7dp"
-        android:drawableTop="@drawable/exit"
-        android:drawableTint="?attr/workspaceTextColor"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center_horizontal"
-        android:stateListAnimator="@animator/overview_button_anim"
-        android:text="@string/wallpaper_button_text"
-        android:textAllCaps="true"
-        android:textColor="?attr/workspaceTextColor"
-        android:textSize="12sp" />
-
-    <tech.DevAsh.Launcher.views.OptionsTextView
-        android:id="@+id/widget_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:drawablePadding="4dp"
         android:drawableTop="@drawable/ic_widget"
         android:drawableTint="?attr/workspaceTextColor"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
         android:stateListAnimator="@animator/overview_button_anim"
-        android:text="@string/widget_button_text"
         android:textAllCaps="true"
         android:textColor="?attr/workspaceTextColor"
-        android:textSize="12sp" />
+        >
 
-    <tech.DevAsh.Launcher.views.OptionsTextView
-        android:id="@+id/settings_button"
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/ic_setting"
+            android:id="@id/image"
+            android:layout_centerInParent="true"
+            android:padding="18dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="12sp"
+            android:layout_marginBottom="5dp"
+            android:textColor="?attr/workspaceTextColor"
+            android:gravity="center"
+            android:text="@string/settings_button_text"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/wallpaper_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:drawablePadding="4dp"
-        android:drawableTop="@drawable/ic_setting"
+        android:drawableTop="@drawable/exit"
         android:drawableTint="?attr/workspaceTextColor"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
         android:stateListAnimator="@animator/overview_button_anim"
-        android:text="@string/settings_button_text"
         android:textAllCaps="true"
         android:textColor="?attr/workspaceTextColor"
-        android:textSize="12sp" />
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/exit"
+            android:id="@id/image"
+            android:tint="?attr/workspaceTextColor"
+            app:tint="@android:color/white"
+            android:layout_centerInParent="true"
+            android:padding="18dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="12sp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:textColor="?attr/workspaceTextColor"
+            android:text="@string/wallpaper_button_text"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/widget_button"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_widget"
+        android:drawableTint="?attr/workspaceTextColor"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:stateListAnimator="@animator/overview_button_anim"
+        android:textAllCaps="true"
+        android:textColor="?attr/workspaceTextColor"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/ic_widget"
+            android:id="@+id/image"
+            android:layout_centerInParent="true"
+            android:padding="18dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="12sp"
+            android:textColor="?attr/workspaceTextColor"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="@string/widget_button_text"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content">
+
+        </TextView>
+    </RelativeLayout>
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="1"-->
+<!--        android:drawablePadding="4dp"-->
+<!--        android:drawableTop="@drawable/ic_setting"-->
+<!--        android:drawableTint="?attr/workspaceTextColor"-->
+<!--        android:fontFamily="sans-serif-condensed"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:stateListAnimator="@animator/overview_button_anim"-->
+<!--        android:textAllCaps="true"-->
+<!--        android:textSize="12sp" />-->
 
 </tech.DevAsh.Launcher.views.OptionsPanel>

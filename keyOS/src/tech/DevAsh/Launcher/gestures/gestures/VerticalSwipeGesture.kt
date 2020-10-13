@@ -38,7 +38,7 @@ class VerticalSwipeGesture(controller: GestureController) : Gesture(controller) 
     }
 
     fun onSwipeDown() {
-        swipeDownHandler.onGestureTrigger(controller)
+//        swipeDownHandler.onGestureTrigger(controller)
     }
 
 }

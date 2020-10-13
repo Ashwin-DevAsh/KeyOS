@@ -35,9 +35,9 @@ class NotificationsOpenGestureHandler(context: Context, config: JSONObject?) : G
     @SuppressLint("PrivateApi", "WrongConstant")
     override fun onGestureTrigger(controller: GestureController, view: View?) {
         try {
-            Class.forName("android.app.StatusBarManager")
-                    .getMethod("expandNotificationsPanel")
-                    .invoke(controller.launcher.getSystemService("statusbar"))
+//            Class.forName("android.app.StatusBarManager")
+//                    .getMethod("expandNotificationsPanel")
+//                    .invoke(controller.launcher.getSystemService("statusbar"))
         } catch (ex: ClassNotFoundException) {
         } catch (ex: NoSuchMethodException) {
         } catch (ex: IllegalAccessException) {
