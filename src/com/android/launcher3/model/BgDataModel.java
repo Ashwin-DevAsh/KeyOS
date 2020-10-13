@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2016 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.android.launcher3.model;
 
 import android.content.Context;
@@ -20,6 +5,7 @@ import android.os.UserHandle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.MutableInt;
+
 import com.android.launcher3.FolderInfo;
 import com.android.launcher3.InstallShortcutReceiver;
 import com.android.launcher3.ItemInfo;
@@ -28,6 +14,7 @@ import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.config.FeatureFlags;
+import com.android.launcher3.folder.Folder;
 import com.android.launcher3.logging.DumpTargetWrapper;
 import com.android.launcher3.model.nano.LauncherDumpProto;
 import com.android.launcher3.model.nano.LauncherDumpProto.ContainerType;
@@ -39,6 +26,7 @@ import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.LongArrayMap;
 import com.android.launcher3.util.MultiHashMap;
 import com.google.protobuf.nano.MessageNano;
+
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -49,6 +37,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import tech.DevAsh.KeyOS.Database.UserContext;
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
+import tech.DevAsh.keyOS.Database.Apps;
 
 /**
  * All the data stored in-memory and managed by the LauncherModel
@@ -218,8 +210,7 @@ public class BgDataModel {
 
 
         // Traverse target wrapper
-        ArrayList<DumpTarget> targetList = new ArrayList<>();
-        targetList.addAll(hotseat.getFlattenedList());
+        ArrayList<DumpTarget> targetList = new ArrayList<>(hotseat.getFlattenedList());
         for (int i = 0; i < workspaces.size(); i++) {
             targetList.addAll(workspaces.valueAt(i).getFlattenedList());
         }
@@ -228,7 +219,6 @@ public class BgDataModel {
             for (int i = 0; i < targetList.size(); i++) {
                 writer.println(prefix + DumpTargetWrapper.getDumpTargetStr(targetList.get(i)));
             }
-            return;
         } else {
             LauncherDumpProto.LauncherImpression proto = new LauncherDumpProto.LauncherImpression();
             proto.targets = new DumpTarget[targetList.size()];
@@ -295,16 +285,31 @@ public class BgDataModel {
     }
 
     public synchronized void addItem(Context context, ItemInfo item, boolean newItem) {
+
         itemsIdMap.put(item.id, item);
+
+
         switch (item.itemType) {
             case LauncherSettings.Favorites.ITEM_TYPE_FOLDER:
-                folders.put(item.id, (FolderInfo) item);
+                FolderInfo folderInfo = (FolderInfo) item;
+                folders.put(item.id, folderInfo);
+                ArrayList<ShortcutInfo> folderContent = new ArrayList<>(folderInfo.contents);
+                for(ShortcutInfo shortcutInfo : folderContent){
+                    if(!Kiosk.INSTANCE.isAllowedPackage(shortcutInfo.getPackageName())){
+                        folderInfo.contents.remove(shortcutInfo);
+                    }
+                }
                 workspaceItems.add(item);
                 break;
             case LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT: {
                 if (Utilities.ATLEAST_NOUGAT_MR1) {
                     // Increment the count for the given shortcut
                     ShortcutKey pinnedShortcut = ShortcutKey.fromItemInfo(item);
+
+                    if(!Kiosk.INSTANCE.isAllowedPackage(pinnedShortcut.componentName.getPackageName())){
+                        return;
+                    }
+
                     MutableInt count = pinnedShortcutCounts.get(pinnedShortcut);
                     if (count == null) {
                         count = new MutableInt(1);
@@ -322,8 +327,9 @@ public class BgDataModel {
             }
             case LauncherSettings.Favorites.ITEM_TYPE_APPLICATION:
             case LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT:
-                if (item.container == LauncherSettings.Favorites.CONTAINER_DESKTOP ||
-                        item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
+                if(!Kiosk.INSTANCE.isAllowedPackage(item.getTargetComponent().getPackageName())){
+                    System.out.println("Blocked");
+                }else if (item.container == LauncherSettings.Favorites.CONTAINER_DESKTOP || item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
                     workspaceItems.add(item);
                 } else {
                     if (newItem) {
@@ -341,7 +347,11 @@ public class BgDataModel {
                 break;
             case LauncherSettings.Favorites.ITEM_TYPE_APPWIDGET:
             case LauncherSettings.Favorites.ITEM_TYPE_CUSTOM_APPWIDGET:
-                appWidgets.add((LauncherAppWidgetInfo) item);
+                LauncherAppWidgetInfo launcherAppWidgetInfo = (LauncherAppWidgetInfo) item;
+                if(!Kiosk.INSTANCE.isAllowedPackage(launcherAppWidgetInfo.providerName.getPackageName())){
+                    return;
+                }
+                appWidgets.add(launcherAppWidgetInfo);
                 break;
         }
     }

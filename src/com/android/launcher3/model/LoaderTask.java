@@ -38,6 +38,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.LongSparseArray;
 import android.util.MutableInt;
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.iconpack.IconPackManager;
 import tech.DevAsh.Launcher.model.HomeWidgetMigrationTask;
@@ -854,7 +855,9 @@ public class LoaderTask implements Runnable {
             for (int i = 0; i < apps.size(); i++) {
                 LauncherActivityInfo app = apps.get(i);
                 // This builds the icon bitmaps.
-                mBgAllAppsList.add(new AppInfo(app, user, quietMode), app);
+               if(Kiosk.INSTANCE.isAllowedPackage(app.getApplicationInfo().packageName)){
+                    mBgAllAppsList.add(new AppInfo(app, user, quietMode), app);
+                }
             }
         }
 

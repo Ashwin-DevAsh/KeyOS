@@ -43,6 +43,8 @@ import com.android.launcher3.util.PackageManagerHelper;
 import com.android.launcher3.widget.WidgetsFullSheet;
 import java.util.ArrayList;
 import java.util.List;
+import tech.DevAsh.KeyOS.Config.Password;
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt;
 
 /**
  * Popup shown on long pressing an empty space in launcher
@@ -172,7 +174,7 @@ public class OptionsPopupView extends ArrowPopup
 
     public static boolean startSettings(View view) {
         Launcher launcher = Launcher.getLauncher(view.getContext());
-        launcher.startActivitySafely(view, new Intent(Intent.ACTION_APPLICATION_PREFERENCES)
+        launcher.startActivitySafely(view, new Intent(launcher, PasswordPrompt.class)
                 .setPackage(launcher.getPackageName())
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null);
         return true;
