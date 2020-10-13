@@ -74,10 +74,8 @@ public class DeleteDropTarget extends ButtonDropTarget {
 
     @Override
     protected boolean supportsDrop(ItemInfo info) {
-        if (info.itemType == Favorites.ITEM_TYPE_APPLICATION) {
-            return false;
-        }
-        return true;
+        return info.itemType != Favorites.ITEM_TYPE_APPLICATION
+                && info.itemType != Favorites.ITEM_TYPE_FOLDER;
     }
 
     /**

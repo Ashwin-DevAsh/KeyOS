@@ -32,7 +32,6 @@ class KioskShortcut(private val context: Context) {
             ShortcutEntry("edit", Edit(), true),
             ShortcutEntry("widgets", SystemShortcut.Widgets(), true),
             ShortcutEntry("install", SystemShortcut.Install(), true),
-//            ShortcutEntry("remove", Remove(), false),
     )
 
     inner class ShortcutEntry(key: String, val shortcut: SystemShortcut<*>, enabled: Boolean) {
@@ -45,7 +44,6 @@ class KioskShortcut(private val context: Context) {
 
 
     class Edit : SystemShortcut<Launcher>(R.drawable.ic_edit_no_shadow, R.string.action_preferences) {
-
         override fun getOnClickListener(launcher: Launcher, itemInfo: ItemInfo): View.OnClickListener? {
             if (launcher.KioskPrefs.lockDesktop) return null
             if (!CustomInfoProvider.isEditable(itemInfo)) return null
@@ -63,7 +61,6 @@ class KioskShortcut(private val context: Context) {
             return if (itemInfo is ShortcutInfo || itemInfo is LauncherAppWidgetInfo || itemInfo is FolderInfo) {
                 View.OnClickListener {
                     AbstractFloatingView.closeAllOpenViews(launcher)
-
                     launcher.removeItem(null, itemInfo, true /* deleteFromDb */)
                     launcher.model.forceReload()
                     launcher.workspace.stripEmptyScreens()

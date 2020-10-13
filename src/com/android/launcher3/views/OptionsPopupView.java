@@ -144,7 +144,7 @@ public class OptionsPopupView extends ArrowPopup
         RectF target = new RectF(x - halfSize, y - halfSize, x + halfSize, y + halfSize);
 
         ArrayList<OptionItem> options = new ArrayList<>();
-        options.add(new OptionItem(R.string.wallpaper_button_text, R.drawable.ic_wallpaper,
+        options.add(new OptionItem(R.string.wallpaper_button_text, R.drawable.exit,
                 ControlType.WALLPAPER_BUTTON, OptionsPopupView::startWallpaperPicker));
         if (!Utilities.getKioskPrefs(launcher).getLockDesktop()) {
             options.add(new OptionItem(R.string.widget_button_text, R.drawable.ic_widget,
