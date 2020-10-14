@@ -3,10 +3,10 @@ package tech.DevAsh.keyOS.Database;
 import io.realm.RealmObject;
 
 public class BasicSettings extends RealmObject {
-    public String wifi = "Deny";
-    public String hotspot = "Deny";
-    public String bluetooth = "Deny";
-    public String mobileData = "Deny";
+    public String wifi = "Don't care";
+    public String hotspot = "Don't care";
+    public String bluetooth = "Don't care";
+    public String mobileData = "Don't care";
     public Boolean notificationPanel = false;
 
     public BasicSettings(String wifi, String hotspot, String bluetooth, String mobileData, Boolean notificationPanel) {

@@ -104,7 +104,7 @@ class Settings : AppCompatActivity() {
             openBottomSheet(bluetoothMode)
         }
         mobileData?.setOnClickListener {
-            openBottomSheet(mobiledataMode, false)
+            openBottomSheet(mobiledataMode)
         }
 
 
@@ -184,10 +184,7 @@ class Settings : AppCompatActivity() {
 
 
     private fun openBottomSheet(
-            mode: TextView,
-            advanceOptions: Boolean = true,
-            additionalOption: Boolean = false
-                               ){
+            mode: TextView){
 
         val options = BottomSheetDialog(this)
         val sheetView: View = LayoutInflater.from(this).inflate(R.layout.sheet_options, null)
@@ -201,39 +198,11 @@ class Settings : AppCompatActivity() {
                 options.cancel()
             }
         }
-        onModeClick(sheetView.allow, "Allow")
-        onModeClick(sheetView.deny, "Deny")
+
         onModeClick(sheetView.alwaysOn, "Always on")
         onModeClick(sheetView.alwaysOff, "Always off")
-        onModeClick(sheetView.denyIncoming, "Deny incoming")
-        onModeClick(sheetView.denyOutgoing, "Deny outgoing")
-        sheetView.whitelist.setOnClickListener {
-            startActivity(Intent(this, PhoneBook::class.java))
-            mode.text = "Whitelist Calls"
-            options.cancel()
+        onModeClick(sheetView.dontCare,"Don't care")
 
-        }
-
-        sheetView.blacklist.setOnClickListener {
-            startActivity(Intent(this, PhoneBook::class.java))
-            mode.text = "BlackList Calls"
-            options.cancel()
-        }
-
-        if(advanceOptions){
-            sheetView.advance.visibility=View.VISIBLE
-        }else{
-            sheetView.advance.visibility=View.GONE
-        }
-        if(additionalOption){
-            sheetView.allow.text = "Allow calls"
-            sheetView.deny.text = "Deny calls"
-            onModeClick(sheetView.allow, "Allow calls")
-            onModeClick(sheetView.deny, "Deny calls")
-            sheetView.additional.visibility=View.VISIBLE
-        }else{
-            sheetView.additional.visibility=View.GONE
-        }
         options.setContentView(sheetView)
         options.show()
     }
