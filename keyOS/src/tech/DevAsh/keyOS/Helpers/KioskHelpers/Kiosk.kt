@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import com.android.launcher3.Launcher
 import tech.DevAsh.KeyOS.Config.Settings
+import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
@@ -50,12 +51,14 @@ object Kiosk {
         startKiosk(context)
     }
 
-    fun openKioskSettings(context: Activity){
-        val intent = Intent(context, Settings::class.java)
-        intent.putExtra("isFromLauncher", true)
-        context.startActivity(intent)
-        stopKiosk(context)
-        context.finishAffinity()
+    fun openKioskSettings(context: Activity,password:String){
+        if(password == user?.password){
+            val intent = Intent(context, Settings::class.java)
+            intent.putExtra("isFromLauncher", true)
+            context.startActivity(intent)
+            stopKiosk(context)
+            context.finishAffinity()
+        }
     }
 
     fun isAllowedPackage(packageName: String):Boolean{
@@ -63,11 +66,13 @@ object Kiosk {
                Apps(packageName))
     }
 
-    fun exitKiosk(context: Activity){
-        stopKiosk(context.applicationContext)
-        CallBlocker.stop(context.applicationContext)
-        exitLauncher(context.applicationContext)
-        context.finishAffinity()
+    fun exitKiosk(context: Activity,password:String?){
+        if(password == user?.password){
+            stopKiosk(context.applicationContext)
+            CallBlocker.stop(context.applicationContext)
+            exitLauncher(context.applicationContext)
+            context.finishAffinity()
+        }
     }
 
     private fun exitLauncher(context: Context) {

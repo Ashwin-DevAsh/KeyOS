@@ -75,7 +75,8 @@ class IconPackImpl(context: Context, packPackageName: String) : IconPack(context
         for (user in UserManagerCompat.getInstance(context).userProfiles) {
             packCalendars.keys.forEach {
                 val pkg = it.packageName
-                if (!apps.getActivityList(pkg, user).isEmpty()) {
+
+                if (apps.getActivityList(pkg, user).isNotEmpty()) {
                     CustomIconUtils.reloadIcon(shortcutManager, model, user, pkg)
                 }
             }

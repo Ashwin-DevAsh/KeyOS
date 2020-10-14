@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2016 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.android.launcher3.model;
 
 import android.content.ComponentName;
@@ -22,7 +7,7 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
-import tech.DevAsh.Launcher.KioskPreferences;
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.KioskUtilsKt;
 import com.android.launcher3.AllAppsList;
 import com.android.launcher3.AppInfo;
@@ -31,8 +16,6 @@ import com.android.launcher3.InstallShortcutReceiver;
 import com.android.launcher3.ItemInfo;
 import com.android.launcher3.LauncherAppState;
 import com.android.launcher3.LauncherAppWidgetInfo;
-import com.android.launcher3.LauncherModel.CallbackTask;
-import com.android.launcher3.LauncherModel.Callbacks;
 import com.android.launcher3.LauncherSettings.Favorites;
 import com.android.launcher3.SessionCommitReceiver;
 import com.android.launcher3.ShortcutInfo;
@@ -65,7 +48,6 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
     private static final boolean DEBUG = false;
     private static final String TAG = "PackageUpdatedTask";
 
-    public static final int OP_NONE = 0;
     public static final int OP_ADD = 1;
     public static final int OP_UPDATE = 2;
     public static final int OP_REMOVE = 3; // uninstalled
@@ -87,7 +69,7 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
 
     @Override
     public void execute(LauncherAppState app, BgDataModel dataModel, AllAppsList appsList) {
-        Utilities.debugNotification("PackageUpdatedTask, op: " + mOp + ", packages: " + Arrays. toString(mPackages));
+        Utilities.debugNotification("PackageUpdatedTask, op: " + mOp + ", packages: " + Arrays.toString(mPackages));
         final Context context = app.getContext();
         final IconCache iconCache = app.getIconCache();
 
@@ -98,42 +80,46 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
         ItemInfoMatcher matcher = ItemInfoMatcher.ofPackages(packageSet, mUser);
         switch (mOp) {
             case OP_ADD: {
-                KioskPreferences prefs = Utilities.getKioskPrefs(context);
-                for (int i = 0; i < N; i++) {
-                    if (DEBUG) Log.d(TAG, "mAllAppsList.addPackage " + packages[i]);
-                    iconCache.updateIconsForPkg(packages[i], mUser);
-                    if (FeatureFlags.LAUNCHER3_PROMISE_APPS_IN_ALL_APPS) {
-                        appsList.removePackage(packages[i], Process.myUserHandle());
-                    }
-                    appsList.addPackage(context, packages[i], mUser);
-                    if (!KioskUtilsKt.workspaceContains(dataModel, packages[i], Process.myUserHandle())) {
-                        SessionCommitReceiver.queueAppIconAddition(context, packages[i], mUser);
+                for (String aPackage : packages) {
+                    if (Kiosk.INSTANCE.isAllowedPackage(aPackage)) {
+                        if (DEBUG) Log.d(TAG, "mAllAppsList.addPackage " + aPackage);
+                        iconCache.updateIconsForPkg(aPackage, mUser);
+                        if (FeatureFlags.LAUNCHER3_PROMISE_APPS_IN_ALL_APPS) {
+                            appsList.removePackage(aPackage, Process.myUserHandle());
+                        }
+                        appsList.addPackage(context, aPackage, mUser);
+                        if (!KioskUtilsKt.workspaceContains(dataModel, aPackage, Process.myUserHandle())) {
+                            SessionCommitReceiver.queueAppIconAddition(context, aPackage, mUser);
+                        }
                     }
                 }
                 flagOp = FlagOp.removeFlag(ShortcutInfo.FLAG_DISABLED_NOT_AVAILABLE);
                 break;
             }
             case OP_UPDATE:
-                for (int i = 0; i < N; i++) {
-                    if (DEBUG) Log.d(TAG, "mAllAppsList.updatePackage " + packages[i]);
-                    iconCache.updateIconsForPkg(packages[i], mUser);
-                    appsList.updatePackage(context, packages[i], mUser);
-                    app.getWidgetCache().removePackage(packages[i], mUser);
+                for (String aPackage : packages) {
+                    if (Kiosk.INSTANCE.isAllowedPackage(aPackage)){
+                        if (DEBUG) Log.d(TAG, "mAllAppsList.updatePackage " + aPackage);
+                        iconCache.updateIconsForPkg(aPackage, mUser);
+                        appsList.updatePackage(context, aPackage, mUser);
+                        app.getWidgetCache().removePackage(aPackage, mUser);
+                    }
                 }
                 // Since package was just updated, the target must be available now.
                 flagOp = FlagOp.removeFlag(ShortcutInfo.FLAG_DISABLED_NOT_AVAILABLE);
                 break;
             case OP_REMOVE: {
-                for (int i = 0; i < N; i++) {
-                    iconCache.removeIconsForPkg(packages[i], mUser);
+                for (String aPackage : packages) {
+                    iconCache.removeIconsForPkg(aPackage, mUser);
                 }
                 // Fall through
             }
             case OP_UNAVAILABLE:
-                for (int i = 0; i < N; i++) {
-                    if (DEBUG) Log.d(TAG, "mAllAppsList.removePackage " + packages[i]);
-                    appsList.removePackage(packages[i], mUser);
-                    app.getWidgetCache().removePackage(packages[i], mUser);
+                for (String aPackage : packages) {
+                    if (DEBUG)
+                        Log.d(TAG, "mAllAppsList.removePackage " + aPackage);
+                    appsList.removePackage(aPackage, mUser);
+                    app.getWidgetCache().removePackage(aPackage, mUser);
                 }
                 flagOp = FlagOp.addFlag(ShortcutInfo.FLAG_DISABLED_NOT_AVAILABLE);
                 break;
@@ -159,10 +145,8 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
                 break;
         }
 
-        final ArrayList<AppInfo> addedOrModified = new ArrayList<>();
-        final ArrayList<AppInfo> added = new ArrayList<>();
-        addedOrModified.addAll(appsList.added);
-        added.addAll(appsList.added);
+        final ArrayList<AppInfo> addedOrModified = new ArrayList<>(appsList.added);
+        final ArrayList<AppInfo> added = new ArrayList<>(appsList.added);
         appsList.added.clear();
         addedOrModified.addAll(appsList.modified);
         appsList.modified.clear();
@@ -189,6 +173,11 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
             final boolean isNewApkAvailable = mOp == OP_ADD || mOp == OP_UPDATE;
             synchronized (dataModel) {
                 for (ItemInfo info : dataModel.itemsIdMap) {
+
+                    if(!Kiosk.INSTANCE.isAllowedPackage(info.getTargetComponent().getPackageName())){
+                        continue;
+                    }
+
                     if (info instanceof ShortcutInfo && mUser.equals(info.user)) {
                         ShortcutInfo si = (ShortcutInfo) info;
                         boolean infoUpdated = false;
@@ -257,8 +246,7 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
                                     }
                                 } else if (!isTargetValid) {
                                     removedShortcuts.put(si.id, true);
-                                    FileLog.e(TAG, "Restored shortcut no longer valid "
-                                            + si.intent);
+                                    FileLog.e(TAG, "Restored shortcut no longer valid " + si.intent);
                                     continue;
                                 } else {
                                     si.status = ShortcutInfo.DEFAULT;
@@ -306,7 +294,6 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
                 }
             }
 
-            // 添加新APP图标
             InstallShortcutReceiver.installNewAppShortcuts(context, added);
 
             bindUpdatedShortcuts(updatedShortcuts, mUser);
@@ -315,12 +302,7 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
             }
 
             if (!widgets.isEmpty()) {
-                scheduleCallbackTask(new CallbackTask() {
-                    @Override
-                    public void execute(Callbacks callbacks) {
-                        callbacks.bindWidgetsRestored(widgets);
-                    }
-                });
+                scheduleCallbackTask(callbacks -> callbacks.bindWidgetsRestored(widgets));
             }
         }
 
@@ -335,9 +317,9 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
         } else if (mOp == OP_UPDATE) {
             // Mark disabled packages in the broadcast to be removed
             final LauncherAppsCompat launcherApps = LauncherAppsCompat.getInstance(context);
-            for (int i=0; i<N; i++) {
-                if (!launcherApps.isPackageEnabledForProfile(packages[i], mUser)) {
-                    removedPackages.add(packages[i]);
+            for (String aPackage : packages) {
+                if (!launcherApps.isPackageEnabledForProfile(aPackage, mUser)) {
+                    removedPackages.add(aPackage);
                 }
             }
 
@@ -359,19 +341,14 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
 
         if (!removedApps.isEmpty()) {
             // Remove corresponding apps from All-Apps
-            scheduleCallbackTask(new CallbackTask() {
-                @Override
-                public void execute(Callbacks callbacks) {
-                    callbacks.bindAppInfosRemoved(removedApps);
-                }
-            });
+            scheduleCallbackTask(callbacks -> callbacks.bindAppInfosRemoved(removedApps));
         }
 
         if (Utilities.ATLEAST_OREO && mOp == OP_ADD) {
-            // Load widgets for the new package. Changes due to app updates are handled through
-            // AppWidgetHost events, this is just to initialize the long-press options.
-            for (int i = 0; i < N; i++) {
-                dataModel.widgetsModel.update(app, new PackageUserKey(packages[i], mUser));
+            for (String aPackage : packages) {
+                if(Kiosk.INSTANCE.isAllowedPackage(aPackage)){
+                    dataModel.widgetsModel.update(app, new PackageUserKey(aPackage, mUser));
+                }
             }
             bindUpdatedWidgets(dataModel);
         }

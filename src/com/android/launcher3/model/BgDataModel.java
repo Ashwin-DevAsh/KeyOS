@@ -286,7 +286,6 @@ public class BgDataModel {
 
     public synchronized void addItem(Context context, ItemInfo item, boolean newItem) {
 
-        itemsIdMap.put(item.id, item);
 
 
         switch (item.itemType) {
@@ -299,6 +298,7 @@ public class BgDataModel {
                         folderInfo.contents.remove(shortcutInfo);
                     }
                 }
+                itemsIdMap.put(item.id, item);
                 workspaceItems.add(item);
                 break;
             case LauncherSettings.Favorites.ITEM_TYPE_DEEP_SHORTCUT: {
@@ -309,6 +309,9 @@ public class BgDataModel {
                     if(!Kiosk.INSTANCE.isAllowedPackage(pinnedShortcut.componentName.getPackageName())){
                         return;
                     }
+
+                    itemsIdMap.put(item.id, item);
+
 
                     MutableInt count = pinnedShortcutCounts.get(pinnedShortcut);
                     if (count == null) {
@@ -330,6 +333,7 @@ public class BgDataModel {
                 if(!Kiosk.INSTANCE.isAllowedPackage(item.getTargetComponent().getPackageName())){
                     System.out.println("Blocked");
                 }else if (item.container == LauncherSettings.Favorites.CONTAINER_DESKTOP || item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
+                    itemsIdMap.put(item.id, item);
                     workspaceItems.add(item);
                 } else {
                     if (newItem) {
@@ -340,6 +344,7 @@ public class BgDataModel {
                             Log.e(TAG, msg);
                         }
                     } else {
+                        itemsIdMap.put(item.id, item);
                         findOrMakeFolder(item.container).add((ShortcutInfo) item, false);
                     }
 
@@ -351,6 +356,7 @@ public class BgDataModel {
                 if(!Kiosk.INSTANCE.isAllowedPackage(launcherAppWidgetInfo.providerName.getPackageName())){
                     return;
                 }
+                itemsIdMap.put(item.id, item);
                 appWidgets.add(launcherAppWidgetInfo);
                 break;
         }

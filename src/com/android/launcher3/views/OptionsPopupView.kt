@@ -163,14 +163,12 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             val launcher = Launcher.getLauncher(v.context)
             dialog.done.setOnClickListener{
                 val password  = dialog.password.query.toString()
-                if(password == UserContext.user!!.password) {
-                    dialog.dismiss()
-                    getProgress(v,"Loading settings")
-                    Handler()
-                            .postDelayed({
-                                             Kiosk.openKioskSettings(launcher)
-                                         }, 2000)
-                }
+                dialog.dismiss()
+                getProgress(v,"Loading settings")
+                Handler()
+                        .postDelayed({
+                                         Kiosk.openKioskSettings(launcher,password)
+                                     }, 2000)
             }
             dialog.show()
             return true
@@ -191,15 +189,13 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             val dialog = getDialog(v)
             val launcher = Launcher.getLauncher(v.context)
             dialog.done.setOnClickListener{
-                val password  = dialog.password.query.toString()
-                if(password == UserContext.user!!.password) {
-                    dialog.dismiss()
-                    getProgress(v,"Exiting keyOS")
-                    Handler()
-                            .postDelayed({
-                                             Kiosk.exitKiosk(launcher)
-                                         }, 2000)
-                }
+
+            dialog.dismiss()
+            getProgress(v,"Exiting keyOS")
+            Handler()
+                    .postDelayed({
+                                     Kiosk.exitKiosk(launcher,dialog.password.query.toString())
+                                 }, 2000)
             }
             dialog.show()
             return true

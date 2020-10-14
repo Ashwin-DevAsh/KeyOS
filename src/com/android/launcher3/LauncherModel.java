@@ -78,8 +78,7 @@ import java.util.concurrent.Executor;
  * LauncherModel object held in a static. Also provide APIs for updating the database state
  * for the Launcher.
  */
-public class LauncherModel extends BroadcastReceiver
-        implements LauncherAppsCompat.OnAppsChangedCallbackCompat {
+public class LauncherModel extends BroadcastReceiver implements LauncherAppsCompat.OnAppsChangedCallbackCompat {
     private static final boolean DEBUG_RECEIVER = false;
 
     static final String TAG = "Launcher.Model";
@@ -110,10 +109,6 @@ public class LauncherModel extends BroadcastReceiver
     }
     @Thunk
     static final Handler sWorker = new Handler(sWorkerThread.getLooper());
-    @Thunk
-    static final Handler sUiWorker = new Handler(sUiWorkerThread.getLooper());
-    @Thunk
-    static final Handler sIconPack = new Handler(sIconPackThread.getLooper());
 
     // Indicates whether the current model data is valid or not.
     // We start off with everything not loaded. After that, we assume that

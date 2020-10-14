@@ -127,7 +127,7 @@ class Settings : AppCompatActivity() {
         }
 
         exit.setOnClickListener {
-            Kiosk.exitKiosk(this)
+            Kiosk.exitKiosk(this,UserContext.user?.password)
         }
     }
 

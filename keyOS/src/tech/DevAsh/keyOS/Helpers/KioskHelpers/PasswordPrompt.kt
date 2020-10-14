@@ -17,13 +17,13 @@ class PasswordPrompt : AppCompatActivity() {
 
     fun onClick(){
         settings.setOnClickListener {
-            if(checkPassword())
-                Kiosk.openKioskSettings(this)
+//            if(checkPassword())
+//                Kiosk.openKioskSettings(this)
         }
 
         exit.setOnClickListener {
-            if(checkPassword())
-                Kiosk.exitKiosk(this)
+//            if(checkPassword())
+//                Kiosk.exitKiosk(this)
         }
     }
 
