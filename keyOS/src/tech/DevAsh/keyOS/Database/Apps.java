@@ -12,10 +12,9 @@ public class Apps extends RealmObject {
 
     public String packageName;
     public String hourPerDay;
-    public String allowAfter;
     public RealmList<String> blockedActivities = new RealmList();
-    public String modifiedName;
-    public String modifiedIconPath;
+    public Boolean hideShortcut = false;
+
 
     @Ignore
     public Drawable icon;
@@ -37,31 +36,11 @@ public class Apps extends RealmObject {
         this.appName = appName;
     }
 
-    public Apps
-            (String packageName,
-             String hourPerDay,
-             String allowAfter,
-             RealmList<String> blockedActivities,
-             String modifiedName,
-             String modifiedIconPath
-            ) {
-        this.packageName = packageName;
-        this.hourPerDay = hourPerDay;
-        this.allowAfter = allowAfter;
-        this.blockedActivities = blockedActivities;
-        this.modifiedName = modifiedName;
-        this.modifiedIconPath = modifiedIconPath;
-    }
 
 
 
     public Apps(){}
 
-    public Apps(String packageName, String hourPerDay, String startAfter) {
-        this.packageName = packageName;
-        this.hourPerDay = hourPerDay;
-        this.allowAfter = startAfter;
-    }
 
     public Apps(String packageName){
         this.packageName=packageName;
@@ -78,7 +57,6 @@ public class Apps extends RealmObject {
 
     public void update(Apps app){
         this.blockedActivities = app.blockedActivities;
-        this.allowAfter = app.allowAfter;
         this.hourPerDay = app.hourPerDay;
     }
 
@@ -88,10 +66,7 @@ public class Apps extends RealmObject {
         return "Apps{" +
                 "packageName='" + packageName + '\'' +
                 ", hourPerDay='" + hourPerDay + '\'' +
-                ", allowAfter='" + allowAfter + '\'' +
                 ", blockedActivities=" + blockedActivities +
-                ", modifiedName='" + modifiedName + '\'' +
-                ", modifiedIconPath='" + modifiedIconPath + '\'' +
                 ", icon=" + icon +
                 ", appName='" + appName + '\'' +
                 ", packageInfo=" + packageInfo +

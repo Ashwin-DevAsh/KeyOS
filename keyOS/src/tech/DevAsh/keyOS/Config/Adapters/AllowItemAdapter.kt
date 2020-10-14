@@ -103,7 +103,7 @@ class ItemViewHolder(
         }
 
         editApp.setOnClickListener {
-            HelperVariables.selectedApp = item
+            HelperVariables.selectedEditedApp = item
             adapter.context.startActivity(Intent(adapter.context,EditApp::class.java))
         }
 

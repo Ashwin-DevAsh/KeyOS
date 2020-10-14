@@ -7,7 +7,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import com.android.launcher3.Launcher
+import tech.DevAsh.KeyOS.Config.AllowApps
 import tech.DevAsh.KeyOS.Config.Settings
+import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Services.UsageAccessService
@@ -62,8 +64,19 @@ object Kiosk {
     }
 
     fun isAllowedPackage(packageName: String):Boolean{
-       return user!!.allowedApps.contains(
-               Apps(packageName))
+        val app = Apps(packageName)
+        val appIndex = user!!.allowedApps.indexOf(app)
+        val editedAppIndex = user!!.editedApps.indexOf(app)
+
+        if(appIndex==-1){
+            return false
+        }
+
+        if(editedAppIndex==-1){
+            return true
+        }
+
+        return !user!!.editedApps[editedAppIndex]!!.hideShortcut
     }
 
     fun exitKiosk(context: Activity,password:String?){

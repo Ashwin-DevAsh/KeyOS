@@ -20,11 +20,11 @@ import kotlin.collections.ArrayList
 
 class ActivityList : AppCompatActivity() {
 
-    private var activities: Array<ActivityInfo?> = HelperVariables.selectedApp!!.packageInfo.activities
+    private var activities: Array<ActivityInfo?> = HelperVariables.selectedEditedApp!!.packageInfo.activities
 
     private var activityListAdapter = ActivitiesListAdapter(
         activities.toMutableList(),
-        HelperVariables.selectedApp!!.blockedActivities,
+        HelperVariables.selectedEditedApp!!.blockedActivities,
         "",
         "Select which activities \\ Pages \\ windows you want to block",
         this
@@ -38,7 +38,6 @@ class ActivityList : AppCompatActivity() {
         onClick()
         loadAdapter()
         handelSearch()
-        println(HelperVariables.selectedApp!!.blockedActivities)
     }
 
     private fun loadAdapter(){
@@ -57,13 +56,13 @@ class ActivityList : AppCompatActivity() {
     }
 
     private fun saveData(){
-        HelperVariables.selectedApp?.blockedActivities?.clear()
+        HelperVariables.selectedEditedApp?.blockedActivities?.clear()
         for ( i in activityListAdapter.blockedItems){
-            HelperVariables.selectedApp?.blockedActivities?.add(i)
+            HelperVariables.selectedEditedApp?.blockedActivities?.add(i)
         }
 
-        UserContext.user!!.editedApps.remove(HelperVariables.selectedApp)
-        UserContext.user!!.editedApps.add(HelperVariables.selectedApp)
+        UserContext.user!!.editedApps.remove(HelperVariables.selectedEditedApp)
+        UserContext.user!!.editedApps.add(HelperVariables.selectedEditedApp)
 
         RealmHelper.updateUser(UserContext.user!!)
         super.onBackPressed()
