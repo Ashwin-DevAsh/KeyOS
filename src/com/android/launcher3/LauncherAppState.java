@@ -18,6 +18,7 @@ package com.android.launcher3;
 
 import static tech.DevAsh.Launcher.settings.ui.SettingsActivity.NOTIFICATION_BADGING;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.ContentProviderClient;
 import android.content.Context;

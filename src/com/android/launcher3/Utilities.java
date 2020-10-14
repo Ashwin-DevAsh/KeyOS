@@ -1105,38 +1105,9 @@ public final class Utilities {
                 Locale.getDefault().getCountry().equals(Locale.SIMPLIFIED_CHINESE.getCountry());
     }
 
-    private static String getIMEI(Context context) {
-        TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        try {
-            String imei = mTelephony.getDeviceId();
-            if (imei == null) {
-                return null;
-            }
-            if (imei.equals("") || imei.equals("null") || imei.equals("000000000000000")) {
-                return null;
-            }
-            return imei;
-        } catch (SecurityException e) {
-            return null;
-        }
-    }
 
-    private static String getAndroidId(Context context) {
-        String androidId = Settings.Secure.getString(
-                context.getContentResolver(), Settings.Secure.ANDROID_ID);
-        if ("9774d56d682e549c".equals(androidId)) {
-            return null;
-        }
-        return androidId;
-    }
 
-    public static String getDeviceId(Context context) {
-        String deviceId = getIMEI(context);
-        if (deviceId == null) {
-            deviceId = getAndroidId(context);
-        }
-        return deviceId;
-    }
+
 
     private static final int HTTP_READ_TIMEOUT = 8000;
     private static final int HTTP_CONNECT_TIMEOUT = 5000;

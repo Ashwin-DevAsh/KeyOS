@@ -63,7 +63,7 @@ object Kiosk {
                Apps(packageName))
     }
 
-    fun exitKiosk(context: AppCompatActivity){
+    fun exitKiosk(context: Activity){
         stopKiosk(context.applicationContext)
         CallBlocker.stop(context.applicationContext)
         exitLauncher(context.applicationContext)

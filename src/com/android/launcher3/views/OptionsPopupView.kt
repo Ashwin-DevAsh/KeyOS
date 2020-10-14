@@ -15,13 +15,11 @@
  */
 package com.android.launcher3.views
 
-import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.Context
-import android.content.Intent
-import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.RectF
-import android.graphics.drawable.ColorDrawable
+import android.os.Handler
 import android.util.ArrayMap
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -36,7 +34,9 @@ import com.android.launcher3.shortcuts.DeepShortcutView
 import com.android.launcher3.userevent.nano.LauncherLogProto
 import com.android.launcher3.widget.WidgetsFullSheet
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt
+import kotlinx.android.synthetic.keyOS.fragment_password_prompt_sheet.*
+import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import java.util.*
 
 
@@ -81,7 +81,6 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
     }
 
     override fun logActionCommand(command: Int) {
-        // TODO:
     }
 
     override fun isOfType(type: Int): Boolean {
@@ -137,7 +136,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             options.add(OptionItem(R.string.button_overview_mode, R.drawable.ic_pages,
                                    -1) { view: View -> startOrganizer(view) })
             options.add(OptionItem(R.string.settings_button_text, R.drawable.ic_setting,
-                                   LauncherLogProto.ControlType.SETTINGS_BUTTON) { view: View? ->
+                                   LauncherLogProto.ControlType.SETTINGS_BUTTON) { view: View ->
                 startSettings(view)
             })
             show(launcher, target, options)
@@ -150,8 +149,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
         @JvmStatic
         fun openWidgets(launcher: Launcher): Boolean {
             return if (launcher.packageManager.isSafeMode) {
-                Toast
-                        .makeText(launcher, R.string.safemode_widget_error,
+                Toast.makeText(launcher, R.string.safemode_widget_error,
                                   Toast.LENGTH_SHORT).show()
                 false
             } else {
@@ -160,13 +158,21 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             }
         }
 
-        fun startSettings(view: View?): Boolean {
-
-            val launcher = Launcher.getLauncher(view?.context);
-            launcher.startActivitySafely(view, Intent(launcher, PasswordPrompt::class.java)
-                    .setPackage(launcher.packageName)
-                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), null);
-
+        fun startSettings(v: View): Boolean {
+            val dialog = getDialog(v)
+            val launcher = Launcher.getLauncher(v.context)
+            dialog.done.setOnClickListener{
+                val password  = dialog.password.query.toString()
+                if(password == UserContext.user!!.password) {
+                    dialog.dismiss()
+                    getProgress(v,"Loading settings")
+                    Handler()
+                            .postDelayed({
+                                             Kiosk.openKioskSettings(launcher)
+                                         }, 2000)
+                }
+            }
+            dialog.show()
             return true
         }
 
@@ -180,20 +186,45 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
          * Event handler for the wallpaper picker button that appears after a long press
          * on the home screen.
          */
+
         fun startWallpaperPicker(v: View): Boolean {
-
-
-
-
+            val dialog = getDialog(v)
             val launcher = Launcher.getLauncher(v.context)
+            dialog.done.setOnClickListener{
+                val password  = dialog.password.query.toString()
+                if(password == UserContext.user!!.password) {
+                    dialog.dismiss()
+                    getProgress(v,"Exiting keyOS")
+                    Handler()
+                            .postDelayed({
+                                             Kiosk.exitKiosk(launcher)
+                                         }, 2000)
+                }
+            }
+            dialog.show()
+            return true
+        }
 
-
+        private fun getDialog(v: View):BottomSheetDialog{
+            val launcher = Launcher.getLauncher(v.context)
             val dialog = BottomSheetDialog(launcher)
             dialog.setContentView(R.layout.fragment_password_prompt_sheet)
             dialog.setCanceledOnTouchOutside(false)
-            dialog.show()
-
-            return true
+            return dialog
         }
+
+
+        private fun getProgress(v:View,string:String){
+            val launcher = Launcher.getLauncher(v.context)
+            val mProgressDialog = ProgressDialog(launcher)
+            mProgressDialog.setMessage(string)
+            mProgressDialog.setCanceledOnTouchOutside(false)
+            mProgressDialog.show()
+            Handler().postDelayed({
+                mProgressDialog.dismiss()
+                                  },1500)
+        }
+
     }
 }
+

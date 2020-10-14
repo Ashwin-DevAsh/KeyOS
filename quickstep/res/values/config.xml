@@ -14,8 +14,6 @@
      limitations under the License.
 -->
 <resources>
-    <string name="task_overlay_factory_class" translatable="false"></string>
-
-    <string name="overview_callbacks_class" translatable="false">ch.deletescape.Kiosk.KioskOverviewCallbacks</string>
-
+    <string name="task_overlay_factory_class" translatable="false" />
+    <string name="overview_callbacks_class" translatable="false">tech.DevAsh.Launcher.KioskOverviewCallbacks</string>
 </resources>
