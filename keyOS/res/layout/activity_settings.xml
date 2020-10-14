@@ -145,8 +145,9 @@
                   <LinearLayout
                       android:layout_width="match_parent"
                       android:weightSum="30"
-                      android:layout_height="90dp">
-
+                      android:orientation="horizontal"
+                      android:layout_height="90dp"
+                      android:baselineAligned="false">
                       <RelativeLayout
                           android:layout_width="0dp"
                           android:id="@+id/wifi"

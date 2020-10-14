@@ -6,7 +6,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
-import android.os.UserHandle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +15,11 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
-import com.android.launcher3.model.PackageUpdatedTask
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.keyOS.activity_settings.*
 import kotlinx.android.synthetic.keyOS.sheet_options.view.*
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
@@ -95,16 +97,16 @@ class Settings : AppCompatActivity() {
 
 
         wifi?.setOnClickListener{
-            openBottomSheet(wifiMode)
+            peripheralOnClick(wifiMode)
         }
         hotspot?.setOnClickListener{
-            openBottomSheet(hotspotMode)
+            peripheralOnClick(hotspotMode)
         }
         bluetooth?.setOnClickListener{
-            openBottomSheet(bluetoothMode)
+            peripheralOnClick(bluetoothMode)
         }
         mobileData?.setOnClickListener {
-            openBottomSheet(mobiledataMode)
+            peripheralOnClick(mobiledataMode)
         }
 
 
@@ -129,6 +131,18 @@ class Settings : AppCompatActivity() {
         exit.setOnClickListener {
             Kiosk.exitKiosk(this,UserContext.user?.password)
         }
+    }
+
+    private fun peripheralOnClick(textView: TextView){
+        vibrate()
+        val position = BasicSettings.options.indexOf(textView.text)
+        val nextOption = BasicSettings.options[(position+1) % 3]
+        textView.text = nextOption
+    }
+
+    private fun vibrate(){
+        val v =  getSystemService(Context.VIBRATOR_SERVICE) as Vibrator;
+        v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 
 
@@ -199,9 +213,9 @@ class Settings : AppCompatActivity() {
             }
         }
 
-        onModeClick(sheetView.alwaysOn, "Always on")
-        onModeClick(sheetView.alwaysOff, "Always off")
-        onModeClick(sheetView.dontCare,"Don't care")
+        onModeClick(sheetView.alwaysOn, BasicSettings.AlwaysON)
+        onModeClick(sheetView.alwaysOff, BasicSettings.AlwaysOFF)
+        onModeClick(sheetView.dontCare,BasicSettings.DontCare)
 
         options.setContentView(sheetView)
         options.show()

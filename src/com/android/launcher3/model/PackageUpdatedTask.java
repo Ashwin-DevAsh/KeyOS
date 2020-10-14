@@ -174,9 +174,9 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
             synchronized (dataModel) {
                 for (ItemInfo info : dataModel.itemsIdMap) {
 
-                    if(!Kiosk.INSTANCE.isAllowedPackage(info.getTargetComponent().getPackageName())){
-                        continue;
-                    }
+//                    if(!Kiosk.INSTANCE.isAllowedPackage(info.getIntent().getPackage())){
+//                        continue;
+//                    }
 
                     if (info instanceof ShortcutInfo && mUser.equals(info.user)) {
                         ShortcutInfo si = (ShortcutInfo) info;

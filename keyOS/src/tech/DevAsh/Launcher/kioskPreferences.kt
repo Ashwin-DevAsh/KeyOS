@@ -97,7 +97,7 @@ class KioskPreferences(val context: Context) : SharedPreferences.OnSharedPrefere
 
         override fun unflattenValue(value: String) = value
     }
-    var launcherTheme by StringIntPref("pref_launcherTheme", 1) { ThemeManager.getInstance(context).updateTheme() }
+    var launcherTheme = 4 //by StringIntPref("pref_launcherTheme", 1) { ThemeManager.getInstance(context).updateTheme() }
     val colorizedLegacyTreatment by BooleanPref("pref_colorizeGeneratedBackgrounds", kioskConfig.enableColorizedLegacyTreatment, reloadIcons)
     val enableWhiteOnlyTreatment by BooleanPref("pref_enableWhiteOnlyTreatment", kioskConfig.enableWhiteOnlyTreatment, reloadIcons)
     val hideStatusBar by BooleanPref("pref_hideStatusBar", kioskConfig.hideStatusBar, doNothing)
