@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 public class Apps extends RealmObject {
 
     public String packageName;
-    public String hourPerDay;
+    public String hourPerDay = "24:00";
     public RealmList<String> blockedActivities = new RealmList();
     public Boolean hideShortcut = false;
 

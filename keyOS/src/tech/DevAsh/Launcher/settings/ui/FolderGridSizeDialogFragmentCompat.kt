@@ -79,7 +79,7 @@ class FolderGridSizeDialogFragmentCompat : PreferenceDialogFragmentCompat(), Col
         numRowsPicker.value = numRows
         numColumnsPicker.value = numColumns
 
-        ColorEngine.getInstance(context!!).addColorChangeListeners(this, ColorEngine.Resolvers.ACCENT)
+        ColorEngine.getInstance(requireContext()).addColorChangeListeners(this, ColorEngine.Resolvers.ACCENT)
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {

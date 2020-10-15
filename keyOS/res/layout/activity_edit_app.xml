@@ -299,12 +299,25 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="24:00"
+                            android:id="@+id/time"
+                            android:textSize="18dp"
+                            android:layout_marginRight="20dp"
+                            android:textColor="@color/black"
+                            android:layout_height="match_parent"/>
+
                         <ImageView
                             android:layout_width="20dp"
+                            android:layout_marginTop="2.5dp"
                             app:srcCompat="@drawable/ios_forward"
                             android:layout_height="20dp"/>
                     </LinearLayout>
