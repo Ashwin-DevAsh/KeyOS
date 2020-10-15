@@ -10,8 +10,8 @@ import android.os.Handler
 import android.os.IBinder
 import android.text.TextUtils
 import android.widget.Toast
-import tech.DevAsh.KeyOS.Database.RealmHelper
 import io.realm.Realm
+import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.User
@@ -64,7 +64,8 @@ class UsageAccessService : Service() {
     private fun loadData(){
         try {
             user = Realm.getDefaultInstance().copyFromRealm(Realm.getDefaultInstance()
-                .where(User::class.java).findFirst()!!)
+                                                                    .where(User::class.java)
+                                                                    .findFirst()!!)
         }catch (e: Throwable){}
     }
 
@@ -78,7 +79,7 @@ class UsageAccessService : Service() {
         val mUsageStatsManager = context.getSystemService(USAGE_STATS_SERVICE) as UsageStatsManager
         val time = System.currentTimeMillis()
         val usageEvents = mUsageStatsManager.queryEvents(time - 1000 * 30,
-            System.currentTimeMillis() + 10 * 1000)
+                                                         System.currentTimeMillis() + 10 * 1000)
         val event = UsageEvents.Event()
         while (usageEvents.hasNextEvent()) {
             usageEvents.getNextEvent(event)
@@ -98,7 +99,7 @@ class UsageAccessService : Service() {
         }
     }
 
-    private fun isAllowedPackage(appName:String, className:String):Boolean{
+    private fun isAllowedPackage(appName: String, className: String):Boolean{
 
         if(appName==packageName){
             return true
@@ -128,13 +129,21 @@ class UsageAccessService : Service() {
         return true
     }
 
-    private fun block(className:String){
+    private fun checkAppUsage(){
+        val end_time = 8.64e+7
+        val start_time = 0
+    }
+
+
+    private fun block(className: String){
         val launcher = Intent(Intent.ACTION_MAIN)
         launcher.addCategory(Intent.CATEGORY_HOME)
         launcher.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         try {
-            val prev1 = packageManager.getLaunchIntentForPackage(prevActivities[prevActivities.size - 1])
-            val prev2 = packageManager.getLaunchIntentForPackage(prevActivities[prevActivities.size - 2])
+            val prev1 = packageManager.getLaunchIntentForPackage(
+                    prevActivities[prevActivities.size - 1])
+            val prev2 = packageManager.getLaunchIntentForPackage(
+                    prevActivities[prevActivities.size - 2])
             when {
                 prevActivities.last()==packageName->{
                     throw Exception()
