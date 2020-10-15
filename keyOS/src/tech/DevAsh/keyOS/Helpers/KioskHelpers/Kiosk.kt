@@ -63,7 +63,7 @@ object Kiosk {
         }
     }
 
-    fun isAllowedPackage(packageName: String):Boolean{
+    fun canShowApp(packageName: String):Boolean{
         val app = Apps(packageName)
         val appIndex = user!!.allowedApps.indexOf(app)
         val editedAppIndex = user!!.editedApps.indexOf(app)

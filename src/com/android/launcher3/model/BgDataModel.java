@@ -14,7 +14,6 @@ import com.android.launcher3.LauncherSettings;
 import com.android.launcher3.ShortcutInfo;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.config.FeatureFlags;
-import com.android.launcher3.folder.Folder;
 import com.android.launcher3.logging.DumpTargetWrapper;
 import com.android.launcher3.model.nano.LauncherDumpProto;
 import com.android.launcher3.model.nano.LauncherDumpProto.ContainerType;
@@ -37,10 +36,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import tech.DevAsh.KeyOS.Database.UserContext;
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
-import tech.DevAsh.keyOS.Database.Apps;
 
 /**
  * All the data stored in-memory and managed by the LauncherModel
@@ -294,7 +290,7 @@ public class BgDataModel {
                 folders.put(item.id, folderInfo);
                 ArrayList<ShortcutInfo> folderContent = new ArrayList<>(folderInfo.contents);
                 for(ShortcutInfo shortcutInfo : folderContent){
-                    if(!Kiosk.INSTANCE.isAllowedPackage(shortcutInfo.getPackageName())){
+                    if(!Kiosk.INSTANCE.canShowApp(shortcutInfo.getPackageName())){
                         folderInfo.contents.remove(shortcutInfo);
                     }
                 }
@@ -306,7 +302,7 @@ public class BgDataModel {
                     // Increment the count for the given shortcut
                     ShortcutKey pinnedShortcut = ShortcutKey.fromItemInfo(item);
 
-                    if(!Kiosk.INSTANCE.isAllowedPackage(pinnedShortcut.componentName.getPackageName())){
+                    if(!Kiosk.INSTANCE.canShowApp(pinnedShortcut.componentName.getPackageName())){
                         return;
                     }
 
@@ -330,7 +326,7 @@ public class BgDataModel {
             }
             case LauncherSettings.Favorites.ITEM_TYPE_APPLICATION:
             case LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT:
-                if(!Kiosk.INSTANCE.isAllowedPackage(item.getTargetComponent().getPackageName())){
+                if(!Kiosk.INSTANCE.canShowApp(item.getTargetComponent().getPackageName())){
                     System.out.println("Blocked");
                 }else if (item.container == LauncherSettings.Favorites.CONTAINER_DESKTOP || item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
                     itemsIdMap.put(item.id, item);
@@ -353,7 +349,7 @@ public class BgDataModel {
             case LauncherSettings.Favorites.ITEM_TYPE_APPWIDGET:
             case LauncherSettings.Favorites.ITEM_TYPE_CUSTOM_APPWIDGET:
                 LauncherAppWidgetInfo launcherAppWidgetInfo = (LauncherAppWidgetInfo) item;
-                if(!Kiosk.INSTANCE.isAllowedPackage(launcherAppWidgetInfo.providerName.getPackageName())){
+                if(!Kiosk.INSTANCE.canShowApp(launcherAppWidgetInfo.providerName.getPackageName())){
                     return;
                 }
                 itemsIdMap.put(item.id, item);

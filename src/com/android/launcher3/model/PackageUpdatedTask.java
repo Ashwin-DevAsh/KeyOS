@@ -81,7 +81,7 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
         switch (mOp) {
             case OP_ADD: {
                 for (String aPackage : packages) {
-                    if (Kiosk.INSTANCE.isAllowedPackage(aPackage)) {
+                    if (Kiosk.INSTANCE.canShowApp(aPackage)) {
                         if (DEBUG) Log.d(TAG, "mAllAppsList.addPackage " + aPackage);
                         iconCache.updateIconsForPkg(aPackage, mUser);
                         if (FeatureFlags.LAUNCHER3_PROMISE_APPS_IN_ALL_APPS) {
@@ -98,7 +98,7 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
             }
             case OP_UPDATE:
                 for (String aPackage : packages) {
-                    if (Kiosk.INSTANCE.isAllowedPackage(aPackage)){
+                    if (Kiosk.INSTANCE.canShowApp(aPackage)){
                         if (DEBUG) Log.d(TAG, "mAllAppsList.updatePackage " + aPackage);
                         iconCache.updateIconsForPkg(aPackage, mUser);
                         appsList.updatePackage(context, aPackage, mUser);
@@ -346,7 +346,7 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
 
         if (Utilities.ATLEAST_OREO && mOp == OP_ADD) {
             for (String aPackage : packages) {
-                if(Kiosk.INSTANCE.isAllowedPackage(aPackage)){
+                if(Kiosk.INSTANCE.canShowApp(aPackage)){
                     dataModel.widgetsModel.update(app, new PackageUserKey(aPackage, mUser));
                 }
             }

@@ -6,13 +6,13 @@ import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.content.Intent
 import android.net.wifi.WifiManager
-import android.net.wifi.WifiManager.LocalOnlyHotspotReservation
 import android.os.Handler
 import android.os.IBinder
 import android.text.TextUtils
 import android.widget.Toast
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import io.realm.Realm
+import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.User
 import java.lang.reflect.Method
@@ -21,9 +21,6 @@ import java.lang.reflect.Method
 class UsageAccessService : Service() {
     var user: User?=null
     private var prevActivities = arrayListOf("com.DevAsh.demo")
-    private var mReservation: LocalOnlyHotspotReservation? = null
-
-
 
 
     companion object {
@@ -89,32 +86,41 @@ class UsageAccessService : Service() {
         if (!TextUtils.isEmpty(event.packageName) && event.eventType == UsageEvents.Event.MOVE_TO_FOREGROUND) {
             val appName = event.packageName
             val className = event.className
-            println(appName)
             if(
-                isIllegalApp(appName)
+                isAllowedPackage(appName, className)
             ){
-                block()
-            }else{
                 if(prevActivities.last()!=appName){
                     prevActivities.add(appName)
                 }
+            }else{
+                block()
             }
         }
     }
 
-    private fun isIllegalApp(appName:String):Boolean{
-        if(appName==packageName){
-            return false
-        }
-        val app = Apps(appName)
-        if(user?.allowedApps!!.contains(app)){
-            return false
-        }
-        if(user?.allowedServices!!.contains(app)){
-            return false
-        }
-        return true
+    private fun isAllowedPackage(appName:String, className:String):Boolean{
 
+        if(appName==packageName){
+            return true
+        }
+
+        val app = Apps(appName)
+        val appIndex = UserContext.user!!.allowedApps.indexOf(app)
+        val editedAppIndex = UserContext.user!!.editedApps.indexOf(app)
+
+        if(appIndex==-1){
+            return false
+        }
+
+        if(editedAppIndex==-1){
+            return true
+        }
+
+        if (UserContext.user!!.editedApps[editedAppIndex]!!.blockedActivities.contains(className)){
+            return false
+        }
+
+        return true
     }
 
     private fun block(){

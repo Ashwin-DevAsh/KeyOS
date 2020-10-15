@@ -855,7 +855,7 @@ public class LoaderTask implements Runnable {
             for (int i = 0; i < apps.size(); i++) {
                 LauncherActivityInfo app = apps.get(i);
                 // This builds the icon bitmaps.
-               if(Kiosk.INSTANCE.isAllowedPackage(app.getApplicationInfo().packageName)){
+               if(Kiosk.INSTANCE.canShowApp(app.getApplicationInfo().packageName)){
                     mBgAllAppsList.add(new AppInfo(app, user, quietMode), app);
                 }
             }
