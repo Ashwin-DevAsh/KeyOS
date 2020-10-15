@@ -93,7 +93,7 @@ class UsageAccessService : Service() {
                     prevActivities.add(appName)
                 }
             }else{
-                block()
+                block(className)
             }
         }
     }
@@ -105,6 +105,11 @@ class UsageAccessService : Service() {
         }
 
         val app = Apps(appName)
+
+        if(UserContext.user!!.allowedServices.contains(app)){
+            return true
+        }
+
         val appIndex = UserContext.user!!.allowedApps.indexOf(app)
         val editedAppIndex = UserContext.user!!.editedApps.indexOf(app)
 
@@ -123,7 +128,7 @@ class UsageAccessService : Service() {
         return true
     }
 
-    private fun block(){
+    private fun block(className:String){
         val launcher = Intent(Intent.ACTION_MAIN)
         launcher.addCategory(Intent.CATEGORY_HOME)
         launcher.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -151,7 +156,7 @@ class UsageAccessService : Service() {
         }catch (e: Throwable){
             startActivity(launcher)
         }
-        Toast.makeText(applicationContext, "Access Denied", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "Access Denied : $className", Toast.LENGTH_SHORT).show()
     }
 
 
