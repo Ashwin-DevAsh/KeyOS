@@ -45,8 +45,8 @@ object Kiosk {
     fun stopKiosk(context: Context){
         CallBlocker.stop(context)
         NotificationBlocker.stop()
-        context.stopService(getAccessibilityService(context))
-        context.stopService(getUsageAccessService(context))
+        context.applicationContext.stopService(getAccessibilityService(context))
+        context.applicationContext.stopService(getUsageAccessService(context))
     }
     fun reStart(context: Context){
         startKiosk(context)
@@ -87,6 +87,8 @@ object Kiosk {
             context.finishAffinity()
         }
     }
+
+
 
     private fun exitLauncher(context: Context) {
         val packageManager = context.packageManager
