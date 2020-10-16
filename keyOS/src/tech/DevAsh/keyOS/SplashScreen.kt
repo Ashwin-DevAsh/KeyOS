@@ -7,6 +7,7 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.android.launcher3.AllAppsList
 import tech.DevAsh.KeyOS.Config.Settings
 import com.android.launcher3.R
 import io.realm.Realm
@@ -18,6 +19,7 @@ import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.Calls
 import tech.DevAsh.keyOS.Database.User
+import java.util.*
 
 
 class SplashScreen : AppCompatActivity() {
@@ -43,7 +45,14 @@ class LoadAppsAndServices(val context: Context) :AsyncTask<Any,Any,Any>(){
     override fun doInBackground(vararg params: Any?): Any {
         clearOldData()
         loadAppsAndServices(context)
+        sortAll()
         return true
+    }
+
+    fun sortAll(){
+        sort(AppsContext.allService)
+        sort( AppsContext.allApps)
+
     }
 
     private fun clearOldData(){
@@ -92,6 +101,12 @@ class LoadAppsAndServices(val context: Context) :AsyncTask<Any,Any,Any>(){
         }
         AppsContext.allApps.add(_app)
 
+
+
+    }
+
+    fun sort( appsList:List<Apps>){
+        Collections.sort(appsList) { o1, o2 -> o1!!.appName.compareTo(o2!!.appName) }
     }
 
 }

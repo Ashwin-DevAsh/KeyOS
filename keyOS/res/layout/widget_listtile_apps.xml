@@ -72,7 +72,7 @@
             android:padding="15dp"
             android:id="@+id/editApp"
             app:tint="@color/Dark.Background"
-            app:srcCompat="@drawable/edit_app"
+            app:srcCompat="@drawable/app_edit"
             android:layout_height="50dp"/>
 
         <LinearLayout

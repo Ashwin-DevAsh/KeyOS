@@ -36,6 +36,7 @@ object Kiosk {
         return accessibilityService!!
     }
     fun startKiosk(context: Context){
+        println("Start Kiosk...")
         CallBlocker.start(context)
         NotificationBlocker.start()
         context.startService(getAccessibilityService(context))

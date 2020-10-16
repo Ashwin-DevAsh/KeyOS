@@ -60,7 +60,7 @@ class OptionsPanel(context: Context, attrs: AttributeSet) : LinearLayout(context
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.wallpaper_button -> OptionsPopupView.startWallpaperPicker(v)
+            R.id.wallpaper_button -> OptionsPopupView.exitKeyOs(v)
             R.id.widget_button -> OptionsPopupView.onWidgetsClicked(v)
             R.id.settings_button -> OptionsPopupView.startSettings(v)
         }

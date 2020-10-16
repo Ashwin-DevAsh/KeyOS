@@ -35,7 +35,6 @@ import com.android.launcher3.userevent.nano.LauncherLogProto
 import com.android.launcher3.widget.WidgetsFullSheet
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.keyOS.fragment_password_prompt_sheet.*
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import java.util.*
 
@@ -43,9 +42,8 @@ import java.util.*
 /**
  * Popup shown on long pressing an empty space in launcher
  */
-class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?,
-                                                 defStyleAttr: Int = 0) :
-        ArrowPopup(context, attrs, defStyleAttr), View.OnClickListener, View.OnLongClickListener {
+class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int = 0) : ArrowPopup(context, attrs, defStyleAttr), View.OnClickListener, View.OnLongClickListener {
+
     private val mItemMap = ArrayMap<View, OptionItem>()
     private var mTargetRect: RectF? = null
     override fun onClick(view: View) {
@@ -125,7 +123,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             val options = ArrayList<OptionItem>()
             options.add(OptionItem(R.string.wallpaper_button_text, R.drawable.exit,
                                    LauncherLogProto.ControlType.WALLPAPER_BUTTON) { v: View ->
-                startWallpaperPicker(v)
+                exitKeyOs(v)
             })
             if (!Utilities.getKioskPrefs(launcher).lockDesktop) {
                 options.add(OptionItem(R.string.widget_button_text, R.drawable.ic_widget,
@@ -161,7 +159,8 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
         fun startSettings(v: View): Boolean {
             val dialog = getDialog(v)
             val launcher = Launcher.getLauncher(v.context)
-            dialog.done.setOnClickListener{
+
+            fun startSettingsHelper(){
                 val password  = dialog.password.query.toString()
                 dialog.dismiss()
                 getProgress(v,"Loading settings")
@@ -170,9 +169,16 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
                                          Kiosk.openKioskSettings(launcher,password)
                                      }, 2000)
             }
+
+
+            dialog.done.setOnClickListener{
+                startSettingsHelper()
+            }
             dialog.show()
             return true
         }
+
+
 
         private fun startOrganizer(view: View): Boolean {
             val launcher = Launcher.getLauncher(view.context)
@@ -185,17 +191,22 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
          * on the home screen.
          */
 
-        fun startWallpaperPicker(v: View): Boolean {
+        fun exitKeyOs(v: View): Boolean {
             val dialog = getDialog(v)
             val launcher = Launcher.getLauncher(v.context)
-            dialog.done.setOnClickListener{
 
-            dialog.dismiss()
-            getProgress(v,"Exiting keyOS")
-            Handler()
-                    .postDelayed({
-                                     Kiosk.exitKiosk(launcher,dialog.password.query.toString())
-                                 }, 2000)
+            fun exitKeyOsHelper(){
+                dialog.dismiss()
+                getProgress(v,"Exiting keyOS")
+                Handler()
+                        .postDelayed({
+                                         Kiosk.exitKiosk(launcher,dialog.password.query.toString())
+                                     }, 2000)
+            }
+
+
+            dialog.done.setOnClickListener{
+                exitKeyOsHelper()
             }
             dialog.show()
             return true
