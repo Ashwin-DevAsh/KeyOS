@@ -480,8 +480,8 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/write_settings"
-                          android:padding="5dp"
+                          app:srcCompat="@drawable/system_settings"
+                          android:padding="7dp"
                           app:tint="#0979F2"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
@@ -551,11 +551,10 @@
                       android:layout_centerInParent="true"
                       android:layout_alignParentRight="true"
                       android:layout_height="wrap_content">
-                      <com.suke.widget.SwitchButton
-                          android:id="@+id/singleAppMode"
-                          app:sb_show_indicator="false"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"/>
+                      <ImageView
+                          android:layout_width="20dp"
+                          app:srcCompat="@drawable/ios_forward"
+                          android:layout_height="20dp"/>
                   </LinearLayout>
                   <TextView
                       android:layout_width="match_parent"
@@ -651,8 +650,8 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/system_settings"
-                          android:padding="7dp"
+                          app:srcCompat="@drawable/write_settings"
+                          android:padding="5dp"
                           app:tint="#4CAF50"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
@@ -660,7 +659,7 @@
                   </androidx.cardview.widget.CardView>
                   <TextView
                       android:layout_width="wrap_content"
-                      android:text="Phone Settings"
+                      android:text="System Settings"
                       android:gravity="center"
                       android:textColor="@android:color/black"
                       android:layout_marginLeft="65dp"
@@ -702,7 +701,7 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/notification"
+                          app:srcCompat="@drawable/notification_panel"
                           android:padding="6dp"
                           app:tint="#7c43bd"
                           android:layout_width="match_parent"

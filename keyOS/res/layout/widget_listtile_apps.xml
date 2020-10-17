@@ -69,10 +69,9 @@
             android:layout_marginRight="10dp"
             android:layout_centerInParent="true"
             android:layout_alignParentRight="true"
-            android:padding="15dp"
+            android:padding="16dp"
             android:id="@+id/editApp"
-            app:tint="@color/Dark.Background"
-            app:srcCompat="@drawable/app_edit"
+            app:srcCompat="@drawable/customize"
             android:layout_height="50dp"/>
 
         <LinearLayout
