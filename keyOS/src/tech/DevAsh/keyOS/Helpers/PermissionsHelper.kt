@@ -38,7 +38,7 @@ object PermissionsHelper {
     }
 
     fun checkImportantPermissions(context: Context):Boolean{
-        return isUsage(context) && isWrite(context) && isOverLay(context)
+        return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context)
     }
 
     fun isUsage(context: Context): Boolean {
