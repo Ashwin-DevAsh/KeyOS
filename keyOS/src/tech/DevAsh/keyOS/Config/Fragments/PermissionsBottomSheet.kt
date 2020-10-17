@@ -28,6 +28,11 @@ class PermissionsBottomSheet(private val activity: AppCompatActivity) : BottomSh
               onClick()
     }
 
+    override fun onResume() {
+        updateUi()
+        super.onResume()
+    }
+
     private fun updateUi(){
         if(PermissionsHelper.isWrite(activity)){
             writeSettings.isChecked=true
@@ -48,6 +53,8 @@ class PermissionsBottomSheet(private val activity: AppCompatActivity) : BottomSh
         if(PermissionsHelper.isAdmin(activity)){
            admin.isChecked=true
         }
+
+        other.isChecked = PermissionsHelper.isRunTime(activity)
     }
 
     private fun onClick(){
@@ -76,18 +83,9 @@ class PermissionsBottomSheet(private val activity: AppCompatActivity) : BottomSh
             PermissionsHelper.getAdminPermission(activity)
         }
 
-        other.setOnCheckedChangeListener{_,_->
-            PermissionsHelper.getRuntimePermission(activity, arrayOf(
-                android.Manifest.permission.READ_CALL_LOG,
-                android.Manifest.permission.MODIFY_PHONE_STATE,
-                android.Manifest.permission.READ_CONTACTS,
-                android.Manifest.permission.WRITE_CALL_LOG,
-                android.Manifest.permission.READ_PHONE_STATE,
-                android.Manifest.permission.ANSWER_PHONE_CALLS,
-                android.Manifest.permission.CALL_PHONE,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
-            ),0)
+        other.setOnCheckedChangeListener { _,isChecked->
+            if(isChecked)
+            PermissionsHelper.getRuntimePermission(activity, PermissionsHelper.runTimePermissions,0)
         }
     }
 

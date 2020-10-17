@@ -1,36 +1,40 @@
 package tech.DevAsh.KeyOS.Helpers
 
-import android.Manifest
-import androidx.appcompat.app.AppCompatActivity
 import android.app.AppOpsManager
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.content.IntentSender.SendIntentException
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Handler
-import android.os.Process
 import android.provider.Settings
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.*
+import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.tasks.Task
+import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 
 
 object PermissionsHelper {
+
+    var runTimePermissions = arrayOf(
+            android.Manifest.permission.READ_CALL_LOG,
+            android.Manifest.permission.READ_CONTACTS,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.CALL_PHONE,
+            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                                    )
 
     var openedForPermission = false
     var task: Task<LocationSettingsResponse>?=null
 
     fun isAccessServiceEnabled(context: Context, accessibilityServiceClass: Class<*>): Boolean {
         val prefString = Settings.Secure.getString(context.contentResolver,
-            Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
-        return prefString != null && prefString.contains(context.packageName + "/" + accessibilityServiceClass.name)
+                                                   Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
+        return prefString != null && prefString.contains(
+                context.packageName + "/" + accessibilityServiceClass.name)
     }
 
     fun checkImportantPermissions(context: Context):Boolean{
@@ -38,21 +42,17 @@ object PermissionsHelper {
     }
 
     fun isUsage(context: Context): Boolean {
-        val appOps = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
-        val mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
-            Process.myUid(),
-            context.packageName)
-        val granted: Boolean
-        granted = if (mode == AppOpsManager.MODE_DEFAULT && Build.VERSION.SDK_INT >= 23) {
-           context.checkCallingOrSelfPermission(Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED
-        } else {
-            mode == AppOpsManager.MODE_ALLOWED
-        }
-        return granted
+        val packageManager = context.packageManager
+        val applicationInfo: ApplicationInfo =
+                packageManager.getApplicationInfo(context.packageName, 0)
+        val appOpsManager = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
+        val mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
+                                                applicationInfo.uid, applicationInfo.packageName)
+        return mode == AppOpsManager.MODE_ALLOWED
     }
 
     fun isWrite(context: Context): Boolean {
-         return  Settings.System.canWrite(context)
+         return  Settings.System.canWrite(context.applicationContext)
     }
 
     fun isUsb(context: Context): Boolean {
@@ -60,13 +60,22 @@ object PermissionsHelper {
     }
 
     fun isOverLay(context: Context): Boolean {
-        return if (Build.VERSION.SDK_INT >= 23) Settings.canDrawOverlays(context) else true
+        return Settings.canDrawOverlays(context.applicationContext)
     }
 
     fun isAdmin(context: Context):Boolean{
         val mDPM = context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
         val mAdminName = ComponentName(context, SampleAdminReceiver::class.java)
         return mDPM.isAdminActive(mAdminName)
+    }
+
+    fun isRunTime(context: Context):Boolean{
+        for ( i in runTimePermissions){
+            if(!checkRuntimePermission(context, i)){
+                return false
+            }
+        }
+        return true
     }
 
     fun getAdminPermission(context: AppCompatActivity){
@@ -88,7 +97,7 @@ object PermissionsHelper {
         openedForPermission=true
         val selector =
             Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse(
-                "package:${context.packageName}"))
+                    "package:${context.packageName}"))
         context.startActivity(selector)
     }
 
@@ -102,7 +111,7 @@ object PermissionsHelper {
         openedForPermission=true
         val selector =
             Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse(
-                "package:${context.packageName}"))
+                    "package:${context.packageName}"))
         context.startActivityForResult(selector, 0)
     }
 
@@ -125,53 +134,21 @@ object PermissionsHelper {
 
     }
 
-    fun getRuntimePermission(context: AppCompatActivity, permission: Array<String>, requestCode: Int){
+    fun getRuntimePermission(context: AppCompatActivity, permission: Array<String>,
+                             requestCode: Int){
         ActivityCompat.requestPermissions(context,
-            permission,
-            requestCode)
+                                          permission,
+                                          requestCode)
     }
 
-     fun checkRuntimePermission(context: AppCompatActivity, permission: String): Boolean {
+     fun checkRuntimePermission(context: Context, permission: String): Boolean {
         val res: Int = context.checkCallingOrSelfPermission(permission)
         return res == PackageManager.PERMISSION_GRANTED
     }
 
-    private fun setupLocationServices(context: AppCompatActivity) {
-        val mLocationRequest = LocationRequest()
-        mLocationRequest.interval = 10
-        mLocationRequest.smallestDisplacement = 10f
-        mLocationRequest.fastestInterval = 10
-        mLocationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        val builder = LocationSettingsRequest.Builder()
-        builder.addLocationRequest(mLocationRequest)
-        task = LocationServices.getSettingsClient(context).checkLocationSettings(builder.build())
-        locationSettingsResponseBuilder(context)
-    }
 
-    private fun locationSettingsResponseBuilder(context: AppCompatActivity) {
-        task!!.addOnCompleteListener { task: Task<LocationSettingsResponse?> ->
-            try {
-                val response =
-                    task.getResult(ApiException::class.java)
-            } catch (exception: ApiException) {
-                when (exception.statusCode) {
-                    LocationSettingsStatusCodes.RESOLUTION_REQUIRED ->             // Location settings are not satisfied. But could be fixed by showing the
-                        try {
-                            val resolvable = exception as ResolvableApiException
-                            resolvable.startResolutionForResult(
-                              context,
-                                101)
-                        } catch (e: SendIntentException) {
-                            // Ignore the error.
-                        } catch (e: ClassCastException) {
-                            // Ignore, should be an impossible error.
-                        }
-                    LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
-                    }
-                }
-            }
-        }
-    }
+
+
 
 
 }
