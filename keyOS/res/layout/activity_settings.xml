@@ -651,8 +651,8 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/whitelist_calls"
-                          android:padding="4dp"
+                          app:srcCompat="@drawable/system_settings"
+                          android:padding="7dp"
                           app:tint="#4CAF50"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
@@ -660,7 +660,7 @@
                   </androidx.cardview.widget.CardView>
                   <TextView
                       android:layout_width="wrap_content"
-                      android:text="System Settings"
+                      android:text="Phone Settings"
                       android:gravity="center"
                       android:textColor="@android:color/black"
                       android:layout_marginLeft="65dp"
