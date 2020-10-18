@@ -185,8 +185,7 @@ class AllowApps : AppCompatActivity() {
             }
             Types.SINGLEAPP->{
                 val myAdapter = adapter as SingleAppAdapter
-                if((myAdapter).toggleState && UserContext.user?.singleApp!=null){
-                    UserContext.user?.allowedApps?.add(myAdapter.singleApp!!)
+                if((myAdapter).toggleState){
                     UserContext.user?.singleApp = myAdapter.singleApp
                 }else{
                     UserContext.user?.singleApp = null
