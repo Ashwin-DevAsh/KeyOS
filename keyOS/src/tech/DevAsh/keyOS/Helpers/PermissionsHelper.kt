@@ -22,7 +22,7 @@ object PermissionsHelper {
     var runTimePermissions = arrayOf(
             android.Manifest.permission.READ_CALL_LOG,
             android.Manifest.permission.READ_CONTACTS,
-            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             android.Manifest.permission.CALL_PHONE,
             android.Manifest.permission.ACCESS_COARSE_LOCATION,
                                     )

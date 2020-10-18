@@ -3,7 +3,6 @@ package tech.DevAsh.Launcher
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.app.FragmentManager
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
@@ -22,12 +21,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.FragmentActivity
 import com.android.launcher3.*
 import com.android.launcher3.util.ComponentKey
 import com.android.launcher3.util.SystemUiController
+import com.android.launcher3.views.OptionsPopupView
 import com.android.quickstep.views.LauncherRecentsView
 import com.google.android.apps.nexuslauncher.NexusLauncherActivity
+import kotlinx.android.synthetic.main.launcher.*
+import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk.startKiosk
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.NotificationBlocker
 import tech.DevAsh.Launcher.animations.KioskAppTransitionManagerImpl
@@ -43,14 +45,13 @@ import tech.DevAsh.Launcher.views.KioskBackgroundView
 import tech.DevAsh.Launcher.views.OptionsPanel
 import java.io.File
 import java.io.FileOutputStream
-import java.util.concurrent.Semaphore
+import java.util.*
 
-open class KioskLauncher : NexusLauncherActivity(),
-
-                           KioskPreferences.OnPreferenceChangeListener,
-        ColorEngine.OnColorChangeListener {
+open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenceChangeListener, ColorEngine.OnColorChangeListener {
 
 
+
+    var singleAppCount = 0;
 
     private val hideStatusBarKey = "pref_hideStatusBar"
     val gestureController by lazy { GestureController(this) }
@@ -75,12 +76,19 @@ open class KioskLauncher : NexusLauncherActivity(),
         KioskPrefs.registerCallback(prefCallback)
         KioskPrefs.addOnPreferenceChangeListener(hideStatusBarKey, this)
         ColorEngine.getInstance(this).addColorChangeListeners(this, *colorsToWatch)
+
+        if ((user)!!.singleApp != null) {
+            findViewById<View>(R.id.launcher).visibility = View.INVISIBLE
+
+            Handler().postDelayed({
+                                      startSingleApp()},2000)
+        }
+
     }
 
     override fun startActivitySafely(v: View?, intent: Intent, item: ItemInfo?): Boolean {
         val success = super.startActivitySafely(v, intent, item)
         if (success) {
-
             (launcherAppTransitionManager as KioskAppTransitionManagerImpl)
                     .playLaunchAnimation(this, v, intent)
         }
@@ -109,6 +117,17 @@ open class KioskLauncher : NexusLauncherActivity(),
         startKiosk(this)
         super.onRestart()
         Utilities.onLauncherStart()
+        if(user!!.singleApp!=null){
+            Handler().postDelayed({
+                if(singleAppCount<5){
+                    singleAppCount++
+                    startSingleApp()
+                }else{
+                    singleAppCount=0
+                    OptionsPopupView.startSettings(launcher)
+                }
+                                  },500)
+        }
     }
 
     inline fun prepareDummyView(view: View, crossinline callback: (View) -> Unit) {
@@ -168,6 +187,14 @@ open class KioskLauncher : NexusLauncherActivity(),
         restartIfPending()
         BrightnessManager.getInstance(this).startListening()
         paused = false
+
+    }
+
+
+    fun startSingleApp(){
+        val intent = packageManager.getLaunchIntentForPackage(user!!.singleApp.packageName)
+        intent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 
     override fun onPause() {
@@ -201,7 +228,7 @@ open class KioskLauncher : NexusLauncherActivity(),
         if (paused) {
             sRecreate = true
         } else {
-            recreate();
+            recreate()
         }
     }
 
@@ -332,11 +359,11 @@ open class KioskLauncher : NexusLauncherActivity(),
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
                 out.close()
                 val result = Bundle(1).apply { putString("uri", Uri.fromFile(file).toString()) }
-                intent.getParcelableExtra<ResultReceiver>("callback").send(Activity.RESULT_OK,
+                intent.getParcelableExtra<ResultReceiver>("callback")?.send(Activity.RESULT_OK,
                                                                            result)
             } catch (e: Exception) {
                 out.close()
-                intent.getParcelableExtra<ResultReceiver>("callback").send(Activity.RESULT_CANCELED,
+                intent.getParcelableExtra<ResultReceiver>("callback")?.send(Activity.RESULT_CANCELED,
                                                                            null)
                 e.printStackTrace()
             }
@@ -353,7 +380,6 @@ open class KioskLauncher : NexusLauncherActivity(),
 
         override fun onDestroy() {
             super.onDestroy()
-
             sRestart = true
         }
     }

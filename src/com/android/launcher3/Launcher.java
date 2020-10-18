@@ -53,10 +53,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.Process;
-import android.os.StrictMode;
-import android.os.StrictMode.OnVmViolationListener;
 import android.os.UserHandle;
-import android.os.strictmode.Violation;
 import android.text.TextUtils;
 import android.text.method.TextKeyListener;
 import android.util.Log;
@@ -73,8 +70,9 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
+import java.util.Objects;
 import tech.DevAsh.KeyOS.Database.RealmHelper;
+import tech.DevAsh.KeyOS.Database.UserContext;
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.*;
 import com.android.launcher3.DropTarget.DragObject;
@@ -109,7 +107,6 @@ import com.android.launcher3.userevent.nano.LauncherLogProto.Target;
 import com.android.launcher3.util.ActivityResultInfo;
 import com.android.launcher3.util.ComponentKey;
 import com.android.launcher3.util.ItemInfoMatcher;
-import com.android.launcher3.util.LooperExecutor;
 import com.android.launcher3.util.MultiHashMap;
 import com.android.launcher3.util.MultiValueAlpha;
 import com.android.launcher3.util.MultiValueAlpha.AlphaProperty;
@@ -260,8 +257,12 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         User.getUsers();
         Kiosk.INSTANCE.startKiosk(this);
 
+
+
         super.onCreate(savedInstanceState);
         TraceHelper.partitionSection("Launcher-onCreate", "super call");
+
+
 
         LauncherAppState app = LauncherAppState.getInstance(this);
         KioskPreferences prefs = Utilities.getKioskPrefs(this);
@@ -489,7 +490,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
      * Returns whether we should delay spring loaded mode -- for shortcuts and widgets that have
      * a configuration step, this allows the proper animations to run after other transitions.
      */
-    private long completeAdd(
+    private void completeAdd(
             int requestCode, Intent intent, int appWidgetId, PendingRequestArgs info) {
         long screenId = info.screenId;
         if (info.container == LauncherSettings.Favorites.CONTAINER_DESKTOP) {
@@ -525,7 +526,6 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
             }
         }
 
-        return screenId;
     }
 
     private void handleActivityResult(
@@ -546,12 +546,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
 
         final int pendingAddWidgetId = requestArgs.getWidgetId();
 
-        Runnable exitSpringLoaded = new Runnable() {
-            @Override
-            public void run() {
-                mStateManager.goToState(NORMAL, SPRING_LOADED_EXIT_DELAY);
-            }
-        };
+        Runnable exitSpringLoaded = () -> mStateManager.goToState(NORMAL, SPRING_LOADED_EXIT_DELAY);
 
         if (requestCode == REQUEST_BIND_APPWIDGET) {
             // This is called only if the user did not previously have permissions to bind widgets
@@ -590,12 +585,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
                         "returned from the widget configuration activity.");
                 result = RESULT_CANCELED;
                 completeTwoStageWidgetDrop(result, appWidgetId, requestArgs);
-                final Runnable onComplete = new Runnable() {
-                    @Override
-                    public void run() {
-                        getStateManager().goToState(NORMAL);
-                    }
-                };
+                final Runnable onComplete = () -> getStateManager().goToState(NORMAL);
 
                 mWorkspace.removeExtraEmptyScreenDelayed(true, onComplete,
                         ON_ACTIVITY_RESULT_ANIMATION_DELAY, false);
@@ -800,9 +790,8 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         UiFactory.onLauncherStateOrResumeChanged(this);
 
         mWorkspace.organizeCurrentPage();
-
-
         TraceHelper.endSection("ON_RESUME");
+
     }
 
     @Override
