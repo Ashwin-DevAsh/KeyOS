@@ -19,16 +19,16 @@ import tech.DevAsh.KeyOS.Helpers.HelperVariables
 import tech.DevAsh.keyOS.Database.Apps
 import kotlin.collections.ArrayList
 
-class AllowItemAdapter(
+open class AllowItemAdapter(
         val _items: MutableList<Apps>,
         _allowedItems: MutableList<Apps>,
         var heading:String,
-        var subHeading:String,
-        val context: AppCompatActivity
+        open var subHeading:String,
+        open val context: AppCompatActivity
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var allowedItems = ArrayList(_allowedItems)
-    var items = ArrayList(_items)
+    open var items = ArrayList(_items)
     override fun getItemCount(): Int {
         return items.size
     }

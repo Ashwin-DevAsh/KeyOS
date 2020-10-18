@@ -30,6 +30,7 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.BasicSettings
+import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 
 
 class Settings : AppCompatActivity() {
@@ -115,12 +116,17 @@ class Settings : AppCompatActivity() {
             startActivity(intent)
         }
         apps?.setOnClickListener {
-            AllowApps.type="Allow Apps"
+            AllowApps.type=Types.ALLOWAPPS
             startActivity(Intent(this, AllowApps::class.java))
         }
 
         services.setOnClickListener {
-            AllowApps.type="Allow Services"
+            AllowApps.type=Types.ALLOWSERVICES
+            startActivity(Intent(this, AllowApps::class.java))
+        }
+
+        singleApp.setOnClickListener{
+            AllowApps.type=Types.SINGLEAPP
             startActivity(Intent(this, AllowApps::class.java))
         }
 

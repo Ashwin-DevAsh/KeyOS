@@ -14,6 +14,7 @@ import tech.DevAsh.KeyOS.Config.Adapters.AllowItemAdapter
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.keyOS.Config.Adapters.SingleAppAdapter
 import tech.DevAsh.keyOS.Database.Apps
 
 import java.util.*
@@ -22,12 +23,14 @@ import kotlin.collections.ArrayList
 
 class AllowApps : AppCompatActivity() {
 
-    private var isSelectAll = true
 
     var adapter: AllowItemAdapter? = null
 
     companion object{
-        var type:String="Allow Apps"
+        enum class Types {
+            ALLOWAPPS,ALLOWSERVICES,SINGLEAPP
+        }
+        var type:Types=Types.ALLOWAPPS
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +42,7 @@ class AllowApps : AppCompatActivity() {
         handelSearch()
 
         when(type){
-            "Allow Apps"->{
+           Types.ALLOWAPPS->{
                 heading.text="Apps"
                 loadAdapter(
 
@@ -49,14 +52,21 @@ class AllowApps : AppCompatActivity() {
                         "Select which apps you want to\ngive access"
                 )
             }
-            "Allow Services"->{
+            Types.ALLOWSERVICES->{
                 heading.text="Services"
                 loadAdapter(
                     AppsContext.allService,
                     AppsContext.allowedService,
                     "Whitelist Services",
                     "Select which services you want to\ngive access"
-                )
+                           )
+            }
+            Types.SINGLEAPP->{
+                heading.text="Single App"
+                loadAdapterSingleApp(
+                        AppsContext.allApps,
+                        "Select which app you want available\nin foreground"
+                                    )
             }
         }
 
@@ -125,11 +135,38 @@ class AllowApps : AppCompatActivity() {
         }, 1000)
     }
 
+    private fun loadAdapterSingleApp(items: MutableList<Apps>,
+                                     subHeading: String = "Select which app you want always available\nin foreground"
+                                    ){
+        Handler().postDelayed({
+
+                              val singleAppIndex = AppsContext.allowedApps.indexOf(UserContext.user!!.singleApp)
+                              if(singleAppIndex!=-1){
+                                  UserContext.user!!.singleApp = AppsContext.allowedApps[singleAppIndex]
+                                  items.remove(UserContext.user!!.singleApp)
+                                  items.add(0, UserContext.user!!.singleApp)
+                              }
+
+                              adapter = SingleAppAdapter(ArrayList(items), UserContext.user!!.singleApp, this, subHeading,object :ToggleCallback{
+                                  override fun turnOn() {
+
+                                  }
+
+                                  override fun turnOff() {
+                                  }
+                              },false)
+                              adapter!!.items.add(0,Apps())
+                              adapter!!.notifyDataSetChanged()
+                              appsContainer.adapter = adapter
+                              loadingScreen.visibility = View.GONE
+                              }, 1000)
+    }
+
 
 
     private fun saveData(){
         when(type){
-            "Allow Apps"->{
+           Types.ALLOWAPPS->{
                 for(i in AppsContext.allApps){
                     if(adapter?.allowedItems!!.contains(Apps(i.packageName))){
                         PackageUpdatedTask(PackageUpdatedTask.OP_ADD, Process.myUserHandle(),i.packageName)
@@ -142,11 +179,15 @@ class AllowApps : AppCompatActivity() {
                 val allowedApps = getRealmList(AppsContext.allowedApps)
                 UserContext.user?.allowedApps = allowedApps
             }
-            "Allow Services"->  {
+            Types.ALLOWSERVICES->  {
                 AppsContext.allowedService = ArrayList(adapter?.allowedItems!!)
                 val allowServices = getRealmList(AppsContext.allowedService)
                 UserContext.user?.allowedServices = allowServices
             }
+            Types.SINGLEAPP->{
+
+            }
+
         }
 
 

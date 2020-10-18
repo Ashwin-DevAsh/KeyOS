@@ -11,8 +11,9 @@ import tech.DevAsh.KeyOS.Database.UserContext;
 public class User extends RealmObject {
     public RealmList<Apps> allowedApps = new RealmList();
     public RealmList<Apps> editedApps = new RealmList();
-    public RealmList<Apps> allowedServices = new RealmList() ;
+    public RealmList<Apps> allowedServices = new RealmList("android") ;
     public BasicSettings basicSettings;
+    public Apps singleApp;
     public Calls calls;
     public String recoveryEmail;
     public String password;
