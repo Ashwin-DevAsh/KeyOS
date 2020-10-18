@@ -20,7 +20,6 @@ import tech.DevAsh.KeyOS.Config.EditApp
 import tech.DevAsh.KeyOS.Config.ToggleCallback
 import tech.DevAsh.KeyOS.Helpers.HelperVariables
 import tech.DevAsh.keyOS.Database.Apps
-import java.util.logging.Handler
 
 
 class SingleAppAdapter(
@@ -29,7 +28,7 @@ class SingleAppAdapter(
         override val context: AppCompatActivity,
         override var subHeading:String,
         val toggleCallback: ToggleCallback,
-        val toggleState:Boolean
+        var toggleState:Boolean
                         ) : AllowItemAdapter(items,ArrayList(),"","",context) {
 
     override fun getItemCount(): Int {
@@ -64,6 +63,12 @@ class SingleAppAdapter(
             holder.name.text = items[position].appName
             holder.icon.setImageDrawable(items[position].icon)
 
+            if(toggleState){
+                holder.view.alpha=1f
+            }else{
+                holder.view.alpha=0.25f
+            }
+
             if(singleApp == holder.item){
                 holder.checkBox.setChecked(true, false)
             }else{
@@ -78,7 +83,7 @@ class SingleAppAdapter(
 }
 
 class SingleAppViewHolder(
-        view: View,
+        val view: View,
         adapter: SingleAppAdapter
                     ) : RecyclerView.ViewHolder(
         view) {
@@ -90,13 +95,16 @@ class SingleAppViewHolder(
     var item: Apps?=null
 
     init {
+
+
+
         view.editApp.visibility = View.INVISIBLE
+
         view.setOnClickListener{
             if(!checkBox.isChecked){
                 checkBox.setChecked(true, true)
                 adapter.singleApp = item
                 adapter.notifyDataSetChanged()
-
 
             }else{
                 checkBox.setChecked(false, true)
@@ -105,10 +113,6 @@ class SingleAppViewHolder(
 
             }
         }
-
-
-
-
 
         editApp.setOnClickListener {
             HelperVariables.selectedEditedApp = item
@@ -122,8 +126,7 @@ class SingleAppViewHolder(
 class SingleAppHeader(
         val view: View,
         val context: Context,
-        val adapter: SingleAppAdapter
-                                 ) : RecyclerView.ViewHolder(view) {
+        val adapter: SingleAppAdapter) : RecyclerView.ViewHolder(view) {
 
     init {
         onClick()
@@ -149,11 +152,15 @@ class SingleAppHeader(
 
     private fun turnOn(){
         view.isTurnOn.text = "ON"
+        adapter.toggleState=true
+        adapter.notifyDataSetChanged()
         adapter.toggleCallback.turnOn()
     }
 
     private fun turnOff(){
         view.isTurnOn.text = "OFF"
+        adapter.toggleState=false
+        adapter.notifyDataSetChanged()
         adapter.toggleCallback.turnOff()
     }
 

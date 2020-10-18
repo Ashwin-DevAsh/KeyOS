@@ -154,7 +154,7 @@ class AllowApps : AppCompatActivity() {
 
                                   override fun turnOff() {
                                   }
-                              },false)
+                              },UserContext.user!!.singleApp!=null)
                               adapter!!.items.add(0,Apps())
                               adapter!!.notifyDataSetChanged()
                               appsContainer.adapter = adapter
@@ -174,7 +174,6 @@ class AllowApps : AppCompatActivity() {
                         PackageUpdatedTask(PackageUpdatedTask.OP_REMOVE, Process.myUserHandle(),i.packageName)
                     }
                 }
-
                 AppsContext.allowedApps = ArrayList(adapter?.allowedItems!!)
                 val allowedApps = getRealmList(AppsContext.allowedApps)
                 UserContext.user?.allowedApps = allowedApps
@@ -185,11 +184,15 @@ class AllowApps : AppCompatActivity() {
                 UserContext.user?.allowedServices = allowServices
             }
             Types.SINGLEAPP->{
+                val myAdapter = adapter as SingleAppAdapter
+                if((myAdapter).toggleState){
+                    UserContext.user?.singleApp = myAdapter.singleApp
+                }else{
+                    UserContext.user?.singleApp = null
+                }
 
             }
-
         }
-
 
         RealmHelper.updateUser(UserContext.user!!)
         finish()
