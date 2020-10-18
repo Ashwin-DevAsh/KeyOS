@@ -33,7 +33,7 @@ class BlankActivity : AppCompatActivity() {
 
     private val requestCode by lazy { intent.getIntExtra("requestCode", 0) }
     private val permissionRequestCode by lazy { intent.getIntExtra("permissionRequestCode", 0) }
-    private val resultReceiver by lazy { intent.getParcelableExtra("callback") as ResultReceiver }
+    private val resultReceiver by lazy { intent.getParcelableExtra("callback") as ResultReceiver? }
     private var resultSent = false
     private var firstResume = true
     private var targetStarted = false
@@ -73,7 +73,7 @@ class BlankActivity : AppCompatActivity() {
                 }
             }
             intent.hasExtra("permissions") -> ActivityCompat.requestPermissions(
-                    this, intent.getStringArrayExtra("permissions"), permissionRequestCode)
+                    this, intent.getStringArrayExtra("permissions")!!, permissionRequestCode)
             else -> {
                 finish()
                 return
@@ -84,7 +84,7 @@ class BlankActivity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         if (requestCode == permissionRequestCode) {
-            resultReceiver.send(RESULT_OK, Bundle(2).apply {
+            resultReceiver!!.send(RESULT_OK, Bundle(2).apply {
                 putStringArray("permissions", permissions)
                 putIntArray("grantResults", grantResults)
             })
@@ -97,7 +97,7 @@ class BlankActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == this.requestCode) {
-            resultReceiver.send(resultCode, data?.extras)
+            resultReceiver!!.send(resultCode, data?.extras)
             resultSent = true
             finish()
         }
@@ -110,7 +110,7 @@ class BlankActivity : AppCompatActivity() {
 
         if (!resultSent && intent.hasExtra("callback")) {
             resultSent = true
-            resultReceiver.send(RESULT_CANCELED, null)
+            resultReceiver!!.send(RESULT_CANCELED, null)
         }
     }
 

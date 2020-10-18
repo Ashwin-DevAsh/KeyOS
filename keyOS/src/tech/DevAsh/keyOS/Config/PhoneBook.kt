@@ -60,7 +60,7 @@ class PhoneBook : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 handler.removeCallbacksAndMessages(true)
-                handler.removeCallbacks(runnable)
+                handler.removeCallbacks(runnable!!)
                 val query = newText.toString().toLowerCase(Locale.ROOT)
                 runnable = Runnable{
                     phoneBookAdapter?.items?.clear()
@@ -72,7 +72,7 @@ class PhoneBook : AppCompatActivity() {
                     }
                     phoneBookAdapter?.notifyDataSetChanged()
                 }
-                handler.postDelayed(runnable,500)
+                handler.postDelayed(runnable!!,500)
                 return true
             }
 

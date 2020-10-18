@@ -68,27 +68,27 @@ class UsageAccessService : Service() {
         handlerCheckActivity = Handler()
         runnableCheckActivity = Runnable {
             checkActivity(applicationContext)
-            handlerCheckActivity?.postDelayed(runnableCheckActivity, 250)
+            handlerCheckActivity?.postDelayed(runnableCheckActivity!!, 250)
         }
-        handlerCheckActivity?.postDelayed(runnableCheckActivity, 1000)
+        handlerCheckActivity?.postDelayed(runnableCheckActivity!!, 1000)
     }
 
     private fun createKillAppLooper(){
         handlerKillApps = Handler()
         runnableKillApps = Runnable {
             killApp()
-            handlerKillApps?.postDelayed(runnableKillApps, 250)
+            handlerKillApps?.postDelayed(runnableKillApps!!, 250)
         }
-        handlerKillApps?.postDelayed(runnableKillApps, 1000)
+        handlerKillApps?.postDelayed(runnableKillApps!!, 1000)
     }
 
     private fun createBasicSettingsLooper(){
         handlerCheckBasicSettings = Handler()
         runnableCheckBasicSettings = Runnable {
             checkBasicSettings(applicationContext)
-            handlerCheckActivity?.postDelayed(runnableCheckBasicSettings, 250)
+            handlerCheckActivity?.postDelayed(runnableCheckBasicSettings!!, 250)
         }
-        handlerCheckBasicSettings?.postDelayed(runnableCheckBasicSettings, 1000)
+        handlerCheckBasicSettings?.postDelayed(runnableCheckBasicSettings!!, 1000)
     }
 
     private fun killApp() {

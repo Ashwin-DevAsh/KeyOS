@@ -127,12 +127,12 @@ class StartAppGestureHandler(context: Context, config: JSONObject?) : GestureHan
     override val icon: Drawable
         get() = when {
             intent != null -> try {
-                context.packageManager.getActivityIcon(intent)
+                context.packageManager.getActivityIcon(intent!!)
             } catch (e: Exception) {
                 context.getIcon()
             }
             target != null -> try {
-                context.packageManager.getApplicationIcon(target?.componentName?.packageName)
+                context.packageManager.getApplicationIcon(target?.componentName?.packageName!!)
             } catch (e: Exception) {
                 context.getIcon()
             }

@@ -50,7 +50,7 @@ class IconPickerActivity : SettingsBaseActivity(), View.OnLayoutChangeListener, 
     private val iconPackManager = IconPackManager.getInstance(this)
     private val iconGrid by lazy { findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.list_results) }
     private val iconPack by lazy { iconPackManager.getIconPack(
-            intent.getParcelableExtra<IconPackManager.PackProvider>(EXTRA_ICON_PACK), false) }
+            intent.getParcelableExtra<IconPackManager.PackProvider>(EXTRA_ICON_PACK)!!, false) }
     private val items get() = searchItems ?: actualItems
     private var actualItems = ArrayList<AdapterItem>()
     private val adapter = IconGridAdapter()
@@ -207,7 +207,7 @@ class IconPickerActivity : SettingsBaseActivity(), View.OnLayoutChangeListener, 
         if (requestCode == 1000 && resultCode == Activity.RESULT_OK && data != null) {
             if (data.hasExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE)) {
                 val icon = data.getParcelableExtra<Intent.ShortcutIconResource>(Intent.EXTRA_SHORTCUT_ICON_RESOURCE)
-                val entry = (iconPack as IconPackImpl).createEntry(icon)
+                val entry = (iconPack as IconPackImpl).createEntry(icon!!)
                 onSelectIcon(entry)
                 return
             }
