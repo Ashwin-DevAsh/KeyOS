@@ -31,6 +31,7 @@ import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
+import tech.DevAsh.Launcher.KioskSingleAppLauncher
 
 
 class Settings : AppCompatActivity() {
@@ -85,7 +86,7 @@ class Settings : AppCompatActivity() {
             if(launchContainer.visibility==View.VISIBLE){
                 saveData()
                 if(isFromLauncher){
-                   onBackPressed()
+                    onBackPressed()
                 }else{
                     checkPermissionAndLaunch()
                 }
@@ -230,8 +231,14 @@ class Settings : AppCompatActivity() {
 
     private fun launch(context: Context) {
         val packageManager = context.packageManager
+
         val helperLauncher = ComponentName(context, HelperLauncher::class.java)
-        val kioskLauncher = ComponentName(context, KioskLauncher::class.java)
+        var kioskLauncher = ComponentName(context, KioskLauncher::class.java)
+
+        if (UserContext.user!!.singleApp!=null){
+            kioskLauncher = ComponentName(context, KioskSingleAppLauncher::class.java)
+        }
+
 
         packageManager.setComponentEnabledSetting(helperLauncher,
                                                   PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
