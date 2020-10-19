@@ -19,7 +19,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.keyOS.activity_settings.*
 import kotlinx.android.synthetic.keyOS.sheet_options.view.*
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
@@ -31,6 +30,7 @@ import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
+import com.android.launcher3.views.Snackbar
 
 
 class Settings : AppCompatActivity() {

@@ -9,4 +9,6 @@ object AppsContext {
 
     var allService = mutableListOf<Apps>()
     var allowedService = mutableListOf<Apps>()
+
+    var exceptions = arrayListOf("com.android.settings.AllowBindAppWidgetActivity")
 }

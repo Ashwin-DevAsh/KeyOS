@@ -14,7 +14,9 @@ import android.os.Handler
 import android.os.IBinder
 import android.widget.Toast
 import io.realm.Realm
+import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
@@ -133,7 +135,7 @@ class UsageAccessService : Service() {
             usageEvents.getNextEvent(event)
         }
 
-        if(UsageEvents.Event.MOVE_TO_FOREGROUND==event.eventType){
+        if(event.packageName!=null && event.className!=null){
              appName = event.packageName
              className = event.className
         }
@@ -142,7 +144,7 @@ class UsageAccessService : Service() {
                 prevActivities.add(appName!!)
             }
         }else{
-           if(appName!=null) block(appName)
+           if(appName!=null) block(className)
         }
 
     }
@@ -152,7 +154,7 @@ class UsageAccessService : Service() {
 
         println("$appName $className")
 
-        if(appName==packageName){
+        if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(className)){
             return true
         }
 
@@ -185,8 +187,6 @@ class UsageAccessService : Service() {
         if (user!!.editedApps[editedAppIndex]!!.blockedActivities.contains(className)){
             return false
         }
-
-
 
         return true
     }

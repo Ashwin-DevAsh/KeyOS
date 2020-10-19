@@ -7,11 +7,12 @@ import io.realm.RealmObject;
 import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 import tech.DevAsh.KeyOS.Database.UserContext;
+import tech.DevAsh.Launcher.preferences.AppsAdapter.App;
 
 public class User extends RealmObject {
     public RealmList<Apps> allowedApps = new RealmList();
     public RealmList<Apps> editedApps = new RealmList();
-    public RealmList<Apps> allowedServices = new RealmList("android") ;
+    public RealmList<Apps> allowedServices = new RealmList<>(new Apps("android")) ;
     public BasicSettings basicSettings;
     public Apps singleApp;
     public Calls calls;
