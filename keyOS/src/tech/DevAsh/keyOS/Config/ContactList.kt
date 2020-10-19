@@ -160,6 +160,10 @@ class ContactList : AppCompatActivity() , ToggleCallback {
             }
 
         }
+
+        back.setOnClickListener {
+            super.onBackPressed()
+        }
     }
 
     private fun getWhiteList(){

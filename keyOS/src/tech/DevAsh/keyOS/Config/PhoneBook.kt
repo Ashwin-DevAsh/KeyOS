@@ -99,6 +99,10 @@ class PhoneBook : AppCompatActivity() {
         cancel.setOnClickListener {
             super.onBackPressed()
         }
+
+        back.setOnClickListener {
+            super.onBackPressed()
+        }
     }
 
 

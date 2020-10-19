@@ -39,6 +39,14 @@ class Password : AppCompatActivity() {
                  save()
              }
         }
+
+        back.setOnClickListener {
+            super.onBackPressed()
+        }
+
+        cancel.setOnClickListener{
+            super.onBackPressed()
+        }
     }
 
     private fun save(){

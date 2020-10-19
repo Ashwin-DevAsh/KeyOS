@@ -43,6 +43,7 @@ class PhoneCalls : AppCompatActivity() {
             saveData()
         }
 
+
         allowCalls.setOnCheckedChangeListener{ _, isChecked ->
             if (isChecked){
                 options.alpha = 1f

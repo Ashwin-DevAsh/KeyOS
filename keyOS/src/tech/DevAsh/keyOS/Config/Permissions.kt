@@ -54,6 +54,7 @@ class Permissions : AppCompatActivity() {
         other.setOnClickListener {
 
         }
+
     }
 
     private fun resize(){

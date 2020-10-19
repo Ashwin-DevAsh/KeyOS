@@ -53,6 +53,10 @@ class ActivityList : AppCompatActivity() {
         done.setOnClickListener {
             saveData()
         }
+
+        back.setOnClickListener {
+            super.onBackPressed()
+        }
     }
 
     private fun saveData(){

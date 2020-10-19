@@ -27,6 +27,10 @@ class ContactsInput : AppCompatActivity() {
         done.setOnClickListener {
             save()
         }
+
+        back.setOnClickListener {
+            super.onBackPressed()
+        }
     }
 
     private fun save(){
