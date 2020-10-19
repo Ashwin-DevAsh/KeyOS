@@ -652,7 +652,7 @@ public final class Utilities {
                 return (T) cls.getDeclaredConstructor(Context.class).newInstance(context);
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
                     | ClassCastException | NoSuchMethodException | InvocationTargetException e) {
-                Log.e(TAG, "Bad overriden class", e);
+//                Log.e(TAG, "Bad overriden class", e);
             }
         }
 

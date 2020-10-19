@@ -1,5 +1,6 @@
 package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 
+import android.Manifest
 import android.content.ComponentName
 import android.content.ContentResolver
 import android.content.Context
@@ -9,6 +10,7 @@ import android.os.Build
 import android.provider.ContactsContract
 import android.telecom.TelecomManager
 import android.telephony.TelephonyManager
+import androidx.core.app.ActivityCompat
 
 import tech.DevAsh.KeyOS.Receiver.PhoneCallReceiver
 import com.android.internal.telephony.ITelephony
@@ -19,7 +21,7 @@ import tech.DevAsh.keyOS.Database.Contact
 object CallBlocker {
 
     private var lastState = TelephonyManager.CALL_STATE_IDLE
-    private val broadcastReceiver =  PhoneCallReceiver()
+    val broadcastReceiver =  PhoneCallReceiver()
 
     fun onCall(state: Int, number: String, context: Context) {
 
@@ -136,6 +138,10 @@ object CallBlocker {
     }
     private fun rejectCall(context: Context){
         val tm = context.getSystemService(Context.TELECOM_SERVICE) as TelecomManager
+        if (ActivityCompat.checkSelfPermission(context,
+                                               Manifest.permission.ANSWER_PHONE_CALLS) != PackageManager.PERMISSION_GRANTED) {
+            return
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
             tm.endCall()
         else
