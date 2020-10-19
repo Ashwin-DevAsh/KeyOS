@@ -98,16 +98,16 @@ class Settings : AppCompatActivity() {
 
 
         wifi?.setOnClickListener{
-            peripheralOnClick(wifiMode)
+            peripheralOnClick(wifiMode,wifi)
         }
         hotspot?.setOnClickListener{
-            peripheralOnClick(hotspotMode)
+            peripheralOnClick(hotspotMode,hotspot)
         }
         bluetooth?.setOnClickListener{
-            peripheralOnClick(bluetoothMode)
+            peripheralOnClick(bluetoothMode,bluetooth)
         }
         mobileData?.setOnClickListener {
-            peripheralOnClick(mobiledataMode)
+            peripheralOnClick(mobiledataMode,mobileData)
         }
 
 
@@ -135,15 +135,21 @@ class Settings : AppCompatActivity() {
         }
 
         exit.setOnClickListener {
-            Kiosk.exitKiosk(this,UserContext.user?.password)
+            Kiosk.exitKiosk(this, UserContext.user?.password)
         }
     }
 
-    private fun peripheralOnClick(textView: TextView){
+    private fun peripheralOnClick(textView: TextView,parentView: View){
         vibrate()
         val position = BasicSettings.options.indexOf(textView.text)
-        val nextOption = BasicSettings.options[(position+1) % 3]
+        val nextOption = BasicSettings.options[(position + 1) % 3]
         textView.text = nextOption
+        parentView.animate().scaleX(0.85f).scaleY(0.85f).setDuration(100)
+                .withEndAction(object : java.lang.Runnable {
+                    override fun run() {
+                        parentView.animate().scaleX(1f).scaleY(1f).setDuration(100)
+                    }
+                })
     }
 
     private fun vibrate(){
@@ -221,7 +227,7 @@ class Settings : AppCompatActivity() {
 
         onModeClick(sheetView.alwaysOn, BasicSettings.AlwaysON)
         onModeClick(sheetView.alwaysOff, BasicSettings.AlwaysOFF)
-        onModeClick(sheetView.dontCare,BasicSettings.DontCare)
+        onModeClick(sheetView.dontCare, BasicSettings.DontCare)
 
         options.setContentView(sheetView)
         options.show()
