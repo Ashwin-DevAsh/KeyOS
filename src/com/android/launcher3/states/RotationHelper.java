@@ -80,8 +80,7 @@ public class RotationHelper implements OnSharedPreferenceChangeListener {
         if (!mIgnoreAutoRotateSettings) {
             mPrefs = Utilities.getPrefs(mActivity);
             mPrefs.registerOnSharedPreferenceChangeListener(this);
-            mAutoRotateEnabled = mPrefs.getBoolean(ALLOW_ROTATION_PREFERENCE_KEY,
-                    getAllowRotationDefaultValue());
+            mAutoRotateEnabled = false; //mPrefs.getBoolean(ALLOW_ROTATION_PREFERENCE_KEY, getAllowRotationDefaultValue());
         } else {
             mPrefs = null;
         }

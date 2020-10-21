@@ -222,20 +222,13 @@ class KioskPreferences(val context: Context) : SharedPreferences.OnSharedPrefere
         override fun flattenValue(value: IconPackManager.CustomIconEntry) = value.toString()
         override fun unflattenValue(value: String) = IconPackManager.CustomIconEntry.fromString(value)
     }
-    val recentBackups = object : MutableListPref<Uri>(
-            Utilities.getDevicePrefs(context), "pref_recentBackups") {
-        override fun unflattenValue(value: String) = Uri.parse(value)
-    }
+
 
     val recentLaunchedApps = object : MutableListPref<ComponentKey>(
             Utilities.getDevicePrefs(context), "pref_recentLaunchedApps") {
         override fun unflattenValue(value: String) = ComponentKey(context, value)
     }
 
-    inline fun withChangeCallback(
-            crossinline callback: (KioskPreferencesChangeCallback) -> Unit): () -> Unit {
-        return { getOnChangeCallback()?.let { callback(it) } }
-    }
 
     fun getOnChangeCallback() = onChangeCallback
 
@@ -291,14 +284,7 @@ class KioskPreferences(val context: Context) : SharedPreferences.OnSharedPrefere
         onChangeListeners[key]?.remove(listener)
     }
 
-    inner class StringListPref(prefKey: String,
-                               onChange: () -> Unit = doNothing,
-                               default: List<String> = emptyList())
-        : MutableListPref<String>(prefKey, onChange, default) {
 
-        override fun unflattenValue(value: String) = value
-        override fun flattenValue(value: String) = value
-    }
 
     abstract inner class MutableListPref<T>(private val prefs: SharedPreferences,
                                             private val prefKey: String,

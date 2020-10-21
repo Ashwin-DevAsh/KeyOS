@@ -151,15 +151,19 @@
         android:name="tech.DevAsh.Launcher.KioskApp">
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.Config.ActivityList" />
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.Config.EditApp" />
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.Config.Mode" />
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:autoRemoveFromRecents="true"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
@@ -168,24 +172,30 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.Config.Password"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:screenOrientation="portrait"
             android:theme="@style/keyOS"
             android:name="tech.DevAsh.KeyOS.Config.ContactsInput"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:screenOrientation="portrait"
             android:theme="@style/keyOS"
             android:name="tech.DevAsh.KeyOS.Config.ContactList" />
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.Config.PhoneCalls" />
         <activity
+            android:screenOrientation="portrait"
             android:theme="@style/keyOS"
             android:name="tech.DevAsh.KeyOS.Config.PhoneBook"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher"
             android:enabled="false">
             <intent-filter>
@@ -197,16 +207,20 @@
         </activity> <!-- launcher -->
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.Config.Permissions" />
 
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.Config.AllowApps" />
         <activity
             android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.Config.Settings"
             android:windowSoftInputMode="adjustNothing" />
         <activity
+            android:screenOrientation="portrait"
             android:name="tech.DevAsh.KeyOS.SplashScreen"
             android:theme="@style/splashScreen">
             <intent-filter>
