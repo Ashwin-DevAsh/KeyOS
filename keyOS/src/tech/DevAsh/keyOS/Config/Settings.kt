@@ -15,7 +15,6 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -30,8 +29,6 @@ import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
-import com.android.launcher3.views.Snackbar
-import tech.DevAsh.KeyOS.Config.Permission
 
 
 class Settings : AppCompatActivity() {
@@ -149,17 +146,15 @@ class Settings : AppCompatActivity() {
         val position = options.indexOf(textView.text)
         val nextOption = options[(position + 1) % 3]
         textView.text = nextOption
-        animate(textView,parentView)
+        animate(parentView)
     }
 
 
-    fun animate(textView: TextView,parentView: View){
+    fun animate(parentView: View){
         parentView.animate().scaleX(0.85f).scaleY(0.85f).setDuration(100)
-                .withEndAction(object : java.lang.Runnable {
-                    override fun run() {
-                        parentView.animate().scaleX(1f).scaleY(1f).setDuration(100)
-                    }
-                })
+                .withEndAction {
+                    parentView.animate().scaleX(1f).scaleY(1f).duration = 100
+                }
     }
 
     private fun vibrate(){
@@ -171,8 +166,7 @@ class Settings : AppCompatActivity() {
         if(PermissionsHelper.checkImportantPermissions(this)){
             launch(this)
         }else{
-            startActivity(Intent(this,Permission::class.java))
-//            permissionsBottomSheet.show(supportFragmentManager, "TAG")
+            permissionsBottomSheet.show(supportFragmentManager, "TAG")
         }
     }
 
@@ -189,13 +183,6 @@ class Settings : AppCompatActivity() {
         saveData()
         if(isFromLauncher){
             Utilities.restartLauncher(this)
-//           PackageUpdatedTask(PackageUpdatedTask.OP_RELOAD, android.os.Process.myUserHandle())
-//            val selector = Intent(Intent.ACTION_MAIN)
-//            selector.addCategory(Intent.CATEGORY_HOME)
-//            selector.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//            selector.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
-//            startActivity(selector)
-//            finish()
         }else{
             super.onBackPressed()
         }
@@ -214,30 +201,6 @@ class Settings : AppCompatActivity() {
         RealmHelper.updateUser(UserContext.user!!)
     }
 
-
-
-    private fun openBottomSheet(mode: TextView){
-
-        val options = BottomSheetDialog(this)
-        val sheetView: View = LayoutInflater.from(this).inflate(R.layout.sheet_options, null)
-
-        fun onModeClick(
-                clickView: View,
-                option: String
-                       ){
-            clickView.setOnClickListener{
-                mode.text = option
-                options.cancel()
-            }
-        }
-
-        onModeClick(sheetView.alwaysOn, BasicSettings.AlwaysON)
-        onModeClick(sheetView.alwaysOff, BasicSettings.AlwaysOFF)
-        onModeClick(sheetView.dontCare, BasicSettings.DontCare)
-
-        options.setContentView(sheetView)
-        options.show()
-    }
 
 
     private fun launch(context: Context) {
@@ -262,8 +225,15 @@ class Settings : AppCompatActivity() {
                                                   PackageManager.DONT_KILL_APP)
     }
 
-    override fun onRestart() {
 
+
+    override fun onResume() {
+        restartPermissionSheet()
+        super.onResume()
+    }
+
+
+    private fun restartPermissionSheet(){
         if(PermissionsHelper.openedForPermission){
             PermissionsHelper.openedForPermission=false
             Handler().postDelayed({
@@ -274,7 +244,6 @@ class Settings : AppCompatActivity() {
                                       }
                                   }, 250)
         }
-        super.onRestart()
     }
 
 

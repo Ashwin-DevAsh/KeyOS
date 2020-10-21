@@ -44,7 +44,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:padding="12dp"
-                            android:layout_marginLeft="15dp"
+                            android:layout_marginLeft="5dp"
                             app:srcCompat="@drawable/back"
                             android:id="@+id/back"
                             android:clickable="true"

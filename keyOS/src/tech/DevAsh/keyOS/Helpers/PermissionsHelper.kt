@@ -27,8 +27,7 @@ object PermissionsHelper {
             android.Manifest.permission.READ_CONTACTS,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             android.Manifest.permission.CALL_PHONE,
-            android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                                    )
+            android.Manifest.permission.ACCESS_COARSE_LOCATION)
 
     var openedForPermission = false
     var task: Task<LocationSettingsResponse>?=null
@@ -88,7 +87,6 @@ object PermissionsHelper {
         }else{
             true
         }
-
     }
 
     fun getAdminPermission(context: AppCompatActivity){
@@ -101,13 +99,14 @@ object PermissionsHelper {
 
 
 
-    fun getNotificationPermission(context: Context){
+    fun getNotificationPermission(context: AppCompatActivity){
+        openedForPermission=true
         val notificationManager: NotificationManager = context.getSystemService(
                 Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !notificationManager.isNotificationPolicyAccessGranted) {
             val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
-             context.startActivity(intent)
+             context.startActivityForResult(intent,0)
         }
     }
 
@@ -159,8 +158,8 @@ object PermissionsHelper {
 
     }
 
-    fun getRuntimePermission(context: AppCompatActivity, permission: Array<String>,
-                             requestCode: Int){
+    fun getRuntimePermission(context: AppCompatActivity, permission: Array<String>, requestCode: Int){
+         openedForPermission = true
         ActivityCompat.requestPermissions(context,
                                           permission,
                                           requestCode)

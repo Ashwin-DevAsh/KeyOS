@@ -142,7 +142,9 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <application android:name="tech.DevAsh.Launcher.KioskApp">
-        <activity android:name="tech.DevAsh.keyOS.Config.Permission"></activity>
+        <activity
+            android:theme="@style/keyOS"
+            android:name="tech.DevAsh.keyOS.Config.Permission"/>
         <activity
             android:name="tech.DevAsh.KeyOS.Config.ActivityList"
             android:screenOrientation="portrait"
