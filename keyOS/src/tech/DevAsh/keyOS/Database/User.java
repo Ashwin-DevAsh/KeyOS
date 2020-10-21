@@ -67,8 +67,8 @@ public class User extends RealmObject {
                 Realm.getDefaultInstance().executeTransactionAsync(
                         realm -> {
                             UserContext.INSTANCE.setUser(new User(
-                                    new RealmList<Apps>(),
-                                    new RealmList<Apps>(),
+                                    new RealmList<>(),
+                                    new RealmList<>(new Apps("android")),
                                     new BasicSettings(),
                                     new Calls(),
                                     "",
