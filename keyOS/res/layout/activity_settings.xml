@@ -332,7 +332,7 @@
 
                       <RelativeLayout
                           android:layout_width="0dp"
-                          android:id="@+id/mobileData"
+                          android:id="@+id/sound"
                           android:layout_weight="10"
                           android:layout_height="match_parent">
                           <androidx.cardview.widget.CardView
@@ -355,8 +355,8 @@
                                       app:cardCornerRadius="24dp"
                                       android:layout_height="48dp">
                                       <ImageView
-                                          app:srcCompat="@drawable/mobiledata"
-                                          android:padding="15dp"
+                                          app:srcCompat="@drawable/sound"
+                                          android:padding="13dp"
                                           android:background="#ff5131"
                                           app:tint="@color/white"
                                           android:layout_width="match_parent"
@@ -379,7 +379,7 @@
                               android:layout_centerInParent="true"
                               android:layout_alignParentBottom="true"
                               android:textSize="14dp"
-                              android:id="@+id/mobiledataMode"
+                              android:id="@+id/soundMode"
                               android:layout_marginRight="20dp"
                               android:layout_height="wrap_content"/>
 

@@ -10,6 +10,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.icu.util.Calendar
+import android.media.AudioManager
 import android.net.wifi.WifiManager
 import android.os.Handler
 import android.os.IBinder
@@ -19,7 +20,6 @@ import android.widget.Toast
 import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
@@ -67,11 +67,13 @@ class UsageAccessService : Service() {
         mActivityManager = this.getSystemService(ACTIVITY_SERVICE) as ActivityManager
         createKillAppLooper()
         resetRotation()
+
     }
 
     private fun resetRotation(){
         if(user?.basicSettings?.orientation!=BasicSettings.DontCare){
-            Settings.System.putInt(applicationContext.contentResolver, Settings.System.ACCELEROMETER_ROTATION, 1)
+            Settings.System.putInt(applicationContext.contentResolver,
+                                   Settings.System.ACCELEROMETER_ROTATION, 1)
         }
     }
 
@@ -300,6 +302,7 @@ class UsageAccessService : Service() {
         checkWifi()
         checkBluetooth()
         checkOrientation()
+        checkSound()
     }
 
     private fun checkWifi(){
@@ -315,6 +318,18 @@ class UsageAccessService : Service() {
                 wifiManager.isWifiEnabled = false
             }
         }
+    }
+
+    private fun checkSound(){
+        if(user?.basicSettings?.sound != BasicSettings.DontCare){
+            val audioManager: AudioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+            if(user?.basicSettings?.sound == BasicSettings.normal && audioManager.ringerMode!=AudioManager.RINGER_MODE_NORMAL ){
+                audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
+            }else if(user?.basicSettings?.sound == BasicSettings.silent && audioManager.ringerMode!=AudioManager.RINGER_MODE_SILENT){
+                audioManager.ringerMode = AudioManager.RINGER_MODE_SILENT
+            }
+        }
+
     }
 
     private fun checkBluetooth(){
@@ -343,15 +358,19 @@ class UsageAccessService : Service() {
                         Surface.ROTATION_90 //U
                         // se any of the Surface.ROTATION_ constants
                                       )
-                Settings.System.putInt(applicationContext.contentResolver, Settings.System.ACCELEROMETER_ROTATION, 0)
-            } else if (user?.basicSettings?.orientation.equals(BasicSettings.portrait) && Settings.System.getInt(applicationContext.contentResolver, Settings.System.ACCELEROMETER_ROTATION) == 1) {
+                Settings.System.putInt(applicationContext.contentResolver,
+                                       Settings.System.ACCELEROMETER_ROTATION, 0)
+            } else if (user?.basicSettings?.orientation.equals(BasicSettings.portrait) && Settings.System.getInt(
+                            applicationContext.contentResolver,
+                            Settings.System.ACCELEROMETER_ROTATION) == 1) {
                 Settings.System.putInt(
                         contentResolver,
                         Settings.System.USER_ROTATION,
                         Surface.ROTATION_0 //U
                         // se any of the Surface.ROTATION_ constants
                                       )
-                Settings.System.putInt(applicationContext.contentResolver, Settings.System.ACCELEROMETER_ROTATION, 0)
+                Settings.System.putInt(applicationContext.contentResolver,
+                                       Settings.System.ACCELEROMETER_ROTATION, 0)
             }
         } catch (e: Throwable) {
         }

@@ -1,6 +1,7 @@
 package tech.DevAsh.KeyOS.Helpers
 
 import android.app.AppOpsManager
+import android.app.NotificationManager
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
@@ -8,10 +9,12 @@ import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Handler
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat.startActivity
 import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.tasks.Task
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
@@ -38,7 +41,7 @@ object PermissionsHelper {
     }
 
     fun checkImportantPermissions(context: Context):Boolean{
-        return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context)
+        return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context) && isNotificationEnabled(context)
     }
 
     fun isUsage(context: Context): Boolean {
@@ -78,12 +81,34 @@ object PermissionsHelper {
         return true
     }
 
+    fun isNotificationEnabled(context: Context):Boolean{
+        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            notificationManager.isNotificationPolicyAccessGranted
+        }else{
+            true
+        }
+
+    }
+
     fun getAdminPermission(context: AppCompatActivity){
         openedForPermission=true
         val componentName = ComponentName(context, SampleAdminReceiver::class.java)
         val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN)
         intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName)
         context.startActivityForResult(intent, 0)
+    }
+
+
+
+    fun getNotificationPermission(context: Context){
+        val notificationManager: NotificationManager = context.getSystemService(
+                Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !notificationManager.isNotificationPolicyAccessGranted) {
+            val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+             context.startActivity(intent)
+        }
     }
 
     fun disableUSB(context: AppCompatActivity){

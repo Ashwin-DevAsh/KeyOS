@@ -29,14 +29,6 @@
                 <ImageView
                     android:background="#F69705"
                     app:srcCompat="@drawable/usage"
-
-
-
-
-
-
-
-
                     android:padding="10dp"
                     app:tint="@android:color/white"
                     android:layout_width="match_parent"
@@ -193,6 +185,49 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <androidx.cardview.widget.CardView
+                android:layout_width="35dp"
+                android:layout_marginLeft="10dp"
+                app:cardElevation="0dp"
+                android:layout_centerInParent="true"
+                android:layout_alignParentLeft="true"
+                app:cardCornerRadius="17.5dp"
+                android:layout_height="35dp">
+
+                <ImageView
+                    android:background="#E65100"
+                    app:srcCompat="@drawable/notification"
+                    android:padding="10dp"
+                    app:tint="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Sound Access"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="65dp"
+                android:textSize="16dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content">
+                <com.suke.widget.SwitchButton
+                    android:id="@+id/notificationAccess"
+                    app:sb_show_indicator="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </RelativeLayout>
+
         <RelativeLayout
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"

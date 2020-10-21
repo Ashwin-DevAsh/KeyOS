@@ -44,6 +44,8 @@ class Settings : AppCompatActivity() {
         loadView()
         onClick()
         controlLaunchButton()
+
+
     }
 
 
@@ -98,18 +100,16 @@ class Settings : AppCompatActivity() {
 
 
         wifi?.setOnClickListener{
-            peripheralOnClick(wifiMode,wifi)
+            optionsOnClick(wifiMode,wifi)
         }
         orientation?.setOnClickListener{
-            orientationOnClick(orientationMode,orientation)
+            optionsOnClick(orientationMode,orientation,BasicSettings.orientationOptions)
         }
         bluetooth?.setOnClickListener{
-            peripheralOnClick(bluetoothMode,bluetooth)
+            optionsOnClick(bluetoothMode,bluetooth)
         }
-        mobileData?.setOnClickListener {
-            tech.DevAsh.KeyOS.Helpers.AlertHelper.showError("Not supported in your device",this)
-            return@setOnClickListener
-            peripheralOnClick(mobiledataMode,mobileData)
+        sound?.setOnClickListener {
+            optionsOnClick(soundMode,sound,BasicSettings.soundOptions)
         }
 
 
@@ -143,18 +143,10 @@ class Settings : AppCompatActivity() {
 
 
 
-    private fun peripheralOnClick(textView: TextView,parentView: View){
+    private fun optionsOnClick(textView: TextView,parentView: View,options:List<String> = BasicSettings.orientationOptions){
         vibrate()
-        val position = BasicSettings.options.indexOf(textView.text)
-        val nextOption = BasicSettings.options[(position + 1) % 3]
-        textView.text = nextOption
-        animate(textView,parentView)
-    }
-
-    private fun orientationOnClick(textView: TextView,parentView: View){
-        vibrate()
-        val position = BasicSettings.orientationOptions.indexOf(textView.text)
-        val nextOption = BasicSettings.orientationOptions[(position + 1) % 3]
+        val position = options.indexOf(textView.text)
+        val nextOption = options[(position + 1) % 3]
         textView.text = nextOption
         animate(textView,parentView)
     }
@@ -174,10 +166,6 @@ class Settings : AppCompatActivity() {
         v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 
-
-
-
-
     private fun checkPermissionAndLaunch(){
         if(PermissionsHelper.checkImportantPermissions(this)){
             launch(this)
@@ -190,7 +178,7 @@ class Settings : AppCompatActivity() {
         wifiMode?.text = UserContext.user?.basicSettings?.wifi
         orientationMode?.text = UserContext.user?.basicSettings?.orientation
         bluetoothMode?.text = UserContext.user?.basicSettings?.bluetooth
-        mobiledataMode?.text = UserContext.user?.basicSettings?.mobileData
+        soundMode?.text = UserContext.user?.basicSettings?.sound
         notificationPanel?.isChecked = UserContext.user?.basicSettings?.notificationPanel!!
     }
 
@@ -217,7 +205,7 @@ class Settings : AppCompatActivity() {
                 wifiMode.text.toString(),
                 orientationMode.text.toString(),
                 bluetoothMode.text.toString(),
-                mobiledataMode.text.toString(),
+                soundMode.text.toString(),
                 notificationPanel.isChecked
                                          )
         UserContext.user!!.basicSettings = (basicSettings)

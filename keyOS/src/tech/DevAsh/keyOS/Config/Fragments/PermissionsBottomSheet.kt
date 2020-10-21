@@ -54,10 +54,20 @@ class PermissionsBottomSheet(private val activity: AppCompatActivity) : BottomSh
            admin.isChecked=true
         }
 
+        if (PermissionsHelper.isNotificationEnabled(activity)){
+            notificationAccess.isChecked = true
+        }
+
+
         other.isChecked = PermissionsHelper.isRunTime(activity)
     }
 
     private fun onClick(){
+
+        notificationAccess.setOnCheckedChangeListener{_,_->
+            PermissionsHelper.getNotificationPermission(activity)
+        }
+
         usage.setOnCheckedChangeListener{_,_->
             this.dismiss()
             PermissionsHelper.getUsagePermission(activity)

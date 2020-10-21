@@ -3,6 +3,7 @@ package tech.DevAsh.KeyOS
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.media.AudioManager
 import android.os.AsyncTask
 import android.os.Bundle
 import android.os.Handler
