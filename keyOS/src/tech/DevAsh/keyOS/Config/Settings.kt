@@ -100,10 +100,8 @@ class Settings : AppCompatActivity() {
         wifi?.setOnClickListener{
             peripheralOnClick(wifiMode,wifi)
         }
-        hotspot?.setOnClickListener{
-            tech.DevAsh.KeyOS.Helpers.AlertHelper.showError("Not supported in your device",this)
-            return@setOnClickListener
-            peripheralOnClick(hotspotMode,hotspot)
+        orientation?.setOnClickListener{
+            orientationOnClick(orientationMode,orientation)
         }
         bluetooth?.setOnClickListener{
             peripheralOnClick(bluetoothMode,bluetooth)
@@ -143,11 +141,26 @@ class Settings : AppCompatActivity() {
         }
     }
 
+
+
     private fun peripheralOnClick(textView: TextView,parentView: View){
         vibrate()
         val position = BasicSettings.options.indexOf(textView.text)
         val nextOption = BasicSettings.options[(position + 1) % 3]
         textView.text = nextOption
+        animate(textView,parentView)
+    }
+
+    private fun orientationOnClick(textView: TextView,parentView: View){
+        vibrate()
+        val position = BasicSettings.orientationOptions.indexOf(textView.text)
+        val nextOption = BasicSettings.orientationOptions[(position + 1) % 3]
+        textView.text = nextOption
+        animate(textView,parentView)
+    }
+
+
+    fun animate(textView: TextView,parentView: View){
         parentView.animate().scaleX(0.85f).scaleY(0.85f).setDuration(100)
                 .withEndAction(object : java.lang.Runnable {
                     override fun run() {
@@ -175,7 +188,7 @@ class Settings : AppCompatActivity() {
 
     private fun loadView(){
         wifiMode?.text = UserContext.user?.basicSettings?.wifi
-        hotspotMode?.text = UserContext.user?.basicSettings?.hotspot
+        orientationMode?.text = UserContext.user?.basicSettings?.orientation
         bluetoothMode?.text = UserContext.user?.basicSettings?.bluetooth
         mobiledataMode?.text = UserContext.user?.basicSettings?.mobileData
         notificationPanel?.isChecked = UserContext.user?.basicSettings?.notificationPanel!!
@@ -202,7 +215,7 @@ class Settings : AppCompatActivity() {
     private fun saveData(){
         val basicSettings = BasicSettings(
                 wifiMode.text.toString(),
-                hotspotMode.text.toString(),
+                orientationMode.text.toString(),
                 bluetoothMode.text.toString(),
                 mobiledataMode.text.toString(),
                 notificationPanel.isChecked

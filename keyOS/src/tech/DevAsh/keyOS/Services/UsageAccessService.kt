@@ -13,10 +13,13 @@ import android.icu.util.Calendar
 import android.net.wifi.WifiManager
 import android.os.Handler
 import android.os.IBinder
+import android.provider.Settings
+import android.view.Surface
 import android.widget.Toast
 import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
@@ -63,6 +66,13 @@ class UsageAccessService : Service() {
         packages = packageManager.getInstalledApplications(0)
         mActivityManager = this.getSystemService(ACTIVITY_SERVICE) as ActivityManager
         createKillAppLooper()
+        resetRotation()
+    }
+
+    private fun resetRotation(){
+        if(user?.basicSettings?.orientation!=BasicSettings.DontCare){
+            Settings.System.putInt(applicationContext.contentResolver, Settings.System.ACCELEROMETER_ROTATION, 1)
+        }
     }
 
     private fun createActivityLooper(){
@@ -289,6 +299,7 @@ class UsageAccessService : Service() {
     private fun checkBasicSettings() {
         checkWifi()
         checkBluetooth()
+        checkOrientation()
     }
 
     private fun checkWifi(){
@@ -313,6 +324,36 @@ class UsageAccessService : Service() {
             }else if (user?.basicSettings?.bluetooth==BasicSettings.AlwaysOFF){
                 turnOffBluetooth()
             }
+        }
+    }
+
+
+    private fun checkOrientation(){
+        if(user?.basicSettings?.orientation.equals(BasicSettings.DontCare)){
+            return
+        }
+
+        try {
+            if (user?.basicSettings?.orientation.equals(BasicSettings.landscape) && Settings.System.getInt(
+                            applicationContext.contentResolver,
+                            Settings.System.ACCELEROMETER_ROTATION) == 1) {
+                Settings.System.putInt(
+                        contentResolver,
+                        Settings.System.USER_ROTATION,
+                        Surface.ROTATION_90 //U
+                        // se any of the Surface.ROTATION_ constants
+                                      )
+                Settings.System.putInt(applicationContext.contentResolver, Settings.System.ACCELEROMETER_ROTATION, 0)
+            } else if (user?.basicSettings?.orientation.equals(BasicSettings.portrait) && Settings.System.getInt(applicationContext.contentResolver, Settings.System.ACCELEROMETER_ROTATION) == 1) {
+                Settings.System.putInt(
+                        contentResolver,
+                        Settings.System.USER_ROTATION,
+                        Surface.ROTATION_0 //U
+                        // se any of the Surface.ROTATION_ constants
+                                      )
+                Settings.System.putInt(applicationContext.contentResolver, Settings.System.ACCELEROMETER_ROTATION, 0)
+            }
+        } catch (e: Throwable) {
         }
     }
 
