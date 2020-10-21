@@ -81,7 +81,7 @@
                 </androidx.cardview.widget.CardView>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:text="Allow Calls"
+                    android:text="Allow Phone Calls"
                     android:gravity="center"
                     android:textColor="@android:color/black"
                     android:layout_marginLeft="65dp"

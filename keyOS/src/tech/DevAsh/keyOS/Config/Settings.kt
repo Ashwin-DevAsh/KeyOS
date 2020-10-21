@@ -31,6 +31,7 @@ import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import com.android.launcher3.views.Snackbar
+import tech.DevAsh.KeyOS.Config.Permission
 
 
 class Settings : AppCompatActivity() {
@@ -170,7 +171,8 @@ class Settings : AppCompatActivity() {
         if(PermissionsHelper.checkImportantPermissions(this)){
             launch(this)
         }else{
-            permissionsBottomSheet.show(supportFragmentManager, "TAG")
+            startActivity(Intent(this,Permission::class.java))
+//            permissionsBottomSheet.show(supportFragmentManager, "TAG")
         }
     }
 
@@ -214,8 +216,7 @@ class Settings : AppCompatActivity() {
 
 
 
-    private fun openBottomSheet(
-            mode: TextView){
+    private fun openBottomSheet(mode: TextView){
 
         val options = BottomSheetDialog(this)
         val sheetView: View = LayoutInflater.from(this).inflate(R.layout.sheet_options, null)
