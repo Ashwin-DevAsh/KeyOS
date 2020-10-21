@@ -101,12 +101,16 @@ class Settings : AppCompatActivity() {
             peripheralOnClick(wifiMode,wifi)
         }
         hotspot?.setOnClickListener{
+            tech.DevAsh.KeyOS.Helpers.AlertHelper.showError("Not supported in your device",this)
+            return@setOnClickListener
             peripheralOnClick(hotspotMode,hotspot)
         }
         bluetooth?.setOnClickListener{
             peripheralOnClick(bluetoothMode,bluetooth)
         }
         mobileData?.setOnClickListener {
+            tech.DevAsh.KeyOS.Helpers.AlertHelper.showError("Not supported in your device",this)
+            return@setOnClickListener
             peripheralOnClick(mobiledataMode,mobileData)
         }
 

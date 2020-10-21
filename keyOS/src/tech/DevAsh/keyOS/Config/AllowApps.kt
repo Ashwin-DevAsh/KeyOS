@@ -94,6 +94,10 @@ class AllowApps : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                var adapter = adapter
+                if(type==Types.SINGLEAPP){
+                    adapter = adapter as SingleAppAdapter
+                }
                 val query = newText.toString().toLowerCase(Locale.ROOT)
                 handler.removeCallbacksAndMessages(true)
                 handler.postDelayed({
@@ -103,7 +107,7 @@ class AllowApps : AppCompatActivity() {
                                 .toLowerCase(Locale.ROOT)
                                 .contains(query)
                         ) {
-                            adapter!!.items.add(i)
+                            adapter.items.add(i)
                         }
                     }
                     adapter!!.items.add(0, Apps())

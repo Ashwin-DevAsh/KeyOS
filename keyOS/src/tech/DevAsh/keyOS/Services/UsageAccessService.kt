@@ -5,6 +5,7 @@ import android.app.Service
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStats
 import android.app.usage.UsageStatsManager
+import android.bluetooth.BluetoothAdapter
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
@@ -16,11 +17,9 @@ import android.widget.Toast
 import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
-import java.lang.reflect.Method
 
 
 class UsageAccessService : Service() {
@@ -87,7 +86,7 @@ class UsageAccessService : Service() {
     private fun createBasicSettingsLooper(){
         handlerCheckBasicSettings = Handler()
         runnableCheckBasicSettings = Runnable {
-            checkBasicSettings(applicationContext)
+            checkBasicSettings()
             handlerCheckActivity?.postDelayed(runnableCheckBasicSettings!!, 250)
         }
         handlerCheckBasicSettings?.postDelayed(runnableCheckBasicSettings!!, 1000)
@@ -97,12 +96,13 @@ class UsageAccessService : Service() {
         try{
             for (packageInfo in packages!!) {
                 val app = Apps(packageInfo.packageName)
-                if (packageInfo.packageName == packageName || user!!.allowedApps.contains(app) || user!!.allowedServices.contains(app)) {
+                if (packageInfo.packageName == packageName || user!!.allowedApps.contains(app) || user!!.allowedServices.contains(
+                                app)) {
                     continue
                 }
                 mActivityManager?.killBackgroundProcesses(packageInfo.packageName)
             }
-        }catch (e:Throwable){}
+        }catch (e: Throwable){}
 
     }
 
@@ -154,7 +154,8 @@ class UsageAccessService : Service() {
 
         println("$appName $className")
 
-        if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(className)){
+        if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(
+                        className)){
             return true
         }
 
@@ -285,50 +286,52 @@ class UsageAccessService : Service() {
     }
 
 
-    private fun checkBasicSettings(context: Context){
+    private fun checkBasicSettings() {
         checkWifi()
-        checkHotspot()
+        checkBluetooth()
     }
 
     private fun checkWifi(){
         val wifiManager = this.applicationContext.getSystemService(WIFI_SERVICE) as WifiManager
+
         if(user?.basicSettings?.wifi==BasicSettings.AlwaysON){
             if(!wifiManager.isWifiEnabled){
                 wifiManager.isWifiEnabled = true
             }
         }
-        else if(user?.basicSettings?.wifi==BasicSettings.AlwaysON){
+        else if(user?.basicSettings?.wifi==BasicSettings.AlwaysOFF){
             if(wifiManager.isWifiEnabled){
                 wifiManager.isWifiEnabled = false
             }
         }
     }
 
-    private fun checkHotspot(){
-        if(user?.basicSettings?.wifi!=BasicSettings.AlwaysON){
-            val manager = applicationContext.getSystemService(WIFI_SERVICE) as WifiManager
-            val method: Method = manager.javaClass.getDeclaredMethod("getWifiApState")
-            method.isAccessible = true
-            val actualState = method.invoke(manager) as Int
-            val DISABLED = 11
-            val ENABLED = 13
-            if(user?.basicSettings?.hotspot==BasicSettings.AlwaysON){
-                if(actualState==DISABLED)
-                    turnOnHotspot()
-            }else if (user?.basicSettings?.hotspot==BasicSettings.AlwaysOFF){
-                if(actualState==ENABLED)
-                    turnOffHotspot()
+    private fun checkBluetooth(){
+        if(user?.basicSettings?.bluetooth!=BasicSettings.DontCare){
+            if(user?.basicSettings?.bluetooth==BasicSettings.AlwaysON){
+                turnOnBluetooth()
+            }else if (user?.basicSettings?.bluetooth==BasicSettings.AlwaysOFF){
+                turnOffBluetooth()
             }
         }
     }
 
-    private fun turnOnHotspot() {
+
+
+
+    private fun turnOnBluetooth(){
+        val mBluetoothAdapter: BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+        if (!mBluetoothAdapter.isEnabled) {
+            mBluetoothAdapter.enable()
+        }
     }
 
-    private fun turnOffHotspot() {
+    private fun turnOffBluetooth(){
+        val mBluetoothAdapter: BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
+        if (mBluetoothAdapter.isEnabled) {
+            mBluetoothAdapter.disable()
+        }
     }
-
-
 }
 
 class Time{

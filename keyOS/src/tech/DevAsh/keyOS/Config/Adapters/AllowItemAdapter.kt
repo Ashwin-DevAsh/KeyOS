@@ -20,7 +20,7 @@ import tech.DevAsh.keyOS.Database.Apps
 import kotlin.collections.ArrayList
 
 open class AllowItemAdapter(
-        val _items: MutableList<Apps>,
+         var _items: MutableList<Apps>,
         _allowedItems: MutableList<Apps>,
         var heading:String,
         open var subHeading:String,

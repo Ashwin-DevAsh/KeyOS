@@ -45,7 +45,6 @@ object Kiosk {
 
     fun stopKiosk(context: Context){
         CallBlocker.stop(context)
-        context.unregisterReceiver(CallBlocker.broadcastReceiver)
         NotificationBlocker.stop()
         context.applicationContext.stopService(getAccessibilityService(context))
         context.applicationContext.stopService(getUsageAccessService(context))

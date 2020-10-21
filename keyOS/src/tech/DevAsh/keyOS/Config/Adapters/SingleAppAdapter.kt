@@ -31,6 +31,11 @@ class SingleAppAdapter(
         var toggleState:Boolean
                         ) : AllowItemAdapter(items,ArrayList(),"","",context) {
 
+    init {
+        _items = ArrayList(items)
+    }
+
+
     override fun getItemCount(): Int {
         return items.size
     }
