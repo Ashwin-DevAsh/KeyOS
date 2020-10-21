@@ -70,6 +70,7 @@ class UsageAccessService : Service() {
 
     }
 
+
     private fun resetRotation(){
         if(user?.basicSettings?.orientation!=BasicSettings.DontCare){
             Settings.System.putInt(applicationContext.contentResolver,

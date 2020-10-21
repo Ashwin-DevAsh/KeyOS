@@ -83,7 +83,6 @@ object Kiosk {
     fun exitKiosk(context: Activity,password:String?){
         if(password == user?.password){
             stopKiosk(context.applicationContext)
-            CallBlocker.stop(context.applicationContext)
             exitLauncher(context.applicationContext)
             context.finishAffinity()
         }
