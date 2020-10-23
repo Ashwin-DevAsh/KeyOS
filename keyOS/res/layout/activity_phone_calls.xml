@@ -557,7 +557,6 @@
             android:orientation="horizontal"
             android:weightSum="100"
             android:translationZ="200dp"
-            app:elevation="200dp"
             android:elevation="200dp"
             android:gravity="center"
             android:background="@color/colorPrimary"
@@ -568,7 +567,6 @@
                 android:layout_weight="50"
                 android:orientation="vertical"
                 android:translationZ="200dp"
-                app:elevation="200dp"
                 android:elevation="200dp"
                 android:layout_height="match_parent">
 

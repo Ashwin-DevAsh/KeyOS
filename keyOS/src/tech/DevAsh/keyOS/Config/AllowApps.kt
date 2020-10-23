@@ -110,8 +110,8 @@ class AllowApps : AppCompatActivity() {
                             adapter.items.add(i)
                         }
                     }
-                    adapter!!.items.add(0, Apps())
-                    adapter!!.notifyDataSetChanged()
+                    adapter.items.add(0, Apps())
+                    adapter.notifyDataSetChanged()
                 }, 100)
             return true
             }
