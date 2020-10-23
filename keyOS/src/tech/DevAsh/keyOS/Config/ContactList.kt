@@ -161,7 +161,7 @@ class ContactList : AppCompatActivity() , ToggleCallback {
 
         }
 
-        back.setOnClickListener {
+        back.setOnClickListener{
             super.onBackPressed()
         }
     }
@@ -210,7 +210,7 @@ class ContactList : AppCompatActivity() , ToggleCallback {
     override fun onBackPressed() {
         if(isGoBack()){
            super.onBackPressed()
-       }
+        }
     }
 
     private fun animateSlideVisible(
@@ -259,6 +259,7 @@ class ContactList : AppCompatActivity() , ToggleCallback {
         isDeleteMode=false
         contactListAdapter?.updateList(contactList)
         animateSlideInvisible(deleteOptions,100)
+        update()
     }
 
     override fun turnOn() {

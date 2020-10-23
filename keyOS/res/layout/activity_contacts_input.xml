@@ -25,6 +25,7 @@
                     android:layout_width="match_parent"
                     android:id="@+id/appBar"
                     app:cardElevation="0dp"
+                    android:visibility="gone"
                     android:layout_height="60dp">
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -57,6 +58,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
                     android:layout_height="150dp">
                     <LinearLayout
@@ -88,72 +90,45 @@
 
                 </RelativeLayout>
 
-
-
-
-
-                <RelativeLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:background="@drawable/edit_text"
-                    android:layout_marginVertical="12dp"
-                    android:layout_marginHorizontal="15dp"
-                    android:weightSum="100"
-                    android:layout_gravity="center"
-                    android:layout_height="45dp">
-                    <EditText
-                        android:hint="Name"
+                    android:paddingHorizontal="20dp"
+                    app:counterOverflowTextColor="@color/buttonColor"
+                    android:theme="@style/EditTextStyle"
+                    android:hint="Name"
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/nameLayout"
+                    app:hintTextColor="@color/buttonColor"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:theme="@style/EditTextStyle"
                         android:id="@+id/name"
-                        android:layout_weight="15"
-                        android:inputType="textPersonName"
-                        android:textSize="15dp"
-                        android:layout_width="match_parent"
-                        android:background="@android:color/transparent"
-                        android:paddingLeft="20dp"
-                        android:layout_height="45dp"/>
+                        android:backgroundTint="@color/colorPrimary"
+                        android:layout_height="match_parent"/>
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_alignParentRight="true"
-                        app:srcCompat="@drawable/profile"
-                        android:padding="10dp"
-                        app:tint="@android:color/darker_gray"
-                        android:layout_height="50dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                </RelativeLayout>
-                <RelativeLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="100dp"
-                    android:background="@drawable/edit_text"
-                    android:layout_marginTop="12dp"
-                    android:weightSum="100"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_gravity="center"
-                    android:layout_height="45dp">
+                    android:paddingHorizontal="20dp"
+                    app:counterOverflowTextColor="@color/buttonColor"
+                    android:theme="@style/EditTextStyle"
+                    android:hint="Number"
+                    android:id="@+id/numberLayout"
+                    app:hintTextColor="@color/buttonColor"
+                    android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/number"
+                    <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:textSize="15dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="15"
-                        android:background="@android:color/transparent"
-                        android:hint="Number"
                         android:inputType="number"
-                        android:paddingLeft="20dp"
-                        android:singleLine="true"/>
+                        android:theme="@style/EditTextStyle"
+                        android:id="@+id/number"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:layout_height="match_parent"/>
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_alignParentRight="true"
-                        app:srcCompat="@drawable/call"
-                        android:padding="14dp"
-                        app:tint="@android:color/darker_gray"
-                        android:layout_height="50dp"/>
-                </RelativeLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
 
             </LinearLayout>
@@ -172,25 +147,20 @@
                 android:orientation="horizontal"
                 android:weightSum="100"
                 android:translationZ="200dp"
-                app:elevation="200dp"
                 android:elevation="200dp"
                 android:gravity="center"
                 android:background="@color/colorPrimary"
                 android:layout_height="match_parent">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_weight="50"
                     android:orientation="vertical"
                     android:translationZ="200dp"
-                    app:elevation="200dp"
                     android:elevation="200dp"
                     android:layout_height="match_parent">
-
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-
                         <TextView
                             android:id="@id/cancel"
                             android:layout_width="match_parent"
@@ -200,28 +170,20 @@
                             android:gravity="center"
                             android:text="Cancel"
                             android:textStyle="bold" />
-
                     </RelativeLayout>
-
-
-
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:layout_height="match_parent">
-
-
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_marginHorizontal="30dp"
                         app:cardCornerRadius="20dp"
                         android:layout_marginVertical="12dp"
                         android:layout_height="40dp">
-
                         <TextView
                             android:layout_width="match_parent"
                             android:text="Done"
@@ -231,15 +193,9 @@
                             android:textStyle="bold"
                             android:background="@color/buttonColor"
                             android:layout_height="match_parent"/>
-
                     </androidx.cardview.widget.CardView>
-
-
                 </LinearLayout>
-
             </LinearLayout>
-
-
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>

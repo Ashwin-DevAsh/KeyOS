@@ -35,6 +35,13 @@
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="colorPrimary">@color/buttonColor</item>
+        <item name="colorAccent">@color/buttonColor</item>
+        <item name="colorPrimaryDark">@color/buttonColor</item>
+    </style>
+
+
     <style name="CustomDialog" parent="Theme.MaterialComponents.BottomSheetDialog">
         <!--        <item name="background">@drawable/background_sheet</item>-->
         <!--        <item name="android:windowBackground">@android:color/transparent</item>-->
