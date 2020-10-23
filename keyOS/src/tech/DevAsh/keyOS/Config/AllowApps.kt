@@ -137,7 +137,8 @@ class AllowApps : AppCompatActivity() {
             for ( i in allowedItems){
                 val index = items.indexOf(i)
                 if(index!=-1){
-                    allowedItemsTemp.add(items[index])
+                    val app = items[index]
+                    if(!allowedItemsTemp.contains(app)) allowedItemsTemp.add(app)
                 }
             }
             items.removeAll(allowedItemsTemp)
