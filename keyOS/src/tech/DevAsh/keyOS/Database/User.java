@@ -10,6 +10,7 @@ import tech.DevAsh.KeyOS.Database.UserContext;
 import tech.DevAsh.Launcher.preferences.AppsAdapter.App;
 
 public class User extends RealmObject {
+
     public RealmList<Apps> allowedApps = new RealmList();
     public RealmList<Apps> editedApps = new RealmList();
     public RealmList<Apps> allowedServices = new RealmList<>(new Apps("android")) ;

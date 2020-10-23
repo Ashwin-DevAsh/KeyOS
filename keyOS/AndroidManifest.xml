@@ -140,12 +140,18 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application android:name="tech.DevAsh.Launcher.KioskApp">
         <activity
-            android:name="tech.DevAsh.keyOS.Config.ImportExportSettings"
+            android:name="tech.DevAsh.keyOS.Config.QrScanner"
+            android:screenOrientation="portrait"
             android:theme="@style/keyOS"
             />
+        <activity
+            android:screenOrientation="portrait"
+            android:name="tech.DevAsh.keyOS.Config.ImportExportSettings"
+            android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.keyOS.Config.Permission"
             android:theme="@style/keyOS" />

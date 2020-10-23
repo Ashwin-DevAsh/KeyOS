@@ -142,7 +142,7 @@ class Settings : AppCompatActivity() {
 
 
     private fun optionsOnClick(textView: TextView, parentView: View,
-                               options: List<String> = BasicSettings.orientationOptions){
+                               options: List<String> = BasicSettings.options){
         vibrate()
         val position = options.indexOf(textView.text)
         val nextOption = options[(position + 1) % 3]
