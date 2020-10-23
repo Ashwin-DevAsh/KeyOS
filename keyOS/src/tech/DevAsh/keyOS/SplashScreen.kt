@@ -58,8 +58,6 @@ class LoadAppsAndServices(val context: Context) :AsyncTask<Any,Any,Any>(){
 
     private fun clearOldData(){
         AppsContext.allService.clear()
-        AppsContext.allowedService.clear()
-        AppsContext.allowedApps.clear()
         AppsContext.allApps.clear()
     }
 
@@ -83,9 +81,6 @@ class LoadAppsAndServices(val context: Context) :AsyncTask<Any,Any,Any>(){
 
     private fun addService(apps: Apps){
         AppsContext.allService.add(apps)
-        if(UserContext.user!!.allowedServices.contains(apps)){
-            AppsContext.allowedService.add(apps)
-        }
     }
 
     private fun addApp(_app: Apps){
@@ -96,10 +91,6 @@ class LoadAppsAndServices(val context: Context) :AsyncTask<Any,Any,Any>(){
             _app.update(editApp)
         }catch (e:Throwable){}
 
-
-        if(UserContext.user!!.allowedApps.contains(_app)){
-            AppsContext.allowedApps.add(_app)
-        }
         AppsContext.allApps.add(_app)
 
 

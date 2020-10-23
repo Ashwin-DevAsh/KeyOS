@@ -74,8 +74,8 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/settings"
-                          android:padding="6dp"
+                          app:srcCompat="@drawable/import_export_settings"
+                          android:padding="5dp"
                           app:tint="#4CAF50"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
@@ -107,6 +107,7 @@
                   </LinearLayout>
                   <TextView
                       android:layout_width="match_parent"
+                      android:id="@+id/importExport"
                       android:layout_height="match_parent"/>
               </RelativeLayout>
 
@@ -533,7 +534,7 @@
 
                       <ImageView
                           app:srcCompat="@drawable/single_app"
-                          android:padding="5dp"
+                          android:padding="4dp"
                           app:tint="#F69705"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
@@ -602,8 +603,8 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/call"
-                          android:padding="8dp"
+                          app:srcCompat="@drawable/phone_call"
+                          android:padding="5dp"
                           app:tint="#03A9F4"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
@@ -652,8 +653,8 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/write_settings"
-                          android:padding="5dp"
+                          app:srcCompat="@drawable/settings"
+                          android:padding="7dp"
                           app:tint="#4CAF50"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
@@ -661,7 +662,7 @@
                   </androidx.cardview.widget.CardView>
                   <TextView
                       android:layout_width="wrap_content"
-                      android:text="System Settings"
+                      android:text="Phone Settings"
                       android:gravity="center"
                       android:textColor="@android:color/black"
                       android:layout_marginLeft="65dp"
@@ -703,7 +704,7 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/notification_panel"
+                          app:srcCompat="@drawable/notification_with_bell"
                           android:padding="6dp"
                           app:tint="#7c43bd"
                           android:layout_width="match_parent"

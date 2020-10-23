@@ -9,7 +9,6 @@ import android.os.Handler
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.provider.Settings
-import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -17,9 +16,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.keyOS.activity_settings.*
-import kotlinx.android.synthetic.keyOS.sheet_options.view.*
+import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
@@ -27,8 +25,8 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
+import tech.DevAsh.keyOS.Config.ImportExportSettings
 import tech.DevAsh.keyOS.Database.BasicSettings
-import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 
 
 class Settings : AppCompatActivity() {
@@ -42,8 +40,6 @@ class Settings : AppCompatActivity() {
         loadView()
         onClick()
         controlLaunchButton()
-
-
     }
 
 
@@ -92,22 +88,26 @@ class Settings : AppCompatActivity() {
             }
         }
 
+        importExport?.setOnClickListener {
+            startActivity(Intent(this, ImportExportSettings::class.java))
+        }
+
         password?.setOnClickListener {
             startActivity(Intent(this, Password::class.java))
         }
 
 
         wifi?.setOnClickListener{
-            optionsOnClick(wifiMode,wifi)
+            optionsOnClick(wifiMode, wifi)
         }
         orientation?.setOnClickListener{
-            optionsOnClick(orientationMode,orientation,BasicSettings.orientationOptions)
+            optionsOnClick(orientationMode, orientation, BasicSettings.orientationOptions)
         }
         bluetooth?.setOnClickListener{
-            optionsOnClick(bluetoothMode,bluetooth)
+            optionsOnClick(bluetoothMode, bluetooth)
         }
         sound?.setOnClickListener {
-            optionsOnClick(soundMode,sound,BasicSettings.soundOptions)
+            optionsOnClick(soundMode, sound, BasicSettings.soundOptions)
         }
 
 
@@ -141,7 +141,8 @@ class Settings : AppCompatActivity() {
 
 
 
-    private fun optionsOnClick(textView: TextView,parentView: View,options:List<String> = BasicSettings.orientationOptions){
+    private fun optionsOnClick(textView: TextView, parentView: View,
+                               options: List<String> = BasicSettings.orientationOptions){
         vibrate()
         val position = options.indexOf(textView.text)
         val nextOption = options[(position + 1) % 3]
@@ -182,6 +183,7 @@ class Settings : AppCompatActivity() {
     override fun onBackPressed() {
         saveData()
         if(isFromLauncher){
+            finish()
             Utilities.restartLauncher(this)
         }else{
             super.onBackPressed()
@@ -232,6 +234,10 @@ class Settings : AppCompatActivity() {
         super.onResume()
     }
 
+    override fun finish() {
+        if(isFromLauncher) overridePendingTransition(0, R.anim.abc_fade_out)
+        else super.finish()
+    }
 
     private fun restartPermissionSheet(){
         if(PermissionsHelper.openedForPermission){

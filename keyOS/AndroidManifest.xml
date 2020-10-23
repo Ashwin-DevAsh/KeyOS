@@ -143,8 +143,12 @@
 
     <application android:name="tech.DevAsh.Launcher.KioskApp">
         <activity
+            android:name="tech.DevAsh.keyOS.Config.ImportExportSettings"
             android:theme="@style/keyOS"
-            android:name="tech.DevAsh.keyOS.Config.Permission"/>
+            />
+        <activity
+            android:name="tech.DevAsh.keyOS.Config.Permission"
+            android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.ActivityList"
             android:screenOrientation="portrait"

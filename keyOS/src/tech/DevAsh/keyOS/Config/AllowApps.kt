@@ -47,7 +47,7 @@ class AllowApps : AppCompatActivity() {
                 loadAdapter(
 
                         AppsContext.allApps,
-                        AppsContext.allowedApps,
+                        UserContext.user!!.allowedApps,
                         "Whitelist Apps",
                         "Select which apps you want to\ngive access"
                 )
@@ -56,7 +56,7 @@ class AllowApps : AppCompatActivity() {
                 heading.text="Services"
                 loadAdapter(
                     AppsContext.allService,
-                    AppsContext.allowedService,
+                    UserContext.user!!.allowedServices,
                     "Whitelist Services",
                     "Select which services you want to\ngive access"
                            )
@@ -133,8 +133,15 @@ class AllowApps : AppCompatActivity() {
                             subHeading:String
     ){
         Handler().postDelayed({
-            items.removeAll(allowedItems)
-            items.addAll(0, allowedItems)
+            val allowedItemsTemp = ArrayList<Apps>()
+            for ( i in allowedItems){
+                val index = items.indexOf(i)
+                if(index!=-1){
+                    allowedItemsTemp.add(items[index])
+                }
+            }
+            items.removeAll(allowedItemsTemp)
+            items.addAll(0, allowedItemsTemp)
             adapter = AllowItemAdapter(ArrayList(items), ArrayList(allowedItems), heading,subHeading,this)
             adapter!!.items.add(0,Apps())
             adapter!!.notifyDataSetChanged()
@@ -143,14 +150,13 @@ class AllowApps : AppCompatActivity() {
         }, 1000)
     }
 
-    private fun loadAdapterSingleApp(items: MutableList<Apps>,
-                                     subHeading: String = "Select which app you want always available\nin foreground"
+    private fun loadAdapterSingleApp(items: MutableList<Apps>, subHeading: String = "Select which app you want always available\nin foreground"
                                     ){
         Handler().postDelayed({
 
-                              val singleAppIndex = AppsContext.allowedApps.indexOf(UserContext.user!!.singleApp)
+                              val singleAppIndex = AppsContext.allApps.indexOf(UserContext.user!!.singleApp)
                               if(singleAppIndex!=-1){
-                                  UserContext.user!!.singleApp = AppsContext.allowedApps[singleAppIndex]
+                                  UserContext.user!!.singleApp = AppsContext.allApps[singleAppIndex]
                                   items.remove(UserContext.user!!.singleApp)
                                   items.add(0, UserContext.user!!.singleApp)
                               }
@@ -182,13 +188,11 @@ class AllowApps : AppCompatActivity() {
                         PackageUpdatedTask(PackageUpdatedTask.OP_REMOVE, Process.myUserHandle(),i.packageName)
                     }
                 }
-                AppsContext.allowedApps = ArrayList(adapter?.allowedItems!!)
-                val allowedApps = getRealmList(AppsContext.allowedApps)
+                val allowedApps = getRealmList(ArrayList(adapter?.allowedItems!!))
                 UserContext.user?.allowedApps = allowedApps
             }
             Types.ALLOWSERVICES->  {
-                AppsContext.allowedService = ArrayList(adapter?.allowedItems!!)
-                val allowServices = getRealmList(AppsContext.allowedService)
+                val allowServices = getRealmList(ArrayList(adapter?.allowedItems!!))
                 UserContext.user?.allowedServices = allowServices
             }
             Types.SINGLEAPP->{

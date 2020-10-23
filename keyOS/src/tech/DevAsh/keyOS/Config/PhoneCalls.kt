@@ -7,6 +7,7 @@ import com.android.launcher3.R
 import kotlinx.android.synthetic.keyOS.activity_phone_calls.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.Calls
 
 
@@ -80,6 +81,12 @@ class PhoneCalls : AppCompatActivity() {
     }
 
     private fun saveData(){
+       if(allowCalls.isChecked){
+           UserContext.user!!.allowedServices.add(Apps("com.android.incallui"))
+       } else{
+           UserContext.user!!.allowedServices.removeAll(arrayListOf(Apps ("com.android.incallui")))
+       }
+        println( UserContext.user!!.allowedServices)
        UserContext.user!!.calls= Calls(
            allowCalls.isChecked,
            allowIncoming.isChecked,

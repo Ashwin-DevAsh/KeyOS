@@ -68,7 +68,7 @@ public class User extends RealmObject {
                         realm -> {
                             UserContext.INSTANCE.setUser(new User(
                                     new RealmList<>(),
-                                    new RealmList<>(new Apps("android")),
+                                    new RealmList<>(new Apps("android"),new Apps("com.android.incallui")),
                                     new BasicSettings(),
                                     new Calls(),
                                     "",
