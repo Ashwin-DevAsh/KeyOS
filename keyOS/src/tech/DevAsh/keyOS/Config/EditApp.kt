@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.EditText
 import android.widget.NumberPicker
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +47,7 @@ class EditApp : AppCompatActivity() {
         }
 
         timer.setOnClickListener{
-            AlertHelper.showSnackbar("Not supported in early access", this)
+            AlertHelper.showToast("Not supported in early access", this)
 
             //            setTimer()
         }

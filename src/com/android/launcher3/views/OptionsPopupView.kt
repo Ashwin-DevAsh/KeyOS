@@ -35,9 +35,18 @@ import com.android.launcher3.userevent.nano.LauncherLogProto
 import com.android.launcher3.widget.WidgetsFullSheet
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.keyOS.fragment_password_prompt_sheet.*
+import kotlinx.android.synthetic.keyOS.fragment_password_prompt_sheet.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import tech.DevAsh.KeyOS.Config.Password
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt
 import tech.DevAsh.Launcher.KioskLauncher
+import tech.DevAsh.keyOS.Api.Response.BasicResponse
+import tech.DevAsh.keyOS.KioskApp
 import java.util.*
 
 
@@ -235,6 +244,13 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
                     KioskLauncher.getLauncher(v.context).startSingleApp()
                 }
             }
+
+            dialog.forget.setOnClickListener {
+
+                forgetPassword(launcher)
+                dialog.dismiss()
+            }
+
             if(settingsDialog==null){
                 settingsDialog = dialog
             }
@@ -242,6 +258,12 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
                 exitDialog = dialog
             }
         }
+
+        private fun forgetPassword(launcher: Launcher){
+            val mailService = launcher.KioskApp.mailService
+            Password.forgotPassword(mailService,launcher)
+        }
+
 
 
         private fun getProgress(v:View,string:String){

@@ -30,7 +30,9 @@ import com.android.launcher3.Utilities
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.LoadAppsAndServices
 import tech.DevAsh.Launcher.KioskLauncher
+import tech.DevAsh.keyOS.Api.IMailService
 import tech.DevAsh.keyOS.Database.User
+import javax.inject.Inject
 
 
 class KioskApp : Application() {
@@ -40,6 +42,8 @@ class KioskApp : Application() {
     var applicationComponents:ApplicationComponents?=null
     val activityHandler = ActivityHandler()
     var loadAppsAndServices = LoadAppsAndServices(this)
+    @Inject lateinit var mailService: IMailService
+
 
 
     override fun onCreate() {
@@ -51,6 +55,8 @@ class KioskApp : Application() {
 
 
         applicationComponents = DaggerApplicationComponents.create()
+
+        applicationComponents!!.inject(this)
 
 
         super.onCreate()

@@ -1,5 +1,6 @@
 package tech.DevAsh.KeyOS.Config
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -10,22 +11,50 @@ import com.android.launcher3.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.keyOS.activity_password.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.UiHelper
 import tech.DevAsh.keyOS.Api.IMailService
+import tech.DevAsh.keyOS.Api.Request.SendPassword
+import tech.DevAsh.keyOS.Api.Response.BasicResponse
 import tech.DevAsh.keyOS.Config.Fragments.OtpVerification
 import tech.DevAsh.keyOS.KioskApp
-import javax.inject.Inject
 
 
 class Password : AppCompatActivity() {
 
-    @Inject lateinit var mailService: IMailService
 
     companion object{
         var isOldPasswordExist:Boolean = false
+
+        fun forgotPassword(mailService: IMailService,context: Activity){
+
+            val callback = object: Callback<BasicResponse>{
+                override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                    if(response.body()?.result=="success"){
+                        AlertHelper.showToast("Password successfully sent to your email address", context)
+                    }else{
+                        AlertHelper.showToast("Password recovery failed", context)
+                    }
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    t.printStackTrace()
+                    AlertHelper.showToast("Password recovery failed", context)
+                }
+            }
+            val sendPassword=SendPassword()
+            sendPassword.email = UserContext.user?.recoveryEmail
+            sendPassword.password = UserContext.user?.password
+            mailService.sendPassword(sendPassword)?.enqueue(callback)
+        }
+
+
+
     }
 
 
@@ -47,6 +76,7 @@ class Password : AppCompatActivity() {
         if(emailText != "" && emailText!=null){
             isOldPasswordExist = true
             heading.text = "Change Your"
+            cancel.text = "Forgot ?"
             oldPasswordLayout.visibility = View.VISIBLE
         }
     }
@@ -62,10 +92,7 @@ class Password : AppCompatActivity() {
                              },500)
                  }else{
                      save()
-                     Handler()
-                             .postDelayed({
-                                              finish()
-                                           },500)
+
                  }
 
              }
@@ -76,7 +103,10 @@ class Password : AppCompatActivity() {
         }
 
         cancel.setOnClickListener{
-            super.onBackPressed()
+            if(isOldPasswordExist)
+                forgotPassword(KioskApp.mailService,this)
+            else
+                super.onBackPressed()
         }
 
         password.setOnClickListener {
@@ -93,6 +123,18 @@ class Password : AppCompatActivity() {
         UserContext.user?.password =  password.text.toString()
         RealmHelper.updateUser(UserContext.user!!)
         UiHelper.hideKeyboard(this)
+
+        Handler().postDelayed({
+                                  AlertHelper
+                                          .showToast(
+                                                  "Your password has been changed successfully",
+                                                  this)
+
+                                  Handler()
+                                          .postDelayed({
+                                                           finish()
+                                                       },4000)
+                              },500)
 
     }
 

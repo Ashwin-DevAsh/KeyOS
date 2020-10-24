@@ -6,18 +6,15 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.net.toFile
 import com.android.launcher3.R
 import com.google.gson.Gson
 import kotlinx.android.synthetic.keyOS.activity_import_export_settings.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
-import tech.DevAsh.keyOS.Config.Fragments.DisplayQr
 import tech.DevAsh.keyOS.Database.User
 import java.io.*
 
@@ -55,7 +52,7 @@ class ImportExportSettings : AppCompatActivity() {
         }
 
         displayQr.setOnClickListener {
-            AlertHelper.showSnackbar("Not supported in early access",this)
+            AlertHelper.showToast("Not supported in early access", this)
 //            DisplayQr().show(supportFragmentManager, "")
         }
 
@@ -115,7 +112,7 @@ class ImportExportSettings : AppCompatActivity() {
             writer.append(sBody)
             writer.flush()
             writer.close()
-            AlertHelper.showSnackbar("File exported to KeyOS/KeyOS.json", this)
+            AlertHelper.showToast("File exported to KeyOS/KeyOS.json", this)
         } catch (e: IOException) {
             e.printStackTrace()
         }
@@ -150,7 +147,7 @@ class ImportExportSettings : AppCompatActivity() {
                     loadBackupData(backupData!!)
                 }catch (e:Throwable){
                     e.printStackTrace()
-                    AlertHelper.showSnackbar("Invalid backup file",this)
+                    AlertHelper.showToast("Invalid backup file", this)
                 }
             }
         }
@@ -161,7 +158,7 @@ class ImportExportSettings : AppCompatActivity() {
         val user:User = Gson().fromJson(backupData, User::class.java)
         UserContext.user = user
         RealmHelper.updateUser(user)
-        AlertHelper.showSnackbar("Imported Successfully",this)
+        AlertHelper.showToast("Imported Successfully", this)
     }
 
 

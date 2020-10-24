@@ -13,5 +13,6 @@ interface ApplicationComponents {
 
     fun getMailService():IMailService
     fun inject(password: Password)
+    fun inject(kioskApp: KioskApp)
 
 }

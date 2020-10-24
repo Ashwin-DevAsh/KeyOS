@@ -1,7 +1,9 @@
 package tech.DevAsh.KeyOS.Helpers
 
+import android.app.Activity
 import android.graphics.Color
 import android.graphics.Typeface
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.danimahardhika.cafebar.CafeBar
 import com.danimahardhika.cafebar.CafeBarTheme
@@ -22,26 +24,16 @@ object AlertHelper {
                             )
     }
 
-    fun showToast(text: String, context: AppCompatActivity){
-        SnackbarManager.show(
-                Snackbar.with(context) // context
-                        .text(text) // text to be displayed
-                        .textTypeface(Typeface.DEFAULT_BOLD)
-                        .duration(2000)
-                        .textColor(Color.WHITE) // change the text color
-                        .color(Color.parseColor("#4caf50")) // change the background color
-                , context
-                            )
+    fun showToast(text: String, context: Activity) {
+        Toast.makeText(context, text,
+                       Toast.LENGTH_LONG).show()
 
-    }
-
-    fun showSnackbar(text: String,context: AppCompatActivity) {
-        CafeBar.builder(context)
-                .theme(CafeBarTheme.DARK)
-                .floating(true)
-                .duration(CafeBar.Duration.MEDIUM)
-                .content(text)
-                .show()
+//        CafeBar.builder(context)
+//                .theme(CafeBarTheme.DARK)
+//                .floating(true)
+//                .duration(CafeBar.Duration.MEDIUM)
+//                .content(text)
+//                .show()
     }
 
 

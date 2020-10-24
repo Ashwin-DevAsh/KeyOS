@@ -15,6 +15,7 @@ import tech.DevAsh.KeyOS.Config.Password
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.keyOS.Api.Request.EmailVerification
 import tech.DevAsh.keyOS.Api.Response.BasicResponse
+import tech.DevAsh.keyOS.KioskApp
 import kotlin.random.Random.Default.nextInt
 
 
@@ -47,12 +48,6 @@ class OtpVerification(val password: Password, val email: String) : BottomSheetDi
             this.dismiss()
             Handler().postDelayed({
                                       password.save()
-                                      Handler().postDelayed({
-                                                                AlertHelper
-                                                                        .showSnackbar(
-                                                                                "Your password has been changed successfully",
-                                                                                password)
-                                                            },500)
                     },500)
         }else if(otp.text.toString().isNotEmpty()){
             otpLayout.error = "Invalid Otp"
@@ -64,7 +59,7 @@ class OtpVerification(val password: Password, val email: String) : BottomSheetDi
         emailVerification = EmailVerification()
         emailVerification?.email = email
         emailVerification?.otp = "${nextInt(1000,9999)}"
-        password.mailService.emailVerification(emailVerification!!)?.enqueue(otpVerificationCallBack)
+        requireActivity().KioskApp.mailService.emailVerification(emailVerification!!)?.enqueue(otpVerificationCallBack)
     }
 
     private var otpVerificationCallBack = object : Callback<BasicResponse>{
