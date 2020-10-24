@@ -241,6 +241,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
+                        android:id="@+id/importFile"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp">
 
@@ -296,7 +297,6 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/phoneCall"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
                     </RelativeLayout>
@@ -369,7 +369,6 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/phoneCall"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
                     </RelativeLayout>

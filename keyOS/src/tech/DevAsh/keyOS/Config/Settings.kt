@@ -234,6 +234,11 @@ class Settings : AppCompatActivity() {
         super.onResume()
     }
 
+    override fun onRestart() {
+        loadView()
+        super.onRestart()
+    }
+
     override fun finish() {
         if(isFromLauncher) overridePendingTransition(0, R.anim.abc_fade_out)
         else super.finish()
