@@ -55,7 +55,8 @@ class ImportExportSettings : AppCompatActivity() {
         }
 
         displayQr.setOnClickListener {
-            DisplayQr().show(supportFragmentManager, "")
+            AlertHelper.showSnackbar("Not supported in early access",this)
+//            DisplayQr().show(supportFragmentManager, "")
         }
 
         export.setOnClickListener {
@@ -156,7 +157,7 @@ class ImportExportSettings : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-    fun loadBackupData(backupData:String){
+    private fun loadBackupData(backupData:String){
         val user:User = Gson().fromJson(backupData, User::class.java)
         UserContext.user = user
         RealmHelper.updateUser(user)

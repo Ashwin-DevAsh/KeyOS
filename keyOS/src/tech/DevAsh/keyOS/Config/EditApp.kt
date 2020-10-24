@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.keyOS.activity_edit_app.*
 import kotlinx.android.synthetic.main.pref_dialog_grid_size.view.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.HelperVariables
 
 class EditApp : AppCompatActivity() {
@@ -47,7 +48,9 @@ class EditApp : AppCompatActivity() {
         }
 
         timer.setOnClickListener{
-            setTimer()
+            AlertHelper.showSnackbar("Not supported in early access", this)
+
+            //            setTimer()
         }
 
         back.setOnClickListener {
