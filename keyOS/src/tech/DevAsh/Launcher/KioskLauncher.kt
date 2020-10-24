@@ -28,7 +28,6 @@ import com.android.launcher3.views.OptionsPopupView
 import com.android.quickstep.views.LauncherRecentsView
 import com.google.android.apps.nexuslauncher.NexusLauncherActivity
 import kotlinx.android.synthetic.main.launcher.*
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk.startKiosk
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.NotificationBlocker
@@ -43,9 +42,9 @@ import tech.DevAsh.Launcher.sensors.BrightnessManager
 import tech.DevAsh.Launcher.theme.ThemeOverride
 import tech.DevAsh.Launcher.views.KioskBackgroundView
 import tech.DevAsh.Launcher.views.OptionsPanel
+import tech.DevAsh.keyOS.KioskApp
 import java.io.File
 import java.io.FileOutputStream
-import java.util.*
 
 open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenceChangeListener, ColorEngine.OnColorChangeListener {
 

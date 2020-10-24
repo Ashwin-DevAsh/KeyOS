@@ -17,7 +17,6 @@
 
 package tech.DevAsh.Launcher.gestures
 
-import android.accessibilityservice.AccessibilityService
 import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Point
@@ -30,7 +29,6 @@ import androidx.annotation.Keep
 import androidx.core.content.ContextCompat
 import android.view.*
 import tech.DevAsh.Launcher.KioskLauncher
-import tech.DevAsh.Launcher.KioskApp
 import tech.DevAsh.Launcher.KioskPrefs
 import com.android.launcher3.LauncherAppState
 import com.android.launcher3.R

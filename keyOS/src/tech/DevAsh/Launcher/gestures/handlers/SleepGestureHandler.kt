@@ -1,7 +1,6 @@
 
 package tech.DevAsh.Launcher.gestures.handlers
 
-import android.accessibilityservice.AccessibilityService
 import android.annotation.TargetApi
 import android.app.admin.DeviceAdminReceiver
 import android.app.admin.DevicePolicyManager
@@ -17,7 +16,6 @@ import androidx.annotation.Keep
 import android.view.View
 import tech.DevAsh.Launcher.gestures.GestureController
 import tech.DevAsh.Launcher.gestures.GestureHandler
-import tech.DevAsh.Launcher.KioskApp
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import org.json.JSONObject

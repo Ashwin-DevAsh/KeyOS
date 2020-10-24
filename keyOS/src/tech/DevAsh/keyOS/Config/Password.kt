@@ -12,16 +12,27 @@ import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.keyOS.activity_password.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.UiHelper
+import tech.DevAsh.keyOS.Api.IMailService
+import tech.DevAsh.keyOS.Config.Fragments.OtpVerification
+import tech.DevAsh.keyOS.KioskApp
+import javax.inject.Inject
 
 
 class Password : AppCompatActivity() {
+
+    @Inject lateinit var mailService: IMailService
+
     companion object{
         var isOldPasswordExist:Boolean = false
     }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_password)
+        KioskApp.applicationComponents?.inject(this)
         loadView()
         onClick()
         onTextChangeListener(password, passwordLayout, "password")
@@ -43,7 +54,20 @@ class Password : AppCompatActivity() {
     fun onClick(){
         done.setOnClickListener {
              if(validate()){
-                 save()
+                 UiHelper.hideKeyboard(this)
+                 if (!isOldPasswordExist || email.text.toString() != UserContext.user?.recoveryEmail){
+                     Handler().postDelayed(
+                             {
+                                 sendOtp()
+                             },500)
+                 }else{
+                     save()
+                     Handler()
+                             .postDelayed({
+                                              finish()
+                                           },500)
+                 }
+
              }
         }
 
@@ -60,14 +84,16 @@ class Password : AppCompatActivity() {
         }
     }
 
-    private fun save(){
+    private fun sendOtp(){
+        OtpVerification(this,email.text.toString()).show(supportFragmentManager,"")
+    }
+
+    fun save(){
         UserContext.user?.recoveryEmail = email.text.toString()
         UserContext.user?.password =  password.text.toString()
         RealmHelper.updateUser(UserContext.user!!)
         UiHelper.hideKeyboard(this)
-        Handler().postDelayed({
-            finish()
-        },500)
+
     }
 
     fun emailError(){

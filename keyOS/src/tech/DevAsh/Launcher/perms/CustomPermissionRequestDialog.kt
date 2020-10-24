@@ -29,6 +29,7 @@ import tech.DevAsh.Launcher.theme.ThemeOverride
 import tech.DevAsh.Launcher.util.ThemedContextProvider
 import com.android.launcher3.R
 import kotlinx.android.synthetic.keyOS.perm_request_dialog.view.*
+import tech.DevAsh.keyOS.KioskApp
 
 class CustomPermissionRequestDialog private constructor(private val context: Context, private val string: Int, private val icon: Int, private val explanation: Int?) {
     private val key = Pair(string, icon)

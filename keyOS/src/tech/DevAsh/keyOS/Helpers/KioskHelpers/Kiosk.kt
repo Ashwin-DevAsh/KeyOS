@@ -5,16 +5,10 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
-import com.android.launcher3.Launcher
-import tech.DevAsh.KeyOS.Config.AllowApps
 import tech.DevAsh.KeyOS.Config.Settings
-import tech.DevAsh.KeyOS.Database.AppsContext
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
-import tech.DevAsh.Launcher.KioskApp
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.Apps
 

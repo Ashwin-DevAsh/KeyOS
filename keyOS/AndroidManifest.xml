@@ -142,7 +142,7 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <application android:name="tech.DevAsh.Launcher.KioskApp">
+    <application android:name="tech.DevAsh.keyOS.KioskApp">
         <activity
             android:name="tech.DevAsh.keyOS.Config.QrScanner"
             android:screenOrientation="portrait"

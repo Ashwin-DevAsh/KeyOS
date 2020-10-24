@@ -84,7 +84,6 @@ import android.view.WindowManager;
 import android.view.animation.Interpolator;
 import android.widget.Toast;
 import tech.DevAsh.Launcher.HiddenApiCompat;
-import tech.DevAsh.Launcher.KioskAppKt;
 import tech.DevAsh.Launcher.KioskLauncher;
 import tech.DevAsh.Launcher.KioskPreferences;
 import tech.DevAsh.Launcher.settings.ui.SettingsActivity;
@@ -1033,9 +1032,7 @@ public final class Utilities {
         }
     }
 
-    public static float getScrimProgress(Launcher launcher, LauncherState toState, float targetProgress) {
-        return targetProgress;
-    }
+
 
     public static int getUserId() {
         return UserHandle.myUserId();

@@ -28,6 +28,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.view.ContextThemeWrapper
 import tech.DevAsh.Launcher.theme.ThemeOverride
+import tech.DevAsh.keyOS.KioskApp
 
 class BlankActivity : AppCompatActivity() {
 

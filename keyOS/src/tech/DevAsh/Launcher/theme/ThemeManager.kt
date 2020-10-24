@@ -30,6 +30,7 @@ import tech.DevAsh.Launcher.util.hasFlag
 import tech.DevAsh.Launcher.util.removeFlag
 import com.android.launcher3.R
 import com.android.launcher3.uioverrides.WallpaperColorInfo
+import tech.DevAsh.keyOS.KioskApp
 
 /*
  * Copyright (C) 2018 paphonb@xda

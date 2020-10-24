@@ -15,34 +15,29 @@
  *     along with Kiosk Launcher.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package tech.DevAsh.Launcher
+package tech.DevAsh.keyOS
 
 import android.app.Activity
 import android.app.Application
-import android.content.ComponentName
 import android.content.Context
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
-import android.provider.Settings
-import androidx.annotation.Keep
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
 
 import tech.DevAsh.Launcher.theme.ThemeManager
-import com.android.launcher3.BuildConfig
 import com.android.launcher3.Utilities
-import com.android.quickstep.RecentsActivity
-import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.LoadAppsAndServices
-import tech.DevAsh.KeyOS.SplashScreen
+import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.User
 
 
 class KioskApp : Application() {
 
+
+
+    var applicationComponents:ApplicationComponents?=null
     val activityHandler = ActivityHandler()
     var loadAppsAndServices = LoadAppsAndServices(this)
 
@@ -53,6 +48,11 @@ class KioskApp : Application() {
             User.getUsers()
             loadAppsAndServices.execute()
         }
+
+
+        applicationComponents = DaggerApplicationComponents.create()
+
+
         super.onCreate()
     }
 
