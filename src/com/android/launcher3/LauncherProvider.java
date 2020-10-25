@@ -1056,7 +1056,6 @@ public class LauncherProvider extends ContentProvider {
                     addAppCount++;
                 }
             }
-            Utilities.debugNotification("init workspace added apps count: " + addAppCount);
             loader.addFolder(systemApps, screenIds, context.getResources().getString(R.string.system_app));
             HashMap<String, ArrayList<AppInfo>> categorized = new HashMap<>();
 

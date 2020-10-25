@@ -57,6 +57,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.ClockVisibilityManager;
 import tech.DevAsh.Launcher.KioskLauncher;
 import tech.DevAsh.Launcher.KioskPreferences;
@@ -3320,16 +3321,13 @@ public class Workspace extends PagedView<PageIndicatorDots>
         });
 
         // Update folder icons
-        mapOverItems(MAP_NO_RECURSE, new ItemOperator() {
-            @Override
-            public boolean evaluate(ItemInfo info, View v) {
-                if (info instanceof FolderInfo && folderIds.contains(info.id)
-                        && v instanceof FolderIcon) {
-                    ((FolderIcon) v).updateIconBadges(updatedBadges, packageUserKey);
-                }
-                // process all the shortcuts
-                return false;
+        mapOverItems(MAP_NO_RECURSE, (info, v) -> {
+            if (info instanceof FolderInfo && folderIds.contains(info.id)
+                    && v instanceof FolderIcon) {
+                ((FolderIcon) v).updateIconBadges(updatedBadges, packageUserKey);
             }
+            // process all the shortcuts
+            return false;
         });
     }
 
@@ -3342,20 +3340,16 @@ public class Workspace extends PagedView<PageIndicatorDots>
     }
 
     public void updateRestoreItems(final HashSet<ItemInfo> updates) {
-        mapOverItems(MAP_RECURSE, new ItemOperator() {
-            @Override
-            public boolean evaluate(ItemInfo info, View v) {
-                if (info instanceof ShortcutInfo && v instanceof BubbleTextView
-                        && updates.contains(info)) {
-                    ((BubbleTextView) v).applyPromiseState(false /* promiseStateChanged */);
-                } else if (v instanceof PendingAppWidgetHostView
-                        && info instanceof LauncherAppWidgetInfo
-                        && updates.contains(info)) {
-                    ((PendingAppWidgetHostView) v).applyState();
-                }
-                // process all the shortcuts
-                return false;
+        mapOverItems(MAP_RECURSE, (info, v) -> {
+            if (info instanceof ShortcutInfo && v instanceof BubbleTextView
+                    && updates.contains(info)) {
+                ((BubbleTextView) v).applyPromiseState(false /* promiseStateChanged */);
+            } else if (v instanceof PendingAppWidgetHostView
+                    && info instanceof LauncherAppWidgetInfo
+                    && updates.contains(info)) {
+                ((PendingAppWidgetHostView) v).applyState();
             }
+            return false;
         });
     }
 
@@ -3375,7 +3369,6 @@ public class Workspace extends PagedView<PageIndicatorDots>
             }
 
             if (widgetInfo != null) {
-                // Re-inflate the widgets which have changed status
                 widgetRefresh.run();
             } else {
                 // widgetRefresh will automatically run when the packages are updated.
@@ -3421,8 +3414,6 @@ public class Workspace extends PagedView<PageIndicatorDots>
 
     @Override
     protected boolean canAnnouncePageDescription() {
-        // Disable announcements while overscrolling potentially to overlay screen because if we end
-        // up on the overlay screen, it will take care of announcing itself.
         return Float.compare(mOverlayTranslation, 0f) == 0;
     }
 
@@ -3533,9 +3524,6 @@ public class Workspace extends PagedView<PageIndicatorDots>
 
     public interface OnStateChangeListener {
 
-        /**
-         * Called when the workspace state is changing.
-         */
         void prepareStateChange(AnimatorSetBuilder builder);
     }
 
@@ -3543,18 +3531,11 @@ public class Workspace extends PagedView<PageIndicatorDots>
         return pageNo == 0;
     }
 
-    public static final boolean DEBUG_VERIFY_APPS = true;
 
     public void verifyApplications(ArrayList<AppInfo> apps) {
-        if (apps.size() == 0) {
-            if (DEBUG_VERIFY_APPS) {
-                Utilities.debugNotification("abort verify applications allApps list empty");
-            }
-            return;
-        }
-        if (DEBUG_VERIFY_APPS) {
-            Utilities.debugNotification("verify applications allApps size: " + apps.size());
-        }
+//        if (apps.size() == 0) {
+//            return;
+//        }
 
         final AppFilter appFilter = AppFilter.newInstance(mLauncher);
         final HashSet<ComponentKey> allComponentKeys = new HashSet<>();
@@ -3564,46 +3545,38 @@ public class Workspace extends PagedView<PageIndicatorDots>
 
         final LongArrayMap<Boolean> removed = new LongArrayMap<>();
         final HashSet<ComponentKey> addedComponentKeys = new HashSet<>();
-        mapOverItems(MAP_RECURSE, new ItemOperator() {
-            @Override
-            public boolean evaluate(ItemInfo info, View v) {
-                if (info instanceof ShortcutInfo && v instanceof BubbleTextView) {
-                    ShortcutInfo shortcutInfo = (ShortcutInfo) info;
-                    if (shortcutInfo.getAppComponentKey() == null) {
-                        return false;
-                    }
-                    ComponentKey ck = shortcutInfo.getAppComponentKey();
-                    if (addedComponentKeys.contains(ck) ||
-                            !allComponentKeys.contains(ck) || !appFilter.shouldShowApp(ck.componentName, ck.user)) {
-                        removed.put(shortcutInfo.id, true);
-                    }
-                    addedComponentKeys.add(ck);
+        mapOverItems(MAP_RECURSE, (info, v) -> {
+            if (info instanceof ShortcutInfo && v instanceof BubbleTextView) {
+                ShortcutInfo shortcutInfo = (ShortcutInfo) info;
+                if (shortcutInfo.getAppComponentKey() == null) {
+                    return false;
                 }
-                // process all the shortcuts
-                return false;
+                ComponentKey ck = shortcutInfo.getAppComponentKey();
+                if (addedComponentKeys.contains(ck) ||
+                        !allComponentKeys.contains(ck) || !appFilter.shouldShowApp(ck.componentName, ck.user)) {
+                    removed.put(shortcutInfo.id, true);
+                }
+                addedComponentKeys.add(ck);
             }
+            // process all the shortcuts
+            return false;
         });
 
         if (removed.size() > 0) {
             ItemInfoMatcher matcher = ItemInfoMatcher.ofItemIds(removed, false);
             mLauncher.getModelWriter().deleteItemsFromDatabase(matcher);
             mLauncher.bindWorkspaceComponentsRemoved(matcher);
-            if (DEBUG_VERIFY_APPS) {
-                Utilities.debugNotification("verify applications remove count: " + removed.size());
-            }
         }
 
         ArrayList<AppInfo> added = new ArrayList<>();
         for(AppInfo app : apps) {
-            if (!addedComponentKeys.contains(app.getComponentKey()) && appFilter.shouldShowApp(app.componentName, app.user)) {
+            if (!addedComponentKeys.contains(app.getComponentKey()) && Kiosk.INSTANCE.canShowApp(app.getPackageName()) && appFilter.shouldShowApp(app.componentName, app.user)) {
                 added.add(app);
-                Log.d(TAG, "add new app: " + app.componentName);
             }
         }
 
         if (!added.isEmpty()) {
-            Utilities.debugNotification("verify applications added count: " + added.size());
-            // 异步的
+//            Utilities.debugNotification("verify applications added count: " + added.size());
             InstallShortcutReceiver.installNewAppShortcuts(getContext(), added);
         }
     }
@@ -3658,8 +3631,6 @@ public class Workspace extends PagedView<PageIndicatorDots>
                 View child = idToViewMap.get(itemToAdd.id);
 
                 if (child != null) {
-                    // Note: We can not remove the view directly from CellLayoutChildren as this
-                    // does not re-mark the spaces as unoccupied.
                     layoutParent.removeViewInLayout(child);
                     if (child instanceof DropTarget) {
                         mDragController.removeDropTarget((DropTarget) child);
@@ -3670,9 +3641,6 @@ public class Workspace extends PagedView<PageIndicatorDots>
         if (folderIcon != null) {
             FolderInfo folderInfo = folderIcon.getFolderInfo();
             for (ShortcutInfo itemToAdd : shortcuts) {
-                // 此处会：
-                // 修改FolderIcon.contents，新增一个ShortcutInfo
-                // 调用Folder.onAdd，创建app图标视图，修改ShortcutInfo数据库中位置坐标等信息
                 folderInfo.add(itemToAdd, false);
             }
         }
@@ -3685,61 +3653,46 @@ public class Workspace extends PagedView<PageIndicatorDots>
     public static final int LOCATE_APP_OPEN_FOLDER_DELAY = 200;
 
     public void locateApp(AppInfo app) {
-        Runnable locateAppRunnable = new Runnable() {
-            @Override
-            public void run() {
-                ArrayList<CellLayout> cellLayouts = getWorkspaceAndHotseatCellLayouts();
-                for (final CellLayout layoutParent: cellLayouts) {
-                    final ViewGroup layout = layoutParent.getShortcutsAndWidgets();
+        Runnable locateAppRunnable = () -> {
+            ArrayList<CellLayout> cellLayouts = getWorkspaceAndHotseatCellLayouts();
+            for (final CellLayout layoutParent: cellLayouts) {
+                final ViewGroup layout = layoutParent.getShortcutsAndWidgets();
 
-                    for (int j = 0; j < layout.getChildCount(); j++) {
-                        final View view = layout.getChildAt(j);
-                        if (view.getTag() instanceof ShortcutInfo) {
-                            ShortcutInfo shortcutInfo = (ShortcutInfo) view.getTag();
+                for (int j = 0; j < layout.getChildCount(); j++) {
+                    final View view = layout.getChildAt(j);
+                    if (view.getTag() instanceof ShortcutInfo) {
+                        ShortcutInfo shortcutInfo = (ShortcutInfo) view.getTag();
+                        if (shortcutInfo.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION &&
+                                shortcutInfo.getPackageName().contentEquals(app.getPackageName())) {
+                            final ObjectAnimator animator = getAppBounceAnimator(view);
+                            int page = shortcutInfo.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT ? 1 :
+                                    getPageIndexForScreenId(getIdForScreen(layoutParent));
+                            snapToPage(page);
+                            postDelayed(animator::start, LOCATE_APP_PAGE_MOVE_DELAY);
+                            return;
+                        }
+                    } else if (view.getTag() instanceof FolderInfo) {
+                        FolderInfo folderInfo = (FolderInfo) view.getTag();
+                        for (final ShortcutInfo shortcutInfo : folderInfo.contents) {
                             if (shortcutInfo.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION &&
                                     shortcutInfo.getPackageName().contentEquals(app.getPackageName())) {
-                                final ObjectAnimator animator = getAppBounceAnimator(view);
-                                int page = shortcutInfo.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT ? 1 :
-                                        getPageIndexForScreenId(getIdForScreen(layoutParent));
-                                snapToPage(page);
-                                postDelayed(new Runnable() {
-                                    public void run() {
-                                        animator.start();
-                                    }
-                                }, LOCATE_APP_PAGE_MOVE_DELAY);
-                                return;
-                            }
-                        } else if (view.getTag() instanceof FolderInfo) {
-                            FolderInfo folderInfo = (FolderInfo) view.getTag();
-                            for (final ShortcutInfo shortcutInfo : folderInfo.contents) {
-                                if (shortcutInfo.itemType == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION &&
-                                        shortcutInfo.getPackageName().contentEquals(app.getPackageName())) {
-                                    snapToPage(getPageIndexForScreenId(getIdForScreen(layoutParent)));
-                                    postDelayed(new Runnable() {
-                                        public void run() {
-                                            ItemClickHandler.onClickFolderIcon(view);
-                                            postDelayed(new Runnable() {
-                                                public void run() {
-                                                    Folder folder = Folder.getOpen(mLauncher);
-                                                    View v = folder.getViewForInfo(shortcutInfo);
-                                                    final ObjectAnimator animator = getAppBounceAnimator(v);
-                                                    int page = folder.getPageIndexForRank(shortcutInfo.rank);
-                                                    if (page > 0) {
-                                                        folder.snapToPage(page);
-                                                        postDelayed(new Runnable() {
-                                                            public void run() {
-                                                                animator.start();
-                                                            }
-                                                        },  LOCATE_APP_PAGE_MOVE_DELAY);
-                                                    } else {
-                                                        animator.start();
-                                                    }
-                                                }
-                                            },  LOCATE_APP_OPEN_FOLDER_DELAY);
+                                snapToPage(getPageIndexForScreenId(getIdForScreen(layoutParent)));
+                                postDelayed(() -> {
+                                    ItemClickHandler.onClickFolderIcon(view);
+                                    postDelayed(() -> {
+                                        Folder folder = Folder.getOpen(mLauncher);
+                                        View v = folder.getViewForInfo(shortcutInfo);
+                                        final ObjectAnimator animator = getAppBounceAnimator(v);
+                                        int page = folder.getPageIndexForRank(shortcutInfo.rank);
+                                        if (page > 0) {
+                                            folder.snapToPage(page);
+                                            postDelayed(animator::start,  LOCATE_APP_PAGE_MOVE_DELAY);
+                                        } else {
+                                            animator.start();
                                         }
-                                    },  LOCATE_APP_PAGE_MOVE_DELAY);
-                                    return;
-                                }
+                                    },  LOCATE_APP_OPEN_FOLDER_DELAY);
+                                },  LOCATE_APP_PAGE_MOVE_DELAY);
+                                return;
                             }
                         }
                     }

@@ -21,6 +21,7 @@ import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
@@ -167,6 +168,7 @@ class Settings : AppCompatActivity() {
         if(PermissionsHelper.checkImportantPermissions(this)){
             launch(this)
         }else{
+            AlertHelper.showToast("Permissions Required",this)
             permissionsBottomSheet.show(supportFragmentManager, "TAG")
         }
     }

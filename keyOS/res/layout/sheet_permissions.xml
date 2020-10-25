@@ -259,6 +259,7 @@
 
         <RelativeLayout
             android:layout_marginTop="10dp"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="50dp">
             <androidx.cardview.widget.CardView
@@ -302,6 +303,7 @@
         <RelativeLayout
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="50dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="35dp"

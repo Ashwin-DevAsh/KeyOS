@@ -446,7 +446,7 @@ public class LauncherModel extends BroadcastReceiver implements LauncherAppsComp
      * @param synchronousBindPage The page to bind first. Can pass -1 to use the current page.
      */
     public void forceReload(int synchronousBindPage) {
-        Utilities.debugNotification("LauncherModel.forceReload");
+//        Utilities.debugNotification("LauncherModel.forceReload");
         synchronized (mLock) {
             // Stop any existing loaders first, so they don't set mModelLoaded to true later
             stopLoader();

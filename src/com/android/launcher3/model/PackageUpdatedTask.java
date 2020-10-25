@@ -69,10 +69,8 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
 
     @Override
     public void execute(LauncherAppState app, BgDataModel dataModel, AllAppsList appsList) {
-        Utilities.debugNotification("PackageUpdatedTask, op: " + mOp + ", packages: " + Arrays.toString(mPackages));
         final Context context = app.getContext();
         final IconCache iconCache = app.getIconCache();
-
         final String[] packages = mPackages;
         final int N = packages.length;
         FlagOp flagOp = FlagOp.NO_OP;
@@ -105,7 +103,6 @@ public class PackageUpdatedTask extends BaseModelUpdateTask {
                         app.getWidgetCache().removePackage(aPackage, mUser);
                     }
                 }
-                // Since package was just updated, the target must be available now.
                 flagOp = FlagOp.removeFlag(ShortcutInfo.FLAG_DISABLED_NOT_AVAILABLE);
                 break;
             case OP_REMOVE: {

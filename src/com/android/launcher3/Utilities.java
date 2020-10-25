@@ -1057,45 +1057,45 @@ public final class Utilities {
                 permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED;
     }
 
-    static int sDebugNotificationId = 1;
-    public static void debugNotification(String msg) {
-        Log.d(TAG, msg);
-        if (BuildConfig.DEBUG) {
-            try {
-                Context context = LauncherAppState.getInstanceNoCreate().getContext();
-                NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-
-                String channelId = "default_channel_id";
-                String channelDescription = "Default Channel";
-                if (Build.VERSION.SDK_INT >= VERSION_CODES.O) {
-                    // Check if notification channel exists and if not create one
-                    NotificationChannel notificationChannel = mNotificationManager.getNotificationChannel(channelId);
-                    if (notificationChannel == null) {
-                        int importance = NotificationManager.IMPORTANCE_HIGH;
-                        notificationChannel = new NotificationChannel(channelId, channelDescription, importance);
-                        notificationChannel.setLightColor(Color.GREEN);
-                        notificationChannel.enableVibration(false);
-                        notificationChannel.setSound(null, null);
-                        mNotificationManager.createNotificationChannel(notificationChannel);
-                    }
-                }
-
-                NotificationCompat.Builder mBuilder =
-                        new NotificationCompat.Builder(context);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/renzhn/Lawndesk"));
-                PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-                mBuilder.setContentIntent(pendingIntent);
-                mBuilder.setSmallIcon(R.drawable.ic_info);
-                mBuilder.setContentTitle("Lawndesk Debug");
-                mBuilder.setContentText(msg);
-                mBuilder.setChannelId(channelId);
-
-                mNotificationManager.notify(sDebugNotificationId++, mBuilder.build());
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
+//    static int sDebugNotificationId = 1;
+//    public static void debugNotification(String msg) {
+//        Log.d(TAG, msg);
+//        if (BuildConfig.DEBUG) {
+//            try {
+//                Context context = LauncherAppState.getInstanceNoCreate().getContext();
+//                NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//                String channelId = "default_channel_id";
+//                String channelDescription = "Default Channel";
+//                if (Build.VERSION.SDK_INT >= VERSION_CODES.O) {
+//                    // Check if notification channel exists and if not create one
+//                    NotificationChannel notificationChannel = mNotificationManager.getNotificationChannel(channelId);
+//                    if (notificationChannel == null) {
+//                        int importance = NotificationManager.IMPORTANCE_HIGH;
+//                        notificationChannel = new NotificationChannel(channelId, channelDescription, importance);
+//                        notificationChannel.setLightColor(Color.GREEN);
+//                        notificationChannel.enableVibration(false);
+//                        notificationChannel.setSound(null, null);
+//                        mNotificationManager.createNotificationChannel(notificationChannel);
+//                    }
+//                }
+//
+//                NotificationCompat.Builder mBuilder =
+//                        new NotificationCompat.Builder(context);
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/renzhn/Lawndesk"));
+//                PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+//                mBuilder.setContentIntent(pendingIntent);
+//                mBuilder.setSmallIcon(R.drawable.ic_info);
+//                mBuilder.setContentTitle("Lawndesk Debug");
+//                mBuilder.setContentText(msg);
+//                mBuilder.setChannelId(channelId);
+//
+//                mNotificationManager.notify(sDebugNotificationId++, mBuilder.build());
+//            } catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+//    }
 
     public static boolean isChinaUser() {
         return Locale.getDefault().getLanguage().equals(Locale.SIMPLIFIED_CHINESE.getLanguage()) &&
