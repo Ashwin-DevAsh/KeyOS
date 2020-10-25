@@ -227,7 +227,7 @@
         <activity
             android:name="tech.DevAsh.KeyOS.SplashScreen"
             android:screenOrientation="portrait"
-            android:theme="@style/splashScreen">
+            android:theme="@style/keyOS">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
