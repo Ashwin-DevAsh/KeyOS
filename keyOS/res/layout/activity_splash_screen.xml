@@ -16,15 +16,15 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="110dp"
-            app:cardBackgroundColor="@color/black"
             android:layout_marginHorizontal="10dp"
             app:cardCornerRadius="25dp"
             android:layout_marginBottom="120dp"
+            app:cardElevation="0dp"
             android:layout_height="110dp">
             <ImageView
                 android:layout_width="match_parent"
-                android:src="@drawable/app_icon"
-                app:srcCompat="@drawable/app_icon"
+                android:src="@drawable/ic_power"
+                app:srcCompat="@drawable/ic_power"
                 android:layout_height="match_parent"/>
         </androidx.cardview.widget.CardView>
 

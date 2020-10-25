@@ -73,7 +73,7 @@ class ImportExportSettings : AppCompatActivity() {
                                           packageName)
                 == PackageManager.PERMISSION_GRANTED ){
             val jsonObject = (Gson().toJson(UserContext.user))
-            generateNoteOnSD("KeyOS.json", jsonObject.toString())
+            generateNoteOnSD( "${System.currentTimeMillis()}.json", jsonObject.toString())
         }else{
             ActivityCompat.requestPermissions(this, permissions, 2)
         }
@@ -112,7 +112,7 @@ class ImportExportSettings : AppCompatActivity() {
             writer.append(sBody)
             writer.flush()
             writer.close()
-            AlertHelper.showToast("File exported to KeyOS/KeyOS.json", this)
+            AlertHelper.showToast("File exported to KeyOS/${fileName}", this)
         } catch (e: IOException) {
             e.printStackTrace()
         }

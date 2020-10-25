@@ -87,33 +87,32 @@ class AllowApps : AppCompatActivity() {
 
 
     private fun handelSearch(){
-        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+        searchView.setOnQueryTextListener(object :
+                                                  androidx.appcompat.widget.SearchView.OnQueryTextListener {
             var handler = Handler()
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                var adapter = adapter
-                if(type==Types.SINGLEAPP){
-                    adapter = adapter as SingleAppAdapter
-                }
+                val adapter = adapter
                 val query = newText.toString().toLowerCase(Locale.ROOT)
                 handler.removeCallbacksAndMessages(true)
                 handler.postDelayed({
-                    adapter?.items?.clear()
-                    for (i in adapter!!._items) {
-                        if (i.appName
-                                .toLowerCase(Locale.ROOT)
-                                .contains(query)
-                        ) {
-                            adapter.items.add(i)
-                        }
-                    }
-                    adapter.items.add(0, Apps())
-                    adapter.notifyDataSetChanged()
-                }, 100)
-            return true
+                                        println("\n\n"+adapter?.allowedItems)
+                                        adapter?.items?.clear()
+                                        for (i in adapter!!._items) {
+                                            if (i.appName
+                                                            .toLowerCase(Locale.ROOT)
+                                                            .contains(query)
+                                            ) {
+                                                adapter.items.add(i)
+                                            }
+                                        }
+                                        adapter.items.add(0, Apps())
+                                        adapter.notifyDataSetChanged()
+                                    }, 100)
+                return true
             }
 
         })
@@ -143,7 +142,7 @@ class AllowApps : AppCompatActivity() {
             }
             items.removeAll(allowedItemsTemp)
             items.addAll(0, allowedItemsTemp)
-            adapter = AllowItemAdapter(ArrayList(items), ArrayList(allowedItems), heading,subHeading,this)
+            adapter = AllowItemAdapter(ArrayList(items), ArrayList(allowedItemsTemp), heading,subHeading,this)
             adapter!!.items.add(0,Apps())
             adapter!!.notifyDataSetChanged()
             appsContainer.adapter = adapter
@@ -181,14 +180,8 @@ class AllowApps : AppCompatActivity() {
 
     private fun saveData(){
         when(type){
-           Types.ALLOWAPPS->{
-                for(i in AppsContext.allApps){
-                    if(adapter?.allowedItems!!.contains(Apps(i.packageName))){
-                        PackageUpdatedTask(PackageUpdatedTask.OP_ADD, Process.myUserHandle(),i.packageName)
-                    }else{
-                        PackageUpdatedTask(PackageUpdatedTask.OP_REMOVE, Process.myUserHandle(),i.packageName)
-                    }
-                }
+            Types.ALLOWAPPS -> {
+                println(adapter?.allowedItems)
                 val allowedApps = getRealmList(ArrayList(adapter?.allowedItems!!))
                 UserContext.user?.allowedApps = allowedApps
             }
