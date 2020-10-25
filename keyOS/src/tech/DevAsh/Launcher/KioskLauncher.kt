@@ -182,6 +182,7 @@ open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenc
 
     override fun onResume() {
         super.onResume()
+        startKiosk(this)
         recreateIfPending()
         restartIfPending()
         BrightnessManager.getInstance(this).startListening()

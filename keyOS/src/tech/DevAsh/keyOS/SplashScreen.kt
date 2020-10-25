@@ -85,6 +85,10 @@ class LoadAppsAndServices(val context: Context) :AsyncTask<Any,Any,Any>(){
 
     private fun addApp(_app: Apps){
 
+        if(_app.packageName=="com.android.settings" || _app.packageName==context.packageName){
+            return
+        }
+
         try {
             val index =  UserContext.user!!.editedApps.indexOf(_app)
             val editApp = UserContext.user!!.editedApps[index]!!
