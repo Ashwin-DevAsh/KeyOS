@@ -311,11 +311,13 @@ class UsageAccessService : Service() {
 
         if(user?.basicSettings?.wifi==BasicSettings.AlwaysON){
             if(!wifiManager.isWifiEnabled){
+                println("Turning on wifi")
                 wifiManager.isWifiEnabled = true
             }
         }
         else if(user?.basicSettings?.wifi==BasicSettings.AlwaysOFF){
             if(wifiManager.isWifiEnabled){
+                println("Turning off wifi")
                 wifiManager.isWifiEnabled = false
             }
         }

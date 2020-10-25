@@ -199,8 +199,7 @@ class Settings : AppCompatActivity() {
                 orientationMode.text.toString(),
                 bluetoothMode.text.toString(),
                 soundMode.text.toString(),
-                notificationPanel.isChecked
-                                         )
+                notificationPanel.isChecked)
         UserContext.user!!.basicSettings = (basicSettings)
         RealmHelper.updateUser(UserContext.user!!)
     }

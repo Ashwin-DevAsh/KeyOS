@@ -15,6 +15,7 @@
  */
 package com.android.launcher3.views
 
+import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.graphics.Rect
@@ -105,8 +106,6 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
 
     companion object {
 
-        var settingsDialog:BottomSheetDialog?=null
-        var exitDialog:BottomSheetDialog?=null
 
         fun show(launcher: Launcher, targetRect: RectF?, items: List<OptionItem>) {
             val popup = launcher.layoutInflater
@@ -172,13 +171,13 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
         }
 
         fun startSettings(v: View): Boolean {
-            loadDialog(v)
+            var settingsDialog = loadDialog(v)
             val launcher = Launcher.getLauncher(v.context)
 
              fun startSettingsHelper(){
-                val password  = settingsDialog?.password?.query.toString()
+                val password  = settingsDialog.password?.query.toString()
                 if(password==UserContext.user?.password){
-                    settingsDialog?.dismiss()
+                    settingsDialog.dismiss()
                     getProgress(v,"Loading settings")
                     Handler()
                             .postDelayed({
@@ -188,11 +187,11 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             }
 
 
-            settingsDialog?.done?.setOnClickListener{
+            settingsDialog.done.setOnClickListener{
                 startSettingsHelper()
             }
-            if(!settingsDialog?.isShowing!!)
-                settingsDialog?.show()
+            if(!settingsDialog.isShowing)
+                settingsDialog.show()
             return true
         }
 
@@ -210,13 +209,13 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
          */
 
         fun exitKeyOs(v: View): Boolean {
-            loadDialog(v)
-            val launcher = Launcher.getLauncher(v.context)
+            val exitDialog = loadDialog(v)
+            val launcher = KioskLauncher.getLauncher(v.context)
 
             fun exitKeyOsHelper(){
-                val password = exitDialog?.password?.query.toString()
+                val password = exitDialog.password?.query.toString()
                 if(password==UserContext.user?.password){
-                    exitDialog?.dismiss()
+                    exitDialog.dismiss()
                     getProgress(v,"Exiting keyOS")
                     Handler()
                             .postDelayed({
@@ -227,14 +226,14 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             }
 
 
-            exitDialog?.done?.setOnClickListener{
+            exitDialog.done?.setOnClickListener{
                 exitKeyOsHelper()
             }
-            exitDialog?.show()
+            exitDialog.show()
             return true
         }
 
-        private fun loadDialog(v: View){
+        private fun loadDialog(v: View):BottomSheetDialog{
             val launcher = Launcher.getLauncher(v.context)
             val dialog = BottomSheetDialog(launcher)
             dialog.setContentView(R.layout.fragment_password_prompt_sheet)
@@ -246,17 +245,11 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             }
 
             dialog.forget.setOnClickListener {
-
                 forgetPassword(launcher)
                 dialog.dismiss()
             }
 
-            if(settingsDialog==null){
-                settingsDialog = dialog
-            }
-            if(exitDialog==null){
-                exitDialog = dialog
-            }
+            return dialog
         }
 
         private fun forgetPassword(launcher: Launcher){

@@ -52,6 +52,10 @@ class EditApp : AppCompatActivity() {
             //            setTimer()
         }
 
+        cancel.setOnClickListener {
+            super.onBackPressed()
+        }
+
         back.setOnClickListener {
             super.onBackPressed()
         }
