@@ -171,8 +171,8 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
         }
 
         fun startSettings(v: View): Boolean {
-            var settingsDialog = loadDialog(v)
-            val launcher = Launcher.getLauncher(v.context)
+            val settingsDialog = loadDialog(v)
+            val launcher = KioskLauncher.getLauncher(v.context)
 
              fun startSettingsHelper(){
                 val password  = settingsDialog.password?.query.toString()
@@ -182,6 +182,10 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
                     Handler()
                             .postDelayed({
                                              Kiosk.openKioskSettings(launcher,password)
+                                             Handler().postDelayed({
+                                                          launcher.hide()
+
+                                                      },1000)
                                          }, 2000)
                 }
             }
@@ -246,7 +250,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
 
             dialog.forget.setOnClickListener {
                 forgetPassword(launcher)
-                dialog.dismiss()
+                dialog.cancel()
             }
 
             return dialog

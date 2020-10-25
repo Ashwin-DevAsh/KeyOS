@@ -33,6 +33,7 @@ class Password : AppCompatActivity() {
 
         fun forgotPassword(mailService: IMailService,context: Activity){
 
+
             val callback = object: Callback<BasicResponse>{
                 override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                     if(response.body()?.result=="success"){
@@ -50,6 +51,12 @@ class Password : AppCompatActivity() {
             val sendPassword=SendPassword()
             sendPassword.email = UserContext.user?.recoveryEmail
             sendPassword.password = UserContext.user?.password
+
+            if(UserContext.user?.recoveryEmail.isNullOrEmpty()){
+                AlertHelper.showToast("Recovery email not registered", context)
+                return
+            }
+
             mailService.sendPassword(sendPassword)?.enqueue(callback)
         }
 

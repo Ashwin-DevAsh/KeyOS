@@ -168,7 +168,7 @@ class Settings : AppCompatActivity() {
         if(PermissionsHelper.checkImportantPermissions(this)){
             launch(this)
         }else{
-            AlertHelper.showToast("Permissions Required",this)
+            AlertHelper.showToast("Permissions Required", this)
             permissionsBottomSheet.show(supportFragmentManager, "TAG")
         }
     }
@@ -192,6 +192,7 @@ class Settings : AppCompatActivity() {
         }
 
     }
+
 
     private fun saveData(){
         val basicSettings = BasicSettings(
@@ -241,8 +242,8 @@ class Settings : AppCompatActivity() {
     }
 
     override fun finish() {
-        if(isFromLauncher) overridePendingTransition(0, R.anim.abc_fade_out)
-        else super.finish()
+        overridePendingTransition(0, R.anim.abc_fade_out)
+        super.finish()
     }
 
     private fun restartPermissionSheet(){

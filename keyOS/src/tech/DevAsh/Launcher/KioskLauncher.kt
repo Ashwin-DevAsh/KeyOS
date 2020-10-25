@@ -77,12 +77,17 @@ open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenc
         ColorEngine.getInstance(this).addColorChangeListeners(this, *colorsToWatch)
 
         if ((user)!!.singleApp != null) {
-            findViewById<View>(R.id.launcher).visibility = View.INVISIBLE
-
+            hide()
             Handler().postDelayed({
                                       startSingleApp()},2000)
         }
 
+    }
+
+
+    override fun hide() {
+        findViewById<View>(R.id.launcher).visibility = View.INVISIBLE
+        super.hide()
     }
 
     override fun startActivitySafely(v: View?, intent: Intent, item: ItemInfo?): Boolean {
@@ -118,7 +123,7 @@ open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenc
         Utilities.onLauncherStart()
         if(user!!.singleApp!=null){
             Handler().postDelayed({
-                if(singleAppCount<5){
+                if(singleAppCount<4){
                     singleAppCount++
                     startSingleApp()
                 }else{
