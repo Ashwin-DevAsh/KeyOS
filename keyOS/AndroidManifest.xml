@@ -18,11 +18,12 @@
     <permission
         android:name="${applicationId}.permission.QSB"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="signatureOrSystem" />
+        android:protectionLevel="signature" />
 
     <uses-permission android:name="${applicationId}.permission.QSB" /> <!-- Custom -->
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
@@ -211,10 +212,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity> <!-- launcher -->
-        <activity
-            android:name="tech.DevAsh.KeyOS.Config.Permissions"
-            android:screenOrientation="portrait"
-            android:theme="@style/keyOS" />
+
         <activity
             android:name="tech.DevAsh.KeyOS.Config.AllowApps"
             android:screenOrientation="portrait"
