@@ -1,5 +1,6 @@
 package tech.DevAsh.KeyOS.Helpers
 
+import android.Manifest.permission.PROCESS_OUTGOING_CALLS
 import android.app.AppOpsManager
 import android.app.NotificationManager
 import android.app.admin.DevicePolicyManager
@@ -23,6 +24,8 @@ import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 object PermissionsHelper {
 
     var runTimePermissions = arrayOf(
+            PROCESS_OUTGOING_CALLS,
+            android.Manifest.permission.ANSWER_PHONE_CALLS,
             android.Manifest.permission.READ_CALL_LOG,
             android.Manifest.permission.READ_CONTACTS,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,

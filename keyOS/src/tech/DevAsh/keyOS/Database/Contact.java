@@ -23,4 +23,12 @@ public class Contact extends RealmObject {
         Contact contact = (Contact) o;
         return Objects.equals(number, contact.number);
     }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "name='" + name + '\'' +
+                ", number='" + number + '\'' +
+                '}';
+    }
 }

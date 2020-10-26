@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.Handler
 import android.provider.ContactsContract
 import android.telecom.TelecomManager
 import android.telephony.TelephonyManager
@@ -16,6 +17,7 @@ import tech.DevAsh.KeyOS.Receiver.PhoneCallReceiver
 import com.android.internal.telephony.ITelephony
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Contact
+import tech.DevAsh.keyOS.Database.User
 
 
 object CallBlocker {
@@ -23,28 +25,33 @@ object CallBlocker {
     private var lastState = TelephonyManager.CALL_STATE_IDLE
     val broadcastReceiver =  PhoneCallReceiver()
 
-    fun onCall(state: Int, number: String, context: Context) {
 
+    fun onCall(state: Int, number: String, context: Context,user: User?) {
         val lastStateTemp: Int = lastState
         lastState = state
+        println("state = $state number = $number \n")
         if (lastStateTemp == state) {
             return
         }
         when (state) {
             TelephonyManager.CALL_STATE_RINGING -> {
                 //onIncoming call ringing
-                if (!UserContext.user!!.calls.allowCalls || !UserContext.user!!.calls.allowIncoming || !isValidNumber(number, context)) {
+                println("Incoming")
+                if (!user!!.calls.allowCalls || !user!!.calls.allowIncoming || !isValidNumber(
+                                number, user, context)) {
                     rejectCall(context)
                 }
             }
             TelephonyManager.CALL_STATE_OFFHOOK -> if (lastStateTemp != TelephonyManager.CALL_STATE_RINGING) {
+                println("Outgoing")
                 //outgoing call started
-                if (!UserContext.user!!.calls.allowCalls || !UserContext.user!!.calls.allowOutgoing || !isValidNumber(number, context)) {
+                if (!user!!.calls.allowCalls || !user!!.calls.allowOutgoing || !isValidNumber(number, user,context)) {
                     rejectCall(context)
                 }
             } else {
                 //incoming call answered
-                if (!UserContext.user!!.calls.allowCalls || !isValidNumber(number)) {
+                println("Incoming ended")
+                if (!user!!.calls.allowCalls || !user!!.calls.allowIncoming || !isValidNumber(number,user)) {
                     rejectCall(context)
                 }
             }
@@ -53,29 +60,32 @@ object CallBlocker {
 
     }
 
-    private fun isValidNumber(number: String, context: Context? = null):Boolean{
+    private fun isValidNumber(number: String, user: User?,context: Context? = null):Boolean{
         val possible1 = Contact("", number)
         val possible2 = Contact("", "+91$number")
         val possible3 = Contact("", "+$number")
 
+        println("Callblocker number = $number\n")
+
         when {
-            UserContext.user!!.calls.blackListCalls -> {
-                return !(UserContext.user!!.calls.blacklistContacts.contains(possible1)
-                        || UserContext.user!!.calls.blacklistContacts.contains(possible2)
-                        || UserContext.user!!.calls.blacklistContacts.contains(possible3))
+            user!!.calls.blackListCalls -> {
+                return !(user!!.calls.blacklistContacts.contains(possible1)
+                         || user!!.calls.blacklistContacts.contains(possible2)
+                         || user!!.calls.blacklistContacts.contains(possible3))
             }
-            UserContext.user!!.calls.whitelistCalls -> {
-                return (UserContext.user!!.calls.whiteListContacts.contains(possible1)
-                        || UserContext.user!!.calls.whiteListContacts.contains(possible2)
-                        || UserContext.user!!.calls.whiteListContacts.contains(possible3))
+            user!!.calls.whitelistCalls -> {
+                println(user!!.calls.whiteListContacts)
+                return (user!!.calls.whiteListContacts.contains(possible1)
+                        || user!!.calls.whiteListContacts.contains(possible2)
+                        || user!!.calls.whiteListContacts.contains(possible3))
             }
-            UserContext.user!!.calls.automaticWhitelist ->{
-                if(number.startsWith("+")){
-                    return contactExists(context!!, number)
+            user!!.calls.automaticWhitelist ->{
+                return if(number.startsWith("+")){
+                    contactExists(context!!, number)
                 }else if (number.startsWith("91") && number.length==12){
-                    return contactExists(context!!, "+$number")
+                    contactExists(context!!, "+$number")
                 }else{
-                    return contactExists(context!!, "+91$number")
+                    contactExists(context!!, "+91$number")
 
                 }
             }
@@ -109,7 +119,6 @@ object CallBlocker {
 
     private fun reformatNumber(number: String):String{
         val reformatNumber:String = number.replace(" ","").replace("-","")
-        println(reformatNumber)
         return if(reformatNumber.startsWith("+")){
             reformatNumber
         }else{
@@ -134,12 +143,15 @@ object CallBlocker {
             PackageManager.DONT_KILL_APP)
         try{
             context.unregisterReceiver(broadcastReceiver)
-        }catch (e: Throwable){}
+        }catch (e: Throwable){
+            e.printStackTrace()
+        }
     }
     private fun rejectCall(context: Context){
+        println("Call rejected..")
         val tm = context.getSystemService(Context.TELECOM_SERVICE) as TelecomManager
-        if (ActivityCompat.checkSelfPermission(context,
-                                               Manifest.permission.ANSWER_PHONE_CALLS) != PackageManager.PERMISSION_GRANTED) {
+
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ANSWER_PHONE_CALLS) != PackageManager.PERMISSION_GRANTED) {
             return
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)

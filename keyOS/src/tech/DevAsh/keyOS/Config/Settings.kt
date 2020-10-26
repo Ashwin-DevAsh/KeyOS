@@ -111,10 +111,10 @@ class Settings : AppCompatActivity() {
             optionsOnClick(soundMode, sound, BasicSettings.soundOptions)
         }
 
-//        settings?.setOnClickListener {
-//            val intent = Intent(Settings.ACTION_SETTINGS)
-//            startActivity(intent)
-//        }
+        settings?.setOnClickListener {
+            val intent = Intent(Settings.ACTION_SETTINGS)
+            startActivity(intent)
+        }
 
         apps?.setOnClickListener {
             AllowApps.type=Types.ALLOWAPPS

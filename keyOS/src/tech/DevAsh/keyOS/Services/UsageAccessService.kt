@@ -15,11 +15,14 @@ import android.net.wifi.WifiManager
 import android.os.Handler
 import android.os.IBinder
 import android.provider.Settings
+import android.telephony.PhoneStateListener
+import android.telephony.TelephonyManager
 import android.view.Surface
 import android.widget.Toast
 import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.CallBlocker
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
@@ -40,10 +43,12 @@ class UsageAccessService : Service() {
         var runnableCheckActivity: Runnable? = null
         var runnableCheckBasicSettings:Runnable? = null
         var runnableKillApps:Runnable?=null
+        var runnableCallBlocker:Runnable?=null
 
         var handlerCheckActivity: Handler? = null
         var handlerCheckBasicSettings:Handler?=null
         var handlerKillApps:Handler?=null
+        var handlerCallBlocker:Handler?=null
 
     }
 
@@ -64,6 +69,7 @@ class UsageAccessService : Service() {
         packages = packageManager.getInstalledApplications(0)
         mActivityManager = this.getSystemService(ACTIVITY_SERVICE) as ActivityManager
         createKillAppLooper()
+        createCallBlockerLooper()
         resetRotation()
 
     }
@@ -74,6 +80,15 @@ class UsageAccessService : Service() {
             Settings.System.putInt(applicationContext.contentResolver,
                                    Settings.System.ACCELEROMETER_ROTATION, 1)
         }
+    }
+
+    private fun createCallBlockerLooper(){
+        handlerCallBlocker = Handler()
+        runnableCallBlocker = Runnable {
+            runCallBlocker()
+            handlerCallBlocker?.postDelayed(runnableCallBlocker!!, 250)
+        }
+        handlerCallBlocker?.postDelayed(runnableCallBlocker!!, 1000)
     }
 
     private fun createActivityLooper(){
@@ -130,10 +145,18 @@ class UsageAccessService : Service() {
     }
 
     override fun onDestroy() {
+        println("Usage Access destroyed")
+
         handlerCheckActivity!!.removeCallbacksAndMessages(runnableCheckActivity!!)
         handlerCheckBasicSettings!!.removeCallbacksAndMessages(runnableCheckBasicSettings!!)
+        handlerCallBlocker!!.removeCallbacks(runnableCallBlocker!!)
+        handlerKillApps!!.removeCallbacks(runnableKillApps!!)
+
+        handlerKillApps= null
+        handlerCallBlocker=null
         handlerCheckActivity = null
         handlerCheckBasicSettings = null
+
         super.onDestroy()
     }
 
@@ -171,7 +194,7 @@ class UsageAccessService : Service() {
     private fun isAllowedPackage(appName: String?, className: String?):Boolean{
         val app = Apps(appName)
 
-        println("$appName $className")
+//        println("$appName $className")
 
         if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(
                         className)){
@@ -310,6 +333,29 @@ class UsageAccessService : Service() {
         checkBluetooth()
         checkOrientation()
         checkSound()
+    }
+
+
+
+    private fun runCallBlocker(){
+//        println("Blocking calls")
+        val telephony = this.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        telephony.listen(object : PhoneStateListener() {
+            override fun onCallStateChanged(state: Int, incomingNumber: String) {
+
+//                println("number = $incomingNumber state = $state calls = ${user?.calls}" )
+
+
+                if(incomingNumber.isNullOrEmpty()){
+                    return
+                }
+
+
+                CallBlocker.onCall(state, incomingNumber,
+                                   this@UsageAccessService.applicationContext, user)
+                super.onCallStateChanged(state, incomingNumber)
+            }
+        }, PhoneStateListener.LISTEN_CALL_STATE)
     }
 
     private fun checkWifi(){

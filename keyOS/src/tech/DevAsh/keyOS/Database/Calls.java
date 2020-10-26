@@ -35,4 +35,17 @@ public class Calls extends RealmObject {
     public RealmList<Contact> whiteListContacts = new RealmList();
     public RealmList<Contact> blacklistContacts = new RealmList();
 
+    @Override
+    public String toString() {
+        return "Calls{" +
+                "allowCalls=" + allowCalls +
+                ", allowIncoming=" + allowIncoming +
+                ", allowOutgoing=" + allowOutgoing +
+                ", whitelistCalls=" + whitelistCalls +
+                ", blackListCalls=" + blackListCalls +
+                ", automaticWhitelist=" + automaticWhitelist +
+                ", whiteListContacts=" + whiteListContacts +
+                ", blacklistContacts=" + blacklistContacts +
+                '}';
+    }
 }
