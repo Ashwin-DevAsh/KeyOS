@@ -29,8 +29,7 @@ class UsageAccessService : Service() {
 
     private var prevActivities = arrayListOf("com.DevAsh.demo")
 
-    var appName:String?=null
-    var className:String?=null
+
 
     var packages: List<ApplicationInfo>? = null
     private var mActivityManager: ActivityManager? = null
@@ -149,13 +148,19 @@ class UsageAccessService : Service() {
             usageEvents.getNextEvent(event)
         }
 
+        val appName: String?
+        val className: String?
+
         if(event.packageName!=null && event.className!=null){
              appName = event.packageName
              className = event.className
+        }else{
+            return
         }
+
         if(isAllowedPackage(appName, className)){
             if(appName!=null && prevActivities.last()!=appName){
-                prevActivities.add(appName!!)
+                prevActivities.add(appName)
             }
         }else{
            if(appName!=null) block(className)
