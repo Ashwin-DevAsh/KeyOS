@@ -81,13 +81,13 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:src="@drawable/exit"
+            android:src="@android:drawable/ic_lock_power_off"
             android:id="@id/image"
             android:tint="?attr/workspaceTextColor"
             app:tint="@android:color/white"
             android:layout_centerInParent="true"
-            android:padding="22dp"
-            android:layout_marginBottom="20dp"
+            android:padding="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_height="match_parent"/>
 
         <TextView
