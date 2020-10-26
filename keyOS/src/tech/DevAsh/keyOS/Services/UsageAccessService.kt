@@ -29,7 +29,6 @@ class UsageAccessService : Service() {
 
     private var prevActivities = arrayListOf("com.DevAsh.demo")
 
-    val event = UsageEvents.Event()
     var appName:String?=null
     var className:String?=null
 
@@ -144,6 +143,8 @@ class UsageAccessService : Service() {
         val time = System.currentTimeMillis()
         val usageEvents = mUsageStatsManager.queryEvents(time - 1000 * 30,
                                                          System.currentTimeMillis() + 10 * 1000)
+        val event = UsageEvents.Event()
+
         while (usageEvents.hasNextEvent()) {
             usageEvents.getNextEvent(event)
         }
