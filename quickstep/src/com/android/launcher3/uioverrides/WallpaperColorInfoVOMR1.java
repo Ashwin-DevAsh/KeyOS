@@ -33,7 +33,6 @@ import com.android.systemui.shared.system.TonalCompat.ExtractionInfo;
 
 import java.util.ArrayList;
 
-@TargetApi(Build.VERSION_CODES.O_MR1)
 public class WallpaperColorInfoVOMR1 extends WallpaperColorInfo implements OnColorsChangedListener {
 
     private final ArrayList<OnChangeListener> mListeners = new ArrayList<>();

@@ -27,7 +27,7 @@
                 android:textStyle="bold"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="PHONE calls"
+                android:text="call Settings"
                 android:layout_height="match_parent"/>
 
             <ImageView
@@ -81,7 +81,7 @@
                 </androidx.cardview.widget.CardView>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:text="Phone Calls"
+                    android:text="Allow Phone Calls"
                     android:gravity="center"
                     android:textColor="@android:color/black"
                     android:layout_marginLeft="65dp"

@@ -604,7 +604,7 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/phone_call"
+                          app:srcCompat="@drawable/call_phonebook"
                           android:padding="5dp"
                           app:tint="#03A9F4"
                           android:layout_width="match_parent"
@@ -613,7 +613,7 @@
                   </androidx.cardview.widget.CardView>
                   <TextView
                       android:layout_width="wrap_content"
-                      android:text="Phone Calls"
+                      android:text="Call Settings"
                       android:gravity="center"
                       android:textColor="@android:color/black"
                       android:layout_marginLeft="65dp"
