@@ -53,14 +53,14 @@ class PhoneBook : AppCompatActivity() {
     private fun handelSearch(){
         searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
             var handler=Handler()
-            var runnable:Runnable?=null
+            var runnable:Runnable= Runnable{}
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 handler.removeCallbacksAndMessages(true)
-                handler.removeCallbacks(runnable!!)
+                handler.removeCallbacks(runnable)
                 val query = newText.toString().toLowerCase(Locale.ROOT)
                 runnable = Runnable{
                     phoneBookAdapter?.items?.clear()
@@ -108,7 +108,7 @@ class PhoneBook : AppCompatActivity() {
 
     private fun saveData(){
         val newContacts = RealmList<Contact>()
-        ContactList.contactList.addAll(1, ArrayList<Contact>(phoneBookAdapter!!.selectedContact))
+        ContactList.contactList.addAll(1, ArrayList(phoneBookAdapter!!.selectedContact))
         for(i in  ContactList.contactList){
            if(!newContacts.contains(i) && i.number!="")
                newContacts.add(i)

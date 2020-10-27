@@ -22,7 +22,7 @@ class ContactListAdapter(
         val context: Context,
         val subHeading:String,
         val toggleCallback: ToggleCallback,
-        val toggleState:Boolean
+        var toggleState:Boolean
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var colorMapper = HashMap<String, Int>()
@@ -55,6 +55,13 @@ class ContactListAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(position!=0){
             holder as ContactListViewHolder
+
+            if(toggleState){
+                holder.view.alpha = 1f
+            }else{
+                holder.view.alpha = 0.25f
+            }
+
             holder.name.text = items[position].name
             holder.number.text = items[position].number
             holder.contact = items[position]
@@ -105,6 +112,7 @@ class ContactListAdapter(
             }
         }else{
             holder as ContactListHeaderViewHolder
+
         }
     }
 
@@ -183,12 +191,16 @@ class ContactListHeaderViewHolder(
 
     private fun turnOn(){
         view.isTurnOn.text = "ON"
+        adapter.toggleState = true
         adapter.toggleCallback.turnOn()
+        adapter.notifyDataSetChanged()
     }
 
     private fun turnOff(){
         view.isTurnOn.text = "OFF"
+        adapter.toggleState = false
         adapter.toggleCallback.turnOff()
+        adapter.notifyDataSetChanged()
     }
 
 }

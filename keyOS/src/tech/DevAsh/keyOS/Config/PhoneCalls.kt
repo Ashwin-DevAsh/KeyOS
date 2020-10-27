@@ -42,6 +42,12 @@ class PhoneCalls : AppCompatActivity() {
 
         done.setOnClickListener {
             saveData()
+            finish()
+        }
+
+       subHeading.setOnClickListener {
+            AllowApps.type= AllowApps.Companion.Types.ALLOWSERVICES
+            startActivity(Intent(this, AllowApps::class.java))
         }
 
 
@@ -51,6 +57,7 @@ class PhoneCalls : AppCompatActivity() {
             }else{
                 options.alpha = 0.25f
             }
+            saveData()
         }
 
         blacklist.setOnClickListener {
@@ -66,6 +73,15 @@ class PhoneCalls : AppCompatActivity() {
                 UserContext.user!!.calls.whitelistCalls=false
                 UserContext.user!!.calls.blackListCalls=false
             }
+            saveData()
+        }
+
+        allowIncoming.setOnCheckedChangeListener{ _, _ ->
+            saveData()
+        }
+
+        allowOutgoing.setOnCheckedChangeListener { _, _ ->
+            saveData()
         }
 
     }
@@ -98,7 +114,6 @@ class PhoneCalls : AppCompatActivity() {
            UserContext.user!!.calls.blacklistContacts
                                       )
         RealmHelper.updateUser(UserContext.user!!)
-        finish()
     }
 
     override fun onResume() {

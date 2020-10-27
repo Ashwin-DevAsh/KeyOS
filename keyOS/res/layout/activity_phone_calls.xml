@@ -57,52 +57,104 @@
             android:orientation="vertical"
             android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:layout_marginTop="30dp"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:paddingHorizontal="15dp"
-                android:layout_height="50dp">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="35dp"
-                    android:layout_marginLeft="10dp"
-                    app:cardElevation="0dp"
-                    android:layout_centerInParent="true"
-                    android:layout_alignParentLeft="true"
-                    app:cardCornerRadius="17.5dp"
-                    android:layout_height="35dp">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
 
-                    <ImageView
-                        app:srcCompat="@drawable/outgoing_calls"
-                        android:padding="7dp"
-                        app:tint="#F69705"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    </ImageView>
-                </androidx.cardview.widget.CardView>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:text="Allow Phone Calls"
-                    android:gravity="center"
-                    android:textColor="@android:color/black"
-                    android:layout_marginLeft="65dp"
-                    android:textSize="16dp"
-                    android:layout_height="match_parent"/>
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:visibility="gone"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginVertical="20dp"
                     android:layout_height="wrap_content">
-                    <com.suke.widget.SwitchButton
-                        android:id="@+id/allowCalls"
-                        app:sb_checked="true"
-                        app:sb_show_indicator="false"
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:text="ALLOW APPS"
+                        android:paddingTop="10dp"
+                        android:textAllCaps="true"
+                        android:id="@+id/heading"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_height="match_parent"/>
+                    <LinearLayout
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/edit_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"/>
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </RelativeLayout>
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/subHeading"
+                    android:layout_marginTop="25dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="15sp"
+                    android:text="If you face any trouble for making calls kindly allow all the services related to phone call\n\nhint: Search for phone in service section"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="15dp"
+                        android:layout_height="50dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Allow Calls"
+                            android:textAllCaps="true"
+                            android:layout_marginLeft="5dp"
+                            android:textStyle="bold"
+                            android:id="@+id/switchStatus"
+                            android:gravity="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_height="wrap_content">
+                            <com.suke.widget.SwitchButton
+                                app:sb_show_indicator="false"
+                                android:id="@+id/allowCalls"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+
+
+
+            </LinearLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -113,37 +165,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="vertical"
                     tools:layout_editor_absoluteX="15dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="20dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center_vertical"
-                            android:paddingTop="10dp"
-                            android:text="Incoming &amp; outgoing"
-                            android:textAllCaps="true"
-                            android:textSize="14dp"
-                            android:textStyle="bold" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginTop="25dp"
-                            android:layout_marginBottom="15dp"
-                            android:background="@drawable/edit_text" />
-                    </LinearLayout>
-
 
                     <RelativeLayout
                         android:layout_width="match_parent"
