@@ -24,7 +24,6 @@ import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 object PermissionsHelper {
 
     var runTimePermissions = arrayOf(
-            PROCESS_OUTGOING_CALLS,
             android.Manifest.permission.ANSWER_PHONE_CALLS,
             android.Manifest.permission.READ_CALL_LOG,
             android.Manifest.permission.READ_CONTACTS,
