@@ -47,8 +47,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
 
-        versionCode 4
-        versionName "KeyOS v4"
+        versionCode 6
+        versionName "KeyOS v6"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true

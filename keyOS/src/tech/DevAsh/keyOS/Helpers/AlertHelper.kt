@@ -1,12 +1,10 @@
 package tech.DevAsh.KeyOS.Helpers
 
-import android.app.Activity
+import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.danimahardhika.cafebar.CafeBar
-import com.danimahardhika.cafebar.CafeBarTheme
 import com.nispok.snackbar.Snackbar
 import com.nispok.snackbar.SnackbarManager
 
@@ -24,9 +22,8 @@ object AlertHelper {
                             )
     }
 
-    fun showToast(text: String, context: Activity) {
-        Toast.makeText(context, text,
-                       Toast.LENGTH_LONG).show()
+    fun showToast(text: String, context: Context) {
+        Toast.makeText(context, text, Toast.LENGTH_LONG).show()
 
 //        CafeBar.builder(context)
 //                .theme(CafeBarTheme.DARK)
@@ -34,8 +31,7 @@ object AlertHelper {
 //                .duration(CafeBar.Duration.MEDIUM)
 //                .content(text)
 //                .show()
+
     }
-
-
 }
 

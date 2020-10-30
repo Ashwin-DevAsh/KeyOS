@@ -1,6 +1,7 @@
 package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 
 import android.Manifest
+import android.app.Activity
 import android.content.ComponentName
 import android.content.ContentResolver
 import android.content.Context
@@ -16,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import tech.DevAsh.KeyOS.Receiver.PhoneCallReceiver
 import com.android.internal.telephony.ITelephony
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.keyOS.Database.Contact
 import tech.DevAsh.keyOS.Database.User
 
@@ -39,6 +41,7 @@ object CallBlocker {
                 println("Incoming")
                 if (!user!!.calls.allowCalls || !user!!.calls.allowIncoming || !isValidNumber(
                                 number, user, context)) {
+                    AlertHelper.showToast("Call blocked : $number", context)
                     rejectCall(context)
                 }
             }
@@ -46,12 +49,14 @@ object CallBlocker {
                 println("Outgoing")
                 //outgoing call started
                 if (!user!!.calls.allowCalls || !user!!.calls.allowOutgoing || !isValidNumber(number, user,context)) {
+                    AlertHelper.showToast("Call blocked : $number", context)
                     rejectCall(context)
                 }
             } else {
                 //incoming call answered
                 println("Incoming ended")
                 if (!user!!.calls.allowCalls || !user!!.calls.allowIncoming || !isValidNumber(number,user)) {
+                    AlertHelper.showToast("Call blocked : $number", context)
                     rejectCall(context)
                 }
             }
