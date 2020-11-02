@@ -5,6 +5,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Handler
 import tech.DevAsh.KeyOS.Config.Settings
 import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Services.UsageAccessService
@@ -77,8 +78,11 @@ object Kiosk {
     fun exitKiosk(context: Activity,password:String?){
         if(password == user?.password){
             stopKiosk(context.applicationContext)
-            exitLauncher(context.applicationContext)
-            context.finishAffinity()
+            Handler().postDelayed({
+                                      exitLauncher(context.applicationContext)
+                                      context.finishAffinity()
+                                  },500)
+
         }
     }
 
