@@ -132,6 +132,7 @@ class Settings : AppCompatActivity() {
         }
 
         phone.setOnClickListener {
+//            AlertHelper.showToast("Not available in playstore version",this)
             startActivity(Intent(this, PhoneCalls::class.java))
         }
 
@@ -212,6 +213,7 @@ class Settings : AppCompatActivity() {
         val helperLauncher = ComponentName(context, HelperLauncher::class.java)
         val kioskLauncher = ComponentName(context, KioskLauncher::class.java)
 
+        if(!PermissionsHelper.isMyLauncherDefault(context))
         packageManager.setComponentEnabledSetting(helperLauncher,
                                                   PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                                                   PackageManager.DONT_KILL_APP)

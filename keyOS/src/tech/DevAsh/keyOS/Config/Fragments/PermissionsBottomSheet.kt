@@ -129,8 +129,8 @@ class PermissionsBottomSheet(private val activity: AppCompatActivity) : BottomSh
 
         other.setOnCheckedChangeListener { _, _ ->
             this.dismiss()
-            PermissionsHelper.getRuntimePermission(activity, PermissionsHelper.runTimePermissions,
-                                                   0)
+            val permission = Array(PermissionsHelper.runTimePermissions.size) { index -> PermissionsHelper.runTimePermissions[index] }
+            PermissionsHelper.getRuntimePermission(activity, permission, 0)
         }
     }
 

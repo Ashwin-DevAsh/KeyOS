@@ -29,8 +29,6 @@ if (localPropsFile.exists()) {
     localProps.load(localPropsFile.newDataInputStream())
 }
 
-def isPublicBuild = "true"
-
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.protobuf'
@@ -47,23 +45,20 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
 
-        versionCode 6
-        versionName "KeyOS v6"
+        versionCode 8
+        versionName "KeyOS v8"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
-
         buildConfigField "boolean", "FEATURE_QUINOA", "true"
         buildConfigField "boolean", "FEATURE_SETTINGS_SEARCH", "true"
         buildConfigField "boolean", "DEBUG_STRICT_MODE", "false"
         buildConfigField "boolean", "HAS_LEAKCANARY", "false"
         buildConfigField "boolean", "FEATURE_BUG_REPORTER", "false"
+        buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "true"
 
 
-
-        ndk {
-            abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a"
-        }
+        ndk { abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a" }
     }
     buildTypes {
         debug {

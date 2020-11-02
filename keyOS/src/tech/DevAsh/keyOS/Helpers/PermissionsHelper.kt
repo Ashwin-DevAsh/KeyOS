@@ -1,12 +1,12 @@
 package tech.DevAsh.KeyOS.Helpers
 
-import android.Manifest.permission.PROCESS_OUTGOING_CALLS
 import android.app.AppOpsManager
 import android.app.NotificationManager
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -15,7 +15,7 @@ import android.os.Handler
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat.startActivity
+import com.android.launcher3.BuildConfig
 import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.tasks.Task
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
@@ -23,9 +23,8 @@ import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 
 object PermissionsHelper {
 
-    var runTimePermissions = arrayOf(
+    var runTimePermissions = arrayListOf(
             android.Manifest.permission.ANSWER_PHONE_CALLS,
-            android.Manifest.permission.READ_CALL_LOG,
             android.Manifest.permission.READ_CONTACTS,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             android.Manifest.permission.CALL_PHONE,
@@ -33,6 +32,12 @@ object PermissionsHelper {
 
     var openedForPermission = false
     var task: Task<LocationSettingsResponse>?=null
+
+    init {
+        if(!BuildConfig.IS_PLAYSTORE_BUILD){
+            runTimePermissions.add(android.Manifest.permission.READ_CALL_LOG)
+        }
+    }
 
     fun isAccessServiceEnabled(context: Context, accessibilityServiceClass: Class<*>): Boolean {
         val prefString = Settings.Secure.getString(context.contentResolver,
@@ -42,7 +47,8 @@ object PermissionsHelper {
     }
 
     fun checkImportantPermissions(context: Context):Boolean{
-        return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context) && isNotificationEnabled(context)
+        return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context) && isNotificationEnabled(
+                context)
     }
 
     fun isUsage(context: Context): Boolean {
@@ -108,7 +114,7 @@ object PermissionsHelper {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !notificationManager.isNotificationPolicyAccessGranted) {
             val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
-             context.startActivityForResult(intent,0)
+             context.startActivityForResult(intent, 0)
         }
     }
 
@@ -160,7 +166,8 @@ object PermissionsHelper {
 
     }
 
-    fun getRuntimePermission(context: AppCompatActivity, permission: Array<String>, requestCode: Int){
+    fun getRuntimePermission(context: AppCompatActivity, permission: Array<String>,
+                             requestCode: Int){
          openedForPermission = true
         ActivityCompat.requestPermissions(context,
                                           permission,
@@ -173,6 +180,24 @@ object PermissionsHelper {
     }
 
 
+    fun isMyLauncherDefault(context: Context): Boolean {
+        val filter = IntentFilter(Intent.ACTION_MAIN)
+        filter.addCategory(Intent.CATEGORY_HOME)
+        val filters: MutableList<IntentFilter> = ArrayList<IntentFilter>()
+        filters.add(filter)
+        val myPackageName: String = context.packageName
+        val activities: List<ComponentName> = ArrayList()
+        val packageManager = context.packageManager as PackageManager
+
+        // You can use name of your package here as third argument
+        packageManager.getPreferredActivities(filters, activities, null)
+        for (activity in activities) {
+            if (myPackageName == activity.packageName) {
+                return true
+            }
+        }
+        return false
+    }
 
 
 

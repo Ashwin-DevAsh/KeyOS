@@ -345,12 +345,6 @@ class UsageAccessService : Service() {
 
 //                println("number = $incomingNumber state = $state calls = ${user?.calls}" )
 
-
-                if(incomingNumber.isNullOrEmpty()){
-                    return
-                }
-
-
                 CallBlocker.onCall(state, incomingNumber,
                                    this@UsageAccessService.applicationContext, user)
                 super.onCallStateChanged(state, incomingNumber)

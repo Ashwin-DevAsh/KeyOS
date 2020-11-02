@@ -3,10 +3,13 @@ package tech.DevAsh.KeyOS.Config
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import kotlinx.android.synthetic.keyOS.activity_phone_calls.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.Calls
 
@@ -27,10 +30,20 @@ class PhoneCalls : AppCompatActivity() {
         if(!UserContext.user?.calls!!.allowCalls){
             options.alpha = 0.25f
         }
+
+        if(!BuildConfig.IS_PLAYSTORE_BUILD){
+            playstoreCover.visibility = View.GONE
+        }else{
+            playstoreCover.visibility = View.VISIBLE
+        }
     }
 
 
     private fun onClick(){
+
+        playstoreCover.setOnClickListener {
+            AlertHelper.showToast("Not supported in playstore version", this)
+        }
 
         back?.setOnClickListener {
             onBackPressed()

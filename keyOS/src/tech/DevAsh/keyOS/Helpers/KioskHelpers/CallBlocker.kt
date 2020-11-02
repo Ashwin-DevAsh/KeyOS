@@ -41,7 +41,7 @@ object CallBlocker {
                 println("Incoming")
                 if (!user!!.calls.allowCalls || !user!!.calls.allowIncoming || !isValidNumber(
                                 number, user, context)) {
-                    AlertHelper.showToast("Call blocked : $number", context)
+                    AlertHelper.showToast("Call blocked $number", context)
                     rejectCall(context)
                 }
             }
@@ -49,14 +49,15 @@ object CallBlocker {
                 println("Outgoing")
                 //outgoing call started
                 if (!user!!.calls.allowCalls || !user!!.calls.allowOutgoing || !isValidNumber(number, user,context)) {
-                    AlertHelper.showToast("Call blocked : $number", context)
+                    AlertHelper.showToast("Call blocked $number", context)
                     rejectCall(context)
+                    Handler().postDelayed({ rejectCall(context) },8000)
                 }
             } else {
                 //incoming call answered
                 println("Incoming ended")
                 if (!user!!.calls.allowCalls || !user!!.calls.allowIncoming || !isValidNumber(number,user)) {
-                    AlertHelper.showToast("Call blocked : $number", context)
+                    AlertHelper.showToast("Call blocked $number", context)
                     rejectCall(context)
                 }
             }
@@ -66,6 +67,11 @@ object CallBlocker {
     }
 
     private fun isValidNumber(number: String, user: User?,context: Context? = null):Boolean{
+
+        if(number.isEmpty()){
+            return true
+        }
+
         val possible1 = Contact("", number)
         val possible2 = Contact("", "+91$number")
         val possible3 = Contact("", "+$number")

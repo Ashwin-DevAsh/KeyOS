@@ -376,6 +376,14 @@
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="50dp"
+                                android:text="Contacts save under whitelist only able to call you"
+                                android:textSize="13dp" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -436,9 +444,16 @@
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:text="Blacklist Contacts"
-
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="50dp"
+                                android:text="Contacts save under blacklist won't be able to call you"
+                                android:textSize="13dp" />
 
 
                         </LinearLayout>
@@ -550,6 +565,14 @@
                                 android:layout_height="wrap_content"
                                 app:sb_show_indicator="false" />
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:focusable="true"
+                            android:clickable="true"
+                            android:orientation="vertical"
+                            android:id="@+id/playstoreCover"
+                            android:layout_height="65dp"/>
                     </RelativeLayout>
 
 

@@ -8,11 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import kotlinx.android.synthetic.keyOS.header_contact_listtile.view.*
 import kotlinx.android.synthetic.keyOS.widget_listtile_contact.view.*
 import tech.DevAsh.KeyOS.Config.ContactList
 import tech.DevAsh.KeyOS.Config.ToggleCallback
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.ContactHelper
 import tech.DevAsh.keyOS.Database.Contact
 
@@ -177,9 +179,19 @@ class ContactListHeaderViewHolder(
         view.isTurnOn.text = if (adapter.toggleState) "ON" else "OFF"
         view.turnOn.isChecked = adapter.toggleState
         view.subHeading.text = adapter.subHeading
+
+        if(!BuildConfig.IS_PLAYSTORE_BUILD){
+            view.playstoreCover.visibility = View.GONE
+        }else{
+            view.playstoreCover.visibility = View.VISIBLE
+
+        }
     }
 
     fun onClick(){
+        view.playstoreCover.setOnClickListener {
+            AlertHelper.showToast("Not supported in playstore version", context)
+        }
         view.turnOn.setOnCheckedChangeListener{ _, isChecked ->
             if(isChecked){
                 turnOn()
