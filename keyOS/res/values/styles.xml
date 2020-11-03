@@ -47,6 +47,12 @@
         <!--        <item name="android:windowBackground">@android:color/transparent</item>-->
     </style>
 
+        <style name="MyProgressDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+            <item name="colorAccent">@color/colorAccentDark</item>
+            <item name="android:textColor">@color/white</item>
+            <item name="android:background">#424242</item>
+        </style>
+
 
     <style name="heading" parent="keyOS">
         <item name="fontFamily">@font/poppins_medium</item>

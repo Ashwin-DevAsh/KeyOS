@@ -18,4 +18,9 @@ class ApiModule {
     fun getMailService():IMailService{
         return retrofit.create(IMailService::class.java)
     }
+
+    @Provides
+    fun getQRCodeService():IQRCodeService{
+        return retrofit.create(IQRCodeService::class.java)
+    }
 }

@@ -15,13 +15,22 @@ import kotlinx.android.synthetic.keyOS.activity_import_export_settings.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
+import tech.DevAsh.keyOS.Api.IQRCodeService
+import tech.DevAsh.keyOS.Config.Fragments.DisplayQr
 import tech.DevAsh.keyOS.Database.User
+import tech.DevAsh.keyOS.KioskApp
 import java.io.*
+import javax.inject.Inject
 
 
 class ImportExportSettings : AppCompatActivity() {
+
+    @Inject
+    lateinit var QRCodeService: IQRCodeService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        KioskApp.applicationComponents?.inject(this)
         setContentView(R.layout.activity_import_export_settings)
         onClick()
 
@@ -52,8 +61,8 @@ class ImportExportSettings : AppCompatActivity() {
         }
 
         displayQr.setOnClickListener {
-            AlertHelper.showToast("Not supported in early access", this)
-//            DisplayQr().show(supportFragmentManager, "")
+//            AlertHelper.showToast("Not supported in early access", this)
+            DisplayQr(this).show(supportFragmentManager, "")
         }
 
         export.setOnClickListener {

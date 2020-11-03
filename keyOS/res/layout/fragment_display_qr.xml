@@ -15,7 +15,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_marginHorizontal="20dp"
             android:layout_height="400dp">
@@ -23,7 +23,8 @@
                 android:layout_width="match_parent"
                 android:id="@+id/qrImage"
                 android:layout_height="wrap_content"/>
-        </LinearLayout>
+            <include android:id="@+id/loadingScreen" layout="@layout/layout_loading_screen"/>
+        </RelativeLayout>
         <TextView
             android:paddingHorizontal="20dp"
             android:gravity="center"

@@ -196,7 +196,13 @@
         <activity
             android:name="tech.DevAsh.KeyOS.Config.PhoneCalls"
             android:screenOrientation="portrait"
-            android:theme="@style/keyOS" />
+            android:theme="@style/keyOS" >
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+        </activity>
         <activity
             android:name="tech.DevAsh.KeyOS.Config.PhoneBook"
             android:screenOrientation="portrait"

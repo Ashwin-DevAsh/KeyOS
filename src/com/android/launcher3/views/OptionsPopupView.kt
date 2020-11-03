@@ -135,7 +135,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             }
             val target = RectF(x - halfSize, y - halfSize, x + halfSize, y + halfSize)
             val options = ArrayList<OptionItem>()
-            options.add(OptionItem(R.string.wallpaper_button_text, R.drawable.exit,
+            options.add(OptionItem(R.string.wallpaper_button_text, R.drawable.ic_power_settings_new_24px,
                                    LauncherLogProto.ControlType.WALLPAPER_BUTTON) { v: View ->
                 exitKeyOs(v)
             })

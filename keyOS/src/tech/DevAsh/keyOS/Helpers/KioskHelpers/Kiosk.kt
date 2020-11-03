@@ -78,10 +78,8 @@ object Kiosk {
     fun exitKiosk(context: Activity,password:String?){
         if(password == user?.password){
             stopKiosk(context.applicationContext)
-            Handler().postDelayed({
-                                      exitLauncher(context.applicationContext)
-                                      context.finishAffinity()
-                                  },500)
+            exitLauncher(context.applicationContext)
+            context.finishAffinity()
 
         }
     }
