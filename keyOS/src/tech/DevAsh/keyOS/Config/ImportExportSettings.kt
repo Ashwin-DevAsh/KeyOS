@@ -36,6 +36,8 @@ class ImportExportSettings : AppCompatActivity() {
 
     }
 
+    val displayQR =  DisplayQr(this)
+
 
 
     fun onClick(){
@@ -62,7 +64,7 @@ class ImportExportSettings : AppCompatActivity() {
 
         displayQr.setOnClickListener {
 //            AlertHelper.showToast("Not supported in early access", this)
-            DisplayQr(this).show(supportFragmentManager, "")
+           displayQR.show(supportFragmentManager, "")
         }
 
         export.setOnClickListener {
@@ -106,6 +108,10 @@ class ImportExportSettings : AppCompatActivity() {
         }else if(requestCode==3){
             if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
                 showFileChooser()
+            }
+        }else if(requestCode==4){
+            if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
+               displayQR.share()
             }
         }
     }
@@ -162,6 +168,7 @@ class ImportExportSettings : AppCompatActivity() {
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+
 
     private fun loadBackupData(backupData:String){
         val user:User = Gson().fromJson(backupData, User::class.java)
