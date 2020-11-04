@@ -10,6 +10,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.icu.util.Calendar
+import android.icu.util.TimeZone
 import android.media.AudioManager
 import android.net.wifi.WifiManager
 import android.os.Handler
@@ -26,6 +27,9 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.CallBlocker
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
+import java.security.Timestamp
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class UsageAccessService : Service() {
@@ -220,7 +224,7 @@ class UsageAccessService : Service() {
         val allowedTime = Time.fromString(user!!.editedApps[editedAppIndex!!]!!.hourPerDay)
         val usageTime = getUsageStatistics(this, appName)
 
-        println("$allowedTime $usageTime")
+        println("time : $allowedTime $usageTime")
 
         if(!allowedTime.isGreaterThan(usageTime!!)){
             prevActivities = arrayListOf("com.DevAsh.demo")
@@ -242,6 +246,17 @@ class UsageAccessService : Service() {
         val mUsageStatsManager = context.getSystemService(USAGE_STATS_SERVICE) as UsageStatsManager
         val cal: Calendar = Calendar.getInstance()
         cal.add(Calendar.DAY_OF_YEAR, -5)
+        cal.time =  Date(System.currentTimeMillis()) // compute start of the day for the timestamp
+        cal.set(Calendar.HOUR_OF_DAY, 0)
+        cal.set(Calendar.MINUTE, 0)
+        cal.set(Calendar.SECOND, 0)
+        cal.set(Calendar.MILLISECOND, 0)
+
+
+        val formatter =  SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+        val dateString = formatter.format( Date(cal.timeInMillis));
+
+        println("time = "+dateString)
 
         val stats: List<UsageStats> = mUsageStatsManager.queryUsageStats(
                 UsageStatsManager.INTERVAL_DAILY,
@@ -343,7 +358,7 @@ class UsageAccessService : Service() {
         telephony.listen(object : PhoneStateListener() {
             override fun onCallStateChanged(state: Int, incomingNumber: String) {
 
-//                println("number = $incomingNumber state = $state calls = ${user?.calls}" )
+                //                println("number = $incomingNumber state = $state calls = ${user?.calls}" )
 
                 CallBlocker.onCall(state, incomingNumber,
                                    this@UsageAccessService.applicationContext, user)

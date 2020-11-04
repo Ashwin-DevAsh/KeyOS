@@ -47,9 +47,9 @@ class EditApp : AppCompatActivity() {
         }
 
         timer.setOnClickListener{
-            AlertHelper.showToast("Not supported in early access", this)
+//            AlertHelper.showToast("Not supported in early access", this)
 
-            //            setTimer()
+                        setTimer()
         }
 
         cancel.setOnClickListener {

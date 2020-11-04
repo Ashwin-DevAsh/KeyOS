@@ -132,7 +132,6 @@ class Settings : AppCompatActivity() {
         }
 
         phone.setOnClickListener {
-//            AlertHelper.showToast("Not available in playstore version",this)
             startActivity(Intent(this, PhoneCalls::class.java))
         }
 
@@ -150,6 +149,7 @@ class Settings : AppCompatActivity() {
         val nextOption = options[(position + 1) % 3]
         textView.text = nextOption
         animate(parentView)
+        this.saveData()
     }
 
 

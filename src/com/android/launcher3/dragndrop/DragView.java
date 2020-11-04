@@ -222,87 +222,82 @@ public class DragView extends View {
         }
         // Load the adaptive icon on a background thread and add the view in ui thread.
         final Looper workerLooper = LauncherModel.getWorkerLooper();
-        new Handler(workerLooper).postAtFrontOfQueue(new Runnable() {
-            @Override
-            public void run() {
-                LauncherAppState appState = LauncherAppState.getInstance(mLauncher);
-                Object[] outObj = new Object[1];
-                // TODO: Actually support wiggling for custom folder icons, but with proper sizing
-                final Drawable dr = getFullDrawable(info, appState, outObj);
+        new Handler(workerLooper).postAtFrontOfQueue(() -> {
+            LauncherAppState appState = LauncherAppState.getInstance(mLauncher);
+            Object[] outObj = new Object[1];
+            // TODO: Actually support wiggling for custom folder icons, but with proper sizing
+            final Drawable dr = getFullDrawable(info, appState, outObj);
 
-                if (dr instanceof AdaptiveIconCompat) {
-                    int w = mBitmap.getWidth();
-                    int h = mBitmap.getHeight();
-                    int blurMargin = (int) mLauncher.getResources()
-                            .getDimension(R.dimen.blur_size_medium_outline) / 2;
+            if (dr instanceof AdaptiveIconCompat) {
+                int w = mBitmap.getWidth();
+                int h = mBitmap.getHeight();
+                int blurMargin = (int) mLauncher.getResources()
+                        .getDimension(R.dimen.blur_size_medium_outline) / 2;
 
-                    Rect bounds = new Rect(0, 0, w, h);
-                    bounds.inset(blurMargin, blurMargin);
-                    // Badge is applied after icon normalization so the bounds for badge should not
-                    // be scaled down due to icon normalization.
-                    Rect badgeBounds = new Rect(bounds);
-                    mBadge = getBadge(info, appState, outObj[0]);
-                    mBadge.setBounds(badgeBounds);
+                Rect bounds = new Rect(0, 0, w, h);
+                bounds.inset(blurMargin, blurMargin);
+                // Badge is applied after icon normalization so the bounds for badge should not
+                // be scaled down due to icon normalization.
+                Rect badgeBounds = new Rect(bounds);
+                mBadge = getBadge(info, appState, outObj[0]);
+                mBadge.setBounds(badgeBounds);
 
-                    LauncherIcons li = LauncherIcons.obtain(mLauncher);
-                    Utilities.scaleRectAboutCenter(bounds,
-                            li.getNormalizer().getScale(dr, null, null, null));
-                    li.recycle();
-                    AdaptiveIconCompat adaptiveIcon = (AdaptiveIconCompat) dr;
+                LauncherIcons li = LauncherIcons.obtain(mLauncher);
+                Utilities.scaleRectAboutCenter(bounds,
+                        li.getNormalizer().getScale(dr, null, null, null));
+                li.recycle();
+                AdaptiveIconCompat adaptiveIcon = (AdaptiveIconCompat) dr;
 
-                    Rect fgBounds = new Rect(bounds);
-                    Rect bgBounds = new Rect(bounds);
-                    Utilities.scaleRectAboutCenter(bgBounds, 1.1f);
-                    // Shrink very tiny bit so that the clip path is smaller than the original bitmap
-                    // that has anti aliased edges and shadows.
-                    Rect shrunkBounds = new Rect(prefs.getScaleAdaptiveBg() ? bgBounds : fgBounds);
-                    Utilities.scaleRectAboutCenter(shrunkBounds, 0.98f);
-                    adaptiveIcon.setBounds(shrunkBounds);
-                    final Path mask = adaptiveIcon.getIconMask();
+                Rect fgBounds = new Rect(bounds);
+                Rect bgBounds = new Rect(bounds);
+                Utilities.scaleRectAboutCenter(bgBounds, 1.1f);
+                // Shrink very tiny bit so that the clip path is smaller than the original bitmap
+                // that has anti aliased edges and shadows.
+                Rect shrunkBounds = new Rect(prefs.getScaleAdaptiveBg() ? bgBounds : fgBounds);
+                Utilities.scaleRectAboutCenter(shrunkBounds, 0.98f);
+                adaptiveIcon.setBounds(shrunkBounds);
+                final Path mask = adaptiveIcon.getIconMask();
 
-                    mTranslateX = new SpringFloatValue(DragView.this,
-                            w * AdaptiveIconCompat.getExtraInsetFraction());
-                    mTranslateY = new SpringFloatValue(DragView.this,
-                            h * AdaptiveIconCompat.getExtraInsetFraction());
+                mTranslateX = new SpringFloatValue(DragView.this,
+                        w * AdaptiveIconCompat.getExtraInsetFraction());
+                mTranslateY = new SpringFloatValue(DragView.this,
+                        h * AdaptiveIconCompat.getExtraInsetFraction());
 
-                    fgBounds.inset(
-                            (int) (-fgBounds.width() * AdaptiveIconCompat.getExtraInsetFraction()),
-                            (int) (-fgBounds.height() * AdaptiveIconCompat.getExtraInsetFraction())
-                    );
-                    bgBounds.inset(
-                            (int) (-bgBounds.width() * AdaptiveIconCompat.getExtraInsetFraction()),
-                            (int) (-bgBounds.height() * AdaptiveIconCompat.getExtraInsetFraction())
-                    );
-                    mBgSpringDrawable = adaptiveIcon.getBackground();
-                    if (mBgSpringDrawable == null) {
-                        mBgSpringDrawable = new ColorDrawable(Color.TRANSPARENT);
-                    }
-                    mBgSpringDrawable.setBounds(prefs.getScaleAdaptiveBg() ? bgBounds : fgBounds);
-                    mFgSpringDrawable = adaptiveIcon.getForeground();
-                    if (mFgSpringDrawable == null) {
-                        mFgSpringDrawable = new ColorDrawable(Color.TRANSPARENT);
-                    }
-                    mFgSpringDrawable.setBounds(fgBounds);
-
-                    new Handler(Looper.getMainLooper()).post(new Runnable() {
-                        @Override
-                        public void run() {
-                            // Assign the variable on the UI thread to avoid race conditions.
-                            mScaledMaskPath = mask;
-
-                            // Do not draw the background in case of folder as its translucent
-                            mDrawBitmap = !(dr instanceof FolderAdaptiveIcon);
-
-                            if (info.isDisabled()) {
-                                FastBitmapDrawable d = new FastBitmapDrawable((Bitmap) null);
-                                d.setIsDisabled(true);
-                                mBaseFilter = (ColorMatrixColorFilter) d.getColorFilter();
-                            }
-                            updateColorFilter();
-                        }
-                    });
+                fgBounds.inset(
+                        (int) (-fgBounds.width() * AdaptiveIconCompat.getExtraInsetFraction()),
+                        (int) (-fgBounds.height() * AdaptiveIconCompat.getExtraInsetFraction())
+                );
+                bgBounds.inset(
+                        (int) (-bgBounds.width() * AdaptiveIconCompat.getExtraInsetFraction()),
+                        (int) (-bgBounds.height() * AdaptiveIconCompat.getExtraInsetFraction())
+                );
+                mBgSpringDrawable = adaptiveIcon.getBackground();
+                if (mBgSpringDrawable == null) {
+                    mBgSpringDrawable = new ColorDrawable(Color.TRANSPARENT);
                 }
-            }});
+                mBgSpringDrawable.setBounds(prefs.getScaleAdaptiveBg() ? bgBounds : fgBounds);
+                mFgSpringDrawable = adaptiveIcon.getForeground();
+                if (mFgSpringDrawable == null) {
+                    mFgSpringDrawable = new ColorDrawable(Color.TRANSPARENT);
+                }
+                mFgSpringDrawable.setBounds(fgBounds);
+
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    // Assign the variable on the UI thread to avoid race conditions.
+                    mScaledMaskPath = mask;
+
+                    // Do not draw the background in case of folder as its translucent
+                    mDrawBitmap = !(dr instanceof FolderAdaptiveIcon);
+
+                    if (info.isDisabled()) {
+                        FastBitmapDrawable d = new FastBitmapDrawable((Bitmap) null);
+                        d.setIsDisabled(true);
+                        mBaseFilter = (ColorMatrixColorFilter) d.getColorFilter();
+                    }
+                    updateColorFilter();
+                });
+            }
+        });
     }
 
     @TargetApi(Build.VERSION_CODES.O)
