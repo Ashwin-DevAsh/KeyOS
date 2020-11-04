@@ -236,6 +236,7 @@ class UsageAccessService : Service() {
         println("time : $appName $allowedTime $usageTime")
 
         if(usageTime!=null && !allowedTime.isGreaterThan(usageTime)){
+            prevActivities.remove(appName)
             showAlertDialog(this, appName)
             return false
         }
@@ -303,22 +304,37 @@ class UsageAccessService : Service() {
             }
         }
 
+        var lastEvent:UsageEvents.Event? = null;
+
         for ( i in 0 until allEvents.size-1){
            val E0= allEvents[i];
            val E1= allEvents[i + 1];
-            if (E0.eventType == 1 && E1.eventType == 2
-                && E0.className == E1.className){
+            if (E0.eventType == 1 && E1.eventType == 2){
                 val diff = E1.timeStamp - E0.timeStamp;
                 if(map[E0.packageName]==null){
                     map[E0.packageName]?.timeInForeground= diff;
                 }else{
                     map[E0.packageName]!!.timeInForeground+= diff;
                 }
+
             }
+            lastEvent = E1
+
         }
+
+        var diff:Long = 0
+        println("time last event type ${lastEvent?.eventType }")
+        if(lastEvent?.eventType == UsageEvents.Event.MOVE_TO_FOREGROUND){
+            diff = System.currentTimeMillis() - lastEvent.timeStamp
+        }
+
+        println("time : acutal time = ${convertLongToTime( map[appName]?.timeInForeground!!)}")
+        println("time : calc time = ${convertLongToTime( map[appName]?.timeInForeground!!+diff)}")
+
+
         val time = map[appName]?.timeInForeground ?: return null
 
-        return convertLongToTime(time)
+        return convertLongToTime(time+diff)
 
 
 
