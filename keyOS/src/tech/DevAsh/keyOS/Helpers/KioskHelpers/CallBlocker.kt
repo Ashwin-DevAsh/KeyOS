@@ -1,11 +1,8 @@
 package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 
 import android.Manifest
-import android.app.Activity
-import android.content.ComponentName
 import android.content.ContentResolver
 import android.content.Context
-import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Handler
@@ -13,10 +10,7 @@ import android.provider.ContactsContract
 import android.telecom.TelecomManager
 import android.telephony.TelephonyManager
 import androidx.core.app.ActivityCompat
-
-import tech.DevAsh.KeyOS.Receiver.PhoneCallReceiver
 import com.android.internal.telephony.ITelephony
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.keyOS.Database.Contact
 import tech.DevAsh.keyOS.Database.User
@@ -25,7 +19,6 @@ import tech.DevAsh.keyOS.Database.User
 object CallBlocker {
 
     private var lastState = TelephonyManager.CALL_STATE_IDLE
-    val broadcastReceiver =  PhoneCallReceiver()
 
 
     fun onCall(state: Int, number: String, context: Context,user: User?) {
@@ -139,25 +132,8 @@ object CallBlocker {
 
 
 
-    fun start(context: Context){
-        val pm: PackageManager = context.packageManager
-        val componentName = ComponentName(context, PhoneCallReceiver::class.java)
-        pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-            PackageManager.DONT_KILL_APP)
-        registerReceivers(context)
-    }
-    fun stop(context: Context){
-        val pm: PackageManager = context.packageManager
-        val componentName = ComponentName(context, PhoneCallReceiver::class.java)
-        pm.setComponentEnabledSetting(componentName,
-            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-            PackageManager.DONT_KILL_APP)
-        try{
-            context.unregisterReceiver(broadcastReceiver)
-        }catch (e: Throwable){
-            e.printStackTrace()
-        }
-    }
+
+
     private fun rejectCall(context: Context){
         println("Call rejected..")
         val tm = context.getSystemService(Context.TELECOM_SERVICE) as TelecomManager
@@ -171,11 +147,7 @@ object CallBlocker {
             disconnectPhoneITelephony(context)
     }
 
-    private fun registerReceivers(context: Context){
-        val broadcast = "PACKAGE_NAME.android.action.broadcast"
-        val intentFilter = IntentFilter(broadcast)
-        context.registerReceiver(broadcastReceiver, intentFilter)
-    }
+
 
     private fun disconnectPhoneITelephony(context: Context) {
         val telephonyService: ITelephony

@@ -32,21 +32,15 @@ object Kiosk {
     }
     fun startKiosk(context: Context){
         println("Start Kiosk...")
-        CallBlocker.start(context)
         NotificationBlocker.start()
         context.startService(getAccessibilityService(context))
         context.startService(getUsageAccessService(context))
     }
 
     fun stopKiosk(context: Context){
-        CallBlocker.stop(context)
+        context.applicationContext.stopService(getUsageAccessService(context))
         NotificationBlocker.stop()
         context.applicationContext.stopService(getAccessibilityService(context))
-        context.applicationContext.stopService(getUsageAccessService(context))
-    }
-    fun reStart(context: Context){
-        startKiosk(context)
-        startKiosk(context)
     }
 
     fun openKioskSettings(context: Activity,password:String){

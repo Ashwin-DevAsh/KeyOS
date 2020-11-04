@@ -1,6 +1,8 @@
 package tech.DevAsh.KeyOS.Services
 
+import android.R
 import android.app.ActivityManager
+import android.app.AlertDialog
 import android.app.Service
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStats
@@ -18,7 +20,11 @@ import android.os.IBinder
 import android.provider.Settings
 import android.telephony.PhoneStateListener
 import android.telephony.TelephonyManager
+import android.view.Gravity
 import android.view.Surface
+import android.view.View
+import android.view.WindowManager
+import android.widget.Button
 import android.widget.Toast
 import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.AppsContext
@@ -27,8 +33,6 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.CallBlocker
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
-import java.security.Timestamp
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -54,6 +58,8 @@ class UsageAccessService : Service() {
         var handlerKillApps:Handler?=null
         var handlerCallBlocker:Handler?=null
 
+        var isAlive = false
+
     }
 
 
@@ -75,6 +81,7 @@ class UsageAccessService : Service() {
         createKillAppLooper()
         createCallBlockerLooper()
         resetRotation()
+        isAlive=true
 
     }
 
@@ -89,7 +96,8 @@ class UsageAccessService : Service() {
     private fun createCallBlockerLooper(){
         handlerCallBlocker = Handler()
         runnableCallBlocker = Runnable {
-            runCallBlocker()
+
+            if(isAlive)runCallBlocker()
             handlerCallBlocker?.postDelayed(runnableCallBlocker!!, 250)
         }
         handlerCallBlocker?.postDelayed(runnableCallBlocker!!, 1000)
@@ -98,7 +106,7 @@ class UsageAccessService : Service() {
     private fun createActivityLooper(){
         handlerCheckActivity = Handler()
         runnableCheckActivity = Runnable {
-            checkActivity(applicationContext)
+            if(isAlive) checkActivity(applicationContext)
             handlerCheckActivity?.postDelayed(runnableCheckActivity!!, 250)
         }
         handlerCheckActivity?.postDelayed(runnableCheckActivity!!, 1000)
@@ -107,7 +115,7 @@ class UsageAccessService : Service() {
     private fun createKillAppLooper(){
         handlerKillApps = Handler()
         runnableKillApps = Runnable {
-            killApp()
+            if(isAlive) killApp()
             handlerKillApps?.postDelayed(runnableKillApps!!, 250)
         }
         handlerKillApps?.postDelayed(runnableKillApps!!, 1000)
@@ -116,7 +124,7 @@ class UsageAccessService : Service() {
     private fun createBasicSettingsLooper(){
         handlerCheckBasicSettings = Handler()
         runnableCheckBasicSettings = Runnable {
-            checkBasicSettings()
+            if(isAlive) checkBasicSettings()
             handlerCheckActivity?.postDelayed(runnableCheckBasicSettings!!, 250)
         }
         handlerCheckBasicSettings?.postDelayed(runnableCheckBasicSettings!!, 1000)
@@ -150,6 +158,8 @@ class UsageAccessService : Service() {
 
     override fun onDestroy() {
         println("Usage Access destroyed")
+
+        isAlive = false
 
         handlerCheckActivity!!.removeCallbacksAndMessages(runnableCheckActivity!!)
         handlerCheckBasicSettings!!.removeCallbacksAndMessages(runnableCheckBasicSettings!!)
@@ -224,10 +234,11 @@ class UsageAccessService : Service() {
         val allowedTime = Time.fromString(user!!.editedApps[editedAppIndex!!]!!.hourPerDay)
         val usageTime = getUsageStatistics(this, appName)
 
-        println("time : $allowedTime $usageTime")
+        println("time : $appName $allowedTime $usageTime")
 
         if(!allowedTime.isGreaterThan(usageTime!!)){
             prevActivities = arrayListOf("com.DevAsh.demo")
+            showAlertDialog(this, appName)
             return false
         }
 
@@ -239,13 +250,35 @@ class UsageAccessService : Service() {
     }
 
 
+    private fun showAlertDialog(context: Context, appName: String?){
+
+//
+//        val dialog =  AlertDialog.Builder(context.applicationContext,
+//                                          AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+//        dialog.setTitle("App isn't available")
+//        dialog.setMessage("$appName is paused as your app timer ran out")
+//                .setPositiveButton("", null)
+//
+//        val  alert = dialog.create();
+//        alert.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG);
+//        alert.show()
+
+//        val builder =   MaterialDialog.Builder(context.applicationContext)
+//        builder.title()
+//                .content()
+//                .positiveText(android.R.string.ok)
+//                .show()
+
+    }
+
+
+
 
 
     private fun getUsageStatistics(context: Context, packageName: String?) :Time? {
 
         val mUsageStatsManager = context.getSystemService(USAGE_STATS_SERVICE) as UsageStatsManager
-        val cal: Calendar = Calendar.getInstance()
-        cal.add(Calendar.DAY_OF_YEAR, -5)
+        val cal: Calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
         cal.time =  Date(System.currentTimeMillis()) // compute start of the day for the timestamp
         cal.set(Calendar.HOUR_OF_DAY, 0)
         cal.set(Calendar.MINUTE, 0)
@@ -253,38 +286,23 @@ class UsageAccessService : Service() {
         cal.set(Calendar.MILLISECOND, 0)
 
 
-        val formatter =  SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-        val dateString = formatter.format( Date(cal.timeInMillis));
+        val stats: Map<String, UsageStats> =
+                mUsageStatsManager.queryAndAggregateUsageStats(cal.timeInMillis,
+                                                               System.currentTimeMillis())
 
-        println("time = "+dateString)
-
-        val stats: List<UsageStats> = mUsageStatsManager.queryUsageStats(
-                UsageStatsManager.INTERVAL_DAILY,
-                cal.timeInMillis,
-                System.currentTimeMillis())
-
-
-        val statCount = stats.size
-        for (i in 0 until statCount) {
-            val pkgStats: UsageStats = stats[i]
-            println(packageName)
-            if (pkgStats.packageName==packageName){
-                return (convertLongToTime(pkgStats.totalTimeInForeground))
-            }
-
-        }
-
-        return null
+        val time = stats[packageName]?.totalTimeInForeground ?: return null
+        return convertLongToTime(time)
 
     }
 
     private fun convertLongToTime(milliSeconds: Long):Time{
+
+
         val SECOND = 1000
         val MINUTE = 60 * SECOND
         val HOUR = 60 * MINUTE
         val DAY = 24 * HOUR
         val time = Time()
-        val text = StringBuffer("")
         var ms = milliSeconds
         if (ms > DAY) {
             time.day = ms / DAY
@@ -302,7 +320,6 @@ class UsageAccessService : Service() {
             time.seconds = ms / SECOND
             ms %= SECOND.toLong()
         }
-        text.append("$ms ms")
         return time
     }
 
@@ -353,15 +370,13 @@ class UsageAccessService : Service() {
 
 
     private fun runCallBlocker(){
-//        println("Blocking calls")
         val telephony = this.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         telephony.listen(object : PhoneStateListener() {
             override fun onCallStateChanged(state: Int, incomingNumber: String) {
-
-                //                println("number = $incomingNumber state = $state calls = ${user?.calls}" )
-
-                CallBlocker.onCall(state, incomingNumber,
-                                   this@UsageAccessService.applicationContext, user)
+                if(isAlive){
+                    CallBlocker
+                            .onCall(state, incomingNumber, this@UsageAccessService.applicationContext, user)
+                }
                 super.onCallStateChanged(state, incomingNumber)
             }
         }, PhoneStateListener.LISTEN_CALL_STATE)
