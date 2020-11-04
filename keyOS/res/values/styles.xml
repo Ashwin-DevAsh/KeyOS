@@ -50,6 +50,8 @@
         <style name="MyProgressDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
             <item name="colorAccent">@color/colorAccentDark</item>
             <item name="android:textColor">@color/white</item>
+            <item name="android:textColorPrimary">#f3f3f3</item>
+            <item name="android:colorPrimary">@color/colorAccentDark</item>
             <item name="android:background">#424242</item>
         </style>
 

@@ -1,18 +1,16 @@
 package tech.DevAsh.KeyOS.Services
 
-import android.R
 import android.app.ActivityManager
 import android.app.AlertDialog
 import android.app.Service
 import android.app.usage.UsageEvents
-import android.app.usage.UsageStats
 import android.app.usage.UsageStatsManager
 import android.bluetooth.BluetoothAdapter
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.ApplicationInfo
-import android.icu.util.Calendar
-import android.icu.util.TimeZone
+import android.graphics.drawable.Drawable
 import android.media.AudioManager
 import android.net.wifi.WifiManager
 import android.os.Handler
@@ -20,12 +18,10 @@ import android.os.IBinder
 import android.provider.Settings
 import android.telephony.PhoneStateListener
 import android.telephony.TelephonyManager
-import android.view.Gravity
 import android.view.Surface
-import android.view.View
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.Toast
+import com.android.launcher3.R
 import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
@@ -33,7 +29,10 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.CallBlocker
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
-import java.util.*
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.ZonedDateTime
 
 
 class UsageAccessService : Service() {
@@ -200,7 +199,7 @@ class UsageAccessService : Service() {
                 prevActivities.add(appName)
             }
         }else{
-           if(appName!=null) block(className)
+           if(appName!=null) block()
         }
 
     }
@@ -208,7 +207,6 @@ class UsageAccessService : Service() {
     private fun isAllowedPackage(appName: String?, className: String?):Boolean{
         val app = Apps(appName)
 
-//        println("$appName $className")
 
         if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(
                         className)){
@@ -224,6 +222,7 @@ class UsageAccessService : Service() {
         }
 
         if(appIndex==-1){
+            Toast.makeText(applicationContext, "Access Denied : $appName", Toast.LENGTH_SHORT).show()
             return false
         }
 
@@ -236,64 +235,98 @@ class UsageAccessService : Service() {
 
         println("time : $appName $allowedTime $usageTime")
 
-        if(!allowedTime.isGreaterThan(usageTime!!)){
-            prevActivities = arrayListOf("com.DevAsh.demo")
+        if(usageTime!=null && !allowedTime.isGreaterThan(usageTime)){
             showAlertDialog(this, appName)
             return false
         }
 
         if (user!!.editedApps[editedAppIndex]!!.blockedActivities.contains(className)){
+            Toast.makeText(applicationContext, "Access Denied : $className", Toast.LENGTH_SHORT).show()
             return false
         }
 
         return true
     }
 
+    var alert : AlertDialog?=null
 
     private fun showAlertDialog(context: Context, appName: String?){
 
-//
-//        val dialog =  AlertDialog.Builder(context.applicationContext,
-//                                          AlertDialog.THEME_DEVICE_DEFAULT_DARK);
-//        dialog.setTitle("App isn't available")
-//        dialog.setMessage("$appName is paused as your app timer ran out")
-//                .setPositiveButton("", null)
-//
-//        val  alert = dialog.create();
-//        alert.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG);
-//        alert.show()
 
-//        val builder =   MaterialDialog.Builder(context.applicationContext)
-//        builder.title()
-//                .content()
-//                .positiveText(android.R.string.ok)
-//                .show()
+        if(alert!=null){
+            if(!alert!!.isShowing){
+                alert?.show()
+            }
+            return
+        }
 
+        val dialog =  AlertDialog.Builder(context, R.style.MyProgressDialog);
+        dialog.setTitle("App isn't available")
+        dialog.setMessage("$appName is paused as your app timer ran out")
+        dialog.setCancelable(false)
+        dialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, i: Int ->
+            dialogInterface.dismiss()
+        }
+
+        alert = dialog.create()
+        alert?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        alert?.show()
     }
 
 
-
-
-
-    private fun getUsageStatistics(context: Context, packageName: String?) :Time? {
-
+    private fun getUsageStatistics(context: Context, appName: String?) :Time? {
         val mUsageStatsManager = context.getSystemService(USAGE_STATS_SERVICE) as UsageStatsManager
-        val cal: Calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
-        cal.time =  Date(System.currentTimeMillis()) // compute start of the day for the timestamp
-        cal.set(Calendar.HOUR_OF_DAY, 0)
-        cal.set(Calendar.MINUTE, 0)
-        cal.set(Calendar.SECOND, 0)
-        cal.set(Calendar.MILLISECOND, 0)
+        var  currentEvent: UsageEvents.Event?
+        val  allEvents : ArrayList<UsageEvents.Event> = ArrayList();
+        val map : HashMap<String, AppUsageInfo> =  HashMap();
+        val utc = ZoneId.of("UTC")
+        val defaultZone = ZoneId.systemDefault()
+        val date: LocalDate = LocalDate.now()
+        val startDate = date.atStartOfDay(defaultZone).withZoneSameInstant(utc)
+        val start = startDate.toInstant().toEpochMilli()
+        val end = startDate.plusDays(1).toInstant().toEpochMilli()
 
 
-        val stats: Map<String, UsageStats> =
-                mUsageStatsManager.queryAndAggregateUsageStats(cal.timeInMillis,
-                                                               System.currentTimeMillis())
+        val usageEvents = mUsageStatsManager.queryEvents(start, end);
 
-        val time = stats[packageName]?.totalTimeInForeground ?: return null
+
+        while (usageEvents.hasNextEvent()) {
+            currentEvent =  UsageEvents.Event()
+            usageEvents.getNextEvent(currentEvent)
+            if(currentEvent.packageName==appName)
+            if (currentEvent.eventType == UsageEvents.Event.MOVE_TO_FOREGROUND ||
+                currentEvent.eventType == UsageEvents.Event.MOVE_TO_BACKGROUND ) {
+                allEvents.add(currentEvent)
+                val key = currentEvent.packageName
+                if (map[key] ==null)
+                    map[key] =  AppUsageInfo (key);
+            }
+        }
+
+        for ( i in 0 until allEvents.size-1){
+           val E0= allEvents[i];
+           val E1= allEvents[i + 1];
+            if (E0.eventType == 1 && E1.eventType == 2
+                && E0.className == E1.className){
+                val diff = E1.timeStamp - E0.timeStamp;
+                if(map[E0.packageName]==null){
+                    map[E0.packageName]?.timeInForeground= diff;
+                }else{
+                    map[E0.packageName]!!.timeInForeground+= diff;
+                }
+            }
+        }
+        val time = map[appName]?.timeInForeground ?: return null
+
         return convertLongToTime(time)
 
+
+
     }
+
+
+
+
 
     private fun convertLongToTime(milliSeconds: Long):Time{
 
@@ -323,10 +356,7 @@ class UsageAccessService : Service() {
         return time
     }
 
-
-
-
-    private fun block(className: String?){
+    private fun block() {
         val launcher = Intent(Intent.ACTION_MAIN)
         launcher.addCategory(Intent.CATEGORY_HOME)
         launcher.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -356,7 +386,6 @@ class UsageAccessService : Service() {
         }catch (e: Throwable){
             startActivity(launcher)
         }
-        Toast.makeText(applicationContext, "Access Denied : $className", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -373,9 +402,10 @@ class UsageAccessService : Service() {
         val telephony = this.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
         telephony.listen(object : PhoneStateListener() {
             override fun onCallStateChanged(state: Int, incomingNumber: String) {
-                if(isAlive){
+                if (isAlive) {
                     CallBlocker
-                            .onCall(state, incomingNumber, this@UsageAccessService.applicationContext, user)
+                            .onCall(state, incomingNumber,
+                                    this@UsageAccessService.applicationContext, user)
                 }
                 super.onCallStateChanged(state, incomingNumber)
             }
@@ -421,7 +451,6 @@ class UsageAccessService : Service() {
         }
     }
 
-
     private fun checkOrientation(){
         if(user?.basicSettings?.orientation.equals(BasicSettings.DontCare)){
             return
@@ -455,9 +484,6 @@ class UsageAccessService : Service() {
         }
     }
 
-
-
-
     private fun turnOnBluetooth(){
         val mBluetoothAdapter: BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         if (!mBluetoothAdapter.isEnabled) {
@@ -471,6 +497,13 @@ class UsageAccessService : Service() {
             mBluetoothAdapter.disable()
         }
     }
+}
+
+class AppUsageInfo(var packageName: String) {
+    var appIcon: Drawable? = null
+    var appName: String? = null
+    var timeInForeground: Long = 0
+    var launchCount = 0
 }
 
 class Time{
@@ -499,16 +532,13 @@ class Time{
 
 
         if(this.hour!!>time.hour!!){
-            print("$hour<${time.hour}}")
             return true
+        }else if(this.hour!!<time.hour!!){
+            return false
         }
 
-        if(this.minute!!>time.minute!!){
-            print("$minute<${time.minute}}")
-            return true
-        }
+        return this.minute!! > time.minute!!
 
-        return false
     }
 
 }
