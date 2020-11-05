@@ -10,7 +10,6 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.ApplicationInfo
-import android.graphics.drawable.Drawable
 import android.media.AudioManager
 import android.net.wifi.WifiManager
 import android.os.Handler
@@ -29,10 +28,8 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.CallBlocker
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
-import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
-import java.time.ZonedDateTime
 
 
 class UsageAccessService : Service() {
@@ -51,15 +48,15 @@ class UsageAccessService : Service() {
         var runnableCheckBasicSettings:Runnable? = null
         var runnableKillApps:Runnable?=null
         var runnableCallBlocker:Runnable?=null
-
         var handlerCheckActivity: Handler? = null
         var handlerCheckBasicSettings:Handler?=null
         var handlerKillApps:Handler?=null
         var handlerCallBlocker:Handler?=null
-
         var isAlive = false
 
     }
+
+    private var timeExhaustApps = TimeExhaustApps()
 
 
     override fun onBind(intent: Intent): IBinder? {
@@ -161,12 +158,10 @@ class UsageAccessService : Service() {
         handlerCheckBasicSettings!!.removeCallbacksAndMessages(runnableCheckBasicSettings!!)
         handlerCallBlocker!!.removeCallbacks(runnableCallBlocker!!)
         handlerKillApps!!.removeCallbacks(runnableKillApps!!)
-
         handlerKillApps= null
         handlerCallBlocker=null
         handlerCheckActivity = null
         handlerCheckBasicSettings = null
-
         super.onDestroy()
     }
 
@@ -230,18 +225,26 @@ class UsageAccessService : Service() {
             return true
         }
 
-        val allowedTime = Time.fromString(user!!.editedApps[editedAppIndex!!]!!.hourPerDay)
-        val usageTime = getUsageStatistics(this, appName)
 
-        println("time : $appName $allowedTime $usageTime")
+        val singleApp = user!!.singleApp ?: Apps("")
 
-        if(usageTime!=null && !allowedTime.isGreaterThan(usageTime)){
-            prevActivities.removeAll(arrayListOf(appName))
-            showAlertDialog(this, appName)
-            return false
+        if(singleApp.packageName!=appName && !user!!.editedApps[editedAppIndex!!]!!.hourPerDay.startsWith("24")){
+
+            val allowedTime = Time.fromString(user!!.editedApps[editedAppIndex]!!.hourPerDay)
+            val usageTime = getUsageStatistics(this, appName)
+
+            println("time : $appName $allowedTime $usageTime")
+
+            if(usageTime!=null && !allowedTime.isGreaterThan(usageTime)){
+                prevActivities.removeAll(arrayListOf(appName))
+                timeExhaustApps.blockedApps.add(appName!!)
+                showAlertDialog(this, appName)
+                return false
+            }
+
         }
 
-        if (user!!.editedApps[editedAppIndex]!!.blockedActivities.contains(className)){
+        if (user!!.editedApps[editedAppIndex!!]!!.blockedActivities.contains(className)){
             Toast.makeText(applicationContext, "Access Denied : $className", Toast.LENGTH_SHORT).show()
             return false
         }
@@ -252,7 +255,6 @@ class UsageAccessService : Service() {
     var alert : AlertDialog?=null
 
     private fun showAlertDialog(context: Context, appName: String?){
-
 
         if(alert!=null){
             if(!alert!!.isShowing){
@@ -277,9 +279,9 @@ class UsageAccessService : Service() {
 
     private fun getUsageStatistics(context: Context, appName: String?) :Time? {
         val mUsageStatsManager = context.getSystemService(USAGE_STATS_SERVICE) as UsageStatsManager
-        var  currentEvent: UsageEvents.Event?
-        val  allEvents : ArrayList<UsageEvents.Event> = ArrayList();
-        val map : HashMap<String, AppUsageInfo> =  HashMap();
+        var currentEvent: UsageEvents.Event?
+        val allEvents : ArrayList<UsageEvents.Event> = ArrayList()
+        val map : HashMap<String, AppUsageInfo> =  HashMap()
         val utc = ZoneId.of("UTC")
         val defaultZone = ZoneId.systemDefault()
         val date: LocalDate = LocalDate.now()
@@ -287,8 +289,22 @@ class UsageAccessService : Service() {
         val start = startDate.toInstant().toEpochMilli()
         val end = startDate.plusDays(1).toInstant().toEpochMilli()
 
+        if(timeExhaustApps.startTime==start){
+            println("time : old day")
+            if(timeExhaustApps.blockedApps.contains(appName)){
+                println("time : cache hit")
 
-        val usageEvents = mUsageStatsManager.queryEvents(start, end);
+                val time = Time()
+                time.hour = 24
+                return time
+            }
+        }else{
+            println("time : new day")
+            timeExhaustApps.startTime=start
+            timeExhaustApps.blockedApps.clear()
+        }
+
+        val usageEvents = mUsageStatsManager.queryEvents(start, end)
 
 
         while (usageEvents.hasNextEvent()) {
@@ -514,6 +530,11 @@ class UsageAccessService : Service() {
 class AppUsageInfo(var packageName: String) {
     var appName: String? = null
     var timeInForeground: Long = 0
+}
+
+class TimeExhaustApps{
+    var startTime :Long=0
+    var blockedApps = hashSetOf<String>()
 }
 
 class Time{

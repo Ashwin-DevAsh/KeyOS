@@ -65,9 +65,8 @@ class ActivityList : AppCompatActivity() {
             HelperVariables.selectedEditedApp?.blockedActivities?.add(i)
         }
 
-        UserContext.user!!.editedApps.remove(HelperVariables.selectedEditedApp)
+        UserContext.user!!.editedApps.removeAll(arrayListOf( HelperVariables.selectedEditedApp))
         UserContext.user!!.editedApps.add(HelperVariables.selectedEditedApp)
-
         RealmHelper.updateUser(UserContext.user!!)
         super.onBackPressed()
     }

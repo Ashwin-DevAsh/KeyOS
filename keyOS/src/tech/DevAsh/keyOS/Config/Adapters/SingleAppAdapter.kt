@@ -4,6 +4,7 @@ package tech.DevAsh.keyOS.Config.Adapters
 
 import android.content.Context
 import android.content.Intent
+import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -143,6 +144,7 @@ class SingleAppHeader(
         view.turnOn.isChecked = adapter.toggleState
         view.subHeading.text = adapter.subHeading
         view.subHeading.textSize=17f
+        view.playstoreCover.visibility = View.GONE
     }
 
     fun onClick(){
