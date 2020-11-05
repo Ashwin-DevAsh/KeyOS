@@ -129,6 +129,8 @@ class UsageAccessService : Service() {
     private fun killApp() {
         try{
             for (packageInfo in packages!!) {
+
+
                 val app = Apps(packageInfo.packageName)
                 if (packageInfo.packageName == packageName || user!!.allowedApps.contains(app) || user!!.allowedServices.contains(
                                 app)) {
@@ -136,6 +138,11 @@ class UsageAccessService : Service() {
                 }
                 mActivityManager?.killBackgroundProcesses(packageInfo.packageName)
             }
+
+            for(i in timeExhaustApps.blockedApps){
+                mActivityManager?.killBackgroundProcesses(i)
+            }
+
         }catch (e: Throwable){}
 
     }
@@ -263,7 +270,7 @@ class UsageAccessService : Service() {
             return
         }
 
-        val dialog =  AlertDialog.Builder(context, R.style.MyProgressDialog)
+        val dialog = AlertDialog.Builder(context, R.style.MyProgressDialog)
         dialog.setTitle("App isn't available")
         dialog.setMessage("$appName is paused as your app timer ran out")
         dialog.setCancelable(false)
