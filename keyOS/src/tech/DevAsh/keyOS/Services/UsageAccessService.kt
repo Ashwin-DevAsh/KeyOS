@@ -37,7 +37,7 @@ import java.time.ZonedDateTime
 
 class UsageAccessService : Service() {
 
-    private var prevActivities = arrayListOf("com.DevAsh.demo")
+    private var prevActivities = arrayListOf("")
 
 
 
@@ -156,10 +156,7 @@ class UsageAccessService : Service() {
     }
 
     override fun onDestroy() {
-        println("Usage Access destroyed")
-
         isAlive = false
-
         handlerCheckActivity!!.removeCallbacksAndMessages(runnableCheckActivity!!)
         handlerCheckBasicSettings!!.removeCallbacksAndMessages(runnableCheckBasicSettings!!)
         handlerCallBlocker!!.removeCallbacks(runnableCallBlocker!!)
@@ -173,33 +170,36 @@ class UsageAccessService : Service() {
         super.onDestroy()
     }
 
+    var appName: String?=null
+    var className: String?=null
+
     private fun checkActivity(context: Context) {
         val mUsageStatsManager = context.getSystemService(USAGE_STATS_SERVICE) as UsageStatsManager
         val time = System.currentTimeMillis()
-        val usageEvents = mUsageStatsManager.queryEvents(time - 1000 * 30,
-                                                         System.currentTimeMillis() + 10 * 1000)
+        val usageEvents = mUsageStatsManager.queryEvents(time - 1000 * 30, System.currentTimeMillis() + 30 * 1000)
         val event = UsageEvents.Event()
 
         while (usageEvents.hasNextEvent()) {
             usageEvents.getNextEvent(event)
         }
 
-        val appName: String?
-        val className: String?
-
         if(event.packageName!=null && event.className!=null){
              appName = event.packageName
              className = event.className
-        }else{
+        }
+
+        println("time = $appName $className")
+
+        if(appName==null || className==null){
             return
         }
 
         if(isAllowedPackage(appName, className)){
-            if(appName!=null && prevActivities.last()!=appName){
-                prevActivities.add(appName)
+            if(prevActivities.last()!=appName){
+                prevActivities.add(appName!!)
             }
         }else{
-           if(appName!=null) block()
+            block(appName!!)
         }
 
     }
@@ -236,7 +236,7 @@ class UsageAccessService : Service() {
         println("time : $appName $allowedTime $usageTime")
 
         if(usageTime!=null && !allowedTime.isGreaterThan(usageTime)){
-            prevActivities.remove(appName)
+            prevActivities.removeAll(arrayListOf(appName))
             showAlertDialog(this, appName)
             return false
         }
@@ -261,11 +261,11 @@ class UsageAccessService : Service() {
             return
         }
 
-        val dialog =  AlertDialog.Builder(context, R.style.MyProgressDialog);
+        val dialog =  AlertDialog.Builder(context, R.style.MyProgressDialog)
         dialog.setTitle("App isn't available")
         dialog.setMessage("$appName is paused as your app timer ran out")
         dialog.setCancelable(false)
-        dialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, i: Int ->
+        dialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, _: Int ->
             dialogInterface.dismiss()
         }
 
@@ -307,14 +307,14 @@ class UsageAccessService : Service() {
         var lastEvent:UsageEvents.Event? = null;
 
         for ( i in 0 until allEvents.size-1){
-           val E0= allEvents[i];
-           val E1= allEvents[i + 1];
+           val E0= allEvents[i]
+           val E1= allEvents[i + 1]
             if (E0.eventType == 1 && E1.eventType == 2){
-                val diff = E1.timeStamp - E0.timeStamp;
+                val diff = E1.timeStamp - E0.timeStamp
                 if(map[E0.packageName]==null){
-                    map[E0.packageName]?.timeInForeground= diff;
+                    map[E0.packageName]?.timeInForeground= diff
                 }else{
-                    map[E0.packageName]!!.timeInForeground+= diff;
+                    map[E0.packageName]!!.timeInForeground+= diff
                 }
 
             }
@@ -323,26 +323,14 @@ class UsageAccessService : Service() {
         }
 
         var diff:Long = 0
-        println("time last event type ${lastEvent?.eventType }")
         if(lastEvent?.eventType == UsageEvents.Event.MOVE_TO_FOREGROUND){
             diff = System.currentTimeMillis() - lastEvent.timeStamp
         }
 
-        println("time : acutal time = ${convertLongToTime( map[appName]?.timeInForeground!!)}")
-        println("time : calc time = ${convertLongToTime( map[appName]?.timeInForeground!!+diff)}")
-
-
         val time = map[appName]?.timeInForeground ?: return null
 
         return convertLongToTime(time+diff)
-
-
-
     }
-
-
-
-
 
     private fun convertLongToTime(milliSeconds: Long):Time{
 
@@ -372,15 +360,19 @@ class UsageAccessService : Service() {
         return time
     }
 
-    private fun block() {
+    private fun block(packageName: String) {
+
         val launcher = Intent(Intent.ACTION_MAIN)
         launcher.addCategory(Intent.CATEGORY_HOME)
         launcher.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         try {
-            val prev1 = packageManager.getLaunchIntentForPackage(
-                    prevActivities[prevActivities.size - 1])
-            val prev2 = packageManager.getLaunchIntentForPackage(
-                    prevActivities[prevActivities.size - 2])
+
+            if(prevActivities.last()==this.packageName){
+                throw Exception()
+            }
+
+            val prev1 = packageManager.getLaunchIntentForPackage(prevActivities[prevActivities.size - 1])
+            val prev2 = packageManager.getLaunchIntentForPackage(prevActivities[prevActivities.size - 2])
             when {
                 prevActivities.last()==packageName->{
                     throw Exception()
@@ -399,8 +391,12 @@ class UsageAccessService : Service() {
                     throw Exception()
                 }
             }
+
         }catch (e: Throwable){
             startActivity(launcher)
+        }finally {
+            appName=null
+            className=null
         }
     }
 
@@ -516,10 +512,8 @@ class UsageAccessService : Service() {
 }
 
 class AppUsageInfo(var packageName: String) {
-    var appIcon: Drawable? = null
     var appName: String? = null
     var timeInForeground: Long = 0
-    var launchCount = 0
 }
 
 class Time{
