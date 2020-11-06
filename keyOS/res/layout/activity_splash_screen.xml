@@ -23,7 +23,7 @@
             android:layout_height="200dp">
             <ImageView
                 android:layout_width="match_parent"
-                android:src="@drawable/app_icon"
+                android:src="@drawable/app_icon_2"
                 android:layout_height="match_parent"/>
         </androidx.cardview.widget.CardView>
 
