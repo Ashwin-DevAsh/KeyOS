@@ -16,17 +16,49 @@
             android:layout_width="match_parent"
             android:background="@color/colorPrimary"
             android:layout_height="match_parent">
+
+
             <TextView
                 android:layout_marginLeft="20dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
-                android:textSize="20dp"
-                android:text="SETTINGS"
+                android:textSize="24dp"
+                android:text="KeyOS"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:clickable="false"
                 android:focusable="false"
                 android:layout_height="match_parent"/>
+
+
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="55dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="50dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="5dp"
+                    android:id="@+id/permissionsAlert"
+                    android:layout_marginEnd="6dp"
+                    app:cardBackgroundColor="@android:color/holo_red_dark"
+                    android:layout_height="10dp"/>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:padding="13.5dp"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/permissions"
+                    app:srcCompat="@drawable/ic_shield"
+                    android:layout_height="50dp"/>
+            </RelativeLayout>
+
+
+
 
             <ImageView
                 android:layout_width="50dp"
@@ -565,6 +597,76 @@
                       android:layout_height="match_parent"/>
               </RelativeLayout>
 
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:orientation="horizontal"
+                  android:layout_marginLeft="5dp"
+                  android:layout_marginVertical="10dp"
+                  android:layout_height="wrap_content">
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:text="ADVANCE"
+                      android:paddingTop="10dp"
+                      android:layout_gravity="center_vertical"
+                      android:gravity="center_vertical"
+                      android:textStyle="bold"
+                      android:textSize="14dp"
+                      android:layout_height="match_parent"/>
+                  <LinearLayout
+                      android:layout_marginBottom="15dp"
+                      android:layout_marginTop="25dp"
+                      android:background="@drawable/edit_text"
+                      android:layout_marginHorizontal="10dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="1dp"/>
+              </LinearLayout>
+
+
+              <RelativeLayout
+                  android:layout_marginTop="10dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="50dp">
+                  <androidx.cardview.widget.CardView
+                      android:layout_width="35dp"
+                      android:layout_marginLeft="10dp"
+                      app:cardElevation="0dp"
+                      android:layout_centerInParent="true"
+                      android:layout_alignParentLeft="true"
+                      app:cardCornerRadius="17.5dp"
+                      android:layout_height="35dp">
+
+                      <ImageView
+                          app:srcCompat="@drawable/camera"
+                          android:padding="6dp"
+                          app:tint="#ff5722"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent">
+                      </ImageView>
+                  </androidx.cardview.widget.CardView>
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:text="Disable Camera"
+                      android:gravity="center"
+                      android:textColor="@android:color/black"
+                      android:layout_marginLeft="65dp"
+                      android:textSize="16dp"
+                      android:layout_height="match_parent"/>
+                  <LinearLayout
+                      android:layout_width="wrap_content"
+                      android:layout_centerInParent="true"
+                      android:layout_alignParentRight="true"
+                      android:layout_height="wrap_content">
+                      <com.suke.widget.SwitchButton
+                          android:id="@+id/cameraSwitch"
+                          app:sb_show_indicator="false"
+                          app:sb_checked="false"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"/>
+                  </LinearLayout>
+              </RelativeLayout>
+
+
               <LinearLayout
                   android:layout_width="match_parent"
                   android:orientation="horizontal"
@@ -588,6 +690,7 @@
                       android:layout_width="match_parent"
                       android:layout_height="1dp"/>
               </LinearLayout>
+
 
 
               <RelativeLayout

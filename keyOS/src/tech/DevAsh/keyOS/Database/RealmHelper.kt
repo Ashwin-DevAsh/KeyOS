@@ -2,11 +2,19 @@ package tech.DevAsh.KeyOS.Database
 
 import android.content.Context
 import io.realm.Realm
+import io.realm.RealmConfiguration
+import tech.DevAsh.keyOS.Database.RealmMigrations
 import tech.DevAsh.keyOS.Database.User
 
 object RealmHelper {
     fun init(context: Context){
         Realm.init(context)
+        val mConfiguration = RealmConfiguration.Builder()
+                .name("RealmData.realm")
+                .schemaVersion(2)
+                .migration(RealmMigrations())
+                .build()
+        Realm.setDefaultConfiguration(mConfiguration)
     }
 
     fun updateUser(user: User){

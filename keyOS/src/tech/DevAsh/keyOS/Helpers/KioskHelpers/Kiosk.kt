@@ -1,13 +1,18 @@
 package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 
 import android.app.Activity
+import android.app.admin.DeviceAdminReceiver
+import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Handler
 import tech.DevAsh.KeyOS.Config.Settings
+import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Database.UserContext.user
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
+import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
+import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
 import tech.DevAsh.Launcher.KioskLauncher
@@ -35,15 +40,18 @@ object Kiosk {
         NotificationBlocker.start()
         context.startService(getAccessibilityService(context))
         context.startService(getUsageAccessService(context))
+        setCamera(context,user!!.basicSettings.isDisableCamera)
     }
 
     fun stopKiosk(context: Context){
         context.applicationContext.stopService(getUsageAccessService(context))
         NotificationBlocker.stop()
         context.applicationContext.stopService(getAccessibilityService(context))
+        setCamera(context,false)
+
     }
 
-    fun openKioskSettings(context: Activity,password:String){
+    fun openKioskSettings(context: Activity, password: String){
         if(password == user?.password){
             val intent = Intent(context, Settings::class.java)
             intent.putExtra("isFromLauncher", true)
@@ -69,15 +77,24 @@ object Kiosk {
         return !user!!.editedApps[editedAppIndex]!!.hideShortcut
     }
 
-    fun exitKiosk(context: Activity,password:String?){
+    fun exitKiosk(context: Activity, password: String?){
         if(password == user?.password){
             stopKiosk(context.applicationContext)
             exitLauncher(context.applicationContext)
             context.finishAffinity()
-
         }
     }
 
+
+
+
+    private fun setCamera(context: Context,boolean: Boolean){
+        if(PermissionsHelper.isAdmin(context)){
+            val dpm = context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
+            val deviceAdmin = ComponentName(context, SampleAdminReceiver::class.java)
+            dpm.setCameraDisabled(deviceAdmin, boolean)
+        }
+    }
 
 
     private fun exitLauncher(context: Context) {

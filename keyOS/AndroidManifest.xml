@@ -383,18 +383,7 @@
             android:name="tech.DevAsh.Launcher.gestures.handlers.SleepTimeoutActivity"
             android:screenOrientation="locked"
             android:theme="@style/SleepTimeoutTheme" /> <!-- DT2S using device admin -->
-        <receiver
-            android:name="tech.DevAsh.Launcher.gestures.handlers.SleepMethodDeviceAdmin$SleepDeviceAdmin"
-            android:description="@string/dt2s_admin_hint"
-            android:permission="android.permission.BIND_DEVICE_ADMIN">
-            <meta-data
-                android:name="android.app.device_admin"
-                android:resource="@xml/sleep_admin_policy" />
-
-            <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
-            </intent-filter>
-        </receiver> <!-- <service -->
+    <!-- <service -->
         <!-- android:name="ch.deletescape.keyOS.Launcher.KioskAccessibilityService" -->
         <!-- android:label="@string/derived_app_name" -->
         <!-- android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"> -->

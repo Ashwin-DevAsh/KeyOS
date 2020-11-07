@@ -6,6 +6,8 @@ import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.ACTION_MAIN
+import android.content.Intent.CATEGORY_HOME
 import android.content.IntentFilter
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -16,6 +18,7 @@ import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.android.launcher3.BuildConfig
+import com.fasterxml.jackson.databind.util.ClassUtil.getPackageName
 import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.tasks.Task
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
@@ -98,11 +101,10 @@ object PermissionsHelper {
     }
 
     fun getAdminPermission(context: AppCompatActivity){
-        openedForPermission=true
         val componentName = ComponentName(context, SampleAdminReceiver::class.java)
         val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN)
         intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName)
-        context.startActivityForResult(intent, 0)
+        context.startActivityForResult(intent, 1)
     }
 
 
@@ -180,24 +182,12 @@ object PermissionsHelper {
     }
 
 
-    fun isMyLauncherDefault(context: Context): Boolean {
-        val filter = IntentFilter(Intent.ACTION_MAIN)
-        filter.addCategory(Intent.CATEGORY_HOME)
-        val filters: MutableList<IntentFilter> = ArrayList<IntentFilter>()
-        filters.add(filter)
-        val myPackageName: String = context.packageName
-        val activities: List<ComponentName> = ArrayList()
-        val packageManager = context.packageManager as PackageManager
-
-        // You can use name of your package here as third argument
-        packageManager.getPreferredActivities(filters, activities, null)
-        for (activity in activities) {
-            if (myPackageName == activity.packageName) {
-                return true
-            }
-        }
-        return false
-    }
+    fun isMyLauncherDefault(context: Context): Boolean = ArrayList<ComponentName>().apply {
+       context.packageManager.getPreferredActivities(
+                arrayListOf(IntentFilter(ACTION_MAIN).apply { addCategory(CATEGORY_HOME) }),
+                this,
+                context.packageName)
+    }.isNotEmpty()
 
 
 

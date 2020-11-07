@@ -13,10 +13,12 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import kotlinx.android.synthetic.keyOS.activity_settings.*
+import kotlinx.android.synthetic.keyOS.activity_settings.view.*
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
 import tech.DevAsh.KeyOS.Database.RealmHelper
@@ -31,6 +33,9 @@ import tech.DevAsh.keyOS.Database.BasicSettings
 
 
 class Settings : AppCompatActivity() {
+    
+
+    var shouldLaunch = false
     private val permissionsBottomSheet=PermissionsBottomSheet(this)
     private var isFromLauncher:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,6 +85,7 @@ class Settings : AppCompatActivity() {
     private fun onClick(){
         launch?.setOnClickListener {
             if(launchContainer.visibility==View.VISIBLE){
+                shouldLaunch = true
                 saveData()
                 if(isFromLauncher){
                    onBackPressed()
@@ -135,8 +141,19 @@ class Settings : AppCompatActivity() {
             startActivity(Intent(this, PhoneCalls::class.java))
         }
 
+        cameraSwitch.setOnCheckedChangeListener{_,isChecked->
+            UserContext.user?.basicSettings?.isDisableCamera = isChecked
+            if (isChecked && !PermissionsHelper.isAdmin(this)) {
+                    PermissionsHelper.getAdminPermission(this)
+            }
+        }
+
         exit.setOnClickListener {
             Kiosk.exitKiosk(this, UserContext.user?.password)
+        }
+
+        permissions.setOnClickListener {
+            permissionsBottomSheet.show(supportFragmentManager, "TAG")
         }
     }
 
@@ -167,9 +184,11 @@ class Settings : AppCompatActivity() {
 
     private fun checkPermissionAndLaunch(){
         if(PermissionsHelper.checkImportantPermissions(this)){
-            launch(this)
+            if(shouldLaunch){
+                shouldLaunch=false
+                launch(this)
+            } 
         }else{
-            AlertHelper.showToast("Permissions Required", this)
             permissionsBottomSheet.show(supportFragmentManager, "TAG")
         }
     }
@@ -180,6 +199,12 @@ class Settings : AppCompatActivity() {
         bluetoothMode?.text = UserContext.user?.basicSettings?.bluetooth
         soundMode?.text = UserContext.user?.basicSettings?.sound
         notificationPanel?.isChecked = UserContext.user?.basicSettings?.notificationPanel!!
+        cameraSwitch?.isChecked = UserContext.user?.basicSettings?.isDisableCamera!! && PermissionsHelper.isAdmin(this)
+        if(PermissionsHelper.checkImportantPermissions(this)){
+            permissionsAlert.visibility = View.GONE
+        }else{
+            permissionsAlert.visibility = View.VISIBLE
+        }
     }
 
 
@@ -201,7 +226,9 @@ class Settings : AppCompatActivity() {
                 orientationMode.text.toString(),
                 bluetoothMode.text.toString(),
                 soundMode.text.toString(),
-                notificationPanel.isChecked)
+                notificationPanel.isChecked,
+                cameraSwitch.isChecked
+                                         )
         UserContext.user!!.basicSettings = (basicSettings)
         RealmHelper.updateUser(UserContext.user!!)
     }
@@ -253,7 +280,7 @@ class Settings : AppCompatActivity() {
             PermissionsHelper.openedForPermission=false
             Handler().postDelayed({
                                       if (PermissionsHelper.checkImportantPermissions(this)) {
-                                          checkPermissionAndLaunch()
+                                           checkPermissionAndLaunch()
                                       } else {
                                           permissionsBottomSheet.show(supportFragmentManager, "TAG")
                                       }
