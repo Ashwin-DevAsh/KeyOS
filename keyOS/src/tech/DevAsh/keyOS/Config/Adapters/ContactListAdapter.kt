@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Context
 import android.graphics.Color
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -180,11 +181,10 @@ class ContactListHeaderViewHolder(
         view.turnOn.isChecked = adapter.toggleState
         view.subHeading.text = adapter.subHeading
 
-        if(!BuildConfig.IS_PLAYSTORE_BUILD){
-            view.playstoreCover.visibility = View.GONE
-        }else{
+        if(BuildConfig.IS_PLAYSTORE_BUILD && Build.VERSION.SDK_INT > 25) {
             view.playstoreCover.visibility = View.VISIBLE
-
+        }else{
+            view.playstoreCover.visibility = View.GONE
         }
     }
 

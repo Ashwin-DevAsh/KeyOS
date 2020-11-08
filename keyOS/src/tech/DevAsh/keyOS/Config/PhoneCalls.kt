@@ -1,12 +1,14 @@
 package tech.DevAsh.KeyOS.Config
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import kotlinx.android.synthetic.keyOS.activity_phone_calls.*
+import kotlinx.android.synthetic.keyOS.header_contact_listtile.view.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
@@ -31,10 +33,10 @@ class PhoneCalls : AppCompatActivity() {
             options.alpha = 0.25f
         }
 
-        if(!BuildConfig.IS_PLAYSTORE_BUILD){
-            playstoreCover.visibility = View.GONE
-        }else{
+        if(BuildConfig.IS_PLAYSTORE_BUILD && Build.VERSION.SDK_INT > 25) {
             playstoreCover.visibility = View.VISIBLE
+        }else{
+            playstoreCover.visibility = View.GONE
         }
     }
 
