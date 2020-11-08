@@ -137,12 +137,16 @@ object CallBlocker {
     private fun rejectCall(context: Context){
         println("Call rejected..")
         val tm = context.getSystemService(Context.TELECOM_SERVICE) as TelecomManager
-
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ANSWER_PHONE_CALLS) != PackageManager.PERMISSION_GRANTED) {
-            return
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+            try {
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ANSWER_PHONE_CALLS) != PackageManager.PERMISSION_GRANTED) {
+                    println("Permission Not Given")
+                }
+               tm.endCall()
+            }catch (e:Throwable){
+                e.printStackTrace()
+            }
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-            tm.endCall()
         else
             disconnectPhoneITelephony(context)
     }

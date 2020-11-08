@@ -22,7 +22,8 @@
 
     <uses-permission android:name="${applicationId}.permission.QSB" /> <!-- Custom -->
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -112,12 +113,12 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.READ_PRECISE_PHONE_STATE"
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_PRECISE_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
-<!--    <uses-permission android:name="android.permission.READ_CALL_LOG" />-->
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" /> <!-- <uses-permission android:name="android.permission.READ_CALL_LOG" /> -->
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -129,11 +130,10 @@
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-    <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW"
+    <uses-permission
+        android:name="android.permission.INTERNAL_SYSTEM_WINDOW"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
-
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
@@ -150,16 +150,32 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.Manifest.permission.MODIFY_PHONE_STATE"/>
+
+
+
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"
+
+        tools:ignore="ProtectedPermissions" />
+
 
     <application android:name="tech.DevAsh.keyOS.KioskApp">
         <activity
-            android:name="tech.DevAsh.keyOS.Config.QrScanner"
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
-            />
+            android:name="tech.DevAsh.keyOS.Config.ScreenSaver"/>
         <activity
+            android:name="tech.DevAsh.keyOS.Config.QrScanner"
             android:screenOrientation="portrait"
+            android:theme="@style/keyOS" />
+        <activity
             android:name="tech.DevAsh.keyOS.Config.ImportExportSettings"
+            android:screenOrientation="portrait"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.keyOS.Config.Permission"
@@ -202,12 +218,12 @@
         <activity
             android:name="tech.DevAsh.KeyOS.Config.PhoneCalls"
             android:screenOrientation="portrait"
-            android:theme="@style/keyOS" >
+            android:theme="@style/keyOS">
             <intent-filter>
-                <action android:name="android.intent.action.DIAL"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
+                <action android:name="android.intent.action.DIAL" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name="tech.DevAsh.KeyOS.Config.PhoneBook"
@@ -226,7 +242,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity> <!-- launcher -->
-
         <activity
             android:name="tech.DevAsh.KeyOS.Config.AllowApps"
             android:screenOrientation="portrait"
@@ -255,15 +270,14 @@
         <receiver
             android:name="tech.DevAsh.KeyOS.Receiver.ActivityChangeReceiver"
             android:enabled="true"
-            android:exported="true" />
-<!--        <receiver-->
-<!--            android:name="tech.DevAsh.KeyOS.Receiver.PhoneCallReceiver"-->
-<!--            android:enabled="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.PHONE_STATE" />-->
-<!--                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
+            android:exported="true" /> <!-- <receiver -->
+        <!-- android:name="tech.DevAsh.KeyOS.Receiver.PhoneCallReceiver" -->
+        <!-- android:enabled="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.PHONE_STATE" /> -->
+        <!-- <action android:name="android.intent.action.NEW_OUTGOING_CALL" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
         <receiver
             android:name="tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver"
             android:description="@string/app_name"
@@ -383,7 +397,7 @@
             android:name="tech.DevAsh.Launcher.gestures.handlers.SleepTimeoutActivity"
             android:screenOrientation="locked"
             android:theme="@style/SleepTimeoutTheme" /> <!-- DT2S using device admin -->
-    <!-- <service -->
+        <!-- <service -->
         <!-- android:name="ch.deletescape.keyOS.Launcher.KioskAccessibilityService" -->
         <!-- android:label="@string/derived_app_name" -->
         <!-- android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"> -->

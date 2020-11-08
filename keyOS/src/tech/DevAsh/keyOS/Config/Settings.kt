@@ -4,31 +4,26 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Bundle
-import android.os.Handler
-import android.os.VibrationEffect
-import android.os.Vibrator
+import android.os.*
 import android.provider.Settings
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import kotlinx.android.synthetic.keyOS.activity_settings.*
-import kotlinx.android.synthetic.keyOS.activity_settings.view.*
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Config.ImportExportSettings
+import tech.DevAsh.keyOS.Config.ScreenSaver
 import tech.DevAsh.keyOS.Database.BasicSettings
 
 
@@ -137,11 +132,15 @@ class Settings : AppCompatActivity() {
             startActivity(Intent(this, AllowApps::class.java))
         }
 
+        screenSaver.setOnClickListener {
+            startActivity(Intent(this, ScreenSaver::class.java))
+        }
+
         phone.setOnClickListener {
             startActivity(Intent(this, PhoneCalls::class.java))
         }
 
-        cameraSwitch.setOnCheckedChangeListener{_,isChecked->
+        cameraSwitch.setOnCheckedChangeListener{ _, isChecked->
             UserContext.user?.basicSettings?.isDisableCamera = isChecked
             if (isChecked && !PermissionsHelper.isAdmin(this)) {
                     PermissionsHelper.getAdminPermission(this)
@@ -153,6 +152,7 @@ class Settings : AppCompatActivity() {
         }
 
         permissions.setOnClickListener {
+            shouldLaunch = false
             permissionsBottomSheet.show(supportFragmentManager, "TAG")
         }
     }
@@ -178,8 +178,16 @@ class Settings : AppCompatActivity() {
     }
 
     private fun vibrate(){
-        val v =  getSystemService(Context.VIBRATOR_SERVICE) as Vibrator;
-        v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+
+        val v = getSystemService(VIBRATOR_SERVICE) as Vibrator
+        // Vibrate for 500 milliseconds
+        // Vibrate for 500 milliseconds
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            //deprecated in API 26
+            v.vibrate(50)
+        }
     }
 
     private fun checkPermissionAndLaunch(){
@@ -199,7 +207,8 @@ class Settings : AppCompatActivity() {
         bluetoothMode?.text = UserContext.user?.basicSettings?.bluetooth
         soundMode?.text = UserContext.user?.basicSettings?.sound
         notificationPanel?.isChecked = UserContext.user?.basicSettings?.notificationPanel!!
-        cameraSwitch?.isChecked = UserContext.user?.basicSettings?.isDisableCamera!! && PermissionsHelper.isAdmin(this)
+        cameraSwitch?.isChecked = UserContext.user?.basicSettings?.isDisableCamera!! && PermissionsHelper.isAdmin(
+                this)
         if(PermissionsHelper.checkImportantPermissions(this)){
             permissionsAlert.visibility = View.GONE
         }else{
@@ -236,6 +245,7 @@ class Settings : AppCompatActivity() {
 
 
     private fun launch(context: Context) {
+
         val packageManager = context.packageManager
         val helperLauncher = ComponentName(context, HelperLauncher::class.java)
         val kioskLauncher = ComponentName(context, KioskLauncher::class.java)
@@ -280,7 +290,7 @@ class Settings : AppCompatActivity() {
             PermissionsHelper.openedForPermission=false
             Handler().postDelayed({
                                       if (PermissionsHelper.checkImportantPermissions(this)) {
-                                           checkPermissionAndLaunch()
+                                          checkPermissionAndLaunch()
                                       } else {
                                           permissionsBottomSheet.show(supportFragmentManager, "TAG")
                                       }

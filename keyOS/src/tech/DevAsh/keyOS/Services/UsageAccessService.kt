@@ -10,6 +10,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.media.AudioManager
 import android.net.wifi.WifiManager
 import android.os.Handler
@@ -178,7 +179,8 @@ class UsageAccessService : Service() {
     private fun checkActivity(context: Context) {
         val mUsageStatsManager = context.getSystemService(USAGE_STATS_SERVICE) as UsageStatsManager
         val time = System.currentTimeMillis()
-        val usageEvents = mUsageStatsManager.queryEvents(time - 1000 * 30, System.currentTimeMillis() + 30 * 1000)
+        val usageEvents = mUsageStatsManager.queryEvents(time - 1000 * 30,
+                                                         System.currentTimeMillis() + 30 * 1000)
         val event = UsageEvents.Event()
 
         while (usageEvents.hasNextEvent()) {
@@ -235,7 +237,8 @@ class UsageAccessService : Service() {
 
         val singleApp = user!!.singleApp ?: Apps("")
 
-        if(singleApp.packageName!=appName && !user!!.editedApps[editedAppIndex!!]!!.hourPerDay.startsWith("24")){
+        if(singleApp.packageName!=appName && !user!!.editedApps[editedAppIndex!!]!!.hourPerDay.startsWith(
+                        "24")){
 
             val allowedTime = Time.fromString(user!!.editedApps[editedAppIndex]!!.hourPerDay)
             val usageTime = getUsageStatistics(this, appName)
@@ -323,7 +326,7 @@ class UsageAccessService : Service() {
                 allEvents.add(currentEvent)
                 val key = currentEvent.packageName
                 if (map[key] ==null)
-                    map[key] =  AppUsageInfo (key);
+                    map[key] =  AppUsageInfo(key);
             }
         }
 
@@ -352,7 +355,7 @@ class UsageAccessService : Service() {
 
         val time = map[appName]?.timeInForeground ?: return null
 
-        return convertLongToTime(time+diff)
+        return convertLongToTime(time + diff)
     }
 
     private fun convertLongToTime(milliSeconds: Long):Time{
@@ -394,18 +397,24 @@ class UsageAccessService : Service() {
                 throw Exception()
             }
 
-            val prev1 = packageManager.getLaunchIntentForPackage(prevActivities[prevActivities.size - 1])
-            val prev2 = packageManager.getLaunchIntentForPackage(prevActivities[prevActivities.size - 2])
+            val prev1 = packageManager.getLaunchIntentForPackage(
+                    prevActivities[prevActivities.size - 1])
+            val prev2 = packageManager.getLaunchIntentForPackage(
+                    prevActivities[prevActivities.size - 2])
             when {
-                prevActivities.last()==packageName->{
-                    throw Exception()
-                }
+
                 prev1!=null -> {
+                    if(prev1.`package`==this.packageName){
+                        throw Exception()
+                    }
                     prev1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     prev1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(prev1)
                 }
                 prev2!=null -> {
+                    if(prev2.`package`==this.packageName){
+                        throw Exception()
+                    }
                     prev2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     prev2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     startActivity(prev2)
@@ -448,6 +457,9 @@ class UsageAccessService : Service() {
     }
 
     private fun checkWifi(){
+//        val pm: PackageManager = packageManager
+//        val hasWifi: Boolean = pm.hasSystemFeature(WIFI_SERVICE)
+//
         val wifiManager = this.applicationContext.getSystemService(WIFI_SERVICE) as WifiManager
 
         if(user?.basicSettings?.wifi==BasicSettings.AlwaysON){
@@ -477,13 +489,20 @@ class UsageAccessService : Service() {
     }
 
     private fun checkBluetooth(){
-        if(user?.basicSettings?.bluetooth!=BasicSettings.DontCare){
-            if(user?.basicSettings?.bluetooth==BasicSettings.AlwaysON){
-                turnOnBluetooth()
-            }else if (user?.basicSettings?.bluetooth==BasicSettings.AlwaysOFF){
-                turnOffBluetooth()
+        try {
+            val pm: PackageManager = packageManager
+            val hasBluetooth: Boolean = pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)
+            if(hasBluetooth && user?.basicSettings?.bluetooth!=BasicSettings.DontCare){
+                if(user?.basicSettings?.bluetooth==BasicSettings.AlwaysON){
+                    turnOnBluetooth()
+                }else if (user?.basicSettings?.bluetooth==BasicSettings.AlwaysOFF){
+                    turnOffBluetooth()
+                }
             }
+        }catch (e:Throwable){
+
         }
+
     }
 
     private fun checkOrientation(){

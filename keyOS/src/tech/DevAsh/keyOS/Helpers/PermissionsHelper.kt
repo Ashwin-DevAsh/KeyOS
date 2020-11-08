@@ -1,5 +1,6 @@
 package tech.DevAsh.KeyOS.Helpers
 
+import android.app.Activity
 import android.app.AppOpsManager
 import android.app.NotificationManager
 import android.app.admin.DevicePolicyManager
@@ -17,6 +18,7 @@ import android.os.Handler
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.android.launcher3.BuildConfig
 import com.fasterxml.jackson.databind.util.ClassUtil.getPackageName
 import com.google.android.gms.location.LocationSettingsResponse
@@ -27,7 +29,6 @@ import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 object PermissionsHelper {
 
     var runTimePermissions = arrayListOf(
-            android.Manifest.permission.ANSWER_PHONE_CALLS,
             android.Manifest.permission.READ_CONTACTS,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             android.Manifest.permission.CALL_PHONE,
@@ -37,6 +38,11 @@ object PermissionsHelper {
     var task: Task<LocationSettingsResponse>?=null
 
     init {
+
+        if(Build.VERSION.SDK_INT>=26){
+            runTimePermissions.add( 0,android.Manifest.permission.ANSWER_PHONE_CALLS)
+        }
+
         if(!BuildConfig.IS_PLAYSTORE_BUILD){
             runTimePermissions.add(android.Manifest.permission.READ_CALL_LOG)
         }
@@ -49,7 +55,7 @@ object PermissionsHelper {
                 context.packageName + "/" + accessibilityServiceClass.name)
     }
 
-    fun checkImportantPermissions(context: Context):Boolean{
+    fun checkImportantPermissions(context: Activity):Boolean{
         return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context) && isNotificationEnabled(
                 context)
     }
@@ -65,7 +71,11 @@ object PermissionsHelper {
     }
 
     fun isWrite(context: Context): Boolean {
-         return  Settings.System.canWrite(context.applicationContext)
+        return try{
+            Settings.System.canWrite(context.applicationContext)
+        }catch (e:Throwable){
+            true
+        }
     }
 
     fun isUsb(context: Context): Boolean {
@@ -73,7 +83,12 @@ object PermissionsHelper {
     }
 
     fun isOverLay(context: Context): Boolean {
-        return Settings.canDrawOverlays(context.applicationContext)
+
+        return try{
+            Settings.canDrawOverlays(context.applicationContext)
+        }catch (e:Throwable){
+            true
+        }
     }
 
     fun isAdmin(context: Context):Boolean{
@@ -82,7 +97,7 @@ object PermissionsHelper {
         return mDPM.isAdminActive(mAdminName)
     }
 
-    fun isRunTime(context: Context):Boolean{
+    fun isRunTime(context: Activity):Boolean{
         for ( i in runTimePermissions){
             if(!checkRuntimePermission(context, i)){
                 return false
@@ -176,9 +191,21 @@ object PermissionsHelper {
                                           requestCode)
     }
 
-     fun checkRuntimePermission(context: Context, permission: String): Boolean {
-        val res: Int = context.checkCallingOrSelfPermission(permission)
-        return res == PackageManager.PERMISSION_GRANTED
+     fun checkRuntimePermission(context: Activity, permission: String): Boolean {
+         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+             return true
+         }
+         try {
+             if(ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                 return false
+             }
+             return true
+         }catch (e:Throwable){
+             return true
+         }
+
+//        val res: Int = context.checkCallingOrSelfPermission(permission)
+//        return res == PackageManager.PERMISSION_GRANTED
     }
 
 

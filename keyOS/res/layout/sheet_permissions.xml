@@ -157,7 +157,7 @@
 
                 <ImageView
                     android:background="#E65100"
-                    app:srcCompat="@drawable/notification"
+                    app:srcCompat="@drawable/notification_panel_png"
                     android:padding="10dp"
                     app:tint="@android:color/white"
                     android:layout_width="match_parent"

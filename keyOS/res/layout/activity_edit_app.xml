@@ -284,7 +284,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="Timer"
+                            android:text="Time Limit"
                             android:textColor="@android:color/black"
                             android:textSize="16dp" />
 

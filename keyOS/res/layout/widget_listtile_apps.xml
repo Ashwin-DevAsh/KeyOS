@@ -49,6 +49,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="45dp"
                 app:cardElevation="0dp"
+                app:cardMaxElevation="0dp"
                 android:layout_height="45dp">
                 <FrameLayout
                     android:layout_width="match_parent"
