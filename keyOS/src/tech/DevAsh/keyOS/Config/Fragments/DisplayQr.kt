@@ -56,8 +56,6 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
 
         onClick()
 
-
-
         importAndExport.QRCodeService
                 .setPolicyData(SetPolicyData(uuid, UserContext.user!!))
                 ?.enqueue(callBack)
@@ -131,7 +129,6 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
             loadingScreen.visibility=View.GONE
         } catch (e: Throwable) {
             e.printStackTrace()
-
             onFailed()
         }
     }
