@@ -707,8 +707,8 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/ic_phone_call"
-                          android:padding="6.5dp"
+                          app:srcCompat="@drawable/call_phonebook"
+                          android:padding="5dp"
                           app:tint="#03A9F4"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
@@ -863,7 +863,7 @@
 
                       <ImageView
                           app:srcCompat="@drawable/notification_panel_png"
-                          android:padding="6dp"
+                          android:padding="5.5dp"
                           app:tint="#7c43bd"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
