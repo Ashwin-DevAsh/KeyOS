@@ -164,7 +164,9 @@
         tools:ignore="ProtectedPermissions" />
 
 
-    <application android:name="tech.DevAsh.keyOS.KioskApp">
+    <application
+        android:usesCleartextTraffic="true"
+        android:name="tech.DevAsh.keyOS.KioskApp">
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"

@@ -707,8 +707,8 @@
                       android:layout_height="35dp">
 
                       <ImageView
-                          app:srcCompat="@drawable/call_phonebook"
-                          android:padding="5dp"
+                          app:srcCompat="@drawable/ic_phone_call"
+                          android:padding="6.5dp"
                           app:tint="#03A9F4"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">
@@ -747,6 +747,7 @@
               <RelativeLayout
                   android:layout_marginTop="10dp"
                   android:layout_width="match_parent"
+                  android:visibility="gone"
                   android:layout_height="50dp">
                   <androidx.cardview.widget.CardView
                       android:layout_width="35dp"

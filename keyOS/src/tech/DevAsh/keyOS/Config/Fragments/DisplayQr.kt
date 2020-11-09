@@ -103,17 +103,19 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
                                           loadQr(uuid)
                                       }, 500)
             }else{
-            onFailed()
+                onFailed()
             }
         }
 
         override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
+            t.printStackTrace()
             onFailed()
 
         }
 
     }
+
 
     private fun loadQr(uuid: String){
 

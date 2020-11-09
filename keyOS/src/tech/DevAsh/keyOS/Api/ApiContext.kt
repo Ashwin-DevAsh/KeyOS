@@ -1,5 +1,5 @@
 package tech.DevAsh.keyOS.Api
 
 object ApiContext {
-    val mailServiceUrl = "https://keyos-devash.herokuapp.com/"
+    val mailServiceUrl = "http://20.51.249.240:8000/"
 }
