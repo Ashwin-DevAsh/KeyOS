@@ -1,5 +1,6 @@
 package tech.DevAsh.keyOS.Database;
 
+import com.google.gson.annotations.SerializedName;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
 import java.util.Arrays;
@@ -32,11 +33,22 @@ public class BasicSettings extends RealmObject {
 
 
 
+    @SerializedName("wifi")
     public String wifi = DontCare;
+
+    @SerializedName("orientation")
     public String orientation = DontCare;
+
+    @SerializedName("bluetooth")
     public String bluetooth = DontCare;
+
+    @SerializedName("sound")
     public String sound = DontCare;
+
+    @SerializedName("notificationPanel")
     public Boolean notificationPanel = false;
+
+    @SerializedName("isDisableCamera")
     public Boolean isDisableCamera = false;
 
     public BasicSettings(String wifi, String orientation, String bluetooth, String sound, Boolean notificationPanel,Boolean isDisableCamera) {

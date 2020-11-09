@@ -1,5 +1,6 @@
 package tech.DevAsh.keyOS.Database;
 
+import com.google.gson.annotations.SerializedName;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import java.util.ArrayList;
@@ -26,13 +27,28 @@ public class Calls extends RealmObject {
 
     public Calls(){}
 
+    @SerializedName("allowCalls")
     public Boolean allowCalls = true;
+
+    @SerializedName("allowIncoming")
     public Boolean allowIncoming = true;
+
+    @SerializedName("allowOutgoing")
     public Boolean allowOutgoing = true;
+
+    @SerializedName("whitelistCalls")
     public Boolean whitelistCalls = false;
+
+    @SerializedName("blackListCalls")
     public Boolean blackListCalls = false;
+
+    @SerializedName("automaticWhitelist")
     public Boolean automaticWhitelist = false;
+
+    @SerializedName("whiteListContacts")
     public RealmList<Contact> whiteListContacts = new RealmList();
+
+    @SerializedName("blacklistContacts")
     public RealmList<Contact> blacklistContacts = new RealmList();
 
     @Override

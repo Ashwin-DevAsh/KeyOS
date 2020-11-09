@@ -2,6 +2,7 @@ package tech.DevAsh.keyOS.Database;
 
 import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
+import com.google.gson.annotations.SerializedName;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
@@ -10,9 +11,16 @@ import org.jetbrains.annotations.NotNull;
 
 public class Apps extends RealmObject {
 
+    @SerializedName("packageName")
     public String packageName;
+
+    @SerializedName("hourPerDay")
     public String hourPerDay = "24:00";
+
+    @SerializedName("blockedActivities")
     public RealmList<String> blockedActivities = new RealmList();
+
+    @SerializedName("hideShortcut")
     public Boolean hideShortcut = false;
 
 

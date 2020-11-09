@@ -1,10 +1,15 @@
 package tech.DevAsh.keyOS.Database;
 
+import com.google.gson.annotations.SerializedName;
 import io.realm.RealmObject;
 import java.util.Objects;
 
 public class Contact extends RealmObject {
+
+    @SerializedName("name")
     public String name;
+
+    @SerializedName("number")
     public String number;
 
     public Contact(String name, String number) {
@@ -12,9 +17,7 @@ public class Contact extends RealmObject {
         this.number = number;
     }
 
-    public Contact(){
-
-    }
+    public Contact(){}
 
     @Override
     public boolean equals(Object o) {

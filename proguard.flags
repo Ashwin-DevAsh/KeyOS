@@ -6,6 +6,12 @@
   *;
 }
 
+-keep public class tech.DevAsh.keyOS.Database.** {*;}
+-keep public class tech.DevAsh.keyOS.Api.** {*;}
+-keep public class tech.DevAsh.keyOS.Config.QrScanner {*;}
+
+
+
 -keep class com.android.launcher3.allapps.AllAppsBackgroundDrawable {
   public void setAlpha(int);
   public int getAlpha();

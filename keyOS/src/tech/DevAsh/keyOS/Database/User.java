@@ -1,5 +1,6 @@
 package tech.DevAsh.keyOS.Database;
 
+import com.google.gson.annotations.SerializedName;
 import io.realm.Realm;
 import io.realm.Realm.Transaction;
 import io.realm.RealmList;
@@ -11,13 +12,29 @@ import tech.DevAsh.Launcher.preferences.AppsAdapter.App;
 
 public class User extends RealmObject {
 
+
+    @SerializedName("allowedApps")
     public RealmList<Apps> allowedApps = new RealmList();
+
+    @SerializedName("editedApps")
     public RealmList<Apps> editedApps = new RealmList();
+
+    @SerializedName("allowedServices")
     public RealmList<Apps> allowedServices = new RealmList<>(new Apps("android")) ;
+
+    @SerializedName("basicSettings")
     public BasicSettings basicSettings;
+
+    @SerializedName("singleApp")
     public Apps singleApp;
+
+    @SerializedName("calls")
     public Calls calls;
+
+    @SerializedName("recoveryEmail")
     public String recoveryEmail;
+
+    @SerializedName("password")
     public String password;
 
     public User(RealmList<Apps> allowedApps,
@@ -36,8 +53,6 @@ public class User extends RealmObject {
     }
 
     public User(){}
-
-
 
 
     @Override

@@ -1,5 +1,7 @@
 package tech.DevAsh.keyOS.Api.Response
 
+import com.google.gson.annotations.SerializedName
+
 class BasicResponse {
-    var result:String?=null
+    @SerializedName("result") var result:String?=null
 }
