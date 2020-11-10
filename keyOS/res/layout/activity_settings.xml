@@ -760,7 +760,7 @@
 
                       <ImageView
                           app:srcCompat="@drawable/screen_saver"
-                          android:padding="7dp"
+                          android:padding="6.5dp"
                           app:tint="#FF4081"
                           android:layout_width="match_parent"
                           android:layout_height="match_parent">

@@ -13,14 +13,16 @@ object NotificationBlocker {
          collapseNotificationHandler.postDelayed(object : Runnable {
              @SuppressLint("WrongConstant")
              override fun run() {
+                 println("Notification Blocker")
                  if (!UserContext.user!!.basicSettings.notificationPanel && !pause) {
                      val statusBarService = context.getSystemService("statusbar")
                      val statusBarManager = Class.forName("android.app.StatusBarManager")
                      val collapseStatusBar = statusBarManager.getMethod("collapsePanels")
                      collapseStatusBar.isAccessible = true
-                     try{
+                     try {
                          collapseStatusBar.invoke(statusBarService)
-                     }catch(e:Throwable){}
+                     } catch (e: Throwable) {
+                     }
                      collapseNotificationHandler.postDelayed(this, 100L)
                  }
              }

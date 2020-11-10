@@ -1,16 +1,16 @@
 package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 
 import android.app.Activity
-import android.app.admin.DeviceAdminReceiver
+import android.app.Notification
+import android.app.PendingIntent
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import com.android.launcher3.R
 import tech.DevAsh.KeyOS.Config.Settings
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Database.UserContext.user
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 import tech.DevAsh.KeyOS.Services.UsageAccessService
@@ -23,32 +23,25 @@ object Kiosk {
     var accessibilityService:Intent?=null
 
 
-    private fun getUsageAccessService(context: Context):Intent{
+    fun getUsageAccessService(context: Context):Intent{
         if(usageIntent==null){
             usageIntent = Intent(context, UsageAccessService::class.java)
         }
         return usageIntent!!
     }
-    private fun getAccessibilityService(context: Context):Intent{
-        if(accessibilityService==null){
-            accessibilityService = Intent(context, WindowChangeDetectingService::class.java)
-        }
-        return accessibilityService!!
-    }
+
     fun startKiosk(context: Context){
         println("Start Kiosk...")
         NotificationBlocker.start()
-        context.startService(getAccessibilityService(context))
         context.startService(getUsageAccessService(context))
-        setCamera(context,user!!.basicSettings.isDisableCamera)
+        setCamera(context, user!!.basicSettings.isDisableCamera)
     }
 
-    fun stopKiosk(context: Context){
-        context.applicationContext.stopService(getUsageAccessService(context))
-        NotificationBlocker.stop()
-        context.applicationContext.stopService(getAccessibilityService(context))
-        setCamera(context,false)
 
+    fun stopKiosk(context: Context){
+        NotificationBlocker.stop()
+        context.applicationContext.stopService(getUsageAccessService(context))
+        setCamera(context, false)
     }
 
     fun openKioskSettings(context: Activity, password: String){
@@ -88,7 +81,7 @@ object Kiosk {
 
 
 
-    private fun setCamera(context: Context,boolean: Boolean){
+    private fun setCamera(context: Context, boolean: Boolean){
         if(PermissionsHelper.isAdmin(context)){
             val dpm = context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
             val deviceAdmin = ComponentName(context, SampleAdminReceiver::class.java)

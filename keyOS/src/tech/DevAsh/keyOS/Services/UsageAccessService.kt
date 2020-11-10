@@ -1,8 +1,6 @@
 package tech.DevAsh.KeyOS.Services
 
-import android.app.ActivityManager
-import android.app.AlertDialog
-import android.app.Service
+import android.app.*
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
 import android.bluetooth.BluetoothAdapter
@@ -13,6 +11,7 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.media.AudioManager
 import android.net.wifi.WifiManager
+import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.provider.Settings
@@ -21,6 +20,7 @@ import android.telephony.TelephonyManager
 import android.view.Surface
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
 import com.android.launcher3.R
 import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.AppsContext
@@ -65,7 +65,33 @@ class UsageAccessService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        return START_NOT_STICKY
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val notificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+            val channelId = "DevAsh"
+            val channelName: CharSequence = "Mining"
+            val importance = NotificationManager.IMPORTANCE_NONE
+            val notificationChannel = NotificationChannel(channelId, channelName, importance)
+            notificationManager.createNotificationChannel(notificationChannel)
+            val builder: Notification.Builder = Notification.Builder(this, "DevAsh")
+                    .setContentTitle("KeyOS Protection")
+                    .setContentText("Your device completely protected by keyOS")
+                    .setSmallIcon(R.drawable.ic_key_ring)
+                    .setAutoCancel(true)
+            val notification: Notification = builder.build()
+            startForeground(1, notification)
+        } else {
+            val builder = NotificationCompat.Builder(this)
+                    .setContentTitle("KeyOS Protection")
+                    .setContentTitle("Your device completely protected by keyOS")
+                    .setSmallIcon(R.drawable.ic_key_ring)
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setAutoCancel(true)
+            val notification: Notification = builder.build()
+            startForeground(1, notification)
+        }
+        return START_STICKY
     }
 
     override fun onCreate() {
@@ -161,6 +187,7 @@ class UsageAccessService : Service() {
     }
 
     override fun onDestroy() {
+        println("Destroied...")
         isAlive = false
         handlerCheckActivity!!.removeCallbacksAndMessages(runnableCheckActivity!!)
         handlerCheckBasicSettings!!.removeCallbacksAndMessages(runnableCheckBasicSettings!!)

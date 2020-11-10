@@ -45,8 +45,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
 
-        versionCode 22
-        versionName "KeyOS v22"
+        versionCode 25
+        versionName "KeyOS v25"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -112,8 +112,6 @@ android {
             dimension "default"
             applicationId 'tech.DevAsh.keyOS'
             testApplicationId 'tech.DevAsh.keyOS.tests'
-
-
             buildConfigField "boolean", "HAS_LEAKCANARY", "false"
             buildConfigField "boolean", "DEBUG_STRICT_MODE", "false"
             buildConfigField "boolean", "FEATURE_BUG_REPORTER", "false"
