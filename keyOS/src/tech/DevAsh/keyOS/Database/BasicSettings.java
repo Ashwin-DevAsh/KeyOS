@@ -1,5 +1,6 @@
 package tech.DevAsh.keyOS.Database;
 
+import androidx.annotation.Keep;
 import com.google.gson.annotations.SerializedName;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
@@ -7,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+@Keep
 public class BasicSettings extends RealmObject {
 
 

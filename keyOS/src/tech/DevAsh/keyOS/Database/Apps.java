@@ -2,6 +2,7 @@ package tech.DevAsh.keyOS.Database;
 
 import android.content.pm.PackageInfo;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.Keep;
 import com.google.gson.annotations.SerializedName;
 import io.realm.RealmList;
 import io.realm.RealmObject;
@@ -9,6 +10,7 @@ import io.realm.annotations.Ignore;
 import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
+@Keep
 public class Apps extends RealmObject {
 
     @SerializedName("packageName")

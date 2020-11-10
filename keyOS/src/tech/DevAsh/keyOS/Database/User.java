@@ -1,5 +1,6 @@
 package tech.DevAsh.keyOS.Database;
 
+import androidx.annotation.Keep;
 import com.google.gson.annotations.SerializedName;
 import io.realm.Realm;
 import io.realm.Realm.Transaction;
@@ -10,6 +11,8 @@ import org.jetbrains.annotations.NotNull;
 import tech.DevAsh.KeyOS.Database.UserContext;
 import tech.DevAsh.Launcher.preferences.AppsAdapter.App;
 
+
+@Keep
 public class User extends RealmObject {
 
 

@@ -1,9 +1,11 @@
 package tech.DevAsh.keyOS.Database;
 
+import androidx.annotation.Keep;
 import com.google.gson.annotations.SerializedName;
 import io.realm.RealmObject;
 import java.util.Objects;
 
+@Keep
 public class Contact extends RealmObject {
 
     @SerializedName("name")
