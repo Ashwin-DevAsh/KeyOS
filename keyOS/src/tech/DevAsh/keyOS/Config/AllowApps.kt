@@ -147,7 +147,7 @@ class AllowApps : AppCompatActivity() {
             adapter!!.notifyDataSetChanged()
             appsContainer.adapter = adapter
             loadingScreen.visibility = View.GONE
-        }, 1000)
+        }, 2000)
     }
 
     private fun loadAdapterSingleApp(items: MutableList<Apps>, subHeading: String = "Select which app you want always available\nin foreground"

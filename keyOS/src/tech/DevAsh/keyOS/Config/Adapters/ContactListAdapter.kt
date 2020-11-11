@@ -2,6 +2,7 @@ package tech.DevAsh.KeyOS.Config.Adapters
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
@@ -18,11 +19,12 @@ import tech.DevAsh.KeyOS.Config.ToggleCallback
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.ContactHelper
 import tech.DevAsh.keyOS.Database.Contact
+import tech.DevAsh.keyOS.Helpers.UpdateOriginalApk
 
 
 class ContactListAdapter(
         var items: ArrayList<Contact>,
-        val context: Context,
+        val context: Activity,
         val subHeading:String,
         val toggleCallback: ToggleCallback,
         var toggleState:Boolean
@@ -167,7 +169,7 @@ class ContactListViewHolder(val view: View, context: Context) : RecyclerView.Vie
 
 class ContactListHeaderViewHolder(
     val view: View,
-    val context: Context,
+    val context: Activity,
     val adapter: ContactListAdapter
 ) : RecyclerView.ViewHolder(view) {
 
@@ -190,7 +192,7 @@ class ContactListHeaderViewHolder(
 
     fun onClick(){
         view.playstoreCover.setOnClickListener {
-            AlertHelper.showToast("Not supported in playstore version", context)
+            UpdateOriginalApk.showAlertDialog(context)
         }
         view.turnOn.setOnCheckedChangeListener{ _, isChecked ->
             if(isChecked){

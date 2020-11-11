@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath "io.realm:realm-gradle-plugin:6.0.2"
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:4.1.1'
         classpath 'com.android.tools:r8:2.1.67'
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.9'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10"
@@ -259,9 +259,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
     implementation 'com.github.halysongoncalves:pugnotification:1.8.1'
-
-
-
+    implementation 'com.agrawalsuneet.androidlibs:fourfoldloader:0.4'
 
 
     implementation 'com.google.dagger:dagger:2.24'

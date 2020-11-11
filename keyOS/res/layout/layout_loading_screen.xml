@@ -11,16 +11,19 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_height="match_parent">
-        <com.agrawalsuneet.dotsloader.loaders.TashieLoader
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:tashieloader_animDelay="100"
-            app:tashieloader_animDur="500"
-            app:tashieloader_dotsColor="@color/buttonColor"
-            app:tashieloader_dotsDist="5dp"
-            app:tashieloader_dotsRadius="10dp"
-            app:tashieloader_interpolator="@android:anim/accelerate_interpolator"
-            app:tashieloader_noOfDots="4" />
+        <com.agrawalsuneet.fourfoldloader.loaders.FourFoldLoader
+            android:id="@+id/main_fourfoldloader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:fourfold_disappearAnimDuration="100"
+            app:fourfold_animDuration="500"
+            app:fourfold_firstSquareColor="@android:color/black"
+            app:fourfold_forthSquareColor="@android:color/darker_gray"
+            app:fourfold_secondSquareColor="@android:color/darker_gray"
+            app:fourfold_squareLength="40dp"
+            app:fourfold_startLoadingDefault="true"
+            app:fourfold_thirdSquareColor="@android:color/black" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
