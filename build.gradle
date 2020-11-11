@@ -45,8 +45,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
 
-        versionCode 25
-        versionName "KeyOS v25"
+        versionCode 26
+        versionName "KeyOS v26"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -258,6 +258,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    implementation 'com.github.halysongoncalves:pugnotification:1.8.1'
 
 
 

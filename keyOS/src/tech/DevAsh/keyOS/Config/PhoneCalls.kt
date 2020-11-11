@@ -1,6 +1,7 @@
 package tech.DevAsh.KeyOS.Config
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,8 +13,10 @@ import kotlinx.android.synthetic.keyOS.header_contact_listtile.view.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
+import tech.DevAsh.keyOS.Config.QrScanner
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.Calls
+import tech.DevAsh.keyOS.Helpers.UpdateOriginalApk
 
 
 class PhoneCalls : AppCompatActivity() {
@@ -45,6 +48,8 @@ class PhoneCalls : AppCompatActivity() {
 
         playstoreCover.setOnClickListener {
             AlertHelper.showToast("Not supported in playstore version", this)
+
+            //            UpdateOriginalApk.showAlertDialog(this)
         }
 
         back?.setOnClickListener {
@@ -139,6 +144,19 @@ class PhoneCalls : AppCompatActivity() {
     override fun onBackPressed() {
         saveData()
         super.onBackPressed()
+    }
+
+    override fun onRequestPermissionsResult(
+            requestCode: Int,
+            permissions: Array<out String>,
+            grantResults: IntArray
+                                           ) {
+
+        if(requestCode==0){
+            if(grantResults[0]== PackageManager.PERMISSION_GRANTED ){
+                UpdateOriginalApk.update(this)
+            }
+        }
     }
 
 }

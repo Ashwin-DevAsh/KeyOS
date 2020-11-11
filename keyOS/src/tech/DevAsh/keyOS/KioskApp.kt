@@ -31,6 +31,7 @@ import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.LoadAppsAndServices
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Api.IMailService
+import tech.DevAsh.keyOS.Api.IUpdateService
 import tech.DevAsh.keyOS.Database.User
 import javax.inject.Inject
 
@@ -43,6 +44,7 @@ class KioskApp : Application() {
     val activityHandler = ActivityHandler()
     var loadAppsAndServices = LoadAppsAndServices(this)
     @Inject lateinit var mailService: IMailService
+    @Inject lateinit var updateService:IUpdateService
 
 
 

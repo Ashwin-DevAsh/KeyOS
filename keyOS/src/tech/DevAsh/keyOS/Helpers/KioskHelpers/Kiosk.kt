@@ -33,7 +33,7 @@ object Kiosk {
     fun startKiosk(context: Context){
         println("Start Kiosk...")
         NotificationBlocker.start()
-        context.startService(getUsageAccessService(context))
+        context.startForegroundService(getUsageAccessService(context))
         setCamera(context, user!!.basicSettings.isDisableCamera)
     }
 

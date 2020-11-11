@@ -65,33 +65,39 @@ class UsageAccessService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        startAsForeground()
+        return START_STICKY
+    }
+
+
+    private fun startAsForeground(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
             val notificationManager =
                     getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-            val channelId = "DevAsh"
-            val channelName: CharSequence = "Mining"
+            val channelId = "KeyOS Protection"
+            val channelName: CharSequence = "Protection"
             val importance = NotificationManager.IMPORTANCE_NONE
             val notificationChannel = NotificationChannel(channelId, channelName, importance)
             notificationManager.createNotificationChannel(notificationChannel)
-            val builder: Notification.Builder = Notification.Builder(this, "DevAsh")
+            val builder: Notification.Builder = Notification.Builder(this, channelId)
                     .setContentTitle("KeyOS Protection")
                     .setContentText("Your device completely protected by keyOS")
                     .setSmallIcon(R.drawable.ic_key_ring)
-                    .setAutoCancel(true)
+                    .setAutoCancel(false)
             val notification: Notification = builder.build()
-            startForeground(1, notification)
+            startForeground(2, notification)
         } else {
             val builder = NotificationCompat.Builder(this)
                     .setContentTitle("KeyOS Protection")
                     .setContentTitle("Your device completely protected by keyOS")
                     .setSmallIcon(R.drawable.ic_key_ring)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setAutoCancel(true)
+                    .setAutoCancel(false)
             val notification: Notification = builder.build()
-            startForeground(1, notification)
+            startForeground(2, notification)
         }
-        return START_STICKY
     }
 
     override fun onCreate() {
