@@ -24,6 +24,8 @@ import com.fasterxml.jackson.databind.util.ClassUtil.getPackageName
 import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.tasks.Task
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 object PermissionsHelper {
@@ -186,6 +188,13 @@ object PermissionsHelper {
     fun getRuntimePermission(context: AppCompatActivity, permission: Array<String>,
                              requestCode: Int){
          openedForPermission = true
+        if ("xiaomi" == Build.MANUFACTURER.toLowerCase(Locale.ROOT)) {
+            val intent = Intent("miui.intent.action.APP_PERM_EDITOR")
+            intent.setClassName("com.miui.securitycenter",
+                                "com.miui.permcenter.permissions.PermissionsEditorActivity")
+            intent.putExtra("extra_pkgname", context.packageName)
+           context.startActivity(intent)
+        }
         ActivityCompat.requestPermissions(context,
                                           permission,
                                           requestCode)

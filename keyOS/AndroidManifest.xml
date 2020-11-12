@@ -17,6 +17,10 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="${applicationId}.permission.READ_SETTINGS" />
     <uses-permission android:name="${applicationId}.permission.WRITE_SETTINGS" /> <!-- Pixel -->
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION"/>
+    <uses-permission android:name="com.mi.android.globallauncher.permission.ACTION_MANAGE_OVERLAY_PERMISSION"/>
+
+
     <permission
         android:name="${applicationId}.permission.QSB"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
@@ -44,6 +48,7 @@
     <uses-permission android:name="com.android.permission.RECEIVE_LAUNCH_BROADCASTS" /> <!-- The following is NOT a typo, it is actually called wallpaperservcie ¯\_(ツ)_/¯ -->
     <uses-permission android:name="com.huawei.wallpaperservcie.permission.SET_WALLPAPER_OFFSET" />
     <uses-permission android:name="com.huawei.android.thememanager.permission.ACCESS_CHANGE_WALLPAPER" />
+
     <uses-permission android:name="com.android.launcher.permission.LAUNCHER_ANIMATION" />
     <uses-permission android:name="com.inveno.hwread.permission.LAUNCHER_RECEIVE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
@@ -161,9 +166,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.Manifest.permission.MODIFY_PHONE_STATE"/>
-
-
-
+    <uses-permission android:name="com.miui.securitycenter.permission.SYSTEM_ALERT_WINDOW"/>
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
@@ -178,35 +181,43 @@
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
+            android:excludeFromRecents="true"
             android:name="tech.DevAsh.keyOS.Config.ScreenSaver"/>
         <activity
             android:name="tech.DevAsh.keyOS.Config.QrScanner"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.keyOS.Config.ImportExportSettings"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.keyOS.Config.Permission"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.ActivityList"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.EditApp"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.Mode"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt"
             android:autoRemoveFromRecents="true"
             android:clearTaskOnLaunch="true"
             android:launchMode="singleTask"
+            android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:theme="@style/keyOS"
@@ -214,20 +225,24 @@
         <activity
             android:name="tech.DevAsh.KeyOS.Config.Password"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.ContactsInput"
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
+            android:excludeFromRecents="true"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.ContactList"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.PhoneCalls"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS">
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
@@ -239,6 +254,7 @@
             android:name="tech.DevAsh.KeyOS.Config.PhoneBook"
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
+            android:excludeFromRecents="true"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher"
@@ -255,15 +271,18 @@
         <activity
             android:name="tech.DevAsh.KeyOS.Config.AllowApps"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.Settings"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS"
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name="tech.DevAsh.KeyOS.SplashScreen"
             android:screenOrientation="portrait"
+            android:excludeFromRecents="true"
             android:theme="@style/keyOS">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
