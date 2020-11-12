@@ -26,7 +26,7 @@ object UpdateOriginalApk {
         val builder =   MaterialDialog.Builder(context)
         builder.title("Update require")
                 .content(
-                        "This feature not available in playstore version. But still you can update it for free.")
+                        "This feature not available in playstore version. But still you can download it for free.")
                 .onPositive{ _, _->
                     update(context)
                 }
@@ -62,7 +62,7 @@ object UpdateOriginalApk {
             val notificationManager = activity.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             val channelId = "Update"
             val channelName: CharSequence = "Update"
-            val importance = NotificationManager.IMPORTANCE_HIGH
+            val importance = NotificationManager.IMPORTANCE_MIN
             val notificationChannel = NotificationChannel(channelId, channelName, importance)
             notificationManager.createNotificationChannel(notificationChannel)
 
@@ -86,7 +86,7 @@ object UpdateOriginalApk {
                     .setOngoing(true)
                     .setProgress(maxInt,minInt,false)
                     .setSmallIcon(R.drawable.ic_key_ring)
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setPriority(NotificationCompat.PRIORITY_LOW)
                     .setAutoCancel(true)
             val notification: Notification = builder.build()
             notification.flags = Notification.FLAG_AUTO_CANCEL
