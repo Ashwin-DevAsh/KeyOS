@@ -45,8 +45,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
 
-        versionCode 30
-        versionName "KeyOS v30"
+        versionCode 31
+        versionName "KeyOS v31"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -55,7 +55,7 @@ android {
         buildConfigField "boolean", "DEBUG_STRICT_MODE", "false"
         buildConfigField "boolean", "HAS_LEAKCANARY", "false"
         buildConfigField "boolean", "FEATURE_BUG_REPORTER", "false"
-        buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
+        buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "true"
         buildConfigField "String", "QR_KEY", '"DevAsh@2017"'
 
 
@@ -75,15 +75,13 @@ android {
         optimized {
             initWith debug
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
-                    'proguard.flags'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard.flags'
         }
 
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
-                    'proguard.flags'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard.flags'
 
             dexOptions {
                 matchingFallbacks = ['release']
@@ -110,15 +108,24 @@ android {
     productFlavors {
         quickstep {
             dimension "default"
-            applicationId 'tech.DevAsh.keyOS'
             testApplicationId 'tech.DevAsh.keyOS.tests'
             buildConfigField "boolean", "HAS_LEAKCANARY", "false"
             buildConfigField "boolean", "DEBUG_STRICT_MODE", "false"
             buildConfigField "boolean", "FEATURE_BUG_REPORTER", "false"
         }
 
+
+
         keyOS {
+            applicationId 'tech.DevAsh.keyOS'
             dimension "custom"
+        }
+
+
+        pro {
+            dimension "custom"
+            applicationId 'tech.DevAsh.keyOS.pro'
+            buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
         }
 
     }
@@ -172,6 +179,14 @@ android {
             manifest.srcFile "keyOS/AndroidManifest.xml"
         }
 
+        pro {
+            res.srcDirs = ['keyOS/res']
+            java.srcDirs = ['keyOS/src']
+            manifest.srcFile "pro/AndroidManifest.xml"
+        }
+
+
+
     }
 
     gradle.projectsEvaluated {
@@ -220,6 +235,8 @@ dependencies {
 
     quickstepImplementation project(':systemui-shared')
     keyOSImplementation files('keyOS/libs/sesame-lib.aar')
+    proImplementation files('keyOS/libs/sesame-lib.aar')
+
 
 
 

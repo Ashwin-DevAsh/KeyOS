@@ -21,14 +21,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.android.launcher3">
 
-    <!--
-    The manifest defines the common entries that should be present in any derivative of Launcher3.
-    The components should generally not require any changes.
-
-    Rest of the components are defined in AndroidManifest.xml which is merged with this manifest
-    at compile time. Note that the components defined in AndroidManifest.xml are also required,
-    with some minor changed based on the derivative app.
-    -->
     <permission
         android:name="com.android.launcher.permission.INSTALL_SHORTCUT"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
@@ -52,7 +44,6 @@
         android:fullBackupContent="@xml/backupscheme"
         android:hardwareAccelerated="true"
         android:theme="@style/AppTheme"
-        android:icon="@drawable/ic_launcher_home"
         android:label="@string/derived_app_name"
         android:largeHeap="@bool/config_largeHeap"
         android:restoreAnyVersion="true"
@@ -79,10 +70,6 @@
             </intent-filter>
         </activity>
 
-
-
-
-        <!-- Intent received used to install shortcuts from other applications -->
         <receiver
             android:name="com.android.launcher3.InstallShortcutReceiver"
             android:permission="com.android.launcher.permission.INSTALL_SHORTCUT"
@@ -92,7 +79,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- Intent received when a session is committed -->
+
         <receiver
             android:name="com.android.launcher3.SessionCommitReceiver" >
             <intent-filter>
@@ -100,18 +87,13 @@
             </intent-filter>
         </receiver>
 
-        <!-- Intent received used to initialize a restored widget -->
+
         <receiver android:name="com.android.launcher3.AppWidgetsRestoredReceiver" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_HOST_RESTORED"/>
             </intent-filter>
         </receiver>
 
-<!--        <service-->
-<!--            android:name="com.android.launcher3.uioverrides.dynamicui.WallpaperManagerCompatVL$ColorExtractionService"-->
-<!--            android:exported="false"-->
-<!--            android:process=":wallpaper_chooser"-->
-<!--            android:permission="android.permission.BIND_JOB_SERVICE" />-->
 
         <service
             android:name="com.android.launcher3.notification.NotificationListener"
@@ -137,10 +119,6 @@
             </intent-filter>
         </activity>
 
-        <!--
-        Should point to the content provider which can be used to dump Launcher3 compatible
-        worspace configuration to the dump's file descriptor by using launcher_dump.proto
-        -->
         <meta-data
             android:name="com.android.launcher3.launcher_dump_provider"
             android:value="com.android.launcher3.LauncherProvider" />

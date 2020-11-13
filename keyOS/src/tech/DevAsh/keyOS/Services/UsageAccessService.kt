@@ -189,7 +189,12 @@ class UsageAccessService : Service() {
                                            .getDefaultInstance()
                                            .where(User::class.java)
                                            .findFirst()!!)
-        }catch (e: Throwable){}
+            if(user!!.singleApp!=null){
+                user?.allowedApps?.add(user?.singleApp)
+            }
+        }catch (e: Throwable){
+
+        }
     }
 
     override fun onDestroy() {
