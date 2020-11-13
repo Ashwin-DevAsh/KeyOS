@@ -33,7 +33,7 @@ object Kiosk {
     fun startKiosk(context: Context){
         println("Start Kiosk...")
         NotificationBlocker.start()
-        context.startForegroundService(getUsageAccessService(context))
+        context.startService(getUsageAccessService(context))
         setCamera(context, user!!.basicSettings.isDisableCamera)
     }
 
@@ -82,11 +82,14 @@ object Kiosk {
 
 
     private fun setCamera(context: Context, boolean: Boolean){
-        if(PermissionsHelper.isAdmin(context)){
-            val dpm = context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
-            val deviceAdmin = ComponentName(context, SampleAdminReceiver::class.java)
-            dpm.setCameraDisabled(deviceAdmin, boolean)
-        }
+        try {
+            if(PermissionsHelper.isAdmin(context)){
+                val dpm = context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
+                val deviceAdmin = ComponentName(context, SampleAdminReceiver::class.java)
+                dpm.setCameraDisabled(deviceAdmin, boolean)
+            }
+        }catch (e:Throwable){}
+
     }
 
 

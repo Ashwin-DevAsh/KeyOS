@@ -156,6 +156,10 @@ class Settings : AppCompatActivity() {
             shouldLaunch = false
             permissionsBottomSheet.show(supportFragmentManager, "TAG")
         }
+
+        notificationPanel.setOnCheckedChangeListener{_,isChecked->
+            UserContext.user!!.basicSettings.notificationPanel = isChecked
+        }
     }
 
 

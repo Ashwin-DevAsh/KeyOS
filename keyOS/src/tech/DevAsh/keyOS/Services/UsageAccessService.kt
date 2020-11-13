@@ -482,16 +482,21 @@ class UsageAccessService : Service() {
 
     private fun runCallBlocker(){
         val telephony = this.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        telephony.listen(object : PhoneStateListener() {
-            override fun onCallStateChanged(state: Int, incomingNumber: String) {
-                if (isAlive) {
-                    CallBlocker
-                            .onCall(state, incomingNumber,
-                                    this@UsageAccessService.applicationContext, user)
+        try{
+            telephony.listen(object : PhoneStateListener() {
+                override fun onCallStateChanged(state: Int, incomingNumber: String) {
+                    if (isAlive) {
+                        CallBlocker
+                                .onCall(state, incomingNumber,
+                                        this@UsageAccessService.applicationContext, user)
+                    }
+                    super.onCallStateChanged(state, incomingNumber)
                 }
-                super.onCallStateChanged(state, incomingNumber)
-            }
-        }, PhoneStateListener.LISTEN_CALL_STATE)
+            }, PhoneStateListener.LISTEN_CALL_STATE)
+        }catch (e:Throwable){
+            e
+        }
+
     }
 
     private fun checkWifi(){
