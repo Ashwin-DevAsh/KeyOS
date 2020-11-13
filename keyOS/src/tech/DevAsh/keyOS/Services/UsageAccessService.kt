@@ -78,7 +78,7 @@ class UsageAccessService : Service() {
 
             val channelId = "KeyOS Protection"
             val channelName: CharSequence = "Protection"
-            val importance = NotificationManager.IMPORTANCE_NONE
+            val importance = NotificationManager.IMPORTANCE_MIN
             val notificationChannel = NotificationChannel(channelId, channelName, importance)
             notificationManager.createNotificationChannel(notificationChannel)
             val builder: Notification.Builder = Notification.Builder(this, channelId)
@@ -93,7 +93,7 @@ class UsageAccessService : Service() {
                     .setContentTitle("KeyOS Protection")
                     .setContentTitle("Your device completely protected by keyOS")
                     .setSmallIcon(R.drawable.ic_key_ring)
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setPriority(NotificationCompat.PRIORITY_LOW)
                     .setAutoCancel(false)
             val notification: Notification = builder.build()
             startForeground(2, notification)
