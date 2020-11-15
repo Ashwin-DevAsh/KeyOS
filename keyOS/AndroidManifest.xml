@@ -2,13 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <application
-        android:usesCleartextTraffic="true"
+        android:name="tech.DevAsh.keyOS.KioskApp"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:name="tech.DevAsh.keyOS.KioskApp">
-
+        android:usesCleartextTraffic="true">
     </application>
 
 </manifest>

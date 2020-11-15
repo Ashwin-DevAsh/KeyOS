@@ -24,6 +24,7 @@ import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Config.ImportExportSettings
 import tech.DevAsh.keyOS.Config.ScreenSaver
+import tech.DevAsh.keyOS.Config.WebFilter
 import tech.DevAsh.keyOS.Database.BasicSettings
 import java.util.*
 
@@ -99,6 +100,10 @@ class Settings : AppCompatActivity() {
             startActivity(Intent(this, Password::class.java))
         }
 
+        webFilter.setOnClickListener {
+            startActivity(Intent(this, WebFilter::class.java))
+
+        }
 
         wifi?.setOnClickListener{
             optionsOnClick(wifiMode, wifi)

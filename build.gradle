@@ -45,8 +45,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
 
-        versionCode 33
-        versionName "KeyOS v33"
+        versionCode 34
+        versionName "KeyOS v34"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -128,6 +128,12 @@ android {
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
         }
 
+        dev {
+            dimension "custom"
+            applicationId 'tech.DevAsh.keyOS.dev'
+            buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
+        }
+
     }
 
 
@@ -185,6 +191,12 @@ android {
             manifest.srcFile "pro/AndroidManifest.xml"
         }
 
+        dev {
+            res.srcDirs = ['keyOS/res']
+            java.srcDirs = ['keyOS/src']
+            manifest.srcFile "dev/AndroidManifest.xml"
+        }
+
 
 
     }
@@ -236,6 +248,8 @@ dependencies {
     quickstepImplementation project(':systemui-shared')
     keyOSImplementation files('keyOS/libs/sesame-lib.aar')
     proImplementation files('keyOS/libs/sesame-lib.aar')
+    devImplementation files('keyOS/libs/sesame-lib.aar')
+
 
 
 

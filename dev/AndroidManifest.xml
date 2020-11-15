@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+
+
+    <application
+        android:usesCleartextTraffic="true"
+        android:icon="@mipmap/ic_launcher_dev"
+        android:roundIcon="@mipmap/ic_launcher_dev_round"
+        android:name="tech.DevAsh.keyOS.KioskApp"
+        tools:ignore="UnusedAttribute">
+
+    </application>
+
+</manifest>

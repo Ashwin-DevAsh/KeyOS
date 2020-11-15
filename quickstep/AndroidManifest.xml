@@ -186,6 +186,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
             android:excludeFromRecents="true"
+            android:name="tech.DevAsh.keyOS.Config.WebFilter"/>
+
+        <activity
+            android:screenOrientation="portrait"
+            android:theme="@style/keyOS"
+            android:excludeFromRecents="true"
             android:name="tech.DevAsh.keyOS.Config.ScreenSaver"/>
         <activity
             android:name="tech.DevAsh.keyOS.Config.QrScanner"

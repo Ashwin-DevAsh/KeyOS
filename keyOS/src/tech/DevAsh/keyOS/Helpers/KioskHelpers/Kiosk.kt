@@ -31,11 +31,19 @@ object Kiosk {
         return usageIntent!!
     }
 
+    fun getAccessibilityService(context: Context):Intent{
+        if(accessibilityService==null){
+            accessibilityService = Intent(context, UsageAccessService::class.java)
+        }
+        return accessibilityService!!
+    }
+
     fun startKiosk(context: Context){
         isKisokEnabled = true
         println("Start Kiosk...")
         NotificationBlocker.start()
         context.startService(getUsageAccessService(context))
+        context.startService(getAccessibilityService(context))
         setCamera(context, user!!.basicSettings.isDisableCamera)
     }
 
@@ -43,7 +51,8 @@ object Kiosk {
     fun stopKiosk(context: Context){
         isKisokEnabled = false
         NotificationBlocker.stop()
-        context.applicationContext.stopService(getUsageAccessService(context))
+        context.stopService(getUsageAccessService(context))
+        context.stopService(getAccessibilityService(context))
         setCamera(context, false)
     }
 
