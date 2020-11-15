@@ -12,18 +12,20 @@ import android.content.Intent.CATEGORY_HOME
 import android.content.IntentFilter
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.provider.Settings
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.android.launcher3.BuildConfig
-import com.fasterxml.jackson.databind.util.ClassUtil.getPackageName
 import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.tasks.Task
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
+import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -42,7 +44,7 @@ object PermissionsHelper {
     init {
 
         if(Build.VERSION.SDK_INT>=26){
-            runTimePermissions.add( 0,android.Manifest.permission.ANSWER_PHONE_CALLS)
+            runTimePermissions.add(0, android.Manifest.permission.ANSWER_PHONE_CALLS)
         }
 
         if(!BuildConfig.IS_PLAYSTORE_BUILD){
@@ -59,7 +61,7 @@ object PermissionsHelper {
 
     fun checkImportantPermissions(context: Activity):Boolean{
         return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context) && isNotificationEnabled(
-                context)
+                context) && isAccessServiceEnabled(context,WindowChangeDetectingService::class.java)
     }
 
     fun isUsage(context: Context): Boolean {
@@ -75,7 +77,7 @@ object PermissionsHelper {
     fun isWrite(context: Context): Boolean {
         return try{
             Settings.System.canWrite(context.applicationContext)
-        }catch (e:Throwable){
+        }catch (e: Throwable){
             true
         }
     }
@@ -88,7 +90,7 @@ object PermissionsHelper {
 
         return try{
             Settings.canDrawOverlays(context.applicationContext)
-        }catch (e:Throwable){
+        }catch (e: Throwable){
             true
         }
     }
@@ -209,7 +211,7 @@ object PermissionsHelper {
                  return false
              }
              return true
-         }catch (e:Throwable){
+         }catch (e: Throwable){
              return true
          }
 
@@ -220,11 +222,19 @@ object PermissionsHelper {
 
     fun isMyLauncherDefault(context: Context): Boolean = ArrayList<ComponentName>().apply {
        context.packageManager.getPreferredActivities(
-                arrayListOf(IntentFilter(ACTION_MAIN).apply { addCategory(CATEGORY_HOME) }),
-                this,
-                context.packageName)
+               arrayListOf(IntentFilter(ACTION_MAIN).apply { addCategory(CATEGORY_HOME) }),
+               this,
+               context.packageName)
     }.isNotEmpty()
 
+
+    fun isMyLauncherCurrent(context: Context): Boolean {
+        val intent = Intent(ACTION_MAIN)
+        intent.addCategory(CATEGORY_HOME)
+        val resolveInfo: ResolveInfo =
+              context.packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
+        return context.packageName == resolveInfo.activityInfo.packageName
+    }
 
 
 

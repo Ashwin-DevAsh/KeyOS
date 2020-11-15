@@ -31,6 +31,8 @@ import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
 import java.time.LocalDate
 import java.time.ZoneId
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class UsageAccessService : Service() {
@@ -66,7 +68,7 @@ class UsageAccessService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         startAsForeground()
-        return START_STICKY
+        return START_NOT_STICKY
     }
 
 
@@ -250,8 +252,7 @@ class UsageAccessService : Service() {
         val app = Apps(appName)
 
 
-        if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(
-                        className)){
+        if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(className)){
             return true
         }
 
@@ -264,7 +265,7 @@ class UsageAccessService : Service() {
         }
 
         if(appIndex==-1){
-            Toast.makeText(applicationContext, "Access Denied : $appName", Toast.LENGTH_SHORT).show()
+            showAppBlockAlertDialog(this,"")
             return false
         }
 
@@ -286,42 +287,66 @@ class UsageAccessService : Service() {
             if(usageTime!=null && !allowedTime.isGreaterThan(usageTime)){
                 prevActivities.removeAll(arrayListOf(appName))
                 timeExhaustApps.blockedApps.add(appName!!)
-                showAlertDialog(this, appName)
+                showTimerAlertDialog(this, appName)
                 return false
             }
 
         }
 
         if (user!!.editedApps[editedAppIndex!!]!!.blockedActivities.contains(className)){
-            Toast.makeText(applicationContext, "Access Denied : $className", Toast.LENGTH_SHORT).show()
+           showAppBlockAlertDialog(this,"")
             return false
         }
 
         return true
     }
 
-    var alert : AlertDialog?=null
+    var timeAlertSialog : AlertDialog?=null
+    var blockAppAlertDialog : AlertDialog?=null
 
-    private fun showAlertDialog(context: Context, appName: String?){
+    private fun showAppBlockAlertDialog(context: Context, appName: String?){
 
-        if(alert!=null){
-            if(!alert!!.isShowing){
-                alert?.show()
+        if(blockAppAlertDialog!=null){
+            if(!blockAppAlertDialog!!.isShowing){
+                blockAppAlertDialog?.show()
+            }
+            return
+        }
+
+        val dialog = AlertDialog.Builder(context, R.style.MyProgressDialog)
+        dialog.setTitle("Access denied")
+        dialog.setMessage("You are not allowed to access this content")
+        dialog.setCancelable(false)
+        dialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, _: Int ->
+            dialogInterface.dismiss()
+        }
+
+        blockAppAlertDialog = dialog.create()
+        blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        blockAppAlertDialog?.show()
+    }
+
+
+    private fun showTimerAlertDialog(context: Context, appName: String?){
+
+        if(timeAlertSialog!=null){
+            if(!timeAlertSialog!!.isShowing){
+                timeAlertSialog?.show()
             }
             return
         }
 
         val dialog = AlertDialog.Builder(context, R.style.MyProgressDialog)
         dialog.setTitle("App isn't available")
-        dialog.setMessage("$appName is paused as your app timer ran out")
+        dialog.setMessage("Application is paused as your app timer ran out")
         dialog.setCancelable(false)
         dialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, _: Int ->
             dialogInterface.dismiss()
         }
 
-        alert = dialog.create()
-        alert?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
-        alert?.show()
+        timeAlertSialog = dialog.create()
+        timeAlertSialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        timeAlertSialog?.show()
     }
 
 
@@ -364,7 +389,7 @@ class UsageAccessService : Service() {
                 allEvents.add(currentEvent)
                 val key = currentEvent.packageName
                 if (map[key] ==null)
-                    map[key] =  AppUsageInfo(key);
+                    map[key] =  AppUsageInfo(key)
             }
         }
 
@@ -494,7 +519,7 @@ class UsageAccessService : Service() {
                 }
             }, PhoneStateListener.LISTEN_CALL_STATE)
         }catch (e:Throwable){
-            e
+
         }
 
     }
@@ -640,5 +665,6 @@ class Time{
         return this.minute!! > time.minute!!
 
     }
+
 
 }

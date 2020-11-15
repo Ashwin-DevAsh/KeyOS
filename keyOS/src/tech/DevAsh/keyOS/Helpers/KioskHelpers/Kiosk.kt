@@ -21,6 +21,7 @@ import tech.DevAsh.keyOS.Database.Apps
 object Kiosk {
     private var usageIntent:Intent?=null
     var accessibilityService:Intent?=null
+    var isKisokEnabled = false;
 
 
     fun getUsageAccessService(context: Context):Intent{
@@ -31,6 +32,7 @@ object Kiosk {
     }
 
     fun startKiosk(context: Context){
+        isKisokEnabled = true
         println("Start Kiosk...")
         NotificationBlocker.start()
         context.startService(getUsageAccessService(context))
@@ -39,6 +41,7 @@ object Kiosk {
 
 
     fun stopKiosk(context: Context){
+        isKisokEnabled = false
         NotificationBlocker.stop()
         context.applicationContext.stopService(getUsageAccessService(context))
         setCamera(context, false)
