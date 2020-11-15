@@ -19,13 +19,13 @@ import android.telephony.PhoneStateListener
 import android.telephony.TelephonyManager
 import android.view.Surface
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.android.launcher3.R
 import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.CallBlocker
+import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
@@ -55,9 +55,13 @@ class UsageAccessService : Service() {
         var handlerCheckBasicSettings:Handler?=null
         var handlerKillApps:Handler?=null
         var handlerCallBlocker:Handler?=null
-        var isAlive = false
 
     }
+
+    var isAlive = false
+        get() {
+            return field && PermissionsHelper.isMyLauncherCurrent(this)
+        }
 
     private var timeExhaustApps = TimeExhaustApps()
 
@@ -301,37 +305,37 @@ class UsageAccessService : Service() {
         return true
     }
 
-    var timeAlertSialog : AlertDialog?=null
+    var timeAlertdialog : AlertDialog?=null
     var blockAppAlertDialog : AlertDialog?=null
 
     private fun showAppBlockAlertDialog(context: Context, appName: String?){
 
-        if(blockAppAlertDialog!=null){
-            if(!blockAppAlertDialog!!.isShowing){
-                blockAppAlertDialog?.show()
-            }
-            return
-        }
-
-        val dialog = AlertDialog.Builder(context, R.style.MyProgressDialog)
-        dialog.setTitle("Access denied")
-        dialog.setMessage("You are not allowed to access this content")
-        dialog.setCancelable(false)
-        dialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, _: Int ->
-            dialogInterface.dismiss()
-        }
-
-        blockAppAlertDialog = dialog.create()
-        blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
-        blockAppAlertDialog?.show()
+//        if(blockAppAlertDialog!=null){
+//            if(!blockAppAlertDialog!!.isShowing){
+//                blockAppAlertDialog?.show()
+//            }
+//            return
+//        }
+//
+//        val dialog = AlertDialog.Builder(context, R.style.MyProgressDialog)
+//        dialog.setTitle("Access denied")
+//        dialog.setMessage("You are not allowed to access this content")
+//        dialog.setCancelable(false)
+//        dialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, _: Int ->
+//            dialogInterface.dismiss()
+//        }
+//
+//        blockAppAlertDialog = dialog.create()
+//        blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+//        blockAppAlertDialog?.show()
     }
 
 
     private fun showTimerAlertDialog(context: Context, appName: String?){
 
-        if(timeAlertSialog!=null){
-            if(!timeAlertSialog!!.isShowing){
-                timeAlertSialog?.show()
+        if(timeAlertdialog!=null){
+            if(!timeAlertdialog!!.isShowing){
+                timeAlertdialog?.show()
             }
             return
         }
@@ -344,9 +348,9 @@ class UsageAccessService : Service() {
             dialogInterface.dismiss()
         }
 
-        timeAlertSialog = dialog.create()
-        timeAlertSialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
-        timeAlertSialog?.show()
+        timeAlertdialog = dialog.create()
+        timeAlertdialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        timeAlertdialog?.show()
     }
 
 
