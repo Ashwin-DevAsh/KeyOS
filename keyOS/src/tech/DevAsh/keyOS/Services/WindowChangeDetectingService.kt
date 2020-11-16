@@ -3,16 +3,21 @@ package tech.DevAsh.KeyOS.Services
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.app.AlertDialog
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
+import androidx.core.app.NotificationCompat
 import com.android.launcher3.Launcher
 import com.android.launcher3.R
 import tech.DevAsh.KeyOS.Database.AppsContext
@@ -34,6 +39,36 @@ class WindowChangeDetectingService : AccessibilityService() {
     private var prevActivities = arrayListOf("")
 
 
+    private fun startAsForeground(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            val notificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+            val channelId = "KeyOS Protection"
+            val channelName: CharSequence = "Protection"
+            val importance = NotificationManager.IMPORTANCE_MIN
+            val notificationChannel = NotificationChannel(channelId, channelName, importance)
+            notificationManager.createNotificationChannel(notificationChannel)
+            val builder: Notification.Builder = Notification.Builder(this, channelId)
+                    .setContentTitle("KeyOS Protection")
+                    .setContentText("Your device completely protected by keyOS")
+                    .setSmallIcon(R.drawable.ic_key_ring)
+                    .setAutoCancel(false)
+            val notification: Notification = builder.build()
+            startForeground(3, notification)
+        } else {
+            val builder = NotificationCompat.Builder(this)
+                    .setContentTitle("KeyOS Protection")
+                    .setContentTitle("Your device completely protected by keyOS")
+                    .setSmallIcon(R.drawable.ic_key_ring)
+                    .setPriority(NotificationCompat.PRIORITY_LOW)
+                    .setAutoCancel(false)
+            val notification: Notification = builder.build()
+            startForeground(3, notification)
+        }
+    }
+
 
 
     override fun onServiceConnected() {
@@ -49,9 +84,9 @@ class WindowChangeDetectingService : AccessibilityService() {
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
 
-        if(PermissionsHelper.isMyLauncherCurrent(this) && Kiosk.isKisokEnabled){
+        if(PermissionsHelper.isMyLauncherCurrent(this)){
             println("source = " + event.source?.viewIdResourceName)
-            if(PermissionsHelper.isMyLauncherCurrent(this)){
+            if(Kiosk.isKisokEnabled){
                 checkActivity(this,event)
 //                WebBlocker.block(event, this)
             }

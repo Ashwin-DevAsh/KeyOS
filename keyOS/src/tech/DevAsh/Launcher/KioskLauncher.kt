@@ -63,8 +63,7 @@ open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenc
     private var paused = false
 
     private val customLayoutInflater by lazy {
-        KioskLayoutInflater(
-                super.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater, this)
+        KioskLayoutInflater(super.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater, this)
     }
 
     private val colorsToWatch = arrayOf(ColorEngine.Resolvers.WORKSPACE_ICON_LABEL)

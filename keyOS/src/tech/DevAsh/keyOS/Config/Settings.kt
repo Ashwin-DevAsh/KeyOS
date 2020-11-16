@@ -43,6 +43,7 @@ class Settings : AppCompatActivity() {
         loadView()
         onClick()
         controlLaunchButton()
+
     }
 
 

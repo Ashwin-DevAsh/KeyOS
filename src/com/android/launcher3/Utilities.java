@@ -742,7 +742,7 @@ public final class Utilities {
     }
 
     public static void killLauncher() {
-        System.exit(0);
+        new Handler().postDelayed(() -> Process.killProcess(Process.myPid()),0);
     }
 
 

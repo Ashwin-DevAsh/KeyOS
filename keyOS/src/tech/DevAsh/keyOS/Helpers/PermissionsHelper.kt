@@ -17,7 +17,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.provider.Settings
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -61,7 +60,8 @@ object PermissionsHelper {
 
     fun checkImportantPermissions(context: Activity):Boolean{
         return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context) && isNotificationEnabled(
-                context) && isAccessServiceEnabled(context,WindowChangeDetectingService::class.java)
+                context) && isAccessServiceEnabled(context,
+                                                   WindowChangeDetectingService::class.java)
     }
 
     fun isUsage(context: Context): Boolean {
@@ -190,13 +190,18 @@ object PermissionsHelper {
     fun getRuntimePermission(context: AppCompatActivity, permission: Array<String>,
                              requestCode: Int){
          openedForPermission = true
+
         if ("xiaomi" == Build.MANUFACTURER.toLowerCase(Locale.ROOT)) {
             val intent = Intent("miui.intent.action.APP_PERM_EDITOR")
-            intent.setClassName("com.miui.securitycenter",
-                                "com.miui.permcenter.permissions.PermissionsEditorActivity")
+            intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity")
             intent.putExtra("extra_pkgname", context.packageName)
-           context.startActivity(intent)
+
+            val intent1 = Intent()
+            intent1.component = ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity")
+            context.startActivity(intent1)
+            context.startActivity(intent)
         }
+
         ActivityCompat.requestPermissions(context,
                                           permission,
                                           requestCode)

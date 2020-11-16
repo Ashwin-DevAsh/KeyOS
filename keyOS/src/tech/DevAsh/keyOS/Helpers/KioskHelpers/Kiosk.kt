@@ -1,8 +1,6 @@
 package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 
-import android.app.Activity
-import android.app.Notification
-import android.app.PendingIntent
+import android.app.*
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
@@ -17,6 +15,7 @@ import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.Apps
+import java.util.logging.Handler
 
 object Kiosk {
     private var usageIntent:Intent?=null
@@ -86,7 +85,12 @@ object Kiosk {
         if(password == user?.password){
             stopKiosk(context.applicationContext)
             exitLauncher(context.applicationContext)
+            context.finishAndRemoveTask()
             context.finishAffinity()
+            android.os.Handler().postDelayed({
+                                                 android.os.Process.killProcess(android.os.Process.myPid());
+                                             },500)
+
         }
     }
 

@@ -481,8 +481,7 @@ public class LauncherModel extends BroadcastReceiver implements LauncherAppsComp
 
                 // If there is already one running, tell it to stop.
                 stopLoader();
-                LoaderResults loaderResults = new LoaderResults(mApp, sBgDataModel,
-                        mBgAllAppsList, synchronousBindPage, mCallbacks);
+                LoaderResults loaderResults = new LoaderResults(mApp, sBgDataModel, mBgAllAppsList, synchronousBindPage, mCallbacks);
                 if (mModelLoaded && !mIsLoaderTaskRunning) {
                     // Divide the set of loaded items into those that we are binding synchronously,
                     // and everything else that is to be bound normally (asynchronously).
