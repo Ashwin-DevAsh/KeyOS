@@ -1,6 +1,7 @@
 package tech.DevAsh.KeyOS.Database
 
 import android.content.Context
+import android.widget.Toast
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import tech.DevAsh.keyOS.Database.RealmMigrations
@@ -11,8 +12,8 @@ object RealmHelper {
         Realm.init(context)
         val mConfiguration = RealmConfiguration.Builder()
                 .name("RealmData.realm")
-                .schemaVersion(2)
-                .migration(RealmMigrations())
+                .schemaVersion(3)
+                .migration(RealmMigrations(context))
                 .build()
         Realm.setDefaultConfiguration(mConfiguration)
     }

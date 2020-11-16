@@ -72,8 +72,8 @@
                     android:layout_marginTop="25dp"
                     android:paddingHorizontal="20dp"
                     android:layout_marginLeft="5dp"
-                    android:textSize="16sp"
-                    android:text="Web filter is a powerful service which allow you to block unwanted websites"
+                    android:textSize="15sp"
+                    android:text="Web filter is a powerful service which allow you to block unwanted websites\n\nSupported browsers : chrome, firefox, brave, edge, opera, duckduckgo"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
@@ -93,7 +93,7 @@
                         android:layout_height="50dp">
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="On"
+                            android:text="Off"
                             android:textAllCaps="true"
                             android:layout_marginLeft="5dp"
                             android:textStyle="bold"
@@ -109,7 +109,7 @@
                             android:layout_height="wrap_content">
                             <com.suke.widget.SwitchButton
                                 app:sb_show_indicator="false"
-                                android:id="@+id/allowCalls"
+                                android:id="@+id/enableWebFilter"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
@@ -191,7 +191,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="50dp"
-                                android:text="Contacts save under whitelist only able to call you"
+                                android:text="Websites save under whitelist only able to access by the browser"
                                 android:textSize="13dp" />
 
                         </LinearLayout>
@@ -262,7 +262,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="50dp"
-                                android:text="Contacts save under blacklist won't be able to call you"
+                                android:text="Websites save under blacklist won't be able to access by browser"
                                 android:textSize="13dp" />
 
 
@@ -303,7 +303,7 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
                             android:paddingTop="10dp"
-                            android:text="Supported Browsers"
+                            android:text="Additinal"
                             android:textAllCaps="true"
                             android:textSize="14dp"
                             android:textStyle="bold" />
@@ -336,8 +336,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:padding="6dp"
-                                app:srcCompat="@drawable/contact_white"
-                                app:tint="#03A9F4"/>
+                                app:srcCompat="@drawable/adult"
+                                />
                         </androidx.cardview.widget.CardView>
 
                         <LinearLayout
@@ -350,7 +350,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Automatic whitelist"
+                                android:text="Block adult websites"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -359,7 +359,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="90dp"
-                                android:text="Allow calls if contact available in phone book"
+                                android:text="This will automatically block 800+ adult websites"
                                 android:textSize="13dp" />
                         </LinearLayout>
 
@@ -372,6 +372,7 @@
                             <com.suke.widget.SwitchButton
                                 android:id="@+id/automaticWhitelist"
                                 android:layout_width="wrap_content"
+                                app:sb_checked="false"
                                 android:layout_height="wrap_content"
                                 app:sb_show_indicator="false" />
                         </LinearLayout>

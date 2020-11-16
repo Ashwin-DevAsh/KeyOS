@@ -40,6 +40,11 @@ public class User extends RealmObject {
     @SerializedName("password")
     public String password;
 
+    @SerializedName("webFilter")
+    public WebFilterDB webFilter;
+
+
+
     public User(RealmList<Apps> allowedApps,
                 RealmList<Apps> allowedServices,
                 BasicSettings basicSettings,
@@ -79,9 +84,13 @@ public class User extends RealmObject {
 
       static public void getUsers(){
             try {
+                User user =  Realm
+                        .getDefaultInstance()
+                        .where(User.class)
+                        .findFirst();
                 UserContext.INSTANCE.setUser(Realm.getDefaultInstance()
-                        .copyFromRealm(
-                                Realm.getDefaultInstance().where(User.class).findFirst()));
+                        .copyFromRealm(user)
+                );
             } catch (Throwable throwable){
                 Realm.getDefaultInstance().executeTransactionAsync(
                         realm -> {

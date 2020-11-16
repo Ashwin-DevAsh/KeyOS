@@ -6,7 +6,7 @@ buildscript {
         maven { url = "https://storage.googleapis.com/r8-releases/raw" }
     }
     dependencies {
-        classpath "io.realm:realm-gradle-plugin:6.0.2"
+        classpath "io.realm:realm-gradle-plugin:7.0.0"
         classpath 'com.android.tools.build:gradle:4.1.1'
         classpath 'com.android.tools:r8:2.1.67'
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.9'
@@ -45,8 +45,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
 
-        versionCode 34
-        versionName "KeyOS v34"
+        versionCode 35
+        versionName "KeyOS v35"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true

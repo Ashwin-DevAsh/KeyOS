@@ -22,7 +22,6 @@
                 android:layout_marginLeft="80dp"
                 android:textSize="20dp"
                 android:textAllCaps="true"
-                android:id="@+id/heading"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:clickable="false"

@@ -1,20 +1,60 @@
 package tech.DevAsh.keyOS.Database
 
-import io.realm.DynamicRealm
-import io.realm.RealmMigration
+import android.content.Context
+import android.widget.Toast
+import io.realm.*
 
 
-class RealmMigrations : RealmMigration{
+class RealmMigrations(val context: Context) : RealmMigration{
+
+
     override fun migrate(realm: DynamicRealm, oldVersion: Long, newVersion: Long) {
         val schema = realm.schema
+        var oldVersion = oldVersion
 
-        if (oldVersion == 1L) {
+        Toast.makeText(context,"$oldVersion",Toast.LENGTH_LONG).show()
+
+
+        if(oldVersion== 1L){
             val userSchema = schema.get("BasicSettings")
-            userSchema!!.addField("isDisableCamera", Boolean::class.javaPrimitiveType).transform {
-                it.setBoolean("isDisableCamera",false)
-            }
+            userSchema!!
+                    .addField("isDisableCamera", Boolean::class.javaPrimitiveType)
+                    .transform { it.setBoolean("isDisableCamera",false) }
+            oldVersion++
 
         }
+        if(oldVersion==2L){
+            val webFilter = schema.create("WebFilterDB")
+            webFilter
+                    .addField("isEnabled",Boolean::class.javaObjectType)
+                    .transform { it.setBoolean("isEnabled",false) }
+            webFilter
+                    .addField("isWhitelistEnabled",Boolean::class.javaObjectType)
+                    .transform { it.setBoolean("isWhitelistEnabled",false) }
+            webFilter
+                    .addField("isBlacklistEnabled",Boolean::class.javaObjectType)
+                    .transform { it.setBoolean("isBlacklistEnabled",false) }
+
+            webFilter
+                    .addRealmListField("whitelistWebsites", String::class.javaObjectType)
+                    .transform { it.setList("whitelistWebsites", RealmList<String>()) }
+            webFilter
+                    .addRealmListField("blacklistWebsites",String::class.javaObjectType)
+                    .transform { it.setList("blacklistWebsites",RealmList<String>()) }
+
+            webFilter
+                    .addField("shouldBlockAdultSites",Boolean::class.javaObjectType)
+                    .transform { it.setBoolean("shouldBlockAdultSites",false) }
+
+            val user = schema.get("User")
+            user!!
+                    .addRealmObjectField("webFilter",webFilter)
+            oldVersion++
+        }
+
+
+
+
     }
 
     override fun equals(other: Any?): Boolean {
