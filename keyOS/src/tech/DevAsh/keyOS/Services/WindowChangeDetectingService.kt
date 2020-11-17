@@ -6,23 +6,18 @@ import android.app.AlertDialog
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.usage.UsageEvents
-import android.app.usage.UsageStatsManager
-import android.content.ComponentName
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
-import com.android.launcher3.Launcher
 import com.android.launcher3.R
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.UserContext
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
@@ -85,9 +80,8 @@ class WindowChangeDetectingService : AccessibilityService() {
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
 
         if(PermissionsHelper.isMyLauncherCurrent(this)){
-            println("source = " + event.source?.viewIdResourceName)
             if(Kiosk.isKisokEnabled){
-                checkActivity(this,event)
+                checkActivity(this, event)
                 WebBlocker.block(event, this)
             }
         }
@@ -104,7 +98,8 @@ class WindowChangeDetectingService : AccessibilityService() {
             return
         }
 
-        val dialog = AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen)
+        val dialog = AlertDialog.Builder(context,
+                                         android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen)
         val view = LayoutInflater.from(context).inflate(R.layout.sheet_access_denied, null)
         dialog.setView(view)
 
@@ -113,7 +108,7 @@ class WindowChangeDetectingService : AccessibilityService() {
         blockAppAlertDialog?.show()
 
     }
-    private fun checkActivity(context: Context,event: AccessibilityEvent) {
+    private fun checkActivity(context: Context, event: AccessibilityEvent) {
         val appName: String? = event.packageName?.toString()
         val className :String? = event.className?.toString()
 
@@ -127,7 +122,8 @@ class WindowChangeDetectingService : AccessibilityService() {
             || event.className.toString().toLowerCase(Locale.ROOT).contains("recent")){
 
             if(isAllowedPackage(appName, className)){
-                if(prevActivities.last()!=appName){
+                if(prevActivities.last()!=appName
+                   && (UserContext.user!!.allowedApps.contains(Apps(appName)) || appName==packageName)){
                     prevActivities.add(appName)
                 }
             }else{
@@ -145,10 +141,17 @@ class WindowChangeDetectingService : AccessibilityService() {
     private fun isAllowedPackage(appName: String?, className: String?):Boolean{
         val app = Apps(appName)
 
-
-        if(appName == packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(className)){
+        if(appName == packageName
+           || AppsContext.exceptions.contains(appName)
+           || AppsContext.exceptions.contains(className)
+           || className.toString().contains("android.inputmethodservice")
+           || try{ Class.forName( className.toString() );true} catch (e:Throwable){false}
+        ){
             return true
         }
+
+
+
 
         val serviceIndex = UserContext.user?.allowedServices?.indexOf(app)
         val appIndex = UserContext.user?.allowedApps?.indexOf(app)
@@ -215,7 +218,7 @@ class WindowChangeDetectingService : AccessibilityService() {
         }finally {
             Handler().postDelayed({
                                       blockAppAlertDialog?.dismiss()
-                                  },2000)
+                                  }, 2000)
         }
 
     }

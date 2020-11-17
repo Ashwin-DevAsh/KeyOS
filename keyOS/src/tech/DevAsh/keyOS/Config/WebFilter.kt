@@ -40,7 +40,12 @@ class WebFilter : AppCompatActivity() {
             WebsiteList.websiteListType = WebsiteList.Companion.WebsiteListType.BLACKLIST
             startActivity(Intent(this,WebsiteList::class.java))
         }
+
+        back.setOnClickListener {
+            super.onBackPressed()
+        }
     }
+
 
     fun loadView(){
         enableWebFilter.isChecked = UserContext.user!!.webFilter.isEnabled

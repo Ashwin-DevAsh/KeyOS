@@ -168,8 +168,6 @@ class UsageAccessService : Service() {
     private fun killApp() {
         try{
             for (packageInfo in packages!!) {
-
-
                 val app = Apps(packageInfo.packageName)
                 if (packageInfo.packageName == packageName || user!!.allowedApps.contains(app) || user!!.allowedServices.contains(
                                 app)) {

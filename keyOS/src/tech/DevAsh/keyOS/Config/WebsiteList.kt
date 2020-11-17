@@ -61,6 +61,8 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
             showDeleteDialog(this)
         }
 
+
+
         addAll.setOnCheckedChangeListener{ _, isChecked->
             if(isChecked){
                 deleteList.addAll(websiteList)

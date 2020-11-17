@@ -17,17 +17,21 @@ object WebBlocker {
 
     fun block(event: AccessibilityEvent, _context: Context){
         context=_context
-        val parentNodeInfo = event.source ?: return
-        val packageName = event.packageName.toString()
+        val packageName = event?.packageName?.toString()
         var browserConfig: SupportedBrowserConfig? = null
         for (supportedConfig in getSupportedBrowsers()) {
             if (supportedConfig.packageName == packageName) {
                 browserConfig = supportedConfig
             }
         }
+
         if (browserConfig == null) {
             return
         }
+
+        val parentNodeInfo = event.source ?: return
+
+
         val capturedUrl = captureUrl(parentNodeInfo, browserConfig)
         parentNodeInfo.recycle()
 
