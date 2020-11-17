@@ -185,9 +185,9 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:padding="8dp"
-                                app:srcCompat="@drawable/incoming_call"
-                                app:tint="#4CAF50"/>
+                                android:padding="6dp"
+                                app:srcCompat="@drawable/ic_incoming_call"
+                             />
                         </androidx.cardview.widget.CardView>
 
                         <LinearLayout
@@ -208,7 +208,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
-                                android:text="Allow all incoming calls"
+                                android:layout_marginRight="70dp"
+                                android:text="This will allow all incoming calls to your mobile"
                                 android:textSize="13dp" />
                         </LinearLayout>
 
@@ -254,9 +255,9 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:padding="8dp"
-                                app:srcCompat="@drawable/outgoing_call"
-                                app:tint="#0979F2"/>
+                                android:padding="6dp"
+                                app:srcCompat="@drawable/ic_outgoing_call"
+                              />
                         </androidx.cardview.widget.CardView>
 
                         <LinearLayout
@@ -277,7 +278,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
-                                android:text="Allow all outgoing calls"
+                                android:layout_marginRight="70dp"
+                                android:text="This will allow all outgoing calls to your mobile"
                                 android:textSize="13dp" />
                         </LinearLayout>
 
