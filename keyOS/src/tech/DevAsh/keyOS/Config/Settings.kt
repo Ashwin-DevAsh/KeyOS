@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
-import kotlinx.android.synthetic.keyOS.activity_settings.*
+import kotlinx.android.synthetic.dev.activity_settings.*
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
 import tech.DevAsh.KeyOS.Database.RealmHelper

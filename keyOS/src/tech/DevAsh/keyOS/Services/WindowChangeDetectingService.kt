@@ -73,7 +73,11 @@ class WindowChangeDetectingService : AccessibilityService() {
         dialog.setView(view)
 
         blockAppAlertDialog = dialog.create()
-        blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        if(Build.VERSION.SDK_INT>=26){
+            blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        }else{
+            blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT   );
+        }
         blockAppAlertDialog?.show()
 
     }

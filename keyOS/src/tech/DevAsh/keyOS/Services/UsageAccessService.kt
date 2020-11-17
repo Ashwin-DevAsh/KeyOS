@@ -32,6 +32,7 @@ import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
 import java.time.LocalDate
 import java.time.ZoneId
+import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
@@ -255,7 +256,8 @@ class UsageAccessService : Service() {
         val app = Apps(appName)
 
 
-        if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(className)){
+        if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(
+                        className)){
             return true
         }
 
@@ -322,7 +324,12 @@ class UsageAccessService : Service() {
         dialog.setView(view)
 
         blockAppAlertDialog = dialog.create()
-        blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        if(Build.VERSION.SDK_INT>=26){
+            blockAppAlertDialog?.window?.setType(
+                    WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        }else{
+            blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        }
         blockAppAlertDialog?.show()
 
     }
@@ -345,7 +352,12 @@ class UsageAccessService : Service() {
         }
 
         timeAlertdialog = dialog.create()
-        timeAlertdialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        if(Build.VERSION.SDK_INT>=26){
+            timeAlertdialog?.window?.setType(
+                    WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        }else{
+            timeAlertdialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        }
         timeAlertdialog?.show()
     }
 
@@ -355,12 +367,25 @@ class UsageAccessService : Service() {
         var currentEvent: UsageEvents.Event?
         val allEvents : ArrayList<UsageEvents.Event> = ArrayList()
         val map : HashMap<String, AppUsageInfo> =  HashMap()
-        val utc = ZoneId.of("UTC")
-        val defaultZone = ZoneId.systemDefault()
-        val date: LocalDate = LocalDate.now()
-        val startDate = date.atStartOfDay(defaultZone).withZoneSameInstant(utc)
-        val start = startDate.toInstant().toEpochMilli()
-        val end = startDate.plusDays(1).toInstant().toEpochMilli()
+//        val utc = ZoneId.of("UTC")
+//        val defaultZone = ZoneId.systemDefault()
+//        val date: LocalDate = LocalDate.now()
+//        val startDate = date.atStartOfDay(defaultZone).withZoneSameInstant(utc)
+//        val start = startDate.toInstant().toEpochMilli()
+//        val end = startDate.plusDays(1).toInstant().toEpochMilli()
+
+        val date: Calendar = GregorianCalendar()
+        // reset hour, minutes, seconds and millis
+        // reset hour, minutes, seconds and millis
+        date.set(Calendar.HOUR_OF_DAY, 0)
+        date.set(Calendar.MINUTE, 0)
+        date.set(Calendar.SECOND, 0)
+        date.set(Calendar.MILLISECOND, 0)
+
+        println("time = "+date.time)
+
+        val start = date.timeInMillis
+        val end = System.currentTimeMillis()
 
         if(timeExhaustApps.startTime==start){
             println("time : old day")
@@ -521,7 +546,7 @@ class UsageAccessService : Service() {
                     super.onCallStateChanged(state, incomingNumber)
                 }
             }, PhoneStateListener.LISTEN_CALL_STATE)
-        }catch (e:Throwable){
+        }catch (e: Throwable){
 
         }
 
@@ -570,7 +595,7 @@ class UsageAccessService : Service() {
                     turnOffBluetooth()
                 }
             }
-        }catch (e:Throwable){
+        }catch (e: Throwable){
 
         }
 

@@ -20,6 +20,7 @@ import static android.app.WallpaperManager.FLAG_SYSTEM;
 import static com.android.launcher3.Utilities.getDevicePrefs;
 import static com.android.launcher3.graphics.ColorExtractor.findDominantColorByHue;
 
+import android.Manifest.permission;
 import android.app.WallpaperInfo;
 import android.app.WallpaperManager;
 import android.app.job.JobInfo;
@@ -44,6 +45,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.ParcelFileDescriptor;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.ColorUtils;
 import android.util.Log;
 import android.util.Pair;
@@ -195,6 +197,7 @@ public class WallpaperManagerCompat {
      * Intent service to handle color extraction
      */
     public static class ColorExtractionService extends JobService implements Runnable {
+
         private static final int MAX_WALLPAPER_EXTRACTION_AREA = 112 * 112;
 
         // Decides when dark theme is optimal for this wallpaper
@@ -252,6 +255,10 @@ public class WallpaperManagerCompat {
                 drawable = info.loadThumbnail(getPackageManager());
             } else {
                 if (Utilities.ATLEAST_NOUGAT) {
+                    if (ActivityCompat.checkSelfPermission(this, permission.READ_EXTERNAL_STORAGE)
+                            != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
                     try (ParcelFileDescriptor fd = wm.getWallpaperFile(FLAG_SYSTEM)) {
                         BitmapRegionDecoder decoder = BitmapRegionDecoder
                                 .newInstance(fd.getFileDescriptor(), false);

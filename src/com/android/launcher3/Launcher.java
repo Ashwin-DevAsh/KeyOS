@@ -274,6 +274,9 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
             mProgressDialog.setMessage(getResources().getString(R.string.initializing_desktop));
             mProgressDialog.setCanceledOnTouchOutside(false);
             mProgressDialog.show();
+            new Handler().postDelayed(()->
+                    mProgressDialog.dismiss(),
+                    5000);
         }
 
         prefs.getGridSize();
