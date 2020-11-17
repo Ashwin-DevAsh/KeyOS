@@ -34,37 +34,6 @@ class WindowChangeDetectingService : AccessibilityService() {
     private var prevActivities = arrayListOf("")
 
 
-    private fun startAsForeground(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-            val notificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-            val channelId = "KeyOS Protection"
-            val channelName: CharSequence = "Protection"
-            val importance = NotificationManager.IMPORTANCE_MIN
-            val notificationChannel = NotificationChannel(channelId, channelName, importance)
-            notificationManager.createNotificationChannel(notificationChannel)
-            val builder: Notification.Builder = Notification.Builder(this, channelId)
-                    .setContentTitle("KeyOS Protection")
-                    .setContentText("Your device completely protected by keyOS")
-                    .setSmallIcon(R.drawable.ic_key_ring)
-                    .setAutoCancel(false)
-            val notification: Notification = builder.build()
-            startForeground(3, notification)
-        } else {
-            val builder = NotificationCompat.Builder(this)
-                    .setContentTitle("KeyOS Protection")
-                    .setContentTitle("Your device completely protected by keyOS")
-                    .setSmallIcon(R.drawable.ic_key_ring)
-                    .setPriority(NotificationCompat.PRIORITY_LOW)
-                    .setAutoCancel(false)
-            val notification: Notification = builder.build()
-            startForeground(3, notification)
-        }
-    }
-
-
 
     override fun onServiceConnected() {
         val info: AccessibilityServiceInfo = serviceInfo

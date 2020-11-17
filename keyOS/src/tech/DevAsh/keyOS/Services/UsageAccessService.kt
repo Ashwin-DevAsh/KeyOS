@@ -17,6 +17,7 @@ import android.os.IBinder
 import android.provider.Settings
 import android.telephony.PhoneStateListener
 import android.telephony.TelephonyManager
+import android.view.LayoutInflater
 import android.view.Surface
 import android.view.WindowManager
 import androidx.core.app.NotificationCompat
@@ -267,7 +268,7 @@ class UsageAccessService : Service() {
         }
 
         if(appIndex==-1){
-            showAppBlockAlertDialog(this,"")
+            showAppBlockAlertDialog(this)
             return false
         }
 
@@ -296,7 +297,7 @@ class UsageAccessService : Service() {
         }
 
         if (user!!.editedApps[editedAppIndex!!]!!.blockedActivities.contains(className)){
-           showAppBlockAlertDialog(this,"")
+           showAppBlockAlertDialog(this)
             return false
         }
 
@@ -306,28 +307,25 @@ class UsageAccessService : Service() {
     var timeAlertdialog : AlertDialog?=null
     var blockAppAlertDialog : AlertDialog?=null
 
-    private fun showAppBlockAlertDialog(context: Context, appName: String?){
+    private fun showAppBlockAlertDialog(context: Context){
 
-//        if(blockAppAlertDialog!=null){
-//            if(!blockAppAlertDialog!!.isShowing){
-//                blockAppAlertDialog?.show()
-//            }
-//            return
-//        }
-//
-//        val dialog = AlertDialog.Builder(context, R.style.MyProgressDialog)
-//        dialog.setTitle("Access denied")
-//        dialog.setMessage("You are not allowed to access this content")
-//        dialog.setCancelable(false)
-//        dialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, _: Int ->
-//            dialogInterface.dismiss()
-//        }
-//
-//        blockAppAlertDialog = dialog.create()
-//        blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
-//        blockAppAlertDialog?.show()
+        if(blockAppAlertDialog!=null){
+            if(!blockAppAlertDialog!!.isShowing){
+                blockAppAlertDialog?.show()
+            }
+            return
+        }
+
+        val dialog = AlertDialog.Builder(context,
+                                         android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen)
+        val view = LayoutInflater.from(context).inflate(R.layout.sheet_access_denied, null)
+        dialog.setView(view)
+
+        blockAppAlertDialog = dialog.create()
+        blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        blockAppAlertDialog?.show()
+
     }
-
 
     private fun showTimerAlertDialog(context: Context, appName: String?){
 
@@ -494,6 +492,9 @@ class UsageAccessService : Service() {
         }finally {
             appName=null
             className=null
+            Handler().postDelayed({
+                                      blockAppAlertDialog?.dismiss()
+                                  }, 2000)
         }
     }
 
