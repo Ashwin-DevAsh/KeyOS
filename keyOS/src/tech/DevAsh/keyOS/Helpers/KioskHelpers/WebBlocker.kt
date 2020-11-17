@@ -48,7 +48,7 @@ object WebBlocker {
     }
 
     private fun analyzeCapturedUrl(capturedUrl: String, browserPackage: String) {
-        val redirectUrl = "https://www.keyos.digital/blocked"
+        val redirectUrl = "about:blank"
         if (!isAllowedSite(capturedUrl)) {
             performRedirect(redirectUrl, browserPackage)
         }
@@ -111,7 +111,11 @@ object WebBlocker {
             return true
         }
 
+        try{
 
+            if(urlString.contains("about:blank")){
+                return true
+            }
 
         val url = URL("https://$urlString")
         var host: String =  url.host
@@ -119,9 +123,7 @@ object WebBlocker {
         if( count>1){
             host = host.substring(host.indexOf(".") + 1)
         }
-        if(host.contains("keyos")){
-            return true
-        }
+
 
         println("host = $host")
 
@@ -140,6 +142,9 @@ object WebBlocker {
 
 
         return false
+        }catch (e:Throwable){
+            return true
+        }
     }
 
 
