@@ -11,19 +11,14 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_height="match_parent">
-        <com.agrawalsuneet.fourfoldloader.loaders.FourFoldLoader
-            android:id="@+id/main_fourfoldloader"
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.CubeGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            app:fourfold_disappearAnimDuration="100"
-            app:fourfold_animDuration="500"
-            app:fourfold_firstSquareColor="@android:color/black"
-            app:fourfold_forthSquareColor="@android:color/darker_gray"
-            app:fourfold_secondSquareColor="@android:color/darker_gray"
-            app:fourfold_squareLength="40dp"
-            app:fourfold_startLoadingDefault="true"
-            app:fourfold_thirdSquareColor="@android:color/black" />
+            android:layout_gravity="center"
+            app:SpinKit_Color="#E6000000" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

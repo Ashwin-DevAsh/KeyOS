@@ -370,20 +370,14 @@
                             android:layout_centerInParent="true">
 
                             <com.suke.widget.SwitchButton
-                                android:id="@+id/automaticWhitelist"
+                                android:id="@+id/blockAdultWebsites"
                                 android:layout_width="wrap_content"
                                 app:sb_checked="false"
                                 android:layout_height="wrap_content"
                                 app:sb_show_indicator="false" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:focusable="true"
-                            android:clickable="true"
-                            android:orientation="vertical"
-                            android:id="@+id/playstoreCover"
-                            android:layout_height="65dp"/>
+
                     </RelativeLayout>
 
 

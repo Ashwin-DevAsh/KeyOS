@@ -4,39 +4,25 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.afollestad.materialdialogs.MaterialDialog
 import com.android.launcher3.R
 import io.realm.RealmList
-import kotlinx.android.synthetic.keyOS.activity_contact_list.*
+import kotlinx.android.synthetic.dev.activity_contact_list.*
 import tech.DevAsh.KeyOS.Config.Adapters.ContactListAdapter
-import tech.DevAsh.KeyOS.Config.ContactList.Companion.contactList
-import tech.DevAsh.KeyOS.Config.ContactList.Companion.contactListAdapter
-import tech.DevAsh.KeyOS.Config.ContactList.Companion.deleteList
-import tech.DevAsh.KeyOS.Config.ContactList.Companion.isBlackList
-import tech.DevAsh.KeyOS.Config.ContactList.Companion.isDeleteMode
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Contact
 import java.util.*
-
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 
-class ContactList : AppCompatActivity() , ToggleCallback {
+class ContactList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle{
 
     companion object{
         var contactList : ArrayList<Contact> = ArrayList()
@@ -57,7 +43,7 @@ class ContactList : AppCompatActivity() , ToggleCallback {
         deleteView = object: DeleteView{
             override fun call() {
                 if(isDeleteMode){
-                    animateSlideVisible(deleteOptions,100)
+                    animateVisible(deleteOptions, 100)
                 }
             }
         }
@@ -115,7 +101,6 @@ class ContactList : AppCompatActivity() , ToggleCallback {
                 this,
                 "Contacts saved under Blacklist won't be able to call your Android phone anymore",
                 this,
-                UserContext.user!!.calls.blackListCalls
             )
         }else{
             getWhiteList()
@@ -124,7 +109,6 @@ class ContactList : AppCompatActivity() , ToggleCallback {
                 this,
                 "Contacts saved under Whitelist only able to call your Android phone anymore",
                 this,
-                UserContext.user!!.calls.whitelistCalls
             )
         }
         contactsContainer.layoutManager = LinearLayoutManager(this)
@@ -182,7 +166,7 @@ class ContactList : AppCompatActivity() , ToggleCallback {
             return false
         }
         if(isDeleteMode){
-            animateSlideInvisible(deleteOptions,100)
+            animateInvisible(deleteOptions, 100)
             isDeleteMode=false
             deleteList.clear()
             contactListAdapter?.notifyDataSetChanged()
@@ -213,31 +197,7 @@ class ContactList : AppCompatActivity() , ToggleCallback {
         }
     }
 
-    private fun animateSlideVisible(
-        viewVisible: View,
-        visibleDuration: Long
-    ){
-        viewVisible.animate()
-            .alpha(1f)
-            .setDuration(visibleDuration)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    super.onAnimationEnd(animation)
-                    viewVisible.visibility = (View.VISIBLE)
-                }
-            })
-    }
-    private fun animateSlideInvisible(viewInvisible: View, invisibleDuration: Long){
-        viewInvisible.animate()
-            .alpha(0f)
-            .setDuration(invisibleDuration)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    super.onAnimationEnd(animation)
-                    viewInvisible.visibility = (View.INVISIBLE)
-                }
-            })
-    }
+
 
     private fun showDeleteDialog(context: Context){
         val builder =   MaterialDialog.Builder(context)
@@ -258,11 +218,12 @@ class ContactList : AppCompatActivity() , ToggleCallback {
         }
         isDeleteMode=false
         contactListAdapter?.updateList(contactList)
-        animateSlideInvisible(deleteOptions,100)
+        animateInvisible(deleteOptions, 100)
         update()
     }
 
     override fun turnOn() {
+
         if (isBlackList){
             UserContext.user!!.calls.blackListCalls=true
             UserContext.user!!.calls.whitelistCalls=false
@@ -272,6 +233,8 @@ class ContactList : AppCompatActivity() , ToggleCallback {
             UserContext.user!!.calls.whitelistCalls=true
             UserContext.user!!.calls.automaticWhitelist=false
         }
+        contactListAdapter?.notifyDataSetChanged()
+
         update()
     }
 
@@ -281,16 +244,53 @@ class ContactList : AppCompatActivity() , ToggleCallback {
         }else{
             UserContext.user!!.calls.whitelistCalls=false
         }
-
+        contactListAdapter?.notifyDataSetChanged()
         update()
+    }
+
+    override fun getToggleState(): Boolean {
+       return  if (isBlackList){
+            UserContext.user!!.calls.blackListCalls
+        }else{
+            UserContext.user!!.calls.whitelistCalls
+        }
     }
 }
 
+
+interface AnimateDeleteToggle{
+     fun animateVisible(
+            viewVisible: View,
+            visibleDuration: Long
+                       ){
+        viewVisible.animate()
+                .alpha(1f)
+                .setDuration(visibleDuration)
+                .setListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        super.onAnimationEnd(animation)
+                        viewVisible.visibility = (View.VISIBLE)
+                    }
+                })
+    }
+    fun animateInvisible(viewInvisible: View, invisibleDuration: Long){
+        viewInvisible.animate()
+                .alpha(0f)
+                .setDuration(invisibleDuration)
+                .setListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        super.onAnimationEnd(animation)
+                        viewInvisible.visibility = (View.INVISIBLE)
+                    }
+                })
+    }
+}
 
 
 interface ToggleCallback{
     fun turnOn()
     fun turnOff()
+    fun getToggleState():Boolean
 }
 
 interface DeleteView{

@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.android.launcher3.R
-import kotlinx.android.synthetic.keyOS.header_app_gridtile.view.*
-import kotlinx.android.synthetic.keyOS.widget_listtile_contact_selector.view.*
+import kotlinx.android.synthetic.dev.header_app_gridtile.view.*
+import kotlinx.android.synthetic.dev.widget_listtile_contact_selector.view.*
 import tech.DevAsh.KeyOS.Helpers.ContactHelper
 
 

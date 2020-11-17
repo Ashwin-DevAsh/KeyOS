@@ -4,21 +4,24 @@ import androidx.annotation.Keep;
 import com.google.gson.annotations.SerializedName;
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.Required;
 
 @Keep
 public class WebFilterDB extends RealmObject {
     @SerializedName("isEnabled")
-    public Boolean isEnabled = false;
+    public boolean isEnabled = false;
     @SerializedName("isWhitelistEnabled")
-    public Boolean isWhitelistEnabled = false;
+    public boolean isWhitelistEnabled = false;
     @SerializedName("isBlacklistEnabled")
-    public Boolean isBlacklistEnabled = false;
+    public boolean isBlacklistEnabled = false;
     @SerializedName("whitelistWebsites")
+    @Required
     public RealmList<String> whitelistWebsites = new RealmList();
     @SerializedName("blacklistWebsites")
+    @Required
     public RealmList<String> blacklistWebsites = new RealmList();
     @SerializedName("shouldBlockAdultSites")
-    public Boolean shouldBlockAdultSites = false;
+    public boolean shouldBlockAdultSites = false;
 
     @Override
     public String toString() {
@@ -32,5 +35,16 @@ public class WebFilterDB extends RealmObject {
                 '}';
     }
 
+    public WebFilterDB(Boolean isEnabled, Boolean isWhitelistEnabled,
+            Boolean isBlacklistEnabled, RealmList<String> whitelistWebsites,
+            RealmList<String> blacklistWebsites, Boolean shouldBlockAdultSites) {
+        this.isEnabled = isEnabled;
+        this.isWhitelistEnabled = isWhitelistEnabled;
+        this.isBlacklistEnabled = isBlacklistEnabled;
+        this.whitelistWebsites = whitelistWebsites;
+        this.blacklistWebsites = blacklistWebsites;
+        this.shouldBlockAdultSites = shouldBlockAdultSites;
+    }
 
+    public WebFilterDB(){}
 }

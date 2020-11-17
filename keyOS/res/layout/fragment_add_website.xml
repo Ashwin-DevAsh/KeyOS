@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/deep_shortcuts_elevation"
+    android:layout_gravity="bottom"
+    android:id="@+id/content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="30sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="Website"
+            android:textColor="@color/buttonColor"
+            android:layout_marginBottom="15dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:drawablePadding="20dp"
+            android:id="@+id/subHeading"
+            android:drawableRight="@drawable/ic_info"
+            android:drawableTint="@color/black"
+            android:text="Please enter the website which you want to add in whitelist Eg: www.google.com"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:paddingHorizontal="18dp"
+                app:counterOverflowTextColor="@color/buttonColor"
+                android:theme="@style/EditTextStyle"
+                android:hint="Url"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/urlLayout"
+                app:hintTextColor="@color/buttonColor"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:theme="@style/EditTextStyle"
+                    android:id="@+id/url"
+                    android:text="https://www."
+                    android:inputType="textUri"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_height="match_parent"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:layout_width="120dp"
+                android:layout_alignParentRight="true"
+                app:cardCornerRadius="20dp"
+                android:layout_marginVertical="12dp"
+                android:layout_height="40dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="Done"
+                    android:id="@+id/done"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:background="@color/buttonColor"
+                    android:layout_height="match_parent"/>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

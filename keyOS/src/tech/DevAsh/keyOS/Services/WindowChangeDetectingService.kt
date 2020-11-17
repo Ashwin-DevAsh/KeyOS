@@ -88,7 +88,7 @@ class WindowChangeDetectingService : AccessibilityService() {
             println("source = " + event.source?.viewIdResourceName)
             if(Kiosk.isKisokEnabled){
                 checkActivity(this,event)
-//                WebBlocker.block(event, this)
+                WebBlocker.block(event, this)
             }
         }
     }

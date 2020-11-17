@@ -1,7 +1,5 @@
 package tech.DevAsh.KeyOS.Config.Adapters
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
@@ -12,14 +10,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
-import kotlinx.android.synthetic.keyOS.header_contact_listtile.view.*
-import kotlinx.android.synthetic.keyOS.widget_listtile_contact.view.*
+import kotlinx.android.synthetic.dev.header_contact_listtile.view.*
+import kotlinx.android.synthetic.dev.widget_listtile_contact.view.*
+import tech.DevAsh.KeyOS.Config.AnimateDeleteToggle
 import tech.DevAsh.KeyOS.Config.ContactList
 import tech.DevAsh.KeyOS.Config.ToggleCallback
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.ContactHelper
 import tech.DevAsh.keyOS.Database.Contact
 import tech.DevAsh.keyOS.Helpers.UpdateOriginalApk
+
+
 
 
 class ContactListAdapter(
@@ -27,8 +27,7 @@ class ContactListAdapter(
         val context: Activity,
         val subHeading:String,
         val toggleCallback: ToggleCallback,
-        var toggleState:Boolean
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() ,AnimateDeleteToggle{
 
     private var colorMapper = HashMap<String, Int>()
 
@@ -47,7 +46,8 @@ class ContactListAdapter(
             ContactListHeaderViewHolder(
                 LayoutInflater.from(context).inflate(R.layout.header_contact_listtile, parent, false),
                 context,
-                this
+                toggleCallback,
+                subHeading
             )
 
         }
@@ -61,7 +61,7 @@ class ContactListAdapter(
         if(position!=0){
             holder as ContactListViewHolder
 
-            if(toggleState){
+            if(toggleCallback.getToggleState()){
                 holder.view.alpha = 1f
             }else{
                 holder.view.alpha = 0.25f
@@ -121,32 +121,6 @@ class ContactListAdapter(
         }
     }
 
-    private fun animateVisible(
-        viewVisible: View,
-        visibleDuration: Long
-    ){
-        viewVisible.animate()
-            .alpha(1f)
-            .setDuration(visibleDuration)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    super.onAnimationEnd(animation)
-                    viewVisible.visibility = (View.VISIBLE)
-                }
-            })
-    }
-
-    private fun animateInvisible(viewInvisible: View, invisibleDuration: Long){
-        viewInvisible.animate()
-            .alpha(0f)
-            .setDuration(invisibleDuration)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    super.onAnimationEnd(animation)
-                    viewInvisible.visibility = (View.INVISIBLE)
-                }
-            })
-    }
 
     fun updateList(updatedList: ArrayList<Contact>){
         this.items = ArrayList(updatedList)
@@ -170,7 +144,8 @@ class ContactListViewHolder(val view: View, context: Context) : RecyclerView.Vie
 class ContactListHeaderViewHolder(
     val view: View,
     val context: Activity,
-    val adapter: ContactListAdapter
+    val toggleCallback: ToggleCallback,
+    val subHeading:String
 ) : RecyclerView.ViewHolder(view) {
 
     init {
@@ -179,9 +154,9 @@ class ContactListHeaderViewHolder(
     }
 
     private fun loadView(){
-        view.isTurnOn.text = if (adapter.toggleState) "ON" else "OFF"
-        view.turnOn.isChecked = adapter.toggleState
-        view.subHeading.text = adapter.subHeading
+        view.isTurnOn.text = if (toggleCallback.getToggleState()) "ON" else "OFF"
+        view.turnOn.isChecked = toggleCallback.getToggleState()
+        view.subHeading.text = subHeading
 
         if(BuildConfig.IS_PLAYSTORE_BUILD && Build.VERSION.SDK_INT > 25) {
             view.playstoreCover.visibility = View.VISIBLE
@@ -205,16 +180,12 @@ class ContactListHeaderViewHolder(
 
     private fun turnOn(){
         view.isTurnOn.text = "ON"
-        adapter.toggleState = true
-        adapter.toggleCallback.turnOn()
-        adapter.notifyDataSetChanged()
+        toggleCallback.turnOn()
     }
 
     private fun turnOff(){
         view.isTurnOn.text = "OFF"
-        adapter.toggleState = false
-        adapter.toggleCallback.turnOff()
-        adapter.notifyDataSetChanged()
+        toggleCallback.turnOff()
     }
 
 }

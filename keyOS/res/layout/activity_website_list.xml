@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/mainContent"
+        android:visibility="visible"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:id="@+id/appBar"
+                android:layout_height="65dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:textSize="20dp"
+                        android:textAllCaps="true"
+                        android:id="@+id/heading"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:text="WHITELIST"
+                        android:layout_height="match_parent"/>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:padding="12dp"
+                        android:layout_marginLeft="15dp"
+                        app:srcCompat="@drawable/back"
+                        android:id="@+id/back"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_height="match_parent"/>
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/searchView"
+                        android:layout_marginStart="60dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        app:iconifiedByDefault="true"
+                        android:animateLayoutChanges="true"
+                        app:queryHint="Search"
+                        app:queryBackground="@color/colorPrimary"
+                        android:layoutDirection="rtl"
+                        />
+
+                    <LinearLayout
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:id="@+id/deleteOptions"
+                        android:visibility="gone"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:orientation="horizontal"
+                            android:layout_marginEnd="20dp"
+                            android:layout_height="match_parent">
+                            <net.igenius.customcheckbox.CustomCheckBox
+                                android:layout_width="25dp"
+                                app:small_tick="true"
+                                android:id="@+id/addAll"
+                                android:layout_height="25dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:text="ALL"
+                                android:gravity="center"
+                                android:layout_marginLeft="15dp"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorAccent"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:padding="12dp"
+                            android:id="@+id/delete"
+                            app:srcCompat="@drawable/ic_delete"
+                            android:layout_height="match_parent"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_below="@+id/appBar"
+                android:background="@color/colorPrimary"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/websitesContainer"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/addOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            fab:menu_fab_size="normal"
+            fab:menu_showShadow="true"
+            fab:menu_shadowColor="#66000000"
+            fab:menu_shadowRadius="4dp"
+            fab:menu_shadowXOffset="1dp"
+            fab:menu_shadowYOffset="3dp"
+            app:menu_colorNormal="@color/colorAccent"
+            app:menu_colorPressed="@color/colorAccent"
+            fab:menu_colorNormal="@color/colorAccent"
+            fab:menu_colorPressed="@color/colorAccent"
+            fab:menu_colorRipple="#99FFFFFF"
+            fab:menu_animationDelayPerItem="50"
+            fab:menu_icon="@drawable/fab_add"
+            fab:menu_buttonSpacing="0dp"
+            fab:menu_labels_margin="0dp"
+            fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+            fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+            fab:menu_labels_paddingTop="4dp"
+            fab:menu_labels_paddingRight="8dp"
+            fab:menu_labels_paddingBottom="4dp"
+            fab:menu_labels_paddingLeft="8dp"
+            fab:menu_labels_padding="8dp"
+            fab:menu_labels_textColor="#FFFFFF"
+            fab:menu_labels_textSize="14sp"
+            fab:menu_labels_cornerRadius="3dp"
+            fab:menu_labels_colorNormal="#333333"
+            fab:menu_labels_colorPressed="#444444"
+            fab:menu_labels_colorRipple="#66FFFFFF"
+            fab:menu_labels_showShadow="true"
+            fab:menu_labels_singleLine="false"
+            fab:menu_labels_ellipsize="none"
+            fab:menu_labels_maxLines="-1"
+            fab:menu_labels_style="@style/YourCustomLabelsStyle"
+            fab:menu_labels_position="left"
+            fab:menu_openDirection="up"
+            fab:menu_backgroundColor="@android:color/transparent"
+            fab:menu_fab_label="your_label_here"
+            fab:menu_fab_show_animation="@anim/my_show_animation"
+            fab:menu_fab_hide_animation="@anim/my_hide_animation">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/addWebsite"
+                android:layout_width="wrap_content"
+                app:fab_size="mini"
+                app:fabSize="mini"
+                app:fab_colorNormal="@color/colorAccent"
+                app:fab_colorPressed="@color/colorAccent"
+                app:fab_label="Add website"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edit_white"
+                />
+
+
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+    </RelativeLayout>
+
+    <!--    <include-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:id="@+id/loadingScreen"-->
+    <!--        layout="@layout/layout_loading_screen"-->
+    <!--        />-->
+
+</RelativeLayout>

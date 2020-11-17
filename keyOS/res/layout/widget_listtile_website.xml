@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_vertical"
     android:layout_gravity="center"
-    android:layout_height="70.5dp">
+    android:layout_height="60.5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:gravity="center"
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="70dp"
+            android:layout_width="60dp"
             android:gravity="center"
             android:id="@+id/statusContainer"
             android:layout_marginLeft="10dp"
@@ -20,9 +20,9 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                app:cardCornerRadius="22.5dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:cardCornerRadius="17.5dp"
                 app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +42,8 @@
 
                     <RelativeLayout
                         android:id="@+id/badgeContainer"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp">
+                        android:layout_width="35dp"
+                        android:layout_height="35dp">
 
                         <TextView
                             android:id="@+id/badge"
@@ -58,7 +58,7 @@
                             android:text="A"
                             android:textAllCaps="true"
                             android:textColor="@android:color/white"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
 
@@ -70,11 +70,11 @@
 
             <net.igenius.customcheckbox.CustomCheckBox
                 android:id="@+id/checkBox"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginBottom="5dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginBottom="3dp"
                 app:small_tick="true"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="3dp"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -94,19 +94,11 @@
             android:layout_marginRight="30dp"
             android:textColor="@android:color/black"
             android:textSize="15dp"
-            android:gravity="bottom"
-            android:id="@+id/name"
+            android:gravity="center_vertical"
+            android:id="@+id/url"
             android:singleLine="true"
-            android:layout_height="40dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_toRightOf="@+id/statusContainer"
-            android:text="March 10 , 10:25 AM"
-            android:textSize="11dp"
-            android:gravity="top"
-            android:id="@+id/number"
-            android:layout_below="@id/name"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
+
 
 
         <androidx.cardview.widget.CardView

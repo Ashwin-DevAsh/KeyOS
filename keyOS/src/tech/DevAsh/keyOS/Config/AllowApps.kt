@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.launcher3.R
 import com.android.launcher3.model.PackageUpdatedTask
 import io.realm.RealmList
-import kotlinx.android.synthetic.keyOS.activity_allow_apps.*
+import kotlinx.android.synthetic.dev.activity_allow_apps.*
 import tech.DevAsh.KeyOS.Config.Adapters.AllowItemAdapter
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
@@ -167,6 +167,10 @@ class AllowApps : AppCompatActivity() {
                                   }
 
                                   override fun turnOff() {
+                                  }
+
+                                  override fun getToggleState(): Boolean {
+                                      return true
                                   }
                               },UserContext.user!!.singleApp!=null)
                               adapter!!.items.add(0,Apps())

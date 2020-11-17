@@ -12,8 +12,6 @@ class RealmMigrations(val context: Context) : RealmMigration{
         val schema = realm.schema
         var oldVersion = oldVersion
 
-        Toast.makeText(context,"$oldVersion",Toast.LENGTH_LONG).show()
-
 
         if(oldVersion== 1L){
             val userSchema = schema.get("BasicSettings")
@@ -47,8 +45,18 @@ class RealmMigrations(val context: Context) : RealmMigration{
                     .transform { it.setBoolean("shouldBlockAdultSites",false) }
 
             val user = schema.get("User")
-            user!!
-                    .addRealmObjectField("webFilter",webFilter)
+            user!!.addRealmObjectField("webFilter",webFilter)
+
+            oldVersion++
+        }
+        if(oldVersion==3L){
+            val webFilter = schema.get("WebFilterDB")!!
+            webFilter.setRequired("isEnabled",true)
+            webFilter.setRequired("isWhitelistEnabled",true)
+            webFilter.setRequired("isBlacklistEnabled",true)
+            webFilter.setRequired("whitelistWebsites", true)
+            webFilter.setRequired("blacklistWebsites",true)
+            webFilter.setRequired("shouldBlockAdultSites",true)
             oldVersion++
         }
 

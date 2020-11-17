@@ -11,7 +11,7 @@ import com.android.launcher3.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.keyOS.sheet_permissions.*
+import kotlinx.android.synthetic.dev.sheet_permissions.*
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
 

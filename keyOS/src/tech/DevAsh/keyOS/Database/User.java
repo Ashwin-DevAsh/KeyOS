@@ -6,10 +6,12 @@ import io.realm.Realm;
 import io.realm.Realm.Transaction;
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.Required;
 import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 import tech.DevAsh.KeyOS.Database.UserContext;
 import tech.DevAsh.Launcher.preferences.AppsAdapter.App;
+import tech.DevAsh.keyOS.Config.WebFilter;
 
 
 @Keep
@@ -41,13 +43,14 @@ public class User extends RealmObject {
     public String password;
 
     @SerializedName("webFilter")
-    public WebFilterDB webFilter;
+    public WebFilterDB webFilter = new WebFilterDB();
 
 
 
     public User(RealmList<Apps> allowedApps,
                 RealmList<Apps> allowedServices,
                 BasicSettings basicSettings,
+                WebFilterDB webFilter,
                 Calls calls,
                 String recoveryEmail,
                 String password
@@ -56,6 +59,7 @@ public class User extends RealmObject {
         this.allowedServices = allowedServices;
         this.basicSettings = basicSettings;
         this.calls = calls;
+        this.webFilter = webFilter;
         this.recoveryEmail = recoveryEmail;
         this.password = password;
     }
@@ -88,6 +92,7 @@ public class User extends RealmObject {
                         .getDefaultInstance()
                         .where(User.class)
                         .findFirst();
+
                 UserContext.INSTANCE.setUser(Realm.getDefaultInstance()
                         .copyFromRealm(user)
                 );
@@ -98,6 +103,7 @@ public class User extends RealmObject {
                                     new RealmList<>(),
                                     new RealmList<>(new Apps("android"),new Apps("com.android.incallui")),
                                     new BasicSettings(),
+                                    new WebFilterDB(false,false,false,new RealmList<>(),new RealmList<>(),false),
                                     new Calls(),
                                     "",
                                     "1234"));

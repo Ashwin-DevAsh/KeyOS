@@ -10,7 +10,7 @@ import android.view.View
 import com.android.launcher3.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.keyOS.activity_password.*
+import kotlinx.android.synthetic.dev.activity_password.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

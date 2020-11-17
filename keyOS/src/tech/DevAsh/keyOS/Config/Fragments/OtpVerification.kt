@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.android.launcher3.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.keyOS.fragment_otp_verification.*
+import kotlinx.android.synthetic.dev.fragment_otp_verification.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

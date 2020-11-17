@@ -186,6 +186,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
             android:excludeFromRecents="true"
+            android:name="tech.DevAsh.keyOS.Config.WebsiteList"/>
+
+
+        <activity
+            android:screenOrientation="portrait"
+            android:theme="@style/keyOS"
+            android:excludeFromRecents="true"
             android:name="tech.DevAsh.keyOS.Config.WebFilter"/>
 
         <activity
