@@ -1,0 +1,56 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+    <group android:id="@+id/report" >
+        <item
+            android:title="Feedback &amp; suggestions"
+            android:id="@+id/feedback"
+            app:showAsAction="never" />
+        <item
+            android:title="Bug report"
+            android:id="@+id/bug"
+            app:showAsAction="never" />
+
+    </group>
+
+    <group android:id="@+id/help" >
+
+    <item
+        android:title="Rate"
+        android:id="@+id/rate"
+        app:showAsAction="never" />
+        <item
+            android:title="Share"
+            android:id="@+id/share"
+            app:showAsAction="never" />
+
+    </group>
+
+    <group android:id="@+id/appInfo">
+        <item
+            android:title="App info"
+            android:id="@+id/appinfo"
+            app:showAsAction="never" />
+
+    </group>
+
+
+    <group android:id="@+id/agreement" >
+
+
+        <item
+            android:title="Developer contact"
+            android:id="@+id/developerContact"
+            app:showAsAction="never" />
+
+    <item
+        android:title="Privacy policy"
+        android:id="@+id/privacyPolicy"
+        app:showAsAction="never" />
+    </group>
+
+
+</menu>

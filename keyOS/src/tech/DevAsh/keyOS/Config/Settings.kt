@@ -1,16 +1,23 @@
 package tech.DevAsh.KeyOS.Config
 
+import android.content.ActivityNotFoundException
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.*
 import android.provider.Settings
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
 import kotlinx.android.synthetic.dev.activity_settings.*
@@ -27,7 +34,6 @@ import tech.DevAsh.keyOS.Config.ImportExportSettings
 import tech.DevAsh.keyOS.Config.ScreenSaver
 import tech.DevAsh.keyOS.Config.WebFilter
 import tech.DevAsh.keyOS.Database.BasicSettings
-import java.util.*
 
 
 class Settings : AppCompatActivity() {
@@ -45,15 +51,105 @@ class Settings : AppCompatActivity() {
         onClick()
         controlLaunchButton()
         checkUserAgreement()
+        setUpDrawer()
 
     }
 
     private fun checkUserAgreement(){
         if(!UserContext.user!!.isEndUserLicenceAgreementDone){
             Handler().postDelayed({
-                                      UserAgreement(this).show(supportFragmentManager,"")
+                                      UserAgreement(this).show(supportFragmentManager, "")
 
-                                  },1000)
+                                  }, 1000)
+        }
+    }
+
+    private fun setStatusBar(){
+        val layout: LinearLayout = findViewById(R.id.statusBar)
+        val params: ViewGroup.LayoutParams = layout.layoutParams
+        params.height = getStatusBarHeight()
+        params.width = 100
+        layout.layoutParams = params
+
+    }
+    private fun getStatusBarHeight(): Int {
+        var result = 0
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = resources.getDimensionPixelSize(resourceId)
+        }
+        return result
+    }
+
+    private fun setUpDrawer(){
+        drawer_view.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.feedback -> {
+                    val intent = Intent(Intent.ACTION_SEND)
+                    intent.type = "plain/text"
+                    intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback & suggestions")
+                    startActivity(Intent.createChooser(intent, "Email"))
+                }
+                R.id.bug -> {
+                    val intent = Intent(Intent.ACTION_SEND)
+                    intent.type = "plain/text"
+                    intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Bug report")
+                    startActivity(Intent.createChooser(intent, "Email"))
+                }
+                R.id.rate -> {
+                    val uri: Uri = Uri.parse("market://details?id=tech.DevAsh.keyOS")
+                    val goToMarket = Intent(Intent.ACTION_VIEW, uri)
+                    goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or
+                                                Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+                                                Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+                    try {
+                        startActivity(goToMarket)
+                    } catch (e: ActivityNotFoundException) {
+                        startActivity(Intent(Intent.ACTION_VIEW,
+                                             Uri.parse(
+                                                     "http://play.google.com/store/apps/details?id=tech.DevAsh.keyOS")))
+                    }
+                }
+                R.id.share -> {
+                    try {
+                        val shareIntent = Intent(Intent.ACTION_SEND);
+                        shareIntent.type = "text/plain";
+                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, R.string.app_name)
+                        var shareMessage = "\nLet me recommend you this application\n\n"
+                        shareMessage =
+                                shareMessage + "https://play.google.com/store/apps/details?id=" + "tech.DevAsh.keyOS" + "\n\n"
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+                        startActivity(Intent.createChooser(shareIntent, "choose one"))
+                    } catch (e: Exception) {
+
+                    }
+                }
+                R.id.privacyPolicy -> {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(BuildConfig.PRIVACY_POLICY)
+                    startActivity(intent)
+                }
+
+                R.id.appinfo -> {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    intent.data = Uri.parse("package:$packageName")
+                    startActivity(intent)
+                }
+
+                R.id.developerContact->{
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse("https://www.devash.tech")
+                    startActivity(intent)
+                }
+
+                else -> {
+
+                }
+            }
+
+            return@setNavigationItemSelectedListener true
         }
     }
 
@@ -73,6 +169,9 @@ class Settings : AppCompatActivity() {
                                                               )
 
         launchContainer.cardElevation=10f
+
+
+        if(Build.VERSION.SDK_INT>=23)
         scroller.setOnScrollChangeListener { _, _, scrollY, _, _ ->
             if (scrollY >100) {
                 if(launchContainer.visibility==View.VISIBLE){
@@ -102,6 +201,13 @@ class Settings : AppCompatActivity() {
                     checkPermissionAndLaunch()
                 }
             }
+        }
+
+        drawer.setOnClickListener {
+            val navDrawer = findViewById<DrawerLayout>(R.id.settingsLayout)
+            // If the navigation drawer is not open then open it, if its already open then close it.
+            // If the navigation drawer is not open then open it, if its already open then close it.
+            navDrawer.openDrawer(GravityCompat.START)
         }
 
         importExport?.setOnClickListener {
@@ -174,7 +280,7 @@ class Settings : AppCompatActivity() {
             permissionsBottomSheet.show(supportFragmentManager, "TAG")
         }
 
-        notificationPanel.setOnCheckedChangeListener{_,isChecked->
+        notificationPanel.setOnCheckedChangeListener{ _, isChecked->
             UserContext.user!!.basicSettings.notificationPanel = isChecked
         }
     }
@@ -240,6 +346,11 @@ class Settings : AppCompatActivity() {
 
 
     override fun onBackPressed() {
+        if(settingsLayout.isDrawerOpen(drawer_view)){
+            settingsLayout.closeDrawer(GravityCompat.START)
+            return
+        }
+
         saveData()
         if(isFromLauncher){
             finish()

@@ -15,6 +15,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.dev.fragment_user_agreement.*
@@ -70,13 +71,13 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
                       "To improve KeyOS and make sure all feature work properly," +
                       " some of your usage data will be collected anonymously." +
                       " You must read and agree to our Privacy Policy. before using KeyOS"
-        val url = "https://devash.tech/keyos/privacypolicy"
+
         val clickableSpan = object :ClickableSpan() {
 
             override fun onClick(textView: View) {
                 val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(url)
-                startActivity(intent);
+                intent.data = Uri.parse(BuildConfig.PRIVACY_POLICY  )
+                startActivity(intent)
             }
         }
         val startIndex = content.indexOf("Privacy Policy")

@@ -295,7 +295,7 @@
             android:name="tech.DevAsh.KeyOS.Config.Settings"
             android:screenOrientation="portrait"
             android:excludeFromRecents="true"
-            android:theme="@style/keyOS"
+            android:theme="@style/SettingsPage"
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name="tech.DevAsh.KeyOS.SplashScreen"
@@ -304,7 +304,6 @@
             android:theme="@style/keyOS">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
