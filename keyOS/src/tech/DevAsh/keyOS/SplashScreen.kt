@@ -12,6 +12,7 @@ import android.os.Handler
 import android.text.TextPaint
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.launcher3.R
 import tech.DevAsh.KeyOS.Config.Settings
@@ -19,6 +20,7 @@ import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Apps
+import tech.DevAsh.keyOS.Database.User
 import java.util.*
 
 
@@ -27,13 +29,15 @@ class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         RealmHelper.init(this)
+        if(UserContext.user==null){User.getUsers()}
         setContentView(R.layout.activity_splash_screen)
         openActivity()
         loadView()
-
     }
 
     private fun openActivity(){
+
+        println("Agree =" + UserContext.user!!.isEndUserLicenceAgreementDone)
         Handler().postDelayed({
                                   startActivity(Intent(this, Settings::class.java))
                                   overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -42,18 +46,8 @@ class SplashScreen : AppCompatActivity() {
     }
 
     fun loadView(){
-        val textView = findViewById<View>(R.id.greetings) as TextView
 
-        val paint: TextPaint = textView.paint
-        val width: Float = paint.measureText(textView.text.toString())
 
-        val textShader: Shader = LinearGradient(0f, 0f, width, textView.textSize, intArrayOf(
-                Color.parseColor("#F97C3C"),
-                Color.parseColor("#FDB54E"),
-                Color.parseColor("#64B678"),
-                Color.parseColor("#478AEA"),
-                    Color.parseColor("#8446CC")), null, Shader.TileMode.CLAMP)
-        textView.paint.shader = textShader
     }
 
 

@@ -59,6 +59,13 @@ class RealmMigrations(val context: Context) : RealmMigration{
             webFilter.setRequired("shouldBlockAdultSites",true)
             oldVersion++
         }
+        if(oldVersion==4L){
+            val user = schema.get("User")!!
+           user.addField("isEndUserLicenceAgreementDone",Boolean::class.java).transform {
+               it.setBoolean("isEndUserLicenceAgreementDone",false)
+           }
+
+        }
 
 
 

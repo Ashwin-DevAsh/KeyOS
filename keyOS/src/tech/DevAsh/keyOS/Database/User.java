@@ -45,6 +45,9 @@ public class User extends RealmObject {
     @SerializedName("webFilter")
     public WebFilterDB webFilter = new WebFilterDB();
 
+    @SerializedName("isEndUserLicenceAgreementDone")
+    public boolean isEndUserLicenceAgreementDone = false;
+
 
 
     public User(RealmList<Apps> allowedApps,

@@ -23,6 +23,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
+import android.widget.Toast
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
 
 import tech.DevAsh.Launcher.theme.ThemeManager
@@ -47,14 +48,11 @@ class KioskApp : Application() {
     @Inject lateinit var updateService:IUpdateService
 
 
-
     override fun onCreate() {
         RealmHelper.init(this)
         User.getUsers()
         loadAppsAndServices.execute()
-
         applicationComponents = DaggerApplicationComponents.create()
-
         applicationComponents!!.inject(this)
 
 

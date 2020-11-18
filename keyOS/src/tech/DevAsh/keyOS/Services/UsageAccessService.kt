@@ -30,8 +30,6 @@ import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
-import java.time.LocalDate
-import java.time.ZoneId
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -306,7 +304,7 @@ class UsageAccessService : Service() {
         return true
     }
 
-    var timeAlertdialog : AlertDialog?=null
+    var timeAlertDialog : AlertDialog?=null
     var blockAppAlertDialog : AlertDialog?=null
 
     private fun showAppBlockAlertDialog(context: Context){
@@ -336,9 +334,9 @@ class UsageAccessService : Service() {
 
     private fun showTimerAlertDialog(context: Context, appName: String?){
 
-        if(timeAlertdialog!=null){
-            if(!timeAlertdialog!!.isShowing){
-                timeAlertdialog?.show()
+        if(timeAlertDialog!=null){
+            if(!timeAlertDialog!!.isShowing){
+                timeAlertDialog?.show()
             }
             return
         }
@@ -351,14 +349,14 @@ class UsageAccessService : Service() {
             dialogInterface.dismiss()
         }
 
-        timeAlertdialog = dialog.create()
+        timeAlertDialog = dialog.create()
         if(Build.VERSION.SDK_INT>=26){
-            timeAlertdialog?.window?.setType(
+            timeAlertDialog?.window?.setType(
                     WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
         }else{
-            timeAlertdialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+            timeAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
         }
-        timeAlertdialog?.show()
+        timeAlertDialog?.show()
     }
 
 
@@ -367,16 +365,7 @@ class UsageAccessService : Service() {
         var currentEvent: UsageEvents.Event?
         val allEvents : ArrayList<UsageEvents.Event> = ArrayList()
         val map : HashMap<String, AppUsageInfo> =  HashMap()
-//        val utc = ZoneId.of("UTC")
-//        val defaultZone = ZoneId.systemDefault()
-//        val date: LocalDate = LocalDate.now()
-//        val startDate = date.atStartOfDay(defaultZone).withZoneSameInstant(utc)
-//        val start = startDate.toInstant().toEpochMilli()
-//        val end = startDate.plusDays(1).toInstant().toEpochMilli()
-
         val date: Calendar = GregorianCalendar()
-        // reset hour, minutes, seconds and millis
-        // reset hour, minutes, seconds and millis
         date.set(Calendar.HOUR_OF_DAY, 0)
         date.set(Calendar.MINUTE, 0)
         date.set(Calendar.SECOND, 0)
