@@ -36,14 +36,6 @@
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
-    <style name="SettingsPage" parent="keyOS">
-        <item name="statusBarBackground">@null</item>
-        <item name="windowActionModeOverlay">true</item>
-        <item name="windowActionBar">false</item>
-            <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
         <item name="colorPrimary">@color/buttonColor</item>
         <item name="colorAccent">@color/buttonColor</item>

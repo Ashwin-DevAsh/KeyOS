@@ -8,7 +8,6 @@
     android:id="@+id/settingsLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:openDrawer="start"
     >
 
@@ -1103,6 +1102,7 @@
         app:headerLayout="@layout/drawer_header"
         android:layout_gravity="start"
         android:id="@+id/drawer_view"
+        android:fitsSystemWindows="true"
         android:layout_height="match_parent">
     </com.google.android.material.navigation.NavigationView>
 

@@ -45,8 +45,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
 
-        versionCode 41
-        versionName "KeyOS v41"
+        versionCode 43
+        versionName "KeyOS v43"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -297,6 +297,7 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.24'
     kapt 'com.google.dagger:dagger-compiler:2.20'
 
+    implementation 'com.google.android.play:core:1.8.3'
 
 }
 

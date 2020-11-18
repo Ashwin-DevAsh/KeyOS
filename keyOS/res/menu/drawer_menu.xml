@@ -4,7 +4,8 @@
 
 
 
-    <group android:id="@+id/report" >
+    <group
+        android:id="@+id/report" >
         <item
             android:title="Feedback &amp; suggestions"
             android:id="@+id/feedback"
@@ -34,6 +35,10 @@
             android:title="App info"
             android:id="@+id/appinfo"
             app:showAsAction="never" />
+        <item
+            android:title="Check for update"
+            android:id="@+id/update"
+            app:showAsAction="never" />
 
     </group>
 
@@ -46,10 +51,12 @@
             android:id="@+id/developerContact"
             app:showAsAction="never" />
 
-    <item
-        android:title="Privacy policy"
-        android:id="@+id/privacyPolicy"
-        app:showAsAction="never" />
+    </group>
+    <group>
+        <item
+            android:title="Privacy policy"
+            android:id="@+id/privacyPolicy"
+            app:showAsAction="never" />
     </group>
 
 

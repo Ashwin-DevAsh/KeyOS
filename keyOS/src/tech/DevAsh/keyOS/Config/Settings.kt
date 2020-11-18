@@ -20,11 +20,16 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.UpdateAvailability
 import kotlinx.android.synthetic.dev.activity_settings.*
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
@@ -142,6 +147,23 @@ class Settings : AppCompatActivity() {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.data = Uri.parse("https://www.devash.tech")
                     startActivity(intent)
+                }
+
+                R.id.update->{
+                    val appUpdateManager: AppUpdateManager? = AppUpdateManagerFactory.create(this)
+                    val appUpdateInfoTask = appUpdateManager?.appUpdateInfo
+                    appUpdateInfoTask?.addOnSuccessListener { appUpdateInfo ->
+                        if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE) {
+                            appUpdateManager.startUpdateFlowForResult(
+                                    appUpdateInfo,
+                                    AppUpdateType.IMMEDIATE,
+                                    this,
+                                    1)
+                        } else {
+                            AlertHelper.showError("App already up to date",this)
+                        }
+                    }
+
                 }
 
                 else -> {
