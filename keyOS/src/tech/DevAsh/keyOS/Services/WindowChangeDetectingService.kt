@@ -3,29 +3,32 @@ package tech.DevAsh.KeyOS.Services
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.app.AlertDialog
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Build
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
-import android.widget.Toast
-import androidx.core.app.NotificationCompat
 import com.android.launcher3.R
 import tech.DevAsh.KeyOS.Database.AppsContext
+import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
+import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.WebBlocker
+import tech.DevAsh.keyOS.Receiver.KioskReceiver
+import tech.DevAsh.keyOS.Receiver.KioskToggle
 import java.util.*
 
 
-class WindowChangeDetectingService : AccessibilityService() {
+class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
+
+    var kioskReceiver = KioskReceiver(this)
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         return START_STICKY
@@ -36,12 +39,22 @@ class WindowChangeDetectingService : AccessibilityService() {
 
 
     override fun onServiceConnected() {
+        RealmHelper.init(this)
+        startReceiver()
         val info: AccessibilityServiceInfo = serviceInfo
         info.eventTypes = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED or AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_VISUAL
         info.notificationTimeout = 300
         info.flags = AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS
         this.serviceInfo = info
+    }
+
+
+    private fun startReceiver(){
+        val filter = IntentFilter()
+        filter.addAction(KioskReceiver.START_KIOSK)
+        filter.addAction(KioskReceiver.STOP_KIOSK)
+        registerReceiver(kioskReceiver, filter)
     }
 
 
@@ -74,13 +87,15 @@ class WindowChangeDetectingService : AccessibilityService() {
 
         blockAppAlertDialog = dialog.create()
         if(Build.VERSION.SDK_INT>=26){
-            blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+            blockAppAlertDialog?.window?.setType(
+                    WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
         }else{
-            blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT   );
+            blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
         }
         blockAppAlertDialog?.show()
 
     }
+
     private fun checkActivity(context: Context, event: AccessibilityEvent) {
         val appName: String? = event.packageName?.toString()
         val className :String? = event.className?.toString()
@@ -103,7 +118,7 @@ class WindowChangeDetectingService : AccessibilityService() {
                 Handler().post{
                     showAppBlockAlertDialog(context)
                 }
-                block(context)
+                block()
 
             }
         }
@@ -118,13 +133,10 @@ class WindowChangeDetectingService : AccessibilityService() {
            || AppsContext.exceptions.contains(appName)
            || AppsContext.exceptions.contains(className)
            || className.toString().contains("android.inputmethodservice")
-           || try{ Class.forName( className.toString() );true} catch (e:Throwable){false}
+           || try{ Class.forName(className.toString());true} catch (e: Throwable){false}
         ){
             return true
         }
-
-
-
 
         val serviceIndex = UserContext.user?.allowedServices?.indexOf(app)
         val appIndex = UserContext.user?.allowedApps?.indexOf(app)
@@ -149,7 +161,7 @@ class WindowChangeDetectingService : AccessibilityService() {
         return true
     }
 
-    private fun block(context: Context) {
+    private fun block() {
         val launcher = Intent(Intent.ACTION_MAIN)
         launcher.addCategory(Intent.CATEGORY_HOME)
         launcher.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -196,15 +208,24 @@ class WindowChangeDetectingService : AccessibilityService() {
 
     }
 
+    override fun onInterrupt() {}
 
-
-
-    override fun onInterrupt() {
-
+    override fun startKiosk(context: Context?) {
+        Kiosk.isKisokEnabled=true
+        User.getUsers()
     }
 
+    override fun stopKiosk(context: Context?) {
+        Kiosk.isKisokEnabled=false
+    }
 
+    override fun onDestroy() {
+        unregisterReceiver(kioskReceiver)
+        super.onDestroy()
+    }
 
-
-
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        unregisterReceiver(kioskReceiver)
+        super.onTaskRemoved(rootIntent)
+    }
 }

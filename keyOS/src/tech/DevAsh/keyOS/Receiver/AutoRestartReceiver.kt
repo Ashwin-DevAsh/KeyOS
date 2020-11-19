@@ -7,7 +7,6 @@ import tech.DevAsh.KeyOS.Services.UsageAccessService
 
 class AutoRestartReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
-        println("Restart...")
         context.startService(Intent(context, UsageAccessService::class.java)) // Restart your service here
     }
 }

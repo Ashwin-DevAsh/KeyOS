@@ -280,7 +280,6 @@
             android:theme="@style/keyOS">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -312,7 +311,7 @@
             android:name="tech.DevAsh.KeyOS.Services.UsageAccessService"
             android:exported="true"
             android:stopWithTask="false"
-            android:process=":externalProcess" />
+            android:process=":usageAccessService" />
 
         <receiver
             android:name="tech.DevAsh.KeyOS.Receiver.ActivityChangeReceiver"
@@ -335,6 +334,7 @@
         <service
             android:name="tech.DevAsh.KeyOS.Services.WindowChangeDetectingService"
             android:stopWithTask="false"
+            android:process=":windowChangeDetectingService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />

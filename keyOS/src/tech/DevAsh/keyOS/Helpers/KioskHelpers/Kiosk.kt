@@ -1,21 +1,21 @@
 package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 
-import android.app.*
+import android.app.Activity
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import com.android.launcher3.R
+import eu.chainfire.librootjava.RootJava.sendBroadcast
 import tech.DevAsh.KeyOS.Config.Settings
 import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 import tech.DevAsh.KeyOS.Services.UsageAccessService
-import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.Apps
-import java.util.logging.Handler
+import tech.DevAsh.keyOS.Receiver.KioskReceiver
+
 
 object Kiosk {
     private var usageIntent:Intent?=null
@@ -41,13 +41,20 @@ object Kiosk {
         isKisokEnabled = true
         println("Start Kiosk...")
         NotificationBlocker.start()
+        sendBroadcast(KioskReceiver.START_KIOSK)
         context.startService(getUsageAccessService(context))
         context.startService(getAccessibilityService(context))
         setCamera(context, user!!.basicSettings.isDisableCamera)
     }
 
+    fun sendBroadcast(string: String){
+        val intent = Intent(string)
+        sendBroadcast(intent)
+    }
+
 
     fun stopKiosk(context: Context){
+        sendBroadcast(KioskReceiver.STOP_KIOSK)
         isKisokEnabled = false
         NotificationBlocker.stop()
         context.stopService(getUsageAccessService(context))
@@ -88,8 +95,9 @@ object Kiosk {
             context.finishAndRemoveTask()
             context.finishAffinity()
             android.os.Handler().postDelayed({
-                                                 android.os.Process.killProcess(android.os.Process.myPid());
-                                             },500)
+                                                 android.os.Process.killProcess(
+                                                         android.os.Process.myPid());
+                                             }, 500)
 
         }
     }
@@ -104,7 +112,7 @@ object Kiosk {
                 val deviceAdmin = ComponentName(context, SampleAdminReceiver::class.java)
                 dpm.setCameraDisabled(deviceAdmin, boolean)
             }
-        }catch (e:Throwable){}
+        }catch (e: Throwable){}
 
     }
 
