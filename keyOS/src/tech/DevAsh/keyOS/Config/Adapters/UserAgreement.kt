@@ -40,10 +40,31 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
 
     fun onClick(){
         acceptAndContinue.setOnClickListener {
-            UserContext.user!!.isEndUserLicenceAgreementDone=true
-            RealmHelper.updateUser(UserContext.user!!)
-            dismiss()
 
+            if(agreementText1Checked.isChecked && agreementText2Checked.isChecked){
+                UserContext.user!!.isEndUserLicenceAgreementDone=true
+                RealmHelper.updateUser(UserContext.user!!)
+                dismiss()
+            }
+
+
+        }
+
+        agreementText1.setOnClickListener {
+            agreementText1Checked.setChecked(!agreementText1Checked.isChecked,true)
+        }
+
+        agreementText.setOnClickListener {
+            agreementText1Checked.setChecked(!agreementText1Checked.isChecked,true)
+        }
+
+        agreementText2.setOnClickListener {
+            agreementText2Checked.setChecked(!agreementText2Checked.isChecked,true)
+        }
+
+
+        exit.setOnClickListener {
+            dismiss()
         }
     }
 

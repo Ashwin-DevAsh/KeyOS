@@ -61,12 +61,12 @@ class Settings : AppCompatActivity() {
     }
 
     private fun checkUserAgreement(){
-        if(!UserContext.user!!.isEndUserLicenceAgreementDone){
+//        if(!UserContext.user!!.isEndUserLicenceAgreementDone){
             Handler().postDelayed({
                                       UserAgreement(this).show(supportFragmentManager, "")
 
                                   }, 1000)
-        }
+//        }
     }
 
     private fun setStatusBar(){

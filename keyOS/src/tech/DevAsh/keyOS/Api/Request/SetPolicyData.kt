@@ -7,5 +7,6 @@ import tech.DevAsh.keyOS.Database.User
 @Keep
 class SetPolicyData(
         @SerializedName("id") var id:String,
-        @SerializedName("policyData") var policyData:User)
+        @SerializedName("policyData") var policyData:User
+                   )
 

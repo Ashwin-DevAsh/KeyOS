@@ -22,8 +22,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
-import kotlinx.android.synthetic.keyOS.fragment_display_qr.*
-import kotlinx.android.synthetic.keyOS.widget_listtile_apps.*
+import kotlinx.android.synthetic.dev.fragment_display_qr.*
+import kotlinx.android.synthetic.dev.widget_listtile_apps.*
 import retrofit2.Call
 import retrofit2.Response
 import tech.DevAsh.KeyOS.Database.UserContext
@@ -56,9 +56,13 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
 
         onClick()
 
-        importAndExport.QRCodeService
-                .setPolicyData(SetPolicyData(uuid, UserContext.user!!))
-                ?.enqueue(callBack)
+//        importAndExport.QRCodeService
+//                .setPolicyData(SetPolicyData(uuid, UserContext.user!!))
+//                ?.enqueue(callBack)
+
+        Handler().postDelayed({
+                                  loadQr(uuid)
+                              }, 3000)
 
         super.onViewCreated(view, savedInstanceState)
     }
@@ -93,26 +97,26 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
 
 
 
-    var callBack = object :retrofit2.Callback<BasicResponse>{
-        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-            if(response.body()?.result=="success"){
-
-                Handler().postDelayed({
-                                          loadQr(uuid)
-                                      }, 500)
-            }else{
-                onFailed()
-            }
-        }
-
-        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            t.printStackTrace()
-            onFailed()
-
-        }
-
-    }
+//    var callBack = object :retrofit2.Callback<BasicResponse>{
+//        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+//            if(response.body()?.result=="success"){
+//
+//                Handler().postDelayed({
+//                                          loadQr(uuid)
+//                                      }, 500)
+//            }else{
+//                onFailed()
+//            }
+//        }
+//
+//        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+//
+//            t.printStackTrace()
+//            onFailed()
+//
+//        }
+//
+//    }
 
 
     private fun loadQr(uuid: String){

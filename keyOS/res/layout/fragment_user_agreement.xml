@@ -23,50 +23,119 @@
             android:id="@+id/shareContent"
             android:layout_height="wrap_content">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_marginBottom="30dp"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:layout_marginTop="30dp"
                 android:textColor="@color/black"
                 android:text="Terms &amp; conditions"
-
                 android:layout_height="wrap_content"/>
 
-            <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/agreementText1"
+                android:clickable="true"
+                android:focusable="true"
                 android:paddingHorizontal="20dp"
-                android:gravity="center"
+                android:layout_height="wrap_content">
+                <net.igenius.customcheckbox.CustomCheckBox
+                    android:layout_width="20dp"
+                    app:small_tick="true"
+                    app:color_checked="@color/icon_background"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/agreementText1Checked"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:gravity="start"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/agreementText"
+                    android:paddingRight="10dp"
+                    android:layout_width="match_parent"
+                    android:text="By using this application, you to agree KeyOS\nPrivacy Policy"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:paddingHorizontal="20dp"
+                android:id="@+id/agreementText2"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_height="wrap_content">
+                <net.igenius.customcheckbox.CustomCheckBox
+                    android:layout_width="20dp"
+                    android:id="@+id/agreementText2Checked"
+                    android:layout_marginTop="5dp"
+                    app:small_tick="true"
+                    app:color_checked="@color/icon_background"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="20dp"/>
+            <TextView
+                android:gravity="start"
+                android:paddingRight="10dp"
                 android:textSize="14dp"
                 android:layout_marginBottom="20dp"
-                android:id="@+id/agreementText"
                 android:layout_width="match_parent"
-                android:text="By using this application, you to agree KeyOS\nPrivacy Policy"
+                android:text="We will store the list of installed app in your device.this data will taken from your device only if you are using QrCode feature and this data will automatically removed from server with in one hour"
                 android:layout_height="wrap_content"/>
+            </LinearLayout>
+
         </LinearLayout>
 
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            app:cardCornerRadius="20dp"
-            android:layout_marginVertical="12dp"
-            android:layout_height="40dp">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="match_parent"
-                android:text="Accept &amp; continue"
-                android:id="@+id/acceptAndContinue"
+                android:layout_width="wrap_content"
+                android:text="No thanks"
+                android:id="@+id/exit"
+                android:layout_weight="1"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:paddingHorizontal="20dp"
-                android:textColor="@android:color/white"
-                android:background="@color/buttonColor"
-                android:layout_height="match_parent"/>
+                android:textColor="@color/buttonColor"
+                android:layout_height="wrap_content"/>
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginVertical="12dp"
+                android:layout_height="40dp">
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="Accept &amp; continue"
+                    android:id="@+id/acceptAndContinue"
+                    android:gravity="center"
+                    android:paddingHorizontal="20dp"
+                    android:textColor="@android:color/white"
+                    android:background="@color/buttonColor"
+                    android:layout_height="match_parent"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="10dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
