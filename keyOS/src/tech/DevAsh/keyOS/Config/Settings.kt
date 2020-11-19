@@ -34,7 +34,7 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
-import tech.DevAsh.keyOS.Config.Adapters.UserAgreement
+import tech.DevAsh.keyOS.Config.Fragments.UserAgreement
 import tech.DevAsh.keyOS.Config.ImportExportSettings
 import tech.DevAsh.keyOS.Config.ScreenSaver
 import tech.DevAsh.keyOS.Config.WebFilter
@@ -61,12 +61,12 @@ class Settings : AppCompatActivity() {
     }
 
     private fun checkUserAgreement(){
-//        if(!UserContext.user!!.isEndUserLicenceAgreementDone){
+        if(!UserContext.user!!.isEndUserLicenceAgreementDone){
             Handler().postDelayed({
                                       UserAgreement(this).show(supportFragmentManager, "")
 
                                   }, 1000)
-//        }
+        }
     }
 
     private fun setStatusBar(){

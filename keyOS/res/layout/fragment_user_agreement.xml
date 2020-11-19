@@ -89,7 +89,7 @@
                 android:textSize="14dp"
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:text="We will store the list of installed app in your device.this data will taken from your device only if you are using QrCode feature and this data will automatically removed from server with in one hour"
+                android:text="We will store the list of installed app in your device. This data will taken from your device only if you are using QrCode feature and this data will automatically removed from server with in one hour"
                 android:layout_height="wrap_content"/>
             </LinearLayout>
 

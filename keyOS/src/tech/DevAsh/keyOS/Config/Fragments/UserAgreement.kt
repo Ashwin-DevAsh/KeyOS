@@ -1,4 +1,4 @@
-package tech.DevAsh.keyOS.Config.Adapters
+package tech.DevAsh.keyOS.Config.Fragments
 
 import android.app.Activity
 import android.content.DialogInterface
@@ -21,8 +21,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.dev.fragment_user_agreement.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
-import tech.DevAsh.keyOS.Database.User
-
 
 
 class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
@@ -36,6 +34,12 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setMessageWithClickableLink(agreementText)
         onClick()
+        loadView()
+    }
+
+    fun loadView(){
+        agreementText1Checked.isChecked=true
+        agreementText2Checked.isChecked=true
     }
 
     fun onClick(){
