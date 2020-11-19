@@ -58,9 +58,6 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
             agreementText1Checked.setChecked(!agreementText1Checked.isChecked,true)
         }
 
-        agreementText.setOnClickListener {
-            agreementText1Checked.setChecked(!agreementText1Checked.isChecked,true)
-        }
 
         agreementText2.setOnClickListener {
             agreementText2Checked.setChecked(!agreementText2Checked.isChecked,true)
@@ -92,8 +89,7 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
 
     private fun setMessageWithClickableLink(textView: TextView) {
         //The text and the URL
-        val content =
-                      "To improve KeyOS and make sure all feature work properly," +
+        val content = "To improve KeyOS and make sure all feature work properly," +
                       " some of your usage data will be collected anonymously." +
                       " You must read and agree to our Privacy Policy. before using KeyOS"
 

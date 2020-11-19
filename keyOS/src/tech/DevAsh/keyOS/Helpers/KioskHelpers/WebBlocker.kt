@@ -7,6 +7,7 @@ import android.net.Uri
 import android.provider.Browser
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.Toast
 import tech.DevAsh.KeyOS.Database.UserContext
 import java.net.URL
 import java.util.*
@@ -121,34 +122,32 @@ object WebBlocker {
                 return true
             }
 
-        val url = URL("https://$urlString")
-        var host: String =  url.host
-        val count: Int = host.length - host.replace(".", "").length
-        if( count>1){
-            host = host.substring(host.indexOf(".") + 1)
-        }
+            val url = URL("https://$urlString")
+            var host: String =  url.host
+            val count: Int = host.length - host.replace(".", "").length
+            if( count>1){
+                host = host.substring(host.indexOf(".") + 1)
+            }
 
 
-        println("host = $host")
+            println("host = $host")
 
-        if(UserContext.user!!.webFilter.isWhitelistEnabled){
-            return UserContext.user!!.webFilter.whitelistWebsites.contains(host)
-        }
+            if(UserContext.user!!.webFilter.shouldBlockAdultSites){
+                return !pornSites.contains(host)
+            }
 
-        if(UserContext.user!!.webFilter.isBlacklistEnabled){
-           return !UserContext.user!!.webFilter.blacklistWebsites.contains(host)
-        }
+            if(UserContext.user!!.webFilter.isWhitelistEnabled){
+                return UserContext.user!!.webFilter.whitelistWebsites.contains(host)
+            }
 
-        if(UserContext.user!!.webFilter.shouldBlockAdultSites){
-            return !pornSites.contains(host)
-        }
+            if(UserContext.user!!.webFilter.isBlacklistEnabled){
+               return !UserContext.user!!.webFilter.blacklistWebsites.contains(host)
+            }
 
-
-
-        return false
-        }catch (e:Throwable){
-            return true
-        }
+            return false
+            }catch (e:Throwable){
+                return true
+            }
     }
 
 

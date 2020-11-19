@@ -121,6 +121,7 @@ android {
         keyOS {
             applicationId 'tech.DevAsh.keyOS'
             dimension "custom"
+            buildConfigField "boolean", "IS_DEV_BUILD", "false"
         }
 
 
@@ -128,12 +129,14 @@ android {
             dimension "custom"
             applicationId 'tech.DevAsh.keyOS.pro'
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
+            buildConfigField "boolean", "IS_DEV_BUILD", "false"
         }
 
         dev {
             dimension "custom"
             applicationId 'tech.DevAsh.keyOS.dev'
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
+            buildConfigField "boolean", "IS_DEV_BUILD", "true"
         }
 
     }

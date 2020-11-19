@@ -61,7 +61,7 @@ class Settings : AppCompatActivity() {
     }
 
     private fun checkUserAgreement(){
-        if(!UserContext.user!!.isEndUserLicenceAgreementDone){
+        if(!UserContext.user!!.isEndUserLicenceAgreementDone || BuildConfig.IS_DEV_BUILD){
             Handler().postDelayed({
                                       UserAgreement(this).show(supportFragmentManager, "")
 
@@ -88,6 +88,9 @@ class Settings : AppCompatActivity() {
 
     private fun setUpDrawer(){
         drawer_view.setNavigationItemSelectedListener {
+
+            settingsLayout.closeDrawer(GravityCompat.START)
+
             when (it.itemId) {
                 R.id.feedback -> {
                     val intent = Intent(Intent.ACTION_SEND)
@@ -104,18 +107,20 @@ class Settings : AppCompatActivity() {
                     startActivity(Intent.createChooser(intent, "Email"))
                 }
                 R.id.rate -> {
-                    val uri: Uri = Uri.parse("market://details?id=tech.DevAsh.keyOS")
-                    val goToMarket = Intent(Intent.ACTION_VIEW, uri)
-                    goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or
-                                                Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
-                                                Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
-                    try {
-                        startActivity(goToMarket)
-                    } catch (e: ActivityNotFoundException) {
-                        startActivity(Intent(Intent.ACTION_VIEW,
-                                             Uri.parse(
-                                                     "http://play.google.com/store/apps/details?id=tech.DevAsh.keyOS")))
-                    }
+                    Handler().postDelayed({
+                        val uri: Uri = Uri.parse("market://details?id=tech.DevAsh.keyOS")
+                        val goToMarket = Intent(Intent.ACTION_VIEW, uri)
+                        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or
+                                                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+                                                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+                        try {
+                            startActivity(goToMarket)
+                        } catch (e: ActivityNotFoundException) {
+                            startActivity(Intent(Intent.ACTION_VIEW,
+                                                 Uri.parse(
+                                                         "http://play.google.com/store/apps/details?id=tech.DevAsh.keyOS")))
+                        }
+                                          },500)
                 }
                 R.id.share -> {
                     try {
@@ -132,21 +137,31 @@ class Settings : AppCompatActivity() {
                     }
                 }
                 R.id.privacyPolicy -> {
+                    Handler().postDelayed({
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.data = Uri.parse(BuildConfig.PRIVACY_POLICY)
                     startActivity(intent)
+                                          },500)
+
                 }
 
                 R.id.appinfo -> {
-                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    Handler().postDelayed({
+
+                                          val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                     intent.data = Uri.parse("package:$packageName")
                     startActivity(intent)
+                                          },500)
+
                 }
 
                 R.id.developerContact->{
-                    val intent = Intent(Intent.ACTION_VIEW)
+                    Handler().postDelayed({
+                                          val intent = Intent(Intent.ACTION_VIEW)
                     intent.data = Uri.parse("https://www.devash.tech")
                     startActivity(intent)
+                                          },500)
+
                 }
 
                 R.id.update->{
@@ -160,7 +175,7 @@ class Settings : AppCompatActivity() {
                                     this,
                                     1)
                         } else {
-                            AlertHelper.showError("App already up to date",this)
+                            AlertHelper.showToast("App already up to date",this)
                         }
                     }
 

@@ -30,6 +30,7 @@ import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
+import tech.DevAsh.keyOS.Receiver.KioskReceiver
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -305,31 +306,9 @@ class UsageAccessService : Service() {
     }
 
     var timeAlertDialog : AlertDialog?=null
-    var blockAppAlertDialog : AlertDialog?=null
 
     private fun showAppBlockAlertDialog(context: Context){
-
-        if(blockAppAlertDialog!=null){
-            if(!blockAppAlertDialog!!.isShowing){
-                blockAppAlertDialog?.show()
-            }
-            return
-        }
-
-        val dialog = AlertDialog.Builder(context,
-                                         android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen)
-        val view = LayoutInflater.from(context).inflate(R.layout.sheet_access_denied, null)
-        dialog.setView(view)
-
-        blockAppAlertDialog = dialog.create()
-        if(Build.VERSION.SDK_INT>=26){
-            blockAppAlertDialog?.window?.setType(
-                    WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
-        }else{
-            blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-        }
-        blockAppAlertDialog?.show()
-
+        KioskReceiver.sendBroadcast(this, KioskReceiver.SHOW_ALERT_DIALOG)
     }
 
     private fun showTimerAlertDialog(context: Context, appName: String?){
@@ -507,7 +486,7 @@ class UsageAccessService : Service() {
             appName=null
             className=null
             Handler().postDelayed({
-                                      blockAppAlertDialog?.dismiss()
+                                      KioskReceiver.sendBroadcast(this, KioskReceiver.REMOVE_ALERT_DIALOG)
                                   }, 2000)
         }
     }

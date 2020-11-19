@@ -8,14 +8,10 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.os.Handler
-import android.view.LayoutInflater
-import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
-import com.android.launcher3.R
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
@@ -52,8 +48,11 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
 
     private fun startReceiver(){
         val filter = IntentFilter()
+        filter.priority=1000
         filter.addAction(KioskReceiver.START_KIOSK)
         filter.addAction(KioskReceiver.STOP_KIOSK)
+        filter.addAction(KioskReceiver.SHOW_ALERT_DIALOG)
+        filter.addAction(KioskReceiver.REMOVE_ALERT_DIALOG)
         registerReceiver(kioskReceiver, filter)
     }
 
@@ -69,31 +68,8 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
         }
     }
 
-    var blockAppAlertDialog : AlertDialog?=null
-
     private fun showAppBlockAlertDialog(context: Context){
-
-        if(blockAppAlertDialog!=null){
-            if(!blockAppAlertDialog!!.isShowing){
-                blockAppAlertDialog?.show()
-            }
-            return
-        }
-
-        val dialog = AlertDialog.Builder(context,
-                                         android.R.style.Theme_DeviceDefault_NoActionBar_Fullscreen)
-        val view = LayoutInflater.from(context).inflate(R.layout.sheet_access_denied, null)
-        dialog.setView(view)
-
-        blockAppAlertDialog = dialog.create()
-        if(Build.VERSION.SDK_INT>=26){
-            blockAppAlertDialog?.window?.setType(
-                    WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
-        }else{
-            blockAppAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-        }
-        blockAppAlertDialog?.show()
-
+        KioskReceiver.sendBroadcast(context,KioskReceiver.SHOW_ALERT_DIALOG)
     }
 
     private fun checkActivity(context: Context, event: AccessibilityEvent) {
@@ -202,7 +178,8 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
             startActivity(launcher)
         }finally {
             Handler().postDelayed({
-                                      blockAppAlertDialog?.dismiss()
+                                      KioskReceiver.sendBroadcast(this,KioskReceiver.REMOVE_ALERT_DIALOG)
+
                                   }, 2000)
         }
 
@@ -213,6 +190,9 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
     override fun startKiosk(context: Context?) {
         Kiosk.isKisokEnabled=true
         User.getUsers()
+        if(UserContext.user!!.singleApp!=null){
+            UserContext.user?.allowedApps?.add(UserContext.user?.singleApp)
+        }
     }
 
     override fun stopKiosk(context: Context?) {

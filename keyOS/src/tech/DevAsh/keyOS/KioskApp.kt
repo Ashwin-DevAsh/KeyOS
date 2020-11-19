@@ -54,8 +54,6 @@ class KioskApp : Application() {
         loadAppsAndServices.execute()
         applicationComponents = DaggerApplicationComponents.create()
         applicationComponents!!.inject(this)
-
-
         super.onCreate()
     }
 
@@ -119,6 +117,7 @@ class KioskApp : Application() {
             activities.add(activity)
         }
     }
+
 
 }
 

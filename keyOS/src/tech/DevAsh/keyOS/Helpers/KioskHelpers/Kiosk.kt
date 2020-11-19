@@ -41,20 +41,17 @@ object Kiosk {
         isKisokEnabled = true
         println("Start Kiosk...")
         NotificationBlocker.start()
-        sendBroadcast(KioskReceiver.START_KIOSK)
+        KioskReceiver.sendBroadcast(context,KioskReceiver.START_KIOSK)
         context.startService(getUsageAccessService(context))
         context.startService(getAccessibilityService(context))
         setCamera(context, user!!.basicSettings.isDisableCamera)
     }
 
-    fun sendBroadcast(string: String){
-        val intent = Intent(string)
-        sendBroadcast(intent)
-    }
+
 
 
     fun stopKiosk(context: Context){
-        sendBroadcast(KioskReceiver.STOP_KIOSK)
+       KioskReceiver.sendBroadcast(context,KioskReceiver.STOP_KIOSK)
         isKisokEnabled = false
         NotificationBlocker.stop()
         context.stopService(getUsageAccessService(context))
