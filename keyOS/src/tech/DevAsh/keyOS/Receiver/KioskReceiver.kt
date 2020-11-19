@@ -44,6 +44,7 @@ class KioskReceiver(private val kioskToggle: KioskToggle) : BroadcastReceiver() 
     }
 
     private fun showAlertDialog(context: Context?){
+
         if(blockAppAlertDialog!=null){
             if(!blockAppAlertDialog!!.isShowing){
                 blockAppAlertDialog?.show()
@@ -76,3 +77,4 @@ interface KioskToggle{
     fun startKiosk(context: Context?)
     fun stopKiosk(context: Context?)
 }
+

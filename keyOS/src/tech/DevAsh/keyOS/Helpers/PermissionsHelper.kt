@@ -17,6 +17,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.provider.Settings
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -25,6 +26,7 @@ import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.tasks.Task
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
+import tech.DevAsh.keyOS.Helpers.AutoStartHelper
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -193,14 +195,18 @@ object PermissionsHelper {
 
         if ("xiaomi" == Build.MANUFACTURER.toLowerCase(Locale.ROOT)) {
             val intent = Intent("miui.intent.action.APP_PERM_EDITOR")
-            intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity")
+            intent.setClassName("com.miui.securitycenter",
+                                "com.miui.permcenter.permissions.PermissionsEditorActivity")
             intent.putExtra("extra_pkgname", context.packageName)
 
-            val intent1 = Intent()
-            intent1.component = ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity")
-            context.startActivity(intent1)
+//            val intent1 = Intent()
+//            intent1.component = ComponentName("com.miui.securitycenter",
+//                                              "com.miui.permcenter.autostart.AutoStartManagementActivity")
+//            context.startActivity(intent1)
             context.startActivity(intent)
         }
+
+        AutoStartHelper.getInstance().getAutoStartPermission(context)
 
         ActivityCompat.requestPermissions(context,
                                           permission,

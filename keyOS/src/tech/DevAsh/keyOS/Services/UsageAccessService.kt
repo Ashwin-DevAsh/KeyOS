@@ -56,7 +56,6 @@ class UsageAccessService : Service() {
         var handlerCheckBasicSettings:Handler?=null
         var handlerKillApps:Handler?=null
         var handlerCallBlocker:Handler?=null
-
     }
 
     var isAlive = false
@@ -118,7 +117,6 @@ class UsageAccessService : Service() {
         createCallBlockerLooper()
         resetRotation()
         isAlive=true
-
     }
 
 
@@ -132,7 +130,6 @@ class UsageAccessService : Service() {
     private fun createCallBlockerLooper(){
         handlerCallBlocker = Handler()
         runnableCallBlocker = Runnable {
-
             if(isAlive)runCallBlocker()
             handlerCallBlocker?.postDelayed(runnableCallBlocker!!, 250)
         }
