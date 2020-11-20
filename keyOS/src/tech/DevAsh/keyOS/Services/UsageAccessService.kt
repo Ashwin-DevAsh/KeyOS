@@ -1,35 +1,32 @@
 package tech.DevAsh.KeyOS.Services
 
-import android.app.*
+import android.app.ActivityManager
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.app.Service
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
-import android.bluetooth.BluetoothAdapter
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.ApplicationInfo
-import android.content.pm.PackageManager
-import android.media.AudioManager
-import android.net.wifi.WifiManager
-import android.os.Build
 import android.os.Handler
 import android.os.IBinder
+import android.os.SystemClock
 import android.provider.Settings
-import android.telephony.PhoneStateListener
-import android.telephony.TelephonyManager
-import android.view.LayoutInflater
-import android.view.Surface
-import android.view.WindowManager
-import androidx.core.app.NotificationCompat
-import com.android.launcher3.R
-import io.realm.Realm
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.KeyOS.Database.UserContext.user
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.CallBlocker
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
+import tech.DevAsh.keyOS.Helpers.KioskHelpers.BasicSettingsHandler
+import tech.DevAsh.keyOS.Helpers.NotificationHelper
+import tech.DevAsh.keyOS.Model.AppUsageInfo
+import tech.DevAsh.keyOS.Model.Time
+import tech.DevAsh.keyOS.Model.TimeExhaustApps
 import tech.DevAsh.keyOS.Receiver.KioskReceiver
 import java.util.*
 import kotlin.collections.ArrayList
@@ -38,85 +35,54 @@ import kotlin.collections.HashMap
 
 class UsageAccessService : Service() {
 
-    private var prevActivities = arrayListOf("")
-
-
-
+    var prevActivities = arrayListOf<Intent>()
     var packages: List<ApplicationInfo>? = null
-    private var mActivityManager: ActivityManager? = null
+    var mActivityManager: ActivityManager? = null
+    var launcher:Intent?=null
+    var timeExhaustApps = TimeExhaustApps()
 
 
     companion object {
-        var user: User?= User()
         var runnableCheckActivity: Runnable? = null
-        var runnableCheckBasicSettings:Runnable? = null
         var runnableKillApps:Runnable?=null
-        var runnableCallBlocker:Runnable?=null
         var handlerCheckActivity: Handler? = null
-        var handlerCheckBasicSettings:Handler?=null
         var handlerKillApps:Handler?=null
-        var handlerCallBlocker:Handler?=null
-    }
-
-    var isAlive = false
-        get() {
-            return field && PermissionsHelper.isMyLauncherCurrent(this)
+        private var isAlive = false
+        fun isAlive(context: Context):Boolean{
+            return isAlive && PermissionsHelper.isMyLauncherCurrent(context)
         }
-
-    private var timeExhaustApps = TimeExhaustApps()
-
+    }
 
     override fun onBind(intent: Intent): IBinder? {
         return null
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        startAsForeground()
-        return START_NOT_STICKY
+        NotificationHelper.startAsForegroundNotification(this)
+        return START_STICKY
     }
 
-
-    private fun startAsForeground(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-            val notificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-            val channelId = "KeyOS Protection"
-            val channelName: CharSequence = "Protection"
-            val importance = NotificationManager.IMPORTANCE_MIN
-            val notificationChannel = NotificationChannel(channelId, channelName, importance)
-            notificationManager.createNotificationChannel(notificationChannel)
-            val builder: Notification.Builder = Notification.Builder(this, channelId)
-                    .setContentTitle("KeyOS Protection")
-                    .setContentText("Your device completely protected by keyOS")
-                    .setSmallIcon(R.drawable.ic_key_ring)
-                    .setAutoCancel(false)
-            val notification: Notification = builder.build()
-            startForeground(2, notification)
-        } else {
-            val builder = NotificationCompat.Builder(this)
-                    .setContentTitle("KeyOS Protection")
-                    .setContentTitle("Your device completely protected by keyOS")
-                    .setSmallIcon(R.drawable.ic_key_ring)
-                    .setPriority(NotificationCompat.PRIORITY_LOW)
-                    .setAutoCancel(false)
-            val notification: Notification = builder.build()
-            startForeground(2, notification)
-        }
-    }
 
     override fun onCreate() {
         RealmHelper.init(applicationContext)
         loadData()
+        loadHomeScreen()
         createActivityLooper()
-        createBasicSettingsLooper()
+        BasicSettingsHandler.createBasicSettingsLooper(this)
         packages = packageManager.getInstalledApplications(0)
         mActivityManager = this.getSystemService(ACTIVITY_SERVICE) as ActivityManager
         createKillAppLooper()
-        createCallBlockerLooper()
+        CallBlocker.createCallBlockerLooper(this)
         resetRotation()
-        isAlive=true
+        isAlive = true
+        super.onCreate()
+    }
+
+    private fun loadHomeScreen(){
+        launcher = Intent(Intent.ACTION_MAIN)
+        launcher?.addCategory(Intent.CATEGORY_HOME)
+        launcher?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        prevActivities.add(launcher!!)
     }
 
 
@@ -127,19 +93,10 @@ class UsageAccessService : Service() {
         }
     }
 
-    private fun createCallBlockerLooper(){
-        handlerCallBlocker = Handler()
-        runnableCallBlocker = Runnable {
-            if(isAlive)runCallBlocker()
-            handlerCallBlocker?.postDelayed(runnableCallBlocker!!, 250)
-        }
-        handlerCallBlocker?.postDelayed(runnableCallBlocker!!, 1000)
-    }
-
     private fun createActivityLooper(){
         handlerCheckActivity = Handler()
         runnableCheckActivity = Runnable {
-            if(isAlive) checkActivity(applicationContext)
+            if(isAlive(this)) checkActivity(applicationContext)
             handlerCheckActivity?.postDelayed(runnableCheckActivity!!, 250)
         }
         handlerCheckActivity?.postDelayed(runnableCheckActivity!!, 1000)
@@ -154,14 +111,6 @@ class UsageAccessService : Service() {
         handlerKillApps?.postDelayed(runnableKillApps!!, 1000)
     }
 
-    private fun createBasicSettingsLooper(){
-        handlerCheckBasicSettings = Handler()
-        runnableCheckBasicSettings = Runnable {
-            if(isAlive) checkBasicSettings()
-            handlerCheckActivity?.postDelayed(runnableCheckBasicSettings!!, 250)
-        }
-        handlerCheckBasicSettings?.postDelayed(runnableCheckBasicSettings!!, 1000)
-    }
 
     private fun killApp() {
         try{
@@ -185,12 +134,7 @@ class UsageAccessService : Service() {
 
     private fun loadData(){
         try {
-
-            user = Realm.getDefaultInstance()
-                    .copyFromRealm(Realm
-                                           .getDefaultInstance()
-                                           .where(User::class.java)
-                                           .findFirst()!!)
+            User.getUsers()
             if(user!!.singleApp!=null){
                 user?.allowedApps?.add(user?.singleApp)
             }
@@ -200,16 +144,13 @@ class UsageAccessService : Service() {
     }
 
     override fun onDestroy() {
-        println("Destroied...")
         isAlive = false
+        CallBlocker.killCallBlockerLooper()
+        BasicSettingsHandler.killBasicSettingsLooper(this)
         handlerCheckActivity!!.removeCallbacksAndMessages(runnableCheckActivity!!)
-        handlerCheckBasicSettings!!.removeCallbacksAndMessages(runnableCheckBasicSettings!!)
-        handlerCallBlocker!!.removeCallbacks(runnableCallBlocker!!)
         handlerKillApps!!.removeCallbacks(runnableKillApps!!)
         handlerKillApps= null
-        handlerCallBlocker=null
         handlerCheckActivity = null
-        handlerCheckBasicSettings = null
         super.onDestroy()
     }
 
@@ -238,19 +179,48 @@ class UsageAccessService : Service() {
             return
         }
 
+        if(blockRecentScreen(className)){
+            return
+        }
         if(isAllowedPackage(appName, className)){
-            if(prevActivities.last()!=appName){
-                prevActivities.add(appName!!)
+            Handler().post{
+                if(prevActivities.last().component?.packageName!=appName){
+                    if(appName==packageName){
+                        prevActivities.add(launcher!!)
+                    }else{
+                        val intent = packageManager.getLaunchIntentForPackage(appName!!)
+                        if(intent!=null){
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            prevActivities.add(intent)
+                        }
+                    }
+                }
             }
         }else{
-            block(appName!!)
+            block()
         }
+    }
 
+    private fun blockRecentScreen(className: String?):Boolean{
+        if(className.toString().contains("recent")){
+            Handler().post {
+                showAppBlockAlertDialog()
+                startActivity(launcher)
+                appName=null
+                this.className=null
+            }
+            Handler().postDelayed({
+                                      KioskReceiver.sendBroadcast(this,
+                                                                  KioskReceiver.REMOVE_ALERT_DIALOG)
+                                  }, 2000)
+            return true
+        }
+        return false
     }
 
     private fun isAllowedPackage(appName: String?, className: String?):Boolean{
         val app = Apps(appName)
-
 
         if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(
                         className)){
@@ -266,14 +236,13 @@ class UsageAccessService : Service() {
         }
 
         if(appIndex==-1){
-            showAppBlockAlertDialog(this)
+            showAppBlockAlertDialog()
             return false
         }
 
         if(editedAppIndex==-1){
             return true
         }
-
 
         val singleApp = user!!.singleApp ?: Apps("")
 
@@ -283,60 +252,43 @@ class UsageAccessService : Service() {
             val allowedTime = Time.fromString(user!!.editedApps[editedAppIndex]!!.hourPerDay)
             val usageTime = getUsageStatistics(this, appName)
 
-            println("time : $appName $allowedTime $usageTime")
-
             if(usageTime!=null && !allowedTime.isGreaterThan(usageTime)){
-                prevActivities.removeAll(arrayListOf(appName))
-                timeExhaustApps.blockedApps.add(appName!!)
-                showTimerAlertDialog(this, appName)
+                Handler().post {
+                    prevActivities.filter {
+                        it.component?.packageName!=appName!!
+                    }
+                    timeExhaustApps.blockedApps.add(appName!!)
+                }
+                AlertHelper.showTimerAlertDialog(this, appName)
                 return false
             }
-
         }
 
         if (user!!.editedApps[editedAppIndex!!]!!.blockedActivities.contains(className)){
-           showAppBlockAlertDialog(this)
+            showAppBlockAlertDialog()
             return false
         }
-
         return true
     }
 
-    var timeAlertDialog : AlertDialog?=null
 
-    private fun showAppBlockAlertDialog(context: Context){
+    private fun showAppBlockAlertDialog() {
         KioskReceiver.sendBroadcast(this, KioskReceiver.SHOW_ALERT_DIALOG)
     }
 
-    private fun showTimerAlertDialog(context: Context, appName: String?){
-
-        if(timeAlertDialog!=null){
-            if(!timeAlertDialog!!.isShowing){
-                timeAlertDialog?.show()
-            }
-            return
-        }
-
-        val dialog = AlertDialog.Builder(context, R.style.MyProgressDialog)
-        dialog.setTitle("App isn't available")
-        dialog.setMessage("Application is paused as your app timer ran out")
-        dialog.setCancelable(false)
-        dialog.setPositiveButton("Ok") { dialogInterface: DialogInterface, _: Int ->
-            dialogInterface.dismiss()
-        }
-
-        timeAlertDialog = dialog.create()
-        if(Build.VERSION.SDK_INT>=26){
-            timeAlertDialog?.window?.setType(
-                    WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
-        }else{
-            timeAlertDialog?.window?.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-        }
-        timeAlertDialog?.show()
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        //create an intent that you want to start again.
+        val intent = Intent(applicationContext,
+                            UsageAccessService::class.java)
+        val pendingIntent = PendingIntent.getService(this, 1, intent, PendingIntent.FLAG_ONE_SHOT)
+        val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        alarmManager[AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime() + 5000] =
+                pendingIntent
+        super.onTaskRemoved(rootIntent)
     }
 
 
-    private fun getUsageStatistics(context: Context, appName: String?) :Time? {
+    private fun getUsageStatistics(context: Context, appName: String?) : Time? {
         val mUsageStatsManager = context.getSystemService(USAGE_STATS_SERVICE) as UsageStatsManager
         var currentEvent: UsageEvents.Event?
         val allEvents : ArrayList<UsageEvents.Event> = ArrayList()
@@ -346,23 +298,15 @@ class UsageAccessService : Service() {
         date.set(Calendar.MINUTE, 0)
         date.set(Calendar.SECOND, 0)
         date.set(Calendar.MILLISECOND, 0)
-
-        println("time = "+date.time)
-
         val start = date.timeInMillis
         val end = System.currentTimeMillis()
-
         if(timeExhaustApps.startTime==start){
-            println("time : old day")
             if(timeExhaustApps.blockedApps.contains(appName)){
-                println("time : cache hit")
-
                 val time = Time()
                 time.hour = 24
                 return time
             }
         }else{
-            println("time : new day")
             timeExhaustApps.startTime=start
             timeExhaustApps.blockedApps.clear()
         }
@@ -395,269 +339,33 @@ class UsageAccessService : Service() {
                 }else{
                     map[E0.packageName]!!.timeInForeground+= diff
                 }
-
             }
             lastEvent = E1
 
         }
-
         var diff:Long = 0
         if(lastEvent?.eventType == UsageEvents.Event.MOVE_TO_FOREGROUND){
             diff = System.currentTimeMillis() - lastEvent.timeStamp
         }
-
         val time = map[appName]?.timeInForeground ?: return null
-
-        return convertLongToTime(time + diff)
+        return Time.convertLongToTime(time + diff)
     }
 
-    private fun convertLongToTime(milliSeconds: Long):Time{
 
-
-        val SECOND = 1000
-        val MINUTE = 60 * SECOND
-        val HOUR = 60 * MINUTE
-        val DAY = 24 * HOUR
-        val time = Time()
-        var ms = milliSeconds
-        if (ms > DAY) {
-            time.day = ms / DAY
-            ms %= DAY.toLong()
-        }
-        if (ms > HOUR) {
-            time.hour=ms / HOUR
-            ms %= HOUR.toLong()
-        }
-        if (ms > MINUTE) {
-            time.minute = ms / MINUTE
-            ms %= MINUTE.toLong()
-        }
-        if (ms > SECOND) {
-            time.seconds = ms / SECOND
-            ms %= SECOND.toLong()
-        }
-        return time
-    }
-
-    private fun block(packageName: String) {
-
-        val launcher = Intent(Intent.ACTION_MAIN)
-        launcher.addCategory(Intent.CATEGORY_HOME)
-        launcher.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    private fun block() {
         try {
-
-            if(prevActivities.last()==this.packageName){
-                throw Exception()
-            }
-
-            val prev1 = packageManager.getLaunchIntentForPackage(
-                    prevActivities[prevActivities.size - 1])
-            val prev2 = packageManager.getLaunchIntentForPackage(
-                    prevActivities[prevActivities.size - 2])
-            when {
-
-                prev1!=null -> {
-                    if(prev1.`package`==this.packageName){
-                        throw Exception()
-                    }
-                    prev1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    prev1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(prev1)
-                }
-                prev2!=null -> {
-                    if(prev2.`package`==this.packageName){
-                        throw Exception()
-                    }
-                    prev2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    prev2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(prev2)
-                }
-                else -> {
-                    throw Exception()
-                }
-            }
-
+            startActivity(prevActivities.last())
         }catch (e: Throwable){
             startActivity(launcher)
         }finally {
             appName=null
             className=null
             Handler().postDelayed({
-                                      KioskReceiver.sendBroadcast(this, KioskReceiver.REMOVE_ALERT_DIALOG)
+                                      KioskReceiver.sendBroadcast(
+                                              this,
+                                              KioskReceiver.REMOVE_ALERT_DIALOG)
                                   }, 2000)
         }
     }
-
-
-    private fun checkBasicSettings() {
-        checkWifi()
-        checkBluetooth()
-        checkOrientation()
-        checkSound()
-    }
-
-
-
-    private fun runCallBlocker(){
-        val telephony = this.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        try{
-            telephony.listen(object : PhoneStateListener() {
-                override fun onCallStateChanged(state: Int, incomingNumber: String) {
-                    if (isAlive) {
-                        CallBlocker
-                                .onCall(state, incomingNumber,
-                                        this@UsageAccessService.applicationContext, user)
-                    }
-                    super.onCallStateChanged(state, incomingNumber)
-                }
-            }, PhoneStateListener.LISTEN_CALL_STATE)
-        }catch (e: Throwable){
-
-        }
-
-    }
-
-    private fun checkWifi(){
-//        val pm: PackageManager = packageManager
-//        val hasWifi: Boolean = pm.hasSystemFeature(WIFI_SERVICE)
-//
-        val wifiManager = this.applicationContext.getSystemService(WIFI_SERVICE) as WifiManager
-
-        if(user?.basicSettings?.wifi==BasicSettings.AlwaysON){
-            if(!wifiManager.isWifiEnabled){
-                println("Turning on wifi")
-                wifiManager.isWifiEnabled = true
-            }
-        }
-        else if(user?.basicSettings?.wifi==BasicSettings.AlwaysOFF){
-            if(wifiManager.isWifiEnabled){
-                println("Turning off wifi")
-                wifiManager.isWifiEnabled = false
-            }
-        }
-    }
-
-    private fun checkSound(){
-        if(user?.basicSettings?.sound != BasicSettings.DontCare){
-            val audioManager: AudioManager = getSystemService(AUDIO_SERVICE) as AudioManager
-            if(user?.basicSettings?.sound == BasicSettings.normal && audioManager.ringerMode!=AudioManager.RINGER_MODE_NORMAL ){
-                audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
-            }else if(user?.basicSettings?.sound == BasicSettings.silent && audioManager.ringerMode!=AudioManager.RINGER_MODE_SILENT){
-                audioManager.ringerMode = AudioManager.RINGER_MODE_SILENT
-            }
-        }
-
-    }
-
-    private fun checkBluetooth(){
-        try {
-            val pm: PackageManager = packageManager
-            val hasBluetooth: Boolean = pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)
-            if(hasBluetooth && user?.basicSettings?.bluetooth!=BasicSettings.DontCare){
-                if(user?.basicSettings?.bluetooth==BasicSettings.AlwaysON){
-                    turnOnBluetooth()
-                }else if (user?.basicSettings?.bluetooth==BasicSettings.AlwaysOFF){
-                    turnOffBluetooth()
-                }
-            }
-        }catch (e: Throwable){
-
-        }
-
-    }
-
-    private fun checkOrientation(){
-        if(user?.basicSettings?.orientation.equals(BasicSettings.DontCare)){
-            return
-        }
-
-        try {
-            if (user?.basicSettings?.orientation.equals(BasicSettings.landscape) && Settings.System.getInt(
-                            applicationContext.contentResolver,
-                            Settings.System.ACCELEROMETER_ROTATION) == 1) {
-                Settings.System.putInt(
-                        contentResolver,
-                        Settings.System.USER_ROTATION,
-                        Surface.ROTATION_90 //U
-                        // se any of the Surface.ROTATION_ constants
-                                      )
-                Settings.System.putInt(applicationContext.contentResolver,
-                                       Settings.System.ACCELEROMETER_ROTATION, 0)
-            } else if (user?.basicSettings?.orientation.equals(BasicSettings.portrait) && Settings.System.getInt(
-                            applicationContext.contentResolver,
-                            Settings.System.ACCELEROMETER_ROTATION) == 1) {
-                Settings.System.putInt(
-                        contentResolver,
-                        Settings.System.USER_ROTATION,
-                        Surface.ROTATION_0 //U
-                        // se any of the Surface.ROTATION_ constants
-                                      )
-                Settings.System.putInt(applicationContext.contentResolver,
-                                       Settings.System.ACCELEROMETER_ROTATION, 0)
-            }
-        } catch (e: Throwable) {
-        }
-    }
-
-    private fun turnOnBluetooth(){
-        val mBluetoothAdapter: BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
-        if (!mBluetoothAdapter.isEnabled) {
-            mBluetoothAdapter.enable()
-        }
-    }
-
-    private fun turnOffBluetooth(){
-        val mBluetoothAdapter: BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
-        if (mBluetoothAdapter.isEnabled) {
-            mBluetoothAdapter.disable()
-        }
-    }
 }
 
-class AppUsageInfo(var packageName: String) {
-    var appName: String? = null
-    var timeInForeground: Long = 0
-}
-
-class TimeExhaustApps{
-    var startTime :Long=0
-    var blockedApps = hashSetOf<String>()
-}
-
-class Time{
-    var day:Long?=0
-    var hour:Long?=0
-    var minute:Long?=0
-    var seconds:Long?=0
-
-    override fun toString(): String {
-        return "Time(day=$day, hour=$hour, minute=$minute, seconds=$seconds)"
-    }
-
-    companion object {
-        fun fromString(string: String):Time{
-            val time = Time()
-            time.seconds = 0
-            time.hour = string.split(":")[0].toLong()
-            time.minute = string.split(":")[1].toLong()
-            time.seconds = 0
-            return time
-        }
-    }
-
-
-    fun isGreaterThan(time: Time):Boolean{
-
-
-        if(this.hour!!>time.hour!!){
-            return true
-        }else if(this.hour!!<time.hour!!){
-            return false
-        }
-
-        return this.minute!! > time.minute!!
-
-    }
-
-
-}

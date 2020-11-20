@@ -133,7 +133,9 @@ object WebBlocker {
             println("host = $host")
 
             if(UserContext.user!!.webFilter.shouldBlockAdultSites){
-                return !pornSites.contains(host)
+                if(pornSites.contains(host)){
+                    return false
+                }
             }
 
             if(UserContext.user!!.webFilter.isWhitelistEnabled){

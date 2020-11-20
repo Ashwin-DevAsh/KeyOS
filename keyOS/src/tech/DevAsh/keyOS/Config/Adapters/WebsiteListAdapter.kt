@@ -5,15 +5,22 @@ import android.animation.AnimatorListenerAdapter
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.Drawable
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.android.launcher3.R
-import kotlinx.android.synthetic.dev.widget_listtile_contact.view.*
-import kotlinx.android.synthetic.dev.widget_listtile_contact.view.badge
-import kotlinx.android.synthetic.dev.widget_listtile_contact.view.checkBox
-import kotlinx.android.synthetic.dev.widget_listtile_contact.view.select
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.dev.widget_listtile_website.view.*
 import tech.DevAsh.KeyOS.Config.AnimateDeleteToggle
 import tech.DevAsh.KeyOS.Config.ToggleCallback
@@ -53,6 +60,10 @@ class WebsiteListAdapter(
         return position
     }
 
+    companion object{
+        var failedItems = arrayListOf<String>()
+    }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(position!=0){
             holder as WebsiteHolder
@@ -62,6 +73,45 @@ class WebsiteListAdapter(
             }else{
                 holder.view.alpha = 0.25f
             }
+
+            if(!failedItems.contains(items[position])) Handler().post{
+                Glide
+                        .with(context)
+                        .load("https://www.${items[position]}/favicon.ico")
+                        .apply( RequestOptions()
+                                .fitCenter()
+                                .format(DecodeFormat.PREFER_ARGB_8888)
+                                .override(Target.SIZE_ORIGINAL))
+                        .listener(object : RequestListener<Drawable> {
+                            override fun onLoadFailed(e: GlideException?, model: Any?,
+                                                      target: Target<Drawable>?,
+                                                      isFirstResource: Boolean): Boolean {
+                                holder.profile.visibility = GONE
+                                holder.itemView.badgeContainer.visibility = VISIBLE
+                                e?.printStackTrace()
+                                failedItems.add(items[position])
+                                return isFirstResource
+                            }
+
+                            override fun onResourceReady(resource: Drawable?, model: Any?,
+                                                         target: Target<Drawable>?,
+                                                         dataSource: DataSource?,
+                                                         isFirstResource: Boolean): Boolean {
+                                holder.profile.setImageDrawable(resource)
+                                holder.profile.visibility = VISIBLE
+                                holder.itemView.badgeContainer.visibility = GONE
+                                println("Success")
+                                return isFirstResource
+                            }
+
+                        })
+                        .into(holder.profile)
+            }
+            else{
+                holder.profile.visibility = GONE
+                holder.itemView.badgeContainer.visibility = VISIBLE
+            }
+
 
             holder.url.text = items[position]
             try {
@@ -96,7 +146,7 @@ class WebsiteListAdapter(
                 return@setOnLongClickListener true
             }
 
-                        holder.view.setOnClickListener{
+                        holder.view.itemRoot.setOnClickListener{
                             if(WebsiteList.isDeleteMode){
                                 if (holder.checkBox.isChecked){
                                     WebsiteList.deleteList.remove(items[position])
@@ -115,6 +165,7 @@ class WebsiteListAdapter(
         }
     }
 
+
     fun updateList(updatedList: ArrayList<String>){
         this.items = ArrayList(updatedList)
         notifyDataSetChanged()
@@ -127,4 +178,5 @@ class WebsiteHolder(val view: View, context: Context) : RecyclerView.ViewHolder(
     var badge = view.badge
     var url = view.url
     var checkBox = view.checkBox
+    var profile = view.profile
 }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.android.launcher3" >
 
-    <uses-sdk android:targetSdkVersion="29" android:minSdkVersion="21" tools:ignore="GradleOverrides" />
+<!--    <uses-sdk android:targetSdkVersion="29" android:minSdkVersion="21" tools:ignore="GradleOverrides" />-->
     <uses-permission android:name="android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS"
         tools:ignore="ProtectedPermissions" />
     <uses-feature
@@ -334,7 +334,6 @@
         <service
             android:name="tech.DevAsh.KeyOS.Services.WindowChangeDetectingService"
             android:stopWithTask="false"
-            android:process=":windowChangeDetectingService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />

@@ -8,10 +8,14 @@ import android.os.Build
 import android.os.Handler
 import android.provider.ContactsContract
 import android.telecom.TelecomManager
+import android.telephony.PhoneStateListener
 import android.telephony.TelephonyManager
 import androidx.core.app.ActivityCompat
 import com.android.internal.telephony.ITelephony
+import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
+import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
+import tech.DevAsh.KeyOS.Services.UsageAccessService.Companion.isAlive
 import tech.DevAsh.keyOS.Database.Contact
 import tech.DevAsh.keyOS.Database.User
 
@@ -19,6 +23,40 @@ import tech.DevAsh.keyOS.Database.User
 object CallBlocker {
 
     private var lastState = TelephonyManager.CALL_STATE_IDLE
+    var runnableCallBlocker:Runnable?=null
+    var handlerCallBlocker:Handler?=null
+
+    fun createCallBlockerLooper(context: Context ){
+        handlerCallBlocker = Handler()
+        runnableCallBlocker = Runnable {
+            if(isAlive(context))runCallBlocker(context)
+            handlerCallBlocker?.postDelayed(runnableCallBlocker!!, 250)
+        }
+        handlerCallBlocker?.postDelayed(runnableCallBlocker!!, 1000)
+    }
+
+
+    private fun runCallBlocker(context: Context){
+        val telephony = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+        try{
+            telephony.listen(object : PhoneStateListener() {
+                override fun onCallStateChanged(state: Int, incomingNumber: String) {
+                    if (isAlive(context)) {
+                        onCall(state, incomingNumber, context.applicationContext, user)
+                    }
+                    super.onCallStateChanged(state, incomingNumber)
+                }
+            }, PhoneStateListener.LISTEN_CALL_STATE)
+        }catch (e: Throwable){
+
+        }
+
+    }
+
+    fun killCallBlockerLooper(){
+        handlerCallBlocker!!.removeCallbacks(runnableCallBlocker!!)
+        handlerCallBlocker=null
+    }
 
 
     fun onCall(state: Int, number: String, context: Context,user: User?) {
@@ -69,7 +107,6 @@ object CallBlocker {
         val possible2 = Contact("", "+91$number")
         val possible3 = Contact("", "+$number")
 
-        println("Callblocker number = $number\n")
 
         when {
             user!!.calls.blackListCalls -> {
@@ -150,8 +187,6 @@ object CallBlocker {
         else
             disconnectPhoneITelephony(context)
     }
-
-
 
     private fun disconnectPhoneITelephony(context: Context) {
         val telephonyService: ITelephony

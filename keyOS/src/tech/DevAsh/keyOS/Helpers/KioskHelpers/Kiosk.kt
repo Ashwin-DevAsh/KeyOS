@@ -1,12 +1,13 @@
 package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 
 import android.app.Activity
+import android.app.ActivityManager
 import android.app.admin.DevicePolicyManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import eu.chainfire.librootjava.RootJava.sendBroadcast
+import androidx.core.content.ContextCompat.getSystemService
 import tech.DevAsh.KeyOS.Config.Settings
 import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
@@ -38,20 +39,22 @@ object Kiosk {
     }
 
     fun startKiosk(context: Context){
-        isKisokEnabled = true
-        println("Start Kiosk...")
-        NotificationBlocker.start()
-        KioskReceiver.sendBroadcast(context,KioskReceiver.START_KIOSK)
-        context.startService(getUsageAccessService(context))
-        context.startService(getAccessibilityService(context))
-        setCamera(context, user!!.basicSettings.isDisableCamera)
+        if(!isMyServiceRunning(context,UsageAccessService::class.java)){
+            isKisokEnabled = true
+            println("Start Kiosk...")
+            NotificationBlocker.start()
+            KioskReceiver.sendBroadcast(context, KioskReceiver.START_KIOSK)
+            context.startService(getUsageAccessService(context))
+            context.startService(getAccessibilityService(context))
+            setCamera(context, user!!.basicSettings.isDisableCamera)
+        }
     }
 
 
 
 
     fun stopKiosk(context: Context){
-       KioskReceiver.sendBroadcast(context,KioskReceiver.STOP_KIOSK)
+       KioskReceiver.sendBroadcast(context, KioskReceiver.STOP_KIOSK)
         isKisokEnabled = false
         NotificationBlocker.stop()
         context.stopService(getUsageAccessService(context))
@@ -128,5 +131,16 @@ object Kiosk {
             settings.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivities(arrayOf(settings, selector))
         }
+    }
+
+    private fun isMyServiceRunning(context: Context,serviceClass: Class<*>): Boolean {
+        val manager: ActivityManager =
+                 context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        for (service in manager.getRunningServices(Int.MAX_VALUE)) {
+            if (serviceClass.name == service.service.className) {
+                return true
+            }
+        }
+        return false
     }
 }

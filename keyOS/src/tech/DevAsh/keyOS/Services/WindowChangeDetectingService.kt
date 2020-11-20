@@ -25,18 +25,27 @@ import java.util.*
 class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
 
     var kioskReceiver = KioskReceiver(this)
+    var launcher:Intent?=null
+
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         return START_STICKY
     }
 
-    private var prevActivities = arrayListOf("")
+    var prevActivities = arrayListOf<Intent>()
 
+    private fun loadHomeScreen(){
+        launcher = Intent(Intent.ACTION_MAIN)
+        launcher?.addCategory(Intent.CATEGORY_HOME)
+        launcher?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        prevActivities.add(launcher!!)
+    }
 
 
     override fun onServiceConnected() {
         RealmHelper.init(this)
         startReceiver()
+        loadHomeScreen()
         val info: AccessibilityServiceInfo = serviceInfo
         info.eventTypes = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED or AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_VISUAL
@@ -55,8 +64,6 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
         filter.addAction(KioskReceiver.REMOVE_ALERT_DIALOG)
         registerReceiver(kioskReceiver, filter)
     }
-
-
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
 
@@ -80,26 +87,50 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
             return
         }
 
+        if(blockRecentScreen(className)){
+            return
+        }
 
-        if ( appName == "com.android.settings" || appName == packageName
-            || AppsContext.allApps.contains(Apps(appName))
-            || event.className.toString().toLowerCase(Locale.ROOT).contains("recent")){
-
+        if (appName == "com.android.settings" || appName == packageName || AppsContext.allApps.contains(Apps(appName))){
             if(isAllowedPackage(appName, className)){
-                if(prevActivities.last()!=appName
-                   && (UserContext.user!!.allowedApps.contains(Apps(appName)) || appName==packageName)){
-                    prevActivities.add(appName)
+                Handler().post{
+                    if(prevActivities.last().component?.packageName!=appName){
+                        if(appName==packageName){
+                            prevActivities.add(launcher!!)
+                        }else{
+                            if(UserContext.user?.allowedApps!!.contains(Apps(appName))){
+                                val intent = packageManager.getLaunchIntentForPackage(appName)
+                                if(intent!=null){
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                    prevActivities.add(intent)
+                                }
+                            }
+
+                        }
+                    }
                 }
             }else{
                 Handler().post{
                     showAppBlockAlertDialog(context)
                 }
                 block()
-
             }
         }
+    }
 
-
+    private fun blockRecentScreen(className: String?):Boolean{
+        if(className.toString().contains("recent")){
+            Handler().post {
+                showAppBlockAlertDialog(this)
+                startActivity(launcher)
+            }
+            Handler().postDelayed({
+                                      KioskReceiver.sendBroadcast(this, KioskReceiver.REMOVE_ALERT_DIALOG)
+                                  }, 2000)
+            return true
+        }
+        return false
     }
 
     private fun isAllowedPackage(appName: String?, className: String?):Boolean{
@@ -138,48 +169,15 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
     }
 
     private fun block() {
-        val launcher = Intent(Intent.ACTION_MAIN)
-        launcher.addCategory(Intent.CATEGORY_HOME)
-        launcher.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         try {
-            println("Prev = $prevActivities")
-            if(prevActivities.last()==this.packageName){
-                throw Exception()
-            }
-
-            val prev1 = packageManager.getLaunchIntentForPackage(
-                    prevActivities[prevActivities.size - 1])
-            val prev2 = packageManager.getLaunchIntentForPackage(
-                    prevActivities[prevActivities.size - 2])
-            when {
-
-                prev1!=null -> {
-                    if(prev1.`package`==this.packageName){
-                        throw Exception()
-                    }
-                    prev1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    prev1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(prev1)
-                }
-                prev2!=null -> {
-                    if(prev2.`package`==this.packageName){
-                        throw Exception()
-                    }
-                    prev2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    prev2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    startActivity(prev2)
-                }
-                else -> {
-                    throw Exception()
-                }
-            }
-
+            startActivity(prevActivities.last())
         }catch (e: Throwable){
             startActivity(launcher)
         }finally {
             Handler().postDelayed({
-                                      KioskReceiver.sendBroadcast(this,KioskReceiver.REMOVE_ALERT_DIALOG)
-
+                                      KioskReceiver.sendBroadcast(
+                                              this,
+                                              KioskReceiver.REMOVE_ALERT_DIALOG)
                                   }, 2000)
         }
 

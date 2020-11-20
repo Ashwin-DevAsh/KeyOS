@@ -42,11 +42,11 @@ android {
     buildToolsVersion '28.0.3'
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 22
         targetSdkVersion 29
 
-        versionCode 45
-        versionName "KeyOS v45"
+        versionCode 46
+        versionName "KeyOS v46"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
