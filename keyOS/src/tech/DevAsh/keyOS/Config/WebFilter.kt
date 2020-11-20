@@ -1,18 +1,27 @@
 package tech.DevAsh.keyOS.Config
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.android.launcher3.R
+import io.realm.RealmList
 import kotlinx.android.synthetic.dev.activity_web_filter.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.keyOS.Database.WebFilterDB
 
 class WebFilter : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_filter)
-        loadView()
+        try {
+            loadView()
+        }catch (e: Throwable){
+            UserContext.user!!.webFilter =
+                  WebFilterDB(false, false, false, RealmList(), RealmList(), false)
+            loadView()
+
+        }
         onClick()
     }
 
@@ -27,18 +36,18 @@ class WebFilter : AppCompatActivity() {
                 options.alpha = 0.25f
             }
         }
-        blockAdultWebsites.setOnCheckedChangeListener{_,isChecked->
+        blockAdultWebsites.setOnCheckedChangeListener{ _, isChecked->
             UserContext.user!!.webFilter.shouldBlockAdultSites = isChecked
         }
 
         whitelist.setOnClickListener {
             WebsiteList.websiteListType = WebsiteList.Companion.WebsiteListType.WHITELIST
-            startActivity(Intent(this,WebsiteList::class.java))
+            startActivity(Intent(this, WebsiteList::class.java))
         }
 
         blacklist.setOnClickListener {
             WebsiteList.websiteListType = WebsiteList.Companion.WebsiteListType.BLACKLIST
-            startActivity(Intent(this,WebsiteList::class.java))
+            startActivity(Intent(this, WebsiteList::class.java))
         }
 
         back.setOnClickListener {
