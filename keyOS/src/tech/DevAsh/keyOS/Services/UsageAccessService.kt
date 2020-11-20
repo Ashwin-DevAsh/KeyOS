@@ -59,7 +59,7 @@ class UsageAccessService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         NotificationHelper.startAsForegroundNotification(this)
-        return START_STICKY
+        return START_REDELIVER_INTENT
     }
 
 
@@ -282,7 +282,7 @@ class UsageAccessService : Service() {
                             UsageAccessService::class.java)
         val pendingIntent = PendingIntent.getService(this, 1, intent, PendingIntent.FLAG_ONE_SHOT)
         val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
-        alarmManager[AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime() + 5000] =
+        alarmManager[AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime() + 500] =
                 pendingIntent
         super.onTaskRemoved(rootIntent)
     }
