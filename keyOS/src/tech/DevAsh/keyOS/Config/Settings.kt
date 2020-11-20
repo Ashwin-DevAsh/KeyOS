@@ -42,7 +42,8 @@ import tech.DevAsh.keyOS.Database.BasicSettings
 
 
 class Settings : AppCompatActivity() {
-    
+
+    val TAG = this::class.simpleName
 
     var shouldLaunch = false
     private val permissionsBottomSheet=PermissionsBottomSheet(this)
@@ -63,7 +64,7 @@ class Settings : AppCompatActivity() {
     private fun checkUserAgreement(){
         if(!UserContext.user!!.isEndUserLicenceAgreementDone || BuildConfig.IS_DEV_BUILD){
             Handler().postDelayed({
-                                      UserAgreement(this).show(supportFragmentManager, "")
+                                      UserAgreement(this).show(supportFragmentManager, TAG)
 
                                   }, 1000)
         }
@@ -93,92 +94,32 @@ class Settings : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.feedback -> {
-                    val intent = Intent(Intent.ACTION_SEND)
-                    intent.type = "plain/text"
-                    intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
-                    intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback & suggestions")
-                    startActivity(Intent.createChooser(intent, "Email"))
+                   feedBack()
                 }
                 R.id.bug -> {
-                    val intent = Intent(Intent.ACTION_SEND)
-                    intent.type = "plain/text"
-                    intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
-                    intent.putExtra(Intent.EXTRA_SUBJECT, "Bug report")
-                    startActivity(Intent.createChooser(intent, "Email"))
+                   bug()
                 }
                 R.id.rate -> {
-                    Handler().postDelayed({
-                        val uri: Uri = Uri.parse("market://details?id=tech.DevAsh.keyOS")
-                        val goToMarket = Intent(Intent.ACTION_VIEW, uri)
-                        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or
-                                                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
-                                                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
-                        try {
-                            startActivity(goToMarket)
-                        } catch (e: ActivityNotFoundException) {
-                            startActivity(Intent(Intent.ACTION_VIEW,
-                                                 Uri.parse(
-                                                         "http://play.google.com/store/apps/details?id=tech.DevAsh.keyOS")))
-                        }
-                                          },500)
+                    rate()
                 }
                 R.id.share -> {
-                    try {
-                        val shareIntent = Intent(Intent.ACTION_SEND);
-                        shareIntent.type = "text/plain";
-                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, R.string.app_name)
-                        var shareMessage = "\nLet me recommend you this application\n\n"
-                        shareMessage =
-                                shareMessage + "https://play.google.com/store/apps/details?id=" + "tech.DevAsh.keyOS" + "\n\n"
-                        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
-                        startActivity(Intent.createChooser(shareIntent, "choose one"))
-                    } catch (e: Exception) {
-
-                    }
+                   share()
                 }
                 R.id.privacyPolicy -> {
-                    Handler().postDelayed({
-                    val intent = Intent(Intent.ACTION_VIEW)
-                    intent.data = Uri.parse(BuildConfig.PRIVACY_POLICY)
-                    startActivity(intent)
-                                          },500)
-
+                 privacyPolicy()
                 }
 
                 R.id.appinfo -> {
-                    Handler().postDelayed({
-
-                                          val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    intent.data = Uri.parse("package:$packageName")
-                    startActivity(intent)
-                                          },500)
-
+                   appInfo()
                 }
 
                 R.id.developerContact->{
-                    Handler().postDelayed({
-                                          val intent = Intent(Intent.ACTION_VIEW)
-                    intent.data = Uri.parse("https://www.devash.tech")
-                    startActivity(intent)
-                                          },500)
-
+                    developerContact()
                 }
 
                 R.id.update->{
-                    val appUpdateManager: AppUpdateManager? = AppUpdateManagerFactory.create(this)
-                    val appUpdateInfoTask = appUpdateManager?.appUpdateInfo
-                    appUpdateInfoTask?.addOnSuccessListener { appUpdateInfo ->
-                        if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE) {
-                            appUpdateManager.startUpdateFlowForResult(
-                                    appUpdateInfo,
-                                    AppUpdateType.IMMEDIATE,
-                                    this,
-                                    1)
-                        } else {
-                            AlertHelper.showToast("App already up to date",this)
-                        }
-                    }
 
+                    update()
                 }
 
                 else -> {
@@ -188,6 +129,96 @@ class Settings : AppCompatActivity() {
 
             return@setNavigationItemSelectedListener true
         }
+    }
+
+    private fun feedBack(){
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "plain/text"
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback & suggestions")
+        startActivity(Intent.createChooser(intent, "Email"))
+    }
+
+    private fun appInfo(){
+        Handler().postDelayed({
+
+                                  val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                                  intent.data = Uri.parse("package:$packageName")
+                                  startActivity(intent)
+                              },500)
+    }
+
+    private fun privacyPolicy(){
+        Handler().postDelayed({
+                                  val intent = Intent(Intent.ACTION_VIEW)
+                                  intent.data = Uri.parse(BuildConfig.PRIVACY_POLICY)
+                                  startActivity(intent)
+                              },500)
+    }
+
+    private fun share(){
+        try {
+            val shareIntent = Intent(Intent.ACTION_SEND);
+            shareIntent.type = "text/plain";
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, R.string.app_name)
+            var shareMessage = "\nLet me recommend you this application\n\n"
+            shareMessage =
+                    shareMessage + "https://play.google.com/store/apps/details?id=" + "tech.DevAsh.keyOS" + "\n\n"
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+            startActivity(Intent.createChooser(shareIntent, "choose one"))
+        } catch (e: Exception) {
+
+        }
+    }
+
+    fun bug(){
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "plain/text"
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Bug report")
+        startActivity(Intent.createChooser(intent, "Email"))
+    }
+
+    fun rate(){
+        Handler().postDelayed({
+                                  val uri: Uri = Uri.parse("market://details?id=tech.DevAsh.keyOS")
+                                  val goToMarket = Intent(Intent.ACTION_VIEW, uri)
+                                  goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or
+                                                              Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+                                                              Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+                                  try {
+                                      startActivity(goToMarket)
+                                  } catch (e: ActivityNotFoundException) {
+                                      startActivity(Intent(Intent.ACTION_VIEW,
+                                                           Uri.parse(
+                                                                   "http://play.google.com/store/apps/details?id=tech.DevAsh.keyOS")))
+                                  }
+                              },500)
+    }
+
+    private fun developerContact(){
+        Handler().postDelayed({
+                                  val intent = Intent(Intent.ACTION_VIEW)
+                                  intent.data = Uri.parse("https://www.devash.tech")
+                                  startActivity(intent)
+                              },500)
+    }
+
+    private fun update(){
+        val appUpdateManager: AppUpdateManager? = AppUpdateManagerFactory.create(this)
+        val appUpdateInfoTask = appUpdateManager?.appUpdateInfo
+        appUpdateInfoTask?.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE) {
+                appUpdateManager.startUpdateFlowForResult(
+                        appUpdateInfo,
+                        AppUpdateType.IMMEDIATE,
+                        this,
+                        1)
+            } else {
+                AlertHelper.showToast("App already up to date",this)
+            }
+        }
+
     }
 
 
@@ -314,7 +345,7 @@ class Settings : AppCompatActivity() {
 
         permissions.setOnClickListener {
             shouldLaunch = false
-            permissionsBottomSheet.show(supportFragmentManager, "TAG")
+            permissionsBottomSheet.show(supportFragmentManager, TAG)
         }
 
         notificationPanel.setOnCheckedChangeListener{ _, isChecked->
@@ -362,7 +393,7 @@ class Settings : AppCompatActivity() {
                 launch(this)
             } 
         }else{
-            permissionsBottomSheet.show(supportFragmentManager, "TAG")
+            permissionsBottomSheet.show(supportFragmentManager, TAG)
         }
     }
 
@@ -462,7 +493,7 @@ class Settings : AppCompatActivity() {
                                       if (PermissionsHelper.checkImportantPermissions(this)) {
                                           checkPermissionAndLaunch()
                                       } else {
-                                          permissionsBottomSheet.show(supportFragmentManager, "TAG")
+                                          permissionsBottomSheet.show(supportFragmentManager, TAG)
                                       }
                                   }, 250)
         }

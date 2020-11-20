@@ -3,6 +3,7 @@ package tech.DevAsh.KeyOS.Helpers.KioskHelpers
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Handler
+import android.util.Log
 import tech.DevAsh.KeyOS.Database.UserContext
 
 
@@ -13,7 +14,6 @@ object NotificationBlocker {
          collapseNotificationHandler.postDelayed(object : Runnable {
              @SuppressLint("WrongConstant")
              override fun run() {
-                 println("Notification Blocker")
                  if (!UserContext.user!!.basicSettings.notificationPanel && !pause) {
                      val statusBarService = context.getSystemService("statusbar")
                      val statusBarManager = Class.forName("android.app.StatusBarManager")

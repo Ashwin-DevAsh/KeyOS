@@ -13,6 +13,7 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.SystemClock
 import android.provider.Settings
+import android.util.Log
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext.user
@@ -35,11 +36,15 @@ import kotlin.collections.HashMap
 
 class UsageAccessService : Service() {
 
+    private val TAG = this::class.java.simpleName
+
+
     var prevActivities = arrayListOf<Intent>()
     var packages: List<ApplicationInfo>? = null
     var mActivityManager: ActivityManager? = null
     var launcher:Intent?=null
     var timeExhaustApps = TimeExhaustApps()
+
 
 
     companion object {
@@ -173,7 +178,7 @@ class UsageAccessService : Service() {
              className = event.className
         }
 
-        println("time = $appName $className")
+        Log.d(TAG, "checkActivity: $appName $className\"")
 
         if(appName==null || className==null){
             return

@@ -11,6 +11,7 @@ buildscript {
         classpath 'com.android.tools:r8:2.1.67'
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.9'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10"
+        classpath 'com.google.gms:google-services:4.3.4'
     }
 }
 
@@ -45,8 +46,8 @@ android {
         minSdkVersion 22
         targetSdkVersion 29
 
-        versionCode 46
-        versionName "KeyOS v46"
+        versionCode 48
+        versionName "KeyOS v48"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -299,8 +300,10 @@ dependencies {
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     implementation 'com.google.dagger:dagger:2.24'
     kapt 'com.google.dagger:dagger-compiler:2.20'
-
     implementation 'com.google.android.play:core:1.8.3'
+
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
 }
 

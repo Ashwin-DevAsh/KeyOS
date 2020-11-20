@@ -20,6 +20,10 @@ class ActivitiesListAdapter(
     var subHeading:String,
     val context: AppCompatActivity
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+
+    private val TAG = this::class.java.simpleName
+
     var blockedItems = ArrayList(_blockedItems)
     var items = ArrayList(_items)
     private var colorMapper = HashMap<String,Int>()

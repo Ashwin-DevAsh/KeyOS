@@ -10,8 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.launcher3.R
-import kotlinx.android.synthetic.keyOS.header_app_gridtile.view.*
-import kotlinx.android.synthetic.keyOS.widget_listtile_apps.view.*
+import kotlinx.android.synthetic.dev.header_app_gridtile.view.*
+import kotlinx.android.synthetic.dev.widget_listtile_apps.view.*
 import tech.DevAsh.KeyOS.Config.EditApp
 
 import net.igenius.customcheckbox.CustomCheckBox

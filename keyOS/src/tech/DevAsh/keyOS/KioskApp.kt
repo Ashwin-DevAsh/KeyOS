@@ -21,16 +21,15 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.widget.Toast
-import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
-
-import tech.DevAsh.Launcher.theme.ThemeManager
 import com.android.launcher3.Utilities
+import com.google.firebase.analytics.FirebaseAnalytics
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.LoadAppsAndServices
 import tech.DevAsh.Launcher.KioskLauncher
+import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
+import tech.DevAsh.Launcher.theme.ThemeManager
 import tech.DevAsh.keyOS.Api.IMailService
 import tech.DevAsh.keyOS.Api.IUpdateService
 import tech.DevAsh.keyOS.Database.User
@@ -44,6 +43,7 @@ class KioskApp : Application() {
     var applicationComponents:ApplicationComponents?=null
     val activityHandler = ActivityHandler()
     var loadAppsAndServices = LoadAppsAndServices(this)
+    private var firebaseAnalytics: FirebaseAnalytics? = null
     @Inject lateinit var mailService: IMailService
     @Inject lateinit var updateService:IUpdateService
 
@@ -54,6 +54,11 @@ class KioskApp : Application() {
         loadAppsAndServices.execute()
         applicationComponents = DaggerApplicationComponents.create()
         applicationComponents!!.inject(this)
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        firebaseAnalytics?.setUserId("SDK : ${Build.VERSION.SDK_INT} / " +
+                                     "BRAND : ${Build.MANUFACTURER} / " +
+                                     "MODEL : ${Build.MODEL}")
         super.onCreate()
     }
 

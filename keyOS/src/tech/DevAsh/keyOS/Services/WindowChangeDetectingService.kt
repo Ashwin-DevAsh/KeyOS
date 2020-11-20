@@ -27,6 +27,8 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
     var kioskReceiver = KioskReceiver(this)
     var launcher:Intent?=null
 
+    val TAG = this::class.simpleName
+
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         return START_STICKY
