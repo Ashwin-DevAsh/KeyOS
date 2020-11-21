@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+
+
     <application
         android:name="tech.DevAsh.keyOS.KioskApp"
         android:icon="@mipmap/ic_launcher"

@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.os.Handler
+import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
@@ -20,6 +21,7 @@ import tech.DevAsh.keyOS.Helpers.KioskHelpers.WebBlocker
 import tech.DevAsh.keyOS.Receiver.KioskReceiver
 import tech.DevAsh.keyOS.Receiver.KioskToggle
 import java.util.*
+import kotlin.math.log
 
 
 class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
@@ -69,11 +71,13 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
 
-        if(PermissionsHelper.isMyLauncherCurrent(this)){
-            if(Kiosk.isKisokEnabled){
-                checkActivity(this, event)
-                WebBlocker.block(event, this)
+        if(PermissionsHelper.isMyLauncherCurrent(this) && Kiosk.isKisokEnabled){
+            val appName: String? = event.packageName?.toString()
+            val className :String? = event.className?.toString()
+            Handler().post {
+                checkActivity(this, appName,className)
             }
+            WebBlocker.block(event, this)
         }
     }
 
@@ -81,9 +85,8 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
         KioskReceiver.sendBroadcast(context,KioskReceiver.SHOW_ALERT_DIALOG)
     }
 
-    private fun checkActivity(context: Context, event: AccessibilityEvent) {
-        val appName: String? = event.packageName?.toString()
-        val className :String? = event.className?.toString()
+    private fun checkActivity(context: Context,appName: String?,className: String?) {
+
 
         if(appName==null || className==null){
             return
@@ -116,7 +119,7 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
                 Handler().post{
                     showAppBlockAlertDialog(context)
                 }
-                block()
+                block(appName)
             }
         }
     }
@@ -130,6 +133,7 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
             Handler().postDelayed({
                                       KioskReceiver.sendBroadcast(this, KioskReceiver.REMOVE_ALERT_DIALOG)
                                   }, 2000)
+            Log.d(TAG, "blockRecentScreen: $className")
             return true
         }
         return false
@@ -170,7 +174,7 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
         return true
     }
 
-    private fun block() {
+    private fun block(appName: String?) {
         try {
             startActivity(prevActivities.last())
         }catch (e: Throwable){
@@ -181,6 +185,7 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
                                               this,
                                               KioskReceiver.REMOVE_ALERT_DIALOG)
                                   }, 2000)
+            Log.d(TAG, "block: $appName")
         }
 
     }

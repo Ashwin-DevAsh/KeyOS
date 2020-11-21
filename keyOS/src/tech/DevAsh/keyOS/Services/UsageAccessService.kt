@@ -219,6 +219,7 @@ class UsageAccessService : Service() {
                                       KioskReceiver.sendBroadcast(this,
                                                                   KioskReceiver.REMOVE_ALERT_DIALOG)
                                   }, 2000)
+            Log.d(TAG, "blockRecentScreen: $className")
             return true
         }
         return false
@@ -363,13 +364,14 @@ class UsageAccessService : Service() {
         }catch (e: Throwable){
             startActivity(launcher)
         }finally {
-            appName=null
-            className=null
             Handler().postDelayed({
                                       KioskReceiver.sendBroadcast(
                                               this,
                                               KioskReceiver.REMOVE_ALERT_DIALOG)
                                   }, 2000)
+            Log.d(TAG, "block: $appName")
+            appName=null
+            className=null
         }
     }
 }

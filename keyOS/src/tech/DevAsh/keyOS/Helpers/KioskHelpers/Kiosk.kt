@@ -7,7 +7,8 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.core.content.ContextCompat.getSystemService
+import android.os.Environment
+import android.util.Log
 import tech.DevAsh.KeyOS.Config.Settings
 import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
@@ -16,12 +17,16 @@ import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Receiver.KioskReceiver
+import java.io.File
+import java.io.IOException
 
 
 object Kiosk {
     private var usageIntent:Intent?=null
     var accessibilityService:Intent?=null
-    var isKisokEnabled = false;
+    var isKisokEnabled = false
+
+    val TAG = this::class.simpleName
 
 
     fun getUsageAccessService(context: Context):Intent{
@@ -39,9 +44,10 @@ object Kiosk {
     }
 
     fun startKiosk(context: Context){
-        if(!isMyServiceRunning(context,UsageAccessService::class.java)){
+        if(!isMyServiceRunning(context, UsageAccessService::class.java)){
             isKisokEnabled = true
-            println("Start Kiosk...")
+            writeLog()
+            Log.d(TAG, "startKiosk: KioskStarted")
             NotificationBlocker.start()
             KioskReceiver.sendBroadcast(context, KioskReceiver.START_KIOSK)
             context.startService(getUsageAccessService(context))
@@ -54,12 +60,13 @@ object Kiosk {
 
 
     fun stopKiosk(context: Context){
-       KioskReceiver.sendBroadcast(context, KioskReceiver.STOP_KIOSK)
+        KioskReceiver.sendBroadcast(context, KioskReceiver.STOP_KIOSK)
         isKisokEnabled = false
         NotificationBlocker.stop()
         context.stopService(getUsageAccessService(context))
         context.stopService(getAccessibilityService(context))
         setCamera(context, false)
+        Log.d(TAG, "stopKiosk: KioskStopped")
     }
 
     fun openKioskSettings(context: Activity, password: String){
@@ -133,7 +140,7 @@ object Kiosk {
         }
     }
 
-    private fun isMyServiceRunning(context: Context,serviceClass: Class<*>): Boolean {
+    private fun isMyServiceRunning(context: Context, serviceClass: Class<*>): Boolean {
         val manager: ActivityManager =
                  context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         for (service in manager.getRunningServices(Int.MAX_VALUE)) {
@@ -142,5 +149,19 @@ object Kiosk {
             }
         }
         return false
+    }
+
+    private fun writeLog(){
+        try {
+            val path = File(
+                    Environment.getExternalStorageDirectory(), "KeyOS/logs")
+            if (!path.exists()) {
+                path.mkdir()
+            }
+            Runtime.getRuntime().exec(
+                    arrayOf("logcat", "-f", path.absolutePath+"/log.txt"))
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
     }
 }

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.android.launcher3.R
 import com.google.gson.Gson
-import kotlinx.android.synthetic.keyOS.activity_import_export_settings.*
+import kotlinx.android.synthetic.dev.activity_import_export_settings.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
@@ -118,7 +118,7 @@ class ImportExportSettings : AppCompatActivity() {
 
     private fun generateNoteOnSD(fileName: String?, sBody: String?) {
         try {
-            val root = File(Environment.getExternalStorageDirectory(), "KeyOS")
+            val root = File(Environment.getExternalStorageDirectory(), "KeyOS/backups")
             if (!root.exists()) {
                 root.mkdirs()
             }
@@ -127,7 +127,7 @@ class ImportExportSettings : AppCompatActivity() {
             writer.append(sBody)
             writer.flush()
             writer.close()
-            AlertHelper.showToast("File exported to KeyOS/${fileName}", this)
+            AlertHelper.showToast("File exported to KeyOS/backups/${fileName}", this)
         } catch (e: IOException) {
             e.printStackTrace()
         }

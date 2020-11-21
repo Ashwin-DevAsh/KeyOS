@@ -39,6 +39,8 @@ import tech.DevAsh.keyOS.Config.ImportExportSettings
 import tech.DevAsh.keyOS.Config.ScreenSaver
 import tech.DevAsh.keyOS.Config.WebFilter
 import tech.DevAsh.keyOS.Database.BasicSettings
+import java.io.File
+import java.io.IOException
 
 
 class Settings : AppCompatActivity() {
@@ -58,8 +60,9 @@ class Settings : AppCompatActivity() {
         controlLaunchButton()
         checkUserAgreement()
         setUpDrawer()
-
     }
+
+
 
     private fun checkUserAgreement(){
         if(!UserContext.user!!.isEndUserLicenceAgreementDone || BuildConfig.IS_DEV_BUILD){
@@ -94,30 +97,30 @@ class Settings : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.feedback -> {
-                   feedBack()
+                    feedBack()
                 }
                 R.id.bug -> {
-                   bug()
+                    bug()
                 }
                 R.id.rate -> {
                     rate()
                 }
                 R.id.share -> {
-                   share()
+                    share()
                 }
                 R.id.privacyPolicy -> {
-                 privacyPolicy()
+                    privacyPolicy()
                 }
 
                 R.id.appinfo -> {
-                   appInfo()
+                    appInfo()
                 }
 
-                R.id.developerContact->{
+                R.id.developerContact -> {
                     developerContact()
                 }
 
-                R.id.update->{
+                R.id.update -> {
 
                     update()
                 }
@@ -145,7 +148,7 @@ class Settings : AppCompatActivity() {
                                   val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                                   intent.data = Uri.parse("package:$packageName")
                                   startActivity(intent)
-                              },500)
+                              }, 500)
     }
 
     private fun privacyPolicy(){
@@ -153,7 +156,7 @@ class Settings : AppCompatActivity() {
                                   val intent = Intent(Intent.ACTION_VIEW)
                                   intent.data = Uri.parse(BuildConfig.PRIVACY_POLICY)
                                   startActivity(intent)
-                              },500)
+                              }, 500)
     }
 
     private fun share(){
@@ -193,7 +196,7 @@ class Settings : AppCompatActivity() {
                                                            Uri.parse(
                                                                    "http://play.google.com/store/apps/details?id=tech.DevAsh.keyOS")))
                                   }
-                              },500)
+                              }, 500)
     }
 
     private fun developerContact(){
@@ -201,7 +204,7 @@ class Settings : AppCompatActivity() {
                                   val intent = Intent(Intent.ACTION_VIEW)
                                   intent.data = Uri.parse("https://www.devash.tech")
                                   startActivity(intent)
-                              },500)
+                              }, 500)
     }
 
     private fun update(){
@@ -215,7 +218,7 @@ class Settings : AppCompatActivity() {
                         this,
                         1)
             } else {
-                AlertHelper.showToast("App already up to date",this)
+                AlertHelper.showToast("App already up to date", this)
             }
         }
 
