@@ -121,8 +121,9 @@ class Settings : AppCompatActivity() {
                 }
 
                 R.id.update -> {
+                    rate()
 
-                    update()
+//                    update()
                 }
 
                 else -> {

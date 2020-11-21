@@ -1,7 +1,6 @@
 package tech.DevAsh.KeyOS.Config.Adapters
 
 import android.app.Activity
-import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.view.LayoutInflater
@@ -41,7 +40,7 @@ class ContactListAdapter(
             ContactListViewHolder(LayoutInflater.from(context)
                 .inflate(R.layout.widget_listtile_contact,
                          parent,
-                         false), context)
+                         false))
         }else{
             ContactListHeaderViewHolder(
                 LayoutInflater.from(context).inflate(R.layout.header_contact_listtile, parent, false),
@@ -131,21 +130,20 @@ class ContactListAdapter(
 
 }
 
-class ContactListViewHolder(val view: View, context: Context) : RecyclerView.ViewHolder(view) {
+class ContactListViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
     lateinit var color: String
     var contact: Contact?=null
     var badge = view.badge
     var name = view.name
     var number = view.number
-    var isSelected = view.select
     var checkBox = view.checkBox
 }
 
 class ContactListHeaderViewHolder(
-    val view: View,
-    val context: Activity,
-    val toggleCallback: ToggleCallback,
-    val subHeading:String
+        val view: View,
+        val context: Activity,
+        private val toggleCallback: ToggleCallback,
+        val subHeading:String
 ) : RecyclerView.ViewHolder(view) {
 
     init {

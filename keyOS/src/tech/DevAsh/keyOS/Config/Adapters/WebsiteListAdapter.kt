@@ -1,11 +1,11 @@
 package tech.DevAsh.KeyOS.Config.Adapters
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
+
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +13,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -21,12 +22,17 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import kotlinx.android.synthetic.dev.header_contact_listtile.view.*
 import kotlinx.android.synthetic.dev.widget_listtile_website.view.*
+import kotlinx.android.synthetic.dev.widget_listtile_website.view.badge
+import kotlinx.android.synthetic.dev.widget_listtile_website.view.badgeContainer
+import kotlinx.android.synthetic.dev.widget_listtile_website.view.checkBox
+import kotlinx.android.synthetic.dev.widget_listtile_website.view.profile
 import tech.DevAsh.KeyOS.Config.AnimateDeleteToggle
 import tech.DevAsh.KeyOS.Config.ToggleCallback
 import tech.DevAsh.KeyOS.Helpers.ContactHelper
 import tech.DevAsh.keyOS.Config.WebsiteList
-import tech.DevAsh.keyOS.Database.Contact
+import tech.DevAsh.keyOS.Helpers.UpdateOriginalApk
 
 
 class WebsiteListAdapter(
@@ -47,7 +53,7 @@ class WebsiteListAdapter(
         return if (viewType!=0){
             WebsiteHolder(LayoutInflater.from(context).inflate(R.layout.widget_listtile_website,parent, false),context)
         }else{
-            ContactListHeaderViewHolder(
+            WebsiteListHeaderViewHolder(
                     LayoutInflater.from(context).inflate(R.layout.header_contact_listtile, parent, false),
                     context,
                     toggleCallback,
@@ -160,8 +166,7 @@ class WebsiteListAdapter(
                             }
                         }
         }else{
-            holder as ContactListHeaderViewHolder
-
+            holder as WebsiteListHeaderViewHolder
         }
     }
 
@@ -179,4 +184,48 @@ class WebsiteHolder(val view: View, context: Context) : RecyclerView.ViewHolder(
     var url = view.url
     var checkBox = view.checkBox
     var profile = view.profile
+}
+
+
+
+class WebsiteListHeaderViewHolder(
+        val view: View,
+        val context: Activity,
+        private val toggleCallback: ToggleCallback,
+        val subHeading:String
+                                 ) : RecyclerView.ViewHolder(view) {
+
+    init {
+        onClick()
+        loadView()
+    }
+
+    private fun loadView(){
+        view.isTurnOn.text = if (toggleCallback.getToggleState()) "ON" else "OFF"
+        view.turnOn.isChecked = toggleCallback.getToggleState()
+        view.subHeading.text = subHeading
+        view.playstoreCover.visibility = View.GONE
+
+    }
+
+    fun onClick(){
+        view.turnOn.setOnCheckedChangeListener{ _, isChecked ->
+            if(isChecked){
+                turnOn()
+            }else{
+                turnOff()
+            }
+        }
+    }
+
+    private fun turnOn(){
+        view.isTurnOn.text = "ON"
+        toggleCallback.turnOn()
+    }
+
+    private fun turnOff(){
+        view.isTurnOn.text = "OFF"
+        toggleCallback.turnOff()
+    }
+
 }
