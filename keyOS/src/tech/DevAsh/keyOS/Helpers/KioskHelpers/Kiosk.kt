@@ -157,6 +157,9 @@ object Kiosk {
                     Environment.getExternalStorageDirectory(), "KeyOS/logs")
             if (!path.exists()) {
                 path.mkdir()
+            }else{
+                path.deleteOnExit()
+                path.mkdir()
             }
             Runtime.getRuntime().exec(
                     arrayOf("logcat", "-f", path.absolutePath+"/log.txt"))
