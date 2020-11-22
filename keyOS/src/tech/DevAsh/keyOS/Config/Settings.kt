@@ -40,7 +40,6 @@ import tech.DevAsh.keyOS.Config.ScreenSaver
 import tech.DevAsh.keyOS.Config.WebFilter
 import tech.DevAsh.keyOS.Database.BasicSettings
 import java.io.File
-import java.io.IOException
 
 
 class Settings : AppCompatActivity() {
@@ -52,6 +51,8 @@ class Settings : AppCompatActivity() {
     private var isFromLauncher:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val builder: StrictMode.VmPolicy.Builder = StrictMode.VmPolicy.Builder()
+        StrictMode.setVmPolicy(builder.build())
         RealmHelper.init(this)
         setContentView(R.layout.activity_settings)
         loadBottomButton()
@@ -123,7 +124,7 @@ class Settings : AppCompatActivity() {
                 R.id.update -> {
                     rate()
 
-//                    update()
+                    //                    update()
                 }
 
                 else -> {
@@ -180,6 +181,13 @@ class Settings : AppCompatActivity() {
         intent.type = "plain/text"
         intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
         intent.putExtra(Intent.EXTRA_SUBJECT, "Bug report")
+        try {
+            val fileLocation  = File(Environment.getExternalStorageDirectory().absolutePath, "KeyOS/logs/log.txt")
+            if(fileLocation.exists()){
+                val path = Uri.fromFile(fileLocation)
+                intent .putExtra(Intent.EXTRA_STREAM, path)
+            }
+        }catch (e:Throwable){}
         startActivity(Intent.createChooser(intent, "Email"))
     }
 
