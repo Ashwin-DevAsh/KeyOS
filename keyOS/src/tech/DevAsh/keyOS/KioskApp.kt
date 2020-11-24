@@ -56,9 +56,11 @@ class KioskApp : Application() {
         applicationComponents!!.inject(this)
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
-        firebaseAnalytics?.setUserId("SDK : ${Build.VERSION.SDK_INT} / " +
-                                     "BRAND : ${Build.MANUFACTURER} / " +
-                                     "MODEL : ${Build.MODEL}")
+        firebaseAnalytics?.setUserId("${Build.VERSION.SDK_INT} / " +
+                                     "${Build.MODEL} / "+
+                                     "${Build.MANUFACTURER} / " +
+                                     "${Build.BRAND}")
+
         super.onCreate()
     }
 
