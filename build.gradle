@@ -128,7 +128,7 @@ android {
         keyOS {
             applicationId 'tech.DevAsh.keyOS'
             dimension "custom"
-            buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
+            buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "true"
             buildConfigField "boolean", "IS_DEV_BUILD", "false"
         }
 
