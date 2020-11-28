@@ -15,7 +15,7 @@ import javax.inject.Singleton
 interface ApplicationComponents {
 
     fun getMailService():IMailService
-    fun getQrcodeService():IQRCodeService
+    fun getQrCodeService():IQRCodeService
     fun inject(password: Password)
     fun inject(kioskApp: KioskApp)
     fun inject(importExportSettings: ImportExportSettings)

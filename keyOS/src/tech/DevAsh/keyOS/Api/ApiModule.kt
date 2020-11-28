@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiModule {
 
     var retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(ApiContext.mailServiceUrl)
+            .baseUrl(ApiContext.basicServiceUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

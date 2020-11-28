@@ -186,30 +186,25 @@
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
-            android:excludeFromRecents="true"
             android:name="tech.DevAsh.keyOS.Config.WebsiteList"/>
 
 
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
-            android:excludeFromRecents="true"
             android:name="tech.DevAsh.keyOS.Config.WebFilter"/>
 
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
-            android:excludeFromRecents="true"
             android:name="tech.DevAsh.keyOS.Config.ScreenSaver"/>
         <activity
             android:name="tech.DevAsh.keyOS.Config.QrScanner"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.keyOS.Config.ImportExportSettings"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.keyOS.Config.Permission"
@@ -218,24 +213,20 @@
         <activity
             android:name="tech.DevAsh.KeyOS.Config.ActivityList"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.EditApp"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.Mode"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt"
             android:autoRemoveFromRecents="true"
             android:clearTaskOnLaunch="true"
             android:launchMode="singleTask"
-            android:excludeFromRecents="true"
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:theme="@style/keyOS"
@@ -243,28 +234,23 @@
         <activity
             android:name="tech.DevAsh.KeyOS.Config.Password"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.ContactsInput"
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
-            android:excludeFromRecents="true"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.ContactList"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.PhoneCalls"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS">
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -272,7 +258,6 @@
             android:name="tech.DevAsh.KeyOS.Config.PhoneBook"
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
-            android:excludeFromRecents="true"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher"
@@ -289,18 +274,15 @@
         <activity
             android:name="tech.DevAsh.KeyOS.Config.AllowApps"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS" />
         <activity
             android:name="tech.DevAsh.KeyOS.Config.Settings"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS"
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name="tech.DevAsh.KeyOS.SplashScreen"
             android:screenOrientation="portrait"
-            android:excludeFromRecents="true"
             android:theme="@style/keyOS">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

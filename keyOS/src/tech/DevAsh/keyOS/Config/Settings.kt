@@ -14,6 +14,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -70,7 +71,7 @@ class Settings : AppCompatActivity() {
             Handler().postDelayed({
                                       UserAgreement(this).show(supportFragmentManager, TAG)
 
-                                  }, 1000)
+                                  }, 750)
         }
     }
 
@@ -285,8 +286,6 @@ class Settings : AppCompatActivity() {
 
         drawer.setOnClickListener {
             val navDrawer = findViewById<DrawerLayout>(R.id.settingsLayout)
-            // If the navigation drawer is not open then open it, if its already open then close it.
-            // If the navigation drawer is not open then open it, if its already open then close it.
             navDrawer.openDrawer(GravityCompat.START)
         }
 
@@ -388,12 +387,9 @@ class Settings : AppCompatActivity() {
     private fun vibrate(){
 
         val v = getSystemService(VIBRATOR_SERVICE) as Vibrator
-        // Vibrate for 500 milliseconds
-        // Vibrate for 500 milliseconds
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             v.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE))
         } else {
-            //deprecated in API 26
             v.vibrate(50)
         }
     }
@@ -433,7 +429,7 @@ class Settings : AppCompatActivity() {
 
         saveData()
         if(isFromLauncher){
-            finish()
+            finishAndRemoveTask()
             Utilities.restartLauncher(this)
         }else{
             super.onBackPressed()
@@ -474,11 +470,16 @@ class Settings : AppCompatActivity() {
         val selector = Intent(Intent.ACTION_MAIN)
         selector.addCategory(Intent.CATEGORY_HOME)
         selector.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        context.startActivity(selector)
+
+        val homePage = Intent(this, KioskLauncher::class.java)
+
+        context.startActivities(arrayOf(homePage,selector))
 
         packageManager.setComponentEnabledSetting(helperLauncher,
                                                   PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
                                                   PackageManager.DONT_KILL_APP)
+
+        finishAndRemoveTask()
     }
 
 
@@ -498,12 +499,15 @@ class Settings : AppCompatActivity() {
         super.finish()
     }
 
+
     private fun restartPermissionSheet(){
         if(PermissionsHelper.openedForPermission){
             PermissionsHelper.openedForPermission=false
             Handler().postDelayed({
                                       if (PermissionsHelper.checkImportantPermissions(this)) {
-                                          checkPermissionAndLaunch()
+
+                                                                    checkPermissionAndLaunch()
+
                                       } else {
                                           permissionsBottomSheet.show(supportFragmentManager, TAG)
                                       }
