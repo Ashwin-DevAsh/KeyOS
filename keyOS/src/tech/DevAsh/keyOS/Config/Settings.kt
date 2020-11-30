@@ -14,7 +14,6 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -119,7 +118,12 @@ class Settings : AppCompatActivity() {
                 }
 
                 R.id.developerContact -> {
-                    developerContact()
+                    openWebsite()
+                }
+
+                R.id.visit->{
+                    openWebsite( "https://www.keyos.in")
+
                 }
 
                 R.id.update -> {
@@ -209,10 +213,10 @@ class Settings : AppCompatActivity() {
                               }, 500)
     }
 
-    private fun developerContact(){
+    private fun openWebsite(url: String="https://www.devash.tech"){
         Handler().postDelayed({
                                   val intent = Intent(Intent.ACTION_VIEW)
-                                  intent.data = Uri.parse("https://www.devash.tech")
+                                  intent.data = Uri.parse(url)
                                   startActivity(intent)
                               }, 500)
     }
@@ -505,9 +509,7 @@ class Settings : AppCompatActivity() {
             PermissionsHelper.openedForPermission=false
             Handler().postDelayed({
                                       if (PermissionsHelper.checkImportantPermissions(this)) {
-
                                                                     checkPermissionAndLaunch()
-
                                       } else {
                                           permissionsBottomSheet.show(supportFragmentManager, TAG)
                                       }
