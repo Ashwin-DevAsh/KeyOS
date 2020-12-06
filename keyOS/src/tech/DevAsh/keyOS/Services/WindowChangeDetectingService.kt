@@ -194,7 +194,7 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
 
     override fun startKiosk(context: Context?) {
         Kiosk.isKisokEnabled=true
-        User.getUsers()
+        User.getUsers(context)
         if(UserContext.user!!.singleApp!=null){
             UserContext.user?.allowedApps?.add(UserContext.user?.singleApp)
         }

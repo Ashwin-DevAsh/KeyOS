@@ -50,7 +50,7 @@ class KioskApp : Application() {
 
     override fun onCreate() {
         RealmHelper.init(this)
-        User.getUsers()
+        User.getUsers(this)
         loadAppsAndServices.execute()
         applicationComponents = DaggerApplicationComponents.create()
         applicationComponents!!.inject(this)

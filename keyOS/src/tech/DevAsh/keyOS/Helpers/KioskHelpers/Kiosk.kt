@@ -11,11 +11,14 @@ import android.os.Environment
 import android.util.Log
 import tech.DevAsh.KeyOS.Config.Settings
 import tech.DevAsh.KeyOS.Database.UserContext.user
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.Apps
+import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
+import tech.DevAsh.keyOS.KioskApp
 import tech.DevAsh.keyOS.Receiver.KioskReceiver
 import java.io.File
 import java.io.IOException
@@ -53,6 +56,8 @@ object Kiosk {
             context.startService(getUsageAccessService(context))
             context.startService(getAccessibilityService(context))
             setCamera(context, user!!.basicSettings.isDisableCamera)
+
+            AlertDeveloper.sendUserLaunchedAlert(context)
         }
     }
 

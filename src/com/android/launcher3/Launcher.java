@@ -254,7 +254,7 @@ public class Launcher extends BaseDraggingActivity implements LauncherExterns,
         TraceHelper.beginSection("Launcher-onCreate");
 
         RealmHelper.INSTANCE.init(this);
-        User.getUsers();
+        User.getUsers(this);
         Kiosk.INSTANCE.startKiosk(this);
 
 

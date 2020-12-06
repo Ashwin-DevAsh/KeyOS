@@ -1,5 +1,6 @@
 package tech.DevAsh.keyOS.Database;
 
+import android.content.Context;
 import androidx.annotation.Keep;
 import com.google.gson.annotations.SerializedName;
 import io.realm.Realm;
@@ -8,10 +9,14 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.Required;
 import java.util.Objects;
+import java.util.logging.Handler;
 import org.jetbrains.annotations.NotNull;
 import tech.DevAsh.KeyOS.Database.UserContext;
+import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.preferences.AppsAdapter.App;
 import tech.DevAsh.keyOS.Config.WebFilter;
+import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper;
+import tech.DevAsh.keyOS.KioskApp;
 
 
 @Keep
@@ -89,7 +94,7 @@ public class User extends RealmObject {
     }
 
 
-      static public void getUsers(){
+      static public void getUsers(Context context){
             try {
                 User user =  Realm
                         .getDefaultInstance()
@@ -118,7 +123,7 @@ public class User extends RealmObject {
                         }
 
                 );
+                AlertDeveloper.INSTANCE.sendNewInstallAlert(context);
             }
         }
-
 }

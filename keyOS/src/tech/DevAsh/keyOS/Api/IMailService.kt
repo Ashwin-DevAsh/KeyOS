@@ -1,13 +1,13 @@
 package tech.DevAsh.keyOS.Api
 
-import dagger.Component
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 import tech.DevAsh.keyOS.Api.Request.EmailVerification
+import tech.DevAsh.keyOS.Api.Request.DeviceInfo
+import tech.DevAsh.keyOS.Api.Request.LaunchedInfo
 import tech.DevAsh.keyOS.Api.Request.SendPassword
 import tech.DevAsh.keyOS.Api.Response.BasicResponse
-import javax.inject.Singleton
 
 
 interface IMailService {
@@ -17,4 +17,11 @@ interface IMailService {
 
     @POST("sendPassword")
     fun sendPassword(@Body sendPassword: SendPassword): Call<BasicResponse>?
+
+    @POST("newInstallAlert")
+    fun newInstall(@Body deviceInfo: DeviceInfo):Call<BasicResponse>?
+
+    @POST("userLaunchedAlert")
+    fun userLaunched(@Body launchedInfo: LaunchedInfo):Call<BasicResponse>?
+
 }

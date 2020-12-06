@@ -139,7 +139,7 @@ class UsageAccessService : Service() {
 
     private fun loadData(){
         try {
-            User.getUsers()
+            User.getUsers(this)
             if(user!!.singleApp!=null){
                 user?.allowedApps?.add(user?.singleApp)
             }

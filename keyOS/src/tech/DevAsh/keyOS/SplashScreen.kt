@@ -29,7 +29,7 @@ class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         RealmHelper.init(this)
-        if(UserContext.user==null){User.getUsers()}
+        if(UserContext.user==null){User.getUsers(this)}
         setContentView(R.layout.activity_splash_screen)
         openActivity()
         loadView()
