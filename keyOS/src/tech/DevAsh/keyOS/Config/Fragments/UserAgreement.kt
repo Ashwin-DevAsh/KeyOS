@@ -77,7 +77,9 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
                                   }, 500)
         }
     }
-
+    var content = SpannableString("To improve KeyOS and make sure all feature work properly," +
+                  " some of your usage data will be collected anonymously." +
+                  " You must read and agree to our Privacy Policy and Terms and Condition. before using KeyOS")
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -89,24 +91,29 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
 
     private fun setMessageWithClickableLink(textView: TextView) {
         //The text and the URL
-        val content = "To improve KeyOS and make sure all feature work properly," +
-                      " some of your usage data will be collected anonymously." +
-                      " You must read and agree to our Privacy Policy. before using KeyOS"
 
-        val clickableSpan = object :ClickableSpan() {
 
+        createSpannableText("Privacy Policy",BuildConfig.PRIVACY_POLICY ,content,textView)
+        createSpannableText("Terms and Condition",BuildConfig.TERMS_AND_CONDITIONS ,content,textView)
+
+
+
+    }
+
+    fun createSpannableText(text:String,url:String,content:SpannableString,textView: TextView){
+        val clickableSpanPrivacyPolicy = object : ClickableSpan() {
             override fun onClick(textView: View) {
                 val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(BuildConfig.PRIVACY_POLICY  )
+                intent.data = Uri.parse(url)
                 startActivity(intent)
             }
         }
-        val startIndex = content.indexOf("Privacy Policy")
-        val endIndex = startIndex + "Privacy Policy".length
+        val startIndex = content.indexOf(text)
+        val endIndex = startIndex + text.length
 
         val spannableString = SpannableString(content)
-        spannableString.setSpan(clickableSpan, startIndex, endIndex,
-                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(clickableSpanPrivacyPolicy, startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        this.content = spannableString
         textView.text = spannableString
         textView.movementMethod = LinkMovementMethod.getInstance()
         textView.highlightColor = Color.TRANSPARENT

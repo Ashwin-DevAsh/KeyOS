@@ -58,6 +58,10 @@
     </group>
     <group>
         <item
+            android:title="Terms And Conditions"
+            android:id="@+id/termsAndCondition"
+            app:showAsAction="never" />
+        <item
             android:title="Privacy policy"
             android:id="@+id/privacyPolicy"
             app:showAsAction="never" />

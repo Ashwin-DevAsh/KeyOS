@@ -110,7 +110,11 @@ class Settings : AppCompatActivity() {
                     share()
                 }
                 R.id.privacyPolicy -> {
-                    privacyPolicy()
+                    openWebsite(BuildConfig.PRIVACY_POLICY)
+                }
+
+                R.id.termsAndCondition->{
+                    openWebsite(BuildConfig.TERMS_AND_CONDITIONS)
                 }
 
                 R.id.appinfo -> {
@@ -127,9 +131,8 @@ class Settings : AppCompatActivity() {
                 }
 
                 R.id.update -> {
-                    rate()
 
-                    //                    update()
+                   update()
                 }
 
                 else -> {
@@ -158,13 +161,6 @@ class Settings : AppCompatActivity() {
                               }, 500)
     }
 
-    private fun privacyPolicy(){
-        Handler().postDelayed({
-                                  val intent = Intent(Intent.ACTION_VIEW)
-                                  intent.data = Uri.parse(BuildConfig.PRIVACY_POLICY)
-                                  startActivity(intent)
-                              }, 500)
-    }
 
     private fun share(){
         try {
@@ -232,7 +228,7 @@ class Settings : AppCompatActivity() {
                         this,
                         1)
             } else {
-                AlertHelper.showToast("App already up to date", this)
+                rate()
             }
         }
 

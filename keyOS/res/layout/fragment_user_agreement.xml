@@ -36,7 +36,7 @@
                 android:textSize="25dp"
                 android:layout_marginTop="30dp"
                 android:textColor="@color/black"
-                android:text="Terms &amp; conditions"
+                android:text="User Agreement"
                 android:layout_height="wrap_content"/>
 
             <LinearLayout

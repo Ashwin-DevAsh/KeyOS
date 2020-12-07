@@ -65,6 +65,8 @@ android {
         buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "true"
         buildConfigField "String", "QR_KEY", '"DevAsh@2017"'
         buildConfigField "String", "PRIVACY_POLICY", '"https://www.keyos.in/PrivacyPolicy.html"'
+        buildConfigField "String", "TERMS_AND_CONDITIONS", '"https://www.keyos.in/TermsAndCondition.html"'
+
 
 
 
