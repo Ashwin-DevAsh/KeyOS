@@ -8,14 +8,12 @@ import android.os.Bundle
 import android.view.View
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
-import kotlinx.android.synthetic.keyOS.activity_phone_calls.*
-import kotlinx.android.synthetic.keyOS.header_contact_listtile.view.*
+import kotlinx.android.synthetic.dev.activity_phone_calls.*
+import kotlinx.android.synthetic.dev.header_contact_listtile.view.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
-import tech.DevAsh.keyOS.Config.QrScanner
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.Calls
+import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Helpers.UpdateOriginalApk
 
 
@@ -28,11 +26,11 @@ class PhoneCalls : AppCompatActivity() {
     }
 
     private fun loadView(){
-        allowIncoming.isChecked = UserContext.user?.calls!!.allowIncoming
-        allowOutgoing.isChecked = UserContext.user?.calls!!.allowOutgoing
-        allowCalls.isChecked =  UserContext.user?.calls!!.allowCalls
-        automaticWhitelist.isChecked = UserContext.user?.calls!!.automaticWhitelist
-        if(!UserContext.user?.calls!!.allowCalls){
+        allowIncoming.isChecked = User.user?.calls!!.allowIncoming
+        allowOutgoing.isChecked = User.user?.calls!!.allowOutgoing
+        allowCalls.isChecked =  User.user?.calls!!.allowCalls
+        automaticWhitelist.isChecked = User.user?.calls!!.automaticWhitelist
+        if(!User.user?.calls!!.allowCalls){
             options.alpha = 0.25f
         }
 
@@ -89,8 +87,8 @@ class PhoneCalls : AppCompatActivity() {
 
         automaticWhitelist.setOnCheckedChangeListener{_,isChecked->
             if(isChecked){
-                UserContext.user!!.calls.whitelistCalls=false
-                UserContext.user!!.calls.blackListCalls=false
+                User.user!!.calls.whitelistCalls=false
+                User.user!!.calls.blackListCalls=false
             }
             saveData()
         }
@@ -117,22 +115,22 @@ class PhoneCalls : AppCompatActivity() {
 
     private fun saveData(){
        if(allowCalls.isChecked){
-           UserContext.user!!.allowedServices.add(Apps("com.android.incallui"))
+           User.user!!.allowedServices.add(Apps("com.android.incallui"))
        } else{
-           UserContext.user!!.allowedServices.removeAll(arrayListOf(Apps ("com.android.incallui")))
+           User.user!!.allowedServices.removeAll(arrayListOf(Apps ("com.android.incallui")))
        }
-        println( UserContext.user!!.allowedServices)
-       UserContext.user!!.calls= Calls(
+        println( User.user!!.allowedServices)
+        User.user!!.calls= Calls(
            allowCalls.isChecked,
            allowIncoming.isChecked,
            allowOutgoing.isChecked,
-           UserContext.user!!.calls.whitelistCalls,
-           UserContext.user!!.calls.blackListCalls,
+           User.user!!.calls.whitelistCalls,
+           User.user!!.calls.blackListCalls,
            automaticWhitelist.isChecked,
-           UserContext.user!!.calls.whiteListContacts,
-           UserContext.user!!.calls.blacklistContacts
+           User.user!!.calls.whiteListContacts,
+           User.user!!.calls.blacklistContacts
                                       )
-        RealmHelper.updateUser(UserContext.user!!)
+        RealmHelper.updateUser(User.user!!)
     }
 
     override fun onResume() {

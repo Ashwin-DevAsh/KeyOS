@@ -9,14 +9,7 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.Required;
 import java.util.Objects;
-import java.util.logging.Handler;
-import org.jetbrains.annotations.NotNull;
-import tech.DevAsh.KeyOS.Database.UserContext;
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
-import tech.DevAsh.Launcher.preferences.AppsAdapter.App;
-import tech.DevAsh.keyOS.Config.WebFilter;
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper;
-import tech.DevAsh.keyOS.KioskApp;
 
 
 @Keep
@@ -52,6 +45,8 @@ public class User extends RealmObject {
 
     @SerializedName("isEndUserLicenceAgreementDone")
     public boolean isEndUserLicenceAgreementDone = false;
+
+
 
 
 
@@ -93,21 +88,22 @@ public class User extends RealmObject {
                 '}';
     }
 
+    public static User user = null;
 
-      static public void getUsers(Context context){
+    static public void getUsers(Context context){
             try {
-                User user =  Realm
-                        .getDefaultInstance()
-                        .where(User.class)
-                        .findFirst();
+                 user = Realm.getDefaultInstance().copyFromRealm(Objects.requireNonNull(Realm
+                         .getDefaultInstance()
+                         .where(User.class)
+                         .findFirst()));
+                 if(user==null){
+                     throw new Exception("User Null");
+                 }
 
-                UserContext.INSTANCE.setUser(Realm.getDefaultInstance()
-                        .copyFromRealm(user)
-                );
             } catch (Throwable throwable){
                 Realm.getDefaultInstance().executeTransactionAsync(
                         realm -> {
-                            UserContext.INSTANCE.setUser(new User(
+                           user = (new User(
                                     new RealmList<>(),
                                     new RealmList<>(new Apps("android"),new Apps("com.android.incallui")),
                                     new BasicSettings(),
@@ -115,8 +111,8 @@ public class User extends RealmObject {
                                     new Calls(),
                                     "",
                                     "1234"));
-                            realm.insertOrUpdate(Objects.requireNonNull(UserContext.INSTANCE.getUser()));
-                            UserContext.INSTANCE.setUser(Realm.getDefaultInstance()
+                            realm.insertOrUpdate(Objects.requireNonNull(user));
+                            user = (Realm.getDefaultInstance()
                                     .copyFromRealm(Objects.requireNonNull(
                                             Realm.getDefaultInstance().where(User.class)
                                                     .findFirst())));

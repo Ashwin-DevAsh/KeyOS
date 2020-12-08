@@ -16,8 +16,8 @@ import io.realm.RealmList
 import kotlinx.android.synthetic.dev.activity_contact_list.*
 import tech.DevAsh.KeyOS.Config.Adapters.ContactListAdapter
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Database.Contact
+import tech.DevAsh.keyOS.Database.User
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -151,12 +151,12 @@ class ContactList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle{
     }
 
     private fun getWhiteList(){
-        contactList = ArrayList(UserContext.user!!.calls.whiteListContacts)
+        contactList = ArrayList(User.user!!.calls.whiteListContacts)
         contactList.add(0, Contact("", ""))
     }
 
     private fun getBlackList(){
-        contactList = ArrayList(UserContext.user!!.calls.blacklistContacts)
+        contactList = ArrayList(User.user!!.calls.blacklistContacts)
         contactList.add(0, Contact("", ""))
     }
 
@@ -184,11 +184,11 @@ class ContactList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle{
                 newContacts.add(i)
         }
         if(isBlackList){
-            UserContext.user!!.calls.blacklistContacts = newContacts
+            User.user!!.calls.blacklistContacts = newContacts
         }else{
-            UserContext.user!!.calls.whiteListContacts= newContacts
+            User.user!!.calls.whiteListContacts= newContacts
         }
-        RealmHelper.updateUser(UserContext.user!!)
+        RealmHelper.updateUser(User.user!!)
     }
 
     override fun onBackPressed() {
@@ -225,13 +225,13 @@ class ContactList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle{
     override fun turnOn() {
 
         if (isBlackList){
-            UserContext.user!!.calls.blackListCalls=true
-            UserContext.user!!.calls.whitelistCalls=false
-            UserContext.user!!.calls.automaticWhitelist=false
+            User.user!!.calls.blackListCalls=true
+            User.user!!.calls.whitelistCalls=false
+            User.user!!.calls.automaticWhitelist=false
         }else{
-            UserContext.user!!.calls.blackListCalls=false
-            UserContext.user!!.calls.whitelistCalls=true
-            UserContext.user!!.calls.automaticWhitelist=false
+            User.user!!.calls.blackListCalls=false
+            User.user!!.calls.whitelistCalls=true
+            User.user!!.calls.automaticWhitelist=false
         }
         contactListAdapter?.notifyDataSetChanged()
 
@@ -240,9 +240,9 @@ class ContactList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle{
 
     override fun turnOff() {
         if (isBlackList){
-            UserContext.user!!.calls.blackListCalls=false
+            User.user!!.calls.blackListCalls=false
         }else{
-            UserContext.user!!.calls.whitelistCalls=false
+            User.user!!.calls.whitelistCalls=false
         }
         contactListAdapter?.notifyDataSetChanged()
         update()
@@ -250,9 +250,9 @@ class ContactList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle{
 
     override fun getToggleState(): Boolean {
        return  if (isBlackList){
-            UserContext.user!!.calls.blackListCalls
+           User.user!!.calls.blackListCalls
         }else{
-            UserContext.user!!.calls.whitelistCalls
+           User.user!!.calls.whitelistCalls
         }
     }
 }

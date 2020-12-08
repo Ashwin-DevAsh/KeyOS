@@ -20,7 +20,7 @@ import com.android.launcher3.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.dev.fragment_user_agreement.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.keyOS.Database.User
 
 
 class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
@@ -46,8 +46,8 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
         acceptAndContinue.setOnClickListener {
 
             if(agreementText1Checked.isChecked && agreementText2Checked.isChecked){
-                UserContext.user!!.isEndUserLicenceAgreementDone=true
-                RealmHelper.updateUser(UserContext.user!!)
+                User.user!!.isEndUserLicenceAgreementDone=true
+                RealmHelper.updateUser(User.user!!)
                 dismiss()
             }
 
@@ -71,7 +71,7 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        if(!UserContext.user!!.isEndUserLicenceAgreementDone){
+        if(!User.user!!.isEndUserLicenceAgreementDone){
             Handler().postDelayed({
                                       activity.finish()
                                   }, 500)
@@ -79,7 +79,7 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
     }
     var content = SpannableString("To improve KeyOS and make sure all feature work properly," +
                   " some of your usage data will be collected anonymously." +
-                  " You must read and agree to our Privacy Policy and Terms and Condition. before using KeyOS")
+                  " You must read and agree to our Privacy Policy and Terms & Conditions. before using KeyOS")
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -94,7 +94,7 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
 
 
         createSpannableText("Privacy Policy",BuildConfig.PRIVACY_POLICY ,content,textView)
-        createSpannableText("Terms and Condition",BuildConfig.TERMS_AND_CONDITIONS ,content,textView)
+        createSpannableText("Terms & Conditions",BuildConfig.TERMS_AND_CONDITIONS ,content,textView)
 
 
 

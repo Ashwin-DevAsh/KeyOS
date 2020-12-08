@@ -28,8 +28,6 @@ import kotlinx.android.synthetic.dev.activity_settings.*
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
@@ -39,6 +37,7 @@ import tech.DevAsh.keyOS.Config.ImportExportSettings
 import tech.DevAsh.keyOS.Config.ScreenSaver
 import tech.DevAsh.keyOS.Config.WebFilter
 import tech.DevAsh.keyOS.Database.BasicSettings
+import tech.DevAsh.keyOS.Database.User
 import java.io.File
 
 
@@ -66,7 +65,7 @@ class Settings : AppCompatActivity() {
 
 
     private fun checkUserAgreement(){
-        if(!UserContext.user!!.isEndUserLicenceAgreementDone || BuildConfig.IS_DEV_BUILD){
+        if(!User.user!!.isEndUserLicenceAgreementDone || BuildConfig.IS_DEV_BUILD){
             Handler().postDelayed({
                                       UserAgreement(this).show(supportFragmentManager, TAG)
 
@@ -344,14 +343,14 @@ class Settings : AppCompatActivity() {
         }
 
         cameraSwitch.setOnCheckedChangeListener{ _, isChecked->
-            UserContext.user?.basicSettings?.isDisableCamera = isChecked
+            User.user?.basicSettings?.isDisableCamera = isChecked
             if (isChecked && !PermissionsHelper.isAdmin(this)) {
                     PermissionsHelper.getAdminPermission(this)
             }
         }
 
         exit.setOnClickListener {
-            Kiosk.exitKiosk(this, UserContext.user?.password)
+            Kiosk.exitKiosk(this, User.user?.password)
         }
 
         permissions.setOnClickListener {
@@ -360,7 +359,7 @@ class Settings : AppCompatActivity() {
         }
 
         notificationPanel.setOnCheckedChangeListener{ _, isChecked->
-            UserContext.user!!.basicSettings.notificationPanel = isChecked
+            User.user!!.basicSettings.notificationPanel = isChecked
         }
     }
 
@@ -406,12 +405,12 @@ class Settings : AppCompatActivity() {
     }
 
     private fun loadView(){
-        wifiMode?.text = UserContext.user?.basicSettings?.wifi
-        orientationMode?.text = UserContext.user?.basicSettings?.orientation
-        bluetoothMode?.text = UserContext.user?.basicSettings?.bluetooth
-        soundMode?.text = UserContext.user?.basicSettings?.sound
-        notificationPanel?.isChecked = UserContext.user?.basicSettings?.notificationPanel!!
-        cameraSwitch?.isChecked = UserContext.user?.basicSettings?.isDisableCamera!! && PermissionsHelper.isAdmin(
+        wifiMode?.text = User.user?.basicSettings?.wifi
+        orientationMode?.text = User.user?.basicSettings?.orientation
+        bluetoothMode?.text = User.user?.basicSettings?.bluetooth
+        soundMode?.text = User.user?.basicSettings?.sound
+        notificationPanel?.isChecked = User.user?.basicSettings?.notificationPanel!!
+        cameraSwitch?.isChecked = User.user?.basicSettings?.isDisableCamera!! && PermissionsHelper.isAdmin(
                 this)
         if(PermissionsHelper.checkImportantPermissions(this)){
             permissionsAlert.visibility = View.GONE
@@ -447,8 +446,8 @@ class Settings : AppCompatActivity() {
                 notificationPanel.isChecked,
                 cameraSwitch.isChecked
                                          )
-        UserContext.user!!.basicSettings = (basicSettings)
-        RealmHelper.updateUser(UserContext.user!!)
+        User.user!!.basicSettings = (basicSettings)
+        RealmHelper.updateUser(User.user!!)
     }
 
 

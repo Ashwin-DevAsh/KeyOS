@@ -15,8 +15,8 @@ import tech.DevAsh.KeyOS.Config.AnimateDeleteToggle
 import tech.DevAsh.KeyOS.Config.DeleteView
 import tech.DevAsh.KeyOS.Config.ToggleCallback
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Config.Fragments.AddWebsite
+import tech.DevAsh.keyOS.Database.User
 import java.net.URI
 import java.util.*
 import kotlin.collections.ArrayList
@@ -151,11 +151,11 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
     override fun turnOn() {
 
         if (websiteListType == WebsiteListType.BLACKLIST){
-            UserContext.user!!.webFilter.isBlacklistEnabled=true
-            UserContext.user!!.webFilter.isWhitelistEnabled=false
+            User.user!!.webFilter.isBlacklistEnabled=true
+            User.user!!.webFilter.isWhitelistEnabled=false
         }else{
-            UserContext.user!!.webFilter.isBlacklistEnabled=false
-            UserContext.user!!.webFilter.isWhitelistEnabled=true
+            User.user!!.webFilter.isBlacklistEnabled=false
+            User.user!!.webFilter.isWhitelistEnabled=true
         }
         websiteListAdapter?.notifyDataSetChanged()
 
@@ -164,9 +164,9 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
 
     override fun turnOff() {
         if (websiteListType == WebsiteListType.BLACKLIST){
-            UserContext.user!!.webFilter.isBlacklistEnabled=false
+            User.user!!.webFilter.isBlacklistEnabled=false
         }else{
-            UserContext.user!!.webFilter.isWhitelistEnabled=false
+            User.user!!.webFilter.isWhitelistEnabled=false
         }
         websiteListAdapter?.notifyDataSetChanged()
         update()
@@ -174,9 +174,9 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
 
     override fun getToggleState(): Boolean {
         return  if (websiteListType == WebsiteListType.BLACKLIST){
-            UserContext.user!!.webFilter.isBlacklistEnabled
+            User.user!!.webFilter.isBlacklistEnabled
         }else{
-            UserContext.user!!.webFilter.isWhitelistEnabled
+            User.user!!.webFilter.isWhitelistEnabled
         }
     }
 
@@ -193,11 +193,11 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
                 newWebsites.add(i)
         }
         if(websiteListType == WebsiteListType.BLACKLIST){
-            UserContext.user!!.webFilter.blacklistWebsites = newWebsites
+            User.user!!.webFilter.blacklistWebsites = newWebsites
         }else{
-            UserContext.user!!.webFilter.whitelistWebsites= newWebsites
+            User.user!!.webFilter.whitelistWebsites= newWebsites
         }
-        RealmHelper.updateUser(UserContext.user!!)
+        RealmHelper.updateUser(User.user!!)
     }
 
 
@@ -236,9 +236,9 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
             websiteList.add(host)
             websiteListAdapter?.items?.add(host)
             if(websiteListType == WebsiteListType.BLACKLIST){
-                UserContext.user!!.webFilter.blacklistWebsites.add(host)
+                User.user!!.webFilter.blacklistWebsites.add(host)
             }else{
-                UserContext.user!!.webFilter.whitelistWebsites.add(host)
+                User.user!!.webFilter.whitelistWebsites.add(host)
             }
             update()
 
@@ -263,12 +263,12 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
     }
 
     private fun getWhiteList(){
-        websiteList = ArrayList(UserContext.user!!.webFilter.whitelistWebsites)
+        websiteList = ArrayList(User.user!!.webFilter.whitelistWebsites)
         websiteList.add(0, "")
     }
 
     private fun getBlackList(){
-        websiteList = ArrayList(UserContext.user!!.webFilter.blacklistWebsites)
+        websiteList = ArrayList(User.user!!.webFilter.blacklistWebsites)
         websiteList.add(0, "")
     }
 

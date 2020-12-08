@@ -7,7 +7,7 @@ import com.android.launcher3.R
 import io.realm.RealmList
 import kotlinx.android.synthetic.dev.activity_web_filter.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Database.WebFilterDB
 
 class WebFilter : AppCompatActivity() {
@@ -17,7 +17,7 @@ class WebFilter : AppCompatActivity() {
         try {
             loadView()
         }catch (e: Throwable){
-            UserContext.user!!.webFilter =
+            User.user!!.webFilter =
                   WebFilterDB(false, false, false, RealmList(), RealmList(), false)
             loadView()
 
@@ -27,7 +27,7 @@ class WebFilter : AppCompatActivity() {
 
     fun onClick(){
         enableWebFilter.setOnCheckedChangeListener { _, isChecked ->
-            UserContext.user!!.webFilter.isEnabled = isChecked
+            User.user!!.webFilter.isEnabled = isChecked
             if(isChecked){
                 switchStatus.text = "ON"
                 options.alpha = 1f
@@ -37,7 +37,7 @@ class WebFilter : AppCompatActivity() {
             }
         }
         blockAdultWebsites.setOnCheckedChangeListener{ _, isChecked->
-            UserContext.user!!.webFilter.shouldBlockAdultSites = isChecked
+            User.user!!.webFilter.shouldBlockAdultSites = isChecked
         }
 
         whitelist.setOnClickListener {
@@ -57,9 +57,9 @@ class WebFilter : AppCompatActivity() {
 
 
     fun loadView(){
-        enableWebFilter.isChecked = UserContext.user!!.webFilter.isEnabled
-        blockAdultWebsites.isChecked = UserContext.user!!.webFilter.shouldBlockAdultSites
-        if(UserContext.user!!.webFilter.isEnabled){
+        enableWebFilter.isChecked = User.user!!.webFilter.isEnabled
+        blockAdultWebsites.isChecked = User.user!!.webFilter.shouldBlockAdultSites
+        if(User.user!!.webFilter.isEnabled){
             switchStatus.text = "ON"
             options.alpha = 1f
         }else{
@@ -69,7 +69,7 @@ class WebFilter : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        RealmHelper.updateUser(UserContext.user!!)
+        RealmHelper.updateUser(User.user!!)
         super.onBackPressed()
     }
 }

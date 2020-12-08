@@ -12,12 +12,12 @@ import android.telephony.PhoneStateListener
 import android.telephony.TelephonyManager
 import androidx.core.app.ActivityCompat
 import com.android.internal.telephony.ITelephony
-import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.KeyOS.Services.UsageAccessService.Companion.isAlive
 import tech.DevAsh.keyOS.Database.Contact
 import tech.DevAsh.keyOS.Database.User
+import tech.DevAsh.keyOS.Database.User.user
 
 
 object CallBlocker {

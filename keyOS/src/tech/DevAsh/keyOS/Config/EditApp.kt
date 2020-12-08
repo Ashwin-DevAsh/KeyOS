@@ -10,12 +10,11 @@ import android.widget.NumberPicker
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.android.launcher3.R
-import kotlinx.android.synthetic.keyOS.activity_edit_app.*
+import kotlinx.android.synthetic.dev.activity_edit_app.*
 import kotlinx.android.synthetic.main.pref_dialog_grid_size.view.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.HelperVariables
+import tech.DevAsh.keyOS.Database.User
 
 class EditApp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -116,9 +115,9 @@ class EditApp : AppCompatActivity() {
     private fun saveData(){
         HelperVariables.selectedEditedApp?.hideShortcut = hideIcon.isChecked
         HelperVariables.selectedEditedApp?.hourPerDay = time.text.toString()
-        UserContext.user!!.editedApps.removeAll(arrayListOf( HelperVariables.selectedEditedApp))
-        UserContext.user!!.editedApps.add(HelperVariables.selectedEditedApp)
-        RealmHelper.updateUser(UserContext.user!!)
+        User.user!!.editedApps.removeAll(arrayListOf(HelperVariables.selectedEditedApp))
+        User.user!!.editedApps.add(HelperVariables.selectedEditedApp)
+        RealmHelper.updateUser(User.user!!)
         super.onBackPressed()
         super.onBackPressed()
     }

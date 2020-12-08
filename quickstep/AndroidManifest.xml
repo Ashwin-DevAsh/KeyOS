@@ -345,11 +345,13 @@
             android:name="tech.DevAsh.keyOS.Receiver.AutoRestartReceiver"
             android:enabled="true"
             android:exported="true"
-            android:label="RestartServiceWhenStopped">
+            android:label="RestartServiceWhenStopped"
+           >
             <intent-filter>
                 <action android:name="ac.in.ActivityRecognition.RestartSensor" />
             </intent-filter>
         </receiver>
+
 
         <!-- end keyOS -->
 

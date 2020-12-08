@@ -72,7 +72,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import java.util.Objects;
 import tech.DevAsh.KeyOS.Database.RealmHelper;
-import tech.DevAsh.KeyOS.Database.UserContext;
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk;
 import tech.DevAsh.Launcher.*;
 import com.android.launcher3.DropTarget.DragObject;

@@ -2,20 +2,17 @@ package tech.DevAsh.KeyOS.Config
 
 import android.os.Bundle
 import android.os.Handler
-import android.os.Process
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.launcher3.R
-import com.android.launcher3.model.PackageUpdatedTask
 import io.realm.RealmList
 import kotlinx.android.synthetic.dev.activity_allow_apps.*
 import tech.DevAsh.KeyOS.Config.Adapters.AllowItemAdapter
-import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Config.Adapters.SingleAppAdapter
 import tech.DevAsh.keyOS.Database.Apps
+import tech.DevAsh.keyOS.Database.User
 
 import java.util.*
 import kotlin.collections.ArrayList
@@ -46,8 +43,8 @@ class AllowApps : AppCompatActivity() {
                 heading.text="Apps"
                 loadAdapter(
 
-                        AppsContext.allApps,
-                        UserContext.user!!.allowedApps,
+                        Apps.allApps,
+                        User.user!!.allowedApps,
                         "Whitelist Apps",
                         "Select which apps you want to\ngive access"
                 )
@@ -55,8 +52,8 @@ class AllowApps : AppCompatActivity() {
             Types.ALLOWSERVICES->{
                 heading.text="Services"
                 loadAdapter(
-                    AppsContext.allService,
-                    UserContext.user!!.allowedServices,
+                        Apps.allService,
+                    User.user!!.allowedServices,
                     "Whitelist Services",
                     "Select which services you want to\ngive access"
                            )
@@ -64,7 +61,7 @@ class AllowApps : AppCompatActivity() {
             Types.SINGLEAPP->{
                 heading.text="Single App"
                 loadAdapterSingleApp(
-                        AppsContext.allApps,
+                        Apps.allApps,
                         "Select which app you want available\nin foreground"
                                     )
             }
@@ -154,14 +151,14 @@ class AllowApps : AppCompatActivity() {
                                     ){
         Handler().postDelayed({
 
-                              val singleAppIndex = AppsContext.allApps.indexOf(UserContext.user!!.singleApp)
+                              val singleAppIndex = Apps.allApps.indexOf(User.user!!.singleApp)
                               if(singleAppIndex!=-1){
-                                  UserContext.user!!.singleApp = AppsContext.allApps[singleAppIndex]
-                                  items.remove(UserContext.user!!.singleApp)
-                                  items.add(0, UserContext.user!!.singleApp)
+                                  User.user!!.singleApp = Apps.allApps[singleAppIndex]
+                                  items.remove(User.user!!.singleApp)
+                                  items.add(0, User.user!!.singleApp)
                               }
 
-                              adapter = SingleAppAdapter(ArrayList(items), UserContext.user!!.singleApp, this, subHeading,object :ToggleCallback{
+                              adapter = SingleAppAdapter(ArrayList(items), User.user!!.singleApp, this, subHeading,object :ToggleCallback{
                                   override fun turnOn() {
 
                                   }
@@ -172,7 +169,7 @@ class AllowApps : AppCompatActivity() {
                                   override fun getToggleState(): Boolean {
                                       return true
                                   }
-                              },UserContext.user!!.singleApp!=null)
+                              },User.user!!.singleApp!=null)
                               adapter!!.items.add(0,Apps())
                               adapter!!.notifyDataSetChanged()
                               appsContainer.adapter = adapter
@@ -187,24 +184,24 @@ class AllowApps : AppCompatActivity() {
             Types.ALLOWAPPS -> {
                 println(adapter?.allowedItems)
                 val allowedApps = getRealmList(ArrayList(adapter?.allowedItems!!))
-                UserContext.user?.allowedApps = allowedApps
+                User.user?.allowedApps = allowedApps
             }
             Types.ALLOWSERVICES->  {
                 val allowServices = getRealmList(ArrayList(adapter?.allowedItems!!))
-                UserContext.user?.allowedServices = allowServices
+                User.user?.allowedServices = allowServices
             }
             Types.SINGLEAPP->{
                 val myAdapter = adapter as SingleAppAdapter
                 if((myAdapter).toggleState){
-                    UserContext.user?.singleApp = myAdapter.singleApp
+                    User.user?.singleApp = myAdapter.singleApp
                 }else{
-                    UserContext.user?.singleApp = null
+                    User.user?.singleApp = null
                 }
 
             }
         }
 
-        RealmHelper.updateUser(UserContext.user!!)
+        RealmHelper.updateUser(User.user!!)
         finish()
     }
 

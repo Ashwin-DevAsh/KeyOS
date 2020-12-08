@@ -7,8 +7,7 @@ import android.net.Uri
 import android.provider.Browser
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
-import android.widget.Toast
-import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.keyOS.Database.User
 import java.net.URL
 import java.util.*
 
@@ -112,7 +111,7 @@ object WebBlocker {
 
         println("urlString = $urlString")
 
-        if(!UserContext.user!!.webFilter.isEnabled){
+        if(!User.user!!.webFilter.isEnabled){
             return true
         }
 
@@ -132,18 +131,18 @@ object WebBlocker {
 
             println("host = $host")
 
-            if(UserContext.user!!.webFilter.shouldBlockAdultSites){
+            if(User.user!!.webFilter.shouldBlockAdultSites){
                 if(pornSites.contains(host)){
                     return false
                 }
             }
 
-            if(UserContext.user!!.webFilter.isWhitelistEnabled){
-                return UserContext.user!!.webFilter.whitelistWebsites.contains(host)
+            if(User.user!!.webFilter.isWhitelistEnabled){
+                return User.user!!.webFilter.whitelistWebsites.contains(host)
             }
 
-            if(UserContext.user!!.webFilter.isBlacklistEnabled){
-               return !UserContext.user!!.webFilter.blacklistWebsites.contains(host)
+            if(User.user!!.webFilter.isBlacklistEnabled){
+               return !User.user!!.webFilter.blacklistWebsites.contains(host)
             }
 
             return false

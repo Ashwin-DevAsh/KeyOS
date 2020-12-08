@@ -22,7 +22,7 @@ object RealmHelper {
         Realm.getDefaultInstance().executeTransaction{
             it.delete(User::class.java)
             it.insertOrUpdate(user)
-            UserContext.user = Realm.getDefaultInstance()
+            User.user = Realm.getDefaultInstance()
                 .copyFromRealm(Realm.getDefaultInstance().where(User::class.java).findFirst()!!)
 
         }

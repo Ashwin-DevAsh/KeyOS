@@ -9,9 +9,10 @@ import android.net.wifi.WifiManager
 import android.os.Handler
 import android.provider.Settings
 import android.view.Surface
-import tech.DevAsh.KeyOS.Database.UserContext.user
+
 import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.keyOS.Database.BasicSettings
+import tech.DevAsh.keyOS.Database.User.user
 
 object BasicSettingsHandler{
     var runnableCheckBasicSettings:Runnable? = null

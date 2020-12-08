@@ -13,7 +13,6 @@ import com.android.launcher3.R
 import com.google.gson.Gson
 import kotlinx.android.synthetic.dev.activity_import_export_settings.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.keyOS.Api.IQRCodeService
 import tech.DevAsh.keyOS.Config.Fragments.DisplayQr
@@ -83,7 +82,7 @@ class ImportExportSettings : AppCompatActivity() {
         if(packageManager.checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
                                           packageName)
                 == PackageManager.PERMISSION_GRANTED ){
-            val jsonObject = (Gson().toJson(UserContext.user))
+            val jsonObject = (Gson().toJson(User.user))
             generateNoteOnSD( "${System.currentTimeMillis()}.json", jsonObject.toString())
         }else{
             ActivityCompat.requestPermissions(this, permissions, 2)
@@ -172,7 +171,7 @@ class ImportExportSettings : AppCompatActivity() {
 
     private fun loadBackupData(backupData:String){
         val user:User = Gson().fromJson(backupData, User::class.java)
-        UserContext.user = user
+        User.user = user
         RealmHelper.updateUser(user)
         AlertHelper.showToast("Imported Successfully", this)
     }

@@ -7,11 +7,21 @@ import com.google.gson.annotations.SerializedName;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.Ignore;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 
 @Keep
 public class Apps extends RealmObject {
+
+
+
+    public static List<Apps> allApps= new ArrayList <>();
+    public static List<Apps> allService = new ArrayList <>();
+    public static List<String> exceptions = Arrays.asList("com.android.settings.AllowBindAppWidgetActivity", "android.app.Dialog");
+
 
     @SerializedName("packageName")
     public String packageName;

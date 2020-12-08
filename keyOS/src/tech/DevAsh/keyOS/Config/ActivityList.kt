@@ -1,7 +1,6 @@
 package tech.DevAsh.KeyOS.Config
 
 import android.content.pm.ActivityInfo
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
@@ -10,12 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import tech.DevAsh.KeyOS.Config.Adapters.ActivitiesListAdapter
 import tech.DevAsh.KeyOS.Helpers.HelperVariables
 import com.android.launcher3.R
-import kotlinx.android.synthetic.keyOS.activity_activity_list.*
+import kotlinx.android.synthetic.dev.activity_activity_list.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
+import tech.DevAsh.keyOS.Database.User
 
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class ActivityList : AppCompatActivity() {
@@ -65,9 +63,9 @@ class ActivityList : AppCompatActivity() {
             HelperVariables.selectedEditedApp?.blockedActivities?.add(i)
         }
 
-        UserContext.user!!.editedApps.removeAll(arrayListOf( HelperVariables.selectedEditedApp))
-        UserContext.user!!.editedApps.add(HelperVariables.selectedEditedApp)
-        RealmHelper.updateUser(UserContext.user!!)
+        User.user!!.editedApps.removeAll(arrayListOf(HelperVariables.selectedEditedApp))
+        User.user!!.editedApps.add(HelperVariables.selectedEditedApp)
+        RealmHelper.updateUser(User.user!!)
         super.onBackPressed()
     }
 

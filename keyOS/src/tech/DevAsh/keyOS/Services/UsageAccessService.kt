@@ -14,15 +14,14 @@ import android.os.IBinder
 import android.os.SystemClock
 import android.provider.Settings
 import android.util.Log
-import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext.user
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.CallBlocker
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
+import tech.DevAsh.keyOS.Database.User.user
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.BasicSettingsHandler
 import tech.DevAsh.keyOS.Helpers.NotificationHelper
 import tech.DevAsh.keyOS.Model.AppUsageInfo
@@ -228,7 +227,7 @@ class UsageAccessService : Service() {
     private fun isAllowedPackage(appName: String?, className: String?):Boolean{
         val app = Apps(appName)
 
-        if(appName==packageName || AppsContext.exceptions.contains(appName) || AppsContext.exceptions.contains(
+        if(appName==packageName || Apps.exceptions.contains(appName) || Apps.exceptions.contains(
                         className)){
             return true
         }

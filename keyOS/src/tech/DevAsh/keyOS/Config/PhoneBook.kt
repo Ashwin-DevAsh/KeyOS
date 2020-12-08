@@ -15,12 +15,12 @@ import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Helpers.ContactHelper
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import io.realm.RealmList
-import kotlinx.android.synthetic.keyOS.activity_activity_list.cancel
-import kotlinx.android.synthetic.keyOS.activity_activity_list.done
-import kotlinx.android.synthetic.keyOS.activity_activity_list.searchView
-import kotlinx.android.synthetic.keyOS.activity_phonebook.*
-import tech.DevAsh.KeyOS.Database.UserContext
+import kotlinx.android.synthetic.dev.activity_activity_list.cancel
+import kotlinx.android.synthetic.dev.activity_activity_list.done
+import kotlinx.android.synthetic.dev.activity_activity_list.searchView
+import kotlinx.android.synthetic.dev.activity_phonebook.*
 import tech.DevAsh.keyOS.Database.Contact
+import tech.DevAsh.keyOS.Database.User
 
 import java.util.*
 
@@ -114,13 +114,13 @@ class PhoneBook : AppCompatActivity() {
                newContacts.add(i)
         }
         if(isBlackList){
-            UserContext.user!!.calls.blacklistContacts = newContacts
+            User.user!!.calls.blacklistContacts = newContacts
         }else{
-            UserContext.user!!.calls.whiteListContacts= newContacts
+            User.user!!.calls.whiteListContacts= newContacts
         }
         phoneBookAdapter!!.selectedContact= ArrayList<Contact>()
         ContactList.contactListAdapter?.updateList( ContactList.contactList)
-        RealmHelper.updateUser(UserContext.user!!)
+        RealmHelper.updateUser(User.user!!)
         finish()
     }
 

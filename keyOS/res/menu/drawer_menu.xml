@@ -58,7 +58,7 @@
     </group>
     <group>
         <item
-            android:title="Terms And Conditions"
+            android:title="Terms &amp; Conditions"
             android:id="@+id/termsAndCondition"
             app:showAsAction="never" />
         <item

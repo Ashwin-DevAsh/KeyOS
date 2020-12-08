@@ -2,17 +2,13 @@ package tech.DevAsh.KeyOS.Services
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.os.Build
 import android.os.Handler
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
-import tech.DevAsh.KeyOS.Database.AppsContext
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
@@ -21,7 +17,6 @@ import tech.DevAsh.keyOS.Helpers.KioskHelpers.WebBlocker
 import tech.DevAsh.keyOS.Receiver.KioskReceiver
 import tech.DevAsh.keyOS.Receiver.KioskToggle
 import java.util.*
-import kotlin.math.log
 
 
 class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
@@ -96,14 +91,14 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
             return
         }
 
-        if (appName == "com.android.settings" || appName == packageName || AppsContext.allApps.contains(Apps(appName))){
+        if (appName == "com.android.settings" || appName == packageName || Apps.allApps.contains(Apps(appName))){
             if(isAllowedPackage(appName, className)){
                 Handler().post{
                     if(prevActivities.last().component?.packageName!=appName){
                         if(appName==packageName){
                             prevActivities.add(launcher!!)
                         }else{
-                            if(UserContext.user?.allowedApps!!.contains(Apps(appName))){
+                            if(User.user?.allowedApps!!.contains(Apps(appName))){
                                 val intent = packageManager.getLaunchIntentForPackage(appName)
                                 if(intent!=null){
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -143,17 +138,17 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
         val app = Apps(appName)
 
         if(appName == packageName
-           || AppsContext.exceptions.contains(appName)
-           || AppsContext.exceptions.contains(className)
+           || Apps.exceptions.contains(appName)
+           || Apps.exceptions.contains(className)
            || className.toString().contains("android.inputmethodservice")
            || try{ Class.forName(className.toString());true} catch (e: Throwable){false}
         ){
             return true
         }
 
-        val serviceIndex = UserContext.user?.allowedServices?.indexOf(app)
-        val appIndex = UserContext.user?.allowedApps?.indexOf(app)
-        val editedAppIndex = UserContext.user?.editedApps?.indexOf(app)
+        val serviceIndex = User.user?.allowedServices?.indexOf(app)
+        val appIndex = User.user?.allowedApps?.indexOf(app)
+        val editedAppIndex = User.user?.editedApps?.indexOf(app)
 
         if(serviceIndex!=-1){
             return true
@@ -167,7 +162,7 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
             return true
         }
 
-        if (UserContext.user!!.editedApps[editedAppIndex!!]!!.blockedActivities.contains(className)){
+        if (User.user!!.editedApps[editedAppIndex!!]!!.blockedActivities.contains(className)){
             return false
         }
 
@@ -195,8 +190,8 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
     override fun startKiosk(context: Context?) {
         Kiosk.isKisokEnabled=true
         User.getUsers(context)
-        if(UserContext.user!!.singleApp!=null){
-            UserContext.user?.allowedApps?.add(UserContext.user?.singleApp)
+        if(User.user!!.singleApp!=null){
+            User.user?.allowedApps?.add(User.user?.singleApp)
         }
     }
 

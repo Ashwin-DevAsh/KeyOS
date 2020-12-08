@@ -15,13 +15,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import tech.DevAsh.KeyOS.Database.RealmHelper
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.UiHelper
 import tech.DevAsh.keyOS.Api.IMailService
 import tech.DevAsh.keyOS.Api.Request.SendPassword
 import tech.DevAsh.keyOS.Api.Response.BasicResponse
 import tech.DevAsh.keyOS.Config.Fragments.OtpVerification
+import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.KioskApp
 
 
@@ -49,10 +49,10 @@ class Password : AppCompatActivity() {
                 }
             }
             val sendPassword=SendPassword()
-            sendPassword.email = UserContext.user?.recoveryEmail
-            sendPassword.password = UserContext.user?.password
+            sendPassword.email = User.user?.recoveryEmail
+            sendPassword.password = User.user?.password
 
-            if(UserContext.user?.recoveryEmail.isNullOrEmpty()){
+            if(User.user?.recoveryEmail.isNullOrEmpty()){
                 AlertHelper.showToast("Recovery email not registered", context)
                 return
             }
@@ -78,7 +78,7 @@ class Password : AppCompatActivity() {
     }
 
     private fun loadView(){
-        val emailText = UserContext.user?.recoveryEmail
+        val emailText = User.user?.recoveryEmail
         email.setText(emailText)
         if(emailText != "" && emailText!=null){
             isOldPasswordExist = true
@@ -92,7 +92,7 @@ class Password : AppCompatActivity() {
         done.setOnClickListener {
              if(validate()){
                  UiHelper.hideKeyboard(this)
-                 if (!isOldPasswordExist || email.text.toString() != UserContext.user?.recoveryEmail){
+                 if (!isOldPasswordExist || email.text.toString() != User.user?.recoveryEmail){
                      Handler().postDelayed(
                              {
                                  sendOtp()
@@ -126,9 +126,9 @@ class Password : AppCompatActivity() {
     }
 
     fun save(){
-        UserContext.user?.recoveryEmail = email.text.toString()
-        UserContext.user?.password =  password.text.toString()
-        RealmHelper.updateUser(UserContext.user!!)
+        User.user?.recoveryEmail = email.text.toString()
+        User.user?.password =  password.text.toString()
+        RealmHelper.updateUser(User.user!!)
         UiHelper.hideKeyboard(this)
 
         Handler().postDelayed({
@@ -221,7 +221,7 @@ class Password : AppCompatActivity() {
             return false
         }else if(password.text.toString() != confirmPassword.text.toString()){
             return false
-        }else if(isOldPasswordExist && oldPassword.text.toString()!=UserContext.user!!.password){
+        }else if(isOldPasswordExist && oldPassword.text.toString()!=User.user!!.password){
             if(!oldPassword.text.isNullOrEmpty()){
                 oldPasswordLayout.error="Invalid old password"
             }

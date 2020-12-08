@@ -10,9 +10,10 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import tech.DevAsh.KeyOS.Helpers.UiHelper
 import io.realm.RealmList
-import kotlinx.android.synthetic.keyOS.activity_contacts_input.*
+import kotlinx.android.synthetic.dev.activity_contacts_input.*
 import tech.DevAsh.KeyOS.Database.*
 import tech.DevAsh.keyOS.Database.Contact
+import tech.DevAsh.keyOS.Database.User
 
 class ContactsInput : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,12 +93,12 @@ class ContactsInput : AppCompatActivity() {
            }
 
            if(ContactList.isBlackList){
-               UserContext.user!!.calls.blacklistContacts = newContacts
+               User.user!!.calls.blacklistContacts = newContacts
            }else{
-               UserContext.user!!.calls.whiteListContacts= newContacts
+               User.user!!.calls.whiteListContacts= newContacts
            }
            ContactList.contactListAdapter?.updateList(ContactList.contactList)
-           RealmHelper.updateUser(UserContext.user!!)
+           RealmHelper.updateUser(User.user!!)
            UiHelper.hideKeyboard(this)
            Handler().postDelayed({
                finish()

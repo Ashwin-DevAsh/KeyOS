@@ -8,10 +8,10 @@ import android.provider.Settings
 import android.util.Log
 import retrofit2.Call
 import retrofit2.Response
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.keyOS.Api.Request.DeviceInfo
 import tech.DevAsh.keyOS.Api.Request.LaunchedInfo
 import tech.DevAsh.keyOS.Api.Response.BasicResponse
+import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.KioskApp
 
 object AlertDeveloper {
@@ -33,7 +33,7 @@ object AlertDeveloper {
             try {
                 Log.d(TAG, "sendNewInstallAlert: Sending email developer")
                 context.KioskApp.mailService.userLaunched(
-                        LaunchedInfo(getInstallDetails (context),UserContext.user!!))?.enqueue(callback)
+                        LaunchedInfo(getInstallDetails (context), User.user!!))?.enqueue(callback)
                 Log.d(TAG, "sendNewInstallAlert: Done")
             }catch (e:Throwable){
                 e.printStackTrace()

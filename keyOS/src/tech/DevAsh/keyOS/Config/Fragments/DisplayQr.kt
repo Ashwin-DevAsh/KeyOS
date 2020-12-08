@@ -15,7 +15,6 @@ import androidmads.library.qrgenearator.QRGContents
 import androidmads.library.qrgenearator.QRGEncoder
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.getColor
-import com.android.launcher3.BuildConfig
 import com.android.launcher3.BuildConfig.QR_KEY
 import com.android.launcher3.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -26,11 +25,11 @@ import kotlinx.android.synthetic.dev.fragment_display_qr.*
 import kotlinx.android.synthetic.dev.widget_listtile_apps.*
 import retrofit2.Call
 import retrofit2.Response
-import tech.DevAsh.KeyOS.Database.UserContext
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.keyOS.Api.Request.SetPolicyData
 import tech.DevAsh.keyOS.Api.Response.BasicResponse
 import tech.DevAsh.keyOS.Config.ImportExportSettings
+import tech.DevAsh.keyOS.Database.User
 import java.util.*
 
 
@@ -57,7 +56,7 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
         onClick()
 
         importAndExport.QRCodeService
-                .setPolicyData(SetPolicyData(uuid, UserContext.user!!))
+                .setPolicyData(SetPolicyData(uuid, User.user!!))
                 ?.enqueue(callBack)
 
 //        Handler().postDelayed({

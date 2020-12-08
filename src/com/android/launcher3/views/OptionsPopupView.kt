@@ -15,7 +15,6 @@
  */
 package com.android.launcher3.views
 
-import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.graphics.Rect
@@ -35,18 +34,12 @@ import com.android.launcher3.shortcuts.DeepShortcutView
 import com.android.launcher3.userevent.nano.LauncherLogProto
 import com.android.launcher3.widget.WidgetsFullSheet
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.keyOS.fragment_password_prompt_sheet.*
-import kotlinx.android.synthetic.keyOS.fragment_password_prompt_sheet.view.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.android.synthetic.dev.fragment_password_prompt_sheet.*
+import kotlinx.android.synthetic.dev.fragment_password_prompt_sheet.view.*
 import tech.DevAsh.KeyOS.Config.Password
-import tech.DevAsh.KeyOS.Database.UserContext
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
-import tech.DevAsh.KeyOS.Helpers.KioskHelpers.PasswordPrompt
 import tech.DevAsh.Launcher.KioskLauncher
-import tech.DevAsh.keyOS.Api.Response.BasicResponse
+import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.KioskApp
 import java.util.*
 
@@ -176,7 +169,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
 
              fun startSettingsHelper(){
                 val password  = settingsDialog.password?.query.toString()
-                if(password==UserContext.user?.password){
+                if(password== User.user?.password){
                     settingsDialog.dismiss()
                     getProgress(v,"Loading settings")
                     Handler()
@@ -218,7 +211,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
 
             fun exitKeyOsHelper(){
                 val password = exitDialog.password?.query.toString()
-                if(password==UserContext.user?.password){
+                if(password==User.user?.password){
                     exitDialog.dismiss()
                     getProgress(v,"Exiting keyOS")
                     Handler()
@@ -243,7 +236,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             dialog.setContentView(R.layout.fragment_password_prompt_sheet)
             dialog.setCanceledOnTouchOutside(false)
             dialog.setOnCancelListener {
-                if(UserContext.user?.singleApp!=null){
+                if(User.user?.singleApp!=null){
                     KioskLauncher.getLauncher(v.context).startSingleApp()
                 }
             }
