@@ -25,6 +25,7 @@ import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
 import kotlinx.android.synthetic.dev.activity_settings.*
+import kotlinx.android.synthetic.dev.drawer_header.view.*
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
 import tech.DevAsh.KeyOS.Database.RealmHelper
@@ -38,6 +39,7 @@ import tech.DevAsh.keyOS.Config.ScreenSaver
 import tech.DevAsh.keyOS.Config.WebFilter
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
+import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
 import java.io.File
 
 
@@ -91,6 +93,12 @@ class Settings : AppCompatActivity() {
     }
 
     private fun setUpDrawer(){
+        drawer_view.getHeaderView(0).androidID.text =
+                AlertDeveloper.getInstallDetails(this).deviceID
+        drawer_view.getHeaderView(0).setOnClickListener {
+            val intent = Intent(Settings.ACTION_DEVICE_INFO_SETTINGS)
+            startActivity(intent)
+        }
         drawer_view.setNavigationItemSelectedListener {
 
             settingsLayout.closeDrawer(GravityCompat.START)
@@ -112,7 +120,7 @@ class Settings : AppCompatActivity() {
                     openWebsite(BuildConfig.PRIVACY_POLICY)
                 }
 
-                R.id.termsAndCondition->{
+                R.id.termsAndCondition -> {
                     openWebsite(BuildConfig.TERMS_AND_CONDITIONS)
                 }
 
@@ -124,14 +132,14 @@ class Settings : AppCompatActivity() {
                     openWebsite()
                 }
 
-                R.id.visit->{
-                    openWebsite( "https://www.keyos.in")
+                R.id.visit -> {
+                    openWebsite("https://www.keyos.in")
 
                 }
 
                 R.id.update -> {
 
-                   update()
+                    update()
                 }
 
                 else -> {
@@ -182,12 +190,13 @@ class Settings : AppCompatActivity() {
         intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
         intent.putExtra(Intent.EXTRA_SUBJECT, "Bug report")
         try {
-            val fileLocation  = File(Environment.getExternalStorageDirectory().absolutePath, "KeyOS/logs/log.txt")
+            val fileLocation  = File(Environment.getExternalStorageDirectory().absolutePath,
+                                     "KeyOS/logs/log.txt")
             if(fileLocation.exists()){
                 val path = Uri.fromFile(fileLocation)
                 intent .putExtra(Intent.EXTRA_STREAM, path)
             }
-        }catch (e:Throwable){}
+        }catch (e: Throwable){}
         startActivity(Intent.createChooser(intent, "Email"))
     }
 
@@ -208,7 +217,7 @@ class Settings : AppCompatActivity() {
                               }, 500)
     }
 
-    private fun openWebsite(url: String="https://www.devash.tech"){
+    private fun openWebsite(url: String = "https://www.devash.tech"){
         Handler().postDelayed({
                                   val intent = Intent(Intent.ACTION_VIEW)
                                   intent.data = Uri.parse(url)
@@ -472,7 +481,7 @@ class Settings : AppCompatActivity() {
 
         val homePage = Intent(this, KioskLauncher::class.java)
 
-        context.startActivities(arrayOf(homePage,selector))
+        context.startActivities(arrayOf(homePage, selector))
 
         packageManager.setComponentEnabledSetting(helperLauncher,
                                                   PackageManager.COMPONENT_ENABLED_STATE_DEFAULT,
@@ -504,7 +513,7 @@ class Settings : AppCompatActivity() {
             PermissionsHelper.openedForPermission=false
             Handler().postDelayed({
                                       if (PermissionsHelper.checkImportantPermissions(this)) {
-                                                                    checkPermissionAndLaunch()
+                                          checkPermissionAndLaunch()
                                       } else {
                                           permissionsBottomSheet.show(supportFragmentManager, TAG)
                                       }
