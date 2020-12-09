@@ -33,7 +33,7 @@ object AlertDeveloper {
             try {
                 Log.d(TAG, "sendNewInstallAlert: Sending email developer")
                 context.KioskApp.mailService.userLaunched(
-                        LaunchedInfo(getInstallDetails (context), User.user!!))?.enqueue(callback)
+                        LaunchedInfo(getInstallDetails (context)))?.enqueue(callback)
                 Log.d(TAG, "sendNewInstallAlert: Done")
             }catch (e:Throwable){
                 e.printStackTrace()
