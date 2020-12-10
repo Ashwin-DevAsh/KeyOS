@@ -40,7 +40,7 @@
         android:layout_margin="8dp"
         android:textColor="?android:textColorPrimary"
         android:textSize="18sp"
-        tools:text="@string/derived_app_name" />
+        tools:text="@string/launcher_name" />
 
     <CheckBox
         android:id="@+id/check"

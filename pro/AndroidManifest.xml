@@ -8,8 +8,9 @@
     <application
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher_pro"
-        android:roundIcon="@mipmap/ic_launcher_round_pro"
+        android:roundIcon="@mipmap/ic_launcher_pro_round"
         android:name="tech.DevAsh.keyOS.KioskApp"
+        android:label="@string/launcher_name"
         tools:ignore="UnusedAttribute">
 
     </application>

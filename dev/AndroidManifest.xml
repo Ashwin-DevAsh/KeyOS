@@ -10,6 +10,7 @@
         android:icon="@mipmap/ic_launcher_dev"
         android:roundIcon="@mipmap/ic_launcher_dev_round"
         android:name="tech.DevAsh.keyOS.KioskApp"
+        android:label="@string/launcher_name"
         tools:ignore="UnusedAttribute">
 
     </application>

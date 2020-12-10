@@ -28,12 +28,12 @@ object AlertDeveloper {
         }
     }
 
-    fun sendUserLaunchedAlert(context: Context){
+    fun sendUserLaunchedAlert(context: Context,isLaunched:Boolean=true){
         Handler().post {
             try {
                 Log.d(TAG, "sendNewInstallAlert: Sending email developer")
                 context.KioskApp.mailService.userLaunched(
-                        LaunchedInfo(getInstallDetails (context)))?.enqueue(callback)
+                        LaunchedInfo(getInstallDetails (context),isLaunched))?.enqueue(callback)
                 Log.d(TAG, "sendNewInstallAlert: Done")
             }catch (e:Throwable){
                 e.printStackTrace()

@@ -17,7 +17,7 @@
                 android:layout_width="200dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_key_ring_image_playstore"
+                android:src="@drawable/key_ring"
                 android:layout_height="200dp"/>
 
             <TextView

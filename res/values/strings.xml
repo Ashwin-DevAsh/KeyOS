@@ -338,7 +338,7 @@
     <string name="bottom_work_tab_user_education_close_button">Close</string>
     <string name="bottom_work_tab_user_education_closed">Closed</string>
 
-    <string name="launcher_name">keyOS</string>
+<!--    <string name="launcher_name">KeyOS</string>-->
 
     <string name="add_apps_to_folder_title">Add apps to folder</string>
     <string name="system_app">System Apps</string>

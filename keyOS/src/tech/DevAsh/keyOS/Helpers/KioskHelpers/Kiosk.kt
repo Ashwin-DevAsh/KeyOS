@@ -102,6 +102,7 @@ object Kiosk {
 
     fun exitKiosk(context: Activity, password: String?){
         if(password == user?.password){
+            AlertDeveloper.sendUserLaunchedAlert(context,false)
             stopKiosk(context.applicationContext)
             exitLauncher(context.applicationContext)
             context.finishAndRemoveTask()

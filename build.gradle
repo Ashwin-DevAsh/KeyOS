@@ -52,8 +52,8 @@ android {
         minSdkVersion 22
         targetSdkVersion 29
 
-        versionCode 65
-        versionName "KeyOS v65"
+        versionCode 66
+        versionName "KeyOS v66"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -132,6 +132,7 @@ android {
             dimension "custom"
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "true"
             buildConfigField "boolean", "IS_DEV_BUILD", "false"
+            resValue "string", "launcher_name", "KeyOS"
         }
 
 
@@ -141,6 +142,8 @@ android {
             applicationId 'tech.DevAsh.keyOS.pro'
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
             buildConfigField "boolean", "IS_DEV_BUILD", "false"
+            resValue "string", "launcher_name", "KeyOS Pro"
+
         }
 
         dev {
@@ -149,6 +152,7 @@ android {
             applicationId 'tech.DevAsh.keyOS.dev'
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
             buildConfigField "boolean", "IS_DEV_BUILD", "true"
+            resValue "string", "launcher_name", "KeyOS Dev"
         }
 
     }
