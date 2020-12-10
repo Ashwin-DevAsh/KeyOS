@@ -54,14 +54,14 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
 
 
         onClick()
-//
-//        importAndExport.QRCodeService
-//                .setPolicyData(SetPolicyData(uuid, User.user!!))
-//                ?.enqueue(callBack)
 
-        Handler().postDelayed({
-                                  loadQr(uuid)
-                              }, 3000)
+        importAndExport.QRCodeService
+                .setPolicyData(SetPolicyData(uuid, User.user!!))
+                ?.enqueue(callBack)
+
+//        Handler().postDelayed({
+//                                  loadQr(uuid)
+//                              }, 3000)
 
         super.onViewCreated(view, savedInstanceState)
     }

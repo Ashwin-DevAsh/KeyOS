@@ -12,8 +12,8 @@ import tech.DevAsh.keyOS.Api.Response.BasicResponse
 import tech.DevAsh.keyOS.Database.User
 
 interface IQRCodeService {
-//    @POST("setPolicyData")
-//    fun setPolicyData(@Body setPolicyData: SetPolicyData): Call<BasicResponse>?
+    @POST("setPolicyData")
+    fun setPolicyData(@Body setPolicyData: SetPolicyData): Call<BasicResponse>?
 
     @GET("getPolicyData/{id}")
     fun getPolicyData(@Path("id") id: String): Call<User>?
