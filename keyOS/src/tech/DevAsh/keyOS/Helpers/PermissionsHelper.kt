@@ -78,7 +78,11 @@ object PermissionsHelper {
 
     fun isWrite(context: Context): Boolean {
         return try{
+            if(Build.VERSION.SDK_INT>=23){
             Settings.System.canWrite(context.applicationContext)
+            }else{
+                true
+            }
         }catch (e: Throwable){
             true
         }
@@ -91,7 +95,11 @@ object PermissionsHelper {
     fun isOverLay(context: Context): Boolean {
 
         return try{
-            Settings.canDrawOverlays(context.applicationContext)
+            if(Build.VERSION.SDK_INT>=23){
+                Settings.canDrawOverlays(context.applicationContext)
+            }else{
+                true
+            }
         }catch (e: Throwable){
             true
         }
@@ -148,6 +156,7 @@ object PermissionsHelper {
         context.startActivityForResult(selector, 0)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     fun getOverlayPermission(context: AppCompatActivity){
         openedForPermission=true
         val selector =
@@ -162,6 +171,7 @@ object PermissionsHelper {
         context.startActivityForResult(intent, 0)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     fun getWriteSettingsPermission(context: AppCompatActivity){
         openedForPermission=true
         val selector =
@@ -176,18 +186,6 @@ object PermissionsHelper {
         context.startActivityForResult(selector, 0)
     }
 
-    fun allow(context: AppCompatActivity){
-        openedForPermission=true
-        Handler().post{
-            disableUSB(context)
-            getAdminPermission(context)
-            getWriteSettingsPermission(context)
-            getOverlayPermission(context)
-            getUsagePermission(context)
-            getAccessibilityService(context)
-        }
-
-    }
 
     fun getRuntimePermission(context: AppCompatActivity, permission: Array<String>,
                              requestCode: Int){
@@ -198,11 +196,6 @@ object PermissionsHelper {
             intent.setClassName("com.miui.securitycenter",
                                 "com.miui.permcenter.permissions.PermissionsEditorActivity")
             intent.putExtra("extra_pkgname", context.packageName)
-
-//            val intent1 = Intent()
-//            intent1.component = ComponentName("com.miui.securitycenter",
-//                                              "com.miui.permcenter.autostart.AutoStartManagementActivity")
-//            context.startActivity(intent1)
             context.startActivity(intent)
         }
 
@@ -225,9 +218,6 @@ object PermissionsHelper {
          }catch (e: Throwable){
              return true
          }
-
-//        val res: Int = context.checkCallingOrSelfPermission(permission)
-//        return res == PackageManager.PERMISSION_GRANTED
     }
 
 
@@ -242,9 +232,9 @@ object PermissionsHelper {
     fun isMyLauncherCurrent(context: Context): Boolean {
         val intent = Intent(ACTION_MAIN)
         intent.addCategory(CATEGORY_HOME)
-        val resolveInfo: ResolveInfo =
+        val resolveInfo: ResolveInfo? =
               context.packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
-        return context.packageName == resolveInfo.activityInfo.packageName
+        return context.packageName == resolveInfo?.activityInfo?.packageName
     }
 
 
