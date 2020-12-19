@@ -15,6 +15,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.browser.customtabs.CustomTabsIntent
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -103,9 +104,11 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
     fun createSpannableText(text:String,url:String,content:SpannableString,textView: TextView){
         val clickableSpanPrivacyPolicy = object : ClickableSpan() {
             override fun onClick(textView: View) {
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(url)
-                startActivity(intent)
+                val builder = CustomTabsIntent.Builder()
+                val colorInt: Int = Color.parseColor("#FFFFFF")
+                builder.setToolbarColor(colorInt)
+                val customTabsIntent = builder.build()
+                customTabsIntent.launchUrl(context!!, Uri.parse(url))
             }
         }
         val startIndex = content.indexOf(text)

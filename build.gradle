@@ -52,8 +52,8 @@ android {
         minSdkVersion 22
         targetSdkVersion 29
 
-        versionCode 67
-        versionName "KeyOS v67"
+        versionCode 70
+        versionName "KeyOS v70"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -137,7 +137,7 @@ android {
 
 
         pro {
-            versionName "KeyOS v67 pro"
+            versionName "KeyOS v70 pro"
             dimension "custom"
             applicationId 'tech.DevAsh.keyOS.pro'
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
@@ -147,7 +147,7 @@ android {
         }
 
         dev {
-            versionName "KeyOS v67 dev"
+            versionName "KeyOS v70 dev"
             dimension "custom"
             applicationId 'tech.DevAsh.keyOS.dev'
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
@@ -310,11 +310,12 @@ dependencies {
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     implementation 'com.google.dagger:dagger:2.24'
     kapt 'com.google.dagger:dagger-compiler:2.24'
-    implementation 'com.google.android.play:core:1.8.3'
+    implementation  'com.google.android.play:core:1.9.0'
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-perf-ktx'
+    implementation "androidx.browser:browser:1.3.0"
 
 
 }

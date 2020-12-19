@@ -11,6 +11,10 @@
             android:id="@+id/feedback"
             app:showAsAction="never" />
         <item
+            android:title="Quick survey"
+            android:id="@+id/survey"
+            app:showAsAction="never" />
+        <item
             android:title="Bug report"
             android:id="@+id/bug"
             app:showAsAction="never" />
@@ -31,6 +35,7 @@
             android:title="Share"
             android:id="@+id/share"
             app:showAsAction="never" />
+
 
     </group>
 

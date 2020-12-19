@@ -5,6 +5,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.*
 import android.provider.Settings
@@ -15,6 +16,7 @@ import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.android.launcher3.BuildConfig
@@ -129,12 +131,16 @@ class Settings : AppCompatActivity() {
                 }
 
                 R.id.developerContact -> {
-                    openWebsite()
+                    openWebsite(color = "")
                 }
 
                 R.id.visit -> {
                     openWebsite("https://www.keyos.in")
 
+                }
+
+                R.id.survey->{
+                    openWebsite("https://docs.google.com/forms/d/e/1FAIpQLSee4_xynrFhk_BJqb5Arbt_ayS6eG_8WFN179J6dJi5Mt9FzQ/viewform?usp=pp_url")
                 }
 
                 R.id.update -> {
@@ -174,9 +180,13 @@ class Settings : AppCompatActivity() {
             val shareIntent = Intent(Intent.ACTION_SEND);
             shareIntent.type = "text/plain";
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, R.string.app_name)
-            var shareMessage = "\nLet me recommend you this application\n\n"
-            shareMessage =
-                    shareMessage + "https://play.google.com/store/apps/details?id=" + "tech.DevAsh.keyOS" + "\n\n"
+            var shareMessage = "Hey do you want to protect your kids from misusing there mobile phones. Or you want to manage your corporate mobiles from unauthorized usage . Or you want to create dedicated devices\n" +
+                               "\n" +
+                               "Check out this app it is freely available on play store\n" +
+                               "\n" +
+                               "Website link - https://www.keyos.in\n" +
+                               "\n" +
+                               "Playstore link - https://play.google.com/store/apps/details?id=tech.DevAsh.keyOS.dev"
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
             startActivity(Intent.createChooser(shareIntent, "choose one"))
         } catch (e: Exception) {
@@ -217,11 +227,17 @@ class Settings : AppCompatActivity() {
                               }, 500)
     }
 
-    private fun openWebsite(url: String = "https://www.devash.tech"){
+    private fun openWebsite(url: String = "https://www.devash.tech",color:String="#ffffff"){
         Handler().postDelayed({
-                                  val intent = Intent(Intent.ACTION_VIEW)
-                                  intent.data = Uri.parse(url)
-                                  startActivity(intent)
+                                  val builder = CustomTabsIntent.Builder()
+                                  try {
+                                      val colorInt: Int = Color.parseColor(color)
+                                      builder.setToolbarColor(colorInt)
+                                  }catch (e:Throwable){}
+
+                                  val customTabsIntent = builder.build()
+                                  customTabsIntent.launchUrl(this, Uri.parse(url))
+
                               }, 500)
     }
 

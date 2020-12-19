@@ -56,7 +56,6 @@ object Kiosk {
             context.startService(getUsageAccessService(context))
             context.startService(getAccessibilityService(context))
             setCamera(context, user!!.basicSettings.isDisableCamera)
-
             AlertDeveloper.sendUserLaunchedAlert(context)
         }
     }
@@ -159,8 +158,7 @@ object Kiosk {
 
     private fun writeLog(){
         try {
-            val path = File(
-                    Environment.getExternalStorageDirectory(), "KeyOS/logs")
+            val path = File(Environment.getExternalStorageDirectory(), "KeyOS/logs")
             if (!path.exists()) {
                 path.mkdir()
             }else{
@@ -169,7 +167,7 @@ object Kiosk {
             }
             Runtime.getRuntime().exec(
                     arrayOf("logcat", "-f", path.absolutePath+"/log.txt"))
-        } catch (e: IOException) {
+        } catch (e: Throwable) {
             e.printStackTrace()
         }
     }
