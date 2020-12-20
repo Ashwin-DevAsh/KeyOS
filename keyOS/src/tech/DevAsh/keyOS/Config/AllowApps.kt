@@ -96,19 +96,20 @@ class AllowApps : AppCompatActivity() {
                 val query = newText.toString().toLowerCase(Locale.ROOT)
                 handler.removeCallbacksAndMessages(true)
                 handler.postDelayed({
-                                        println("\n\n"+adapter?.allowedItems)
-                                        adapter?.items?.clear()
-                                        for (i in adapter!!._items) {
-                                            if (i.appName
-                                                            .toLowerCase(Locale.ROOT)
-                                                            .contains(query)
-                                            ) {
-                                                adapter.items.add(i)
-                                            }
-                                        }
-                                        adapter.items.add(0, Apps())
-                                        adapter.notifyDataSetChanged()
-                                    }, 100)
+                    try{
+                        adapter?.items?.clear()
+                        for (i in adapter!!._items) {
+                            if (i.appName
+                                            .toLowerCase(Locale.ROOT)
+                                            .contains(query)
+                            ) {
+                                adapter.items.add(i)
+                            }
+                        }
+                        adapter.items.add(0, Apps())
+                        adapter.notifyDataSetChanged()
+
+                    }catch (e:Throwable){} }, 100)
                 return true
             }
 
