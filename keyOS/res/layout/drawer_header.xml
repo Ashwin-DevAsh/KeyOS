@@ -47,7 +47,6 @@
                 android:layout_width="20dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:tint="@color/grey"
                 android:layout_marginRight="10dp"
                 android:src="@drawable/ios_forward"
                 android:layout_height="20dp"/>

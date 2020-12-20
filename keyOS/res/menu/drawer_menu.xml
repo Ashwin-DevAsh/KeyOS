@@ -42,11 +42,13 @@
     <group android:id="@+id/appInfo">
         <item
             android:title="App info"
+            android:visible="false"
             android:id="@+id/appinfo"
             app:showAsAction="never" />
         <item
             android:title="Check for update"
             android:id="@+id/update"
+            android:visible="false"
             app:showAsAction="never" />
 
     </group>
