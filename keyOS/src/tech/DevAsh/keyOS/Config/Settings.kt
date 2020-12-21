@@ -50,7 +50,7 @@ class Settings : AppCompatActivity() {
     val TAG = this::class.simpleName
 
     var shouldLaunch = false
-    private val permissionsBottomSheet=PermissionsBottomSheet(this)
+    private val permissionsBottomSheet=PermissionsBottomSheet()
     private var isFromLauncher:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +72,6 @@ class Settings : AppCompatActivity() {
         if(!User.user!!.isEndUserLicenceAgreementDone || BuildConfig.IS_DEV_BUILD){
             Handler().postDelayed({
                                       UserAgreement(this).show(supportFragmentManager, TAG)
-
                                   }, 750)
         }
     }
@@ -139,8 +138,9 @@ class Settings : AppCompatActivity() {
 
                 }
 
-                R.id.survey->{
-                    openWebsite("https://docs.google.com/forms/d/e/1FAIpQLSee4_xynrFhk_BJqb5Arbt_ayS6eG_8WFN179J6dJi5Mt9FzQ/viewform?usp=pp_url")
+                R.id.survey -> {
+                    openWebsite(
+                            "https://docs.google.com/forms/d/e/1FAIpQLSee4_xynrFhk_BJqb5Arbt_ayS6eG_8WFN179J6dJi5Mt9FzQ/viewform?usp=pp_url")
                 }
 
                 R.id.update -> {
@@ -227,13 +227,14 @@ class Settings : AppCompatActivity() {
                               }, 500)
     }
 
-    private fun openWebsite(url: String = "https://www.devash.tech",color:String="#ffffff"){
+    private fun openWebsite(url: String = "https://www.devash.tech", color: String = "#ffffff"){
         Handler().postDelayed({
                                   val builder = CustomTabsIntent.Builder()
                                   try {
                                       val colorInt: Int = Color.parseColor(color)
                                       builder.setToolbarColor(colorInt)
-                                  }catch (e:Throwable){}
+                                  } catch (e: Throwable) {
+                                  }
 
                                   val customTabsIntent = builder.build()
                                   customTabsIntent.launchUrl(this, Uri.parse(url))

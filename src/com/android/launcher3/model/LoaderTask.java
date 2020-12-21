@@ -228,7 +228,9 @@ public class LoaderTask implements Runnable {
 
         KioskPreferences prefs = Utilities.getKioskPrefs(mApp.getContext());
         if (!prefs.getDesktopInitialized()) {
-            mApp.getLauncher().dismissLoading();
+            try{
+                mApp.getLauncher().dismissLoading();
+            }catch (Throwable ignored){}
         }
 
     }

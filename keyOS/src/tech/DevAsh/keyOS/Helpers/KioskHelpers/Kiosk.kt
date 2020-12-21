@@ -7,10 +7,10 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Environment
 import android.util.Log
 import tech.DevAsh.KeyOS.Config.Settings
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 import tech.DevAsh.KeyOS.Services.UsageAccessService
@@ -18,10 +18,8 @@ import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.User.user
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
-import tech.DevAsh.keyOS.KioskApp
 import tech.DevAsh.keyOS.Receiver.KioskReceiver
 import java.io.File
-import java.io.IOException
 
 
 object Kiosk {
@@ -53,8 +51,11 @@ object Kiosk {
             Log.d(TAG, "startKiosk: KioskStarted")
             NotificationBlocker.start()
             KioskReceiver.sendBroadcast(context, KioskReceiver.START_KIOSK)
-            context.startService(getUsageAccessService(context))
-            context.startService(getAccessibilityService(context))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context.startForegroundService(getUsageAccessService(context))
+            } else {
+                context.startService(getUsageAccessService(context))
+            }
             setCamera(context, user!!.basicSettings.isDisableCamera)
             AlertDeveloper.sendUserLaunchedAlert(context)
         }
@@ -101,7 +102,7 @@ object Kiosk {
 
     fun exitKiosk(context: Activity, password: String?){
         if(password == user?.password){
-            AlertDeveloper.sendUserLaunchedAlert(context,false)
+            AlertDeveloper.sendUserLaunchedAlert(context, false)
             stopKiosk(context.applicationContext)
             exitLauncher(context.applicationContext)
             context.finishAndRemoveTask()
@@ -166,7 +167,7 @@ object Kiosk {
                 path.mkdir()
             }
             Runtime.getRuntime().exec(
-                    arrayOf("logcat", "-f", path.absolutePath+"/log.txt"))
+                    arrayOf("logcat", "-f", path.absolutePath + "/log.txt"))
         } catch (e: Throwable) {
             e.printStackTrace()
         }

@@ -33,7 +33,13 @@ import tech.DevAsh.keyOS.Database.User
 import java.util.*
 
 
-class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFragment() {
+class DisplayQr() : BottomSheetDialogFragment() {
+
+    var importAndExport: ImportExportSettings?=null
+
+    constructor(importAndExport: ImportExportSettings) : this() {
+        this.importAndExport=importAndExport
+    }
 
     val uuid = UUID.randomUUID().toString()
 
@@ -55,8 +61,8 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
 
         onClick()
 
-        importAndExport.QRCodeService
-                .setPolicyData(SetPolicyData(uuid, User.user!!))
+        importAndExport?.QRCodeService
+                ?.setPolicyData(SetPolicyData(uuid, User.user!!))
                 ?.enqueue(callBack)
 
 //        Handler().postDelayed({
@@ -70,7 +76,7 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
     fun onClick(){
         share.setOnClickListener{
             val permissions = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            if(importAndExport.packageManager.checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE,importAndExport.packageName)== PackageManager.PERMISSION_GRANTED ){
+            if(importAndExport?.packageManager?.checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE,importAndExport?.packageName)== PackageManager.PERMISSION_GRANTED ){
                 Handler().postDelayed({
                                           share()
                                       },0)
@@ -85,7 +91,7 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
         val bitmap2 = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap2)
         view.draw(canvas)
-        val bitmapPath = MediaStore.Images.Media.insertImage(importAndExport.contentResolver, bitmap2, "title", null)
+        val bitmapPath = MediaStore.Images.Media.insertImage(importAndExport?.contentResolver, bitmap2, "title", null)
         val bitmapUri = Uri.parse(bitmapPath)
         val intent = Intent(Intent.ACTION_SEND)
         intent.putExtra(Intent.EXTRA_STREAM, bitmapUri)
@@ -141,7 +147,7 @@ class DisplayQr(var importAndExport: ImportExportSettings) : BottomSheetDialogFr
         Handler().postDelayed({
             try {
                 dismiss()
-                AlertHelper.showToast("Failed!", importAndExport)
+                AlertHelper.showToast("Failed!", importAndExport!!)
             }catch (e:Throwable){}
                               }, 800)
 

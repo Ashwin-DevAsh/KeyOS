@@ -24,7 +24,13 @@ import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.keyOS.Database.User
 
 
-class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
+class UserAgreement() : BottomSheetDialogFragment() {
+
+    var activity:Activity?=null
+
+    constructor(activity: Activity) : this() {
+        this.activity=activity
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -74,7 +80,7 @@ class UserAgreement(val activity: Activity) : BottomSheetDialogFragment() {
         super.onDismiss(dialog)
         if(!User.user!!.isEndUserLicenceAgreementDone){
             Handler().postDelayed({
-                                      activity.finish()
+                                      activity?.finish()
                                   }, 500)
         }
     }

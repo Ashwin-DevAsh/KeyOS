@@ -19,8 +19,13 @@ import tech.DevAsh.keyOS.KioskApp
 import kotlin.random.Random.Default.nextInt
 
 
-class OtpVerification(val password: Password, val email: String) : BottomSheetDialogFragment() {
-
+class OtpVerification() : BottomSheetDialogFragment() {
+    var password: Password?=null
+    var email: String?=null
+    constructor( password: Password,  email: String) : this() {
+        this.password=password
+        this.email = email
+    }
 
     private var emailVerification:EmailVerification?=null
 
@@ -48,7 +53,7 @@ class OtpVerification(val password: Password, val email: String) : BottomSheetDi
         if(emailVerification?.otp==otp.text.toString()){
             this.dismiss()
             Handler().postDelayed({
-                                      password.save()
+                                      password?.save()
                     },500)
         }else if(otp.text.toString().isNotEmpty()){
             otpLayout.error = "Invalid Otp"

@@ -143,9 +143,11 @@ object PermissionsHelper {
         val notificationManager: NotificationManager = context.getSystemService(
                 Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !notificationManager.isNotificationPolicyAccessGranted) {
-            val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
-             context.startActivityForResult(intent, 0)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ) {
+            if(!notificationManager.isNotificationPolicyAccessGranted){
+                val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+                context.startActivityForResult(intent, 0)
+            }
         }
     }
 
@@ -232,11 +234,8 @@ object PermissionsHelper {
     fun isMyLauncherCurrent(context: Context): Boolean {
         val intent = Intent(ACTION_MAIN)
         intent.addCategory(CATEGORY_HOME)
-        val resolveInfo: ResolveInfo? =
-              context.packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
+        val resolveInfo: ResolveInfo? = context.packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
         return context.packageName == resolveInfo?.activityInfo?.packageName
     }
-
-
 
 }

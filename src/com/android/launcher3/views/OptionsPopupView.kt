@@ -168,7 +168,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             val launcher = KioskLauncher.getLauncher(v.context)
 
              fun startSettingsHelper(){
-                val password  = settingsDialog.password?.query.toString()
+                val password  = settingsDialog.password?.text.toString()
                 if(password== User.user?.password){
                     settingsDialog.dismiss()
                     getProgress(v,"Loading settings")
@@ -210,7 +210,7 @@ class OptionsPopupView @JvmOverloads constructor(context: Context?, attrs: Attri
             val launcher = KioskLauncher.getLauncher(v.context)
 
             fun exitKeyOsHelper(){
-                val password = exitDialog.password?.query.toString()
+                val password = exitDialog.password?.text.toString()
                 if(password==User.user?.password){
                     exitDialog.dismiss()
                     getProgress(v,"Exiting keyOS")

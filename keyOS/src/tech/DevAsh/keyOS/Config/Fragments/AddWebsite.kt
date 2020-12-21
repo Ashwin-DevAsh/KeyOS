@@ -12,11 +12,11 @@ import kotlinx.android.synthetic.dev.fragment_add_website.done
 import tech.DevAsh.keyOS.Config.WebsiteList
 
 
-class AddWebsite(val websiteList: WebsiteList) : BottomSheetDialogFragment() {
+class AddWebsite() : BottomSheetDialogFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    var websiteList:WebsiteList?=null
+    constructor(websiteList: WebsiteList) : this() {
+        this.websiteList=websiteList
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -40,11 +40,14 @@ class AddWebsite(val websiteList: WebsiteList) : BottomSheetDialogFragment() {
 
     fun onClick(){
         done.setOnClickListener {
-           if (websiteList.addWebsite(url.text.toString())){
-               dismiss()
-           }else if(url.text.toString().isNotEmpty()){
-               urlLayout.error = "Invalid Url"
-           }
+            try {
+                if (websiteList!!.addWebsite(url.text.toString())){
+                    dismiss()
+                }else if(url.text.toString().isNotEmpty()){
+                    urlLayout.error = "Invalid Url"
+                }
+            }catch (e:Throwable){}
+
         }
     }
 

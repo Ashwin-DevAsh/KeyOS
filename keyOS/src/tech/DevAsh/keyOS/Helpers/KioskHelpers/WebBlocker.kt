@@ -107,15 +107,10 @@ object WebBlocker {
     }
 
     private fun isAllowedSite(urlString: String):Boolean{
-
-
-        println("urlString = $urlString")
-
-        if(!User.user!!.webFilter.isEnabled){
-            return true
-        }
-
         try{
+            if(!User.user!!.webFilter.isEnabled){
+                return true
+            }
 
             if(urlString.contains("about:blank")){
                 return true
