@@ -8,7 +8,7 @@ buildscript {
     dependencies {
         classpath "io.realm:realm-gradle-plugin:7.0.0"
         classpath 'com.android.tools.build:gradle:4.1.1'
-        classpath 'com.android.tools:r8:2.1.67'
+        classpath 'com.android.tools:r8:2.1.75'
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.9'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10"
         classpath 'com.google.gms:google-services:4.3.4'
@@ -52,8 +52,8 @@ android {
         minSdkVersion 22
         targetSdkVersion 29
 
-        versionCode 72
-        versionName "KeyOS v72"
+        versionCode 73
+        versionName "KeyOS v73"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -137,7 +137,7 @@ android {
 
 
         pro {
-            versionName "KeyOS v72 pro"
+            versionName "KeyOS v73 pro"
             dimension "custom"
             applicationId 'tech.DevAsh.keyOS.pro'
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
@@ -147,7 +147,7 @@ android {
         }
 
         dev {
-            versionName "KeyOS v72 dev"
+            versionName "KeyOS v73 dev"
             dimension "custom"
             applicationId 'tech.DevAsh.keyOS.dev'
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"

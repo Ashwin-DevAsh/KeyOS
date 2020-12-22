@@ -45,12 +45,24 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
         RealmHelper.init(this)
         startReceiver()
         loadHomeScreen()
+        loadData()
         val info: AccessibilityServiceInfo = serviceInfo
         info.eventTypes = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED or AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_VISUAL
         info.notificationTimeout = 300
         info.flags = AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS or AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS
         this.serviceInfo = info
+    }
+
+    private fun loadData(){
+        try {
+            User.getUsers(this)
+            if(User.user!!.singleApp!=null){
+                User.user?.allowedApps?.add(User.user?.singleApp)
+            }
+        }catch (e: Throwable){
+
+        }
     }
 
 
