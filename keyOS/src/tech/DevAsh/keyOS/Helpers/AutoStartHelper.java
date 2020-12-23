@@ -78,6 +78,8 @@ public class AutoStartHelper {
 
     public void getAutoStartPermission(Context context) {
 
+
+
         String build_info = Build.BRAND.toLowerCase();
         switch (build_info) {
             case BRAND_ASUS:

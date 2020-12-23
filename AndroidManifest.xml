@@ -45,6 +45,7 @@
         android:fullBackupOnly="true"
         android:fullBackupContent="@xml/backupscheme"
         android:hardwareAccelerated="true"
+        android:requestLegacyExternalStorage="true"
         android:label="@string/derived_app_name"
         android:theme="@style/AppTheme"
         android:largeHeap="@bool/config_largeHeap"

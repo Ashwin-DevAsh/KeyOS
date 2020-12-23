@@ -194,11 +194,12 @@ object PermissionsHelper {
          openedForPermission = true
 
         if ("xiaomi" == Build.MANUFACTURER.toLowerCase(Locale.ROOT)) {
-            val intent = Intent("miui.intent.action.APP_PERM_EDITOR")
-            intent.setClassName("com.miui.securitycenter",
-                                "com.miui.permcenter.permissions.PermissionsEditorActivity")
-            intent.putExtra("extra_pkgname", context.packageName)
-            context.startActivity(intent)
+            try{
+                val intent = Intent("miui.intent.action.APP_PERM_EDITOR")
+                intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity")
+                intent.putExtra("extra_pkgname", context.packageName)
+                context.startActivity(intent)
+            }catch (e:Throwable){}
         }
 
         AutoStartHelper.getInstance().getAutoStartPermission(context)

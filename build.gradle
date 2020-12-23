@@ -43,6 +43,7 @@ apply plugin: 'com.google.gms.google-services' // Google Services Gradle plugin
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 
+def appVersion = 75
 
 android {
     compileSdkVersion 29
@@ -52,8 +53,8 @@ android {
         minSdkVersion 22
         targetSdkVersion 29
 
-        versionCode 73
-        versionName "KeyOS v73"
+        versionCode appVersion
+        versionName "KeyOS v${appVersion}"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
@@ -137,7 +138,7 @@ android {
 
 
         pro {
-            versionName "KeyOS v73 pro"
+            versionName  "KeyOS v${appVersion} pro"
             dimension "custom"
             applicationId 'tech.DevAsh.keyOS.pro'
             buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
@@ -147,10 +148,10 @@ android {
         }
 
         dev {
-            versionName "KeyOS v73 dev"
+            versionName "KeyOS v${appVersion} dev"
             dimension "custom"
             applicationId 'tech.DevAsh.keyOS.dev'
-            buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "false"
+            buildConfigField "boolean", "IS_PLAYSTORE_BUILD", "true"
             buildConfigField "boolean", "IS_DEV_BUILD", "true"
             resValue "string", "launcher_name", "KeyOS Dev"
         }

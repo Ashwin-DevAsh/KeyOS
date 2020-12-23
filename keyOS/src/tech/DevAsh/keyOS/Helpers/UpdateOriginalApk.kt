@@ -24,27 +24,37 @@ object UpdateOriginalApk {
 
     fun showAlertDialog(context: Activity){
         val builder =   MaterialDialog.Builder(context)
-        builder.title("Update require")
+        builder.title("Download KeyOS")
                 .content(
-                        "This feature not available in playstore version. But still you can download it for free.")
+                        "This feature not available in playstore version." +
+                        " But still you can download original version for free.")
                 .onPositive{ _, _->
                     update(context)
                 }
                 .negativeText("Cancel")
-                .positiveText("Update")
+                .positiveText("Download")
                 .show()
     }
 
     fun update(context: Activity){
-
         val permissions = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        if(context.packageManager.checkPermission(
-                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE, context.packageName)== PackageManager.PERMISSION_GRANTED ){
-            DownloadNewVersion(context).execute()
-
+        if(context.packageManager.checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, context.packageName)== PackageManager.PERMISSION_GRANTED ){
+          downloadApk(context)
         }else{
             ActivityCompat.requestPermissions(context, permissions, 4)
         }
+    }
+
+    fun downloadApk(context: Activity){
+        val url = "https://api.KeyOS.in/download/"
+        val downloadManager: DownloadManager? =
+                context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager?
+        val uri = Uri.parse(url)
+        val request: DownloadManager.Request = DownloadManager.Request(uri)
+        request.setVisibleInDownloadsUi(true)
+        request.setNotificationVisibility( DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "KeyOS.apk")
+        downloadManager?.enqueue(request)
     }
 
 
@@ -56,7 +66,7 @@ object UpdateOriginalApk {
         notificationManager.cancel(1)
     }
 
-    private fun showNotification(activity: Activity,title: String,subTitle:String,maxInt: Int,minInt: Int){
+    private fun showNotification(activity: Activity, title: String, subTitle: String, maxInt: Int, minInt: Int){
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationManager = activity.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -72,44 +82,42 @@ object UpdateOriginalApk {
                     .setContentTitle(title)
                     .setContentText(subTitle)
                     .setOngoing(true)
-                    .setProgress(maxInt,minInt,false)
-                    .setSmallIcon(R.drawable.ic_key_ring)
+                    .setProgress(maxInt, minInt, false)
+                    .setSmallIcon(R.drawable.ic_notification_key_ring)
                     .setAutoCancel(true)
             val notification: Notification = builder.build()
             notification.flags = Notification.FLAG_AUTO_CANCEL
-            notificationManager.notify(1,notification)
+            notificationManager.notify(1, notification)
         } else {
             val builder = NotificationCompat.Builder(activity)
                     .setWhen(System.currentTimeMillis())
                     .setContentTitle(title)
                     .setContentText(subTitle)
                     .setOngoing(true)
-                    .setProgress(maxInt,minInt,false)
-                    .setSmallIcon(R.drawable.ic_key_ring)
+                    .setProgress(maxInt, minInt, false)
+                    .setSmallIcon(R.drawable.ic_notification_key_ring)
                     .setPriority(NotificationCompat.PRIORITY_LOW)
                     .setAutoCancel(true)
             val notification: Notification = builder.build()
             notification.flags = Notification.FLAG_AUTO_CANCEL
-            (activity.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager).notify(1,notification)
+            (activity.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager).notify(
+                    1, notification)
         }
     }
 
     private fun openNewVersion(location: String, context: Activity) {
-        val uri: Uri = FileProvider.getUriForFile(context,
-                                                  BuildConfig.APPLICATION_ID + ".provider",
-                                                  File(location+"KeyOS.apk"))
+        val uri: Uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", File(location + "KeyOS.apk"))
         val intent = Intent(Intent.ACTION_VIEW)
         intent.setDataAndType(uri, "application/vnd.android.package-archive")
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         context.startActivity(intent)
-
     }
 
     internal class DownloadNewVersion(val activity: Activity): AsyncTask<Any, Any, Any>() {
 
         override fun doInBackground(vararg params: Any?): Any {
-            showNotification(activity,"Downloading...","0%",100,0)
+            showNotification(activity, "Downloading...", "0%", 100, 0)
             val response =  activity.KioskApp.updateService.update()?.execute()
             location = Environment.getExternalStorageDirectory().toString() + "/Download/"
             val file = File(location)
@@ -130,7 +138,7 @@ object UpdateOriginalApk {
                 fos.write(buffer, 0, len1)
                 downloaded += len1
                 per = (downloaded * 100 / total_size)
-                showNotification(activity,"Downloading...","${per}%",100,per!!)
+                showNotification(activity, "Downloading...", "${per}%", 100, per!!)
             }
             fos.close()
             cancelNotification(activity)
