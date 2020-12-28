@@ -16,5 +16,5 @@ interface IQRCodeService {
     fun setPolicyData(@Body setPolicyData: SetPolicyData): Call<BasicResponse>?
 
     @GET("getPolicyData/{id}")
-    fun getPolicyData(@Path("id") id: String): Call<User>?
+    fun getPolicyData(@Path("id") id: String): Call<User?>?
 }

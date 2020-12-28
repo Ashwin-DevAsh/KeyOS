@@ -107,7 +107,8 @@ class QrScanner : AppCompatActivity() {
 
         }catch (e: java.lang.IllegalArgumentException){
             onFailure("Invalid QrCode!")
-
+        }catch (e:Throwable){
+            onFailure("Invalid QrCode!")
         }
     }
 
@@ -115,13 +116,10 @@ class QrScanner : AppCompatActivity() {
         qrCodeService.getPolicyData(id)?.enqueue(callback)
     }
 
-    var callback = object: retrofit2.Callback<User>{
-        override fun onResponse(call: Call<User>, response: Response<User>) {
+    var callback = object: retrofit2.Callback<User?>{
+        override fun onResponse(call: Call<User?>, response: Response<User?>) {
             if(response.body()!=null){
-                Handler().postDelayed({
-                                          onSuccess(response.body()!!)
-
-                                      },800)
+                Handler().postDelayed({ onSuccess(response.body()!!) },800)
                 return
             }
 
@@ -131,7 +129,7 @@ class QrScanner : AppCompatActivity() {
 
         }
 
-        override fun onFailure(call: Call<User>, t: Throwable) {
+        override fun onFailure(call: Call<User?>, t: Throwable) {
             t.printStackTrace()
             onFailure()
         }
@@ -141,12 +139,8 @@ class QrScanner : AppCompatActivity() {
     fun onSuccess(user: User){
         mProgressDialog?.dismiss()
         RealmHelper.updateUser(user)
-        Handler().postDelayed({
-                                  onBackPressed()
-
-                              }, 500)
-        Handler().postDelayed({
-                                  AlertHelper.showToast("Successfully done!", this)
+        Handler().postDelayed({onBackPressed()}, 500)
+        Handler().postDelayed({ AlertHelper.showToast("Successfully done!", this)
                               }, 1000)
     }
 

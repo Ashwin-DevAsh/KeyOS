@@ -130,18 +130,15 @@ class Password : AppCompatActivity() {
         User.user?.password =  password.text.toString()
         RealmHelper.updateUser(User.user!!)
         UiHelper.hideKeyboard(this)
-
+        Handler().postDelayed({
+                                  finish()
+                              },500)
         Handler().postDelayed({
                                   AlertHelper
                                           .showToast(
                                                   "Your password has been changed successfully",
                                                   this)
-
-                                  Handler()
-                                          .postDelayed({
-                                                           finish()
-                                                       },4000)
-                              },500)
+                              },750)
 
     }
 

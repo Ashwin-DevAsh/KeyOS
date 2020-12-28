@@ -79,8 +79,7 @@ class ImportExportSettings : AppCompatActivity() {
 
     private fun saveFile(){
         val permissions = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        if(packageManager.checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                          packageName)
+        if(packageManager.checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, packageName)
                 == PackageManager.PERMISSION_GRANTED ){
             val jsonObject = (Gson().toJson(User.user))
             generateNoteOnSD( "${System.currentTimeMillis()}.json", jsonObject.toString())

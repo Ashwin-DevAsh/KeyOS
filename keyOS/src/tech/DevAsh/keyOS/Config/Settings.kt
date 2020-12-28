@@ -50,7 +50,7 @@ class Settings : AppCompatActivity() {
     val TAG = this::class.simpleName
 
     var shouldLaunch = false
-    private val permissionsBottomSheet=PermissionsBottomSheet()
+    private val permissionsBottomSheet=PermissionsBottomSheet(this)
     private var isFromLauncher:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,11 +66,14 @@ class Settings : AppCompatActivity() {
         setUpDrawer()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {}
+
 
 
     private fun checkUserAgreement(){
         if(!User.user!!.isEndUserLicenceAgreementDone || BuildConfig.IS_DEV_BUILD){
             Handler().postDelayed({
+
                                       UserAgreement(this).show(supportFragmentManager, TAG)
                                   }, 750)
         }
@@ -381,7 +384,9 @@ class Settings : AppCompatActivity() {
 
         permissions.setOnClickListener {
             shouldLaunch = false
-            permissionsBottomSheet.show(supportFragmentManager, TAG)
+            if(!permissionsBottomSheet.isAdded) {
+                permissionsBottomSheet.show(supportFragmentManager, TAG)
+            }
         }
 
         notificationPanel.setOnCheckedChangeListener{ _, isChecked->
@@ -426,7 +431,9 @@ class Settings : AppCompatActivity() {
                 launch(this)
             } 
         }else{
-            permissionsBottomSheet.show(supportFragmentManager, TAG)
+            if(!permissionsBottomSheet.isAdded) {
+                permissionsBottomSheet.show(supportFragmentManager, TAG)
+            }
         }
     }
 

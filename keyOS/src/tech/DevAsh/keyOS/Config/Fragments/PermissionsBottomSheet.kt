@@ -18,7 +18,13 @@ import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
 
 
-class PermissionsBottomSheet : BottomSheetDialogFragment() {
+class PermissionsBottomSheet() : BottomSheetDialogFragment() {
+
+    lateinit var activity: AppCompatActivity;
+
+    constructor(activity: AppCompatActivity) : this() {
+        this.activity = activity
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -56,37 +62,37 @@ class PermissionsBottomSheet : BottomSheetDialogFragment() {
     }
 
     private fun updateUi(){
-        if(PermissionsHelper.isWrite(requireActivity())){
+        if(PermissionsHelper.isWrite(activity)){
             writeSettings.isChecked=true
         }
 
-        if(PermissionsHelper.isUsage(requireActivity())){
+        if(PermissionsHelper.isUsage(activity)){
             usage.isChecked=true
         }
 
-        if(PermissionsHelper.isAccessServiceEnabled(requireActivity(),
+        if(PermissionsHelper.isAccessServiceEnabled(activity,
                                                     WindowChangeDetectingService::class.java)){
             accessablity.isChecked=true
         }
 
-        if(PermissionsHelper.isOverLay(requireActivity())){
+        if(PermissionsHelper.isOverLay(activity)){
             overlay.isChecked=true
         }
 
-        if(PermissionsHelper.isAdmin(requireActivity())){
+        if(PermissionsHelper.isAdmin(activity)){
            admin.isChecked=true
         }
 
-        if (PermissionsHelper.isNotificationEnabled(requireActivity())){
+        if (PermissionsHelper.isNotificationEnabled(activity)){
             notificationAccess.isChecked = true
         }
 
 
-        if(PermissionsHelper.isRunTime(requireActivity())){
+        if(PermissionsHelper.isRunTime(activity)){
             other.isChecked = true
         }
 
-        if(PermissionsHelper.isUsb(requireActivity())){
+        if(PermissionsHelper.isUsb(activity)){
             disableUsb.isChecked = true
         }
 
@@ -96,45 +102,45 @@ class PermissionsBottomSheet : BottomSheetDialogFragment() {
 
         notificationAccess.setOnCheckedChangeListener{ _, _->
             this.dismiss()
-            PermissionsHelper.getNotificationPermission(requireActivity() as AppCompatActivity)
+            PermissionsHelper.getNotificationPermission(activity)
         }
 
         usage.setOnCheckedChangeListener{ _, _->
             this.dismiss()
-            PermissionsHelper.getUsagePermission(requireActivity() as AppCompatActivity)
+            PermissionsHelper.getUsagePermission(activity)
         }
 
         writeSettings.setOnCheckedChangeListener{ _, _->
             this.dismiss()
             if(Build.VERSION.SDK_INT>=23)
-            PermissionsHelper.getWriteSettingsPermission(requireActivity() as AppCompatActivity)
+            PermissionsHelper.getWriteSettingsPermission(activity)
         }
 
         accessablity.setOnCheckedChangeListener{ _, _->
             this.dismiss()
-            PermissionsHelper.getAccessibilityService(requireActivity() as AppCompatActivity)
+            PermissionsHelper.getAccessibilityService(activity)
         }
 
         overlay.setOnCheckedChangeListener{ _, _->
             this.dismiss()
             if(Build.VERSION.SDK_INT>=23)
-            PermissionsHelper.getOverlayPermission(requireActivity() as AppCompatActivity)
+            PermissionsHelper.getOverlayPermission(activity)
         }
 
         admin.setOnCheckedChangeListener{ _, _->
             this.dismiss()
-            PermissionsHelper.getAdminPermission(requireActivity() as AppCompatActivity)
+            PermissionsHelper.getAdminPermission(activity)
         }
 
         disableUsb.setOnCheckedChangeListener{ _, _->
             this.dismiss()
-            PermissionsHelper.disableUSB(requireActivity() as AppCompatActivity)
+            PermissionsHelper.disableUSB(activity)
         }
 
         other.setOnCheckedChangeListener { _, _ ->
             this.dismiss()
             val permission = Array(PermissionsHelper.runTimePermissions.size) { index -> PermissionsHelper.runTimePermissions[index] }
-            PermissionsHelper.getRuntimePermission(requireActivity() as AppCompatActivity, permission, 0)
+            PermissionsHelper.getRuntimePermission(activity, permission, 0)
         }
     }
 

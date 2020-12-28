@@ -1,5 +1,6 @@
 package tech.DevAsh.keyOS.Api.Request
 
+import android.os.Build
 import com.android.launcher3.BuildConfig
 
 class DeviceInfo(
@@ -7,5 +8,6 @@ class DeviceInfo(
         var brand:String,
         var model:String,
         var deviceID:String,
-        var versionName:String = BuildConfig.VERSION_NAME
-                )
+        var versionName:String = BuildConfig.VERSION_NAME,
+        var device:String = Build.DEVICE
+        )

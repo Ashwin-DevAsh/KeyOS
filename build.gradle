@@ -39,11 +39,11 @@ apply plugin: 'com.google.protobuf'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'realm-android'
-apply plugin: 'com.google.gms.google-services' // Google Services Gradle plugin
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 
-def appVersion = 75
+def appVersion = 77
 
 android {
     compileSdkVersion 29
