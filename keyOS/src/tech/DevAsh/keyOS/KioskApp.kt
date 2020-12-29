@@ -59,7 +59,7 @@ class KioskApp : Application() {
         firebaseAnalytics?.setUserId("${Build.VERSION.SDK_INT} / " +
                                      "${Build.MODEL} / "+
                                      "${Build.MANUFACTURER} / " +
-                                     "${Build.BRAND}")
+                                     Build.BRAND)
 
         super.onCreate()
     }

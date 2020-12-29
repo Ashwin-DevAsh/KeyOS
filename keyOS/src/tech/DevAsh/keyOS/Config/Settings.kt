@@ -15,6 +15,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.view.GravityCompat
@@ -26,6 +27,13 @@ import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
+import com.google.android.play.core.review.ReviewInfo
+import com.google.android.play.core.review.ReviewManagerFactory
+import com.google.android.play.core.review.testing.FakeReviewManager
+import com.google.android.play.core.tasks.OnCompleteListener
+import com.google.android.play.core.tasks.OnFailureListener
+import com.google.android.play.core.tasks.Task
+import io.realm.Realm
 import kotlinx.android.synthetic.dev.activity_settings.*
 import kotlinx.android.synthetic.dev.drawer_header.view.*
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
@@ -64,10 +72,32 @@ class Settings : AppCompatActivity() {
         controlLaunchButton()
         checkUserAgreement()
         setUpDrawer()
+        reviewPrompt()
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {}
 
+
+    private fun reviewPrompt() {
+        val realm = Realm.getDefaultInstance()
+        val reviewInfoDB = realm.copyFromRealm(realm.where(tech.DevAsh.keyOS.Database.ReviewInfo::class.java).findFirst()!!)
+        try {
+            if(reviewInfoDB!!.launchedCount%5==0){
+                val manager = ReviewManagerFactory.create(this)
+                manager.requestReviewFlow()
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                val reviewInfo = task.result
+                                manager.launchReviewFlow(this@Settings, reviewInfo)
+                                        .addOnFailureListener {}
+                                        .addOnCompleteListener {}
+                            }
+                        }.addOnFailureListener {}
+            }
+            tech.DevAsh.keyOS.Database.ReviewInfo.init(reviewInfoDB.launchedCount+1,false)
+        }catch (e:Throwable){
+            tech.DevAsh.keyOS.Database.ReviewInfo.init(0,false)
+        }
+    }
 
 
     private fun checkUserAgreement(){
@@ -77,23 +107,6 @@ class Settings : AppCompatActivity() {
                                       UserAgreement(this).show(supportFragmentManager, TAG)
                                   }, 750)
         }
-    }
-
-    private fun setStatusBar(){
-        val layout: LinearLayout = findViewById(R.id.statusBar)
-        val params: ViewGroup.LayoutParams = layout.layoutParams
-        params.height = getStatusBarHeight()
-        params.width = 100
-        layout.layoutParams = params
-
-    }
-    private fun getStatusBarHeight(): Int {
-        var result = 0
-        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
-        if (resourceId > 0) {
-            result = resources.getDimensionPixelSize(resourceId)
-        }
-        return result
     }
 
     private fun setUpDrawer(){
@@ -545,5 +558,5 @@ class Settings : AppCompatActivity() {
         }
     }
 
-
+    override fun onSaveInstanceState(outState: Bundle) {}
 }

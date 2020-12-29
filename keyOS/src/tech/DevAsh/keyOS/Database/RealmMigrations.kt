@@ -64,7 +64,18 @@ class RealmMigrations(val context: Context) : RealmMigration{
            user.addField("isEndUserLicenceAgreementDone",Boolean::class.java).transform {
                it.setBoolean("isEndUserLicenceAgreementDone",false)
            }
+            oldVersion++
+        }
 
+        if(oldVersion==5L){
+            val reviewInfo = schema.create("ReviewInfo")!!
+            reviewInfo.addField("launchedCount",Int::class.java).transform {
+                it.setInt("launchedCount",0)
+            }
+            reviewInfo.addField("isReviewed",Boolean::class.java).transform {
+                it.setBoolean("isReviewed",false)
+            }
+            oldVersion++
         }
 
 
