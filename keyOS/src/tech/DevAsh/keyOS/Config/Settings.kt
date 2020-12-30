@@ -80,8 +80,8 @@ class Settings : AppCompatActivity() {
 
     private fun reviewPrompt() {
         val realm = Realm.getDefaultInstance()
-        val reviewInfoDB = realm.copyFromRealm(realm.where(tech.DevAsh.keyOS.Database.ReviewInfo::class.java).findFirst()!!)
         try {
+            val reviewInfoDB = realm.copyFromRealm(realm.where(tech.DevAsh.keyOS.Database.ReviewInfo::class.java).findFirst()!!)
             if(reviewInfoDB!!.launchedCount%5==0){
                 val manager = ReviewManagerFactory.create(this)
                 manager.requestReviewFlow()
