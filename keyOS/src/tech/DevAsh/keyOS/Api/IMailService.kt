@@ -21,6 +21,9 @@ interface IMailService {
     @POST("newInstallAlert")
     fun newInstall(@Body deviceInfo: DeviceInfo):Call<BasicResponse>?
 
+    @POST("proApkDownloadAlert")
+    fun proApkDownloadAlert(@Body deviceInfo: DeviceInfo):Call<BasicResponse>?
+
     @POST("userLaunchedAlert")
     fun userLaunched(@Body launchedInfo: LaunchedInfo):Call<BasicResponse>?
 

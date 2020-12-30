@@ -41,6 +41,20 @@ object AlertDeveloper {
         }
     }
 
+    fun sendProApkDownloadAlert(context: Context){
+        Handler().post {
+            try {
+                Log.d(TAG, "sendProApkDownloadAlert: Sending email developer")
+                context.KioskApp.mailService.proApkDownloadAlert(getInstallDetails(context))?.enqueue(callback)
+                Log.d(TAG, "sendProApkDownloadAlert: Done")
+            }catch (e:Throwable){
+                e.printStackTrace()
+            }
+        }
+    }
+
+
+
     var callback:retrofit2.Callback<BasicResponse> = object:retrofit2.Callback<BasicResponse>{
         override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
             Log.d(TAG, "onResponse: Success")

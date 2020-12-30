@@ -31,7 +31,6 @@ object BasicSettingsHandler{
         handlerCheckBasicSettings!!.removeCallbacksAndMessages(runnableCheckBasicSettings!!)
         handlerCheckBasicSettings = null
 
-
     }
 
     private fun checkBasicSettings(context: Context) {

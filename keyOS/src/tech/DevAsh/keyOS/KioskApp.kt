@@ -31,7 +31,6 @@ import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
 import tech.DevAsh.Launcher.theme.ThemeManager
 import tech.DevAsh.keyOS.Api.IMailService
-import tech.DevAsh.keyOS.Api.IUpdateService
 import tech.DevAsh.keyOS.Database.User
 import javax.inject.Inject
 
@@ -43,9 +42,8 @@ class KioskApp : Application() {
     var applicationComponents:ApplicationComponents?=null
     val activityHandler = ActivityHandler()
     var loadAppsAndServices = LoadAppsAndServices(this)
-    private var firebaseAnalytics: FirebaseAnalytics? = null
+    var firebaseAnalytics: FirebaseAnalytics? = null
     @Inject lateinit var mailService: IMailService
-    @Inject lateinit var updateService:IUpdateService
 
 
     override fun onCreate() {

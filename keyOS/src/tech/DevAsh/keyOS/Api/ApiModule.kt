@@ -24,8 +24,4 @@ class ApiModule {
         return retrofit.create(IQRCodeService::class.java)
     }
 
-    @Provides
-    fun getUpdatedApk():IUpdateService{
-        return retrofit.create(IUpdateService::class.java)
-    }
 }

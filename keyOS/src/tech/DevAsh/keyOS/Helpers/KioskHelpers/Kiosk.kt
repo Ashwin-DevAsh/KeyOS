@@ -17,6 +17,7 @@ import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.User.user
+import tech.DevAsh.keyOS.Helpers.AnalyticsHelper
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
 import tech.DevAsh.keyOS.Receiver.KioskReceiver
 import java.io.File
@@ -48,6 +49,7 @@ object Kiosk {
         if(!isMyServiceRunning(context, UsageAccessService::class.java)){
             isKisokEnabled = true
             writeLog()
+            AnalyticsHelper.logEvent(context, "Kiosk Started")
             Log.d(TAG, "startKiosk: KioskStarted")
             NotificationBlocker.start()
             KioskReceiver.sendBroadcast(context, KioskReceiver.START_KIOSK)
@@ -71,6 +73,7 @@ object Kiosk {
         context.stopService(getUsageAccessService(context))
         context.stopService(getAccessibilityService(context))
         setCamera(context, false)
+        AnalyticsHelper.logEvent(context, "Kiosk Stopped")
         Log.d(TAG, "stopKiosk: KioskStopped")
     }
 
@@ -81,6 +84,7 @@ object Kiosk {
             context.startActivity(intent)
             stopKiosk(context)
             context.finishAffinity()
+            AnalyticsHelper.logEvent(context, "Open Kiosk Settings from launcher")
         }
     }
 
@@ -107,6 +111,7 @@ object Kiosk {
             exitLauncher(context.applicationContext)
             context.finishAndRemoveTask()
             context.finishAffinity()
+            AnalyticsHelper.logEvent(context, "Exited Kiosk")
             android.os.Handler().postDelayed({
                                                  android.os.Process.killProcess(
                                                          android.os.Process.myPid());
