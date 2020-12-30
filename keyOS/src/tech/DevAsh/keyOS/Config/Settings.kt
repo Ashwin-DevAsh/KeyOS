@@ -356,7 +356,7 @@ class Settings : AppCompatActivity() {
         }
 
         wifi?.setOnClickListener{
-            AnalyticsHelper.logEvent(this,"Opened WebFilter")
+            AnalyticsHelper.logEvent(this,"Toggle orientation")
             optionsOnClick(wifiMode, wifi)
         }
         orientation?.setOnClickListener{
