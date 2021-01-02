@@ -40,7 +40,7 @@ object UpdateOriginalApk {
     }
 
     fun update(context: Activity){
-        AnalyticsHelper.logEvent(context, "UpdatePro Apk")
+        AnalyticsHelper.logEvent(context, "UpdatePro_Apk")
         val permissions = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
         if(context.packageManager.checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, context.packageName)== PackageManager.PERMISSION_GRANTED ){
           downloadApk(context)

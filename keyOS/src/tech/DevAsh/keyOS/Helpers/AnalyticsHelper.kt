@@ -6,9 +6,10 @@ import android.os.Handler
 import tech.DevAsh.keyOS.KioskApp
 
 object AnalyticsHelper {
-    fun logEvent(context:Context,eventName:String,bundle: Bundle= Bundle()){
+    fun logEvent(context:Context,eventName:String,bundle: Bundle = Bundle()){
         Handler().post {
-            context.KioskApp.firebaseAnalytics?.logEvent(eventName,bundle)
+            bundle.putString("timestamp", System.currentTimeMillis().toString())
+            context.KioskApp.firebaseAnalytics?.logEvent(eventName, bundle)
         }
     }
 }

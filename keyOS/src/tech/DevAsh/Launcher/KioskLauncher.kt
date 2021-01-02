@@ -185,13 +185,16 @@ open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenc
     }
 
     override fun onResume() {
-        super.onResume()
-        startKiosk(this)
-        recreateIfPending()
-        restartIfPending()
-        BrightnessManager.getInstance(this).startListening()
-        paused = false
+        try{
+            super.onResume()
+            startKiosk(this)
+            recreateIfPending()
+            restartIfPending()
+            BrightnessManager.getInstance(this).startListening()
+            paused = false
+        }catch (e:Throwable){
 
+        }
     }
 
 

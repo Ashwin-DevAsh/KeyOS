@@ -123,28 +123,28 @@ class Settings : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.feedback -> {
-                    AnalyticsHelper.logEvent(this,"sending feedback")
+                    AnalyticsHelper.logEvent(this,"sending_feedback")
                     feedBack()
                 }
                 R.id.bug -> {
-                    AnalyticsHelper.logEvent(this,"report bug")
+                    AnalyticsHelper.logEvent(this,"report_bug")
                     bug()
                 }
                 R.id.rate -> {
-                    AnalyticsHelper.logEvent(this,"rate app")
+                    AnalyticsHelper.logEvent(this,"rate_app")
                     rate()
                 }
                 R.id.share -> {
-                    AnalyticsHelper.logEvent(this,"share app")
+                    AnalyticsHelper.logEvent(this,"share_app")
                     share()
                 }
                 R.id.privacyPolicy -> {
-                    AnalyticsHelper.logEvent(this,"Opened privacyPolicy website")
+                    AnalyticsHelper.logEvent(this,"Opened_privacyPolicy_website")
                     openWebsite(BuildConfig.PRIVACY_POLICY)
                 }
 
                 R.id.termsAndCondition -> {
-                    AnalyticsHelper.logEvent(this,"Opened termsAndCondition website")
+                    AnalyticsHelper.logEvent(this,"Opened_termsAndCondition_website")
                     openWebsite(BuildConfig.TERMS_AND_CONDITIONS)
                 }
 
@@ -153,17 +153,17 @@ class Settings : AppCompatActivity() {
                 }
 
                 R.id.developerContact -> {
-                    AnalyticsHelper.logEvent(this,"Opened Developer website")
+                    AnalyticsHelper.logEvent(this,"Opened_Developer_website")
                     openWebsite(color = "")
                 }
 
                 R.id.visit -> {
-                    AnalyticsHelper.logEvent(this,"Opened App website")
+                    AnalyticsHelper.logEvent(this,"Opened_App_website")
                     openWebsite("https://www.keyos.in")
                 }
 
                 R.id.survey -> {
-                    AnalyticsHelper.logEvent(this,"Opened Survey")
+                    AnalyticsHelper.logEvent(this,"Opened_Survey")
                     openWebsite("https://docs.google.com/forms/d/e/1FAIpQLSee4_xynrFhk_BJqb5Arbt_ayS6eG_8WFN179J6dJi5Mt9FzQ/viewform?usp=pp_url")
                 }
 
@@ -321,7 +321,7 @@ class Settings : AppCompatActivity() {
 
     private fun onClick(){
         launch?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Tap launch button")
+            AnalyticsHelper.logEvent(this,"Tap_launch_button")
             if(launchContainer.visibility==View.VISIBLE){
                 shouldLaunch = true
                 saveData()
@@ -334,41 +334,41 @@ class Settings : AppCompatActivity() {
         }
 
         drawer.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened Drawer")
+            AnalyticsHelper.logEvent(this,"Opened_Drawer")
             val navDrawer = findViewById<DrawerLayout>(R.id.settingsLayout)
             navDrawer.openDrawer(GravityCompat.START)
         }
 
         importExport?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened Import and export")
+            AnalyticsHelper.logEvent(this,"Opened_Import_and_export")
             startActivity(Intent(this, ImportExportSettings::class.java))
         }
 
         password?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened password")
+            AnalyticsHelper.logEvent(this,"Opened_password")
             startActivity(Intent(this, Password::class.java))
         }
 
         webFilter.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened WebFilter")
+            AnalyticsHelper.logEvent(this,"Opened_WebFilter")
             startActivity(Intent(this, WebFilter::class.java))
 
         }
 
         wifi?.setOnClickListener{
-            AnalyticsHelper.logEvent(this,"Toggle orientation")
+            AnalyticsHelper.logEvent(this,"Toggle_wifi")
             optionsOnClick(wifiMode, wifi)
         }
         orientation?.setOnClickListener{
-            AnalyticsHelper.logEvent(this,"Toggle orientation")
+            AnalyticsHelper.logEvent(this,"Toggle_orientation")
             optionsOnClick(orientationMode, orientation, BasicSettings.orientationOptions)
         }
         bluetooth?.setOnClickListener{
-            AnalyticsHelper.logEvent(this,"Toggle bluetooth")
+            AnalyticsHelper.logEvent(this,"Toggle_bluetooth")
             optionsOnClick(bluetoothMode, bluetooth)
         }
         sound?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Toggle sound")
+            AnalyticsHelper.logEvent(this,"Toggle_sound")
             optionsOnClick(soundMode, sound, BasicSettings.soundOptions)
         }
 
@@ -378,48 +378,48 @@ class Settings : AppCompatActivity() {
         }
 
         apps?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened AllowApps")
+            AnalyticsHelper.logEvent(this,"Opened_AllowApps")
             AllowApps.type=Types.ALLOWAPPS
             startActivity(Intent(this, AllowApps::class.java))
         }
 
         services.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened Services")
+            AnalyticsHelper.logEvent(this,"Opened_Services")
             AllowApps.type=Types.ALLOWSERVICES
             startActivity(Intent(this, AllowApps::class.java))
         }
 
         singleApp.setOnClickListener{
-            AnalyticsHelper.logEvent(this,"Opened SingeApp")
+            AnalyticsHelper.logEvent(this,"Opened_SingeApp")
             AllowApps.type=Types.SINGLEAPP
             startActivity(Intent(this, AllowApps::class.java))
         }
 
         screenSaver.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened ScreenSaver")
+            AnalyticsHelper.logEvent(this,"Opened_ScreenSaver")
             startActivity(Intent(this, ScreenSaver::class.java))
         }
 
         phone.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened Call blocker")
+            AnalyticsHelper.logEvent(this,"Opened_Call_blocker")
             startActivity(Intent(this, PhoneCalls::class.java))
         }
 
         cameraSwitch.setOnCheckedChangeListener{ _, isChecked->
             User.user?.basicSettings?.isDisableCamera = isChecked
-            AnalyticsHelper.logEvent(this,"Switch Camera")
+            AnalyticsHelper.logEvent(this,"Switch_Camera")
             if (isChecked && !PermissionsHelper.isAdmin(this)) {
                     PermissionsHelper.getAdminPermission(this)
             }
         }
 
         exit.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Exit App from Settings")
+            AnalyticsHelper.logEvent(this,"Exit_App_from_Settings")
             Kiosk.exitKiosk(this, User.user?.password)
         }
 
         permissions.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Tap permission icon")
+            AnalyticsHelper.logEvent(this,"Tap_permission_icon")
             shouldLaunch = false
             if(!permissionsBottomSheet.isAdded) {
                 permissionsBottomSheet.show(supportFragmentManager, TAG)
@@ -427,7 +427,7 @@ class Settings : AppCompatActivity() {
         }
 
         notificationPanel.setOnCheckedChangeListener{ _, isChecked->
-            AnalyticsHelper.logEvent(this,"Switch notification")
+            AnalyticsHelper.logEvent(this,"Switch_notification")
             User.user!!.basicSettings.notificationPanel = isChecked
         }
     }

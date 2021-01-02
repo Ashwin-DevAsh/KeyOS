@@ -49,7 +49,7 @@ object Kiosk {
         if(!isMyServiceRunning(context, UsageAccessService::class.java)){
             isKisokEnabled = true
             writeLog()
-            AnalyticsHelper.logEvent(context, "Kiosk Started")
+            AnalyticsHelper.logEvent(context, "Kiosk_Started")
             Log.d(TAG, "startKiosk: KioskStarted")
             NotificationBlocker.start()
             KioskReceiver.sendBroadcast(context, KioskReceiver.START_KIOSK)
@@ -73,7 +73,7 @@ object Kiosk {
         context.stopService(getUsageAccessService(context))
         context.stopService(getAccessibilityService(context))
         setCamera(context, false)
-        AnalyticsHelper.logEvent(context, "Kiosk Stopped")
+        AnalyticsHelper.logEvent(context, "Kiosk_Stopped")
         Log.d(TAG, "stopKiosk: KioskStopped")
     }
 
@@ -84,7 +84,7 @@ object Kiosk {
             context.startActivity(intent)
             stopKiosk(context)
             context.finishAffinity()
-            AnalyticsHelper.logEvent(context, "Open Kiosk Settings from launcher")
+            AnalyticsHelper.logEvent(context, "Open_Kiosk_Settings_from_launcher")
         }
     }
 
@@ -111,7 +111,7 @@ object Kiosk {
             exitLauncher(context.applicationContext)
             context.finishAndRemoveTask()
             context.finishAffinity()
-            AnalyticsHelper.logEvent(context, "Exited Kiosk")
+            AnalyticsHelper.logEvent(context, "Exited_Kiosk")
             android.os.Handler().postDelayed({
                                                  android.os.Process.killProcess(
                                                          android.os.Process.myPid());
