@@ -210,7 +210,7 @@ class AllowApps : AppCompatActivity() {
         val allowedItems = RealmList<Apps>()
         for(i in list){
             if (i.appName!=null){
-                allowedItems.add(Apps(i.packageName))
+                allowedItems.add(Apps(i.packageName,i.appName))
             }
         }
         return allowedItems

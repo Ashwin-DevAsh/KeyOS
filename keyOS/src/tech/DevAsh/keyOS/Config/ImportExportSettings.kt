@@ -17,6 +17,7 @@ import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.keyOS.Api.IQRCodeService
 import tech.DevAsh.keyOS.Config.Fragments.DisplayQr
 import tech.DevAsh.keyOS.Database.User
+import tech.DevAsh.keyOS.Helpers.AnalyticsHelper
 import tech.DevAsh.keyOS.KioskApp
 import java.io.*
 import javax.inject.Inject
@@ -41,6 +42,7 @@ class ImportExportSettings : AppCompatActivity() {
 
     fun onClick(){
         scan.setOnClickListener {
+            AnalyticsHelper.logEvent(this, "scan_qr_code")
             val permissions = arrayOf(android.Manifest.permission.CAMERA)
             if(packageManager.checkPermission(
                             android.Manifest.permission.CAMERA,
@@ -62,15 +64,17 @@ class ImportExportSettings : AppCompatActivity() {
         }
 
         displayQr.setOnClickListener {
-//            AlertHelper.showToast("Not supported in early access", this)
-           displayQR.show(supportFragmentManager, "")
+            AnalyticsHelper.logEvent(this, "display_qr_code")
+            displayQR.show(supportFragmentManager, "")
         }
 
         export.setOnClickListener {
+            AnalyticsHelper.logEvent(this, "export_config_file")
             saveFile()
         }
 
         importFile.setOnClickListener {
+            AnalyticsHelper.logEvent(this, "import_config_file")
             showFileChooser()
         }
 

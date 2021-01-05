@@ -41,6 +41,7 @@ import tech.DevAsh.Launcher.sensors.BrightnessManager
 import tech.DevAsh.Launcher.theme.ThemeOverride
 import tech.DevAsh.Launcher.views.KioskBackgroundView
 import tech.DevAsh.Launcher.views.OptionsPanel
+import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Database.User.user
 import tech.DevAsh.keyOS.KioskApp
 import java.io.File
@@ -199,9 +200,13 @@ open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenc
 
 
     fun startSingleApp(){
-        val intent = packageManager.getLaunchIntentForPackage(user!!.singleApp.packageName)
-        intent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        startActivity(intent)
+        try{
+            val intent = packageManager.getLaunchIntentForPackage(user!!.singleApp.packageName)
+            intent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }catch (e:Throwable){
+            User.getUsers(this)
+        }
     }
 
     override fun onPause() {

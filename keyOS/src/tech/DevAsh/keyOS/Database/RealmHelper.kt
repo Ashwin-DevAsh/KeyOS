@@ -12,7 +12,7 @@ object RealmHelper {
         Realm.init(context)
         val mConfiguration = RealmConfiguration.Builder()
                 .name("RealmData.realm")
-                .schemaVersion(6)
+                .schemaVersion(7)
                 .migration(RealmMigrations(context))
                 .build()
         Realm.setDefaultConfiguration(mConfiguration)

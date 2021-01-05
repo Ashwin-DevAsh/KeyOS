@@ -26,6 +26,9 @@ public class Apps extends RealmObject {
     @SerializedName("packageName")
     public String packageName;
 
+    @SerializedName("appName")
+    public String appName;
+
     @SerializedName("hourPerDay")
     public String hourPerDay = "24:00";
 
@@ -38,10 +41,11 @@ public class Apps extends RealmObject {
 
     @Ignore
     public Drawable icon;
-    @Ignore
-    public String appName;
+
     @Ignore
     public PackageInfo packageInfo;
+
+
 
     public Apps(String packageName, Drawable icon, String appName,PackageInfo packageInfo) {
         this.packageName = packageName;
@@ -61,6 +65,11 @@ public class Apps extends RealmObject {
 
     public Apps(){}
 
+
+    public Apps(String packageName,String appName){
+        this.packageName=packageName;
+        this.appName = appName;
+    }
 
     public Apps(String packageName){
         this.packageName=packageName;

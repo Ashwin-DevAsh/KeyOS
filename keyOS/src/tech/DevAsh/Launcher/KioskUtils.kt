@@ -55,7 +55,6 @@ import android.view.animation.Interpolator
 import android.widget.*
 import tech.DevAsh.Launcher.colors.ColorEngine
 import tech.DevAsh.Launcher.font.CustomFontManager
-import tech.DevAsh.Launcher.util.JSONMap
 import tech.DevAsh.Launcher.util.hasFlag
 import com.android.launcher3.*
 import com.android.launcher3.compat.LauncherAppsCompat
@@ -674,7 +673,7 @@ fun JSONObject.getNullable(key: String): Any? {
     return opt(key)
 }
 
-fun JSONObject.asMap() = JSONMap(this)
+//fun JSONObject.asMap() = JSONMap(this)
 
 fun String.asNonEmpty(): String? {
     if (TextUtils.isEmpty(this)) return null

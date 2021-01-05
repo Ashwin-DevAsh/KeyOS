@@ -35,6 +35,8 @@ import tech.DevAsh.Launcher.theme.ThemeManager
 import tech.DevAsh.keyOS.Api.IMailService
 import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
+import tech.DevAsh.keyOS.Socket.SocketHelper
+import java.net.Socket
 import javax.inject.Inject
 
 
@@ -57,7 +59,7 @@ class KioskApp : Application() {
         applicationComponents!!.inject(this)
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         firebaseAnalytics?.setUserId(AlertDeveloper.getInstallDetails(this).deviceID)
-
+        SocketHelper.connect(this)
         super.onCreate()
     }
 

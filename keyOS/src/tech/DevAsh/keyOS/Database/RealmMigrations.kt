@@ -78,6 +78,12 @@ class RealmMigrations(val context: Context) : RealmMigration{
             oldVersion++
         }
 
+        if(oldVersion==6L){
+            val reviewInfo = schema.get("Apps")!!
+            reviewInfo.addField("appName",String::class.java)
+            oldVersion++
+        }
+
 
 
 
