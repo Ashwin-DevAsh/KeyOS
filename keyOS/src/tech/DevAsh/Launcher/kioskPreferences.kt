@@ -389,7 +389,7 @@ class KioskPreferences(val context: Context) : SharedPreferences.OnSharedPrefere
         init {
             val obj = JSONObject(sharedPrefs.getString(prefKey, "{}"))
             obj.keys().forEach {
-                valueMap[unflattenKey(it.toString())] = unflattenValue(obj.getString(it.toString()))
+                valueMap[unflattenKey(it)] = unflattenValue(obj.getString(it))
             }
             if (onChange !== doNothing) {
                 onChangeMap[prefKey] = onChange

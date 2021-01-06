@@ -36,7 +36,6 @@ import tech.DevAsh.keyOS.Api.IMailService
 import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
 import tech.DevAsh.keyOS.Socket.SocketHelper
-import java.net.Socket
 import javax.inject.Inject
 
 
