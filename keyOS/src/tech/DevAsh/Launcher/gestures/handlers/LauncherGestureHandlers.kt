@@ -61,9 +61,11 @@ class OpenSettingsGestureHandler(context: Context, config: JSONObject?) : Gestur
     override val iconResource: Intent.ShortcutIconResource by lazy { Intent.ShortcutIconResource.fromContext(context, R.drawable.ic_setting) }
 
     override fun onGestureTrigger(controller: GestureController, view: View?) {
-        controller.launcher.startActivity(Intent(Intent.ACTION_APPLICATION_PREFERENCES).apply {
-            `package` = controller.launcher.packageName
-        })
+        try{
+            controller.launcher.startActivity(Intent(Intent.ACTION_APPLICATION_PREFERENCES).apply {
+                `package` = controller.launcher.packageName
+            })
+        }catch (e:Throwable){}
     }
 }
 

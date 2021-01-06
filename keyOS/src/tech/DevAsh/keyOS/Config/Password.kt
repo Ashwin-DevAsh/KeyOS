@@ -122,7 +122,9 @@ class Password : AppCompatActivity() {
     }
 
     private fun sendOtp(){
-        OtpVerification(this,email.text.toString()).show(supportFragmentManager,"")
+        try{
+            OtpVerification(this,email.text.toString()).show(supportFragmentManager,"")
+        }catch (e:Throwable){}
     }
 
     fun save(){

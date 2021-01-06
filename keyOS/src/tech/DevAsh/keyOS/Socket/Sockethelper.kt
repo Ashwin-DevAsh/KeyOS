@@ -1,13 +1,10 @@
 package tech.DevAsh.keyOS.Socket
 
 import android.content.Context
-import android.content.Intent
 import android.os.Handler
-import android.widget.Toast
 import com.github.nkzawa.socketio.client.IO
 import com.github.nkzawa.socketio.client.Socket
 import org.json.JSONObject
-import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.keyOS.Api.ApiContext
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
 
