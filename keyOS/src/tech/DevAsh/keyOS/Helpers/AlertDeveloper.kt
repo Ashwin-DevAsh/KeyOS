@@ -1,4 +1,4 @@
-package tech.DevAsh.keyOS.Helpers.KioskHelpers
+package tech.DevAsh.keyOS.Helpers
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,8 +11,8 @@ import retrofit2.Response
 import tech.DevAsh.keyOS.Api.Request.DeviceInfo
 import tech.DevAsh.keyOS.Api.Request.LaunchedInfo
 import tech.DevAsh.keyOS.Api.Response.BasicResponse
-import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.KioskApp
+import java.net.NetworkInterface
 
 object AlertDeveloper {
     var TAG = this::class.java.simpleName
@@ -20,7 +20,8 @@ object AlertDeveloper {
         Handler().post {
             try {
                 Log.d(TAG, "sendNewInstallAlert: Sending email developer")
-                context.KioskApp.mailService.newInstall(getInstallDetails(context))?.enqueue(callback)
+                context.KioskApp.mailService.newInstall(getInstallDetails(context))?.enqueue(
+                        callback)
                 Log.d(TAG, "sendNewInstallAlert: Done")
             }catch (e:Throwable){
                 e.printStackTrace()
@@ -33,7 +34,7 @@ object AlertDeveloper {
             try {
                 Log.d(TAG, "sendNewInstallAlert: Sending email developer")
                 context.KioskApp.mailService.userLaunched(
-                        LaunchedInfo(getInstallDetails (context),isLaunched))?.enqueue(callback)
+                        LaunchedInfo(getInstallDetails(context), isLaunched))?.enqueue(callback)
                 Log.d(TAG, "sendNewInstallAlert: Done")
             }catch (e:Throwable){
                 e.printStackTrace()
@@ -45,7 +46,8 @@ object AlertDeveloper {
         Handler().post {
             try {
                 Log.d(TAG, "sendProApkDownloadAlert: Sending email developer")
-                context.KioskApp.mailService.proApkDownloadAlert(getInstallDetails(context))?.enqueue(callback)
+                context.KioskApp.mailService.proApkDownloadAlert(
+                        getInstallDetails(context))?.enqueue(callback)
                 Log.d(TAG, "sendProApkDownloadAlert: Done")
             }catch (e:Throwable){
                 e.printStackTrace()
@@ -71,9 +73,21 @@ object AlertDeveloper {
         val brand = Build.BRAND
         val model = Build.MODEL
         val deviceID = Settings.Secure.getString(context.contentResolver,
-                                                 Settings.Secure.ANDROID_ID);
-       return DeviceInfo(sdk.toString(), brand, model, deviceID)
+                                                 Settings.Secure.ANDROID_ID)
+       return DeviceInfo(sdk.toString(), brand, model, deviceID )
     }
+
+    fun getMac(): String? =
+            try {
+                NetworkInterface.getNetworkInterfaces()
+                        .toList()
+                        .find { networkInterface -> networkInterface.name.equals("wlan0", ignoreCase = true) }
+                        ?.hardwareAddress
+                        ?.joinToString(separator = ":") { byte -> "%02X".format(byte) }
+            } catch (ex: Throwable) {
+                ex.printStackTrace()
+                "None"
+            }
 
 
 }

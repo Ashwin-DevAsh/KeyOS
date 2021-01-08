@@ -10,12 +10,9 @@ import android.net.Uri
 import android.os.*
 import android.provider.Settings
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.view.GravityCompat
@@ -27,12 +24,7 @@ import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
 import com.google.android.play.core.install.model.AppUpdateType
 import com.google.android.play.core.install.model.UpdateAvailability
-import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManagerFactory
-import com.google.android.play.core.review.testing.FakeReviewManager
-import com.google.android.play.core.tasks.OnCompleteListener
-import com.google.android.play.core.tasks.OnFailureListener
-import com.google.android.play.core.tasks.Task
 import io.realm.Realm
 import kotlinx.android.synthetic.dev.activity_settings.*
 import kotlinx.android.synthetic.dev.drawer_header.view.*
@@ -50,7 +42,7 @@ import tech.DevAsh.keyOS.Config.WebFilter
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Helpers.AnalyticsHelper
-import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
+import tech.DevAsh.keyOS.Helpers.AlertDeveloper
 import java.io.File
 
 

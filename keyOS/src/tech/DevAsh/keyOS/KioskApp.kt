@@ -18,13 +18,10 @@
 package tech.DevAsh.keyOS
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
-import com.android.launcher3.DeviceProfile
 import com.android.launcher3.Utilities
 import com.google.firebase.analytics.FirebaseAnalytics
 import tech.DevAsh.KeyOS.Database.RealmHelper
@@ -34,7 +31,7 @@ import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
 import tech.DevAsh.Launcher.theme.ThemeManager
 import tech.DevAsh.keyOS.Api.IMailService
 import tech.DevAsh.keyOS.Database.User
-import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
+import tech.DevAsh.keyOS.Helpers.AlertDeveloper
 import tech.DevAsh.keyOS.Socket.SocketHelper
 import javax.inject.Inject
 

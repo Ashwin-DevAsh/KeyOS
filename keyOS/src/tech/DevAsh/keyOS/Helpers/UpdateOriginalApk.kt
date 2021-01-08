@@ -2,25 +2,12 @@ package tech.DevAsh.keyOS.Helpers
 
 import android.app.*
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.AsyncTask
-import android.os.Build
 import android.os.Environment
-import android.os.Handler
 import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
-import androidx.core.content.FileProvider
 import com.afollestad.materialdialogs.MaterialDialog
-import com.android.launcher3.BuildConfig
-import com.android.launcher3.R
 import tech.DevAsh.keyOS.Api.ApiContext
-import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
-import tech.DevAsh.keyOS.KioskApp
-import java.io.File
-import java.io.FileOutputStream
-import java.io.InputStream
 
 
 object UpdateOriginalApk {

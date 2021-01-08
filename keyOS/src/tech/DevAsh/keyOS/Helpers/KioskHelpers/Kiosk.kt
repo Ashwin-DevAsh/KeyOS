@@ -18,7 +18,7 @@ import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.User.user
 import tech.DevAsh.keyOS.Helpers.AnalyticsHelper
-import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
+import tech.DevAsh.keyOS.Helpers.AlertDeveloper
 import tech.DevAsh.keyOS.Receiver.KioskReceiver
 import java.io.File
 

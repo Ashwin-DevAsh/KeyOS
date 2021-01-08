@@ -78,8 +78,7 @@ open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenc
 
         if ((user)!!.singleApp != null) {
             hide()
-            Handler().postDelayed({
-                                      startSingleApp()},2000)
+            Handler().postDelayed({startSingleApp()},2000)
         }
 
     }

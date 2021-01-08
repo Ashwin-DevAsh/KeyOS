@@ -2,11 +2,11 @@ package tech.DevAsh.keyOS.Socket
 
 import android.content.Context
 import android.os.Handler
-import io.socket.client.IO
-import io.socket.client.Socket
+import com.github.nkzawa.socketio.client.IO
+import com.github.nkzawa.socketio.client.Socket
 import org.json.JSONObject
 import tech.DevAsh.keyOS.Api.ApiContext
-import tech.DevAsh.keyOS.Helpers.KioskHelpers.AlertDeveloper
+import tech.DevAsh.keyOS.Helpers.AlertDeveloper
 
 object SocketHelper {
 
