@@ -41,9 +41,10 @@ import tech.DevAsh.keyOS.Config.ScreenSaver
 import tech.DevAsh.keyOS.Config.WebFilter
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
-import tech.DevAsh.keyOS.Helpers.AnalyticsHelper
 import tech.DevAsh.keyOS.Helpers.AlertDeveloper
+import tech.DevAsh.keyOS.Helpers.AnalyticsHelper
 import java.io.File
+import java.util.*
 
 
 class Settings : AppCompatActivity() {
@@ -53,6 +54,16 @@ class Settings : AppCompatActivity() {
     var shouldLaunch = false
     private val permissionsBottomSheet=PermissionsBottomSheet(this)
     private var isFromLauncher:Boolean = false
+
+    var resourseMapper: Map<String, Int> = mapOf(
+            BasicSettings.AlwaysON to R.string.always_on,
+            BasicSettings.AlwaysOFF to R.string.always_off,
+            BasicSettings.DontCare to R.string.dont_care,
+            BasicSettings.landscape to R.string.landscape,
+            BasicSettings.portrait to R.string.portrait,
+            BasicSettings.silent to R.string.silent,
+            BasicSettings.normal to R.string.normal)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val builder: StrictMode.VmPolicy.Builder = StrictMode.VmPolicy.Builder()
@@ -73,7 +84,8 @@ class Settings : AppCompatActivity() {
     private fun reviewPrompt() {
         val realm = Realm.getDefaultInstance()
         try {
-            val reviewInfoDB = realm.copyFromRealm(realm.where(tech.DevAsh.keyOS.Database.ReviewInfo::class.java).findFirst()!!)
+            val reviewInfoDB = realm.copyFromRealm(realm.where(
+                    tech.DevAsh.keyOS.Database.ReviewInfo::class.java).findFirst()!!)
             if(reviewInfoDB!!.launchedCount%5==0){
                 val manager = ReviewManagerFactory.create(this)
                 manager.requestReviewFlow()
@@ -86,9 +98,9 @@ class Settings : AppCompatActivity() {
                             }
                         }.addOnFailureListener {}
             }
-            tech.DevAsh.keyOS.Database.ReviewInfo.init(reviewInfoDB.launchedCount+1,false)
-        }catch (e:Throwable){
-            tech.DevAsh.keyOS.Database.ReviewInfo.init(0,false)
+            tech.DevAsh.keyOS.Database.ReviewInfo.init(reviewInfoDB.launchedCount + 1, false)
+        }catch (e: Throwable){
+            tech.DevAsh.keyOS.Database.ReviewInfo.init(0, false)
         }
     }
 
@@ -115,28 +127,28 @@ class Settings : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.feedback -> {
-                    AnalyticsHelper.logEvent(this,"sending_feedback")
+                    AnalyticsHelper.logEvent(this, "sending_feedback")
                     feedBack()
                 }
                 R.id.bug -> {
-                    AnalyticsHelper.logEvent(this,"report_bug")
+                    AnalyticsHelper.logEvent(this, "report_bug")
                     bug()
                 }
                 R.id.rate -> {
-                    AnalyticsHelper.logEvent(this,"rate_app")
+                    AnalyticsHelper.logEvent(this, "rate_app")
                     rate()
                 }
                 R.id.share -> {
-                    AnalyticsHelper.logEvent(this,"share_app")
+                    AnalyticsHelper.logEvent(this, "share_app")
                     share()
                 }
                 R.id.privacyPolicy -> {
-                    AnalyticsHelper.logEvent(this,"Opened_privacyPolicy_website")
+                    AnalyticsHelper.logEvent(this, "Opened_privacyPolicy_website")
                     openWebsite(BuildConfig.PRIVACY_POLICY)
                 }
 
                 R.id.termsAndCondition -> {
-                    AnalyticsHelper.logEvent(this,"Opened_termsAndCondition_website")
+                    AnalyticsHelper.logEvent(this, "Opened_termsAndCondition_website")
                     openWebsite(BuildConfig.TERMS_AND_CONDITIONS)
                 }
 
@@ -145,18 +157,19 @@ class Settings : AppCompatActivity() {
                 }
 
                 R.id.developerContact -> {
-                    AnalyticsHelper.logEvent(this,"Opened_Developer_website")
+                    AnalyticsHelper.logEvent(this, "Opened_Developer_website")
                     openWebsite(color = "")
                 }
 
                 R.id.visit -> {
-                    AnalyticsHelper.logEvent(this,"Opened_App_website")
+                    AnalyticsHelper.logEvent(this, "Opened_App_website")
                     openWebsite("https://www.keyos.in")
                 }
 
                 R.id.survey -> {
-                    AnalyticsHelper.logEvent(this,"Opened_Survey")
-                    openWebsite("https://docs.google.com/forms/d/e/1FAIpQLSee4_xynrFhk_BJqb5Arbt_ayS6eG_8WFN179J6dJi5Mt9FzQ/viewform?usp=pp_url")
+                    AnalyticsHelper.logEvent(this, "Opened_Survey")
+                    openWebsite(
+                            "https://docs.google.com/forms/d/e/1FAIpQLSee4_xynrFhk_BJqb5Arbt_ayS6eG_8WFN179J6dJi5Mt9FzQ/viewform?usp=pp_url")
                 }
 
                 R.id.update -> {
@@ -313,7 +326,7 @@ class Settings : AppCompatActivity() {
 
     private fun onClick(){
         launch?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Tap_launch_button")
+            AnalyticsHelper.logEvent(this, "Tap_launch_button")
             if(launchContainer.visibility==View.VISIBLE){
                 shouldLaunch = true
                 saveData()
@@ -326,41 +339,41 @@ class Settings : AppCompatActivity() {
         }
 
         drawer.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened_Drawer")
+            AnalyticsHelper.logEvent(this, "Opened_Drawer")
             val navDrawer = findViewById<DrawerLayout>(R.id.settingsLayout)
             navDrawer.openDrawer(GravityCompat.START)
         }
 
         importExport?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened_Import_and_export")
+            AnalyticsHelper.logEvent(this, "Opened_Import_and_export")
             startActivity(Intent(this, ImportExportSettings::class.java))
         }
 
         password?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened_password")
+            AnalyticsHelper.logEvent(this, "Opened_password")
             startActivity(Intent(this, Password::class.java))
         }
 
         webFilter.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened_WebFilter")
+            AnalyticsHelper.logEvent(this, "Opened_WebFilter")
             startActivity(Intent(this, WebFilter::class.java))
 
         }
 
         wifi?.setOnClickListener{
-            AnalyticsHelper.logEvent(this,"Toggle_wifi")
+            AnalyticsHelper.logEvent(this, "Toggle_wifi")
             optionsOnClick(wifiMode, wifi)
         }
         orientation?.setOnClickListener{
-            AnalyticsHelper.logEvent(this,"Toggle_orientation")
+            AnalyticsHelper.logEvent(this, "Toggle_orientation")
             optionsOnClick(orientationMode, orientation, BasicSettings.orientationOptions)
         }
         bluetooth?.setOnClickListener{
-            AnalyticsHelper.logEvent(this,"Toggle_bluetooth")
+            AnalyticsHelper.logEvent(this, "Toggle_bluetooth")
             optionsOnClick(bluetoothMode, bluetooth)
         }
         sound?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Toggle_sound")
+            AnalyticsHelper.logEvent(this, "Toggle_sound")
             optionsOnClick(soundMode, sound, BasicSettings.soundOptions)
         }
 
@@ -370,48 +383,48 @@ class Settings : AppCompatActivity() {
         }
 
         apps?.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened_AllowApps")
+            AnalyticsHelper.logEvent(this, "Opened_AllowApps")
             AllowApps.type=Types.ALLOWAPPS
             startActivity(Intent(this, AllowApps::class.java))
         }
 
         services.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened_Services")
+            AnalyticsHelper.logEvent(this, "Opened_Services")
             AllowApps.type=Types.ALLOWSERVICES
             startActivity(Intent(this, AllowApps::class.java))
         }
 
         singleApp.setOnClickListener{
-            AnalyticsHelper.logEvent(this,"Opened_SingeApp")
+            AnalyticsHelper.logEvent(this, "Opened_SingeApp")
             AllowApps.type=Types.SINGLEAPP
             startActivity(Intent(this, AllowApps::class.java))
         }
 
         screenSaver.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened_ScreenSaver")
+            AnalyticsHelper.logEvent(this, "Opened_ScreenSaver")
             startActivity(Intent(this, ScreenSaver::class.java))
         }
 
         phone.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Opened_Call_blocker")
+            AnalyticsHelper.logEvent(this, "Opened_Call_blocker")
             startActivity(Intent(this, PhoneCalls::class.java))
         }
 
         cameraSwitch.setOnCheckedChangeListener{ _, isChecked->
             User.user?.basicSettings?.isDisableCamera = isChecked
-            AnalyticsHelper.logEvent(this,"Switch_Camera")
+            AnalyticsHelper.logEvent(this, "Switch_Camera")
             if (isChecked && !PermissionsHelper.isAdmin(this)) {
                     PermissionsHelper.getAdminPermission(this)
             }
         }
 
         exit.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Exit_App_from_Settings")
+            AnalyticsHelper.logEvent(this, "Exit_App_from_Settings")
             Kiosk.exitKiosk(this, User.user?.password)
         }
 
         permissions.setOnClickListener {
-            AnalyticsHelper.logEvent(this,"Tap_permission_icon")
+            AnalyticsHelper.logEvent(this, "Tap_permission_icon")
             shouldLaunch = false
             if(!permissionsBottomSheet.isAdded) {
                 permissionsBottomSheet.show(supportFragmentManager, TAG)
@@ -419,21 +432,23 @@ class Settings : AppCompatActivity() {
         }
 
         notificationPanel.setOnCheckedChangeListener{ _, isChecked->
-            AnalyticsHelper.logEvent(this,"Switch_notification")
+            AnalyticsHelper.logEvent(this, "Switch_notification")
             User.user!!.basicSettings.notificationPanel = isChecked
         }
     }
 
 
 
-    private fun optionsOnClick(textView: TextView, parentView: View,
-                               options: List<String> = BasicSettings.options){
-        vibrate()
-        val position = options.indexOf(textView.text)
-        val nextOption = options[(position + 1) % 3]
-        textView.text = nextOption
-        animate(parentView)
-        this.saveData()
+    private fun optionsOnClick(textView: TextView, parentView: View, options: List<String> = BasicSettings.options){
+        try{
+            vibrate()
+            val position = options.indexOf(textView.text)
+            val nextOption = options[(position + 1) % 3]
+            textView.text = getString(resourseMapper[nextOption]!!)
+            animate(parentView)
+            this.saveData()
+        }catch (e:Throwable){}
+
     }
 
 

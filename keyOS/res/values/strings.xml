@@ -332,6 +332,7 @@
 
     <!--    KeyOS-->
 
+    <string name="app_name" >"KeyOS"</string>
     <string name="exit_button_text">Exit Kiosk</string>
     <string name="widget_button_text">Widgets</string>
     <string name="button_overview_mode">Overview Mode</string>
@@ -447,5 +448,50 @@
     <string name="whitelist_apps_subheading">"Select which apps you want to\ngive access"</string>
     <string name="whitelist_service_heading">"Select which services you want to\ngive access"</string>
     <string name="single_app_subheading">"Select which app you want available\nin foreground"</string>
+    <string name="blacklist">Blacklist</string>
+    <string name="contacts_blacklist_subheading">Contacts saved under Blacklist won\'t be able to call your Android phone anymore</string>
+    <string name="contacts_whitelist_subheading">Contacts saved under Whitelist only able to call your Android phone anymore</string>
+    <string name="delete">Delete</string>
+    <string name="delete_contact_subheading">Are you sure you want to delete this items</string>
+    <string name="invalid_name">Invalid name</string>
+    <string name="invalid_number">Invalid number</string>
+    <string name="hours">Hours</string>
+    <string name="minutes">Minutes</string>
+    <string name="file_exported_to">File exported to</string>
+    <string name="select_a_file_to_uplode">Select a File to Upload</string>
+    <string name="please_install_a_file_manager">Please install a File Manager.</string>
+    <string name="invalid_backup_file">Invalid backup file</string>
+    <string name="imported_successfully">Imported Successfully</string>
+    <string name="password_successfully_send">Password successfully sent to your email address</string>
+    <string name="password_recovery_failed">Password recovery failed</string>
+    <string name="recovery_email_not_registered">Recovery email not registered</string>
+    <string name="change_your">Change Your</string>
+    <string name="forgot_caps">Forgot ?</string>
+    <string name="password_successfully_changed">Your password has been changed successfully</string>
+    <string name="invalid_email_address">Invalid email address</string>
+    <string name="password_min">Password must contain min 8 characters</string>
+    <string name="old_password_must_not_new">Old password must not be new password</string>
+    <string name="password_not_match">Password not match</string>
+    <string name="invalid_old_pasword">Invalid old password</string>
+    <string name="phonebook_blacklist_subheading">"Select which contacts you want to add\nin blacklist"</string>
+    <string name="phonebook_whitelist_subheading">"Select which contacts you want to add\nin whitelist"</string>
+    <string name="camera_not_init">Camera initialization error :</string>
+    <string name="please_wait">Please wait</string>
+    <string name="invalid_qr">Invalid QrCode!</string>
+    <string name="successfully_done">Successfully done!</string>
+    <string name="on_caps">ON</string>
+    <string name="off_caps">OFF</string>
+    <string name="webfilter_blacklist_subheading">Websites save under blacklist won\'t be able to access by browser</string>
+    <string name="webfilter_whitelist_subheading">Websites save under whitelist only able to access by the browser</string>
+    <string name="dialog_website_blacklist_subheading">Please enter the website which you want to add in blacklist Eg: www.google.com</string>
+    <string name="dialog_website_white_subheading">Please enter the website which you want to add in whitelist Eg: www.google.com</string>
+    <string name="invalid_url">Invalid Url</string>
+    <string name="invalid_otp">Invalid Otp</string>
+    <string name="user_agreement_1"><![CDATA[To improve KeyOS and make sure all feature work properly, some of your usage data will be collected anonymously. You must read and agree to our Privacy Policy and Terms & Conditions. before using KeyOS]]></string>
+    <string name="select_all">SELECT ALL</string>
+
+<!--    <string name="failed">Failed!</string>-->
+
+
 
 </resources>

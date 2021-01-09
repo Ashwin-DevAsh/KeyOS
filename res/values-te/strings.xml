@@ -19,7 +19,6 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
     <string name="activity_not_found" msgid="8071924732094499514">"యాప్ ఇన్‌స్టాల్ చేయబడలేదు."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"యాప్ అందుబాటులో లేదు"</string>
