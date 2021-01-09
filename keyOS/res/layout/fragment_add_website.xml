@@ -29,7 +29,7 @@
             android:id="@+id/subHeading"
             android:drawableRight="@drawable/ic_info"
             android:drawableTint="@color/black"
-            android:text="@string/please_enter_the_website_which_you_want_to_add_in_whitelist_eg_www_google_com"
+            android:text="@string/add_websites_subheading"
             android:layout_marginBottom="20dp"
             android:layout_height="wrap_content"/>
         <FrameLayout

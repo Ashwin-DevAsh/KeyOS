@@ -74,7 +74,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"கோப்புறை <xliff:g id="NAME">%1$s</xliff:g> என மறுபெயரிடப்பட்டது"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"கோப்புறை: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ஷார்ட்கட்ஸ்"</string>
-    <string name="exit_button_text" msgid="8404103075899945851">"வால்பேப்பர்கள்"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"முகப்பு அமைப்புகள்"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"முகப்புத் திரை சுழற்சியை அனுமதி"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"அறிவிப்புப் புள்ளிகள்"</string>

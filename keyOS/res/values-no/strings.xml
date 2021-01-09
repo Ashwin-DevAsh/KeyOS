@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Startskjerminnstillinger</string>
-    <string name="exit_button_text">Bakgrunn</string>
     <string name="customize">Tilpass</string>
     <string name="advanced_settings">Flere innstillinger</string>
     <string name="adaptive_icon">Adaptivt ikon</string>

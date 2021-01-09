@@ -177,12 +177,12 @@ class ContactListHeaderViewHolder(
     }
 
     private fun turnOn(){
-        view.isTurnOn.text = "ON"
+        view.isTurnOn.text = context.getText(R.string.on_caps)
         toggleCallback.turnOn()
     }
 
     private fun turnOff(){
-        view.isTurnOn.text = "OFF"
+        view.isTurnOn.text = context.getText(R.string.off_caps)
         toggleCallback.turnOff()
     }
 

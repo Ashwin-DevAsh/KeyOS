@@ -39,6 +39,7 @@ class UserAgreement() : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        content = SpannableString(getString(R.string.user_agreement_1))
         setMessageWithClickableLink(agreementText)
         onClick()
         loadView()
@@ -84,9 +85,7 @@ class UserAgreement() : BottomSheetDialogFragment() {
                                   }, 500)
         }
     }
-    var content = SpannableString("To improve KeyOS and make sure all feature work properly," +
-                  " some of your usage data will be collected anonymously." +
-                  " You must read and agree to our Privacy Policy and Terms & Conditions. before using KeyOS")
+    lateinit var content:SpannableString
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -100,8 +99,8 @@ class UserAgreement() : BottomSheetDialogFragment() {
         //The text and the URL
 
 
-        createSpannableText("Privacy Policy",BuildConfig.PRIVACY_POLICY ,content,textView)
-        createSpannableText("Terms & Conditions",BuildConfig.TERMS_AND_CONDITIONS ,content,textView)
+        createSpannableText( getString(R.string.privacy_policy),BuildConfig.PRIVACY_POLICY ,content,textView)
+        createSpannableText(getString(R.string.terms_amp_conditions),BuildConfig.TERMS_AND_CONDITIONS ,content,textView)
 
 
 

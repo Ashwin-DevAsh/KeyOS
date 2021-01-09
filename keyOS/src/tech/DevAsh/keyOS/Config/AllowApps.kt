@@ -40,29 +40,29 @@ class AllowApps : AppCompatActivity() {
 
         when(type){
            Types.ALLOWAPPS->{
-                heading.text="Apps"
+                heading.text=getString(R.string.apps)
                 loadAdapter(
 
                         Apps.allApps,
                         User.user!!.allowedApps,
-                        "Whitelist Apps",
-                        "Select which apps you want to\ngive access"
+                        getString(R.string.whitelist_apps),
+                        getString(R.string.whitelist_apps_subheading)
                 )
             }
             Types.ALLOWSERVICES->{
-                heading.text="Services"
+                heading.text=getString(R.string.services)
                 loadAdapter(
                         Apps.allService,
-                    User.user!!.allowedServices,
-                    "Whitelist Services",
-                    "Select which services you want to\ngive access"
+                        User.user!!.allowedServices,
+                        getString(R.string.whitelist_services),
+                        getString(R.string.whitelist_service_heading)
                            )
             }
             Types.SINGLEAPP->{
-                heading.text="Single App"
+                heading.text=getString(R.string.single_app)
                 loadAdapterSingleApp(
                         Apps.allApps,
-                        "Select which app you want available\nin foreground"
+                        getString(R.string.single_app_subheading)
                                     )
             }
         }
@@ -148,8 +148,7 @@ class AllowApps : AppCompatActivity() {
         }, 2000)
     }
 
-    private fun loadAdapterSingleApp(items: MutableList<Apps>, subHeading: String = "Select which app you want always available\nin foreground"
-                                    ){
+    private fun loadAdapterSingleApp(items: MutableList<Apps>, subHeading: String){
         Handler().postDelayed({
 
                               val singleAppIndex = Apps.allApps.indexOf(User.user!!.singleApp)

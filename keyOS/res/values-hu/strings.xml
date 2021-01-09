@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Kezdőképernyő-beállítások</string>
-    <string name="exit_button_text">Háttérkép</string>
     <string name="customize">Testreszabás</string>
     <string name="advanced_settings">További beállítások</string>
     <string name="adaptive_icon">Adaptív ikon</string>

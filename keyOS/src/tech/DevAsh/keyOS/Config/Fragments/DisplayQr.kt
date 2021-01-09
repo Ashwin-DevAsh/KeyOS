@@ -147,7 +147,7 @@ class DisplayQr() : BottomSheetDialogFragment() {
         Handler().postDelayed({
             try {
                 dismiss()
-                AlertHelper.showToast("Failed!", importAndExport!!)
+                AlertHelper.showToast(getString(R.string.failed), importAndExport!!)
             }catch (e:Throwable){}
                               }, 800)
 

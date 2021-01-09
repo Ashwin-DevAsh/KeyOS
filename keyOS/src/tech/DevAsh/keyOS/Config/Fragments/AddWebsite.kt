@@ -32,9 +32,9 @@ class AddWebsite() : BottomSheetDialogFragment() {
 
     fun loadView(){
         if(WebsiteList.websiteListType==WebsiteList.Companion.WebsiteListType.BLACKLIST){
-            subHeading.text = "Please enter the website which you want to add in blacklist Eg: www.google.com"
+            subHeading.text = getString(R.string.dialog_website_blacklist_subheading)
         }else{
-            subHeading.text = "Please enter the website which you want to add in whitelist Eg: www.google.com"
+            subHeading.text = getString(R.string.dialog_website_white_subheading)
         }
     }
 
@@ -44,7 +44,7 @@ class AddWebsite() : BottomSheetDialogFragment() {
                 if (websiteList!!.addWebsite(url.text.toString())){
                     dismiss()
                 }else if(url.text.toString().isNotEmpty()){
-                    urlLayout.error = "Invalid Url"
+                    urlLayout.error = getString(R.string.invalid_url)
                 }
             }catch (e:Throwable){}
 

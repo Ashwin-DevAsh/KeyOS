@@ -6,19 +6,19 @@
 
     <group>
         <item
-            android:title="Feedback &amp; suggestions"
+            android:title="@string/feedback_amp_suggestions"
             android:id="@+id/feedback"
             app:showAsAction="never" />
         <item
-            android:title="Quick survey"
+            android:title="@string/quick_survey"
             android:id="@+id/survey"
             app:showAsAction="never" />
         <item
-            android:title="Bug report"
+            android:title="@string/bug_report"
             android:id="@+id/bug"
             app:showAsAction="never" />
         <item
-            android:title="Visit"
+            android:title="@string/visit"
             android:id="@+id/visit"
             app:showAsAction="never" />
 
@@ -27,11 +27,11 @@
     <group>
 
     <item
-        android:title="Rate"
+        android:title="@string/rate"
         android:id="@+id/rate"
         app:showAsAction="never" />
         <item
-            android:title="Share"
+            android:title="@string/share"
             android:id="@+id/share"
             app:showAsAction="never" />
 
@@ -40,12 +40,12 @@
 
     <group android:id="@+id/appInfo">
         <item
-            android:title="App info"
+            android:title="@string/app_info"
             android:visible="false"
             android:id="@+id/appinfo"
             app:showAsAction="never" />
         <item
-            android:title="Check for update"
+            android:title="@string/check_for_update"
             android:id="@+id/update"
             android:visible="false"
             app:showAsAction="never" />
@@ -57,18 +57,18 @@
 
 
         <item
-            android:title="Developer contact"
+            android:title="@string/developer_contact"
             android:id="@+id/developerContact"
             app:showAsAction="never" />
 
     </group>
     <group>
         <item
-            android:title="Terms &amp; Conditions"
+            android:title="@string/terms_amp_conditions"
             android:id="@+id/termsAndCondition"
             app:showAsAction="never" />
         <item
-            android:title="Privacy policy"
+            android:title="@string/privacy_policy"
             android:id="@+id/privacyPolicy"
             app:showAsAction="never" />
     </group>

@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Hemskärmsinställningar</string>
-    <string name="exit_button_text">Bakgrundsbild</string>
     <string name="customize">Anpassa</string>
     <string name="advanced_settings">Fler inställningar</string>
     <string name="adaptive_icon">Adaptiv ikon</string>

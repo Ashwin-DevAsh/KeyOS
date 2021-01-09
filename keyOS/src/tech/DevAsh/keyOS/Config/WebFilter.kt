@@ -29,10 +29,10 @@ class WebFilter : AppCompatActivity() {
         enableWebFilter.setOnCheckedChangeListener { _, isChecked ->
             User.user!!.webFilter.isEnabled = isChecked
             if(isChecked){
-                switchStatus.text = "ON"
+                switchStatus.text = getString(R.string.on_caps)
                 options.alpha = 1f
             }else{
-                switchStatus.text = "OFF"
+                switchStatus.text = getString(R.string.off_caps)
                 options.alpha = 0.25f
             }
         }
@@ -60,10 +60,10 @@ class WebFilter : AppCompatActivity() {
         enableWebFilter.isChecked = User.user!!.webFilter.isEnabled
         blockAdultWebsites.isChecked = User.user!!.webFilter.shouldBlockAdultSites
         if(User.user!!.webFilter.isEnabled){
-            switchStatus.text = "ON"
+            switchStatus.text = getString(R.string.on_caps)
             options.alpha = 1f
         }else{
-            switchStatus.text = "OFF"
+            switchStatus.text = getString(R.string.off_caps)
             options.alpha = 0.25f
         }
     }

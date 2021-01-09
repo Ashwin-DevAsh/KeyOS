@@ -37,15 +37,16 @@ class Password : AppCompatActivity() {
             val callback = object: Callback<BasicResponse>{
                 override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                     if(response.body()?.result=="success"){
-                        AlertHelper.showToast("Password successfully sent to your email address", context)
+                        AlertHelper.showToast(context.getString(
+                                                        R.string.password_successfully_send), context)
                     }else{
-                        AlertHelper.showToast("Password recovery failed", context)
+                        AlertHelper.showToast(context.getString(R.string.password_recovery_failed), context)
                     }
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
                     t.printStackTrace()
-                    AlertHelper.showToast("Password recovery failed", context)
+                    AlertHelper.showToast(context.getString(R.string.password_recovery_failed), context)
                 }
             }
             val sendPassword=SendPassword()
@@ -53,7 +54,7 @@ class Password : AppCompatActivity() {
             sendPassword.password = User.user?.password
 
             if(User.user?.recoveryEmail.isNullOrEmpty()){
-                AlertHelper.showToast("Recovery email not registered", context)
+                AlertHelper.showToast(context.getString(R.string.recovery_email_not_registered), context)
                 return
             }
 
@@ -82,8 +83,8 @@ class Password : AppCompatActivity() {
         email.setText(emailText)
         if(emailText != "" && emailText!=null){
             isOldPasswordExist = true
-            heading.text = "Change Your"
-            cancel.text = "Forgot ?"
+            heading.text = getString(R.string.change_your)
+            cancel.text = getString(R.string.forgot_caps)
             oldPasswordLayout.visibility = View.VISIBLE
         }
     }
@@ -138,7 +139,7 @@ class Password : AppCompatActivity() {
         Handler().postDelayed({
                                   AlertHelper
                                           .showToast(
-                                                  "Your password has been changed successfully",
+                                                  getString(R.string.password_successfully_changed),
                                                   this)
                               },750)
 
@@ -146,7 +147,7 @@ class Password : AppCompatActivity() {
 
     fun emailError(){
         if(!email.text!!.contains(".") || !email.text!!.contains("@") || email.text!!.length<5 || email.text!!.endsWith(".")){
-            emailLayout.error = "Invalid email address"
+            emailLayout.error = getString(R.string.invalid_email_address)
         }else{
             emailLayout.error=null
         }
@@ -155,10 +156,10 @@ class Password : AppCompatActivity() {
     fun passwordError(){
         when {
             password.text!!.length<8 -> {
-                passwordLayout.error = "Password must contain min 8 characters"
+                passwordLayout.error = getString(R.string.password_min)
             }
             isOldPasswordExist && oldPassword.text.toString()==password.text.toString() -> {
-                passwordLayout.error = "Old password must not be new password"
+                passwordLayout.error = getString(R.string.old_password_must_not_new)
             }
             else -> {
                 passwordLayout.error = null
@@ -169,7 +170,7 @@ class Password : AppCompatActivity() {
     fun oldPasswordError(){
         when {
             oldPassword.text!!.length<8 -> {
-                oldPasswordLayout.error = "Password must contain min 8 characters"
+                oldPasswordLayout.error = getString(R.string.password_min)
             }
             else -> {
                 oldPasswordLayout.error = null
@@ -179,7 +180,7 @@ class Password : AppCompatActivity() {
 
     fun confirmPasswordError(){
         if ((password.text.toString() != confirmPassword.text.toString())){
-            confirmPasswordLayout.error = "Password not match"
+            confirmPasswordLayout.error = getString(R.string.password_not_match)
         }else{
             confirmPasswordLayout.error = null
         }
@@ -222,12 +223,12 @@ class Password : AppCompatActivity() {
             return false
         }else if(isOldPasswordExist && oldPassword.text.toString()!=User.user!!.password){
             if(!oldPassword.text.isNullOrEmpty()){
-                oldPasswordLayout.error="Invalid old password"
+                oldPasswordLayout.error=getString(R.string.invalid_old_pasword)
             }
             return false
         }else if(isOldPasswordExist && oldPassword.text.toString()==password.text.toString()){
             if(!password.text.isNullOrEmpty()){
-                passwordLayout.error="old password must not be new password"
+                passwordLayout.error=getString(R.string.old_password_must_not_new)
             }
             return false
         }

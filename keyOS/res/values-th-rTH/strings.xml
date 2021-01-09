@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">การตั้งค่าหน้าจอหลัก</string>
-    <string name="exit_button_text">ภาพพื้นหลัง</string>
     <string name="customize">ค่ากำหนด</string>
     <string name="advanced_settings">การตั้งค่าเพิ่มเติม</string>
     <string name="adaptive_icon">ไอคอนแบบปรับอัตโนมัติ</string>

@@ -28,7 +28,6 @@ import tech.DevAsh.Launcher.*
 import tech.DevAsh.Launcher.theme.ThemeOverride
 import tech.DevAsh.Launcher.util.ThemedContextProvider
 import com.android.launcher3.R
-import kotlinx.android.synthetic.keyOS.perm_request_dialog.view.*
 import tech.DevAsh.keyOS.KioskApp
 
 class CustomPermissionRequestDialog private constructor(private val context: Context, private val string: Int, private val icon: Int, private val explanation: Int?) {
@@ -81,13 +80,13 @@ class CustomPermissionRequestDialog private constructor(private val context: Con
         override fun onAttachedToWindow() {
             super.onAttachedToWindow()
             View.inflate(context, R.layout.perm_request_dialog, this)
-            message.setText(string)
-            icon.setImageResource(icn)
-            icon.tintDrawable(context.getColorEngineAccent())
-            icon_info.isVisible = explanation != null
-            if (explanation != null) {
-                text_explanation.setText(explanation)
-            }
+//            message.setText(string)
+//            icon.setImageResource(icn)
+//            icon.tintDrawable(context.getColorEngineAccent())
+//            icon_info.isVisible = explanation != null
+//            if (explanation != null) {
+//                text_explanation.setText(explanation)
+//            }
         }
     }
 }

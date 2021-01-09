@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Avalehe seaded</string>
-    <string name="exit_button_text">Taustapilt</string>
     <string name="customize">Muuda</string>
     <string name="advanced_settings">Rohkem seadeid</string>
     <string name="adaptive_icon">Adaptiivsed ikoonid</string>

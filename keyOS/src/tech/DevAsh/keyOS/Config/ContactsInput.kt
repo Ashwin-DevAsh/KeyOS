@@ -69,7 +69,7 @@ class ContactsInput : AppCompatActivity() {
 
     fun nameError(){
         if(name.text.toString().length<3){
-            nameLayout.error="Invalid name"
+            nameLayout.error=getString(R.string.invalid_name)
         }else{
             nameLayout.error=null
         }
@@ -77,7 +77,7 @@ class ContactsInput : AppCompatActivity() {
 
     fun numberError(){
         if(number.text.toString().length<3){
-            numberLayout.error="Invalid number"
+            numberLayout.error=getString(R.string.invalid_number)
         }else{
             numberLayout.error=null
         }

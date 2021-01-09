@@ -90,10 +90,10 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
     fun loadView(){
         when(websiteListType){
             WebsiteListType.WHITELIST -> {
-                heading.text = "Whitelist"
+                heading.text = getString(R.string.whitelist)
             }
             WebsiteListType.BLACKLIST -> {
-                heading.text = "Blacklist"
+                heading.text = getString(R.string.blacklist)
             }
         }
     }
@@ -104,7 +104,7 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
             WebsiteListAdapter(
                     ArrayList(websiteList),
                     this,
-                    "Websites save under blacklist won't be able to access by browser",
+                    getString(R.string.webfilter_blacklist_subheading),
                     this,
                               )
         }else{
@@ -112,7 +112,7 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
             WebsiteListAdapter(
                     ArrayList(websiteList),
                     this,
-                    "Websites save under whitelist only able to access by the browser",
+                    getString(R.string.webfilter_whitelist_subheading),
                     this,
                               )
         }
@@ -252,8 +252,8 @@ class WebsiteList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle {
 
     private fun showDeleteDialog(context: Context){
         val builder =   MaterialDialog.Builder(context)
-        builder.title("Delete")
-                .content("Are you sure you want to delete this items")
+        builder.title(getString(R.string.delete))
+                .content((R.string.delete_contact_subheading))
                 .onPositive{ _, _->
                     delete()
                 }

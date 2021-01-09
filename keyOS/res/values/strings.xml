@@ -170,7 +170,6 @@
     <!-- Section 12 -->
 
     <string name="settings_button_text">Kiosk Settings</string>
-    <string name="exit_button_text">Exit Kiosk</string>
 
     <string name="customize">Customize</string>
 
@@ -333,6 +332,9 @@
 
     <!--    KeyOS-->
 
+    <string name="exit_button_text">Exit Kiosk</string>
+    <string name="widget_button_text">Widgets</string>
+    <string name="button_overview_mode">Overview Mode</string>
     <string name="password">Password</string>
     <string name="activities">Activities</string>
     <string name="cancel">Cancel</string>
@@ -349,7 +351,6 @@
     <string name="block_unwanted_pages_activities_windows">Block unwanted pages / activities / windows</string>
     <string name="time_limit">Time Limit</string>
     <string name="set_timing_restriction_eg_1hr_per_day">Set timing restriction Eg. 1hr per day</string>
-    <string name="app_info">App info</string>
     <string name="system_settings">System settings</string>
     <string name="restrictions">Restrictions</string>
     <string name="edit_app">EDIT APP</string>
@@ -379,7 +380,6 @@
     <string name="whitelist_amp_blacklist"><![CDATA[Whitelist & blacklist]]></string>
     <string name="phone_book">PHONE BOOK</string>
     <string name="import_amp_export_settings"><![CDATA[Import & export settings]]></string>
-    <string name="apps">Apps</string>
     <string name="services">Services</string>
     <string name="single_app">Single App</string>
     <string name="apps_amp_services"><![CDATA[APPS & SERVICES]]></string>
@@ -393,25 +393,25 @@
     <string name="notification_panel">Notification Panel</string>
     <string name="security">SECURITY</string>
     <string name="launch">Launch</string>
-    <string name="if_you_face_any_trouble_for_making_calls_kindly_allow_all_the_services_related_to_phone_call_n_nhint_search_for_phone_in_service_section">If you face any trouble for making calls kindly allow all the services related to phone call <br /> <br />  hint: Search for phone in service section</string>
-    <string name="web_filter_is_a_powerful_service_which_allow_you_to_block_unwanted_websites_n_nsupported_browsers_chrome_firefox_brave_edge_opera_duckduckgo">Web filter is a powerful service which allow you to block unwanted websites <br /> <br /> Supported browsers : chrome, firefox, brave, edge, opera, duckduckgo></string>
+    <string name="phone_call_subheading">"If you face any trouble for making calls kindly allow all the services related to phone call\n\nhint: Search for phone in service section"</string>
+    <string name="web_filter_subheading">"Web filter is a powerful service which allow you to block unwanted websites\n\nSupported browsers : chrome, firefox, brave, edge, opera, duckduckgo"</string>
     <string name="off">Off</string>
     <string name="whitelist_websites">Whitelist Websites</string>
-    <string name="websites_save_under_whitelist_only_able_to_access_by_the_browser">Websites save under whitelist only able to access by the browser</string>
+    <string name="whitelist_website_info">Websites save under whitelist only able to access by the browser</string>
     <string name="blacklist_websites">Blacklist Websites</string>
-    <string name="websites_save_under_blacklist_won_t_be_able_to_access_by_browser">Websites save under blacklist won\'t be able to access by browser</string>
+    <string name="blacklist_websites_info">Websites save under blacklist won\'t be able to access by browser</string>
     <string name="block_adult_websites">Block adult websites</string>
-    <string name="this_will_automatically_block_800_adult_websites">This will automatically block 800+ adult websites</string>
+    <string name="adult_websites_info">This will automatically block 800+ adult websites</string>
     <string name="whitelist">WHITELIST</string>
     <string name="add_websites">Add website</string>
     <string name="website">Website</string>
-    <string name="please_enter_the_website_which_you_want_to_add_in_whitelist_eg_www_google_com">Please enter the website which you want to add in whitelist Eg: www.google.com</string>
+    <string name="add_websites_subheading">Please enter the website which you want to add in whitelist Eg: www.google.com</string>
     <string name="otp_verification">Otp Verification</string>
-    <string name="please_enter_the_4_digit_otp_which_we_sent_to_your_registered_email_address">Please enter the 4 digit otp which we sent to your registered email address</string>
-    <string name="if_you_haven_t_change_your_password_yet_nplease_try_1234">if you haven\'t change your password yet <br />please try 1234</string>
+    <string name="otp_verification_subheading">Please enter the 4 digit otp which we sent to your registered email address</string>
+    <string name="password_prompt_subheading">if you haven\'t change your password yet <br/>please try 1234</string>
     <string name="forget">forget ?</string>
     <string name="user_agreement">User Agreement</string>
-    <string name="we_will_store_the_list_of_installed_app_and_phone_number_in_your_device_this_data_will_taken_from_your_device_only_if_you_are_using_qrcode_feature_and_this_data_will_automatically_removed_from_server_with_in_one_hour">We will store the list of installed app and phone number in your device. This data will taken from your device only if you are using QrCode feature and this data will automatically removed from server with in one hour</string>
+    <string name="user_agreement_2">We will store the list of installed app and phone number in your device. This data will taken from your device only if you are using QrCode feature and this data will automatically removed from server with in one hour</string>
     <string name="no_thanks">No thanks</string>
     <string name="accept_amp_continue"><![CDATA[Accept & continue]]></string>
     <string name="usage_access">Usage Access</string>
@@ -420,5 +420,32 @@
     <string name="sound_access">Sound Access</string>
     <string name="other_permissions">Other Permissions</string>
     <string name="accessibility">Accessibility</string>
+    <string name="device_id">Device ID</string>
+    <string name="feedback_amp_suggestions"><![CDATA[Feedback & suggestions]]></string>
+    <string name="quick_survey">Quick survey</string>
+    <string name="bug_report">Bug report</string>
+    <string name="visit">Visit</string>
+    <string name="rate">Rate</string>
+    <string name="share">Share</string>
+    <string name="app_info">App info</string>
+    <string name="check_for_update">Check for update</string>
+    <string name="developer_contact">Developer contact</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+    <string name="always_on">Always on</string>
+    <string name="always_off">Always off</string>
+    <string name="dont_care">Don\'t care</string>
+    <string name="landscape">Landscape</string>
+    <string name="portrait">Portrait</string>
+    <string name="silent">Silent</string>
+    <string name="normal">Normal</string>
+    <string name="select_activity_sunHeading">Select which activities / Pages / windows you want to block</string>
+    <string name="apps">Apps</string>
+    <string name="whitelist_apps">Whitelist Apps</string>
+    <string name="whitelist_services">Whitelist Services</string>
+    <string name="whitelist_apps_subheading">"Select which apps you want to\ngive access"</string>
+    <string name="whitelist_service_heading">"Select which services you want to\ngive access"</string>
+    <string name="single_app_subheading">"Select which app you want available\nin foreground"</string>
 
 </resources>

@@ -97,7 +97,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">ホームの設定</string>
-    <string name="exit_button_text">壁紙</string>
     <string name="customize">カスタマイズ</string>
     <string name="advanced_settings">その他の設定</string>
     <string name="adaptive_icon">アダプティブアイコン</string>

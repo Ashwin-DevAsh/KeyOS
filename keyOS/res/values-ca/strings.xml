@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Configuració de la pantalla d\'inici</string>
-    <string name="exit_button_text">Fons de pantalla</string>
     <string name="customize">Personalitza</string>
     <string name="advanced_settings">Més opcions</string>
     <string name="adaptive_icon">Icona adaptativa</string>

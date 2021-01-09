@@ -66,15 +66,15 @@ class IconShapeCustomizeView(context: Context, attrs: AttributeSet?) :
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-        shapePreview.setImageDrawable(previewDrawable)
-        (topLeftRow as IconShapeCornerRow)
-                .init(R.string.icon_shape_top_left, topLeft) { topLeft = it }
-        (topRightRow as IconShapeCornerRow)
-                .init(R.string.icon_shape_top_right, topRight) { topRight = it }
-        (bottomLeftRow as IconShapeCornerRow)
-                .init(R.string.icon_shape_bottom_left, bottomLeft) { bottomLeft = it }
-        (bottomRightRow as IconShapeCornerRow)
-                .init(R.string.icon_shape_bottom_right, bottomRight) { bottomRight = it }
+//        shapePreview.setImageDrawable(previewDrawable)
+//        (topLeftRow as IconShapeCornerRow)
+//                .init(R.string.icon_shape_top_left, topLeft) { topLeft = it }
+//        (topRightRow as IconShapeCornerRow)
+//                .init(R.string.icon_shape_top_right, topRight) { topRight = it }
+//        (bottomLeftRow as IconShapeCornerRow)
+//                .init(R.string.icon_shape_bottom_left, bottomLeft) { bottomLeft = it }
+//        (bottomRightRow as IconShapeCornerRow)
+//                .init(R.string.icon_shape_bottom_right, bottomRight) { bottomRight = it }
     }
 
     private fun rebuildShape() {

@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Configurações da tela inical</string>
-    <string name="exit_button_text">Plano de fundo</string>
     <string name="customize">Personalizar</string>
     <string name="advanced_settings">Mais Configurações</string>
     <string name="adaptive_icon">Ícones Adaptivos</string>

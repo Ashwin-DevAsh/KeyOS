@@ -56,7 +56,7 @@ class OtpVerification() : BottomSheetDialogFragment() {
                                       password?.save()
                     },500)
         }else if(otp.text.toString().isNotEmpty()){
-            otpLayout.error = "Invalid Otp"
+            otpLayout.error = getString(R.string.invalid_otp)
         }
     }
 
@@ -70,11 +70,9 @@ class OtpVerification() : BottomSheetDialogFragment() {
 
     private var otpVerificationCallBack = object : Callback<BasicResponse>{
         override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-            println("response = " + response.body())
         }
 
         override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-            println(t.printStackTrace())
         }
 
     }

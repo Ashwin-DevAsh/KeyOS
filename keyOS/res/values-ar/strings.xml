@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">الإعدادات الرئيسية</string>
-    <string name="exit_button_text">الخلفية</string>
     <string name="customize">تخصيص</string>
     <string name="advanced_settings">إعدادات أكثر</string>
     <string name="adaptive_icon">الأيقونة المكيفة</string>

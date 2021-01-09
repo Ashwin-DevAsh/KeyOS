@@ -77,8 +77,7 @@ class QrScanner : AppCompatActivity() {
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
             runOnUiThread {
-                Toast.makeText(this, "Camera initialization error: ${it.message}",
-                               Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.camera_not_init) + " ${it.message}", Toast.LENGTH_LONG).show()
             }
         }
         codeScanner.startPreview()
@@ -87,7 +86,7 @@ class QrScanner : AppCompatActivity() {
 
     private fun verifyQr(data: String){
         println(data)
-        mProgressDialog?.setMessage("Please wait")
+        mProgressDialog?.setMessage(getString(R.string.please_wait))
         mProgressDialog?.setCanceledOnTouchOutside(false)
         mProgressDialog?.show()
         try {
@@ -95,20 +94,23 @@ class QrScanner : AppCompatActivity() {
             getPolicyData(id.toString())
         } catch (exception: ExpiredJwtException) {
             exception.printStackTrace()
-            onFailure("Invalid QrCode!")
+            onFailure(getString(R.string.invalid_qr))
         }catch (e: UnsupportedJwtException){
-            onFailure("Invalid QrCode!")
+            onFailure(getString(R.string.invalid_qr))
 
         }catch (e: MalformedJwtException){
-            onFailure("Invalid QrCode!")
+            onFailure(getString(R.string.invalid_qr))
 
         }catch (e: io.jsonwebtoken.SignatureException){
-            onFailure("Invalid QrCode!")
+            onFailure(getString(R.string.invalid_qr))
+
 
         }catch (e: java.lang.IllegalArgumentException){
-            onFailure("Invalid QrCode!")
+            onFailure(getString(R.string.invalid_qr))
+
         }catch (e:Throwable){
-            onFailure("Invalid QrCode!")
+            onFailure(getString(R.string.invalid_qr))
+
         }
     }
 
@@ -140,7 +142,7 @@ class QrScanner : AppCompatActivity() {
         mProgressDialog?.dismiss()
         RealmHelper.updateUser(user)
         Handler().postDelayed({onBackPressed()}, 500)
-        Handler().postDelayed({ AlertHelper.showToast("Successfully done!", this)
+        Handler().postDelayed({ AlertHelper.showToast(getString(R.string.successfully_done), this)
                               }, 1000)
     }
 

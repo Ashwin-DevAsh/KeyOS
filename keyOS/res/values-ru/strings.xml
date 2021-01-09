@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Настройки раб. стола</string>
-    <string name="exit_button_text">Обои</string>
     <string name="customize">Настройка</string>
     <string name="advanced_settings">Больше настроек</string>
     <string name="adaptive_icon">Адаптивная иконка</string>

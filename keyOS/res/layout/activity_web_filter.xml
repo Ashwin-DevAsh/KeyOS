@@ -73,7 +73,7 @@
                     android:paddingHorizontal="20dp"
                     android:layout_marginLeft="5dp"
                     android:textSize="15sp"
-                    android:text="@string/web_filter_is_a_powerful_service_which_allow_you_to_block_unwanted_websites_n_nsupported_browsers_chrome_firefox_brave_edge_opera_duckduckgo"
+                    android:text="@string/web_filter_subheading"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
@@ -191,7 +191,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="50dp"
-                                android:text="@string/websites_save_under_whitelist_only_able_to_access_by_the_browser"
+                                android:text="@string/whitelist_website_info"
                                 android:textSize="13dp" />
 
                         </LinearLayout>
@@ -262,7 +262,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="50dp"
-                                android:text="@string/websites_save_under_blacklist_won_t_be_able_to_access_by_browser"
+                                android:text="@string/blacklist_websites_info"
                                 android:textSize="13dp" />
 
 
@@ -359,7 +359,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="90dp"
-                                android:text="@string/this_will_automatically_block_800_adult_websites"
+                                android:text="@string/adult_websites_info"
                                 android:textSize="13dp" />
                         </LinearLayout>
 

@@ -28,7 +28,7 @@
             android:drawablePadding="20dp"
             android:drawableRight="@drawable/ic_info"
             android:drawableTint="@color/black"
-            android:text="@string/please_enter_the_4_digit_otp_which_we_sent_to_your_registered_email_address"
+            android:text="@string/otp_verification_subheading"
             android:layout_marginBottom="20dp"
             android:layout_height="wrap_content"/>
         <FrameLayout

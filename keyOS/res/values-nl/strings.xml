@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Instellingen startscherm</string>
-    <string name="exit_button_text">Achtergrond</string>
     <string name="customize">Aanpassen</string>
     <string name="advanced_settings">Meer instellingen</string>
     <string name="adaptive_icon">Adaptieve pictogrammen</string>

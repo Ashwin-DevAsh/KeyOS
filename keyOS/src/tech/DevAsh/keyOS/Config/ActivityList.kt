@@ -20,13 +20,7 @@ class ActivityList : AppCompatActivity() {
 
     private var activities: Array<ActivityInfo?> = HelperVariables.selectedEditedApp!!.packageInfo.activities
 
-    private var activityListAdapter = ActivitiesListAdapter(
-        activities.toMutableList(),
-        HelperVariables.selectedEditedApp!!.blockedActivities,
-        "",
-        "Select which activities \\ Pages \\ windows you want to block",
-        this
-    )
+    lateinit var activityListAdapter:ActivitiesListAdapter
 
 
 
@@ -38,7 +32,15 @@ class ActivityList : AppCompatActivity() {
         handelSearch()
     }
 
+
     private fun loadAdapter(){
+        activityListAdapter = ActivitiesListAdapter(
+                activities.toMutableList(),
+                HelperVariables.selectedEditedApp!!.blockedActivities,
+                "",
+                getString(R.string.select_activity_sunHeading),
+                this
+                                                   )
         activityContainer.layoutManager = LinearLayoutManager(this)
         activityContainer.adapter = activityListAdapter
     }
@@ -59,7 +61,7 @@ class ActivityList : AppCompatActivity() {
 
     private fun saveData(){
         HelperVariables.selectedEditedApp?.blockedActivities?.clear()
-        for ( i in activityListAdapter.blockedItems){
+        for ( i in activityListAdapter!!.blockedItems){
             HelperVariables.selectedEditedApp?.blockedActivities?.add(i)
         }
 

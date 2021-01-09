@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">主畫面設定</string>
-    <string name="exit_button_text">桌布</string>
     <string name="customize">自訂</string>
     <string name="advanced_settings">更多設定</string>
     <string name="adaptive_icon">自動調整圖示</string>

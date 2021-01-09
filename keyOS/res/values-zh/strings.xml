@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">主屏幕设置</string>
-    <string name="exit_button_text">壁纸</string>
     <string name="customize">自定义</string>
     <string name="advanced_settings">更多设置</string>
     <string name="adaptive_icon">自适应图标</string>

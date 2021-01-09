@@ -98,7 +98,7 @@
                     android:paddingHorizontal="20dp"
                     android:layout_marginLeft="5dp"
                     android:textSize="15sp"
-                    android:text="@string/if_you_face_any_trouble_for_making_calls_kindly_allow_all_the_services_related_to_phone_call_n_nhint_search_for_phone_in_service_section"
+                    android:text="@string/phone_call_subheading"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout

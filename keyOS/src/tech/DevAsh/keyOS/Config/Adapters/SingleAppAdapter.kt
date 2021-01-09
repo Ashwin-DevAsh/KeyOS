@@ -13,8 +13,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.android.launcher3.R
-import kotlinx.android.synthetic.keyOS.header_contact_listtile.view.*
-import kotlinx.android.synthetic.keyOS.widget_listtile_apps.view.*
+import kotlinx.android.synthetic.dev.header_contact_listtile.view.*
+import kotlinx.android.synthetic.dev.widget_listtile_apps.view.*
 import net.igenius.customcheckbox.CustomCheckBox
 import tech.DevAsh.KeyOS.Config.Adapters.AllowItemAdapter
 import tech.DevAsh.KeyOS.Config.EditApp
@@ -158,14 +158,14 @@ class SingleAppHeader(
     }
 
     private fun turnOn(){
-        view.isTurnOn.text = "ON"
+        view.isTurnOn.text = context.getString(R.string.on_caps)
         adapter.toggleState=true
         adapter.notifyDataSetChanged()
         adapter.toggleCallback.turnOn()
     }
 
     private fun turnOff(){
-        view.isTurnOn.text = "OFF"
+        view.isTurnOn.text = context.getString(R.string.off_caps)
         adapter.toggleState=false
         adapter.notifyDataSetChanged()
         adapter.toggleCallback.turnOff()

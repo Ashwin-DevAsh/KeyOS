@@ -96,8 +96,8 @@ class EditApp : AppCompatActivity() {
        val numColumnsPicker = view.findViewById<NumberPicker>(R.id.columnsPicker)
 
         view.textView5.text = ":"
-        view.firstHeading.text = "Hours"
-        view.secondHeading.text = "Minutes"
+        view.firstHeading.text = getString(R.string.hours)
+        view.secondHeading.text = getString(R.string.minutes)
 
 
 

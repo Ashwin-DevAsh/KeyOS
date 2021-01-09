@@ -90,7 +90,7 @@
                 android:textSize="14dp"
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:text="@string/we_will_store_the_list_of_installed_app_and_phone_number_in_your_device_this_data_will_taken_from_your_device_only_if_you_are_using_qrcode_feature_and_this_data_will_automatically_removed_from_server_with_in_one_hour"
+                android:text="@string/user_agreement_2"
                 android:layout_height="wrap_content"/>
             </LinearLayout>
 

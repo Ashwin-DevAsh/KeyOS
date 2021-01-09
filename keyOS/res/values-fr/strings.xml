@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Paramètres écran acc.</string>
-    <string name="exit_button_text">Fond d\'écran</string>
     <string name="customize">Personnaliser</string>
     <string name="advanced_settings">Plus de paramètres</string>
     <string name="adaptive_icon">Icône adaptative</string>

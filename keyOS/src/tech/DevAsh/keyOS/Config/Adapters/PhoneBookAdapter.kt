@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.android.launcher3.R
-import kotlinx.android.synthetic.keyOS.header_app_gridtile.view.*
-import kotlinx.android.synthetic.keyOS.widget_listtile_contact_selector.view.*
+import kotlinx.android.synthetic.dev.header_app_gridtile.view.*
+import kotlinx.android.synthetic.dev.widget_listtile_contact_selector.view.*
 import tech.DevAsh.KeyOS.Config.ContactList
 import tech.DevAsh.KeyOS.Config.PhoneBook
 import tech.DevAsh.KeyOS.Helpers.ContactHelper
@@ -56,7 +56,7 @@ class PhoneBookAdapter(
             if(ContactList.isBlackList){
                 holder.checkBox.checkedColor = Color.RED
             }else{
-                holder.checkBox.checkedColor = context.getColor(R.color.green)
+                holder.checkBox.checkedColor = context.resources.getColor(R.color.green)
             }
 
             try {

@@ -60,7 +60,7 @@
             android:layout_height="50dp">
             <TextView
                 android:layout_width="wrap_content"
-                android:text="SELECT ALL"
+                android:text="@string/select_all"
                 android:layout_marginLeft="5dp"
                 android:textStyle="bold"
                 android:gravity="center"

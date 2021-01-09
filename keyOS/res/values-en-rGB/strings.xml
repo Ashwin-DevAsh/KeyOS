@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Home Settings</string>
-    <string name="exit_button_text">Wallpaper</string>
     <string name="customize">Customise</string>
     <string name="advanced_settings">More Settings</string>
     <string name="adaptive_icon">Adaptive Icon</string>

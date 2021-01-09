@@ -74,7 +74,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"ഫോൾഡറിന്റെ പേര് <xliff:g id="NAME">%1$s</xliff:g> എന്നായി മാറ്റി"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ഫോൾഡർ: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"വിജറ്റുകൾ"</string>
-    <string name="exit_button_text" msgid="8404103075899945851">"വാൾപേപ്പർ"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"ഹോം ക്രമീകരണം"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"ഹോം സ്ക്രീൻ തിരിക്കൽ അനുവദിക്കുക"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"അറിയിപ്പ് ഡോട്ടുകൾ"</string>

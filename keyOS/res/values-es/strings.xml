@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Configuración de página de inicio</string>
-    <string name="exit_button_text">Fondo de Pantalla</string>
     <string name="customize">Personalizar</string>
     <string name="advanced_settings">Configuración avanzada</string>
     <string name="adaptive_icon">Icono adaptativo</string>
@@ -208,4 +207,6 @@
     <string name="activity_not_found">Aplicación no instalada.</string>
     <string name="out_of_space">No hay más espacio en el Escritorio.</string>
     <string name="hotseat_out_of_space">No hay más espacio en el Dock.</string>
+
+
 </resources>

@@ -130,8 +130,8 @@ class PhoneBook : AppCompatActivity() {
             phoneBookAdapter = PhoneBookAdapter(
                 ArrayList(contacts),
                 this,
-                if(isBlackList) "Select which contacts you want to add\n in blacklist"
-                else  "Select which contacts you want to add\n in whitelist"
+                if(isBlackList) getString(R.string.phonebook_blacklist_subheading)
+                else  getString(R.string.phonebook_whitelist_subheading)
             )
             contactsContainer.layoutManager = LinearLayoutManager(this)
             contactsContainer.adapter=phoneBookAdapter

@@ -57,9 +57,9 @@ class ContactList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle{
 
     private fun loadView(){
         if(isBlackList){
-            heading.text="Blacklist"
+            heading.text=getString(R.string.blacklist)
         }else{
-            heading.text="Whitelist"
+            heading.text=getString(R.string.whitelist)
         }
     }
 
@@ -97,18 +97,18 @@ class ContactList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle{
         contactListAdapter = if(isBlackList){
             getBlackList()
             ContactListAdapter(
-                ArrayList(contactList),
-                this,
-                "Contacts saved under Blacklist won't be able to call your Android phone anymore",
-                this,
+                    ArrayList(contactList),
+                    this,
+                    getString(R.string.contacts_blacklist_subheading),
+                    this,
             )
         }else{
             getWhiteList()
             ContactListAdapter(
-                ArrayList(contactList),
-                this,
-                "Contacts saved under Whitelist only able to call your Android phone anymore",
-                this,
+                    ArrayList(contactList),
+                    this,
+                    getString(R.string.contacts_whitelist_subheading),
+                    this,
             )
         }
         contactsContainer.layoutManager = LinearLayoutManager(this)
@@ -201,8 +201,8 @@ class ContactList : AppCompatActivity(), ToggleCallback, AnimateDeleteToggle{
 
     private fun showDeleteDialog(context: Context){
         val builder =   MaterialDialog.Builder(context)
-        builder.title("Delete")
-            .content("Are you sure you want to delete this items")
+        builder.title(getString(R.string.delete))
+            .content(getString(R.string.delete_contact_subheading))
             .onPositive{_,_->
                 delete()
             }

@@ -74,7 +74,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Đã đổi tên thư mục thành <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Thư mục: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Tiện ích con"</string>
-    <string name="exit_button_text" msgid="8404103075899945851">"Hình nền"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Cài đặt màn hình chính"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Cho phép xoay Màn hình chính"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Dấu chấm thông báo"</string>

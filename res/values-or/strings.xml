@@ -74,7 +74,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"ଫୋଲ୍ଡରର ନାମ <xliff:g id="NAME">%1$s</xliff:g>କୁ ବଦଳାଗଲା"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ଫୋଲ୍ଡର: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ୱିଜେଟ୍‌"</string>
-    <string name="exit_button_text" msgid="8404103075899945851">"ୱାଲପେପର୍‌"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"ହୋମ୍‌ ସେଟିଙ୍ଗ"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"ହୋମ୍‌ ସ୍କ୍ରୀନ୍ ବୁଲାଇବା ଅନୁମତି ଦିଅନ୍ତୁ"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"ବିଜ୍ଞପ୍ତି ବିନ୍ଦୁଗୁଡ଼ିକ"</string>

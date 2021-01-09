@@ -110,7 +110,6 @@
     <!-- Section 11 -->
     <!-- Section 12 -->
     <string name="settings_button_text">Cài đặt màn hình chính</string>
-    <string name="exit_button_text">Hình nền</string>
     <string name="customize">Tùy biến</string>
     <string name="advanced_settings">Thiết lập khác</string>
     <string name="adaptive_icon">Biểu tượng tương thích</string>

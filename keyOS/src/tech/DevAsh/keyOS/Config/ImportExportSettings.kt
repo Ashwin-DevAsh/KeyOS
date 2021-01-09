@@ -129,7 +129,7 @@ class ImportExportSettings : AppCompatActivity() {
             writer.append(sBody)
             writer.flush()
             writer.close()
-            AlertHelper.showToast("File exported to KeyOS/backups/${fileName}", this)
+            AlertHelper.showToast(getString(R.string.file_exported_to) + "KeyOS/backups/${fileName}", this)
         } catch (e: IOException) {
             e.printStackTrace()
         }
@@ -144,9 +144,9 @@ class ImportExportSettings : AppCompatActivity() {
             intent.type = "*/*"
             intent.addCategory(Intent.CATEGORY_OPENABLE)
             try {
-                startActivityForResult(Intent.createChooser(intent, "Select a File to Upload"), 0)
+                startActivityForResult(Intent.createChooser(intent, getString(R.string.select_a_file_to_uplode)), 0)
             } catch (ex: ActivityNotFoundException) {
-                Toast.makeText(this, "Please install a File Manager.",
+                Toast.makeText(this, getString(R.string.please_install_a_file_manager),
                                Toast.LENGTH_SHORT).show()
             }
         }else{
@@ -164,7 +164,7 @@ class ImportExportSettings : AppCompatActivity() {
                     loadBackupData(backupData!!)
                 }catch (e:Throwable){
                     e.printStackTrace()
-                    AlertHelper.showToast("Invalid backup file", this)
+                    AlertHelper.showToast(getString(R.string.invalid_backup_file), this)
                 }
             }
         }
@@ -176,7 +176,7 @@ class ImportExportSettings : AppCompatActivity() {
         val user:User = Gson().fromJson(backupData, User::class.java)
         User.user = user
         RealmHelper.updateUser(user)
-        AlertHelper.showToast("Imported Successfully", this)
+        AlertHelper.showToast(getString(R.string.imported_successfully), this)
     }
 
 

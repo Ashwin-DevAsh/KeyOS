@@ -106,7 +106,6 @@ class WebsiteListAdapter(
                                 holder.profile.setImageDrawable(resource)
                                 holder.profile.visibility = VISIBLE
                                 holder.itemView.badgeContainer.visibility = GONE
-                                println("Success")
                                 return isFirstResource
                             }
 
@@ -219,12 +218,12 @@ class WebsiteListHeaderViewHolder(
     }
 
     private fun turnOn(){
-        view.isTurnOn.text = "ON"
+        view.isTurnOn.text = context.getString(R.string.on_caps)
         toggleCallback.turnOn()
     }
 
     private fun turnOff(){
-        view.isTurnOn.text = "OFF"
+        view.isTurnOn.text = context.getString(R.string.off_caps)
         toggleCallback.turnOff()
     }
 

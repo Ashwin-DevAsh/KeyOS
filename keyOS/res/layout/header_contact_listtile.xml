@@ -60,7 +60,7 @@
             android:layout_height="50dp">
             <TextView
                 android:layout_width="wrap_content"
-                android:text="OFF"
+                android:text="@string/off_caps"
                 android:id="@+id/isTurnOn"
                 android:layout_marginLeft="5dp"
                 android:textStyle="bold"
