@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Kantor"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"Aplikasi tidak dipasang."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"Aplikasi tidak tersedia"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"Aplikasi yang didownload dinonaktifkan dalam mode Aman"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"lebar %1$d x tinggi %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Sentuh &amp; tahan untuk menempatkan secara manual"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Tambahkan otomatis"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Telusuri aplikasi"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Memuat aplikasi…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"Tidak ditemukan aplikasi yang cocok dengan \"<xliff:g id="QUERY">%1$s</xliff:g>\""</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Telusuri aplikasi lainnya"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Tidak ada ruang lagi pada layar Utama ini."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"Tidak ada ruang tersisa di baki Favorit"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Daftar aplikasi"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Daftar aplikasi pribadi"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Daftar aplikasi kantor"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Layar Utama"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Hapus"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Uninstal"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"Widget"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"Wallpaper"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Setelan layar Utama"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"Dinonaktifkan oleh admin"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Izinkan layar Utama diputar"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"Saat ponsel diputar"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Titik notifikasi"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Aktif"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"Nonaktif"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"Guna menampilkan Titik Notifikasi, aktifkan notifikasi aplikasi untuk <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"Ubah setelan"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"Tampilkan titik notifikasi"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"Tambahkan ikon ke Layar utama"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"Untuk aplikasi baru"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"Ubah bentuk ikon"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"di layar Utama"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"Gunakan default sistem"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"Persegi"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Persegi bundar"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Lingkaran"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Butiran Air"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Menerapkan perubahan bentuk ikon"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Tidak dikenal"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Buang"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Telusuri"</string>
@@ -135,33 +125,16 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Pintasan dan notifikasi"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Tutup"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Notifikasi ditutup"</string>
-    <string name="label_voice_search">Penelusuran suara</string>
-    <string name="smartspace_preferences_in_settings">At A Glance</string>
-    <string name="smartspace_preferences_in_settings_desc">Di bagian atas Layar utama</string>
     <string name="title_show_google_app">Tampilkan %1$s</string>
-    <string name="msg_minus_one_on_left">Di sebelah kiri layar Utama</string>
-    <string name="about">Tentang</string>
-    <string name="title_app_suggestions">Tampilkan saran aplikasi</string>
-    <string name="summary_app_suggestions">Di bagian atas daftar Semua Aplikasi</string>
-    <string name="about_app_version">Versi</string>
-    <string name="app_name_pixel_launcher">Peluncur Pixel</string>
     <string name="title_disable_suggestions_prompt">Nonaktifkan saran aplikasi?</string>
     <string name="msg_disable_suggestions_prompt">Saran tidak akan muncul di bagian atas daftar aplikasi Anda, dan data penggunaan yang digunakan untuk membuatnya akan dihapus secara permanen.</string>
     <string name="label_turn_off_suggestions">NONAKTIFKAN</string>
-    <string name="hide_app_sum">Sembunyikan dari laci aplikasi</string>
     <string name="hide_app">Sembunyikan aplikasi</string>
     <string name="icon_shape_rounded_square">Persegi membulat</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
-    <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Silinder</string>
-    <string name="theme_title">Tema</string>
-    <string name="theme_automatic">Otomatis</string>
     <string name="theme_default">Default</string>
     <string name="theme_light">Cahaya</string>
     <string name="theme_dark">Gelap</string>
-    <string name="pref_open_source_licenses_title">Lisensi open source</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Pribadi"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"Kantor"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Profil kerja"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Temukan aplikasi kerja di sini"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Setiap aplikasi kerja memiliki badge dan dibuat tetap aman oleh organisasi. Pindahkan aplikasi ke Layar utama untuk memudahkan akses."</string>

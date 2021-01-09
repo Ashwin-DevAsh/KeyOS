@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"İş"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"Tətbiq quraşdırılmayıb."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"Tətbiq əlçatmazdır"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"Güvənli rejimdə icazə verilməyən tətbiq endirildi"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"%2$d hündürlük %1$d enində"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Manual olaraq yerləşdirmək üçün toxunaraq basıb saxlayın"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Avtomatik əlavə edin"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Tətbiqləri axtarın"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Tətbiqlər yüklənir…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"<xliff:g id="QUERY">%1$s</xliff:g> sorğusuna uyğun tətbiq tapılmadı"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Daha çox tətbiq üçün axtarış edin"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Bu Əsas ekranda boş yer yoxdur."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"Favoritlər-də yer yoxdur"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Tətbiq siyahısı"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Şəxsi tətbiqlərin siyahısı"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"İş tətbiqlərinin siyahısı"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Əsas səhifə"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Silin"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Sistemdən sil"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"Vidcet"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"Divar kağızları"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Home ayarları"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"Admininiz tərəfindən deaktiv edilib"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Əsas ekranın firlanmağına icazə verin"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"Telefon çevrilən zaman"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Bildiriş nişanı"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Aktiv"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"Deaktiv"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"Bildiriş Nöqtələrini göstərmək üçün <xliff:g id="NAME">%1$s</xliff:g> bildirişlərini aktiv edin"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"Ayarları dəyişin"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"Bildiriş nöqtələrini göstərin"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"Əsas ekrana ikona əlavə edin"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"Yeni tətbiqlər üçün"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"İkona formasını dəyişin"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"Əsas səhifə ekranında"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"Sistem defoltu istifadə edin"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"Kvadrat"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Kənarları dairəvi kvadrat"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Çevrə"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Gözyaşı damlası"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"İkona formasına etdiyiniz dəyişikliklər tətbiq edilir"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Naməlum"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Yığışdır"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Axtarış"</string>
@@ -135,30 +125,15 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Qısayol və bildirişlər"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Rədd edin"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Bildiriş rədd edildi"</string>
-    <string name="label_voice_search">Səsli axtarış</string>
-    <string name="smartspace_preferences_in_settings">Ötəri Nəzər</string>
-    <string name="smartspace_preferences_in_settings_desc">Əsas ekranın üzərində</string>
     <string name="title_show_google_app">%1$s adını göstərin</string>
-    <string name="msg_minus_one_on_left">Əsas səhifə ekranından sola</string>
-    <string name="about">Haqqında</string>
-    <string name="title_app_suggestions">Tətbiq təkliflərini göstərin</string>
-    <string name="summary_app_suggestions">Bütün Tətbiqlər siyahısının üstündə</string>
-    <string name="about_app_version">Versiya</string>
-    <string name="app_name_pixel_launcher">Piksel Başladıcısı</string>
     <string name="title_disable_suggestions_prompt">Tətbiq təklifləri söndürülsün?</string>
     <string name="msg_disable_suggestions_prompt">Təkliflər tətbiq siyahınızın yuxarı hissəsində görünməyəcək və onları istifadə etmək üçün yaradılan istifadə datası həmişəlik silinəcək.</string>
     <string name="label_turn_off_suggestions">DEAKTİV EDİN</string>
     <string name="icon_shape_rounded_square">Kənarları dairəvi kvadrat</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="icon_shape_cylinder">Silindir</string>
-    <string name="theme_title">Mövzu</string>
-    <string name="theme_automatic">Avtomatik</string>
     <string name="theme_default">Default</string>
     <string name="theme_light">İşıq</string>
     <string name="theme_dark">Qaranlıq</string>
-    <string name="pref_open_source_licenses_title">Mənbə lisenziyalarını açın</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Şəxsi"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"İş"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"İş profili"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Burada iş tətbiqləri axtarın"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Hər bir iş tətbiqində təşkilat tərəfindən qorunduğunu göstərən narıncı nişan var. Tətbiqləri daha asan giriş üçün Əsas Səhifə Ekranına köçürün."</string>

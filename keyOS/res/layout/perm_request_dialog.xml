@@ -48,7 +48,6 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:id="@+id/icon_info"
             android:src="@drawable/ic_info_no_shadow"
             android:visibility="gone"
             android:tint="?android:textColorSecondary"
@@ -59,7 +58,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="12dp"
-            android:id="@+id/text_explanation"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:layout_gravity="center"
             tools:text="@string/permission_iplocate_twilight_explanation"/>

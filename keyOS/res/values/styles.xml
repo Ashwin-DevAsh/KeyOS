@@ -58,9 +58,6 @@
         <item name="fontFamily">@font/poppins_medium</item>
     </style>
 
-    <style name="splashScreen" parent="keyOS">
-        <item name="fontFamily">@font/aguafina_script</item>
-    </style>
     <style name="AppBottomSheetDialogTheme"
         parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>

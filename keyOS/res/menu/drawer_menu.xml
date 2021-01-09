@@ -4,8 +4,7 @@
 
 
 
-    <group
-        android:id="@+id/report" >
+    <group>
         <item
             android:title="Feedback &amp; suggestions"
             android:id="@+id/feedback"
@@ -25,7 +24,7 @@
 
     </group>
 
-    <group android:id="@+id/help" >
+    <group>
 
     <item
         android:title="Rate"
@@ -54,7 +53,7 @@
     </group>
 
 
-    <group android:id="@+id/agreement" >
+    <group>
 
 
         <item

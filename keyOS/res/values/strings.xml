@@ -330,9 +330,8 @@
     <string name="out_of_space">No more room on the Desktop.</string>
     <string name="hotseat_out_of_space">No more room in the Dock.</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-<!--    KeyOS-->
+    <!--    KeyOS-->
 
     <string name="password">Password</string>
     <string name="activities">Activities</string>

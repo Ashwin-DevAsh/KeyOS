@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Աշխատանքային"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"Ծրագիրը տեղադրված չէ:"</string>
     <string name="activity_not_available" msgid="7456344436509528827">"Հավելվածը հասանելի չէ"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"Ներբեռնված ծրագիրն անջատված է Անվտանգ ռեժիմում"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"Լայնությունը՝ %1$d, բարձրությունը՝ %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Հպեք և պահեք՝ ձեռքով տեղադրելու համար"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Ավելացնել ավտոմատ կերպով"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Որոնել հավելվածներ"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Հավելվածների բեռնում…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"«<xliff:g id="QUERY">%1$s</xliff:g>» հարցմանը համապատասխանող հավելվածներ չեն գտնվել"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Որոնել այլ հավելվածներ"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Այլևս տեղ չկա այս հիմնական էկրանին:"</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"Ընտրյալների ցուցակում այլևս ազատ տեղ չկա"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Հավելվածների ցանկ"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Անձնական հավելվածների ցանկ"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Աշխատանքային հավելվածների ցանկ"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Հիմնական"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Հեռացնել"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Հեռացնել"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"Վիջեթներ"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"Պաստառներ"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Գլխավոր էջի կարգավորումներ"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"Անջատվել է ձեր ադմինիստրատորի կողմից"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Թույլ տալ հիմնական էկրանի պտտումը"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"Հեռախոսը պտտելու դեպքում"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Ծանուցումների կետիկներ"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Միացված է"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"Անջատված է"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"Ծանուցումների կետիկները ցուցադրելու համար միացրեք ծանուցումները <xliff:g id="NAME">%1$s</xliff:g>-ի համար"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"Փոխել կարգավորումները"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"Ցուցադրել ծանուցումների կետիկները"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"Ավելացնել պատկերակը Հիմնական էկրանին"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"Նոր հավելվածների համար"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"Փոխել պատկերակների տեսքը"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"հիմնական էկրանին"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"Օգտագործել համակարգի կանխադրված կարգավորումը"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"Քառակուսի"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Քառանկյուն"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Օղակ"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Արցունքաձև"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Պատկերակների տեսքի փոփոխությունները կիրառվում են"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Անհայտ է"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Հեռացնել"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Գտնել"</string>
@@ -135,30 +125,15 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Դյուրանցումներ և ծանուցումներ"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Անտեսել"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Ծանուցումը մերժված է"</string>
-    <string name="label_voice_search">Ձայնային որոնում</string>
-    <string name="smartspace_preferences_in_settings">Հետհաշվարկ</string>
-    <string name="smartspace_preferences_in_settings_desc">Ձեր հիմնական էկրանի վերևում</string>
     <string name="title_show_google_app">Ցուցադրել %1$s</string>
-    <string name="msg_minus_one_on_left">Հիմնական էկրանից դեպի ձախ</string>
-    <string name="about">Տեղեկատվություն</string>
-    <string name="title_app_suggestions">Ցուցադրել հավելվածների առաջարկները</string>
-    <string name="summary_app_suggestions">«Բոլոր հավելվածները» ցուցակի սկզբում</string>
-    <string name="about_app_version">Տարբերակ</string>
-    <string name="app_name_pixel_launcher">Pixel Launcher</string>
     <string name="title_disable_suggestions_prompt">Անջատե՞լ առաջարկները:</string>
     <string name="msg_disable_suggestions_prompt">Առաջարկությունները ձեր հավելվածների ցանկի վերևում չեն հայտնվի, իսկ դրանք ստեղծելու համար օգտագործված տվյալները մեկընդմիշտ կջնջվեն:</string>
     <string name="label_turn_off_suggestions">ԱՆՋԱՏԵԼ</string>
     <string name="icon_shape_rounded_square">Շրջանակաձև քառակուսի</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="icon_shape_cylinder">Մխոց</string>
-    <string name="theme_title">Թեմա</string>
-    <string name="theme_automatic">Ավտոմատ</string>
     <string name="theme_default">Default</string>
     <string name="theme_light">Լույս</string>
     <string name="theme_dark">Dark</string>
-    <string name="pref_open_source_licenses_title">Բաց կոդով ծրագրակազմի արտոնագրեր</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Անձնական"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"Աշխատանքային"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Աշխատանքային պրոֆիլ"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Գտեք աշխատանքային հավելվածներ այստեղ"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Աշխատանքային հավելվածները նշված են հատուկ նշանով: Նման հավելվածների անվտանգությունը ապահովում է ձեր կազմակերպությունը։ Հարմարության համար աշխատանքային հավելվածները կարող եք տեղափոխել հիմնական էկրան։"</string>

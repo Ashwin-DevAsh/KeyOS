@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Стартер3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Работа"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"Апликацијата не е инсталирана."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"Апликацијата не е достапна"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"Преземената апликација е оневозможена во безбеден режим"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"%1$d широк на %2$d висок"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Допрете и задржете за рачно поставување"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Додај автоматски"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Пребарувајте апликации"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Се вчитуваат апликации…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"Не се најдени апликации што одговараат на „<xliff:g id="QUERY">%1$s</xliff:g>“"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Пребарај други апликации"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Нема повеќе простор на овој екран на почетната страница."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"Нема повеќе простор на лентата „Омилени“"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Список со апликации"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Список со лични апликации"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Список со апликации за работа"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Почетна страница"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Отстрани"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Деинсталирај"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"Виџети"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"Тапети"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Поставки за Home"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"Оневозможено од администраторот"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Дозволете ротација на Почетниот екран"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"Кога телефонот се ротира"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Точки за известување"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Вклучено"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"Исклучено"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"За да се прикажуваат „Точки за известување“, вклучете ги известувањата за апликацијата <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"Промени ги поставките"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"Прикажи точки за известување"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"Додај икона на почетниот екран"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"За нови апликации"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"Променете ја формата на иконата"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"на „Почетен екран“"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"Користи ја стандардната поставка на системот"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"Квадрат"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Заоблен квадрат"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Круг"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Солза"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Се применуваат промените на формата на иконата"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Непознато"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Отстрани"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Барај"</string>
@@ -133,8 +123,6 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="8985659504915468840">"<xliff:g id="NUMBER_OF_SHORTCUTS">%1$d</xliff:g> кратенки и <xliff:g id="NUMBER_OF_NOTIFICATIONS">%2$d</xliff:g> известувања за <xliff:g id="APP_NAME">%3$s</xliff:g>"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Отфрли"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Известувањето е отфрлено"</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Лично"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"За работа"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Работен профил"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Најдете апликации за работа тука"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Секоја апликација за работа има значка, а организацијата се грижи за нејзината безбедност. За полесен пристап, преместете ги апликациите на почетниот екран."</string>

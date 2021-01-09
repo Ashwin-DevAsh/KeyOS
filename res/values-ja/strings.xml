@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"仕事用"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"このアプリはインストールされていません。"</string>
     <string name="activity_not_available" msgid="7456344436509528827">"このアプリは使用できません"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"ダウンロードしたアプリは、セーフモードでは無効です"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"幅 %1$d、高さ %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"押し続けると、手動で追加できます"</string>
     <string name="place_automatically" msgid="8064208734425456485">"自動的に追加"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"アプリを検索"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"アプリを読み込んでいます…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"「<xliff:g id="QUERY">%1$s</xliff:g>」に一致するアプリは見つかりませんでした"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"他のアプリを検索"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"このホーム画面に空きスペースがありません。"</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"お気に入りトレイに空きスペースがありません"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"アプリのリスト"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"個人用アプリのリスト"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"仕事用アプリのリスト"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"ホーム"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"削除"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"アンインストール"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"ウィジェット"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"壁紙"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"ホームの設定"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"管理者により無効にされています"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"ホーム画面の回転を許可"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"スマートフォンが回転したとき"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"通知ドット"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ON"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"OFF"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"通知ドットを表示するには、「<xliff:g id="NAME">%1$s</xliff:g>」のアプリ通知を ON にしてください"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"設定を変更"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"通知ドットの表示"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"ホーム画面にアイコンを追加"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"新しいアプリをダウンロードしたとき"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"アイコンの形の変更"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"ホーム画面上"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"システムのデフォルトを使用"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"スクエア"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"スクワークル"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"サークル"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"ティアドロップ"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"アイコンの形の変更を適用しています"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"不明"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"削除"</string>
     <string name="abandoned_search" msgid="891119232568284442">"検索"</string>
@@ -135,34 +125,16 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"ショートカットと通知"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"表示しない"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"通知を非表示にしました"</string>
-    <string name="label_voice_search">音声検索</string>
-    <string name="smartspace_preferences_in_settings">At A Glance</string>
-    <string name="smartspace_preferences_in_settings_desc">Home 画面の上部</string>
     <string name="title_show_google_app">%1$sの表示</string>
-    <string name="msg_minus_one_on_left">メインのホーム画面の左側</string>
-    <string name="about">概要</string>
-    <string name="title_app_suggestions">アプリの候補の表示</string>
-    <string name="summary_app_suggestions">[すべてのアプリ] リストの一番上</string>
-    <string name="about_app_version">バージョン</string>
-    <string name="app_name_pixel_launcher">Pixel Launcher</string>
     <string name="title_disable_suggestions_prompt">おすすめのアプリを非表示にしますか？</string>
     <string name="msg_disable_suggestions_prompt">おすすめがアプリリストの上部に表示されなくなり、おすすめの作成に使用される利用データが完全に消去されます。</string>
     <string name="label_turn_off_suggestions">非表示にする</string>
-    <string name="action_edit">編集</string>
-    <string name="hide_app_sum">ドロワーからアプリを非表示にする</string>
     <string name="hide_app">アプリを隠す</string>
     <string name="icon_shape_rounded_square">ラウンデッド スクエア</string>
-    <string name="smartspace_hours_mins">%1$s%2$s</string>
-    <string name="week_day_format">%1$s、%2$s 年</string>
     <string name="icon_shape_cylinder">シリンダー</string>
-    <string name="theme_title">テーマ</string>
-    <string name="theme_automatic">自動</string>
     <string name="theme_default">デフォルト</string>
     <string name="theme_light">光</string>
     <string name="theme_dark">ダーク</string>
-    <string name="pref_open_source_licenses_title">オープンソース ライセンス</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"個人用"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"仕事用"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"仕事用プロファイル"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"ここには仕事用アプリが表示されます"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"仕事用アプリにはバッジが表示され、組織によって安全に保護されています。仕事用アプリをホーム画面に移動すると、簡単にアクセスできます。"</string>

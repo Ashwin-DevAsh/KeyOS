@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"කාර්යාලය"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"යෙදුම ස්ථාපනය කර නැත."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"යෙදුම නොතිබේ"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"ආරක්ෂිත ආකාරය තුළ බාගන්න ලද යෙදුම් අබල කරන්න"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"පළල %1$d උස %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"අතින් ස්ථානගත කිරීමට ස්පර්ශ කර අල්ලාගෙන සිටින්න"</string>
     <string name="place_automatically" msgid="8064208734425456485">"ස්වයංක්‍රියව එක් කරන්න"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"යෙදුම් සොයන්න"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"යෙදුම් පූරණය වෙමින්…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"\"<xliff:g id="QUERY">%1$s</xliff:g>\" සමග ගැළපෙන යෙදුම් හමු නොවිණි"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"තව යෙදුම් සඳහා සොයන්න"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"මෙම මුල් පිටු තිරය මත තවත් අවසර නැත."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"ප්‍රියතම දෑ ඇති තැටියේ තවත් ඉඩ නොමැත"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"යෙදුම් ලැයිස්තුව"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"පෞද්ගලික යෙදුම් ලැයිස්තුව"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"වැඩ යෙදුම් ලැයිස්තුව"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"මුල් පිටුව"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"ඉවත් කරන්න"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"අස්ථාපනය කරන්න"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"විජට්"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"වෝල්පේපර"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Home සැකසීම්"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"ඔබගේ පරිපාලක විසින් අබල කරන ලදී"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"මුල් පිටු තිරය කරකැවීමට ඉඩ දෙන්න"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"දුරකථනය කරකවන විට"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"දැනුම්දීම් තිත්"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ක්‍රියාත්මකයි"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"ක්‍රියාවිරහිතයි"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"දැනුම්දීම් තිත් පෙන්වීමට, <xliff:g id="NAME">%1$s</xliff:g> සඳහා යෙදුම් දැනුම්දීම් සබල කරන්න"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"සැකසීම් වෙනස් කරන්න"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"දැනුම් දීමේ තිත් පෙන්වන්න"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"මුල් පිටු තිරය වෙත අයිකනය එක් කරන්න"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"නව යෙදුම් සඳහා"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"නිරූපක හැඩය වෙනස් කරන්න"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"මුල් පිටු තිරය මත"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"පද්ධති පෙරනිමි භාවිත කරන්න"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"සමචතුරස්‍රය"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"හතරැස් කවය"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"කවය"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"කඳුළු බිංදුව"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"නිරූපක හැඩය වෙනස් කිරීම් යොදමින්"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"නොදනී"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"ඉවත් කරන්න"</string>
     <string name="abandoned_search" msgid="891119232568284442">"සොයන්න"</string>
@@ -133,8 +123,6 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="8985659504915468840">"<xliff:g id="APP_NAME">%3$s</xliff:g> සඳහා කෙටි මං <xliff:g id="NUMBER_OF_SHORTCUTS">%1$d</xliff:g>ක් සහ දැනුම්දීම් <xliff:g id="NUMBER_OF_NOTIFICATIONS">%2$d</xliff:g>ක්"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"ඉවතලන්න"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"දැනුම්දීම ඉවතලන ලදී"</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"පුද්ගලික"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"කාර්යාලය"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"කාර්යාල පැතිකඩ"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"මෙහි කාර්යාල යෙදුම් සොයා ගන්න"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"සෑම කාර්යාල යෙදුමකම ලාංඡනයක් ඇත ඇති අතර එය ඔබේ සංවිධානය මගින් සුරක්ෂිතව තබා ගනී. වඩාත් පහසු ප්‍රවේශයකට යෙදුම් ඔබේ මුල් පිටු තිරය වෙත ගෙන යන්න."</string>

@@ -19,7 +19,6 @@
             android:layout_height="70dp">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 app:cardCornerRadius="22.5dp"
@@ -135,7 +134,6 @@
         <androidx.cardview.widget.CardView
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
-            android:id="@+id/isSelected"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:focusable="true"
@@ -144,7 +142,6 @@
             android:layout_height="match_parent"/>
         <LinearLayout
             android:orientation="horizontal"
-            android:id="@+id/select"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:background="#10000000"

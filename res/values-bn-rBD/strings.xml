@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"কাজ"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"অ্যাপ্লিকেশান ইনস্টল করা নেই৷"</string>
     <string name="activity_not_available" msgid="7456344436509528827">"অ্যাপ্লিকেশান অনুপলব্ধ"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"ডাউনলোড করা অ্যাপ্লিকেশান নিরাপদ মোডে অক্ষম রয়েছে"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"%2$d উচ্চতা অনুযায়ী %1$d প্রস্থ"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"নিজে যোগ করতে টাচ করে ধরে রাখুন"</string>
     <string name="place_automatically" msgid="8064208734425456485">"স্বয়ংক্রিয়ভাবে যোগ করুন"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"অ্যাপ খুঁজুন"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"অ্যাপ লোড হচ্ছে…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"\"<xliff:g id="QUERY">%1$s</xliff:g>\" এর সাথে মেলে এমন কোনো অ্যাপ পাওয়া যায়নি"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"আরও অ্যাপ্লিকেশানের জন্য খুঁজুন"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"এই হোম স্ক্রীনে আর কোনো জায়গা নেই৷"</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"পছন্দসই ট্রে-তে আর কোনো জায়গা নেই"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"অ্যাপ্লিকেশানগুলির তালিকা"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"ব্যক্তিগত অ্যাপের তালিকা"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"কাজের অ্যাপের তালিকা"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"হোম"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"সরান"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"আনইনস্টল করুন"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"উইজেট"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"ওয়ালপেপারগুলি"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"হোম সেটিংস"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"আপনার প্রশাসক দ্বারা অক্ষম করা হয়েছে"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"হোমস্ক্রীন ঘোরানোর অনুমতি দিন"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"যখন ফোনটি ঘোরানো হয়"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"বিজ্ঞপ্তি ডট"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"চালু হয়েছে"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"বন্ধ আছে"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"বিজ্ঞপ্তির ডটগুলি দেখানোর জন্য, <xliff:g id="NAME">%1$s</xliff:g> এর অ্যাপ বিজ্ঞপ্তি চালু করুন"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"সেটিংস পরিবর্তন করুন"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"বিজ্ঞপ্তির ডট দেখুন"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"হোম স্ক্রিনে আইকন যোগ করুন"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"নতুন অ্যাপ্লিকেশানগুলির জন্যে"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"আইকনের আকৃতি পরিবর্তন করুন"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"হোম স্ক্রিনে"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"সিস্টেমের ডিফল্ট মান ব্যবহার করুন"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"চৌকো"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"চৌকো-গোলাকার"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"গোলাকার"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"চোখের জল"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"আইকনের আকৃতি পরিবর্তন করা হচ্ছে"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"অজানা"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"সরান"</string>
     <string name="abandoned_search" msgid="891119232568284442">"অনুসন্ধান"</string>
@@ -133,8 +123,6 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="8985659504915468840">"<xliff:g id="APP_NAME">%3$s</xliff:g> এর জন্য <xliff:g id="NUMBER_OF_SHORTCUTS">%1$d</xliff:g>টি শর্টকাট এবং <xliff:g id="NUMBER_OF_NOTIFICATIONS">%2$d</xliff:g>টি বিজ্ঞপ্তি"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"খারিজ করুন"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"বিজ্ঞপ্তি খারিজ করা হয়েছে"</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"ব্যক্তিগত"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"অফিস"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"অফিসের প্রোফাইল"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"এখানে কাজের অ্যাপ্সগুলি খুঁজুন"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"প্রতিটি কাজের অ্যাপে একটি করে ব্যাজ রয়েছে এবং অ্যাপগুলি আপনার প্রতিষ্ঠানের দ্বারা সুরক্ষিত। সহজে অ্যাক্সেস করার জন্য অ্যাপগুলি হোম স্ক্রিনে রাখুন।"</string>

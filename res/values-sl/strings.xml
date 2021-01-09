@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Služba"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"Aplikacija ni nameščena."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"Aplikacija ni na voljo"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"Prenesena aplikacija je onemogočena v Varnem načinu"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"Širina %1$d, višina %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Dotaknite se elementa in ga pridržite, da ga ročno dodate"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Samodejno dodaj"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Iskanje programov"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Nalaganje aplikacij …"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"Ni aplikacij, ki bi ustrezale poizvedbi »<xliff:g id="QUERY">%1$s</xliff:g>«"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Iskanje več aplikacij"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Na tem začetnem zaslonu ni več prostora."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"V vrstici za priljubljene ni več prostora"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Seznam aplikacij"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Seznam osebnih aplikacij"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Seznam delovnih aplikacij"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Začetni zaslon"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Odstrani"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Odstrani"</string>
@@ -82,9 +78,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"Pripomočki"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"Ozadja"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Nastavitve začetnega zaslona"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"Onemogočil skrbnik."</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Omogočanje sukanja začetnega zaslona"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"Ko se telefon zasuka"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Obvestilne pike"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Vklopljeno"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"Izklopljeno"</string>
@@ -92,16 +86,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"Za prikaz obvestilnih pik vklopite obvestila aplikacije <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"Spremeni nastavitve"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"Pokaži obvestilne pike"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"Dodaj ikono na začetni zaslon"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"Za nove aplikacije"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"Spremeni obliko ikon"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"na začetnem zaslonu"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"Uporabi privzeto nastavitev sistema"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"Kvadrat"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Zaobljen kvadrat"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Krog"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Solza"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Uveljavljanje spremenjene oblike ikon"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Neznano"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Odstrani"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Iskanje"</string>
@@ -137,32 +127,15 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Bližnjice in obvestila"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Opusti"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Obvestilo je bilo opuščeno"</string>
-    <string name="label_voice_search">Glasovno iskanje</string>
-    <string name="smartspace_preferences_in_settings">Hitri pregled</string>
-    <string name="smartspace_preferences_in_settings_desc">Na vrhu začetnega zaslona</string>
     <string name="title_show_google_app">Prikaži: %1$s</string>
-    <string name="msg_minus_one_on_left">Levo od glavnega začetnega zaslona</string>
-    <string name="about">Vizitka</string>
-    <string name="title_app_suggestions">Prikaz predlogov za aplikacije</string>
-    <string name="summary_app_suggestions">Na vrhu seznama »Vse aplikacije«</string>
-    <string name="about_app_version">Različica</string>
-    <string name="app_name_pixel_launcher">Zaganjalnik Pixel</string>
     <string name="title_disable_suggestions_prompt">Želite izklopiti predloge za aplikacije?</string>
     <string name="msg_disable_suggestions_prompt">Predlogi ne bodo prikazani na vrhu seznama aplikacij, podatki o prenesenih podatkih, uporabljeni pri njihovem ustvarjanju, pa bodo trajno izbrisani.</string>
     <string name="label_turn_off_suggestions">IZKLOP</string>
-    <string name="action_edit">Uredi</string>
     <string name="icon_shape_rounded_square">Zaobljen kvadrat</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
-    <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Cilinder</string>
-    <string name="theme_title">Tema</string>
-    <string name="theme_automatic">Samodejno</string>
     <string name="theme_default">Privzeto</string>
     <string name="theme_light">Svetloba</string>
     <string name="theme_dark">Temno</string>
-    <string name="pref_open_source_licenses_title">Odprtokodne licence</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Osebno"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"Služba"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Delovni profil"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Tukaj poiščite delovne aplikacije"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Vsaka delovna aplikacija ima značko. Za varnost teh aplikacij skrbi vaša organizacija. Za preprostejši dostop premaknite aplikacije na začetni zaslon."</string>

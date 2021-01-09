@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Pracovné"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"Aplikácia nie je nainštalovaná."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"Aplikácia nie je k dispozícii"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"Stiahnutá aplikácia je v núdzovom režime zakázaná"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"šírka %1$d, výška %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Položku umiestnite ručne klepnutím a podržaním"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Pridať automaticky"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Hľadať aplikácie"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Načítavajú sa aplikácie…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"Nenašli sa žiadne aplikácie zodpovedajúce dopytu <xliff:g id="QUERY">%1$s</xliff:g>"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Hľadať ďalšie aplikácie"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Na tejto ploche už nie je miesto"</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"Na paneli Obľúbené položky už nie je miesto"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Zoznam aplikácií"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Zoznam osobných aplikácií"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Zoznam pracovných aplikácií"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Domovská stránka"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Odstrániť"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Odinštalovať"</string>
@@ -82,9 +78,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"Miniaplikácie"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"Tapety"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Nastavenia Home"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"Zakázané vaším správcom"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Povoliť otáčanie plochy"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"Pri otočení telefónu"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Bodky upozornení"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Zapnuté"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"Vypnuté"</string>
@@ -92,16 +86,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"Ak chcete, aby sa zobrazovali bodky upozornení, zapnite upozornenia aplikácie <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"Zmeniť nastavenia"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"Zobrazovať bodky upozornení"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"Pridať ikonu na plochu"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"Pri inštalácii novej aplikácie"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"Zmeniť tvar ikony"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"na ploche"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"Použiť predvolené nastavenie systému"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"Štvorec"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Okrúhly štvorec"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Kruh"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Slza"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Tvar ikony sa mení"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Neznáme"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Odstrániť"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Vyhľadať"</string>
@@ -137,34 +127,16 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Odkazy a upozornenia"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Zavrieť"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Upozornenie bolo zavreté"</string>
-    <string name="label_voice_search">Hlasové vyhľadávanie</string>
-    <string name="smartspace_preferences_in_settings">Prehľad</string>
-    <string name="smartspace_preferences_in_settings_desc">V hornej časti plochy</string>
     <string name="title_show_google_app">Zobraziť položku %1$s</string>
-    <string name="msg_minus_one_on_left">Naľavo od hlavnej plochy</string>
-    <string name="about">Informácie</string>
-    <string name="title_app_suggestions">Zobraziť návrhy aplikácií</string>
-    <string name="summary_app_suggestions">V hornej časti zoznamu Všetky aplikácie</string>
-    <string name="about_app_version">Verzia</string>
-    <string name="app_name_pixel_launcher">Pixel Launcher</string>
     <string name="title_disable_suggestions_prompt">Chcete vypnúť odporúčania aplikácií?</string>
     <string name="msg_disable_suggestions_prompt">Na začiatku zoznamu aplikácií sa nebudú zobrazovať odporúčania a údaje o využití, na základe ktorých boli vytvorené, budú trvalo vymazané.</string>
     <string name="label_turn_off_suggestions">VYPNÚŤ</string>
-    <string name="action_edit">Upraviť</string>
-    <string name="hide_app_sum">Skryť aplikáciu zo zoznamu aplikácií</string>
     <string name="hide_app">Skryť aplikáciu</string>
     <string name="icon_shape_rounded_square">Okrúhly štvorec</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
-    <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Valec</string>
-    <string name="theme_title">Téma</string>
-    <string name="theme_automatic">Automatický</string>
     <string name="theme_default">Štandardné</string>
     <string name="theme_light">Svetlo</string>
     <string name="theme_dark">Tmavý</string>
-    <string name="pref_open_source_licenses_title">Licencie open source</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Osobné"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"Pracovné"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Pracovný profil"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Tu nájdete pracovné aplikácie"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Všetky pracovné aplikácie majú štítok a sú bezpečne uchovávané vašou organizáciou. Ak chcete mať k aplikáciám ľahší prístup, presuňte ich na plochu."</string>

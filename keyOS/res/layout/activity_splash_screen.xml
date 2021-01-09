@@ -37,7 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
-        android:id="@+id/greetings"
         android:textAlignment="center"
         android:gravity="center"
         android:textColor="#F97C3C"

@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"ការងារ"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"មិន​បាន​ដំឡើង​កម្មវិធី។"</string>
     <string name="activity_not_available" msgid="7456344436509528827">"មិន​មាន​កម្មវិធី"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"បាន​បិទ​កម្មវិធី​ដែល​បាន​ទាញ​យក​ក្នុង​របៀប​សុវត្ថិភាព"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"ទទឺង %1$d គុណនឹងកម្ពស់ %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"ចុច​ឲ្យជាប់​ដើម្បី​បញ្ចូលវា​ដោយផ្ទាល់"</string>
     <string name="place_automatically" msgid="8064208734425456485">"បញ្ចូល​ដោយ​ស្វ័យ​ប្រវត្តិ"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"ស្វែងរក​កម្មវិធី"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"កំពុងផ្ទុកកម្មវិធី…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"រកមិនឃើញកម្មវិធី​ដែលត្រូវគ្នាជាមួយ \"<xliff:g id="QUERY">%1$s</xliff:g>\" ទេ"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"ស្វែងរកកម្មវិធីច្រើនទៀត"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"គ្មាន​បន្ទប់​នៅ​លើ​អេក្រង់​ដើម​នេះ​ទៀត​ទេ។"</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"គ្មាន​បន្ទប់​​ក្នុង​ថាស​និយម​ប្រើ"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"បញ្ជីកម្មវិធី"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"បញ្ជី​កម្មវិធី​ផ្ទាល់ខ្លួន"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"បញ្ជី​កម្មវិធី​ការងារ"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"ដើម"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"យកចេញ"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"លុបការដំឡើង"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"ធាតុ​ក្រាហ្វិក"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"ផ្ទាំង​រូបភាព"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"ការកំណត់​ទំព័រដើម"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"បានបិទដំណើរការដោយអ្នកគ្រប់គ្រងរបស់អ្នក"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"អនុញ្ញាតការបងិ្វលអេក្រង់ដើម"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"នៅពេលដែលបង្វិលទូរស័ព្ទរបស់អ្នក"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"ស្លាកជូនដំណឹង"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"បើក"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"បិទ"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"ដើម្បីបង្ហាញស្លាកជូនដំណឹង សូមបើកការជូនដំណឹងកម្មវិធីសម្រាប់ <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"ប្ដូរ​ការកំណត់"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"បង្ហាញ​ស្លាក​ជូនដំណឹង"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"បញ្ចូល​រូបតំណាង​ទៅ​អេក្រង់​ដើម"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"សម្រាប់កម្មវិធីថ្មី"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"ប្តូររូបរាងរូបតំណាង"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"នៅ​លើ​អេក្រង់​ដើម"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"ប្រើលំនាំដើមរបស់ប្រព័ន្ធ"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"ការ៉េ"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"ការ៉េជ្រុងកោង"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"រង្វង់"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"តំណក់​ទឹកភ្នែក"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"កំពុងអនុវត្ត​ការប្តូររូបរាងរូបតំណាង"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"មិន​ស្គាល់"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"លុបចេញ"</string>
     <string name="abandoned_search" msgid="891119232568284442">"ស្វែងរក"</string>
@@ -133,8 +123,6 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="8985659504915468840">"ផ្លូវកាត់ចំនួន <xliff:g id="NUMBER_OF_SHORTCUTS">%1$d</xliff:g> និង​ការជូនដំណឹងចំនួន <xliff:g id="NUMBER_OF_NOTIFICATIONS">%2$d</xliff:g> សម្រាប់ <xliff:g id="APP_NAME">%3$s</xliff:g>"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"បដិសេធ"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"បាន​បដិសេធ​ការជូនដំណឹង"</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"ផ្ទាល់ខ្លួន"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"ការងារ"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"កម្រងព័ត៌មានការងារ"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"ស្វែង​រក​កម្មវិធី​ការងារ​នៅទីនេះ"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"កម្មវិធី​ការងារ​នីមួយៗ​មាន​ស្លាកមួយ និងត្រូវ​បានរក្សាទុក​យ៉ាងមានសុវត្ថិភាព​ដោយស្ថាប័ន​របស់អ្នក។ សូម​ផ្លាស់ទី​កម្មវិធី​ទៅកាន់​អេក្រង់​ដើម​របស់អ្នក​ ដើម្បី​ងាយស្រួល​ចូលប្រើជាងមុន។"</string>

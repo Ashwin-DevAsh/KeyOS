@@ -34,7 +34,6 @@
                 android:layout_marginTop="30dp"
                 android:gravity="center"
                 android:lineHeight="20dp"
-                android:id="@+id/subTitle"
                 android:text="You are not allowed to access this content"
                 android:textColor="#E6ffffff"
                 android:layout_height="match_parent"/>

@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Launcher3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"İş"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"Uygulama yüklü değil."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"Uygulama kullanılamıyor"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"İndirilen uygulama Güvenli modda devre dışı bırakıldı"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"genişlik: %1$d, yükseklik: %2$d"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Manuel olarak yerleştirmek için dokunun ve basılı tutun"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Otomatik olarak ekle"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Uygulamalarda ara"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Uygulamalar yükleniyor…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"\"<xliff:g id="QUERY">%1$s</xliff:g>\" ile eşleşen uygulama bulunamadı"</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Başka uygulamalar ara"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Bu Ana ekranda yer kalmadı."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"Favoriler tepsisinde başka yer kalmadı"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Uygulamalar listesi"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Kişisel uygulamalar listesi"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"İş uygulamaları listesi"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Ana ekran"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Kaldır"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Yüklemeyi kaldır"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"Widget\'lar"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"Duvar Kağıtları"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Ana ekran ayarları"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"Yöneticiniz tarafından devre dışı bırakıldı"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Ana ekranı döndürmeye izin ver"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"Telefon döndürüldüğünde"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Bildirim noktaları"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Açık"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"Kapalı"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"Bildirim Noktaları\'nı göstermek için <xliff:g id="NAME">%1$s</xliff:g> uygulamasının bildirimlerini açın"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"Ayarları değiştir"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"Bildirim noktalarını göster"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"Ana ekrana simge ekle"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"Yeni uygulamalar için"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"Simge şeklini değiştir"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"Ana ekranda"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"Sistem varsayılanını kullan"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"Kare"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Kare-daire"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Daire"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Gözyaşı damlası"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Simge şekli değişiklikleri uygulanıyor"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Bilinmiyor"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Kaldır"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Ara"</string>
@@ -135,34 +125,16 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Kısayollar ve bildirimler"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Kapat"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Bildirim kapatıldı"</string>
-    <string name="label_voice_search">Sesli arama</string>
-    <string name="smartspace_preferences_in_settings">Bir Bakışta</string>
-    <string name="smartspace_preferences_in_settings_desc">Ana ekranınızın üst bölümünde</string>
     <string name="title_show_google_app">Şunu göster: %1$s</string>
-    <string name="msg_minus_one_on_left">Birincil Ana ekranın soluna</string>
-    <string name="about">Hakkında</string>
-    <string name="title_app_suggestions">Uygulama önerileri görüntüle</string>
-    <string name="summary_app_suggestions">Tüm Uygulamalar listenizin en üstünde</string>
-    <string name="about_app_version">Sürüm</string>
-    <string name="app_name_pixel_launcher">Pixel Launcher</string>
     <string name="title_disable_suggestions_prompt">Uygulama önerileri kapatılsın mı?</string>
     <string name="msg_disable_suggestions_prompt">Öneriler, uygulama listenizin üst kısmında görünmeyecek ve bunları oluşturmak için kullanılan kullanım verileri kalıcı olarak silinecek.</string>
     <string name="label_turn_off_suggestions">KAPAT</string>
-    <string name="action_edit">Düzenle</string>
-  <string name="hide_app_sum">Uygulamayı uygulama çekmecesinden gizle</string>
-  <string name="hide_app">Uygulama gizle</string>
+    <string name="hide_app">Uygulama gizle</string>
     <string name="icon_shape_rounded_square">Yuvarlanmış kare</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
-    <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Silindir</string>
-    <string name="theme_title">Tema</string>
-    <string name="theme_automatic">Otomatik</string>
     <string name="theme_default">Varsayılan</string>
     <string name="theme_light">Işık</string>
     <string name="theme_dark">Karanlık</string>
-    <string name="pref_open_source_licenses_title">Açık kaynak lisansları</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Kişisel"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"İş"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"İş profili"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"İş uygulamalarını burada bulabilirsiniz"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Her iş uygulamasında, uygulama güvenliğinin kuruluşunuz tarafından sağlandığını gösteren bir rozet bulunur. Daha kolay erişim için uygulamaları Ana ekranınıza taşıyın."</string>

@@ -21,7 +21,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name" msgid="649227358658669779">"Tela de início 3"</string>
     <string name="folder_name" msgid="7371454440695724752"></string>
-    <string name="work_folder_name" msgid="3753320833950115786">"Trabalho"</string>
     <string name="activity_not_found" msgid="8071924732094499514">"O app não está instalado."</string>
     <string name="activity_not_available" msgid="7456344436509528827">"O app não está disponível"</string>
     <string name="safemode_shortcut_error" msgid="9160126848219158407">"App transferido por download desativado no modo de segurança"</string>
@@ -35,7 +34,6 @@
     <string name="widget_accessible_dims_format" msgid="3640149169885301790">"%1$d de largura por %2$d de altura"</string>
     <string name="add_item_request_drag_hint" msgid="5899764264480397019">"Toque e mantenha pressionado para posicionar manualmente"</string>
     <string name="place_automatically" msgid="8064208734425456485">"Adicionar automaticamente"</string>
-    <string name="all_apps_search_bar_hint" msgid="1390553134053255246">"Apps de pesquisa"</string>
     <string name="all_apps_loading_message" msgid="5813968043155271636">"Carregando apps…"</string>
     <string name="all_apps_no_search_results" msgid="3200346862396363786">"Nenhum app encontrado que corresponda a \"<xliff:g id="QUERY">%1$s</xliff:g>\""</string>
     <string name="all_apps_search_market_message" msgid="1366263386197059176">"Pesquisar mais apps"</string>
@@ -45,8 +43,6 @@
     <string name="out_of_space" msgid="4691004494942118364">"Não há mais espaço na tela inicial."</string>
     <string name="hotseat_out_of_space" msgid="7448809638125333693">"Sem espaço na bandeja de favoritos"</string>
     <string name="all_apps_button_label" msgid="8130441508702294465">"Lista de apps"</string>
-    <string name="all_apps_button_personal_label" msgid="1315764287305224468">"Lista de apps pessoais"</string>
-    <string name="all_apps_button_work_label" msgid="7270707118948892488">"Lista de apps profissionais"</string>
     <string name="all_apps_home_button_label" msgid="252062713717058851">"Início"</string>
     <string name="remove_drop_target_label" msgid="7812859488053230776">"Remover"</string>
     <string name="uninstall_drop_target_label" msgid="4722034217958379417">"Desinstalar"</string>
@@ -80,9 +76,7 @@
     <string name="widget_button_text" msgid="2880537293434387943">"Widgets"</string>
     <string name="exit_button_text" msgid="8404103075899945851">"Planos de fundo"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Configurações da tela inicial"</string>
-    <string name="msg_disabled_by_admin" msgid="6898038085516271325">"Desativado pelo administrador"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Permitir rotação da tela inicial"</string>
-    <string name="allow_rotation_desc" msgid="8662546029078692509">"Quando o smartphone for girado"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Pontos de notificação"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Ativado"</string>
     <string name="icon_badging_desc_off" msgid="5503319969924580241">"Desativado"</string>
@@ -90,16 +84,12 @@
     <string name="msg_missing_notification_access" msgid="281113995110910548">"Para mostrar pontos de notificação, ative as notificações de app para <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="title_change_settings" msgid="1376365968844349552">"Alterar configurações"</string>
     <string name="icon_badging_service_title" msgid="2309733118428242174">"Mostrar pontos de notificação"</string>
-    <string name="auto_add_shortcuts_label" msgid="8222286205987725611">"Adicionar ícone à tela inicial"</string>
-    <string name="auto_add_shortcuts_description" msgid="7117251166066978730">"Para novos apps"</string>
     <string name="icon_shape_override_label" msgid="2977264953998281004">"Alterar forma de ícones"</string>
-    <string name="icon_shape_override_label_location" msgid="3841607380657692863">"na tela inicial"</string>
     <string name="icon_shape_system_default" msgid="1709762974822753030">"Usar padrão do sistema"</string>
     <string name="icon_shape_square" msgid="633575066111622774">"Quadrado"</string>
     <string name="icon_shape_squircle" msgid="5658049910802669495">"Arredondado"</string>
     <string name="icon_shape_circle" msgid="6550072265930144217">"Círculo"</string>
     <string name="icon_shape_teardrop" msgid="4525869388200835463">"Lágrima"</string>
-    <string name="icon_shape_override_progress" msgid="3461735694970239908">"Aplicando alterações na forma dos ícones"</string>
     <string name="package_state_unknown" msgid="7592128424511031410">"Desconhecido"</string>
     <string name="abandoned_clean_this" msgid="7610119707847920412">"Remover"</string>
     <string name="abandoned_search" msgid="891119232568284442">"Pesquisar"</string>
@@ -135,32 +125,15 @@
     <string name="shortcuts_menu_with_notifications_description" msgid="2676582286544232849">"Atalhos e notificações"</string>
     <string name="action_dismiss_notification" msgid="5909461085055959187">"Dispensar"</string>
     <string name="notification_dismissed" msgid="6002233469409822874">"Notificação dispensada"</string>
-    <string name="label_voice_search">Pesquisa por voz</string>
-    <string name="smartspace_preferences_in_settings">Resumo</string>
-    <string name="smartspace_preferences_in_settings_desc">Na parte superior da tela inicial</string>
     <string name="title_show_google_app">Exibir %1$s</string>
-    <string name="msg_minus_one_on_left">À esquerda da tela inicial principal</string>
-    <string name="about">Sobre</string>
-    <string name="title_app_suggestions">Exibir sugestões de apps</string>
-    <string name="summary_app_suggestions">No topo da sua lista Todos os apps</string>
-    <string name="about_app_version">Versão</string>
-    <string name="app_name_pixel_launcher">Tela de início do Pixel</string>
     <string name="title_disable_suggestions_prompt">Desativar sugestões de apps?</string>
     <string name="msg_disable_suggestions_prompt">As sugestões não serão exibidas na parte superior da sua lista de apps, e os dados de uso utilizados para criá-las serão permanentemente limpos.</string>
     <string name="label_turn_off_suggestions">DESATIVAR</string>
-    <string name="action_edit">Editar</string>
     <string name="icon_shape_rounded_square">Quadrado arredondado</string>
-    <string name="smartspace_hours_mins">%1$s %2$s</string>
-    <string name="week_day_format">%1$s, %2$s</string>
     <string name="icon_shape_cylinder">Cilindro</string>
-    <string name="theme_title">Tema</string>
-    <string name="theme_automatic">Automático</string>
     <string name="theme_default">Padrão</string>
     <string name="theme_light">Branco</string>
     <string name="theme_dark">Escuro</string>
-    <string name="pref_open_source_licenses_title">Licenças de código aberto</string>
-    <string name="all_apps_personal_tab" msgid="4190252696685155002">"Pessoais"</string>
-    <string name="all_apps_work_tab" msgid="4884822796154055118">"Comerciais"</string>
     <string name="work_profile_toggle_label" msgid="3081029915775481146">"Perfil de trabalho"</string>
     <string name="bottom_work_tab_user_education_title" msgid="5785851780786322825">"Localizar apps de trabalho aqui"</string>
     <string name="bottom_work_tab_user_education_body" msgid="2818107472360579152">"Cada app de trabalho tem um selo e é mantido em segurança pela sua organização. Mova os apps para sua tela inicial para facilitar o acesso."</string>

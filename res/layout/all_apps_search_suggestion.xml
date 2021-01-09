@@ -33,7 +33,6 @@
         android:layout_gravity="center"
         android:tint="@android:color/white"/>
     <TextView
-        android:id="@+id/suggestion"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?android:selectableItemBackground"
