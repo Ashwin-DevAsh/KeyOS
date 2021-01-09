@@ -27,7 +27,7 @@
                 android:textStyle="bold"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="EDIT APP"
+                android:text="@string/edit_app"
                 android:layout_height="match_parent"/>
 
             <ImageView
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Restrictions"
+                        android:text="@string/restrictions"
                         android:textAllCaps="true"
                         android:paddingTop="10dp"
                         android:textStyle="bold"
@@ -161,7 +161,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="Hide Icon"
+                            android:text="@string/hide_icon"
                             android:textColor="@android:color/black"
                             android:textSize="16dp" />
 
@@ -169,7 +169,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginTop="5dp"
-                            android:text="hide launcher / shortcut icon from KeyOS home "
+                            android:text="@string/hide_launcher_shortcut_icon_from_keyos_home"
                             android:layout_marginRight="90dp"
                             android:textSize="13dp" />
                     </LinearLayout>
@@ -225,7 +225,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="Block Activities"
+                            android:text="@string/block_activities"
                             android:textColor="@android:color/black"
                             android:textSize="16dp" />
 
@@ -234,7 +234,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="90dp"
-                            android:text="Block unwanted pages / activities / windows"
+                            android:text="@string/block_unwanted_pages_activities_windows"
                             android:textSize="13dp" />
                     </LinearLayout>
 
@@ -284,7 +284,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="Time Limit"
+                            android:text="@string/time_limit"
                             android:textColor="@android:color/black"
                             android:textSize="16dp" />
 
@@ -293,7 +293,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="90dp"
-                            android:text="Set timing restriction Eg. 1hr per day"
+                            android:text="@string/set_timing_restriction_eg_1hr_per_day"
                             android:textSize="13dp" />
                     </LinearLayout>
 
@@ -332,7 +332,7 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="System settings"
+                        android:text="@string/system_settings"
                         android:textAllCaps="true"
                         android:paddingTop="10dp"
                         android:textStyle="bold"
@@ -384,7 +384,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:text="App info"
+                            android:text="@string/app_info"
                             android:textColor="@android:color/black"
                             android:textSize="16dp" />
 

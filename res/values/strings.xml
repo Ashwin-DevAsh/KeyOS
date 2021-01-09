@@ -346,7 +346,6 @@
     <string name="initializing_desktop">Initializing desktop…</string>
 
 
-
     <string name="pref_external_search_provider">External Search App</string>
 
     <string name="button_overview_mode">Overview Mode</string>
@@ -356,5 +355,5 @@
     <string name="folder_grid_size">Folder Grid</string>
     <string name="disable_auto_fill_title">Disable Icon Auto Fill</string>
     <string name="folder_icon_scale_title">Folder Icon Scale</string>
-    <string name="password">Password</string>
+
 </resources>

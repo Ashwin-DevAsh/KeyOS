@@ -43,7 +43,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 
-def appVersion = 90
+def appVersion = 91
 
 android {
     compileSdkVersion 29
@@ -67,9 +67,6 @@ android {
         buildConfigField "String", "QR_KEY", '"DevAsh@2017"'
         buildConfigField "String", "PRIVACY_POLICY", '"https://www.keyos.in/PrivacyPolicy.html"'
         buildConfigField "String", "TERMS_AND_CONDITIONS", '"https://www.keyos.in/TermsAndCondition.html"'
-
-
-
 
         ndk { abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a" }
     }
@@ -98,7 +95,6 @@ android {
             dexOptions {
                 matchingFallbacks = ['release']
             }
-
         }
     }
 
@@ -267,10 +263,6 @@ dependencies {
     proImplementation files('keyOS/libs/sesame-lib.aar')
     devImplementation files('keyOS/libs/sesame-lib.aar')
 
-
-
-
-
 //    for keyos
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -321,11 +313,6 @@ dependencies {
         // excluding org.json which is provided by Android
         exclude group: 'org.json', module: 'json'
     }
-
-//    implementation ('io.socket:socket.io-client:2.0.0') {
-//        // excluding org.json which is provided by Android
-//        exclude group: 'org.json', module: 'json'
-//    }
 }
 
 protobuf {

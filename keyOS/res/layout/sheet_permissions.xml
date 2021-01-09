@@ -41,7 +41,7 @@
                 android:layout_marginLeft="65dp"
                 android:fontFamily="@font/montserrat"
                 android:gravity="center_vertical"
-                android:text="Usage Access"
+                android:text="@string/usage_access"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
             <LinearLayout
@@ -82,7 +82,7 @@
             </androidx.cardview.widget.CardView>
             <TextView
                 android:layout_width="wrap_content"
-                android:text="Overlay"
+                android:text="@string/overlay"
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="65dp"
@@ -124,7 +124,7 @@
             </androidx.cardview.widget.CardView>
             <TextView
                 android:layout_width="wrap_content"
-                android:text="Write Settings"
+                android:text="@string/write_settings"
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="65dp"
@@ -166,7 +166,7 @@
             </androidx.cardview.widget.CardView>
             <TextView
                 android:layout_width="wrap_content"
-                android:text="Sound Access"
+                android:text="@string/sound_access"
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="65dp"
@@ -209,7 +209,7 @@
             </androidx.cardview.widget.CardView>
             <TextView
                 android:layout_width="wrap_content"
-                android:text="Other Permissions"
+                android:text="@string/other_permissions"
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="65dp"
@@ -325,7 +325,7 @@
             </androidx.cardview.widget.CardView>
             <TextView
                 android:layout_width="wrap_content"
-                android:text="Accessibility"
+                android:text="@string/accessibility"
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:layout_marginLeft="65dp"

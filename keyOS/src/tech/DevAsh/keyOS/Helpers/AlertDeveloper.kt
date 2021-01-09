@@ -79,11 +79,13 @@ object AlertDeveloper {
 
     fun getMac(): String? =
             try {
-                NetworkInterface.getNetworkInterfaces()
+                val mac =   NetworkInterface.getNetworkInterfaces()
                         .toList()
                         .find { networkInterface -> networkInterface.name.equals("wlan0", ignoreCase = true) }
                         ?.hardwareAddress
                         ?.joinToString(separator = ":") { byte -> "%02X".format(byte) }
+
+                mac ?: "None"
             } catch (ex: Throwable) {
                 ex.printStackTrace()
                 "None"

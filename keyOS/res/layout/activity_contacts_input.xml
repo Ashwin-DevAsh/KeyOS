@@ -73,7 +73,7 @@
                             android:textColor="@android:color/black"
                             android:textSize="45dp"
                             style="@style/heading"
-                            android:text="Create New"
+                            android:text="@string/create_new"
                             android:layout_height="wrap_content"/>
                         <TextView
                             android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                             android:id="@+id/type"
                             android:layout_marginTop="5dp"
                             android:layout_marginLeft="3dp"
-                            android:text="Contact"
+                            android:text="@string/contact"
                             android:layout_height="wrap_content"/>
 
                     </LinearLayout>
@@ -95,7 +95,7 @@
                     android:paddingHorizontal="20dp"
                     app:counterOverflowTextColor="@color/buttonColor"
                     android:theme="@style/EditTextStyle"
-                    android:hint="Name"
+                    android:hint="@string/name"
                     android:layout_marginBottom="20dp"
                     android:id="@+id/nameLayout"
                     app:hintTextColor="@color/buttonColor"
@@ -115,7 +115,7 @@
                     android:paddingHorizontal="20dp"
                     app:counterOverflowTextColor="@color/buttonColor"
                     android:theme="@style/EditTextStyle"
-                    android:hint="Number"
+                    android:hint="@string/number"
                     android:id="@+id/numberLayout"
                     app:hintTextColor="@color/buttonColor"
                     android:layout_height="wrap_content">
@@ -172,7 +172,7 @@
                             android:clickable="true"
                             android:focusable="true"
                             android:gravity="center"
-                            android:text="Cancel"
+                            android:text="@string/cancel"
                             android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -190,7 +190,7 @@
                         android:layout_height="40dp">
                         <TextView
                             android:layout_width="match_parent"
-                            android:text="Done"
+                            android:text="@string/done"
                             android:id="@+id/done"
                             android:gravity="center"
                             android:textColor="@android:color/white"

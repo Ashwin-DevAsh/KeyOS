@@ -46,7 +46,7 @@
                         android:textStyle="bold"
                         android:clickable="false"
                         android:focusable="false"
-                        android:text="Activities"
+                        android:text="@string/activities"
                         android:layout_height="match_parent"/>
 
 
@@ -114,7 +114,7 @@
                         android:layout_height="match_parent">
                         <TextView
                             android:layout_width="match_parent"
-                            android:text="Cancel"
+                            android:text="@string/cancel"
                             android:gravity="center"
                             android:id="@+id/cancel"
                             android:textStyle="bold"
@@ -141,7 +141,7 @@
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:text="Done"
+                            android:text="@string/done"
                             android:id="@+id/done"
                             android:gravity="center"
                             android:background="@color/buttonColor"

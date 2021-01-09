@@ -150,7 +150,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Import &amp; export settings"
+                            android:text="@string/import_amp_export_settings"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -189,7 +189,7 @@
                         android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="PERIPHERAL"
+                            android:text="@string/peripheral"
                             android:paddingTop="10dp"
                             android:textStyle="bold"
                             android:layout_gravity="center_vertical"
@@ -468,7 +468,7 @@
                         android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="APPS &amp; SERVICES"
+                            android:text="@string/apps_amp_services"
                             android:paddingTop="10dp"
                             android:textStyle="bold"
                             android:layout_gravity="center_vertical"
@@ -507,7 +507,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Apps"
+                            android:text="@string/apps"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -558,7 +558,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Services"
+                            android:text="@string/services"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -609,7 +609,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Single App"
+                            android:text="@string/single_app"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -640,7 +640,7 @@
                         android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="ADVANCE"
+                            android:text="@string/advance"
                             android:paddingTop="10dp"
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
@@ -680,7 +680,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Disable Camera"
+                            android:text="@string/disable_camera"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -709,7 +709,7 @@
                         android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="ADDITIONAL"
+                            android:text="@string/additional"
                             android:paddingTop="10dp"
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
@@ -750,7 +750,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Call Settings"
+                            android:text="@string/call_settings"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -801,7 +801,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Web Filter"
+                            android:text="@string/web_filter"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -854,7 +854,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Screen Saver"
+                            android:text="@string/screen_saver"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -906,7 +906,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Phone Settings"
+                            android:text="@string/phone_settings"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -957,7 +957,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Notification Panel"
+                            android:text="@string/notification_panel"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -991,7 +991,7 @@
                         android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="SECURITY"
+                            android:text="@string/security"
                             android:paddingTop="10dp"
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
@@ -1030,7 +1030,7 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Password"
+                            android:text="@string/password"
                             android:gravity="center"
                             android:textColor="@android:color/black"
                             android:layout_marginLeft="65dp"
@@ -1083,7 +1083,7 @@
             android:layout_alignParentBottom="true">
             <TextView
                 android:layout_width="100dp"
-                android:text="Launch"
+                android:text="@string/launch"
                 android:focusable="true"
                 android:clickable="true"
                 android:id="@+id/launch"

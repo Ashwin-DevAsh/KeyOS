@@ -214,7 +214,7 @@
                 app:fab_colorPressed="@color/colorAccent"
                 app:fab_size="mini"
                 app:fabSize="mini"
-                app:fab_label="Phone book"
+                app:fab_label="@string/phoneBook"
                 />
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/manual"
@@ -223,7 +223,7 @@
                 app:fabSize="mini"
                 app:fab_colorNormal="@color/colorAccent"
                 app:fab_colorPressed="@color/colorAccent"
-                app:fab_label="Manual"
+                app:fab_label="@string/manual"
                 android:layout_height="wrap_content"
                 android:src="@drawable/edit_white"
                 />
@@ -234,11 +234,11 @@
 
     </RelativeLayout>
 
-<!--    <include-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:id="@+id/loadingScreen"-->
-<!--        layout="@layout/layout_loading_screen"-->
-<!--        />-->
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/loadingScreen"
+        layout="@layout/layout_loading_screen"
+        />
 
 </RelativeLayout>

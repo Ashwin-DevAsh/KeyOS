@@ -18,7 +18,7 @@
             android:textSize="30sp"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="20dp"
-            android:text="Otp Verification"
+            android:text="@string/otp_verification"
             android:textColor="@color/buttonColor"
             android:layout_marginBottom="15dp"
             android:layout_height="wrap_content"/>
@@ -28,7 +28,7 @@
             android:drawablePadding="20dp"
             android:drawableRight="@drawable/ic_info"
             android:drawableTint="@color/black"
-            android:text="Please enter the 4 digit otp which we sent to your registered email address"
+            android:text="@string/please_enter_the_4_digit_otp_which_we_sent_to_your_registered_email_address"
             android:layout_marginBottom="20dp"
             android:layout_height="wrap_content"/>
         <FrameLayout
@@ -71,7 +71,7 @@
                 android:layout_height="40dp">
                 <TextView
                     android:layout_width="match_parent"
-                    android:text="Done"
+                    android:text="@string/done"
                     android:id="@+id/done"
                     android:gravity="center"
                     android:textColor="@android:color/white"

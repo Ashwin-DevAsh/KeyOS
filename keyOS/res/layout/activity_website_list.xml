@@ -33,7 +33,7 @@
                         android:textStyle="bold"
                         android:clickable="false"
                         android:focusable="false"
-                        android:text="WHITELIST"
+                        android:text="@string/whitelist"
                         android:layout_height="match_parent"/>
                     <ImageView
                         android:layout_width="50dp"
@@ -172,7 +172,7 @@
                 app:fabSize="mini"
                 app:fab_colorNormal="@color/colorAccent"
                 app:fab_colorPressed="@color/colorAccent"
-                app:fab_label="Add website"
+                app:fab_label="@string/add_websites"
                 android:layout_height="wrap_content"
                 android:src="@drawable/edit_white"
                 />

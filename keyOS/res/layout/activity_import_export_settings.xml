@@ -27,7 +27,7 @@
                 android:textStyle="bold"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="Import &amp; Export"
+                android:text="@string/import_amp_export"
                 android:layout_height="match_parent"/>
 
             <ImageView
@@ -103,7 +103,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Scan"
+                                android:text="@string/scan"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -112,7 +112,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="50dp"
-                                android:text="Scan keyOS qr code to apply same settings policy"
+                                android:text="@string/scan_keyos_qr_code_to_apply_same_settings_policy"
                                 android:textSize="13dp" />
                         </LinearLayout>
 
@@ -173,7 +173,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Generate"
+                                android:text="@string/generate"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -181,7 +181,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
-                                android:text="Generate keyOS qr code"
+                                android:text="@string/generate_keyos_qr_code"
                                 android:textSize="13dp" />
                         </LinearLayout>
 
@@ -272,7 +272,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Import"
+                                android:text="@string/import_text"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -280,7 +280,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
-                                android:text="Import keyOS setting from storage"
+                                android:text="@string/import_keyos_setting_from_storage"
                                 android:textSize="13dp" />
                         </LinearLayout>
 
@@ -344,7 +344,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Export"
+                                android:text="@string/export_text"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -352,7 +352,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
-                                android:text="Import keyOS setting to storage"
+                                android:text="@string/import_keyos_setting_to_storage"
                                 android:textSize="13dp" />
                         </LinearLayout>
 

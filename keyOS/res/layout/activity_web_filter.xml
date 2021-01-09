@@ -73,7 +73,7 @@
                     android:paddingHorizontal="20dp"
                     android:layout_marginLeft="5dp"
                     android:textSize="15sp"
-                    android:text="Web filter is a powerful service which allow you to block unwanted websites\n\nSupported browsers : chrome, firefox, brave, edge, opera, duckduckgo"
+                    android:text="@string/web_filter_is_a_powerful_service_which_allow_you_to_block_unwanted_websites_n_nsupported_browsers_chrome_firefox_brave_edge_opera_duckduckgo"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
@@ -93,7 +93,7 @@
                         android:layout_height="50dp">
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Off"
+                            android:text="@string/off"
                             android:textAllCaps="true"
                             android:layout_marginLeft="5dp"
                             android:textStyle="bold"
@@ -182,7 +182,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Whitelist Websites"
+                                android:text="@string/whitelist_websites"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -191,7 +191,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="50dp"
-                                android:text="Websites save under whitelist only able to access by the browser"
+                                android:text="@string/websites_save_under_whitelist_only_able_to_access_by_the_browser"
                                 android:textSize="13dp" />
 
                         </LinearLayout>
@@ -253,7 +253,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Blacklist Websites"
+                                android:text="@string/blacklist_websites"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -262,7 +262,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="50dp"
-                                android:text="Websites save under blacklist won't be able to access by browser"
+                                android:text="@string/websites_save_under_blacklist_won_t_be_able_to_access_by_browser"
                                 android:textSize="13dp" />
 
 
@@ -350,7 +350,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Block adult websites"
+                                android:text="@string/block_adult_websites"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -359,7 +359,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="90dp"
-                                android:text="This will automatically block 800+ adult websites"
+                                android:text="@string/this_will_automatically_block_800_adult_websites"
                                 android:textSize="13dp" />
                         </LinearLayout>
 

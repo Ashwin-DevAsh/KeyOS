@@ -54,7 +54,7 @@
                         android:textStyle="bold"
                         android:clickable="false"
                         android:focusable="false"
-                        android:text="PHONE BOOK"
+                        android:text="@string/phone_book"
                         android:layout_height="match_parent"/>
 
                     <androidx.appcompat.widget.SearchView
@@ -119,7 +119,7 @@
                         android:layout_height="match_parent">
                         <TextView
                             android:layout_width="match_parent"
-                            android:text="Cancel"
+                            android:text="@string/cancel"
                             android:gravity="center"
                             android:id="@+id/cancel"
                             android:textStyle="bold"
@@ -143,7 +143,7 @@
                         android:layout_height="40dp">
                         <TextView
                             android:layout_width="match_parent"
-                            android:text="Done"
+                            android:text="@string/done"
                             android:id="@+id/done"
                             android:gravity="center"
                             android:background="@color/buttonColor"

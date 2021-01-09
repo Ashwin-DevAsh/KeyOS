@@ -18,7 +18,7 @@
             android:textSize="30sp"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="20dp"
-            android:text="Website"
+            android:text="@string/website"
             android:textColor="@color/buttonColor"
             android:layout_marginBottom="15dp"
             android:layout_height="wrap_content"/>
@@ -29,7 +29,7 @@
             android:id="@+id/subHeading"
             android:drawableRight="@drawable/ic_info"
             android:drawableTint="@color/black"
-            android:text="Please enter the website which you want to add in whitelist Eg: www.google.com"
+            android:text="@string/please_enter_the_website_which_you_want_to_add_in_whitelist_eg_www_google_com"
             android:layout_marginBottom="20dp"
             android:layout_height="wrap_content"/>
         <FrameLayout
@@ -73,7 +73,7 @@
                 android:layout_height="40dp">
                 <TextView
                     android:layout_width="match_parent"
-                    android:text="Done"
+                    android:text="@string/done"
                     android:id="@+id/done"
                     android:gravity="center"
                     android:textColor="@android:color/white"

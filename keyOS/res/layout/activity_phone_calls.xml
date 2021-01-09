@@ -98,7 +98,7 @@
                     android:paddingHorizontal="20dp"
                     android:layout_marginLeft="5dp"
                     android:textSize="15sp"
-                    android:text="If you face any trouble for making calls kindly allow all the services related to phone call\n\nhint: Search for phone in service section"
+                    android:text="@string/if_you_face_any_trouble_for_making_calls_kindly_allow_all_the_services_related_to_phone_call_n_nhint_search_for_phone_in_service_section"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
@@ -118,7 +118,7 @@
                         android:layout_height="50dp">
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Allow Calls"
+                            android:text="@string/allow_calls"
                             android:textAllCaps="true"
                             android:layout_marginLeft="5dp"
                             android:textStyle="bold"
@@ -200,7 +200,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Incoming"
+                                android:text="@string/incoming"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -209,7 +209,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="70dp"
-                                android:text="This will allow all incoming calls to your mobile"
+                                android:text="@string/this_will_allow_all_incoming_calls_to_your_mobile"
                                 android:textSize="13dp" />
                         </LinearLayout>
 
@@ -279,7 +279,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="70dp"
-                                android:text="This will allow all outgoing calls to your mobile"
+                                android:text="@string/this_will_allow_all_outgoing_calls_to_your_mobile"
                                 android:textSize="13dp" />
                         </LinearLayout>
 
@@ -324,7 +324,7 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
                             android:paddingTop="10dp"
-                            android:text="Whitelist &amp; blacklist"
+                            android:text="@string/whitelist_amp_blacklist"
                             android:textAllCaps="true"
                             android:textSize="14dp"
                             android:textStyle="bold" />
@@ -373,7 +373,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Whitelist Contacts"
+                                android:text="@string/whitelist_contacts"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -382,7 +382,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="50dp"
-                                android:text="Contacts save under whitelist only able to call you"
+                                android:text="@string/contacts_save_under_whitelist_only_able_to_call_you"
                                 android:textSize="13dp" />
 
                         </LinearLayout>
@@ -444,7 +444,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Blacklist Contacts"
+                                android:text="@string/blacklist_contacts"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -453,7 +453,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="50dp"
-                                android:text="Contacts save under blacklist won't be able to call you"
+                                android:text="@string/contacts_save_under_blacklist_won_t_be_able_to_call_you"
                                 android:textSize="13dp" />
 
 
@@ -494,7 +494,7 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center_vertical"
                             android:paddingTop="10dp"
-                            android:text="Additional"
+                            android:text="@string/additional"
                             android:textAllCaps="true"
                             android:textSize="14dp"
                             android:textStyle="bold" />
@@ -541,7 +541,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Automatic whitelist"
+                                android:text="@string/automatic_whitelist"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -550,7 +550,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="90dp"
-                                android:text="Allow calls if contact available in phone book"
+                                android:text="@string/allow_calls_if_contact_available_in_phone_book"
                                 android:textSize="13dp" />
                         </LinearLayout>
 
@@ -654,7 +654,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:text="Done"
+                        android:text="@string/done"
                         android:id="@+id/done"
                         android:gravity="center"
                         android:background="@color/buttonColor"
