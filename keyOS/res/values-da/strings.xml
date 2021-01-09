@@ -310,7 +310,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Indstillinger for Startskærm</string>
     <string name="button_organize_screens">Arrangér sider</string>
-    <string name="wallpaper_button_text">Tapet</string>
+    <string name="exit_button_text">Tapet</string>
     <string name="pref_app_groups_create">Opret</string>
     <string name="pref_appcategorization_style_text">Stil</string>
     <string name="customize">Tilpas</string>

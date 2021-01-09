@@ -309,7 +309,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Cài đặt màn hình chính</string>
     <string name="button_organize_screens">Sắp xếp các trang</string>
-    <string name="wallpaper_button_text">Hình nền</string>
+    <string name="exit_button_text">Hình nền</string>
     <string name="pref_app_groups_create">Tạo mới</string>
     <string name="pref_appcategorization_style_text">Kiểu phân loại</string>
     <string name="customize">Tùy biến</string>

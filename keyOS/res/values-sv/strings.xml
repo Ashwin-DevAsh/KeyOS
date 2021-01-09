@@ -302,7 +302,7 @@
     <string name="about_our_team">Teamet</string>
     <!-- Section 12 -->
     <string name="settings_button_text">Hemskärmsinställningar</string>
-    <string name="wallpaper_button_text">Bakgrundsbild</string>
+    <string name="exit_button_text">Bakgrundsbild</string>
     <string name="pref_app_groups_create">Skapa</string>
     <string name="pref_appcategorization_style_text">Stil</string>
     <string name="customize">Anpassa</string>

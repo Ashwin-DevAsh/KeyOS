@@ -165,7 +165,7 @@
     <string name="about_role_designer">Suunnittelija</string>
     <string name="about_role_family_member">Perheenjäsen</string>
     <!-- Section 12 -->
-    <string name="wallpaper_button_text">Taustakuva</string>
+    <string name="exit_button_text">Taustakuva</string>
     <string name="pref_app_groups_create">Luo</string>
     <string name="pref_appcategorization_style_text">Tyyli</string>
     <string name="customize">Muokkaa</string>

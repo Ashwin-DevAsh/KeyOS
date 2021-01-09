@@ -307,7 +307,7 @@
     <string name="title_attribouter_licenses">Atribute</string>
     <!-- Section 12 -->
     <string name="settings_button_text">Setări pentru ecranul de pornire</string>
-    <string name="wallpaper_button_text">Imagine de fundal</string>
+    <string name="exit_button_text">Imagine de fundal</string>
     <string name="pref_app_groups_create">Creare</string>
     <string name="pref_appcategorization_style_text">Stil</string>
     <string name="customize">Personalizează</string>

@@ -307,7 +307,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">הגדרות דף הבית</string>
     <string name="button_organize_screens">סדר עמודים</string>
-    <string name="wallpaper_button_text">רקע</string>
+    <string name="exit_button_text">רקע</string>
     <string name="pref_app_groups_create">צור</string>
     <string name="pref_appcategorization_style_text">סגנון</string>
     <string name="customize">התאמה אישית</string>

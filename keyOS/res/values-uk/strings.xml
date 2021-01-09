@@ -312,7 +312,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Налаштування Стільниці</string>
     <string name="button_organize_screens">Впорядкувати сторінки</string>
-    <string name="wallpaper_button_text">Тло</string>
+    <string name="exit_button_text">Тло</string>
     <string name="pref_app_groups_create">Створити</string>
     <string name="pref_appcategorization_style_text">Стиль</string>
     <string name="customize">Персоналізувати</string>

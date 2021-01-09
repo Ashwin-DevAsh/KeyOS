@@ -276,7 +276,7 @@
     <string name="about_our_team">H Ομάδα</string>
     <!-- Section 12 -->
     <string name="settings_button_text">Ρυθμίσεις Αρχικής Οθόνης</string>
-    <string name="wallpaper_button_text">Ταπετσαρία</string>
+    <string name="exit_button_text">Ταπετσαρία</string>
     <string name="pref_app_groups_create">Δημιουργία</string>
     <string name="pref_appcategorization_style_text">Στυλ</string>
     <string name="customize">Προσαρμογή</string>

@@ -309,7 +309,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Kezdőképernyő-beállítások</string>
     <string name="button_organize_screens">Oldalak elrendezése</string>
-    <string name="wallpaper_button_text">Háttérkép</string>
+    <string name="exit_button_text">Háttérkép</string>
     <string name="pref_app_groups_create">Létrehozás</string>
     <string name="pref_appcategorization_style_text">Stílus</string>
     <string name="customize">Testreszabás</string>

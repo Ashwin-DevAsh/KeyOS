@@ -306,7 +306,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Configuració de la pantalla d\'inici</string>
     <string name="button_organize_screens">Ordena les pàgines</string>
-    <string name="wallpaper_button_text">Fons de pantalla</string>
+    <string name="exit_button_text">Fons de pantalla</string>
     <string name="pref_app_groups_create">Crea</string>
     <string name="pref_appcategorization_style_text">Estil</string>
     <string name="customize">Personalitza</string>

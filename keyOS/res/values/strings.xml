@@ -170,7 +170,7 @@
     <!-- Section 12 -->
 
     <string name="settings_button_text">Kiosk Settings</string>
-    <string name="wallpaper_button_text">Exit Kiosk</string>
+    <string name="exit_button_text">Exit Kiosk</string>
 
     <string name="customize">Customize</string>
 

@@ -308,7 +308,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">主屏幕设置</string>
     <string name="button_organize_screens">页面管理</string>
-    <string name="wallpaper_button_text">壁纸</string>
+    <string name="exit_button_text">壁纸</string>
     <string name="pref_app_groups_create">创建</string>
     <string name="pref_appcategorization_style_text">样式</string>
     <string name="customize">自定义</string>

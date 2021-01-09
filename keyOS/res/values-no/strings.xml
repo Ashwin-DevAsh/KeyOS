@@ -310,7 +310,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Startskjerminnstillinger</string>
     <string name="button_organize_screens">Ordne sider</string>
-    <string name="wallpaper_button_text">Bakgrunn</string>
+    <string name="exit_button_text">Bakgrunn</string>
     <string name="pref_app_groups_create">Opprett</string>
     <string name="pref_appcategorization_style_text">Stil</string>
     <string name="customize">Tilpass</string>

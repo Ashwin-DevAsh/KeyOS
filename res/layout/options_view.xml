@@ -133,7 +133,7 @@
             android:layout_marginBottom="5dp"
             android:gravity="center"
             android:textColor="?attr/workspaceTextColor"
-            android:text="@string/wallpaper_button_text"
+            android:text="@string/exit_button_text"
             android:layout_alignParentBottom="true"
             android:layout_height="wrap_content">
 

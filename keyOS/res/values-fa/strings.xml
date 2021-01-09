@@ -306,7 +306,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">تنظیمات صفحه اصلی</string>
     <string name="button_organize_screens">سازماندهی صفحات</string>
-    <string name="wallpaper_button_text">تصویر ضمینه</string>
+    <string name="exit_button_text">تصویر ضمینه</string>
     <string name="pref_app_groups_create">ايجاد كردن</string>
     <string name="pref_appcategorization_style_text">سبک</string>
     <string name="customize">شخصی‌سازی</string>

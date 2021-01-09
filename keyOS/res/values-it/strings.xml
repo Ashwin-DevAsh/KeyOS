@@ -310,7 +310,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Impostazioni Home</string>
     <string name="button_organize_screens">Organizza pagine</string>
-    <string name="wallpaper_button_text">Sfondo</string>
+    <string name="exit_button_text">Sfondo</string>
     <string name="pref_app_groups_create">Crea</string>
     <string name="pref_appcategorization_style_text">Stile</string>
     <string name="customize">Personalizza</string>

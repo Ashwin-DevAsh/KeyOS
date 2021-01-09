@@ -310,7 +310,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Configurações da tela inical</string>
     <string name="button_organize_screens">Organizar Páginas</string>
-    <string name="wallpaper_button_text">Plano de fundo</string>
+    <string name="exit_button_text">Plano de fundo</string>
     <string name="pref_app_groups_create">Criar</string>
     <string name="pref_appcategorization_style_text">Estilo</string>
     <string name="customize">Personalizar</string>

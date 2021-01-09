@@ -312,7 +312,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Nastavenia plochy</string>
     <string name="button_organize_screens">Usporiadať stránky</string>
-    <string name="wallpaper_button_text">Tapeta</string>
+    <string name="exit_button_text">Tapeta</string>
     <string name="pref_app_groups_create">Vytvoriť</string>
     <string name="pref_appcategorization_style_text">Štýl</string>
     <string name="customize">Prispôsobiť</string>

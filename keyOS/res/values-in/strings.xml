@@ -309,7 +309,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Pengaturan Beranda</string>
     <string name="button_organize_screens">Atur Halaman</string>
-    <string name="wallpaper_button_text">Wallpaper</string>
+    <string name="exit_button_text">Wallpaper</string>
     <string name="pref_app_groups_create">Buat</string>
     <string name="pref_appcategorization_style_text">Gaya</string>
     <string name="customize">Kustomisasi</string>

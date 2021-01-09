@@ -312,7 +312,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Ustawienia Ekranu Głównego</string>
     <string name="button_organize_screens">Rozmieść Strony</string>
-    <string name="wallpaper_button_text">Tapeta</string>
+    <string name="exit_button_text">Tapeta</string>
     <string name="pref_app_groups_create">Utwórz</string>
     <string name="pref_appcategorization_style_text">Styl</string>
     <string name="customize">Dostosuj</string>

@@ -309,7 +309,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">การตั้งค่าหน้าจอหลัก</string>
     <string name="button_organize_screens">จัดเรียงหน้า</string>
-    <string name="wallpaper_button_text">ภาพพื้นหลัง</string>
+    <string name="exit_button_text">ภาพพื้นหลัง</string>
     <string name="pref_app_groups_create">สร้าง</string>
     <string name="pref_appcategorization_style_text">รูปแบบ</string>
     <string name="customize">ค่ากำหนด</string>

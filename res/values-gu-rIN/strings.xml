@@ -78,7 +78,7 @@
     <string name="folder_renamed" msgid="1794088362165669656">"ફોલ્ડરનું નામ બદલીને <xliff:g id="NAME">%1$s</xliff:g> કર્યું"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ફોલ્ડર: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"વિજેટ્સ"</string>
-    <string name="wallpaper_button_text" msgid="8404103075899945851">"વૉલપેપર્સ"</string>
+    <string name="exit_button_text" msgid="8404103075899945851">"વૉલપેપર્સ"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"હોમ સેટિંગ્સ"</string>
     <string name="msg_disabled_by_admin" msgid="6898038085516271325">"તમારા વ્યવસ્થાપક દ્વારા અક્ષમ કરેલ"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"હોમ સ્ક્રીનને ફેરવવાની મંજૂરી આપો"</string>

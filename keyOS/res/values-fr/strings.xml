@@ -310,7 +310,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Paramètres écran acc.</string>
     <string name="button_organize_screens">Organiser les pages</string>
-    <string name="wallpaper_button_text">Fond d\'écran</string>
+    <string name="exit_button_text">Fond d\'écran</string>
     <string name="pref_app_groups_create">Créer</string>
     <string name="pref_appcategorization_style_text">Style</string>
     <string name="customize">Personnaliser</string>
@@ -473,7 +473,7 @@ corriges des bugs pendant son temps libre. Également connu précédemment sous 
     <string name="allow">Autoriser</string>
     <string name="deny">Refuser</string>
     <string name="sesame_enable_integration_title">Partage des données</string>
-    <string name="sesame_enable_integration_description"><![CDATA[Activer le partage de données d'utilisation avec Sesame ? Vous pourrez changer cela plus tard.]]></string>
+    <string name="sesame_enable_integration_description"><![CDATA[Activer le partage de données d utilisation avec Sesame ? Vous pourrez changer cela plus tard.]]></string>
     <string name="sesame_shortcut_disabled">Sesame est désactivé.</string>
     <string name="font_variant_italic">Italique</string>
     <string name="font_weight_thin">Fin</string>

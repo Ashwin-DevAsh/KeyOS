@@ -310,7 +310,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Instellingen startscherm</string>
     <string name="button_organize_screens">Pagina\'s rangschikken</string>
-    <string name="wallpaper_button_text">Achtergrond</string>
+    <string name="exit_button_text">Achtergrond</string>
     <string name="pref_app_groups_create">Maken</string>
     <string name="pref_appcategorization_style_text">Stijl</string>
     <string name="customize">Aanpassen</string>

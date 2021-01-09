@@ -80,7 +80,7 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Nazwa folderu zmieniona na <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Folder: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widżety"</string>
-    <string name="wallpaper_button_text" msgid="8404103075899945851">"Tapety"</string>
+    <string name="exit_button_text" msgid="8404103075899945851">"Tapety"</string>
     <string name="settings_button_text" msgid="8873672322605444408">"Ustawienia strony głównej"</string>
     <string name="msg_disabled_by_admin" msgid="6898038085516271325">"Funkcja wyłączona przez administratora"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Zezwalaj na obrót ekranu głównego"</string>

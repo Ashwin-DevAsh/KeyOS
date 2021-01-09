@@ -310,7 +310,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Ana Ekran Ayarları</string>
     <string name="button_organize_screens">Sayfaları Düzenle</string>
-    <string name="wallpaper_button_text">Duvar kağıdı</string>
+    <string name="exit_button_text">Duvar kağıdı</string>
     <string name="pref_app_groups_create">Oluştur</string>
     <string name="pref_appcategorization_style_text">Stil</string>
     <string name="customize">Özelleştirme</string>

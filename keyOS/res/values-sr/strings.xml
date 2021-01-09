@@ -311,7 +311,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">Подешавања почетног екрана</string>
     <string name="button_organize_screens">Поредак страница</string>
-    <string name="wallpaper_button_text">Позадина</string>
+    <string name="exit_button_text">Позадина</string>
     <string name="pref_app_groups_create">Направи</string>
     <string name="pref_appcategorization_style_text">Стил</string>
     <string name="customize">Прилагоди</string>

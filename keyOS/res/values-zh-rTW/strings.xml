@@ -309,7 +309,7 @@
     <!-- Section 12 -->
     <string name="settings_button_text">主畫面設定</string>
     <string name="button_organize_screens">管理頁面</string>
-    <string name="wallpaper_button_text">桌布</string>
+    <string name="exit_button_text">桌布</string>
     <string name="pref_app_groups_create">建立</string>
     <string name="pref_appcategorization_style_text">樣式</string>
     <string name="customize">自訂</string>
