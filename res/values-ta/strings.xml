@@ -221,7 +221,7 @@
     <string name="add_websites_subheading">அனுமதிப்பட்டியலில் நீங்கள் சேர்க்க விரும்பும் வலைத்தளத்தை உள்ளிடவும் எ.கா: www.google.com</string>
     <string name="otp_verification">Otp சரிபார்ப்பு</string>
     <string name="otp_verification_subheading">உங்கள் பதிவு செய்யப்பட்ட மின்னஞ்சல் முகவரிக்கு நாங்கள் அனுப்பிய 4 இலக்க otp ஐ உள்ளிடவும்</string>
-    <string name="password_prompt_subheading">"நீங்கள் இன்னும் உங்கள் கடவுச்சொல்லை மாற்றவில்லை என்றால் 12 n தயவுசெய்து 1234 ஐ முயற்சிக்கவும்"</string>
+    <string name="password_prompt_subheading">"நீங்கள் இன்னும் உங்கள் கடவுச்சொல்லை மாற்றவில்லை என்றால் தயவுசெய்து 1234 ஐ முயற்சிக்கவும்"</string>
     <string name="forget">மறக்கவா?</string>
     <string name="user_agreement">பயனர் ஒப்பந்தம்</string>
     <string name="user_agreement_2">நிறுவப்பட்ட பயன்பாடு மற்றும் தொலைபேசி எண்ணின் பட்டியலை உங்கள் சாதனத்தில் சேமிப்போம். நீங்கள் QrCode அம்சத்தைப் பயன்படுத்தினால் மட்டுமே இந்தத் தரவு உங்கள் சாதனத்திலிருந்து எடுக்கப்படும், மேலும் இந்தத் தரவு ஒரு மணி நேரத்தில் சேவையகத்திலிருந்து தானாகவே அகற்றப்படும்</string>
@@ -303,6 +303,6 @@
     <string name="select_all">அனைத்தையும் தெரிவுசெய்</string>
     <string name="initializing_desktop">டெஸ்க்டாப்பைத் துவக்குகிறது…</string>
     <string name="loading_settings">அமைப்புகளை ஏற்றுகிறது</string>
-    <string name="exiting_keyos">KeyOS இலிருந்து வெளியேறுகிறது</string>
+    <string name="exiting_keyos">ெளியேறுகிறது</string>
     <string name="dialog_qrcode_subheading">உங்கள் KeyOS சாதனத்தில் அதே அமைப்புகளைப் பயன்படுத்த இந்த KeyOS Qr குறியீட்டை ஸ்கேன் செய்யுங்கள்</string>
 </resources>
