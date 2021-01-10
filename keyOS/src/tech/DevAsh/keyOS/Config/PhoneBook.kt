@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.appcompat.widget.SearchView
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.launcher3.R
 import tech.DevAsh.KeyOS.Config.Adapters.PhoneBookAdapter
@@ -146,7 +147,9 @@ class PhoneBook : AppCompatActivity() {
             if(PermissionsHelper.checkRuntimePermission(this,android.Manifest.permission.READ_CONTACTS)){
                 loadContact.execute()
             }else{
-                PermissionsHelper.getRuntimePermission(this, arrayOf(android.Manifest.permission.READ_CONTACTS),0)
+                ActivityCompat.requestPermissions(this,
+                                                  arrayOf(android.Manifest.permission.READ_CONTACTS),
+                                                  0)
             }
         }
     }
