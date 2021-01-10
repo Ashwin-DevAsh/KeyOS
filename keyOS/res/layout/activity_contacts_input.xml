@@ -60,7 +60,8 @@
                     android:layout_marginHorizontal="15dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
-                    android:layout_height="150dp">
+                    android:layout_height="wrap_content"
+                    android:minHeight="150dp">
                     <LinearLayout
                         android:layout_centerInParent="true"
                         android:layout_width="match_parent"
@@ -73,6 +74,8 @@
                             android:textColor="@android:color/black"
                             android:textSize="45dp"
                             style="@style/heading"
+                            android:maxLines="1"
+                            android:ellipsize="end"
                             android:text="@string/create_new"
                             android:layout_height="wrap_content"/>
                         <TextView
