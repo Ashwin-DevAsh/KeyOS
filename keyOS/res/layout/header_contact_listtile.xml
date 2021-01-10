@@ -64,6 +64,7 @@
                 android:id="@+id/isTurnOn"
                 android:layout_marginLeft="5dp"
                 android:textStyle="bold"
+                android:textAllCaps="true"
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:textSize="16dp"

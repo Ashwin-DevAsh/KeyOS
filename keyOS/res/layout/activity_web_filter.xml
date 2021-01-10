@@ -27,7 +27,7 @@
                 android:textStyle="bold"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="web filter"
+                android:text="@string/web_filter"
                 android:layout_height="match_parent"/>
 
             <ImageView
@@ -74,6 +74,15 @@
                     android:layout_marginLeft="5dp"
                     android:textSize="15sp"
                     android:text="@string/web_filter_subheading"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="15sp"
+                    android:text="@string/web_filter_supported_browsers"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
@@ -183,6 +192,10 @@
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:text="@string/whitelist_websites"
+                                android:singleLine="true"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:layout_marginRight="90dp"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -253,6 +266,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
+                                android:singleLine="true"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:layout_marginRight="90dp"
                                 android:text="@string/blacklist_websites"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
@@ -351,6 +368,10 @@
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:text="@string/block_adult_websites"
+                                android:singleLine="true"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:layout_marginRight="90dp"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 
@@ -358,6 +379,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="5dp"
+
                                 android:layout_marginRight="90dp"
                                 android:text="@string/adult_websites_info"
                                 android:textSize="13dp" />

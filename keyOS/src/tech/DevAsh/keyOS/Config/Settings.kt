@@ -362,19 +362,23 @@ class Settings : AppCompatActivity() {
 
         wifi?.setOnClickListener{
             AnalyticsHelper.logEvent(this, "Toggle_wifi")
-            optionsOnClick(wifiMode, wifi)
+            User.user.basicSettings.wifi= optionsOnClick(wifiMode, wifi,User.user.basicSettings.wifi)
+            this.saveData()
         }
         orientation?.setOnClickListener{
             AnalyticsHelper.logEvent(this, "Toggle_orientation")
-            optionsOnClick(orientationMode, orientation, BasicSettings.orientationOptions)
+            User.user.basicSettings.orientation = optionsOnClick(orientationMode, orientation,User.user.basicSettings.orientation ,BasicSettings.orientationOptions)
+            this.saveData()
         }
         bluetooth?.setOnClickListener{
             AnalyticsHelper.logEvent(this, "Toggle_bluetooth")
-            optionsOnClick(bluetoothMode, bluetooth)
+            User.user.basicSettings.bluetooth=optionsOnClick(bluetoothMode, bluetooth,User.user.basicSettings.bluetooth)
+            this.saveData()
         }
         sound?.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Toggle_sound")
-            optionsOnClick(soundMode, sound, BasicSettings.soundOptions)
+            User.user.basicSettings.sound = optionsOnClick(soundMode, sound, User.user.basicSettings.sound,BasicSettings.soundOptions)
+            this.saveData()
         }
 
         settings?.setOnClickListener {
@@ -439,16 +443,18 @@ class Settings : AppCompatActivity() {
 
 
 
-    private fun optionsOnClick(textView: TextView, parentView: View, options: List<String> = BasicSettings.options){
+    private fun optionsOnClick
+            (textView: TextView, parentView: View, currentText:String,options: List<String> = BasicSettings.options):String
+    {
         try{
             vibrate()
-            val position = options.indexOf(textView.text)
+            val position = options.indexOf(currentText)
             val nextOption = options[(position + 1) % 3]
             textView.text = getString(resourseMapper[nextOption]!!)
             animate(parentView)
-            this.saveData()
+            return nextOption
         }catch (e:Throwable){}
-
+        return "None"
     }
 
 
@@ -483,10 +489,10 @@ class Settings : AppCompatActivity() {
     }
 
     private fun loadView(){
-        wifiMode?.text = User.user?.basicSettings?.wifi
-        orientationMode?.text = User.user?.basicSettings?.orientation
-        bluetoothMode?.text = User.user?.basicSettings?.bluetooth
-        soundMode?.text = User.user?.basicSettings?.sound
+        wifiMode?.text = getString(resourseMapper[User.user?.basicSettings?.wifi]!!)
+        orientationMode?.text =  getString(resourseMapper[User.user?.basicSettings?.orientation]!!)
+        bluetoothMode?.text =  getString(resourseMapper[User.user?.basicSettings?.bluetooth]!!)
+        soundMode?.text =  getString(resourseMapper[User.user?.basicSettings?.sound]!!)
         notificationPanel?.isChecked = User.user?.basicSettings?.notificationPanel!!
         cameraSwitch?.isChecked = User.user?.basicSettings?.isDisableCamera!! && PermissionsHelper.isAdmin(
                 this)
@@ -517,13 +523,12 @@ class Settings : AppCompatActivity() {
 
     private fun saveData(){
         val basicSettings = BasicSettings(
-                wifiMode.text.toString(),
-                orientationMode.text.toString(),
-                bluetoothMode.text.toString(),
-                soundMode.text.toString(),
+                User.user.basicSettings.wifi,
+                User.user.basicSettings.orientation,
+                User.user.basicSettings.bluetooth,
+                User.user.basicSettings.sound,
                 notificationPanel.isChecked,
-                cameraSwitch.isChecked
-                                         )
+                cameraSwitch.isChecked)
         User.user!!.basicSettings = (basicSettings)
         RealmHelper.updateUser(User.user!!)
     }

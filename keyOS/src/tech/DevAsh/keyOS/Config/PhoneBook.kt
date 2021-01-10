@@ -44,10 +44,10 @@ class PhoneBook : AppCompatActivity() {
         setContentView(R.layout.activity_phonebook)
         onClick()
         handelSearch()
-        if(phoneBookAdapter==null)
-             getContact()
-        else
-           loadFromCache()
+//        if(phoneBookAdapter==null)
+        getContact()
+//        else
+//           loadFromCache()
     }
 
     private fun handelSearch(){
@@ -72,7 +72,7 @@ class PhoneBook : AppCompatActivity() {
                     }
                     phoneBookAdapter?.notifyDataSetChanged()
                 }
-                handler.postDelayed(runnable!!,500)
+                handler.postDelayed(runnable,500)
                 return true
             }
 
@@ -108,6 +108,7 @@ class PhoneBook : AppCompatActivity() {
 
     private fun saveData(){
         val newContacts = RealmList<Contact>()
+        phoneBookAdapter!!.selectedContact.remove(Contact("",""))
         ContactList.contactList.addAll(1, ArrayList(phoneBookAdapter!!.selectedContact))
         for(i in  ContactList.contactList){
            if(!newContacts.contains(i) && i.number!="")
@@ -130,8 +131,7 @@ class PhoneBook : AppCompatActivity() {
             phoneBookAdapter = PhoneBookAdapter(
                 ArrayList(contacts),
                 this,
-                if(isBlackList) getString(R.string.phonebook_blacklist_subheading)
-                else  getString(R.string.phonebook_whitelist_subheading)
+                if(isBlackList) getString(R.string.phonebook_blacklist_subheading) else  getString(R.string.phonebook_whitelist_subheading)
             )
             contactsContainer.layoutManager = LinearLayoutManager(this)
             contactsContainer.adapter=phoneBookAdapter

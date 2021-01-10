@@ -36,7 +36,7 @@
                 android:gravity="center"
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
-                android:text="Scan this KeyOS Qr code to apply same settings in your KeyOS device"
+                android:text="@string/dialog_qrcode_subheading"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
 

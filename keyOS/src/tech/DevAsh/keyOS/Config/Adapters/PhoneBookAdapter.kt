@@ -128,7 +128,7 @@ class PhoneBookHeaderViewHolder (
     }
 
     private fun loadView(){
-        view.heading.text=adapter.subHeading
+        view.subHeading.text=adapter.subHeading
     }
 
     fun onClick(){

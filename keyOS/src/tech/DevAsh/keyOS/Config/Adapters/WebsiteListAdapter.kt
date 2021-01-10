@@ -200,7 +200,7 @@ class WebsiteListHeaderViewHolder(
     }
 
     private fun loadView(){
-        view.isTurnOn.text = if (toggleCallback.getToggleState()) "ON" else "OFF"
+        view.isTurnOn.text = if (toggleCallback.getToggleState()) context.getString(R.string.on_caps) else context.getString(R.string.off_caps)
         view.turnOn.isChecked = toggleCallback.getToggleState()
         view.subHeading.text = subHeading
         view.playstoreCover.visibility = View.GONE

@@ -152,7 +152,7 @@ class ContactListHeaderViewHolder(
     }
 
     private fun loadView(){
-        view.isTurnOn.text = if (toggleCallback.getToggleState()) "ON" else "OFF"
+        view.isTurnOn.text = if (toggleCallback.getToggleState()) context.getString(R.string.on_caps) else context.getString(R.string.off_caps)
         view.turnOn.isChecked = toggleCallback.getToggleState()
         view.subHeading.text = subHeading
 
@@ -177,12 +177,12 @@ class ContactListHeaderViewHolder(
     }
 
     private fun turnOn(){
-        view.isTurnOn.text = context.getText(R.string.on_caps)
+        view.isTurnOn.text = context.getString(R.string.on_caps)
         toggleCallback.turnOn()
     }
 
     private fun turnOff(){
-        view.isTurnOn.text = context.getText(R.string.off_caps)
+        view.isTurnOn.text = context.getString(R.string.off_caps)
         toggleCallback.turnOff()
     }
 

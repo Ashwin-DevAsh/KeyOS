@@ -234,11 +234,11 @@
 
     </RelativeLayout>
 
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/loadingScreen"
-        layout="@layout/layout_loading_screen"
-        />
+<!--    <include-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/loadingScreen"-->
+<!--        layout="@layout/layout_loading_screen"-->
+<!--        />-->
 
 </RelativeLayout>

@@ -144,7 +144,7 @@ class ImportExportSettings : AppCompatActivity() {
             intent.type = "*/*"
             intent.addCategory(Intent.CATEGORY_OPENABLE)
             try {
-                startActivityForResult(Intent.createChooser(intent, getString(R.string.select_a_file_to_uplode)), 0)
+                startActivityForResult(Intent.createChooser(intent, getString(R.string.select_a_file_to_upload)), 0)
             } catch (ex: ActivityNotFoundException) {
                 Toast.makeText(this, getString(R.string.please_install_a_file_manager),
                                Toast.LENGTH_SHORT).show()

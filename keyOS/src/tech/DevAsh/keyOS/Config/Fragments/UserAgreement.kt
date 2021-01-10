@@ -107,7 +107,8 @@ class UserAgreement() : BottomSheetDialogFragment() {
     }
 
     fun createSpannableText(text:String,url:String,content:SpannableString,textView: TextView){
-        val clickableSpanPrivacyPolicy = object : ClickableSpan() {
+        try {
+            val clickableSpanPrivacyPolicy = object : ClickableSpan() {
             override fun onClick(textView: View) {
                 val builder = CustomTabsIntent.Builder()
                 val colorInt: Int = Color.parseColor("#FFFFFF")
@@ -125,6 +126,7 @@ class UserAgreement() : BottomSheetDialogFragment() {
         textView.text = spannableString
         textView.movementMethod = LinkMovementMethod.getInstance()
         textView.highlightColor = Color.TRANSPARENT
+        }catch (e:Throwable){}
     }
 
 

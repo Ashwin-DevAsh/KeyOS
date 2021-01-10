@@ -26,7 +26,7 @@
                 android:textStyle="bold"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="call Settings"
+                android:text="@string/call_settings"
                 android:layout_height="match_parent"/>
 
             <ImageView
@@ -99,6 +99,15 @@
                     android:layout_marginLeft="5dp"
                     android:textSize="15sp"
                     android:text="@string/phone_call_subheading"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="15sp"
+                    android:text="@string/phone_call_subheading_hint"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
@@ -270,7 +279,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
-                                android:text="Outgoing"
+                                android:text="@string/outgoing"
                                 android:textColor="@android:color/black"
                                 android:textSize="16dp" />
 

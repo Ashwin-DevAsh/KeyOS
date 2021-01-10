@@ -140,7 +140,7 @@ class SingleAppHeader(
     }
 
     private fun loadView(){
-        view.isTurnOn.text = if (adapter.toggleState) "ON" else "OFF"
+        view.isTurnOn.text = if (adapter.toggleState) context.getString(R.string.on_caps) else context.getString(R.string.off_caps)
         view.turnOn.isChecked = adapter.toggleState
         view.subHeading.text = adapter.subHeading
         view.subHeading.textSize=17f
