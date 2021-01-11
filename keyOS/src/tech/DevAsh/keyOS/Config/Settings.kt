@@ -31,6 +31,7 @@ import kotlinx.android.synthetic.dev.drawer_header.view.*
 import tech.DevAsh.KeyOS.Config.AllowApps.Companion.Types
 import tech.DevAsh.KeyOS.Config.Fragments.PermissionsBottomSheet
 import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
@@ -258,16 +259,26 @@ class Settings : AppCompatActivity() {
 
     private fun openWebsite(url: String = "https://www.devash.tech", color: String = "#ffffff"){
         Handler().postDelayed({
-                                  val builder = CustomTabsIntent.Builder()
                                   try {
-                                      val colorInt: Int = Color.parseColor(color)
-                                      builder.setToolbarColor(colorInt)
+                                      val builder = CustomTabsIntent.Builder()
+                                      try {
+                                          val colorInt: Int = Color.parseColor(color)
+                                          builder.setToolbarColor(colorInt)
+                                      } catch (e: Throwable) {
+                                      }
+
+                                      val customTabsIntent = builder.build()
+                                      customTabsIntent.launchUrl(this, Uri.parse(url))
                                   } catch (e: Throwable) {
+                                      try{
+                                          val browserIntent =
+                                                  Intent(Intent.ACTION_VIEW,
+                                                         Uri.parse(url))
+                                          startActivity(browserIntent)
+                                      }catch (e:Throwable){
+                                          AlertHelper.showToast(getString(R.string.failed), this)
+                                      }
                                   }
-
-                                  val customTabsIntent = builder.build()
-                                  customTabsIntent.launchUrl(this, Uri.parse(url))
-
                               }, 500)
     }
 
@@ -362,22 +373,28 @@ class Settings : AppCompatActivity() {
 
         wifi?.setOnClickListener{
             AnalyticsHelper.logEvent(this, "Toggle_wifi")
-            User.user.basicSettings.wifi= optionsOnClick(wifiMode, wifi,User.user.basicSettings.wifi)
+            User.user.basicSettings.wifi= optionsOnClick(wifiMode, wifi,
+                                                         User.user.basicSettings.wifi)
             this.saveData()
         }
         orientation?.setOnClickListener{
             AnalyticsHelper.logEvent(this, "Toggle_orientation")
-            User.user.basicSettings.orientation = optionsOnClick(orientationMode, orientation,User.user.basicSettings.orientation ,BasicSettings.orientationOptions)
+            User.user.basicSettings.orientation = optionsOnClick(orientationMode, orientation,
+                                                                 User.user.basicSettings.orientation,
+                                                                 BasicSettings.orientationOptions)
             this.saveData()
         }
         bluetooth?.setOnClickListener{
             AnalyticsHelper.logEvent(this, "Toggle_bluetooth")
-            User.user.basicSettings.bluetooth=optionsOnClick(bluetoothMode, bluetooth,User.user.basicSettings.bluetooth)
+            User.user.basicSettings.bluetooth=optionsOnClick(bluetoothMode, bluetooth,
+                                                             User.user.basicSettings.bluetooth)
             this.saveData()
         }
         sound?.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Toggle_sound")
-            User.user.basicSettings.sound = optionsOnClick(soundMode, sound, User.user.basicSettings.sound,BasicSettings.soundOptions)
+            User.user.basicSettings.sound = optionsOnClick(soundMode, sound,
+                                                           User.user.basicSettings.sound,
+                                                           BasicSettings.soundOptions)
             this.saveData()
         }
 
@@ -443,8 +460,8 @@ class Settings : AppCompatActivity() {
 
 
 
-    private fun optionsOnClick
-            (textView: TextView, parentView: View, currentText:String,options: List<String> = BasicSettings.options):String
+    private fun optionsOnClick(textView: TextView, parentView: View, currentText: String,
+                               options: List<String> = BasicSettings.options):String
     {
         try{
             vibrate()
@@ -453,7 +470,7 @@ class Settings : AppCompatActivity() {
             textView.text = getString(resourseMapper[nextOption]!!)
             animate(parentView)
             return nextOption
-        }catch (e:Throwable){}
+        }catch (e: Throwable){}
         return "None"
     }
 

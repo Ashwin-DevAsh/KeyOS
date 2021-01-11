@@ -43,7 +43,6 @@ object PermissionsHelper {
     var task: Task<LocationSettingsResponse>?=null
 
     init {
-
         if(Build.VERSION.SDK_INT>=26){
             runTimePermissions.add(0, android.Manifest.permission.ANSWER_PHONE_CALLS)
         }
@@ -93,7 +92,6 @@ object PermissionsHelper {
     }
 
     fun isOverLay(context: Context): Boolean {
-
         return try{
             if(Build.VERSION.SDK_INT>=23){
                 Settings.canDrawOverlays(context.applicationContext)
@@ -130,25 +128,31 @@ object PermissionsHelper {
     }
 
     fun getAdminPermission(context: AppCompatActivity){
-        val componentName = ComponentName(context, SampleAdminReceiver::class.java)
-        val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN)
-        intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName)
-        context.startActivityForResult(intent, 1)
+        try {
+            val componentName = ComponentName(context, SampleAdminReceiver::class.java)
+            val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN)
+            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName)
+            context.startActivityForResult(intent, 1)
+        }catch (e:Throwable){}
+
     }
 
 
 
     fun getNotificationPermission(context: AppCompatActivity){
-        openedForPermission=true
-        val notificationManager: NotificationManager = context.getSystemService(
-                Context.NOTIFICATION_SERVICE) as NotificationManager
+        try{
+            openedForPermission=true
+            val notificationManager: NotificationManager = context.getSystemService(
+                    Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ) {
-            if(!notificationManager.isNotificationPolicyAccessGranted){
-                val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
-                context.startActivityForResult(intent, 0)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ) {
+                if(!notificationManager.isNotificationPolicyAccessGranted){
+                    val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+                    context.startActivityForResult(intent, 0)
+                }
             }
-        }
+        }catch (e:Throwable){}
+
     }
 
     fun disableUSB(context: AppCompatActivity){
@@ -160,32 +164,44 @@ object PermissionsHelper {
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun getOverlayPermission(context: AppCompatActivity){
-        openedForPermission=true
-        val selector =
-            Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse(
-                    "package:${context.packageName}"))
-        context.startActivity(selector)
+        try{
+            openedForPermission=true
+            val selector =
+                    Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse(
+                            "package:${context.packageName}"))
+            context.startActivity(selector)
+        }catch (e:Throwable){}
+
     }
 
     fun getAccessibilityService(context: AppCompatActivity){
-        openedForPermission=true
-        val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-        context.startActivityForResult(intent, 0)
+        try{
+            openedForPermission=true
+            val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+            context.startActivityForResult(intent, 0)
+        }catch (e:Throwable){}
+
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun getWriteSettingsPermission(context: AppCompatActivity){
-        openedForPermission=true
-        val selector =
-            Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse(
-                    "package:${context.packageName}"))
-        context.startActivityForResult(selector, 0)
+        try{
+            openedForPermission=true
+            val selector =
+                    Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse(
+                            "package:${context.packageName}"))
+            context.startActivityForResult(selector, 0)
+        }catch (e:Throwable){}
+
     }
 
     fun getUsagePermission(context: AppCompatActivity){
-        openedForPermission=true
-        val selector = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
-        context.startActivityForResult(selector, 0)
+        try{
+            openedForPermission=true
+            val selector = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
+            context.startActivityForResult(selector, 0)
+        }catch (e:Throwable){}
+
     }
 
 
@@ -224,19 +240,30 @@ object PermissionsHelper {
     }
 
 
-    fun isMyLauncherDefault(context: Context): Boolean = ArrayList<ComponentName>().apply {
-       context.packageManager.getPreferredActivities(
-               arrayListOf(IntentFilter(ACTION_MAIN).apply { addCategory(CATEGORY_HOME) }),
-               this,
-               context.packageName)
-    }.isNotEmpty()
+    fun isMyLauncherDefault(context: Context): Boolean{
+        return try {
+            ArrayList<ComponentName>().apply {
+                context.packageManager.getPreferredActivities(
+                        arrayListOf(IntentFilter(ACTION_MAIN).apply { addCategory(CATEGORY_HOME) }),
+                        this,
+                        context.packageName)
+            }.isNotEmpty()
+        }catch (e:Throwable){
+            false
+        }
+    }
 
 
     fun isMyLauncherCurrent(context: Context): Boolean {
-        val intent = Intent(ACTION_MAIN)
-        intent.addCategory(CATEGORY_HOME)
-        val resolveInfo: ResolveInfo? = context.packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
-        return context.packageName == resolveInfo?.activityInfo?.packageName
+        return try{
+            val intent = Intent(ACTION_MAIN)
+            intent.addCategory(CATEGORY_HOME)
+            val resolveInfo: ResolveInfo? = context.packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
+            context.packageName == resolveInfo?.activityInfo?.packageName
+        }catch (e:Throwable){
+            false
+        }
+
     }
 
 }
