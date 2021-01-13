@@ -356,4 +356,10 @@
     <string name="folder_icon_scale_title">Folder Icon Scale</string>
 
 
+<!--    will take-->
+    <string name="app_crash">App Crash</string>
+    <string name="app_crash_subheading">Sorry for the inconvenience we will fix this issue soon</string>
+    <string name="exit">Exit</string>
+
+
 </resources>

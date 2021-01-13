@@ -23,7 +23,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:gravity="center"
-                android:text="Access denied"
+                android:text="@string/access_denied"
                 android:textSize="30dp"
                 android:textColor="@color/white"
                 android:layout_height="match_parent"/>
@@ -34,7 +34,7 @@
                 android:layout_marginTop="30dp"
                 android:gravity="center"
                 android:lineHeight="20dp"
-                android:text="You are not allowed to access this content"
+                android:text="@string/access_denied_subheading"
                 android:textColor="#E6ffffff"
                 android:layout_height="match_parent"/>
 

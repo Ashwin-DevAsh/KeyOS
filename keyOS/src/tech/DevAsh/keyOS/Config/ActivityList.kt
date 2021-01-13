@@ -14,15 +14,13 @@ import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.keyOS.Database.User
 
 import java.util.*
+import kotlin.Comparator
 
 
 class ActivityList : AppCompatActivity() {
 
-    private var activities: Array<ActivityInfo?> = HelperVariables.selectedEditedApp!!.packageInfo.activities
-
+    lateinit var activities: Array<ActivityInfo?>
     lateinit var activityListAdapter:ActivitiesListAdapter
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +32,21 @@ class ActivityList : AppCompatActivity() {
 
 
     private fun loadAdapter(){
+        activities = try {
+            HelperVariables.selectedEditedApp!!.packageInfo.activities
+        }catch (e:Throwable){
+            arrayOf()
+        }
+        val activitiesMutable = activities.toMutableList()
+        activitiesMutable.sortWith { o1, _ ->
+            if(HelperVariables.selectedEditedApp!!.blockedActivities.contains(o1?.name)){
+                return@sortWith -1
+            }else{
+                return@sortWith 1
+            }
+        }
         activityListAdapter = ActivitiesListAdapter(
-                activities.toMutableList(),
+                activitiesMutable,
                 HelperVariables.selectedEditedApp!!.blockedActivities,
                 "",
                 getString(R.string.select_activity_sunHeading),

@@ -22,12 +22,15 @@ import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import cat.ereza.customactivityoncrash.config.CaocConfig
 import com.android.launcher3.Utilities
 import com.google.firebase.analytics.FirebaseAnalytics
+import tech.DevAsh.KeyOS.Config.PhoneBook
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.LoadAppsAndServices
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
+import tech.DevAsh.Launcher.settings.ui.SettingsActivity
 import tech.DevAsh.Launcher.theme.ThemeManager
 import tech.DevAsh.keyOS.Api.IMailService
 import tech.DevAsh.keyOS.Database.User
@@ -56,6 +59,12 @@ class KioskApp : Application() {
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         firebaseAnalytics?.setUserId(AlertDeveloper.getInstallDetails(this).deviceID)
         SocketHelper.connect(this)
+
+        CaocConfig.Builder.create()
+                .trackActivities(true) //default: false
+                .minTimeBetweenCrashesMs(500)
+                .errorActivity(ErrorActivity::class.java) //
+                .apply()
         super.onCreate()
     }
 

@@ -169,9 +169,6 @@
 
     <!-- Section 12 -->
 
-    <string name="settings_button_text">Kiosk Settings</string>
-
-    <string name="customize">Customize</string>
 
     <string name="search_breadcrumb_connector" translatable="false">
         <xliff:g name="first_item">%1$s</xliff:g> >
@@ -332,7 +329,7 @@
 
     <!--    KeyOS-->
 
-    <string name="app_name" >KeyOS</string>
+    <string name="app_name">KeyOS</string>
     <string name="exit_button_text">Exit Kiosk</string>
     <string name="widget_button_text">Widgets</string>
     <string name="button_overview_mode">Overview Mode</string>
@@ -369,8 +366,8 @@
     <string name="confirm_password">Confirm password</string>
     <string name="allow_calls">Allow Calls</string>
     <string name="incoming">Incoming</string>
-    <string name="this_will_allow_all_incoming_calls_to_your_mobile">This will allow all incoming calls to your mobile</string>
-    <string name="this_will_allow_all_outgoing_calls_to_your_mobile">This will allow all outgoing calls to your mobile</string>
+    <string name="this_will_allow_all_incoming_calls_to_your_mobile">This will allow all incoming calls to your android device</string>
+    <string name="this_will_allow_all_outgoing_calls_to_your_mobile">This will allow all outgoing calls to your android device</string>
     <string name="whitelist_contacts">Whitelist Contacts</string>
     <string name="contacts_save_under_whitelist_only_able_to_call_you">Contacts save under whitelist only able to call you</string>
     <string name="blacklist_contacts">Blacklist Contacts</string>
@@ -496,5 +493,11 @@
     <string name="exiting_keyos">Exiting keyOS</string>
     <string name="dialog_qrcode_subheading">Scan this KeyOS Qr code to apply same settings in your KeyOS device</string>
 
+    <!--    section2-->
+    <string name="settings_button_text">Kiosk Settings</string>
+    <string name="customize">Customize</string>
+    <string name="access_denied">Access denied</string>
+    <string name="access_denied_subheading">You are not allowed to access this content</string>
+    <!--    end keyos-->
 
 </resources>

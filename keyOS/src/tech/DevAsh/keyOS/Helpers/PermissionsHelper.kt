@@ -26,6 +26,7 @@ import com.google.android.gms.location.LocationSettingsResponse
 import com.google.android.gms.tasks.Task
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 import tech.DevAsh.KeyOS.Services.WindowChangeDetectingService
+import tech.DevAsh.keyOS.Helpers.AnalyticsHelper
 import tech.DevAsh.keyOS.Helpers.AutoStartHelper
 import java.util.*
 import kotlin.collections.ArrayList
@@ -133,7 +134,9 @@ object PermissionsHelper {
             val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN)
             intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName)
             context.startActivityForResult(intent, 1)
-        }catch (e:Throwable){}
+        }catch (e:Throwable){
+            AnalyticsHelper.logEvent(context,"error_admin_permission")
+        }
 
     }
 
@@ -151,7 +154,9 @@ object PermissionsHelper {
                     context.startActivityForResult(intent, 0)
                 }
             }
-        }catch (e:Throwable){}
+        }catch (e:Throwable){
+            AnalyticsHelper.logEvent(context,"error_sound_permission")
+        }
 
     }
 
@@ -170,7 +175,9 @@ object PermissionsHelper {
                     Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse(
                             "package:${context.packageName}"))
             context.startActivity(selector)
-        }catch (e:Throwable){}
+        }catch (e:Throwable){
+            AnalyticsHelper.logEvent(context,"error_overlay_permission")
+        }
 
     }
 
@@ -179,7 +186,9 @@ object PermissionsHelper {
             openedForPermission=true
             val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
             context.startActivityForResult(intent, 0)
-        }catch (e:Throwable){}
+        }catch (e:Throwable){
+            AnalyticsHelper.logEvent(context,"error_accessibility_permission")
+        }
 
     }
 
@@ -191,7 +200,10 @@ object PermissionsHelper {
                     Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse(
                             "package:${context.packageName}"))
             context.startActivityForResult(selector, 0)
-        }catch (e:Throwable){}
+        }catch (e:Throwable){
+            AnalyticsHelper.logEvent(context,"error_write_settings_permission")
+
+        }
 
     }
 
@@ -249,6 +261,7 @@ object PermissionsHelper {
                         context.packageName)
             }.isNotEmpty()
         }catch (e:Throwable){
+            AnalyticsHelper.logEvent(context,"error_is_launcher_default")
             false
         }
     }
@@ -261,6 +274,7 @@ object PermissionsHelper {
             val resolveInfo: ResolveInfo? = context.packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
             context.packageName == resolveInfo?.activityInfo?.packageName
         }catch (e:Throwable){
+            AnalyticsHelper.logEvent(context,"error_is_launcher_current")
             false
         }
 

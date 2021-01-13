@@ -77,14 +77,11 @@ class ImportExportSettings : AppCompatActivity() {
             AnalyticsHelper.logEvent(this, "import_config_file")
             showFileChooser()
         }
-
-
     }
 
     private fun saveFile(){
         val permissions = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        if(packageManager.checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, packageName)
-                == PackageManager.PERMISSION_GRANTED ){
+        if(packageManager.checkPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, packageName) == PackageManager.PERMISSION_GRANTED ){
             val jsonObject = (Gson().toJson(User.user))
             generateNoteOnSD( "${System.currentTimeMillis()}.json", jsonObject.toString())
         }else{

@@ -188,6 +188,12 @@
             android:theme="@style/keyOS"
             android:name="tech.DevAsh.keyOS.Config.WebsiteList"/>
 
+        <activity
+            android:screenOrientation="portrait"
+            android:theme="@style/keyOS"
+            android:name="tech.DevAsh.keyOS.ErrorActivity"/>
+
+
 
         <activity
             android:screenOrientation="portrait"
@@ -328,18 +334,6 @@
                 android:screenOrientation="portrait" />
         </service>
 
-<!--        <receiver android:name="tech.DevAsh.keyOS.Receiver.KioskReceiver"-->
-<!--            android:exported="true"-->
-<!--            android:enabled="true">-->
-<!--            <intent-filter android:priority="1000">-->
-<!--                <action android:name="START_KIOSK" />-->
-<!--                <action android:name="STOP_KIOSK" />-->
-<!--                <action android:name="SHOW_ALERT_DIALOG" />-->
-<!--                <action android:name="REMOVE_ALERT_DIALOG" />-->
-
-<!--            </intent-filter>-->
-
-<!--        </receiver>-->
 
         <receiver
             android:name="tech.DevAsh.keyOS.Receiver.AutoRestartReceiver"

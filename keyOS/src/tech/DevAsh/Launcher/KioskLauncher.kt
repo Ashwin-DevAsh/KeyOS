@@ -127,9 +127,10 @@ open class KioskLauncher : NexusLauncherActivity(), KioskPreferences.OnPreferenc
                     startSingleApp()
                 }else{
                     singleAppCount=0
-                    OptionsPopupView.startSettings(launcher)
-                }
-                                  },500)
+                    try{
+                        OptionsPopupView.startSettings(launcher)
+                    }catch (e:Throwable){}
+                } },500)
         }
     }
 

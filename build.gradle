@@ -43,7 +43,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 
-def appVersion = 92
+def appVersion = 94
 
 android {
     compileSdkVersion 29
@@ -313,6 +313,7 @@ dependencies {
         // excluding org.json which is provided by Android
         exclude group: 'org.json', module: 'json'
     }
+    implementation 'cat.ereza:customactivityoncrash:2.2.0'
 }
 
 protobuf {

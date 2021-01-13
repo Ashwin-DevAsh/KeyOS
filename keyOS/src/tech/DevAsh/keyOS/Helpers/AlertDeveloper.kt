@@ -6,8 +6,10 @@ import android.os.Build
 import android.os.Handler
 import android.provider.Settings
 import android.util.Log
+import cat.ereza.customactivityoncrash.CustomActivityOnCrash
 import retrofit2.Call
 import retrofit2.Response
+import tech.DevAsh.keyOS.Api.Request.CrashInfo
 import tech.DevAsh.keyOS.Api.Request.DeviceInfo
 import tech.DevAsh.keyOS.Api.Request.LaunchedInfo
 import tech.DevAsh.keyOS.Api.Response.BasicResponse
@@ -55,6 +57,16 @@ object AlertDeveloper {
         }
     }
 
+
+    fun sendCrashAlert(context: Context,error: String){
+        Handler().post {
+            try {
+                val crashInfo = CrashInfo(getInstallDetails(context), error)
+                context.KioskApp.mailService.crashReport(crashInfo)?.enqueue(callback)
+            }catch (e:Throwable){}
+
+        }
+    }
 
 
     var callback:retrofit2.Callback<BasicResponse> = object:retrofit2.Callback<BasicResponse>{

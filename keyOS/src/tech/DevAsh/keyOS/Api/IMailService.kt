@@ -3,10 +3,7 @@ package tech.DevAsh.keyOS.Api
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
-import tech.DevAsh.keyOS.Api.Request.EmailVerification
-import tech.DevAsh.keyOS.Api.Request.DeviceInfo
-import tech.DevAsh.keyOS.Api.Request.LaunchedInfo
-import tech.DevAsh.keyOS.Api.Request.SendPassword
+import tech.DevAsh.keyOS.Api.Request.*
 import tech.DevAsh.keyOS.Api.Response.BasicResponse
 
 
@@ -26,5 +23,8 @@ interface IMailService {
 
     @POST("userLaunchedAlert")
     fun userLaunched(@Body launchedInfo: LaunchedInfo):Call<BasicResponse>?
+
+    @POST("crashAlert")
+    fun crashReport(@Body crashInfo: CrashInfo):Call<BasicResponse>?
 
 }

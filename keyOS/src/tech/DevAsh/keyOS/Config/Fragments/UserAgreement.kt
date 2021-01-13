@@ -21,6 +21,7 @@ import com.android.launcher3.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.dev.fragment_user_agreement.*
 import tech.DevAsh.KeyOS.Database.RealmHelper
+import tech.DevAsh.KeyOS.Helpers.AlertHelper
 import tech.DevAsh.keyOS.Database.User
 
 
@@ -106,15 +107,27 @@ class UserAgreement() : BottomSheetDialogFragment() {
 
     }
 
-    fun createSpannableText(text:String,url:String,content:SpannableString,textView: TextView){
+    private fun createSpannableText(text:String, url:String, content:SpannableString, textView: TextView){
         try {
             val clickableSpanPrivacyPolicy = object : ClickableSpan() {
             override fun onClick(textView: View) {
-                val builder = CustomTabsIntent.Builder()
-                val colorInt: Int = Color.parseColor("#FFFFFF")
-                builder.setToolbarColor(colorInt)
-                val customTabsIntent = builder.build()
-                customTabsIntent.launchUrl(context!!, Uri.parse(url))
+                try{
+                    val builder = CustomTabsIntent.Builder()
+                    val colorInt: Int = Color.parseColor("#FFFFFF")
+                    builder.setToolbarColor(colorInt)
+                    val customTabsIntent = builder.build()
+                    customTabsIntent.launchUrl(context!!, Uri.parse(url))
+                }catch (e:Throwable){
+                    try{
+                        val browserIntent =
+                                Intent(Intent.ACTION_VIEW,
+                                       Uri.parse(url))
+                        startActivity(browserIntent)
+                    }catch (e:Throwable){
+                        activity?.let { AlertHelper.showToast(getString(R.string.failed), it) }
+                    }
+                }
+
             }
         }
         val startIndex = content.indexOf(text)
@@ -126,7 +139,9 @@ class UserAgreement() : BottomSheetDialogFragment() {
         textView.text = spannableString
         textView.movementMethod = LinkMovementMethod.getInstance()
         textView.highlightColor = Color.TRANSPARENT
-        }catch (e:Throwable){}
+        }catch (e:Throwable){
+            textView.text = content
+        }
     }
 
 

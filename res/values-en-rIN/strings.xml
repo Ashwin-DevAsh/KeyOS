@@ -73,7 +73,7 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Folder renamed to <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Folder: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgets"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Home settings"</string>
+    <string name="settings_button_text" msgid="8873672322605444408">"Kiosk Settings"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Allow Homescreen rotation"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Notification dots"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"On"</string>
