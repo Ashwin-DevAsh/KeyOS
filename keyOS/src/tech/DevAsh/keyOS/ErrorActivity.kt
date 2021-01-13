@@ -25,7 +25,6 @@ class ErrorActivity : AppCompatActivity() {
 
     private fun reportCrash(){
         val error = CustomActivityOnCrash.getAllErrorDetailsFromIntent(this, intent)
-        Toast.makeText(this,error,Toast.LENGTH_LONG).show()
         AlertDeveloper.sendCrashAlert(this,error)
     }
 
