@@ -38,24 +38,26 @@ class RunHandlerActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (intent.action == KioskShortcutActivity.START_ACTION) {
-            val handlerString = intent.getStringExtra(KioskShortcutActivity.EXTRA_HANDLER)
-            if (handlerString != null) {
-                val handler = GestureController.createGestureHandler(this.applicationContext, handlerString, fallback)
-                if (handler.requiresForeground) {
-                    val listener = GestureHandlerInitListener(handler)
-                    val homeIntent = listener.addToIntent(
-                            Intent(Intent.ACTION_MAIN)
-                                    .addCategory(Intent.CATEGORY_HOME)
-                                    .setPackage(packageName)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        try{
+            if (intent.action == KioskShortcutActivity.START_ACTION) {
+                val handlerString = intent.getStringExtra(KioskShortcutActivity.EXTRA_HANDLER)
+                if (handlerString != null) {
+                    val handler = GestureController.createGestureHandler(this.applicationContext, handlerString, fallback)
+                    if (handler.requiresForeground) {
+                        val listener = GestureHandlerInitListener(handler)
+                        val homeIntent = listener.addToIntent(
+                                Intent(Intent.ACTION_MAIN)
+                                        .addCategory(Intent.CATEGORY_HOME)
+                                        .setPackage(packageName)
+                                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
 
-                    startActivity(homeIntent)
-                } else {
-                    triggerGesture(handler)
+                        startActivity(homeIntent)
+                    } else {
+                        triggerGesture(handler)
+                    }
                 }
             }
-        }
+        }catch (e:Throwable){}
         finish()
     }
 

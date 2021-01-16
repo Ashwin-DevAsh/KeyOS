@@ -61,9 +61,9 @@ class KioskApp : Application() {
         SocketHelper.connect(this)
 
         CaocConfig.Builder.create()
-                .trackActivities(true) //default: false
+                .trackActivities(true)
                 .minTimeBetweenCrashesMs(500)
-                .errorActivity(ErrorActivity::class.java) //
+                .errorActivity(ErrorActivity::class.java)
                 .apply()
         super.onCreate()
     }

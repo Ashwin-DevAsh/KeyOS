@@ -109,8 +109,9 @@ class Settings : AppCompatActivity() {
     private fun checkUserAgreement(){
         if(!User.user!!.isEndUserLicenceAgreementDone || BuildConfig.IS_DEV_BUILD){
             Handler().postDelayed({
-
-                                      UserAgreement(this).show(supportFragmentManager, TAG)
+                try{
+                    UserAgreement(this).show(supportFragmentManager, TAG)
+                }catch (e:Throwable){}
                                   }, 750)
         }
     }
@@ -216,7 +217,7 @@ class Settings : AppCompatActivity() {
                                "\n" +
                                "Website link - https://www.keyos.in\n" +
                                "\n" +
-                               "Playstore link - https://play.google.com/store/apps/details?id=tech.DevAsh.keyOS.dev"
+                               "Playstore link - https://play.google.com/store/apps/details?id=tech.DevAsh.keyOS"
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
             startActivity(Intent.createChooser(shareIntent, "choose one"))
         } catch (e: Exception) {

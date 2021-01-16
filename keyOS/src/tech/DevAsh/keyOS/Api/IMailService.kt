@@ -9,22 +9,22 @@ import tech.DevAsh.keyOS.Api.Response.BasicResponse
 
 interface IMailService {
 
-    @POST("getEmailVerification")
+    @POST("v1/getEmailVerification")
     fun emailVerification(@Body emailVerification: EmailVerification): Call<BasicResponse>?
 
-    @POST("sendPassword")
+    @POST("v1/sendPassword")
     fun sendPassword(@Body sendPassword: SendPassword): Call<BasicResponse>?
 
-    @POST("newInstallAlert")
+    @POST("v1/newInstallAlert")
     fun newInstall(@Body deviceInfo: DeviceInfo):Call<BasicResponse>?
 
-    @POST("proApkDownloadAlert")
+    @POST("v1/proApkDownloadAlert")
     fun proApkDownloadAlert(@Body deviceInfo: DeviceInfo):Call<BasicResponse>?
 
-    @POST("userLaunchedAlert")
+    @POST("v1/userLaunchedAlert")
     fun userLaunched(@Body launchedInfo: LaunchedInfo):Call<BasicResponse>?
 
-    @POST("crashAlert")
+    @POST("v1/crashAlert")
     fun crashReport(@Body crashInfo: CrashInfo):Call<BasicResponse>?
 
 }

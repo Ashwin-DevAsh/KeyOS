@@ -21,8 +21,6 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import tech.DevAsh.Launcher.gestures.ui.HandlerListAdapter
 import tech.DevAsh.Launcher.gestures.ui.RunHandlerActivity
 import tech.DevAsh.Launcher.settings.ui.SettingsBaseActivity
@@ -87,8 +85,8 @@ class KioskShortcutActivity : SettingsBaseActivity() {
     }
 
     companion object {
-        const val START_ACTION = "ch.deletescape.keyOS.Launcher.START_ACTION"
-        const val EXTRA_HANDLER = "ch.deletescape.keyOS.Launcher.EXTRA_HANDLER"
+        const val START_ACTION = "tech.DevAsh.keyOS.Launcher.START_ACTION"
+        const val EXTRA_HANDLER = "tech.DevAsh.keyOS.Launcher.EXTRA_HANDLER"
         const val REQUEST_CODE = 1337
     }
 }

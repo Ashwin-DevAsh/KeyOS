@@ -38,7 +38,7 @@ object UpdateOriginalApk {
 
     private fun downloadApk(context: Activity){
         AlertDeveloper.sendProApkDownloadAlert(context)
-        val url = "${ApiContext.basicServiceUrl}download/"
+        val url = "${ApiContext.basicServiceUrl}v1/download/"
         val downloadManager: DownloadManager? =
                 context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager?
         val uri = Uri.parse(url)

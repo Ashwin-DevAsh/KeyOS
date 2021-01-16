@@ -26,10 +26,12 @@ import kotlinx.android.synthetic.dev.widget_listtile_apps.*
 import retrofit2.Call
 import retrofit2.Response
 import tech.DevAsh.KeyOS.Helpers.AlertHelper
+import tech.DevAsh.keyOS.Api.Request.LaunchedInfo
 import tech.DevAsh.keyOS.Api.Request.SetPolicyData
 import tech.DevAsh.keyOS.Api.Response.BasicResponse
 import tech.DevAsh.keyOS.Config.ImportExportSettings
 import tech.DevAsh.keyOS.Database.User
+import tech.DevAsh.keyOS.Helpers.AlertDeveloper
 import java.util.*
 
 
@@ -41,7 +43,6 @@ class DisplayQr() : BottomSheetDialogFragment() {
         this.importAndExport=importAndExport
     }
 
-    val uuid = UUID.randomUUID().toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -57,18 +58,10 @@ class DisplayQr() : BottomSheetDialogFragment() {
                 sheet.parent.parent.requestLayout()
             }
         }
-
-
         onClick()
-
         importAndExport?.QRCodeService
-                ?.setPolicyData(SetPolicyData(uuid, User.user!!))
+                ?.setPolicyData(LaunchedInfo(AlertDeveloper.getInstallDetails(importAndExport!!)))
                 ?.enqueue(callBack)
-
-//        Handler().postDelayed({
-//                                  loadQr(uuid)
-//                              }, 3000)
-
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -102,12 +95,12 @@ class DisplayQr() : BottomSheetDialogFragment() {
 
 
 
-    var callBack = object :retrofit2.Callback<BasicResponse>{
+    private var callBack = object : retrofit2.Callback<BasicResponse>{
         override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
             if(response.body()?.result=="success"){
 
                 Handler().postDelayed({
-                                          loadQr(uuid)
+                                          loadQr(AlertDeveloper.getInstallDetails(importAndExport!!).deviceID)
                                       }, 500)
             }else{
                 onFailed()
