@@ -9,6 +9,7 @@ import android.net.wifi.WifiManager
 import android.os.Handler
 import android.provider.Settings
 import android.view.Surface
+import android.widget.Toast
 
 import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.keyOS.Database.BasicSettings

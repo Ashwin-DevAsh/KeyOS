@@ -127,13 +127,13 @@ class QrScanner : AppCompatActivity() {
 
 
             println(response)
-            onFailure()
+            onFailure(getString(R.string.failed))
 
         }
 
         override fun onFailure(call: Call<User?>, t: Throwable) {
             t.printStackTrace()
-            onFailure()
+            onFailure(getString(R.string.failed))
         }
 
     }
@@ -146,7 +146,7 @@ class QrScanner : AppCompatActivity() {
                               }, 1000)
     }
 
-    fun onFailure(text:String = "Failed!"){
+    fun onFailure(text:String){
         mProgressDialog?.dismiss()
         Handler().postDelayed({
                                   onBackPressed()
