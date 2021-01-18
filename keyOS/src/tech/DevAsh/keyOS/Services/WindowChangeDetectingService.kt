@@ -212,9 +212,12 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
     }
 
     override fun onDestroy() {
-        startActivity(launcher)
-        unregisterReceiver(kioskReceiver)
-        super.onDestroy()
+        try{
+            startActivity(launcher)
+            unregisterReceiver(kioskReceiver)
+            super.onDestroy()
+        }catch (e:Throwable){}
+
     }
 
     override fun onTaskRemoved(rootIntent: Intent?) {

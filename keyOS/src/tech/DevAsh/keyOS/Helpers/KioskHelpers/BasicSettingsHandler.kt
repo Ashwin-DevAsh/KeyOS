@@ -60,14 +60,17 @@ object BasicSettingsHandler{
         }
     }
     private fun checkSound(context: Context){
-        if(user?.basicSettings?.sound != BasicSettings.DontCare){
-            val audioManager: AudioManager = context.getSystemService(Service.AUDIO_SERVICE) as AudioManager
-            if(user?.basicSettings?.sound == BasicSettings.normal && audioManager.ringerMode != AudioManager.RINGER_MODE_NORMAL ){
-                audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
-            }else if(user?.basicSettings?.sound == BasicSettings.silent && audioManager.ringerMode != AudioManager.RINGER_MODE_SILENT){
-                audioManager.ringerMode = AudioManager.RINGER_MODE_SILENT
+        try {
+            if(user?.basicSettings?.sound != BasicSettings.DontCare){
+                val audioManager: AudioManager = context.getSystemService(Service.AUDIO_SERVICE) as AudioManager
+                if(user?.basicSettings?.sound == BasicSettings.normal && audioManager.ringerMode != AudioManager.RINGER_MODE_NORMAL ){
+                    audioManager.ringerMode = AudioManager.RINGER_MODE_NORMAL
+                }else if(user?.basicSettings?.sound == BasicSettings.silent && !(audioManager.ringerMode == AudioManager.RINGER_MODE_VIBRATE || audioManager.ringerMode == AudioManager.RINGER_MODE_SILENT)){
+                    audioManager.ringerMode = AudioManager.RINGER_MODE_VIBRATE
+                }
             }
-        }
+        }catch (e:Throwable){ }
+
 
     }
     private fun checkBluetooth(context: Context){
@@ -77,7 +80,7 @@ object BasicSettingsHandler{
             if(hasBluetooth && user?.basicSettings?.bluetooth != BasicSettings.DontCare){
                 if(user?.basicSettings?.bluetooth== BasicSettings.AlwaysON){
                     turnOnBluetooth()
-                }else if (user?.basicSettings?.bluetooth== BasicSettings.AlwaysOFF){
+                }else if (user?.basicSettings?.bluetooth == BasicSettings.AlwaysOFF){
                     turnOffBluetooth()
                 }
             }

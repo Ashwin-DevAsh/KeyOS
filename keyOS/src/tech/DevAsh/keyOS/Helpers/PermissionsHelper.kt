@@ -61,9 +61,7 @@ object PermissionsHelper {
     }
 
     fun checkImportantPermissions(context: Activity):Boolean{
-        return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context) && isNotificationEnabled(
-                context) && isAccessServiceEnabled(context,
-                                                   WindowChangeDetectingService::class.java)
+        return isUsage(context) && isWrite(context) && isOverLay(context) && isRunTime(context) && isAccessServiceEnabled(context, WindowChangeDetectingService::class.java)
     }
 
     fun isUsage(context: Context): Boolean {
@@ -145,14 +143,10 @@ object PermissionsHelper {
     fun getNotificationPermission(context: AppCompatActivity){
         try{
             openedForPermission=true
-            val notificationManager: NotificationManager = context.getSystemService(
-                    Context.NOTIFICATION_SERVICE) as NotificationManager
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ) {
-                if(!notificationManager.isNotificationPolicyAccessGranted){
                     val intent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
                     context.startActivityForResult(intent, 0)
-                }
             }
         }catch (e:Throwable){
             AnalyticsHelper.logEvent(context,"error_sound_permission")
