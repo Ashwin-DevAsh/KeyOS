@@ -92,10 +92,12 @@ class WebsiteListAdapter(
                             override fun onLoadFailed(e: GlideException?, model: Any?,
                                                       target: Target<Drawable>?,
                                                       isFirstResource: Boolean): Boolean {
-                                holder.profile.visibility = GONE
-                                holder.itemView.badgeContainer.visibility = VISIBLE
-                                e?.printStackTrace()
-                                failedItems.add(items[position])
+                                try{
+                                    holder.profile.visibility = GONE
+                                    holder.itemView.badgeContainer.visibility = VISIBLE
+                                    e?.printStackTrace()
+                                    failedItems.add(items[position])
+                                }catch (e:Throwable){}
                                 return isFirstResource
                             }
 
