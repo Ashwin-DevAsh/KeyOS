@@ -19,11 +19,11 @@
             android:layout_marginHorizontal="10dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="0dp"
-            android:layout_marginBottom="90dp"
+            android:layout_marginStart="5dp"
             android:layout_height="200dp">
             <ImageView
                 android:layout_width="match_parent"
-                android:src="@drawable/key_ring"
+                android:src="@drawable/keyos_web"
                 android:layout_height="match_parent"/>
         </androidx.cardview.widget.CardView>
 
@@ -35,16 +35,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:gravity="center"
-        android:layout_marginBottom="80dp"
         android:visibility="gone"
+        android:layout_marginBottom="80dp"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:text="By DevAsh"
-            android:textSize="30dp"
-            android:textColor="#90000000"
+            android:textSize="25dp"
+            android:textColor="#75000000"
             android:gravity="center"
             android:layout_height="wrap_content"/>
 
