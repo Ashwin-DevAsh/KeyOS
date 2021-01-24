@@ -45,7 +45,6 @@ class PhoneCalls : AppCompatActivity() {
     private fun onClick(){
 
         playstoreCover.setOnClickListener {
-//          AlertHelper.showToast("Not supported in playstore version", this)
             UpdateOriginalApk.showAlertDialog(this)
         }
 

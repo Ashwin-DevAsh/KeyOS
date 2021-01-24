@@ -183,6 +183,13 @@
         android:supportsRtl="true"
         tools:ignore="ManifestResource">
 
+
+        <activity
+            android:name="tech.DevAsh.keyOS.Config.About"
+            android:screenOrientation="portrait"
+            android:theme="@style/keyOS"
+            />
+
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"

@@ -36,6 +36,7 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
+import tech.DevAsh.keyOS.Config.About
 import tech.DevAsh.keyOS.Config.Fragments.UserAgreement
 import tech.DevAsh.keyOS.Config.ImportExportSettings
 import tech.DevAsh.keyOS.Config.ScreenSaver
@@ -352,8 +353,9 @@ class Settings : AppCompatActivity() {
 
         drawer.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Opened_Drawer")
-            val navDrawer = findViewById<DrawerLayout>(R.id.settingsLayout)
-            navDrawer.openDrawer(GravityCompat.START)
+            startActivity(Intent(this, About::class.java))
+//            val navDrawer = findViewById<DrawerLayout>(R.id.settingsLayout)
+//            navDrawer.openDrawer(GravityCompat.START)
         }
 
         importExport?.setOnClickListener {
