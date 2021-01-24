@@ -20,10 +20,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import com.android.launcher3.Utilities
-import com.google.android.play.core.appupdate.AppUpdateManager
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory
-import com.google.android.play.core.install.model.AppUpdateType
-import com.google.android.play.core.install.model.UpdateAvailability
+
+
 import com.google.android.play.core.review.ReviewManagerFactory
 import io.realm.Realm
 import kotlinx.android.synthetic.dev.activity_settings.*
@@ -77,7 +75,6 @@ class Settings : AppCompatActivity() {
         onClick()
         controlLaunchButton()
         checkUserAgreement()
-        setUpDrawer()
         reviewPrompt()
     }
 
@@ -117,130 +114,10 @@ class Settings : AppCompatActivity() {
         }
     }
 
-    private fun setUpDrawer(){
-        drawer_view.getHeaderView(0).androidID.text =
-                AlertDeveloper.getInstallDetails(this).deviceID
-        drawer_view.getHeaderView(0).setOnClickListener {
-            val intent = Intent(Settings.ACTION_DEVICE_INFO_SETTINGS)
-            startActivity(intent)
-        }
-        drawer_view.setNavigationItemSelectedListener {
-
-            settingsLayout.closeDrawer(GravityCompat.START)
-
-            when (it.itemId) {
-                R.id.feedback -> {
-                    AnalyticsHelper.logEvent(this, "sending_feedback")
-                    feedBack()
-                }
-                R.id.bug -> {
-                    AnalyticsHelper.logEvent(this, "report_bug")
-                    bug()
-                }
-                R.id.rate -> {
-                    AnalyticsHelper.logEvent(this, "rate_app")
-                    rate()
-                }
-                R.id.share -> {
-                    AnalyticsHelper.logEvent(this, "share_app")
-                    share()
-                }
-                R.id.privacyPolicy -> {
-                    AnalyticsHelper.logEvent(this, "Opened_privacyPolicy_website")
-                    openWebsite(BuildConfig.PRIVACY_POLICY)
-                }
-
-                R.id.termsAndCondition -> {
-                    AnalyticsHelper.logEvent(this, "Opened_termsAndCondition_website")
-                    openWebsite(BuildConfig.TERMS_AND_CONDITIONS)
-                }
-
-                R.id.appinfo -> {
-                    appInfo()
-                }
-
-                R.id.developerContact -> {
-                    AnalyticsHelper.logEvent(this, "Opened_Developer_website")
-                    openWebsite(color = "")
-                }
-
-                R.id.visit -> {
-                    AnalyticsHelper.logEvent(this, "Opened_App_website")
-                    openWebsite("https://www.keyos.in")
-                }
-
-                R.id.survey -> {
-                    AnalyticsHelper.logEvent(this, "Opened_Survey")
-                    openWebsite(
-                            "https://docs.google.com/forms/d/e/1FAIpQLSee4_xynrFhk_BJqb5Arbt_ayS6eG_8WFN179J6dJi5Mt9FzQ/viewform?usp=pp_url")
-                }
-
-                R.id.update -> {
-
-                    update()
-                }
-
-                else -> {
-
-                }
-            }
-
-            return@setNavigationItemSelectedListener true
-        }
-    }
-
-    private fun feedBack(){
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.type = "plain/text"
-        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback & suggestions")
-        startActivity(Intent.createChooser(intent, "Email"))
-    }
-
-    private fun appInfo(){
-        Handler().postDelayed({
-
-                                  val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                                  intent.data = Uri.parse("package:$packageName")
-                                  startActivity(intent)
-                              }, 500)
-    }
 
 
-    private fun share(){
-        try {
-            val shareIntent = Intent(Intent.ACTION_SEND);
-            shareIntent.type = "text/plain";
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, R.string.app_name)
-            val shareMessage = "Hey do you want to protect your kids from misusing there mobile phones. Or you want to manage your corporate mobiles from unauthorized usage . Or you want to create dedicated devices\n" +
-                               "\n" +
-                               "Check out this app it is freely available on play store\n" +
-                               "\n" +
-                               "Website link - https://www.keyos.in\n" +
-                               "\n" +
-                               "Playstore link - https://play.google.com/store/apps/details?id=tech.DevAsh.keyOS"
-            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
-            startActivity(Intent.createChooser(shareIntent, "choose one"))
-        } catch (e: Exception) {
 
-        }
-    }
 
-    fun bug(){
-        val intent = Intent(Intent.ACTION_SEND)
-        intent.type = "plain/text"
-        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("keyOS.DevAsh@gmail.com"))
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Bug report")
-        try {
-            val fileLocation  = File(Environment.getExternalStorageDirectory().absolutePath,
-                                     "KeyOS/logs/log.txt")
-            if(fileLocation.exists()){
-                val path = Uri.fromFile(fileLocation)
-                intent .putExtra(Intent.EXTRA_STREAM, path)
-            }
-        }catch (e: Throwable){}
-        startActivity(Intent.createChooser(intent, "Email"))
-    }
 
     fun rate(){
         Handler().postDelayed({
@@ -259,47 +136,9 @@ class Settings : AppCompatActivity() {
                               }, 500)
     }
 
-    private fun openWebsite(url: String = "https://www.devash.tech", color: String = "#ffffff"){
-        Handler().postDelayed({
-                                  try {
-                                      val builder = CustomTabsIntent.Builder()
-                                      try {
-                                          val colorInt: Int = Color.parseColor(color)
-                                          builder.setToolbarColor(colorInt)
-                                      } catch (e: Throwable) {
-                                      }
 
-                                      val customTabsIntent = builder.build()
-                                      customTabsIntent.launchUrl(this, Uri.parse(url))
-                                  } catch (e: Throwable) {
-                                      try{
-                                          val browserIntent =
-                                                  Intent(Intent.ACTION_VIEW,
-                                                         Uri.parse(url))
-                                          startActivity(browserIntent)
-                                      }catch (e:Throwable){
-                                          AlertHelper.showToast(getString(R.string.failed), this)
-                                      }
-                                  }
-                              }, 500)
-    }
 
-    private fun update(){
-        val appUpdateManager: AppUpdateManager? = AppUpdateManagerFactory.create(this)
-        val appUpdateInfoTask = appUpdateManager?.appUpdateInfo
-        appUpdateInfoTask?.addOnSuccessListener { appUpdateInfo ->
-            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE) {
-                appUpdateManager.startUpdateFlowForResult(
-                        appUpdateInfo,
-                        AppUpdateType.IMMEDIATE,
-                        this,
-                        1)
-            } else {
-                rate()
-            }
-        }
 
-    }
 
 
     private fun loadBottomButton(){
@@ -354,8 +193,6 @@ class Settings : AppCompatActivity() {
         drawer.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Opened_Drawer")
             startActivity(Intent(this, About::class.java))
-//            val navDrawer = findViewById<DrawerLayout>(R.id.settingsLayout)
-//            navDrawer.openDrawer(GravityCompat.START)
         }
 
         importExport?.setOnClickListener {
