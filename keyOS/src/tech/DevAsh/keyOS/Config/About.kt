@@ -28,10 +28,19 @@ class About : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
         onClick()
+        loadView()
+    }
+
+    fun loadView(){
+        subHeading.text = "Running on version " + BuildConfig.VERSION_NAME + "\nstable"
     }
 
 
     private fun onClick(){
+
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
         update.setOnClickListener {
             AnalyticsHelper.logEvent(this, "manual_update")
