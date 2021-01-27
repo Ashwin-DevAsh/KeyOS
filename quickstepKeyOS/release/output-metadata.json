@@ -10,8 +10,8 @@
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 35,
-      "versionName": "KeyOS v35",
+      "versionCode": 101,
+      "versionName": "KeyOS v101",
       "outputFile": "KeyOS-quickstep-keyOS-release.apk"
     }
   ]
