@@ -64,7 +64,7 @@
                     android:layout_height="match_parent">
 
                      <ImageView
-                         android:layout_width="150dp"
+                         android:layout_width="140dp"
                          android:src="@drawable/key_ring"
                          android:layout_height="200dp"/>
 

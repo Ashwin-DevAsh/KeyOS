@@ -26,19 +26,22 @@ class PhoneCalls : AppCompatActivity() {
     }
 
     private fun loadView(){
-        allowIncoming.isChecked = User.user?.calls!!.allowIncoming
-        allowOutgoing.isChecked = User.user?.calls!!.allowOutgoing
-        allowCalls.isChecked =  User.user?.calls!!.allowCalls
-        automaticWhitelist.isChecked = User.user?.calls!!.automaticWhitelist
-        if(!User.user?.calls!!.allowCalls){
-            options.alpha = 0.25f
-        }
+        try{
+            allowIncoming.isChecked = User.user?.calls!!.allowIncoming
+            allowOutgoing.isChecked = User.user?.calls!!.allowOutgoing
+            allowCalls.isChecked =  User.user?.calls!!.allowCalls
+            automaticWhitelist.isChecked = User.user?.calls!!.automaticWhitelist
+            if(!User.user?.calls!!.allowCalls){
+                options.alpha = 0.25f
+            }
 
-        if(BuildConfig.IS_PLAYSTORE_BUILD && Build.VERSION.SDK_INT > 25) {
-            playstoreCover.visibility = View.VISIBLE
-        }else{
-            playstoreCover.visibility = View.GONE
-        }
+            if(BuildConfig.IS_PLAYSTORE_BUILD && Build.VERSION.SDK_INT > 25) {
+                playstoreCover.visibility = View.VISIBLE
+            }else{
+                playstoreCover.visibility = View.GONE
+            }
+        }catch (e:Throwable){}
+
     }
 
 

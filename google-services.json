@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:856229982919:android:aa52ea257d7551127204e2",
         "android_client_info": {
-          "package_name": "tech.DevAsh.keyOS.dev"
+          "package_name": "tech.DevAsh.keyOS.pro"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "856229982919-md621ag2stf7iqgmovroa2psqnnc6d3l.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "tech.DevAsh.keyOS.dev",
+            "package_name": "tech.DevAsh.keyOS.pro",
             "certificate_hash": "b4d8a7b173d55f8044b3ee6ffd750ff4e9be526e"
           }
         },

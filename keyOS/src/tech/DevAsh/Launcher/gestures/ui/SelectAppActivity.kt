@@ -20,8 +20,6 @@ package tech.DevAsh.Launcher.gestures.ui
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.MenuItem
 import tech.DevAsh.Launcher.preferences.AppsAdapterWithShortcuts
 import tech.DevAsh.Launcher.settings.ui.SettingsBaseActivity

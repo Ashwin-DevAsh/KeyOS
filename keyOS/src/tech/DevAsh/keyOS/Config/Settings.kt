@@ -190,7 +190,7 @@ class Settings : AppCompatActivity() {
             }
         }
 
-        drawer.setOnClickListener {
+        drawer?.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Opened_Drawer")
             startActivity(Intent(this, About::class.java))
         }
@@ -205,7 +205,7 @@ class Settings : AppCompatActivity() {
             startActivity(Intent(this, Password::class.java))
         }
 
-        webFilter.setOnClickListener {
+        webFilter?.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Opened_WebFilter")
             startActivity(Intent(this, WebFilter::class.java))
 
@@ -249,29 +249,29 @@ class Settings : AppCompatActivity() {
             startActivity(Intent(this, AllowApps::class.java))
         }
 
-        services.setOnClickListener {
+        services?.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Opened_Services")
             AllowApps.type=Types.ALLOWSERVICES
             startActivity(Intent(this, AllowApps::class.java))
         }
 
-        singleApp.setOnClickListener{
+        singleApp?.setOnClickListener{
             AnalyticsHelper.logEvent(this, "Opened_SingeApp")
             AllowApps.type=Types.SINGLEAPP
             startActivity(Intent(this, AllowApps::class.java))
         }
 
-        screenSaver.setOnClickListener {
+        screenSaver?.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Opened_ScreenSaver")
             startActivity(Intent(this, ScreenSaver::class.java))
         }
 
-        phone.setOnClickListener {
+        phone?.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Opened_Call_blocker")
             startActivity(Intent(this, PhoneCalls::class.java))
         }
 
-        cameraSwitch.setOnCheckedChangeListener{ _, isChecked->
+        cameraSwitch?.setOnCheckedChangeListener{ _, isChecked->
             User.user?.basicSettings?.isDisableCamera = isChecked
             AnalyticsHelper.logEvent(this, "Switch_Camera")
             if (isChecked && !PermissionsHelper.isAdmin(this)) {
@@ -279,12 +279,12 @@ class Settings : AppCompatActivity() {
             }
         }
 
-        exit.setOnClickListener {
+        exit?.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Exit_App_from_Settings")
             Kiosk.exitKiosk(this, User.user?.password)
         }
 
-        permissions.setOnClickListener {
+        permissions?.setOnClickListener {
             AnalyticsHelper.logEvent(this, "Tap_permission_icon")
             shouldLaunch = false
             if(!permissionsBottomSheet.isAdded) {
@@ -292,7 +292,7 @@ class Settings : AppCompatActivity() {
             }
         }
 
-        notificationPanel.setOnCheckedChangeListener{ _, isChecked->
+        notificationPanel?.setOnCheckedChangeListener{ _, isChecked->
             AnalyticsHelper.logEvent(this, "Switch_notification")
             User.user!!.basicSettings.notificationPanel = isChecked
         }
