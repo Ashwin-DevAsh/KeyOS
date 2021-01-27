@@ -198,19 +198,19 @@ android {
         }
 
         keyOS {
-            res.srcDirs = ['keyOS/res']
+            res.srcDirs = ['keyOS/res','general/res']
             java.srcDirs = ['keyOS/src']
             manifest.srcFile "keyOS/AndroidManifest.xml"
         }
 
         pro {
-            res.srcDirs = ['keyOS/res']
+            res.srcDirs = ['keyOS/res','general/res']
             java.srcDirs = ['keyOS/src']
             manifest.srcFile "pro/AndroidManifest.xml"
         }
 
         dev {
-            res.srcDirs = ['keyOS/res']
+            res.srcDirs = ['keyOS/res','dev/res']
             java.srcDirs = ['keyOS/src']
             manifest.srcFile "dev/AndroidManifest.xml"
         }
