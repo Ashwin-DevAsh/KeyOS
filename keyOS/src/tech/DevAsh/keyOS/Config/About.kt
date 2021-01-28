@@ -187,10 +187,10 @@ class About : AppCompatActivity() {
     }
 
     private fun update(){
-        if(BuildConfig.FLAVOR=="keyOS"){
-            val appUpdateManager: AppUpdateManager? = AppUpdateManagerFactory.create(this)
-            val appUpdateInfoTask = appUpdateManager?.appUpdateInfo
-            appUpdateInfoTask?.addOnSuccessListener { appUpdateInfo ->
+        if(BuildConfig.FLAVOR=="quickstepKeyOS"){
+            val appUpdateManager: AppUpdateManager = AppUpdateManagerFactory.create(this)
+            val appUpdateInfoTask = appUpdateManager.appUpdateInfo
+            appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
                 if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE) {
                     appUpdateManager.startUpdateFlowForResult(
                             appUpdateInfo,
