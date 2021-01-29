@@ -346,18 +346,20 @@ class Settings : AppCompatActivity() {
     }
 
     private fun loadView(){
-        wifiMode?.text = getString(resourseMapper[User.user?.basicSettings?.wifi]!!)
-        orientationMode?.text =  getString(resourseMapper[User.user?.basicSettings?.orientation]!!)
-        bluetoothMode?.text =  getString(resourseMapper[User.user?.basicSettings?.bluetooth]!!)
-        soundMode?.text =  getString(resourseMapper[User.user?.basicSettings?.sound]!!)
-        notificationPanel?.isChecked = User.user?.basicSettings?.notificationPanel!!
-        cameraSwitch?.isChecked = User.user?.basicSettings?.isDisableCamera!! && PermissionsHelper.isAdmin(
-                this)
-        if(PermissionsHelper.checkImportantPermissions(this)){
-            permissionsAlert.visibility = View.GONE
-        }else{
-            permissionsAlert.visibility = View.VISIBLE
-        }
+        try{
+            wifiMode?.text = getString(resourseMapper[User.user?.basicSettings?.wifi]!!)
+            orientationMode?.text =  getString(resourseMapper[User.user?.basicSettings?.orientation]!!)
+            bluetoothMode?.text =  getString(resourseMapper[User.user?.basicSettings?.bluetooth]!!)
+            soundMode?.text =  getString(resourseMapper[User.user?.basicSettings?.sound]!!)
+            notificationPanel?.isChecked = User.user?.basicSettings?.notificationPanel!!
+            cameraSwitch?.isChecked = User.user?.basicSettings?.isDisableCamera!! && PermissionsHelper.isAdmin(
+                    this)
+            if(PermissionsHelper.checkImportantPermissions(this)){
+                permissionsAlert.visibility = View.GONE
+            }else{
+                permissionsAlert.visibility = View.VISIBLE
+            }
+        }catch(e:Throwable){ }
     }
 
 
