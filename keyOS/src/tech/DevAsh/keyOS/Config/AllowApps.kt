@@ -180,26 +180,27 @@ class AllowApps : AppCompatActivity() {
 
 
     private fun saveData(){
-        when(type){
-            Types.ALLOWAPPS -> {
-                println(adapter?.allowedItems)
-                val allowedApps = getRealmList(ArrayList(adapter?.allowedItems!!))
-                User.user?.allowedApps = allowedApps
-            }
-            Types.ALLOWSERVICES->  {
-                val allowServices = getRealmList(ArrayList(adapter?.allowedItems!!))
-                User.user?.allowedServices = allowServices
-            }
-            Types.SINGLEAPP->{
-                val myAdapter = adapter as SingleAppAdapter
-                if((myAdapter).toggleState){
-                    User.user?.singleApp = myAdapter.singleApp
-                }else{
-                    User.user?.singleApp = null
+        try {
+            when(type){
+                Types.ALLOWAPPS -> {
+                    val allowedApps = getRealmList(ArrayList(adapter?.allowedItems!!))
+                    User.user?.allowedApps = allowedApps
                 }
+                Types.ALLOWSERVICES->  {
+                    val allowServices = getRealmList(ArrayList(adapter?.allowedItems!!))
+                    User.user?.allowedServices = allowServices
+                }
+                Types.SINGLEAPP->{
+                    val myAdapter = adapter as SingleAppAdapter
+                    if((myAdapter).toggleState){
+                        User.user?.singleApp = myAdapter.singleApp
+                    }else{
+                        User.user?.singleApp = null
+                    }
 
+                }
             }
-        }
+        }catch (e:Throwable){ }
 
         RealmHelper.updateUser(User.user!!)
         finish()
