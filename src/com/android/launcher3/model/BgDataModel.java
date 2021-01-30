@@ -327,7 +327,7 @@ public class BgDataModel {
             case LauncherSettings.Favorites.ITEM_TYPE_APPLICATION:
             case LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT:
                 if(!Kiosk.INSTANCE.canShowApp(item.getTargetComponent().getPackageName())){
-                    System.out.println("Blocked");
+
                 }else if (item.container == LauncherSettings.Favorites.CONTAINER_DESKTOP || item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
                     itemsIdMap.put(item.id, item);
                     workspaceItems.add(item);

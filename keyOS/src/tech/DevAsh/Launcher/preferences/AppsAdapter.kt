@@ -37,7 +37,7 @@ open class AppsAdapter(
         private val context: Context,
         private val callback: Callback? = null,
         private val filter: AppFilter? = null)
-    : androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val TYPE_LOADING = 0
     private val TYPE_ITEM = 1
@@ -53,7 +53,7 @@ open class AppsAdapter(
 //        Handler(LauncherModel.getWorkerLooper()).postAtFrontOfQueue(::loadAppsList)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return if (getItemViewType(0) == TYPE_ITEM) {
             AppHolder(layoutInflater.inflate(R.layout.app_item, parent, false))
@@ -64,7 +64,7 @@ open class AppsAdapter(
 
     override fun getItemCount() = if (isLoaded) apps.size else 1
 
-    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is AppHolder) {
             holder.bind(position)
         }
@@ -120,7 +120,7 @@ open class AppsAdapter(
         }
     }
 
-    inner class AppHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class AppHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         private val label: TextView = itemView.findViewById(R.id.label)
         private val icon: ImageView = itemView.findViewById(R.id.icon)
@@ -144,7 +144,7 @@ open class AppsAdapter(
         }
     }
 
-    inner class LoadingHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView)
+    inner class LoadingHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     interface Callback {
 
