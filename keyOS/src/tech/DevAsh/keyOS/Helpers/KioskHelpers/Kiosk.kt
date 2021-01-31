@@ -18,6 +18,7 @@ import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.keyOS.Config.CustomSettings
 import tech.DevAsh.keyOS.Database.Apps
+import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Database.User.user
 import tech.DevAsh.keyOS.Helpers.AnalyticsHelper
 import tech.DevAsh.keyOS.Helpers.AlertDeveloper
@@ -98,7 +99,8 @@ object Kiosk {
         val appIndex = user!!.allowedApps.indexOf(app)
         val editedAppIndex = user!!.editedApps.indexOf(app)
 
-        if(className=="tech.DevAsh.keyOS.Config.CustomSettings"){
+        if(className=="tech.DevAsh.keyOS.Config.CustomSettings" &&
+           try{user?.shouldShowSettingsIcon!!}catch(e:Throwable){true}){
             return true
         }
 

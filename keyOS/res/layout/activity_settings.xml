@@ -642,6 +642,52 @@
                             android:layout_height="match_parent"/>
                     </RelativeLayout>
 
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="35dp"
+                            android:layout_marginLeft="10dp"
+                            app:cardElevation="0dp"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentLeft="true"
+                            app:cardCornerRadius="17.5dp"
+                            android:layout_height="35dp">
+
+                            <ImageView
+                                app:srcCompat="@drawable/plugins"
+                                android:padding="4dp"
+                                app:tint="#7c43bd"
+                                android:layout_marginStart="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                            </ImageView>
+                        </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="Settings Plugin"
+                            android:gravity="center"
+                            android:textColor="@android:color/black"
+                            android:layout_marginLeft="65dp"
+                            android:textSize="16dp"
+                            android:layout_height="match_parent"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_width="20dp"
+                                app:srcCompat="@drawable/ios_forward"
+                                android:layout_height="20dp"/>
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/plugins"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                    </RelativeLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1109,16 +1155,7 @@
                 />
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="300dp"
-        app:menu="@menu/drawer_menu"
-        app:headerLayout="@layout/drawer_header"
-        android:layout_gravity="start"
-        android:id="@+id/drawer_view"
-        android:fitsSystemWindows="true"
-        android:layout_height="match_parent">
 
-    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
 

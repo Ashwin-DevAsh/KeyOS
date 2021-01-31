@@ -185,6 +185,13 @@
 
 
         <activity
+            android:name="tech.DevAsh.keyOS.Config.AllowSettingsPlugins"
+            android:screenOrientation="portrait"
+            android:theme="@style/keyOS"
+            />
+
+
+        <activity
             android:name="tech.DevAsh.keyOS.Config.About"
             android:screenOrientation="portrait"
             android:theme="@style/keyOS"
@@ -360,6 +367,7 @@
             android:screenOrientation="portrait"
             android:label="@string/custom_settings"
             android:enabled="false"
+            android:icon="@drawable/settings_plugin"
             android:theme="@style/keyOS"
             >
             <intent-filter>

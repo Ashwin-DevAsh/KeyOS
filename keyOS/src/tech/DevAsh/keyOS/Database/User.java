@@ -44,12 +44,21 @@ public class User extends RealmObject {
     @SerializedName("isEndUserLicenceAgreementDone")
     public boolean isEndUserLicenceAgreementDone = false;
 
+    @SerializedName("allowedPlugins")
+    public RealmList<Plugins> allowedPlugins = new RealmList();
+
+    @SerializedName("shouldShowSettingsIcon")
+    public Boolean shouldShowSettingsIcon = true;
+
+
 
 
 
 
     public User(RealmList<Apps> allowedApps,
                 RealmList<Apps> allowedServices,
+                RealmList<Plugins> allowedPlugins,
+                boolean shouldShowSettingsIcon,
                 BasicSettings basicSettings,
                 WebFilterDB webFilter,
                 Calls calls,
@@ -59,6 +68,8 @@ public class User extends RealmObject {
         this.allowedApps = allowedApps;
         this.allowedServices = allowedServices;
         this.basicSettings = basicSettings;
+        this.allowedPlugins = allowedPlugins;
+        this.shouldShowSettingsIcon = shouldShowSettingsIcon;
         this.calls = calls;
         this.webFilter = webFilter;
         this.recoveryEmail = recoveryEmail;
@@ -104,6 +115,8 @@ public class User extends RealmObject {
                            user = (new User(
                                     new RealmList<>(),
                                     new RealmList<>(new Apps("android"),new Apps("com.android.incallui")),
+                                    new RealmList<>(),
+                                    true,
                                     new BasicSettings(),
                                     new WebFilterDB(false,false,false,new RealmList<>(),new RealmList<>(),false),
                                     new Calls(),

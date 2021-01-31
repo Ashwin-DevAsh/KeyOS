@@ -34,11 +34,8 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.HelperLauncher
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.Launcher.KioskLauncher
-import tech.DevAsh.keyOS.Config.About
+import tech.DevAsh.keyOS.Config.*
 import tech.DevAsh.keyOS.Config.Fragments.UserAgreement
-import tech.DevAsh.keyOS.Config.ImportExportSettings
-import tech.DevAsh.keyOS.Config.ScreenSaver
-import tech.DevAsh.keyOS.Config.WebFilter
 import tech.DevAsh.keyOS.Database.BasicSettings
 import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Helpers.AlertDeveloper
@@ -188,6 +185,11 @@ class Settings : AppCompatActivity() {
                     checkPermissionAndLaunch()
                 }
             }
+        }
+
+        plugins?.setOnClickListener {
+            AnalyticsHelper.logEvent(this, "Opened_Settings_plugin")
+            startActivity(Intent(this, AllowSettingsPlugins::class.java))
         }
 
         drawer?.setOnClickListener {
@@ -364,10 +366,6 @@ class Settings : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        if(settingsLayout.isDrawerOpen(drawer_view)){
-            settingsLayout.closeDrawer(GravityCompat.START)
-            return
-        }
 
         saveData()
         if(isFromLauncher){
