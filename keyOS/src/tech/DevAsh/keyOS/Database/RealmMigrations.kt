@@ -91,6 +91,7 @@ class RealmMigrations(val context: Context) : RealmMigration{
 
            val user = schema.get("User")
            user?.addRealmListField("allowedPlugins",plugins)
+            oldVersion++
         }
 
         if(oldVersion==8L){
@@ -98,11 +99,13 @@ class RealmMigrations(val context: Context) : RealmMigration{
             user?.addField("shouldShowSettingsIcon",Boolean::class.javaObjectType)!!.transform {
                 it.setBoolean("shouldShowSettingsIcon",false)
             }
+            oldVersion++
         }
 
         if(oldVersion==9L) {
             val plugins = schema.get("Plugins")
             plugins?.addField("className", String::class.java)
+            oldVersion++
         }
 
 
