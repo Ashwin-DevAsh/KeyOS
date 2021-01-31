@@ -96,7 +96,7 @@ class RealmMigrations(val context: Context) : RealmMigration{
         if(oldVersion==8L){
             val user = schema.get("User")
             user?.addField("shouldShowSettingsIcon",Boolean::class.javaObjectType)!!.transform {
-                it.setBoolean("shouldShowSettingsIcon",true)
+                it.setBoolean("shouldShowSettingsIcon",false)
             }
         }
 

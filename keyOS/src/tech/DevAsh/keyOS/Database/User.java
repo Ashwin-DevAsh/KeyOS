@@ -48,7 +48,7 @@ public class User extends RealmObject {
     public RealmList<Plugins> allowedPlugins = new RealmList();
 
     @SerializedName("shouldShowSettingsIcon")
-    public Boolean shouldShowSettingsIcon = true;
+    public Boolean shouldShowSettingsIcon = false;
 
 
 
@@ -116,7 +116,7 @@ public class User extends RealmObject {
                                     new RealmList<>(),
                                     new RealmList<>(new Apps("android"),new Apps("com.android.incallui")),
                                     new RealmList<>(),
-                                    true,
+                                    false,
                                     new BasicSettings(),
                                     new WebFilterDB(false,false,false,new RealmList<>(),new RealmList<>(),false),
                                     new Calls(),

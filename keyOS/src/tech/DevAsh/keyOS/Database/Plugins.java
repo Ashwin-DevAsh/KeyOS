@@ -15,10 +15,13 @@ public class Plugins extends RealmObject {
 
     static public List<Plugins> allPlugins = Arrays
                 .asList(
-                        new Plugins("wifi", Settings.ACTION_WIFI_SETTINGS),
-                        new Plugins("bluetooth",Settings.ACTION_BLUETOOTH_SETTINGS),
+                        new Plugins("Wifi", Settings.ACTION_WIFI_SETTINGS),
+                        new Plugins("Bluetooth",Settings.ACTION_BLUETOOTH_SETTINGS),
                         new Plugins("Sound",Settings.ACTION_SOUND_SETTINGS),
-                        new Plugins("Airplane Mode",Settings.ACTION_AIRPLANE_MODE_SETTINGS)
+                        new Plugins("Airplane Mode",Settings.ACTION_AIRPLANE_MODE_SETTINGS),
+                        new Plugins("Mobile Data",Settings.ACTION_NETWORK_OPERATOR_SETTINGS),
+                        new Plugins("GPS",Settings.ACTION_LOCATION_SOURCE_SETTINGS),
+                        new Plugins("Vpn",Settings.ACTION_VPN_SETTINGS)
                 );
 
 

@@ -231,8 +231,7 @@ class UsageAccessService : Service() {
         if(appName==packageName ||
            Apps.exceptions.contains(appName) ||
            Apps.exceptions.contains(className) ||
-           try{user.allowedPlugins?.contains(Plugins("", "",className))!!}catch (e:Throwable){false}){
-
+           try{user.allowedPlugins?.contains(Plugins("", "",className))!!  && user.shouldShowSettingsIcon}catch (e:Throwable){false}){
             return true
         }
 

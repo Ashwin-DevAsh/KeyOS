@@ -56,38 +56,33 @@ class AllowPluginsAdapter(
             holder.name.text = items[position].pluginName
             holder.packageName.text = items[position].packageName
 
+            if(toggleCallback.getToggleState()){
+                holder.view.alpha = 1f
+            }else{
+                holder.view.alpha = 0.25f
+            }
+
+
+            val className: String = try{
+                val intent = Intent(items[position].packageName)
+                intent.resolveActivity(context.packageManager).className
+            }catch (e:Throwable){
+                items[position].packageName
+            }
+
+            items[position].className = className
+
             holder.checkBox.isChecked = allowedItems.contains(items[position])
 
-//            if(toggleCallback.getToggleState()){
-//                holder.view.alpha = 1f
-//            }else{
-//                holder.view.alpha = 0.25f
-//            }
 
 
             holder.view.setOnClickListener{
                 if(allowedItems.contains(items[position])){
-                    val className: String =try{
-                        val intent = Intent(items[position].packageName)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                        intent.resolveActivity(context.packageManager).className
-                    }catch (e:Throwable){
-                        items[position].packageName
-                    }
                     val item = items[position]
-                    item.className = className
                     allowedItems.removeAll(arrayOf(item))
                     holder.checkBox.setChecked(false, true)
                 }else{
-                    val className: String =try{
-                        val intent = Intent(items[position].packageName)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                        intent.resolveActivity(context.packageManager).className
-                    }catch (e:Throwable){
-                        items[position].packageName
-                    }
                     val item = items[position]
-                    item.className = className
                     allowedItems.add(item)
                     holder.checkBox.setChecked(true, true)
                 }
@@ -99,13 +94,6 @@ class AllowPluginsAdapter(
 
         }
     }
-
-
-    fun updateList(updatedList: ArrayList<Plugins>){
-        this.items = ArrayList(updatedList)
-        notifyDataSetChanged()
-    }
-
 }
 
 class PluginViewHolder(val view: View) : RecyclerView.ViewHolder(view) {

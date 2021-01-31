@@ -9,6 +9,7 @@ import io.realm.RealmList
 import kotlinx.android.synthetic.dev.activity_allow_settings_plugins.*
 import kotlinx.android.synthetic.dev.activity_settings.*
 import tech.DevAsh.KeyOS.Config.ToggleCallback
+import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.keyOS.Config.Adapters.AllowPluginsAdapter
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.Plugins
@@ -46,8 +47,8 @@ class AllowSettingsPlugins : AppCompatActivity(),ToggleCallback {
 
     private fun loadData(){
         try{
-             isEnabled = User.user?.shouldShowSettingsIcon!!
-             allowedPlugins = ArrayList(User.user?.allowedPlugins!!)
+            allowedPlugins = ArrayList(User.user?.allowedPlugins!!)
+            isEnabled = User.user?.shouldShowSettingsIcon!!
         }catch(e:Throwable){
             isEnabled = true
             allowedPlugins = ArrayList()
@@ -77,6 +78,7 @@ class AllowSettingsPlugins : AppCompatActivity(),ToggleCallback {
             val allowedPlugins = getRealmList(pluginsAdapter?.allowedItems!!)
             User.user?.shouldShowSettingsIcon = getToggleState()
             User.user?.allowedPlugins = allowedPlugins
+            RealmHelper.updateUser(User.user)
         }catch(e:Throwable){}
         super.onBackPressed()
 

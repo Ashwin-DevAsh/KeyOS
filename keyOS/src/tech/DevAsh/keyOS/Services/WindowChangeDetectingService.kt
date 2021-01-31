@@ -156,7 +156,7 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
            || Apps.exceptions.contains(appName)
            || Apps.exceptions.contains(className)
            || className.toString().contains("android.inputmethodservice")
-           || try{ User.user.allowedPlugins?.contains(Plugins("","", className))!!}catch (e:Throwable){false}
+           || try{ User.user.allowedPlugins?.contains(Plugins("","", className))!! && User.user.shouldShowSettingsIcon}catch (e:Throwable){false}
            || try{ Class.forName(className.toString());true} catch (e: Throwable){false}
         ){
             return true

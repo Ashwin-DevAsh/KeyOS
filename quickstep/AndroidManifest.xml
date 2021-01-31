@@ -367,8 +367,9 @@
             android:screenOrientation="portrait"
             android:label="@string/custom_settings"
             android:enabled="false"
-            android:icon="@drawable/settings_plugin"
-            android:theme="@style/keyOS"
+            android:icon="@mipmap/settings_plugin"
+            android:roundIcon="@mipmap/settings_plugin_round"
+            android:theme="@style/customSettings"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

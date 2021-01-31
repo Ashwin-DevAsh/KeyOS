@@ -21,7 +21,6 @@
 
     <!--    for keyOS-->
     <style name="keyOS" parent="Theme.MaterialComponents.Light.NoActionBar">
-
         <item name="android:windowBackground">@color/colorPrimary</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="statusBarBackground">@color/colorPrimary</item>
@@ -34,6 +33,14 @@
         <item name="fontFamily">@font/roboto_medium</item>
         <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+    </style>
+
+    <style name="customSettings" parent="keyOS">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="statusBarBackground">@color/black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:navigationBarColor">@color/black</item>
     </style>
 
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
