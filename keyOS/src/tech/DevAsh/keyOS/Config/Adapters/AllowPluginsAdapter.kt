@@ -58,11 +58,11 @@ class AllowPluginsAdapter(
 
             holder.checkBox.isChecked = allowedItems.contains(items[position])
 
-            if(toggleCallback.getToggleState()){
-                holder.view.alpha = 1f
-            }else{
-                holder.view.alpha = 0.25f
-            }
+//            if(toggleCallback.getToggleState()){
+//                holder.view.alpha = 1f
+//            }else{
+//                holder.view.alpha = 0.25f
+//            }
 
 
             holder.view.setOnClickListener{
@@ -133,8 +133,6 @@ class PluginHeaderViewHolder(
                 R.string.on_caps) else context.getString(R.string.off_caps)
         view.turnOn.isChecked = toggleCallback.getToggleState()
         view.subHeading.text = subHeading
-
-
     }
 
     fun onClick(){

@@ -16,7 +16,9 @@ public class Plugins extends RealmObject {
     static public List<Plugins> allPlugins = Arrays
                 .asList(
                         new Plugins("wifi", Settings.ACTION_WIFI_SETTINGS),
-                        new Plugins("bluetooth",Settings.ACTION_BLUETOOTH_SETTINGS)
+                        new Plugins("bluetooth",Settings.ACTION_BLUETOOTH_SETTINGS),
+                        new Plugins("Sound",Settings.ACTION_SOUND_SETTINGS),
+                        new Plugins("Airplane Mode",Settings.ACTION_AIRPLANE_MODE_SETTINGS)
                 );
 
 
@@ -53,8 +55,24 @@ public class Plugins extends RealmObject {
             return false;
         }
         Plugins plugins = (Plugins) o;
-        return Objects.equals(className, plugins.className) ||  Objects.equals(packageName, plugins.packageName);
+        try{
+            return className.contains(plugins.className) || plugins.className.contains(className);
+        }catch( Throwable throwable){
+            return false;
+        }
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(className);
+    }
 
+    @Override
+    public String toString() {
+        return "Plugins{" +
+                "pluginName='" + pluginName + '\'' +
+                ", packageName='" + packageName + '\'' +
+                ", className='" + className + '\'' +
+                '}';
+    }
 }
