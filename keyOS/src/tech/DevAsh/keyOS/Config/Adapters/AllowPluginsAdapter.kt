@@ -1,30 +1,27 @@
 package tech.DevAsh.keyOS.Config.Adapters
 
 import android.app.Activity
-import android.os.Build
-
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.android.launcher3.BuildConfig
 import com.android.launcher3.R
 import kotlinx.android.synthetic.dev.header_contact_listtile.view.*
 import kotlinx.android.synthetic.dev.widget_listtile_allow_plugin.view.*
-import tech.DevAsh.KeyOS.Config.Adapters.ContactListHeaderViewHolder
 import tech.DevAsh.KeyOS.Config.AnimateDeleteToggle
 import tech.DevAsh.KeyOS.Config.ToggleCallback
 import tech.DevAsh.keyOS.Database.Plugins
-import tech.DevAsh.keyOS.Helpers.UpdateOriginalApk
 
 
 class AllowPluginsAdapter(
         var items: ArrayList<Plugins>,
-        var allowedItems:ArrayList<Plugins>,
+        var allowedItems: ArrayList<Plugins>,
         val context: Activity,
-        val subHeading:String,
+        val subHeading: String,
         val toggleCallback: ToggleCallback,
-                        ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), AnimateDeleteToggle {
+                         ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), AnimateDeleteToggle {
 
 
 
@@ -35,9 +32,9 @@ class AllowPluginsAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType!=0){
             PluginViewHolder(LayoutInflater.from(context)
-                                          .inflate(R.layout.widget_listtile_allow_plugin,
-                                                   parent,
-                                                   false))
+                                     .inflate(R.layout.widget_listtile_allow_plugin,
+                                              parent,
+                                              false))
         }else{
             PluginHeaderViewHolder(
                     LayoutInflater
@@ -70,10 +67,28 @@ class AllowPluginsAdapter(
 
             holder.view.setOnClickListener{
                 if(allowedItems.contains(items[position])){
-                    allowedItems.remove(items[position])
-                    holder.checkBox.setChecked( false,true)
+                    val className: String =try{
+                        val intent = Intent(items[position].packageName)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        intent.resolveActivity(context.packageManager).className
+                    }catch (e:Throwable){
+                        items[position].packageName
+                    }
+                    val item = items[position]
+                    item.className = className
+                    allowedItems.removeAll(arrayOf(item))
+                    holder.checkBox.setChecked(false, true)
                 }else{
-                    allowedItems.add(items[position])
+                    val className: String =try{
+                        val intent = Intent(items[position].packageName)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        intent.resolveActivity(context.packageManager).className
+                    }catch (e:Throwable){
+                        items[position].packageName
+                    }
+                    val item = items[position]
+                    item.className = className
+                    allowedItems.add(item)
                     holder.checkBox.setChecked(true, true)
                 }
             }
@@ -105,8 +120,8 @@ class PluginHeaderViewHolder(
         val view: View,
         val context: Activity,
         private val toggleCallback: ToggleCallback,
-        val subHeading:String
-                                 ) : RecyclerView.ViewHolder(view) {
+        val subHeading: String
+                            ) : RecyclerView.ViewHolder(view) {
 
     init {
         onClick()
@@ -114,7 +129,8 @@ class PluginHeaderViewHolder(
     }
 
     private fun loadView(){
-        view.isTurnOn.text = if (toggleCallback.getToggleState()) context.getString(R.string.on_caps) else context.getString(R.string.off_caps)
+        view.isTurnOn.text = if (toggleCallback.getToggleState()) context.getString(
+                R.string.on_caps) else context.getString(R.string.off_caps)
         view.turnOn.isChecked = toggleCallback.getToggleState()
         view.subHeading.text = subHeading
 

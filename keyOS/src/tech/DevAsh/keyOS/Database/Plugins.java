@@ -26,7 +26,18 @@ public class Plugins extends RealmObject {
     @SerializedName("packageName")
     public String packageName;
 
-    public Plugins(String pluginName, String packageName) {
+    @SerializedName("className")
+    public String className;
+
+
+
+    public Plugins(String pluginName, String packageName,String className) {
+        this.pluginName = pluginName;
+        this.packageName = packageName;
+        this.className = className;
+    }
+
+    public Plugins(String pluginName,String packageName){
         this.pluginName = pluginName;
         this.packageName = packageName;
     }
@@ -42,11 +53,8 @@ public class Plugins extends RealmObject {
             return false;
         }
         Plugins plugins = (Plugins) o;
-        return Objects.equals(packageName, plugins.packageName);
+        return Objects.equals(className, plugins.className) ||  Objects.equals(packageName, plugins.packageName);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(packageName);
-    }
+
 }

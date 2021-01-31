@@ -20,6 +20,7 @@ import tech.DevAsh.KeyOS.Helpers.KioskHelpers.CallBlocker
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.BasicSettings
+import tech.DevAsh.keyOS.Database.Plugins
 import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Database.User.user
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.BasicSettingsHandler
@@ -227,8 +228,11 @@ class UsageAccessService : Service() {
     private fun isAllowedPackage(appName: String?, className: String?):Boolean{
         val app = Apps(appName)
 
-        if(appName==packageName || Apps.exceptions.contains(appName) || Apps.exceptions.contains(
-                        className)){
+        if(appName==packageName ||
+           Apps.exceptions.contains(appName) ||
+           Apps.exceptions.contains(className) ||
+           try{user.allowedPlugins?.contains(Plugins("", "",className))!!}catch (e:Throwable){false}){
+
             return true
         }
 

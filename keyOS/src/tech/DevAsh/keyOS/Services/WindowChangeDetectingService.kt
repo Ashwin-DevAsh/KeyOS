@@ -8,10 +8,12 @@ import android.content.IntentFilter
 import android.os.Handler
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
+import android.widget.Toast
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.KeyOS.Helpers.KioskHelpers.Kiosk
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.keyOS.Database.Apps
+import tech.DevAsh.keyOS.Database.Plugins
 import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Helpers.KioskHelpers.WebBlocker
 import tech.DevAsh.keyOS.Receiver.KioskReceiver
@@ -149,10 +151,12 @@ class WindowChangeDetectingService : AccessibilityService() , KioskToggle {
     private fun isAllowedPackage(appName: String?, className: String?):Boolean{
         val app = Apps(appName)
 
+
         if(appName == packageName
            || Apps.exceptions.contains(appName)
            || Apps.exceptions.contains(className)
            || className.toString().contains("android.inputmethodservice")
+           || try{ User.user.allowedPlugins?.contains(Plugins("","", className))!!}catch (e:Throwable){false}
            || try{ Class.forName(className.toString());true} catch (e: Throwable){false}
         ){
             return true

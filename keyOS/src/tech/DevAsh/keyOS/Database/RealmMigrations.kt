@@ -100,10 +100,13 @@ class RealmMigrations(val context: Context) : RealmMigration{
             }
         }
 
+        if(oldVersion==9L) {
+            val plugins = schema.get("Plugins")
+            plugins?.addField("className", String::class.java)
+        }
 
 
-
-    }
+        }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
