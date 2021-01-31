@@ -283,6 +283,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+
         <!-- launcher -->
         <activity
             android:name="tech.DevAsh.KeyOS.Config.AllowApps"
@@ -352,6 +354,19 @@
                 <action android:name="ac.in.ActivityRecognition.RestartSensor" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="tech.DevAsh.keyOS.Config.CustomSettings"
+            android:screenOrientation="portrait"
+            android:label="@string/custom_settings"
+            android:enabled="false"
+            android:theme="@style/keyOS"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <!-- end keyOS -->

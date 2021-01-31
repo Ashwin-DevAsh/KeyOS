@@ -290,7 +290,7 @@ public class BgDataModel {
                 folders.put(item.id, folderInfo);
                 ArrayList<ShortcutInfo> folderContent = new ArrayList<>(folderInfo.contents);
                 for(ShortcutInfo shortcutInfo : folderContent){
-                    if(!Kiosk.INSTANCE.canShowApp(shortcutInfo.getPackageName())){
+                    if(!Kiosk.INSTANCE.canShowApp(shortcutInfo.getPackageName(),shortcutInfo.getTargetComponent().getClassName())){
                         folderInfo.contents.remove(shortcutInfo);
                     }
                 }
@@ -302,7 +302,7 @@ public class BgDataModel {
                     // Increment the count for the given shortcut
                     ShortcutKey pinnedShortcut = ShortcutKey.fromItemInfo(item);
 
-                    if(!Kiosk.INSTANCE.canShowApp(pinnedShortcut.componentName.getPackageName())){
+                    if(!Kiosk.INSTANCE.canShowApp(pinnedShortcut.componentName.getPackageName(),pinnedShortcut.componentName.getClassName())){
                         return;
                     }
 
@@ -326,7 +326,7 @@ public class BgDataModel {
             }
             case LauncherSettings.Favorites.ITEM_TYPE_APPLICATION:
             case LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT:
-                if(!Kiosk.INSTANCE.canShowApp(item.getTargetComponent().getPackageName())){
+                if(!Kiosk.INSTANCE.canShowApp(item.getTargetComponent().getPackageName(),item.getTargetComponent().getPackageName())){
 
                 }else if (item.container == LauncherSettings.Favorites.CONTAINER_DESKTOP || item.container == LauncherSettings.Favorites.CONTAINER_HOTSEAT) {
                     itemsIdMap.put(item.id, item);
@@ -349,7 +349,7 @@ public class BgDataModel {
             case LauncherSettings.Favorites.ITEM_TYPE_APPWIDGET:
             case LauncherSettings.Favorites.ITEM_TYPE_CUSTOM_APPWIDGET:
                 LauncherAppWidgetInfo launcherAppWidgetInfo = (LauncherAppWidgetInfo) item;
-                if(!Kiosk.INSTANCE.canShowApp(launcherAppWidgetInfo.providerName.getPackageName())){
+                if(!Kiosk.INSTANCE.canShowApp(launcherAppWidgetInfo.providerName.getPackageName(),launcherAppWidgetInfo.providerName.getClassName())){
                     return;
                 }
                 itemsIdMap.put(item.id, item);

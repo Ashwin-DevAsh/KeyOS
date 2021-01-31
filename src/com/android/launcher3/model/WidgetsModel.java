@@ -61,7 +61,7 @@ public class WidgetsModel {
         AlphabeticIndexCompat indexer = new AlphabeticIndexCompat(context);
         WidgetItemComparator widgetComparator = new WidgetItemComparator();
         for (Map.Entry<PackageItemInfo, ArrayList<WidgetItem>> entry : mWidgetsList.entrySet()) {
-            if(Kiosk.INSTANCE.canShowApp(entry.getKey().packageName)){
+            if(Kiosk.INSTANCE.canShowApp(entry.getKey().packageName,entry.getKey().packageName)){
                 WidgetListRowEntry row = new WidgetListRowEntry(entry.getKey(), entry.getValue());
                 row.titleSectionName = indexer.computeSectionName(row.pkgItem.title);
                 Collections.sort(row.widgets, widgetComparator);

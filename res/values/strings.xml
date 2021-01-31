@@ -360,6 +360,7 @@
     <string name="app_crash">App Crash</string>
     <string name="app_crash_subheading">Sorry for the inconvenience we will fix this issue soon</string>
     <string name="exit">Exit</string>
+    <string name="custom_settings">Settings</string>
 
 
 </resources>

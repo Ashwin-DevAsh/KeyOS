@@ -10,11 +10,13 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Environment
 import android.util.Log
+import com.android.launcher3.BuildConfig
 import tech.DevAsh.KeyOS.Config.Settings
 import tech.DevAsh.KeyOS.Helpers.PermissionsHelper
 import tech.DevAsh.KeyOS.Receiver.SampleAdminReceiver
 import tech.DevAsh.KeyOS.Services.UsageAccessService
 import tech.DevAsh.Launcher.KioskLauncher
+import tech.DevAsh.keyOS.Config.CustomSettings
 import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.User.user
 import tech.DevAsh.keyOS.Helpers.AnalyticsHelper
@@ -47,6 +49,9 @@ object Kiosk {
 
     fun startKiosk(context: Context){
         if(!isMyServiceRunning(context, UsageAccessService::class.java)){
+            context.packageManager.setComponentEnabledSetting(ComponentName(context,CustomSettings::class.java),
+                                                              PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                                                              PackageManager.DONT_KILL_APP)
             isKisokEnabled = true
             writeLog()
             AnalyticsHelper.logEvent(context, "Kiosk_Started")
@@ -88,10 +93,14 @@ object Kiosk {
         }
     }
 
-    fun canShowApp(packageName: String):Boolean{
+    fun canShowApp(packageName: String,className:String):Boolean{
         val app = Apps(packageName)
         val appIndex = user!!.allowedApps.indexOf(app)
         val editedAppIndex = user!!.editedApps.indexOf(app)
+
+        if(className=="tech.DevAsh.keyOS.Config.CustomSettings"){
+            return true
+        }
 
         if(appIndex==-1){
             return false
@@ -104,8 +113,30 @@ object Kiosk {
         return !user!!.editedApps[editedAppIndex]!!.hideShortcut
     }
 
+    fun canLoadApp(packageName: String):Boolean{
+        val app = Apps(packageName)
+        val appIndex = user!!.allowedApps.indexOf(app)
+        val editedAppIndex = user!!.editedApps.indexOf(app)
+
+        if(packageName== BuildConfig.APPLICATION_ID){
+            return true
+        }
+
+        if(appIndex==-1){
+            return false
+        }
+
+        if(editedAppIndex==-1){
+            return true
+        }
+
+        return !user!!.editedApps[editedAppIndex]!!.hideShortcut
+    }
     fun exitKiosk(context: Activity, password: String?){
         if(password == user?.password){
+            context.packageManager.setComponentEnabledSetting(ComponentName(context,CustomSettings::class.java),
+                                                              PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                                                              PackageManager.DONT_KILL_APP)
             AlertDeveloper.sendUserLaunchedAlert(context, false)
             stopKiosk(context.applicationContext)
             exitLauncher(context.applicationContext)

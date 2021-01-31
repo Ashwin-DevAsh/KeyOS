@@ -3570,7 +3570,12 @@ public class Workspace extends PagedView<PageIndicatorDots>
 
         ArrayList<AppInfo> added = new ArrayList<>();
         for(AppInfo app : apps) {
-            if (!addedComponentKeys.contains(app.getComponentKey()) && Kiosk.INSTANCE.canShowApp(app.getPackageName()) && appFilter.shouldShowApp(app.componentName, app.user)) {
+            if (!addedComponentKeys.contains(app.getComponentKey()) &&
+                    Kiosk.INSTANCE.canShowApp(
+                            app.getPackageName(),
+                            app.getTargetComponent().getClassName()
+                    ) &&
+                    appFilter.shouldShowApp(app.componentName, app.user)) {
                 added.add(app);
             }
         }
