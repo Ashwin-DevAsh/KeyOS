@@ -7,20 +7,15 @@
     android:layout_height="wrap_content">
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="80dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:foregroundGravity="center"
-        android:layout_marginBottom="20dp"
-        app:cardCornerRadius="10dp"
-        android:layout_height="80dp">
+
         <ImageView
-            android:layout_width="50dp"
+            android:layout_width="80dp"
             android:layout_gravity="center"
-            android:src="@drawable/settings_plugin_outline"
-            android:layout_height="50dp"/>
-    </androidx.cardview.widget.CardView>
+            android:src="@mipmap/settings_plugin"
+            android:layout_marginTop="40dp"
+            android:foregroundGravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_height="80dp"/>
 
 
 
