@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath "io.realm:realm-gradle-plugin:7.0.0"
-        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath 'com.android.tools.build:gradle:4.1.2'
         classpath 'com.android.tools:r8:2.1.75'
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.9'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -43,7 +43,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 
-def appVersion = 108
+def appVersion = 109
 
 android {
     compileSdkVersion 29

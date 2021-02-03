@@ -5,7 +5,9 @@ import androidx.annotation.Keep;
 import com.google.gson.annotations.SerializedName;
 import io.realm.RealmObject;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -23,6 +25,8 @@ public class Plugins extends RealmObject {
                         new Plugins("GPS",Settings.ACTION_LOCATION_SOURCE_SETTINGS),
                         new Plugins("Vpn",Settings.ACTION_VPN_SETTINGS)
                 );
+
+    static public Map<String,Integer> allPluginsMap = new HashMap();
 
 
     @SerializedName("pluginName")
@@ -47,7 +51,9 @@ public class Plugins extends RealmObject {
         this.packageName = packageName;
     }
 
-    public Plugins(){}
+    public Plugins(){
+
+    }
 
     @Override
     public boolean equals(Object o) {
