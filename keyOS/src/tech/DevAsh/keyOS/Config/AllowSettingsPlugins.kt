@@ -2,7 +2,6 @@ package tech.DevAsh.keyOS.Config
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.launcher3.R
 import io.realm.RealmList
@@ -11,7 +10,6 @@ import kotlinx.android.synthetic.dev.activity_settings.*
 import tech.DevAsh.KeyOS.Config.ToggleCallback
 import tech.DevAsh.KeyOS.Database.RealmHelper
 import tech.DevAsh.keyOS.Config.Adapters.AllowPluginsAdapter
-import tech.DevAsh.keyOS.Database.Apps
 import tech.DevAsh.keyOS.Database.Plugins
 import tech.DevAsh.keyOS.Database.User
 
@@ -61,8 +59,8 @@ class AllowSettingsPlugins : AppCompatActivity(),ToggleCallback {
         pluginsAdapter = AllowPluginsAdapter(
                 plugins,
                 allowedPlugins,
-              this,
-                "Selected plugins are available under settings option in KeyOS home screen" ,
+                this,
+                getString(R.string.allow_settings_plugin_subheading),
                 this)
     }
 

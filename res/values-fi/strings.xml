@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Kansion nimeksi vaihdettiin <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Kansio: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgetit"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Kotiasetukset"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Salli aloitusnäytön kiertäminen"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Pistemerkit"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Käytössä"</string>
@@ -303,6 +302,26 @@
     <string name="loading_settings">Asetusten lataaminen</string>
     <string name="exiting_keyos">Poistuminen</string>
     <string name="dialog_qrcode_subheading">Skannaa tämä KeyOS Qr -koodi, jos haluat käyttää samoja asetuksia KeyOS-laitteessasi</string>
+
+
+    <string name="settings_button_text">Kioskin asetukset</string>
+    <string name="customize">Mukauta</string>
+    <string name="access_denied">Pääsy evätty</string>
+    <string name="access_denied_subheading">Et voi käyttää tätä sisältöä</string>
+    <string name="app_crash">App Crash</string>
+    <string name="app_crash_subheading">Pahoittelemme haittoja, korjaamme ongelman pian</string>
+    <string name="exit">Lopeta</string>
+    <string name="custom_settings">asetukset</string>
+    <string name="plugins">Laajennukset</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Ääni</string>
+    <string name="airplane_mode">Lentokonetila</string>
+    <string name="mobile_data">Mobiilidata</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Asetukset-laajennus</string>
+    <string name="allow_settings_plugin_subheading">Valitut laajennukset ovat käytettävissä KeyOS-aloitusnäytön asetusvaihtoehdossa</string>
 
 
 </resources>

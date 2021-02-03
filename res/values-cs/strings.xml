@@ -75,7 +75,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Složka přejmenována na <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Složka: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgety"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Nastavení plochy"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Povolit otáčení plochy"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Puntíky s oznámením"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Zapnuto"</string>
@@ -305,4 +304,24 @@
     <string name="loading_settings">Načítání nastavení</string>
     <string name="exiting_keyos">Opouští se</string>
     <string name="dialog_qrcode_subheading">Naskenujte tento kód KeyOS Qr a použijte stejné nastavení ve vašem zařízení KeyOS</string>
+
+
+    <string name="settings_button_text">Nastavení kiosku</string>
+    <string name="customize">Přizpůsobit</string>
+    <string name="access_denied">Přístup odepřen</string>
+    <string name="access_denied_subheading">K tomuto obsahu nemáte přístup</string>
+    <string name="app_crash">Crash aplikace</string>
+    <string name="app_crash_subheading">Omlouváme se za nepříjemnosti, které tento problém brzy vyřešíme</string>
+    <string name="exit">Výstup</string>
+    <string name="custom_settings">Nastavení</string>
+    <string name="plugins">Pluginy</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Zvuk</string>
+    <string name="airplane_mode">Režim Letadlo</string>
+    <string name="mobile_data">Mobilní data</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Plugin nastavení</string>
+    <string name="allow_settings_plugin_subheading">Vybrané doplňky jsou k dispozici v nabídce nastavení na domovské obrazovce KeyOS</string>
 </resources>

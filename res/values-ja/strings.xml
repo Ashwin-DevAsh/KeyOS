@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"フォルダの名前を「<xliff:g id="NAME">%1$s</xliff:g>」に変更しました"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"フォルダ: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ウィジェット"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"ホームの設定"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"ホーム画面の回転を許可"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"通知ドット"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ON"</string>
@@ -304,6 +303,26 @@
     <string name="loading_settings">設定の読み込み</string>
     <string name="exiting_keyos">終了</string>
     <string name="dialog_qrcode_subheading">このKeyOSQrコードをスキャンして、KeyOSデバイスに同じ設定を適用します</string>
+
+
+    <string name="settings_button_text">キオスク設定</string>
+    <string name="customize">カスタマイズ</string>
+    <string name="access_denied">アクセス拒否</string>
+    <string name="access_denied_subheading">このコンテンツへのアクセスは許可されていません</string>
+    <string name="app_crash">アプリのクラッシュ</string>
+    <string name="app_crash_subheading">ご不便をおかけして申し訳ありませんが、この問題はまもなく修正されます</string>
+    <string name="exit">出口</string>
+    <string name="custom_settings">設定</string>
+    <string name="plugins">プラグイン</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="bluetooth">ブルートゥース</string>
+    <string name="sound">音</string>
+    <string name="airplane_mode">機内モード</string>
+    <string name="mobile_data">モバイルデータ</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">VPN</string>
+    <string name="settings_plugin">設定プラグイン</string>
+    <string name="allow_settings_plugin_subheading">選択したプラグインは、KeyOSホーム画面の設定オプションで利用できます</string>
 
 
 </resources>

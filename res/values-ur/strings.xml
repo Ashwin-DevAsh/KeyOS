@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"فولڈر کا نام تبدیل کر کے <xliff:g id="NAME">%1$s</xliff:g> کر دیا گیا"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"فولڈر: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ویجیٹس"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"ہوم ترتیبات"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"ہوم اسکرین گھمانے کی اجازت دیں"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"اطلاعاتی ڈاٹس"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"آن"</string>
@@ -306,4 +305,22 @@
     <string name="exiting_keyos">باہر نکلنا</string>
     <string name="dialog_qrcode_subheading">اپنے کیوس آلہ میں اسی سیٹنگوں کو لاگو کرنے کے لئے اس کیوس Qr کوڈ کو اسکین کریں</string>
 
+    <string name="settings_button_text">کیوسک کی ترتیبات</string>
+    <string name="customize">تخصیص کریں</string>
+    <string name="access_denied">رسائی مسترد کر دی</string>
+    <string name="access_denied_subheading">آپ کو اس مواد تک رسائی کی اجازت نہیں ہے</string>
+    <string name="app_crash">ایپ کریش</string>
+    <string name="app_crash_subheading">تکلیف کے لئے معذرت ، ہم جلد ہی اس مسئلے کو ٹھیک کردیں گے</string>
+    <string name="exit">باہر نکلیں</string>
+    <string name="custom_settings">ترتیبات</string>
+    <string name="plugins">پلگ انز</string>
+    <string name="wifi">وائی ​​فائی</string>
+    <string name="bluetooth">بلوٹوتھ</string>
+    <string name="sound">آواز</string>
+    <string name="airplane_mode">ہوائی جہاز موڈ</string>
+    <string name="mobile_data">موبائل ڈیٹا</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">ترتیبات پلگ ان</string>
+    <string name="allow_settings_plugin_subheading">منتخب پلگ ان کیوس ہوم اسکرین میں ترتیبات کے اختیارات کے تحت دستیاب ہیں</string>
 </resources>

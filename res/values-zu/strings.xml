@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Ifolda iqanjwe kabusha ngo-<xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Ifolda: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Amawijethi"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Izilungiselelo zasekhaya"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Vumela ukuphendukiswa kwesikrini sasekhaya"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Amachashazi esaziso"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Kuvuliwe"</string>
@@ -304,5 +303,24 @@
     <string name="exiting_keyos">Iyaphuma</string>
     <string name="dialog_qrcode_subheading">Skena le khodi ye-KeyOS Qr ukuze usebenzise izilungiselelo ezifanayo kudivayisi yakho ye-KeyOS</string>
 
+
+    <string name="settings_button_text">Izilungiselelo Zekhiyoski</string>
+    <string name="customize">Enza ngendlela oyifisayo</string>
+    <string name="access_denied">Ukufinyelela kuvinjelwe</string>
+    <string name="access_denied_subheading">Awuvunyelwe ukufinyelela kulokhu okuqukethwe</string>
+    <string name="app_crash">Ukuphahlazeka kohlelo lokusebenza</string>
+    <string name="app_crash_subheading">Siyaxolisa ngokungalungile sizoyilungisa le nkinga kungekudala</string>
+    <string name="exit">Phuma</string>
+    <string name="custom_settings">Amasethingi</string>
+    <string name="plugins">Ama-plugins</string>
+    <string name="wifi">I-Wifi</string>
+    <string name="bluetooth">I-Bluetooth</string>
+    <string name="sound">Umsindo</string>
+    <string name="airplane_mode">Imodi Yendiza</string>
+    <string name="mobile_data">Idatha yeselula</string>
+    <string name="gps">IGPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">I-Plugin Yezilungiselelo</string>
+    <string name="allow_settings_plugin_subheading">Ama-plugins akhethiwe ayatholakala ngaphansi kwenketho yezilungiselelo kusikrini sasekhaya se-KeyOS</string>
 
 </resources>

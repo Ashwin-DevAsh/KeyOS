@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Vouer hernoem na <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Vouer: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Legstukke"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Tuis-instellings"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Laat toe dat tuisskerm gedraai word"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Kennisgewingkolle"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Aan"</string>
@@ -302,4 +301,23 @@
     <string name="loading_settings">Laai tans instellings</string>
     <string name="exiting_keyos">Uitgang</string>
     <string name="dialog_qrcode_subheading">Skandeer hierdie KeyOS Qr-kode om dieselfde instellings op u KeyOS-toestel toe te pas</string>
+
+    <string name="settings_button_text">Kiosk-instellings</string>
+    <string name="customize">Pas aan</string>
+    <string name="access_denied">Toegang verbied</string>
+    <string name="access_denied_subheading">U mag nie toegang tot hierdie inhoud hê nie</string>
+    <string name="app_crash">App-ineenstorting</string>
+    <string name="app_crash_subheading">Jammer vir die ongerief dat ons hierdie probleem binnekort sal regstel</string>
+    <string name="exit">Uitgang</string>
+    <string name="custom_settings">Instellings</string>
+    <string name="plugins">Inproppe</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Klank</string>
+    <string name="airplane_mode">Vlugmodus</string>
+    <string name="mobile_data">Mobiele data</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Instellings-inprop</string>
+    <string name="allow_settings_plugin_subheading">Geselekteerde inproppe is beskikbaar onder die instellingsopsie op die KeyOS-tuisskerm</string>
 </resources>

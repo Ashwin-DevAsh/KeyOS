@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"ഫോൾഡറിന്റെ പേര് <xliff:g id="NAME">%1$s</xliff:g> എന്നായി മാറ്റി"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ഫോൾഡർ: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"വിജറ്റുകൾ"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"ഹോം ക്രമീകരണം"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"ഹോം സ്ക്രീൻ തിരിക്കൽ അനുവദിക്കുക"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"അറിയിപ്പ് ഡോട്ടുകൾ"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ഓൺ"</string>
@@ -305,5 +304,25 @@
     <string name="loading_settings">ക്രമീകരണങ്ങൾ ലോഡുചെയ്യുന്നു</string>
     <string name="exiting_keyos">പുറത്തുകടക്കുന്നു</string>
     <string name="dialog_qrcode_subheading">നിങ്ങളുടെ KeyOS ഉപകരണത്തിൽ സമാന ക്രമീകരണങ്ങൾ പ്രയോഗിക്കുന്നതിന് ഈ KeyOS Qr കോഡ് സ്കാൻ ചെയ്യുക</string>
+
+
+    <string name="settings_button_text">കിയോസ്‌ക് ക്രമീകരണങ്ങൾ</string>
+    <string name="customize">ഇഷ്‌ടാനുസൃതമാക്കുക</string>
+    <string name="access_denied">പ്രവേശനം തടയപ്പെട്ടു</string>
+    <string name="access_denied_subheading">ഈ ഉള്ളടക്കം ആക്സസ് ചെയ്യാൻ നിങ്ങളെ അനുവദിച്ചിട്ടില്ല</string>
+    <string name="app_crash">അപ്ലിക്കേഷൻ ക്രാഷ്</string>
+    <string name="app_crash_subheading">അസ ven കര്യത്തിൽ ഖേദിക്കുന്നു, ഞങ്ങൾ ഉടൻ ഈ പ്രശ്നം പരിഹരിക്കും</string>
+    <string name="exit">പുറത്ത്</string>
+    <string name="custom_settings">ക്രമീകരണങ്ങൾ</string>
+    <string name="plugins">പ്ലഗിനുകൾ</string>
+    <string name="wifi">വൈഫൈ</string>
+    <string name="bluetooth">ബ്ലൂടൂത്ത്</string>
+    <string name="sound">ശബ്ദം</string>
+    <string name="airplane_mode">വിമാന മോഡ്</string>
+    <string name="mobile_data">മൊബൈൽ ഡാറ്റ</string>
+    <string name="gps">ജിപിഎസ്</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">ക്രമീകരണ പ്ലഗിൻ</string>
+    <string name="allow_settings_plugin_subheading">തിരഞ്ഞെടുത്ത പ്ലഗിനുകൾ KeyOS ഹോം സ്‌ക്രീനിലെ ക്രമീകരണ ഓപ്‌ഷന് കീഴിൽ ലഭ്യമാണ്</string>
 
 </resources>

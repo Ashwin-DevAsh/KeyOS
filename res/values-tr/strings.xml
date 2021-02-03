@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Klasörün adı <xliff:g id="NAME">%1$s</xliff:g> olarak değiştirildi"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Klasör: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widget\'lar"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Ana ekran ayarları"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Ana ekranı döndürmeye izin ver"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Bildirim noktaları"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Açık"</string>
@@ -305,5 +304,24 @@
     <string name="exiting_keyos">Çıkılıyor</string>
     <string name="dialog_qrcode_subheading">KeyOS cihazınızda aynı ayarları uygulamak için bu KeyOS Qr kodunu tarayın</string>
 
+
+    <string name="settings_button_text">Kiosk Ayarları</string>
+    <string name="customize">Özelleştirmek</string>
+    <string name="access_denied">Erişim reddedildi</string>
+    <string name="access_denied_subheading">Bu içeriğe erişme izniniz yok</string>
+    <string name="app_crash">App Crash</string>
+    <string name="app_crash_subheading">Rahatsızlıktan dolayı özür dileriz, bu sorunu yakında çözeceğiz</string>
+    <string name="exit">çıkış</string>
+    <string name="custom_settings">Ayarlar</string>
+    <string name="plugins">Eklentiler</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Ses</string>
+    <string name="airplane_mode">Uçak modu</string>
+    <string name="mobile_data">Mobil veri</string>
+    <string name="gps">Küresel Konumlama Sistemi</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Ayarlar Eklentisi</string>
+    <string name="allow_settings_plugin_subheading">Seçilen eklentiler, KeyOS ana ekranındaki ayarlar seçeneği altında mevcuttur.</string>
 
 </resources>

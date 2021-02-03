@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Jild nomi <xliff:g id="NAME">%1$s</xliff:g>ga o‘zgartirildi"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Jild: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Vidjetlar"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Bosh ekran sozlamalari"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Asosiy ekranni aylantirishga ruxsat berish"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Bildirishnoma belgilari"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Yoniq"</string>
@@ -128,4 +127,23 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"Bildirishnomalar va ilovalar faol emas"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"Yopish"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"Yopiq"</string>
+
+    <string name="settings_button_text">Kiosk sozlamalari</string>
+    <string name="customize">Moslashtiring</string>
+    <string name="access_denied">Ruxsat berilmadi</string>
+    <string name="access_denied_subheading">Ushbu tarkibga kirishingizga ruxsat berilmagan</string>
+    <string name="app_crash">Ilova buzilishi</string>
+    <string name="app_crash_subheading">Noqulayliklar uchun uzr, biz ushbu muammoni tez orada tuzatamiz</string>
+    <string name="exit">Chiqish</string>
+    <string name="custom_settings">Sozlamalar</string>
+    <string name="plugins">Plaginlar</string>
+    <string name="wifi">Wi-fi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Ovoz</string>
+    <string name="airplane_mode">Samolyot rejimi</string>
+    <string name="mobile_data">Mobil ma\'lumotlar</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Sozlamalar plagini</string>
+    <string name="allow_settings_plugin_subheading">Tanlangan plaginlarni KeyOS bosh ekranidagi sozlamalar opsiyasi ostida olish mumkin</string>
 </resources>

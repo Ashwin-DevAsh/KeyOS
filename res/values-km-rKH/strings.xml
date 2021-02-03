@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"បាន​ប្ដូរ​ឈ្មោះ​ថត​ជា <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ថត៖ <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ធាតុ​ក្រាហ្វិក"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"ការកំណត់​ទំព័រដើម"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"អនុញ្ញាតការបងិ្វលអេក្រង់ដើម"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"ស្លាកជូនដំណឹង"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"បើក"</string>
@@ -128,4 +127,24 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"ការជូនដំណឹង​ និងកម្មវិធី​ត្រូវបានបិទ"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"បិទ"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"បានបិទ"</string>
+
+
+    <string name="settings_button_text">ការកំណត់គីកូស</string>
+    <string name="customize">ប្តូរតាមបំណង</string>
+    <string name="access_denied">ដំណើរ​ការ​ត្រូវ​បាន​បដិសេធ</string>
+    <string name="access_denied_subheading">អ្នកមិនត្រូវបានអនុញ្ញាតឱ្យចូលមើលមាតិកានេះទេ</string>
+    <string name="app_crash">គាំងកម្មវិធី</string>
+    <string name="app_crash_subheading">សូមអភ័យទោសចំពោះភាពរអាក់រអួលយើងនឹងដោះស្រាយបញ្ហានេះឆាប់ៗ</string>
+    <string name="exit">ចេញ</string>
+    <string name="custom_settings">ការកំណត់</string>
+    <string name="plugins">កម្មវិធីជំនួយ</string>
+    <string name="wifi">ប្រព័ន្ធ Wifi</string>
+    <string name="bluetooth">ប៊្លូធូស</string>
+    <string name="sound">សំឡេង</string>
+    <string name="airplane_mode">របៀបជិះយន្តហោះ</string>
+    <string name="mobile_data">ទិន្នន័យចល័ត</string>
+    <string name="gps">ប្រព័ន្ធ GPS</string>
+    <string name="vpn">វីផន</string>
+    <string name="settings_plugin">កម្មវិធីជំនួយការកំណត់</string>
+    <string name="allow_settings_plugin_subheading">កម្មវិធីជំនួយដែលបានជ្រើសរើសមាននៅក្នុងជម្រើសការកំណត់នៅក្នុងអេក្រង់ដើមរបស់កូនសោ</string>
 </resources>

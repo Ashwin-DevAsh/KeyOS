@@ -75,7 +75,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Priečinok bol premenovaný na <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Priečinok: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Miniaplikácie"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Nastavenia Home"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Povoliť otáčanie plochy"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Bodky upozornení"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Zapnuté"</string>
@@ -307,4 +306,22 @@
     <string name="exiting_keyos">Končí sa</string>
     <string name="dialog_qrcode_subheading">Naskenujte tento kód KeyOS Qr a použite rovnaké nastavenia vo svojom zariadení KeyOS</string>
 
+    <string name="settings_button_text">Nastavenia kiosku</string>
+    <string name="customize">Prispôsobiť</string>
+    <string name="access_denied">Prístup zamietnutý</string>
+    <string name="access_denied_subheading">K tomuto obsahu nemáte prístup</string>
+    <string name="app_crash">Zlyhanie aplikácie</string>
+    <string name="app_crash_subheading">Ospravedlňujeme sa za nepríjemnosti, ktoré tento problém čoskoro vyriešime</string>
+    <string name="exit">Východ</string>
+    <string name="custom_settings">nastavenie</string>
+    <string name="plugins">Pluginy</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Zvuk</string>
+    <string name="airplane_mode">Režim Lietadlo</string>
+    <string name="mobile_data">Mobilné dáta</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Doplnok nastavení</string>
+    <string name="allow_settings_plugin_subheading">Vybrané doplnky sú k dispozícii v časti nastavenia na domovskej obrazovke KeyOS</string>
 </resources>

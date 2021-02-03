@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"O cartafol cambiou o nome a <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Cartafol: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgets"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Configuración da pantalla de Inicio"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Permitir xirar a pantalla de inicio"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Puntos de notificacións"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Activado"</string>
@@ -128,4 +127,24 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"As notificacións e as aplicacións están desactivadas"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"Pechar"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"Pechada"</string>
+
+    <string name="settings_button_text">Configuración del quiosco</string>
+    <string name="customize">Personalizar</string>
+    <string name="access_denied">Acceso denegado</string>
+    <string name="access_denied_subheading">No se le permite acceder a este contenido</string>
+    <string name="app_crash">Bloqueo de la aplicación</string>
+    <string name="app_crash_subheading">Disculpe las molestias, solucionaremos este problema pronto</string>
+    <string name="exit">Salida</string>
+    <string name="custom_settings">Configuraciones</string>
+    <string name="plugins">Complementos</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Sonido</string>
+    <string name="airplane_mode">Modo avión</string>
+    <string name="mobile_data">Datos móviles</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">VPN</string>
+    <string name="settings_plugin">Complemento de configuración</string>
+    <string name="allow_settings_plugin_subheading">Los complementos seleccionados están disponibles en la opción de configuración en la pantalla de inicio de KeyOS</string>
+
 </resources>

@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Ordner umbenannt in <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Ordner: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgets"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Einstellungen für den Startbildschirm"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Drehung des Startbildschirms zulassen"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"App-Benachrichtigungspunkte"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Aktiviert"</string>
@@ -304,6 +303,26 @@
     <string name="loading_settings">Einstellungen laden</string>
     <string name="exiting_keyos">Verlassen</string>
     <string name="dialog_qrcode_subheading">Scannen Sie diesen KeyOS Qr-Code, um dieselben Einstellungen auf Ihrem KeyOS-Gerät anzuwenden</string>
+
+
+    <string name="settings_button_text">Kiosk-Einstellungen</string>
+    <string name="customize">Anpassen</string>
+    <string name="access_denied">Zugriff abgelehnt</string>
+    <string name="access_denied_subheading">Sie dürfen nicht auf diesen Inhalt zugreifen</string>
+    <string name="app_crash">App-Absturz</string>
+    <string name="app_crash_subheading">Wir entschuldigen uns für die Unannehmlichkeiten, die wir bald beheben werden</string>
+    <string name="exit">Ausgang</string>
+    <string name="custom_settings">die Einstellungen</string>
+    <string name="plugins">Plugins</string>
+    <string name="wifi">W-lan</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Klang</string>
+    <string name="airplane_mode">Flugzeug-Modus</string>
+    <string name="mobile_data">Mobile Daten</string>
+    <string name="gps">Geographisches Positionierungs System</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Einstellungs-Plugin</string>
+    <string name="allow_settings_plugin_subheading">Ausgewählte Plugins sind unter der Einstellungsoption auf dem KeyOS-Startbildschirm verfügbar</string>
 
 
 </resources>

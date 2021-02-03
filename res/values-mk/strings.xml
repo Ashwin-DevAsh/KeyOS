@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Папката е преименувана во <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Папка: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Виџети"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Поставки за Home"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Дозволете ротација на Почетниот екран"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Точки за известување"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Вклучено"</string>
@@ -303,5 +302,24 @@
     <string name="exiting_keyos">Излез</string>
     <string name="dialog_qrcode_subheading">Скенирајте го овој KeyOS Qr код за да ги примените истите поставки во вашиот KeyOS уред</string>
 
+
+    <string name="settings_button_text">Поставки за киоскот</string>
+    <string name="customize">Прилагодете</string>
+    <string name="access_denied">Одбиен пристап</string>
+    <string name="access_denied_subheading">Не ви е дозволено да пристапите до оваа содржина</string>
+    <string name="app_crash">Уривање на апликацијата</string>
+    <string name="app_crash_subheading">Извинете за непријатностите, наскоро ќе го решиме овој проблем</string>
+    <string name="exit">Излез</string>
+    <string name="custom_settings">Поставки</string>
+    <string name="plugins">Додатоци</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Звук</string>
+    <string name="airplane_mode">Режим на авион</string>
+    <string name="mobile_data">Мобилни податоци</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Приклучок за поставки</string>
+    <string name="allow_settings_plugin_subheading">Избраните додатоци се достапни под опцијата за поставки во почетниот екран KeyOS</string>
 
 </resources>

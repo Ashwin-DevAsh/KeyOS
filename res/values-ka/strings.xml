@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"საქაღალდეს შეეცვალა სახელი „<xliff:g id="NAME">%1$s</xliff:g>“-ად"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"საქაღალდე: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ვიჯეტები"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"მთავარი გვერდის პარამეტრები"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"მთავარი ეკრანის შეტრიალების დაშვება"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"შეტყობინების ნიშნულები"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ჩართული"</string>
@@ -139,4 +138,24 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"შეტყობინებები და აპები გამორთულია"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"დახურვა"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"დახურული"</string>
+
+
+    <string name="settings_button_text">კიოსკის პარამეტრები</string>
+    <string name="customize">მორგება</string>
+    <string name="access_denied">Წვდომა შეზღუდულია</string>
+    <string name="access_denied_subheading">თქვენ არ გაქვთ ამ შინაარსზე წვდომა</string>
+    <string name="app_crash">აპლიკაციის ავარია</string>
+    <string name="app_crash_subheading">ბოდიში უხერხულობისთვის, ამ საკითხს მალე მოვაგვარებთ</string>
+    <string name="exit">გასვლა</string>
+    <string name="custom_settings">პარამეტრები</string>
+    <string name="plugins">დანამატები</string>
+    <string name="wifi">ვაი - ფაი</string>
+    <string name="bluetooth">ბლუთუზი</string>
+    <string name="sound">ხმა</string>
+    <string name="airplane_mode">Თვითმფრინავის რეჟიმში</string>
+    <string name="mobile_data">მობილური მონაცემები</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">პარამეტრების მოდული</string>
+    <string name="allow_settings_plugin_subheading">არჩეული დანამატები ხელმისაწვდომია პარამეტრების პარამეტრში KeyOS– ის მთავარ ეკრანზე</string>
 </resources>

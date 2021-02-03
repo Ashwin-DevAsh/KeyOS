@@ -73,7 +73,7 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Фолдерын нэр <xliff:g id="NAME">%1$s</xliff:g> болов"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Фолдер: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Виджет"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Нүүр хуудасны тохиргоо"</string>
+
     <string name="allow_rotation_title" msgid="7728578836261442095">"Нүүр дэлгэцийг эргүүлэхийг зөвшөөрөх"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Мэдэгдлийн цэг"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Асаалттай"</string>
@@ -303,5 +303,24 @@
     <string name="loading_settings">Тохиргоог ачаалж байна</string>
     <string name="exiting_keyos">Гарч байна</string>
     <string name="dialog_qrcode_subheading">KeyOS төхөөрөмждөө ижил тохиргоог хийхийн тулд энэ KeyOS Qr кодыг сканнердах хэрэгтэй</string>
+
+    <string name="settings_button_text">ТҮЦ-ийн тохиргоо</string>
+    <string name="customize">Өөрчлөх</string>
+    <string name="access_denied">Нэвтрэлт цуцлагдлаа</string>
+    <string name="access_denied_subheading">Та энэ агуулгад нэвтрэх эрхгүй байна</string>
+    <string name="app_crash">Апп сүйрэл</string>
+    <string name="app_crash_subheading">Танд төвөг учруулсанд уучлаарай, бид энэ асуудлыг удахгүй засах болно</string>
+    <string name="exit">гарах</string>
+    <string name="custom_settings">Тохиргоо</string>
+    <string name="plugins">Залгаасууд</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Дуу</string>
+    <string name="airplane_mode">Нислэгийн горим</string>
+    <string name="mobile_data">Гар утасны өгөгдөл</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Тохиргооны залгаас</string>
+    <string name="allow_settings_plugin_subheading">Сонгосон залгаасуудыг KeyOS-ийн үндсэн дэлгэцийн тохиргооны сонголтоос авах боломжтой</string>
 
 </resources>

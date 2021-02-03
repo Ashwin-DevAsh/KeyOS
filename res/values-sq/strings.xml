@@ -72,7 +72,6 @@
     <string name="folder_closed" msgid="4100806530910930934">"Dosja u mbyll"</string>
     <string name="folder_renamed" msgid="1794088362165669656">"Dosja u riemërtua në <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Dosja: <xliff:g id="NAME">%1$s</xliff:g>"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Cilësimet e Home"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Lejo rrotullimin e ekranit kryesor"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Pikat e njoftimeve"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Aktiv"</string>
@@ -304,5 +303,24 @@
     <string name="exiting_keyos">Dalja</string>
     <string name="dialog_qrcode_subheading">Skanoni këtë kod KeyOS Qr për të aplikuar të njëjtat cilësime në pajisjen tuaj KeyOS</string>
 
+
+    <string name="settings_button_text">Cilësimet e kioskës</string>
+    <string name="customize">Rregulloje</string>
+    <string name="access_denied">Ndalohet hyrja</string>
+    <string name="access_denied_subheading">Nuk ju lejohet të përdorni këtë përmbajtje</string>
+    <string name="app_crash">Prishja e aplikacionit</string>
+    <string name="app_crash_subheading">Na vjen keq për shqetësimin që do ta rregullojmë së shpejti</string>
+    <string name="exit">Dalja</string>
+    <string name="custom_settings">Cilësimet</string>
+    <string name="plugins">Shtojca</string>
+    <string name="wifi">WiFi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Tingull</string>
+    <string name="airplane_mode">Gjendje e airoplanit</string>
+    <string name="mobile_data">Të dhënat celulare</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Shtojca e cilësimeve</string>
+    <string name="allow_settings_plugin_subheading">Shtojcat e zgjedhura janë në dispozicion në opsionin e cilësimeve në ekranin kryesor të KeyOS</string>
 
 </resources>

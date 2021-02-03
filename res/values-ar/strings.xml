@@ -77,7 +77,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"تمت إعادة تسمية المجلد إلى <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"المجلد: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"الأدوات"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"إعدادات الصفحة الرئيسية"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"السماح بتدوير الشاشة الرئيسية"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"نقاط الإشعارات"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"قيد التشغيل"</string>
@@ -307,4 +306,23 @@
     <string name="loading_settings">إعدادات التحميل</string>
     <string name="exiting_keyos">الخروج</string>
     <string name="dialog_qrcode_subheading">امسح رمز KeyOS Qr هذا لتطبيق نفس الإعدادات في جهاز KeyOS الخاص بك</string>
+
+    <string name="settings_button_text">إعدادات الكشك</string>
+    <string name="customize">يعدل أو يكيف</string>
+    <string name="access_denied">تم الرفض</string>
+    <string name="access_denied_subheading">لا يسمح لك للوصول إلى هذا المحتوى</string>
+    <string name="app_crash">التطبيق Crash</string>
+    <string name="app_crash_subheading">نأسف للإزعاج سنصلح هذه المشكلة قريبًا</string>
+    <string name="exit">خروج</string>
+    <string name="custom_settings">الإعدادات</string>
+    <string name="plugins">الإضافات</string>
+    <string name="wifi">واي فاي</string>
+    <string name="bluetooth">بلوتوث</string>
+    <string name="sound">صوت</string>
+    <string name="airplane_mode">وضع الطيران</string>
+    <string name="mobile_data">بيانات الجوال</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">فبن</string>
+    <string name="settings_plugin">إعدادات البرنامج المساعد</string>
+    <string name="allow_settings_plugin_subheading">تتوفر المكونات الإضافية المحددة ضمن خيار الإعدادات في شاشة KeyOS الرئيسية</string>
 </resources>

@@ -75,7 +75,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Mapa je preimenovana v <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Mapa: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Pripomočki"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Nastavitve začetnega zaslona"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Omogočanje sukanja začetnega zaslona"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Obvestilne pike"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Vklopljeno"</string>
@@ -308,5 +307,23 @@
     <string name="dialog_qrcode_subheading">Optično preberite to kodo KeyOS Qr, če želite uporabiti enake nastavitve v napravi KeyOS</string>
 
 
+    <string name="settings_button_text">Nastavitve kioska</string>
+    <string name="customize">Prilagoditi</string>
+    <string name="access_denied">Dostop zavrnjen</string>
+    <string name="access_denied_subheading">Do te vsebine ni dovoljen</string>
+    <string name="app_crash">Zrušitev aplikacije</string>
+    <string name="app_crash_subheading">Oprostite za nevšečnosti, kmalu bomo odpravili to težavo</string>
+    <string name="exit">Izhod</string>
+    <string name="custom_settings">Nastavitve</string>
+    <string name="plugins">Vtičniki</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Zvok</string>
+    <string name="airplane_mode">Letalski način</string>
+    <string name="mobile_data">Mobilni podatki</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Vtičnik za nastavitve</string>
+    <string name="allow_settings_plugin_subheading">Izbrani vtičniki so na voljo pod možnostjo nastavitev na začetnem zaslonu KeyOS</string>
 
 </resources>

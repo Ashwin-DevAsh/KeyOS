@@ -109,8 +109,6 @@
     <string name="custom">自訂</string>
     <!-- Section 11 -->
     <!-- Section 12 -->
-    <string name="settings_button_text">主畫面設定</string>
-    <string name="customize">自訂</string>
     <string name="advanced_settings">更多設定</string>
     <string name="adaptive_icon">自動調整圖示</string>
     <string name="icon_pack">圖示包</string>
@@ -207,4 +205,24 @@
     <string name="activity_not_found">未安裝應用程式。</string>
     <string name="out_of_space">桌面上沒有更多空間了。</string>
     <string name="hotseat_out_of_space">底欄上沒有更多空間了。</string>
+
+
+    <string name="settings_button_text">信息亭設置</string>
+    <string name="customize">定制</string>
+    <string name="access_denied">拒絕訪問</string>
+    <string name="access_denied_subheading">您無權訪問此內容</string>
+    <string name="app_crash">應用崩潰</string>
+    <string name="app_crash_subheading">很抱歉給您帶來不便，我們將盡快解決此問題</string>
+    <string name="exit">出口</string>
+    <string name="custom_settings">設定值</string>
+    <string name="plugins">外掛程式</string>
+    <string name="wifi">無線上網</string>
+    <string name="bluetooth">藍牙</string>
+    <string name="sound">聲音</string>
+    <string name="airplane_mode">飛行模式</string>
+    <string name="mobile_data">移動數據</string>
+    <string name="gps">全球定位系統</string>
+    <string name="vpn">虛擬專用網</string>
+    <string name="settings_plugin">設置插件</string>
+    <string name="allow_settings_plugin_subheading">選定的插件在KeyOS主屏幕的“設置”選項下可用</string>
 </resources>

@@ -73,7 +73,7 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Nouveau nom du dossier : <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Dossier : <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgets"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Paramètres d\'accueil"</string>
+
     <string name="allow_rotation_title" msgid="7728578836261442095">"Autoriser la rotation de l\'écran d\'accueil"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Points de notification"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Activé"</string>
@@ -139,4 +139,25 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"Les notifications et les applications sont désactivées"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"Fermer"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"Fermé"</string>
+
+
+    <string name="settings_button_text">Paramètres du kiosque</string>
+    <string name="customize">Personnaliser</string>
+    <string name="access_denied">Accès refusé</string>
+    <string name="access_denied_subheading">Vous n\'êtes pas autorisé à accéder à ce contenu</string>
+    <string name="app_crash">Crash de l\'application</string>
+    <string name="app_crash_subheading">Désolé pour le désagrément, nous allons bientôt résoudre ce problème</string>
+    <string name="exit">Sortie</string>
+    <string name="custom_settings">Paramètres</string>
+    <string name="plugins">Plugins</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Du son</string>
+    <string name="airplane_mode">Mode avion</string>
+    <string name="mobile_data">Données mobiles</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">VPN</string>
+    <string name="settings_plugin">Plugin de paramètres</string>
+    <string name="allow_settings_plugin_subheading">Les plugins sélectionnés sont disponibles sous l\'option Paramètres de l\'écran d\'accueil KeyOS</string>
+
 </resources>

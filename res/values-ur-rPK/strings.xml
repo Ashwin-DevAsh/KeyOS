@@ -128,4 +128,22 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"اطلاعات اور ایپس آف ہیں"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"بند کریں"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"بند"</string>
+
+    <string name="customize">تخصیص کریں</string>
+    <string name="access_denied">رسائی مسترد کر دی</string>
+    <string name="access_denied_subheading">آپ کو اس مواد تک رسائی کی اجازت نہیں ہے</string>
+    <string name="app_crash">ایپ کریش</string>
+    <string name="app_crash_subheading">تکلیف کے لئے معذرت ، ہم جلد ہی اس مسئلے کو ٹھیک کردیں گے</string>
+    <string name="exit">باہر نکلیں</string>
+    <string name="custom_settings">ترتیبات</string>
+    <string name="plugins">پلگ انز</string>
+    <string name="wifi">وائی ​​فائی</string>
+    <string name="bluetooth">بلوٹوتھ</string>
+    <string name="sound">آواز</string>
+    <string name="airplane_mode">ہوائی جہاز موڈ</string>
+    <string name="mobile_data">موبائل ڈیٹا</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">ترتیبات پلگ ان</string>
+    <string name="allow_settings_plugin_subheading">منتخب پلگ ان کیوس ہوم اسکرین میں ترتیبات کے اختیارات کے تحت دستیاب ہیں</string>
 </resources>

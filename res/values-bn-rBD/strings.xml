@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"ফোল্ডারের নাম পাল্টে <xliff:g id="NAME">%1$s</xliff:g> করা হয়েছে"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ফোল্ডার: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"উইজেট"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"হোম সেটিংস"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"হোমস্ক্রীন ঘোরানোর অনুমতি দিন"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"বিজ্ঞপ্তি ডট"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"চালু হয়েছে"</string>
@@ -128,4 +127,24 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"বিজ্ঞপ্তি এবং অ্যাপ বন্ধ আছে"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"বন্ধ করুন"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"বন্ধ"</string>
+
+
+    <string name="settings_button_text">কিওস্ক সেটিংস</string>
+    <string name="customize">কাস্টমাইজ করুন</string>
+    <string name="access_denied">অ্যাক্সেস অস্বীকৃত</string>
+    <string name="access_denied_subheading">আপনাকে এই সামগ্রীটি অ্যাক্সেস করার অনুমতি নেই</string>
+    <string name="app_crash">অ্যাপ ক্রাশ</string>
+    <string name="app_crash_subheading">অসুবিধার জন্য দুঃখিত আমরা শীঘ্রই এই সমস্যাটি সমাধান করব</string>
+    <string name="exit">প্রস্থান</string>
+    <string name="custom_settings">সেটিংস</string>
+    <string name="plugins">প্লাগইনস</string>
+    <string name="wifi">ওয়াইফাই</string>
+    <string name="bluetooth">ব্লুটুথ</string>
+    <string name="sound">শব্দ</string>
+    <string name="airplane_mode">বিমান মোড</string>
+    <string name="mobile_data">যথোপযুক্ত সৃষ্টিকর্তাযথোপযুক্ত সৃষ্টিকর্তা</string>
+    <string name="gps">জিপিএস</string>
+    <string name="vpn">ভিপিএন</string>
+    <string name="settings_plugin">সেটিংস প্লাগইন</string>
+    <string name="allow_settings_plugin_subheading">নির্বাচিত প্লাগইনগুলি কিওএস হোম স্ক্রিনে সেটিংস বিকল্পের অধীনে উপলব্ধ</string>
 </resources>

@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Nome de pasta alterado para <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Pasta: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgets"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Definições da página inicial"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Permitir rotação do ecrã principal"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Pontos de notificação"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Ativada"</string>
@@ -305,4 +304,23 @@
     <string name="exiting_keyos">Saindo</string>
     <string name="dialog_qrcode_subheading">Digitalize este código KeyOS Qr para aplicar as mesmas configurações em seu dispositivo KeyOS</string>
 
+
+    <string name="settings_button_text">Configurações de quiosque</string>
+    <string name="customize">Customizar</string>
+    <string name="access_denied">Acesso negado</string>
+    <string name="access_denied_subheading">Você não tem permissão para acessar este conteúdo</string>
+    <string name="app_crash">Falha de aplicativo</string>
+    <string name="app_crash_subheading">Desculpe o transtorno, vamos corrigir esse problema em breve</string>
+    <string name="exit">Saída</string>
+    <string name="custom_settings">Definições</string>
+    <string name="plugins">Plugins</string>
+    <string name="wifi">Wi-fi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Som</string>
+    <string name="airplane_mode">Modo avião</string>
+    <string name="mobile_data">Dados móveis</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Plugin de configurações</string>
+    <string name="allow_settings_plugin_subheading">Os plug-ins selecionados estão disponíveis na opção de configurações na tela inicial do KeyOS</string>
 </resources>

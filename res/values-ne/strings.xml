@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"फोल्डर <xliff:g id="NAME">%1$s</xliff:g> मा पुनःनामाकरण गरियो।"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"फोल्डर: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"विजेटहरू"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"गृहपृष्ठका सेटिङहरू"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"गृह स्क्रिनलाई घुम्ने अनुमति दिनुहोस्"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"सूचनाको प्रतीक जनाउने थोप्लोहरू"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"सक्रिय छ"</string>
@@ -306,6 +305,25 @@
     <string name="exiting_keyos">बाहिर निस्किदै</string>
     <string name="dialog_qrcode_subheading">तपाईंको किओएस उपकरणमा समान सेटिंग्स लागू गर्न यो किओओएस Qr कोड स्क्यान गर्नुहोस्</string>
 
+
+    <string name="settings_button_text">किओस्क सेटिंग्स</string>
+    <string name="customize">अनुकूलन गर्नुहोस्</string>
+    <string name="access_denied">प्रवेश अस्वीकृत</string>
+    <string name="access_denied_subheading">तपाईंलाई यस सामग्री पहुँच गर्न अनुमति छैन</string>
+    <string name="app_crash">अनुप्रयोग क्र्यास</string>
+    <string name="app_crash_subheading">असुविधाको लागि क्षमा गर्नुहोस् हामी यस मुद्दालाई छिट्टै समाधान गर्नेछौं</string>
+    <string name="exit">बाहिर निस्कनुहोस्</string>
+    <string name="custom_settings">सेटिंग्स</string>
+    <string name="plugins">प्लगइनहरू</string>
+    <string name="wifi">वाइफाइ</string>
+    <string name="bluetooth">ब्लुटुथ</string>
+    <string name="sound">ध्वनि</string>
+    <string name="airplane_mode">हवाइजहाज मोड</string>
+    <string name="mobile_data">मोबाइल डाटा</string>
+    <string name="gps">जीपीएस</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">सेटिंग्स प्लगइन</string>
+    <string name="allow_settings_plugin_subheading">चयनित प्लगइनहरू किओएस गृह स्क्रिनमा सेटि option विकल्प अन्तर्गत उपलब्ध छन्</string>
 
 
 </resources>

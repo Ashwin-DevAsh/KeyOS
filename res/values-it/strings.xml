@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Nome della cartella sostituito con <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Cartella: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widget"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Impostazioni Home"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Consenti rotazione della schermata Home"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Indicatori notifica"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Attiva"</string>
@@ -305,4 +304,22 @@
     <string name="dialog_qrcode_subheading">Scansiona questo codice Qr KeyOS per applicare le stesse impostazioni nel tuo dispositivo KeyOS</string>
 
 
+    <string name="settings_button_text">Impostazioni chiosco</string>
+    <string name="customize">personalizzare</string>
+    <string name="access_denied">Accesso negato</string>
+    <string name="access_denied_subheading">Non sei autorizzato ad accedere a questo contenuto</string>
+    <string name="app_crash">Arresto anomalo dell\'app</string>
+    <string name="app_crash_subheading">Ci scusiamo per l\'inconveniente, risolveremo presto questo problema</string>
+    <string name="exit">Uscita</string>
+    <string name="custom_settings">impostazioni</string>
+    <string name="plugins">Plugin</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Suono</string>
+    <string name="airplane_mode">Modalità aereo</string>
+    <string name="mobile_data">Dati mobili</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Plugin delle impostazioni</string>
+    <string name="allow_settings_plugin_subheading">I plug-in selezionati sono disponibili nell\'opzione impostazioni nella schermata principale di KeyOS</string>
 </resources>

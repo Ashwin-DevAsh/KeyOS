@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"ફોલ્ડરનું નામ બદલીને <xliff:g id="NAME">%1$s</xliff:g> કર્યું"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ફોલ્ડર: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"વિજેટ્સ"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"હોમ સેટિંગ્સ"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"હોમ સ્ક્રીનને ફેરવવાની મંજૂરી આપો"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"સૂચના બિંદુઓ"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ચાલુ"</string>
@@ -128,4 +127,23 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"નોટિફિકેશન અને ઍપ બંધ છે"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"બંધ કરો"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"બંધ"</string>
+
+    <string name="settings_button_text">કિઓસ્ક સેટિંગ્સ</string>
+    <string name="customize">કસ્ટમાઇઝ કરો</string>
+    <string name="access_denied">પરવાનગી અસ્વીકાર</string>
+    <string name="access_denied_subheading">તમને આ સામગ્રીને .ક્સેસ કરવાની મંજૂરી નથી</string>
+    <string name="app_crash">એપ્લિકેશન ક્રેશ</string>
+    <string name="app_crash_subheading">અસુવિધા માટે માફ કરશો, અમે ટૂંક સમયમાં આ મુદ્દાને ઠીક કરીશું</string>
+    <string name="exit">બહાર નીકળો</string>
+    <string name="custom_settings">સેટિંગ્સ</string>
+    <string name="plugins">પ્લગઇન્સ</string>
+    <string name="wifi">વાઇફાઇ</string>
+    <string name="bluetooth">બ્લુટુથ</string>
+    <string name="sound">અવાજ</string>
+    <string name="airplane_mode">વિમાન મોડ</string>
+    <string name="mobile_data">મોબાઇલ ડેટા</string>
+    <string name="gps">જીપીએસ</string>
+    <string name="vpn">વી.પી.એન.</string>
+    <string name="settings_plugin">સેટિંગ્સ પ્લગઇન</string>
+    <string name="allow_settings_plugin_subheading">કીઓએસ હોમ સ્ક્રીનમાં સેટિંગ્સ વિકલ્પ હેઠળ પસંદ કરેલા પ્લગઈનો ઉપલબ્ધ છે</string>
 </resources>

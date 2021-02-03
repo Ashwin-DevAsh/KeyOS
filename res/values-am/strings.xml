@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"አቃፊ <xliff:g id="NAME">%1$s</xliff:g> ተብሎ ዳግም ተሰይሟል"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"አቃፊ፦ <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ፍርግሞች"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"የመነሻ ቅንብሮች"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"የመነሻ ማያ ገጽ ማሽከርከርን ይፍቀዱ"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"የማሳወቂያ ነጥቦች"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"በርቷል"</string>
@@ -139,4 +138,23 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"ማሳወቂያዎች እና መተግበሪያዎች ጠፍተዋል"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"ዝጋ"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"ዝግ"</string>
+
+    <string name="settings_button_text">የኪዮስክ ቅንብሮች</string>
+    <string name="customize">አብጅ</string>
+    <string name="access_denied">መዳረሻ ተከልክሏል</string>
+    <string name="access_denied_subheading">ይህንን ይዘት እንዲያገኙ አልተፈቀደልዎትም</string>
+    <string name="app_crash">የመተግበሪያ ብልሽት</string>
+    <string name="app_crash_subheading">ለተፈጠረው ችግር ይቅርታ ይህንን ጉዳይ በቅርቡ እናስተካክለዋለን</string>
+    <string name="exit">መውጫ</string>
+    <string name="custom_settings">ቅንብሮች</string>
+    <string name="plugins">ፕለጊኖች</string>
+    <string name="wifi">ዋይፋይ</string>
+    <string name="bluetooth">ብሉቱዝ</string>
+    <string name="sound">ድምጽ</string>
+    <string name="airplane_mode">የአውሮፕላን ሁኔታ</string>
+    <string name="mobile_data">የተንቀሳቃሽ ስልክ ውሂብ</string>
+    <string name="gps">አቅጣጫ መጠቆሚያ</string>
+    <string name="vpn">ቪ.ፒ.</string>
+    <string name="settings_plugin">የቅንብሮች ተሰኪ</string>
+    <string name="allow_settings_plugin_subheading">የተመረጡ ተሰኪዎች በ KeyOS መነሻ ማያ ገጽ ውስጥ በቅንብሮች አማራጭ ስር ይገኛሉ</string>
 </resources>

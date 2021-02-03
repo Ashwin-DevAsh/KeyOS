@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"ປ່ຽນຊື່ໂຟນເດີເປັນ <xliff:g id="NAME">%1$s</xliff:g> ແລ້ວ"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ໂຟນເດີ: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ວິດເຈັດ"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"ການຕັ້ງຄ່າ Home"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"ອະນຸຍາດໃຫ້ໝຸນໜ້າຈໍທຳອິດໄດ້"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"ຈຸດການແຈ້ງເຕືອນ"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ເປີດ"</string>
@@ -303,5 +302,25 @@
     <string name="loading_settings">ການຕັ້ງຄ່າການຕັ້ງຄ່າ</string>
     <string name="exiting_keyos">ການອອກໄປ</string>
     <string name="dialog_qrcode_subheading">ສະແກນລະຫັດ KeyOS Qr ນີ້ເພື່ອໃຊ້ການຕັ້ງຄ່າດຽວກັນໃນອຸປະກອນ KeyOS ຂອງທ່ານ</string>
+
+
+    <string name="settings_button_text">ການຕັ້ງຄ່າ Kiosk</string>
+    <string name="customize">ປັບແຕ່ງ</string>
+    <string name="access_denied">ປະ​ຕິ​ເສດ​ການ​ເຂົ້າ​ເຖິງ</string>
+    <string name="access_denied_subheading">ເຈົ້າຍັງບໍ່ໄດ້ຮັບອະນຸຍາດໃຫ້ເຂົ້າເຖິງເນື້ອຫານີ້</string>
+    <string name="app_crash">ອຸປະຕິເຫດ App</string>
+    <string name="app_crash_subheading">ຂໍອະໄພໃນຄວາມບໍ່ສະດວກທີ່ພວກເຮົາຈະແກ້ໄຂບັນຫານີ້ໂດຍໄວ</string>
+    <string name="exit">ອອກໄປ</string>
+    <string name="custom_settings">ການຕັ້ງຄ່າ</string>
+    <string name="plugins">Plugins</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">ບລູທູດ</string>
+    <string name="sound">ສຽງ</string>
+    <string name="airplane_mode">ແບບຍົນ</string>
+    <string name="mobile_data">ຂໍ້ມູນມືຖື</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Plugin ການຕັ້ງຄ່າ</string>
+    <string name="allow_settings_plugin_subheading">ປັinsກອິນທີ່ເລືອກໄດ້ມີຢູ່ໃນຕົວເລືອກການຕັ້ງຄ່າໃນ ໜ້າ ຈໍຫລັກຂອງ KeyOS</string>
 
 </resources>

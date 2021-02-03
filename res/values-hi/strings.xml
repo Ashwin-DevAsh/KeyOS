@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"फ़ोल्डर का नाम बदलकर <xliff:g id="NAME">%1$s</xliff:g> किया गया"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"फ़ोल्डर: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"शॉर्टकट"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"होम पेज की सेटिंग"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"होमस्क्रीन घुमाने की अनुमति दें"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"सूचना बिंदु"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"चालू"</string>
@@ -305,6 +304,26 @@
     <string name="loading_settings">लोड हो रहा है सेटिंग्स</string>
     <string name="exiting_keyos">बाहर निकल रहा है</string>
     <string name="dialog_qrcode_subheading">अपने KeyOS डिवाइस में समान सेटिंग्स लागू करने के लिए इस KeyOS Qr कोड को स्कैन करें</string>
+
+
+    <string name="settings_button_text">कियोस्क सेटिंग्स</string>
+    <string name="customize">अनुकूलित करें</string>
+    <string name="access_denied">पहुंच अस्वीकृत</string>
+    <string name="access_denied_subheading">आपको इस सामग्री तक पहुंचने की अनुमति नहीं है</string>
+    <string name="app_crash">ऐप क्रैश</string>
+    <string name="app_crash_subheading">असुविधा के लिए खेद है कि हम जल्द ही इस समस्या को ठीक कर देंगे</string>
+    <string name="exit">बाहर जाएं</string>
+    <string name="custom_settings">समायोजन</string>
+    <string name="plugins">प्लगइन्स</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">ब्लूटूथ</string>
+    <string name="sound">ध्वनि</string>
+    <string name="airplane_mode">विमान मोड</string>
+    <string name="mobile_data">मोबाइल सामग्री</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">वीपीएन</string>
+    <string name="settings_plugin">सेटिंग्स प्लगइन</string>
+    <string name="allow_settings_plugin_subheading">चयनित प्लगइन्स KeyOS होम स्क्रीन में सेटिंग्स विकल्प के तहत उपलब्ध हैं</string>
 
 
 </resources>

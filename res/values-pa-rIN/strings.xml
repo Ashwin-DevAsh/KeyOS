@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"ਫੋਲਡਰ ਨੂੰ <xliff:g id="NAME">%1$s</xliff:g> ਮੁੜ ਨਾਮ ਦਿੱਤਾ ਗਿਆ"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ਫੋਲਡਰ: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ਵਿਜੇਟ"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"ਹੋਮ ਸੈਟਿੰਗਾਂ"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"ਹੋਮ ਸਕ੍ਰੀਨ ਨੂੰ ਘੁੰਮਾਉਣ ਦੀ ਆਗਿਆ ਦਿਓ"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"ਸੂਚਨਾ ਬਿੰਦੂ"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ਚਾਲੂ"</string>
@@ -128,4 +127,24 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"ਸੂਚਨਾਵਾਂ ਅਤੇ ਐਪਾਂ ਬੰਦ ਹਨ"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"ਬੰਦ ਕਰੋ"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"ਬੰਦ ਕੀਤਾ ਗਿਆ"</string>
+
+
+    <string name="settings_button_text">ਕਿਓਸਕ ਸੈਟਿੰਗਜ਼</string>
+    <string name="customize">ਅਨੁਕੂਲਿਤ ਕਰੋ</string>
+    <string name="access_denied">ਐਕਸੇਸ ਡਿਨਾਇਡ</string>
+    <string name="access_denied_subheading">ਤੁਹਾਨੂੰ ਇਸ ਸਮਗਰੀ ਨੂੰ ਐਕਸੈਸ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ</string>
+    <string name="app_crash">ਐਪ ਕ੍ਰੈਸ਼</string>
+    <string name="app_crash_subheading">ਅਸੁਵਿਧਾ ਲਈ ਮੁਆਫ ਕਰਨਾ, ਅਸੀਂ ਜਲਦੀ ਹੀ ਇਸ ਮੁੱਦੇ ਨੂੰ ਠੀਕ ਕਰ ਦੇਵਾਂਗੇ</string>
+    <string name="exit">ਨਿਕਾਸ</string>
+    <string name="custom_settings">ਸੈਟਿੰਗਜ਼</string>
+    <string name="plugins">ਪਲੱਗਇਨ</string>
+    <string name="wifi">ਫਾਈ</string>
+    <string name="bluetooth">ਬਲਿ Bluetoothਟੁੱਥ</string>
+    <string name="sound">ਆਵਾਜ਼</string>
+    <string name="airplane_mode">ਏਅਰਪਲੇਨ ਮੋਡ</string>
+    <string name="mobile_data">ਮੋਬਾਈਲ ਡਾਟਾ</string>
+    <string name="gps">ਜੀਪੀਐਸ</string>
+    <string name="vpn">ਵੀਪੀਐਨ</string>
+    <string name="settings_plugin">ਸੈਟਿੰਗ ਪਲੱਗਇਨ</string>
+    <string name="allow_settings_plugin_subheading">ਚੁਣੇ ਪਲੱਗਇਨ ਕੀਓਸ ਹੋਮ ਸਕ੍ਰੀਨ ਵਿੱਚ ਸੈਟਿੰਗਜ਼ ਵਿਕਲਪ ਦੇ ਤਹਿਤ ਉਪਲਬਧ ਹਨ</string>
 </resources>

@@ -74,7 +74,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Mape pārdēvēta par: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Mape: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Logrīki"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Sākumlapas iestatījumi"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Atļaut sākuma ekrāna pagriešanu"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Paziņojumu punkti"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Ieslēgts"</string>
@@ -304,5 +303,25 @@
     <string name="loading_settings">Notiek iestatījumu ielāde</string>
     <string name="exiting_keyos">Iziet</string>
     <string name="dialog_qrcode_subheading">Skenējiet šo KeyOS Qr kodu, lai savā KeyOS ierīcē izmantotu tos pašus iestatījumus</string>
+
+
+    <string name="settings_button_text">Kioska iestatījumi</string>
+    <string name="customize">Pielāgot</string>
+    <string name="access_denied">Pieeja noliegta</string>
+    <string name="access_denied_subheading">Jums nav atļauts piekļūt šim saturam</string>
+    <string name="app_crash">Lietotnes avārija</string>
+    <string name="app_crash_subheading">Atvainojiet par sagādātajām neērtībām, mēs drīz novērsim šo problēmu</string>
+    <string name="exit">Izeja</string>
+    <string name="custom_settings">Iestatījumi</string>
+    <string name="plugins">Spraudņi</string>
+    <string name="wifi">bezvadu internets</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Skaņa</string>
+    <string name="airplane_mode">Lidmašīnas režīms</string>
+    <string name="mobile_data">Mobilie dati</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Iestatījumu spraudnis</string>
+    <string name="allow_settings_plugin_subheading">Atlasītie spraudņi ir pieejami sadaļā KeyOS sākuma ekrāna iestatījumu opcija</string>
 
 </resources>

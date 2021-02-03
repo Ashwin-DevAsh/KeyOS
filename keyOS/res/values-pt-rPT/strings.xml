@@ -107,8 +107,6 @@
     <string name="custom">Personalizado</string>
     <!-- Section 11 -->
     <!-- Section 12 -->
-    <string name="settings_button_text">Definições do ecrã</string>
-    <string name="customize">Personalizar</string>
     <string name="advanced_settings">Mais definições</string>
     <string name="adaptive_icon">Ícones adaptativos</string>
     <string name="icon_pack">Pacote de ícones</string>
@@ -367,5 +365,25 @@
     <string name="exiting_keyos">Saindo</string>
     <string name="dialog_qrcode_subheading">Digitalize este código KeyOS Qr para aplicar as mesmas configurações em seu dispositivo KeyOS</string>
 
+
+
+    <string name="settings_button_text">Configurações de quiosque</string>
+    <string name="customize">Customizar</string>
+    <string name="access_denied">Acesso negado</string>
+    <string name="access_denied_subheading">Você não tem permissão para acessar este conteúdo</string>
+    <string name="app_crash">Falha de aplicativo</string>
+    <string name="app_crash_subheading">Desculpe o transtorno, vamos corrigir esse problema em breve</string>
+    <string name="exit">Saída</string>
+    <string name="custom_settings">Definições</string>
+    <string name="plugins">Plugins</string>
+    <string name="wifi">Wi-fi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Som</string>
+    <string name="airplane_mode">Modo avião</string>
+    <string name="mobile_data">Dados móveis</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Plugin de configurações</string>
+    <string name="allow_settings_plugin_subheading">Os plug-ins selecionados estão disponíveis na opção de configurações na tela inicial do KeyOS</string>
 
 </resources>

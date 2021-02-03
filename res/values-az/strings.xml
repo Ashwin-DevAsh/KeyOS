@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Qovluq adı <xliff:g id="NAME">%1$s</xliff:g> ilə dəyişdirildi"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Qovluq: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Vidcet"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Home ayarları"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Əsas ekranın firlanmağına icazə verin"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Bildiriş nişanı"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Aktiv"</string>
@@ -302,4 +301,23 @@
     <string name="loading_settings">Ayarlar yüklənir</string>
     <string name="exiting_keyos">Çıxır</string>
     <string name="dialog_qrcode_subheading">KeyOS cihazınızda eyni parametrləri tətbiq etmək üçün bu KeyOS Qr kodunu skan edin</string>
+
+    <string name="settings_button_text">Köşk Ayarları</string>
+    <string name="customize">Özəlləşdirmək</string>
+    <string name="access_denied">Giriş qadağandır</string>
+    <string name="access_denied_subheading">Bu məzmuna daxil olmağınıza icazə verilmir</string>
+    <string name="app_crash">Tətbiq qəzası</string>
+    <string name="app_crash_subheading">Narahatçılığa görə bu problemi tezliklə həll edəcəyik</string>
+    <string name="exit">Çıx</string>
+    <string name="custom_settings">Parametrlər</string>
+    <string name="plugins">Plugins</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Səs</string>
+    <string name="airplane_mode">Təyyarə rejimi</string>
+    <string name="mobile_data">Mobil məlumat</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Ayarlar Plugin</string>
+    <string name="allow_settings_plugin_subheading">Seçilmiş plaginlər KeyOS ana ekranında parametrlər seçimi altında mövcuddur</string>
 </resources>

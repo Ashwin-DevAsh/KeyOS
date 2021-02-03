@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"ఫోల్డర్ పేరు <xliff:g id="NAME">%1$s</xliff:g>గా మార్చబడింది"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"ఫోల్డర్: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"విడ్జెట్‌లు"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"హోమ్ సెట్టింగ్‌లు"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"హోమ్ స్క్రీన్ భ్రమణాన్ని అనుమతించండి"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"నోటిఫికేషన్ డాట్‌లు"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ఆన్"</string>
@@ -306,5 +305,23 @@
     <string name="exiting_keyos">నిష్క్రమించడం</string>
     <string name="dialog_qrcode_subheading">మీ KeyOS పరికరంలో ఒకే సెట్టింగులను వర్తింపచేయడానికి ఈ KeyOS Qr కోడ్‌ను స్కాన్ చేయండి</string>
 
+    <string name="settings_button_text">కియోస్క్ సెట్టింగులు</string>
+    <string name="customize">అనుకూలీకరించండి</string>
+    <string name="access_denied">అనుమతి నిరాకరించడం అయినది</string>
+    <string name="access_denied_subheading">ఈ కంటెంట్‌ను యాక్సెస్ చేయడానికి మీకు అనుమతి లేదు</string>
+    <string name="app_crash">అనువర్తన క్రాష్</string>
+    <string name="app_crash_subheading">అసౌకర్యానికి క్షమించండి, మేము ఈ సమస్యను త్వరలో పరిష్కరిస్తాము</string>
+    <string name="exit">బయటకి దారి</string>
+    <string name="custom_settings">సెట్టింగులు</string>
+    <string name="plugins">ప్లగిన్లు</string>
+    <string name="wifi">వైఫై</string>
+    <string name="bluetooth">బ్లూటూత్</string>
+    <string name="sound">ధ్వని</string>
+    <string name="airplane_mode">విమానం మోడ్</string>
+    <string name="mobile_data">మొబైల్ డేటా</string>
+    <string name="gps">జిపియస్</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">సెట్టింగులు ప్లగిన్</string>
+    <string name="allow_settings_plugin_subheading">కీఓఎస్ హోమ్ స్క్రీన్‌లో సెట్టింగ్స్ ఎంపిక కింద ఎంచుకున్న ప్లగిన్లు అందుబాటులో ఉన్నాయి</string>
 
 </resources>

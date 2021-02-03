@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"கோப்புறை <xliff:g id="NAME">%1$s</xliff:g> என மறுபெயரிடப்பட்டது"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"கோப்புறை: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"ஷார்ட்கட்ஸ்"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"முகப்பு அமைப்புகள்"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"முகப்புத் திரை சுழற்சியை அனுமதி"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"அறிவிப்புப் புள்ளிகள்"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"ஆன்"</string>
@@ -305,4 +304,24 @@
     <string name="loading_settings">அமைப்புகளை ஏற்றுகிறது</string>
     <string name="exiting_keyos">ெளியேறுகிறது</string>
     <string name="dialog_qrcode_subheading">உங்கள் KeyOS சாதனத்தில் அதே அமைப்புகளைப் பயன்படுத்த இந்த KeyOS Qr குறியீட்டை ஸ்கேன் செய்யுங்கள்</string>
+
+    <string name="settings_button_text">கியோஸ்க் அமைப்புகள்</string>
+    <string name="customize">தனிப்பயனாக்கலாம்</string>
+    <string name="access_denied">அணுகல் மறுக்கப்பட்டது</string>
+    <string name="access_denied_subheading">இந்த உள்ளடக்கத்தை அணுக உங்களுக்கு அனுமதி இல்லை</string>
+    <string name="app_crash">பயன்பாட்டு செயலிழப்பு</string>
+    <string name="app_crash_subheading">சிரமத்திற்கு மன்னிக்கவும், இந்த சிக்கலை விரைவில் சரிசெய்வோம்</string>
+    <string name="exit">வெளியேறு</string>
+    <string name="custom_settings">அமைப்புகள்</string>
+    <string name="plugins">செருகுநிரல்கள்</string>
+    <string name="wifi">வைஃபை</string>
+    <string name="bluetooth">புளூடூத்</string>
+    <string name="sound">ஒலி</string>
+    <string name="airplane_mode">விமானப் பயன்முறை</string>
+    <string name="mobile_data">மொபைல் தரவு</string>
+    <string name="gps">ஜி.பி.எஸ்</string>
+    <string name="vpn">வி.பி.என்</string>
+    <string name="settings_plugin">அமைப்புகள் செருகுநிரல்</string>
+    <string name="allow_settings_plugin_subheading">தேர்ந்தெடுக்கப்பட்ட செருகுநிரல்கள் KeyOS முகப்புத் திரையில் அமைப்புகள் விருப்பத்தின் கீழ் கிடைக்கின்றன</string>
+
 </resources>

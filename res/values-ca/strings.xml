@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"S\'ha canviat el nom de la carpeta a <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Carpeta: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgets"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Configuració de pantalla d\'inici"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Permet la rotació de la pantalla d\'inici"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Punts de notificació"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Activat"</string>
@@ -303,5 +302,25 @@
     <string name="loading_settings">S\'està carregant la configuració</string>
     <string name="exiting_keyos">S\'està sortint</string>
     <string name="dialog_qrcode_subheading">Escanegeu aquest codi KeyOS Qr per aplicar la mateixa configuració al dispositiu KeyOS</string>
+
+
+    <string name="settings_button_text">Configuració del quiosc</string>
+    <string name="customize">Personalitzar</string>
+    <string name="access_denied">Accés denegat</string>
+    <string name="access_denied_subheading">No teniu permís per accedir a aquest contingut</string>
+    <string name="app_crash">Bloqueig d\'aplicacions</string>
+    <string name="app_crash_subheading">Disculpeu les molèsties que solucionarem aviat</string>
+    <string name="exit">Surt</string>
+    <string name="custom_settings">Configuració</string>
+    <string name="plugins">Connectors</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">So</string>
+    <string name="airplane_mode">Mode avió</string>
+    <string name="mobile_data">Dades mòbils</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Connector de configuració</string>
+    <string name="allow_settings_plugin_subheading">Els connectors seleccionats estan disponibles a l’opció de configuració de la pantalla inicial de KeyOS</string>
 
 </resources>

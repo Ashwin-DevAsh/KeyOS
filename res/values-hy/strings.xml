@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Պանակը վերանվանվեց <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Պանակ՝ <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Վիջեթներ"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Գլխավոր էջի կարգավորումներ"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Թույլ տալ հիմնական էկրանի պտտումը"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Ծանուցումների կետիկներ"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Միացված է"</string>
@@ -302,6 +301,26 @@
     <string name="loading_settings">Բեռնվում է կարգավորումները</string>
     <string name="exiting_keyos">Ելք</string>
     <string name="dialog_qrcode_subheading">Սկանեք այս KeyOS Qr կոդը ՝ KeyOS սարքում նույն կարգավորումները կիրառելու համար</string>
+
+
+    <string name="settings_button_text">Կրպակի կարգավորումներ</string>
+    <string name="customize">Անհատականացնել</string>
+    <string name="access_denied">Մուտքն արգելված է</string>
+    <string name="access_denied_subheading">Ձեզ չի թույլատրվում մուտք գործել այս բովանդակություն</string>
+    <string name="app_crash">Appրագրի խափանում</string>
+    <string name="app_crash_subheading">Կներեք անհանգստության համար, մենք շուտով կլուծենք այս խնդիրը</string>
+    <string name="exit">Ելք</string>
+    <string name="custom_settings">Կարգավորումներ</string>
+    <string name="plugins">Պլագիններ</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="bluetooth">Bluetooth- ը</string>
+    <string name="sound">Հնչյուն</string>
+    <string name="airplane_mode">Ինքնաթիռի ռեժիմ</string>
+    <string name="mobile_data">Բջջային տվյալներ</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Կարգավորումների ներդիր</string>
+    <string name="allow_settings_plugin_subheading">Ընտրված պլագինները հասանելի են KeyOS- ի հիմնական էկրանին ՝ պարամետրերի ընտրանքով</string>
 
 
 </resources>

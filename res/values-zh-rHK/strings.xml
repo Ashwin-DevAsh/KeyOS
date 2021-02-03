@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"資料夾已重新命名為「<xliff:g id="NAME">%1$s</xliff:g>」"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"資料夾：<xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"小工具"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"主螢幕設定"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"允許主畫面旋轉"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"通知圓點"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"開啟"</string>
@@ -138,4 +137,23 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"通知和應用程式已關閉"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"關閉"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"已關閉"</string>
+
+    <string name="settings_button_text">信息亭设置</string>
+    <string name="customize">定制</string>
+    <string name="access_denied">拒绝访问</string>
+    <string name="access_denied_subheading">您无权访问此内容</string>
+    <string name="app_crash">应用崩溃</string>
+    <string name="app_crash_subheading">很抱歉给您带来不便，我们将尽快解决此问题</string>
+    <string name="exit">出口</string>
+    <string name="custom_settings">设定值</string>
+    <string name="plugins">外挂程式</string>
+    <string name="wifi">无线上网</string>
+    <string name="bluetooth">蓝牙</string>
+    <string name="sound">声音</string>
+    <string name="airplane_mode">飞行模式</string>
+    <string name="mobile_data">移动数据</string>
+    <string name="gps">全球定位系统</string>
+    <string name="vpn">虚拟专用网</string>
+    <string name="settings_plugin">设置插件</string>
+    <string name="allow_settings_plugin_subheading">选定的插件在KeyOS主屏幕的“设置”选项下可用</string>
 </resources>

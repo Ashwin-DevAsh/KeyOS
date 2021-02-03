@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Mappen er omdøbt til <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Mappe: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgets"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Indstillinger for startskærmen"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Tillad rotation af startskærmen"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Underretningscirkler"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Til"</string>
@@ -140,4 +139,23 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"Underretninger og apps er slået fra"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"Luk"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"Lukket"</string>
+
+    <string name="settings_button_text">Kiosk Settings</string>
+    <string name="customize">Customize</string>
+    <string name="access_denied">Access denied</string>
+    <string name="access_denied_subheading">You are not allowed to access this content</string>
+    <string name="app_crash">App Crash</string>
+    <string name="app_crash_subheading">Sorry for the inconvenience we will fix this issue soon</string>
+    <string name="exit">Exit</string>
+    <string name="custom_settings">Settings</string>
+    <string name="plugins">Plugins</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Sound</string>
+    <string name="airplane_mode">Airplane Mode</string>
+    <string name="mobile_data">Mobile Data</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Settings Plugin</string>
+    <string name="allow_settings_plugin_subheading">Selected plugins are available under settings option in KeyOS home screen</string>
 </resources>

@@ -75,7 +75,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Папка перайменавана ў <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Папка: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Віджэты"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Налады галоўнага экрана"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Дазволіць паварот галоўнага экрана"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Значкі апавяшчэнняў"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Уключана"</string>
@@ -304,4 +303,23 @@
     <string name="loading_settings">Загрузка настроек</string>
     <string name="exiting_keyos">Выход</string>
     <string name="dialog_qrcode_subheading">Отсканируйте этот QR-код KeyOS, чтобы применить те же настройки на вашем устройстве KeyOS.</string>
+
+    <string name="settings_button_text">Настройки киоска</string>
+    <string name="customize">Настроить</string>
+    <string name="access_denied">Доступ запрещен</string>
+    <string name="access_denied_subheading">У вас нет доступа к этому контенту</string>
+    <string name="app_crash">Сбой приложения</string>
+    <string name="app_crash_subheading">Приносим извинения за неудобства, мы скоро исправим эту проблему</string>
+    <string name="exit">Выход</string>
+    <string name="custom_settings">Настройки</string>
+    <string name="plugins">Плагины</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="bluetooth">блютуз</string>
+    <string name="sound">Звук</string>
+    <string name="airplane_mode">Авиа режим</string>
+    <string name="mobile_data">Мобильные данные</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Плагин настроек</string>
+    <string name="allow_settings_plugin_subheading">Выбранные плагины доступны в разделе настроек на главном экране KeyOS.</string>
 </resources>

@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Қалта атауы <xliff:g id="NAME">%1$s</xliff:g> болып өзгертілді"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Қалта: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Виджеттер"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Негізгі экран параметрлері"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Негізгі экранның бұрылуына рұқсат ету"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Хабарландыру белгілері"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Қосулы"</string>
@@ -128,4 +127,24 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"Хабарландырулар мен қолданбалар өшірулі"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"Жабу"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"Жабық"</string>
+
+
+    <string name="settings_button_text">Дүңгіршек параметрлері</string>
+    <string name="customize">Реттеу</string>
+    <string name="access_denied">Рұқсат жоқ</string>
+    <string name="access_denied_subheading">Бұл мазмұнға кіруге рұқсатыңыз жоқ</string>
+    <string name="app_crash">App Crash</string>
+    <string name="app_crash_subheading">Қолайсыздық үшін кешіріңіз, біз бұл мәселені жақын арада шешеміз</string>
+    <string name="exit">Шығу</string>
+    <string name="custom_settings">Параметрлер</string>
+    <string name="plugins">Плагиндер</string>
+    <string name="wifi">сымсыз дәлдiк</string>
+    <string name="bluetooth">блютуз</string>
+    <string name="sound">Дыбыс</string>
+    <string name="airplane_mode">Ұшақ режимі</string>
+    <string name="mobile_data">Ұялы деректер</string>
+    <string name="gps">жаһандық позициялау жүйесі</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Параметрлер плагині</string>
+    <string name="allow_settings_plugin_subheading">Таңдалған плагиндер KeyOS басты экранындағы параметрлер опциясы бойынша қол жетімді</string>
 </resources>

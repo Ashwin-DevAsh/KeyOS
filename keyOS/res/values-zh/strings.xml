@@ -109,8 +109,6 @@
     <string name="custom">自定义</string>
     <!-- Section 11 -->
     <!-- Section 12 -->
-    <string name="settings_button_text">主屏幕设置</string>
-    <string name="customize">自定义</string>
     <string name="advanced_settings">更多设置</string>
     <string name="adaptive_icon">自适应图标</string>
     <string name="icon_pack">图标包</string>
@@ -371,6 +369,26 @@
     <string name="loading_settings">正在载入设定</string>
     <string name="exiting_keyos">退出中</string>
     <string name="dialog_qrcode_subheading">扫描此KeyOS Qr代码以在KeyOS设备中应用相同的设置</string>
+
+
+    <string name="settings_button_text">信息亭设置</string>
+    <string name="customize">定制</string>
+    <string name="access_denied">拒绝访问</string>
+    <string name="access_denied_subheading">您无权访问此内容</string>
+    <string name="app_crash">应用崩溃</string>
+    <string name="app_crash_subheading">很抱歉给您带来不便，我们将尽快解决此问题</string>
+    <string name="exit">出口</string>
+    <string name="custom_settings">设定值</string>
+    <string name="plugins">外挂程式</string>
+    <string name="wifi">无线上网</string>
+    <string name="bluetooth">蓝牙</string>
+    <string name="sound">声音</string>
+    <string name="airplane_mode">飞行模式</string>
+    <string name="mobile_data">移动数据</string>
+    <string name="gps">全球定位系统</string>
+    <string name="vpn">虚拟专用网</string>
+    <string name="settings_plugin">设置插件</string>
+    <string name="allow_settings_plugin_subheading">选定的插件在KeyOS主屏幕的“设置”选项下可用</string>
 
 
 

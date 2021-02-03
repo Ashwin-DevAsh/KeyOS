@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"เปลี่ยนชื่อโฟลเดอร์เป็น <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"โฟลเดอร์: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"วิดเจ็ต"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"การตั้งค่าหน้าแรก"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"อนุญาตให้หมุนหน้าจอหลัก"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"จุดแจ้งเตือน"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"เปิด"</string>
@@ -304,6 +303,26 @@
     <string name="loading_settings">กำลังโหลดการตั้งค่า</string>
     <string name="exiting_keyos">กำลังออก</string>
     <string name="dialog_qrcode_subheading">สแกนรหัส KeyOS Qr นี้เพื่อใช้การตั้งค่าเดียวกันในอุปกรณ์ KeyOS ของคุณ</string>
+
+
+    <string name="settings_button_text">การตั้งค่าคีออสก์</string>
+    <string name="customize">ปรับแต่ง</string>
+    <string name="access_denied">ปฏิเสธการเข้าใช้</string>
+    <string name="access_denied_subheading">คุณไม่ได้รับอนุญาตให้เข้าถึงเนื้อหานี้</string>
+    <string name="app_crash">แอปขัดข้อง</string>
+    <string name="app_crash_subheading">ขออภัยในความไม่สะดวกเราจะแก้ไขปัญหานี้ในไม่ช้า</string>
+    <string name="exit">ออก</string>
+    <string name="custom_settings">การตั้งค่า</string>
+    <string name="plugins">ปลั๊กอิน</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">บลูทู ธ</string>
+    <string name="sound">เสียง</string>
+    <string name="airplane_mode">โหมดเครื่องบิน</string>
+    <string name="mobile_data">ข้อมูลมือถือ</string>
+    <string name="gps">จีพีเอส</string>
+    <string name="vpn">VPN</string>
+    <string name="settings_plugin">ปลั๊กอินการตั้งค่า</string>
+    <string name="allow_settings_plugin_subheading">ปลั๊กอินที่เลือกมีอยู่ภายใต้ตัวเลือกการตั้งค่าในหน้าจอหลักของ KeyOS</string>
 
 
 </resources>

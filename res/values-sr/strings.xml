@@ -74,7 +74,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Директоријум је преименован у <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Директоријум: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Виџети"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Подешавања почетног екрана"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Дозволи ротацију почетног екрана"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Тачке за обавештења"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Укључено"</string>
@@ -306,4 +305,23 @@
     <string name="exiting_keyos">Излаз</string>
     <string name="dialog_qrcode_subheading">Скенирајте овај КеиОС Кр код да бисте применили исте поставке на свом КеиОС уређају</string>
 
+
+    <string name="settings_button_text">Подешавања киоска</string>
+    <string name="customize">Прилагоди</string>
+    <string name="access_denied">Приступ забрањен</string>
+    <string name="access_denied_subheading">Није вам дозвољен приступ овом садржају</string>
+    <string name="app_crash">Отказивање апликације</string>
+    <string name="app_crash_subheading">Жао нам је због непријатности, ускоро ћемо решити овај проблем</string>
+    <string name="exit">Излаз</string>
+    <string name="custom_settings">Подешавања</string>
+    <string name="plugins">Додаци</string>
+    <string name="wifi">Ви-фи</string>
+    <string name="bluetooth">Блуетоотх</string>
+    <string name="sound">Звук</string>
+    <string name="airplane_mode">Режим авиона</string>
+    <string name="mobile_data">Мобилни подаци</string>
+    <string name="gps">ГПС</string>
+    <string name="vpn">Впн</string>
+    <string name="settings_plugin">Додатак за подешавања</string>
+    <string name="allow_settings_plugin_subheading">Одабрани додаци су доступни у опцији подешавања на почетном екрану КеиОС-а</string>
 </resources>

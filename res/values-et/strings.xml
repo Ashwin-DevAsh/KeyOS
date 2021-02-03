@@ -304,6 +304,26 @@
     <string name="exiting_keyos">Väljumine</string>
     <string name="dialog_qrcode_subheading">Skannige see KeyOS Qr-kood, et rakendada samu seadeid oma KeyOS-seadmes</string>
 
+    <!--           https://asrt.gluege.boerde.de              -->
+    <string name="settings_button_text">Kioski seaded</string>
+    <string name="customize">Kohanda</string>
+    <string name="access_denied">Ligipääs keelatud</string>
+    <string name="access_denied_subheading">Teil pole lubatud sellele sisule juurde pääseda</string>
+    <string name="app_crash">Rakenduse krahh</string>
+    <string name="app_crash_subheading">Vabandame ebamugavuste pärast, et selle probleemi peagi lahendame</string>
+    <string name="exit">Välju</string>
+    <string name="custom_settings">Seaded</string>
+    <string name="plugins">Pistikprogrammid</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Heli</string>
+    <string name="airplane_mode">Lennukirežiim</string>
+    <string name="mobile_data">Mobiilne andmeside</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Seadete pistikprogramm</string>
+    <string name="allow_settings_plugin_subheading">Valitud pistikprogrammid on saadaval KeyOSi avakuva seadete suvandi alt</string>
+
 
 
 </resources>

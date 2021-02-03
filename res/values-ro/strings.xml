@@ -74,7 +74,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Dosar redenumit <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Dosar: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Widgeturi"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Setări pentru ecranul de pornire"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Permiteți rotirea ecranului de pornire"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Puncte de notificare"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Activat"</string>
@@ -308,4 +307,22 @@
     <string name="dialog_qrcode_subheading">Scanați acest cod KeyOS Qr pentru a aplica aceleași setări pe dispozitivul dvs. KeyOS</string>
 
 
+    <string name="settings_button_text">Setări chioșc</string>
+    <string name="customize">Personalizați</string>
+    <string name="access_denied">Acces interzis</string>
+    <string name="access_denied_subheading">Nu aveți permisiunea de a accesa acest conținut</string>
+    <string name="app_crash">App Crash</string>
+    <string name="app_crash_subheading">Ne pare rău pentru neplăcerile pe care le vom rezolva în curând</string>
+    <string name="exit">Ieșire</string>
+    <string name="custom_settings">Setări</string>
+    <string name="plugins">Pluginuri</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Sunet</string>
+    <string name="airplane_mode">Modul avion</string>
+    <string name="mobile_data">De date mobile</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Setări Plugin</string>
+    <string name="allow_settings_plugin_subheading">Pluginurile selectate sunt disponibile sub opțiunea de setări din ecranul de pornire KeyOS</string>
 </resources>

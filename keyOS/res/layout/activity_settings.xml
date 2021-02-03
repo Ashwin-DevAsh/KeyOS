@@ -666,11 +666,11 @@
                         </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
-                            android:text="Settings Plugin"
+                            android:text="@string/settings_plugin"
                             android:gravity="center"
                             android:textColor="@android:color/black"
-                            android:layout_marginLeft="65dp"
-                            android:textSize="16dp"
+                            android:layout_marginStart="65dp"
+                            android:textSize="16sp"
                             android:layout_height="match_parent"/>
                         <LinearLayout
                             android:layout_width="wrap_content"

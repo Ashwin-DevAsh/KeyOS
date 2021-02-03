@@ -75,7 +75,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Aplankas pervardytas kaip „<xliff:g id="NAME">%1$s</xliff:g>“"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Aplankas: „<xliff:g id="NAME">%1$s</xliff:g>“"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Valdikliai"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"„Home“ nustatymai"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Leisti pasukti pagrindinį ekraną"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Pranešimų taškai"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Įjungta"</string>
@@ -307,5 +306,24 @@
     <string name="exiting_keyos">Išeina</string>
     <string name="dialog_qrcode_subheading">Nuskaitykite šį „KeyOS Qr“ kodą ir pritaikykite tuos pačius nustatymus „KeyOS“ įrenginyje</string>
 
+
+    <string name="settings_button_text">Kiosko nustatymai</string>
+    <string name="customize">Pritaikyti</string>
+    <string name="access_denied">Prieiga uždrausta</string>
+    <string name="access_denied_subheading">Jums neleidžiama pasiekti šio turinio</string>
+    <string name="app_crash">„App Crash“</string>
+    <string name="app_crash_subheading">Atsiprašome už nepatogumus, kuriuos greitai išspręsime</string>
+    <string name="exit">Išeiti</string>
+    <string name="custom_settings">Nustatymai</string>
+    <string name="plugins">Įskiepiai</string>
+    <string name="wifi">bevielis internetas</string>
+    <string name="bluetooth">„Bluetooth“</string>
+    <string name="sound">Garsas</string>
+    <string name="airplane_mode">Lėktuvo rėžimas</string>
+    <string name="mobile_data">Mobilus duomenys</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Nustatymų papildinys</string>
+    <string name="allow_settings_plugin_subheading">Pasirinktus papildinius galima rasti nustatymų parinktyje „KeyOS“ pagrindiniame ekrane</string>
 
 </resources>

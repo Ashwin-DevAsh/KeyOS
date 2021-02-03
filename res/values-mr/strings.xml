@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"फोल्डरचे नाव बदलून <xliff:g id="NAME">%1$s</xliff:g> असे ठेवले"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"फोल्डर: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"विजेट"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"होम सेटिंग्‍ज"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"मुख्यस्क्रीन फिरविण्‍यास अनुमती द्या"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"सूचना बिंदू"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"चालू"</string>
@@ -304,4 +303,23 @@
     <string name="exiting_keyos">बाहेर पडत आहे</string>
     <string name="dialog_qrcode_subheading">आपल्या कीओएस डिव्हाइसमध्ये समान सेटिंग्ज लागू करण्यासाठी हा कीओएस क्यूआर कोड स्कॅन करा</string>
 
+
+    <string name="settings_button_text">कियोस्क सेटिंग्ज</string>
+    <string name="customize">सानुकूलित करा</string>
+    <string name="access_denied">प्रवेश नाकारला</string>
+    <string name="access_denied_subheading">आपणास या सामग्रीत प्रवेश करण्याची परवानगी नाही</string>
+    <string name="app_crash">अ‍ॅप क्रॅश</string>
+    <string name="app_crash_subheading">गैरसोयीबद्दल क्षमस्व आम्ही लवकरच या समस्येचे निराकरण करू</string>
+    <string name="exit">बाहेर पडा</string>
+    <string name="custom_settings">सेटिंग्ज</string>
+    <string name="plugins">प्लगइन्स</string>
+    <string name="wifi">वायफाय</string>
+    <string name="bluetooth">ब्लूटूथ</string>
+    <string name="sound">आवाज</string>
+    <string name="airplane_mode">विमान मोड</string>
+    <string name="mobile_data">मोबाइल डेटा</string>
+    <string name="gps">जीपीएस</string>
+    <string name="vpn">व्हीपीएन</string>
+    <string name="settings_plugin">सेटिंग्ज प्लगइन</string>
+    <string name="allow_settings_plugin_subheading">कीओएस मुख्य स्क्रीनमध्ये सेटिंग्ज पर्याय अंतर्गत निवडलेले प्लगइन उपलब्ध आहेत</string>
 </resources>

@@ -73,7 +73,6 @@
     <string name="folder_renamed" msgid="1794088362165669656">"Kausta uus nimi: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="6629239338071103179">"Kaust: <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="widget_button_text" msgid="2880537293434387943">"Vidinad"</string>
-    <string name="settings_button_text" msgid="8873672322605444408">"Avaekraani seaded"</string>
     <string name="allow_rotation_title" msgid="7728578836261442095">"Luba avaekraani pööramine"</string>
     <string name="icon_badging_title" msgid="874121399231955394">"Märguandetäpid"</string>
     <string name="icon_badging_desc_on" msgid="2627952638544674079">"Sees"</string>
@@ -128,4 +127,24 @@
     <string name="work_mode_off_label" msgid="3194894777601421047">"Märguanded ja rakendused on välja lülitatud"</string>
     <string name="bottom_work_tab_user_education_close_button" msgid="4224492243977802135">"Sule"</string>
     <string name="bottom_work_tab_user_education_closed" msgid="1098340939861869465">"Suletud"</string>
+
+    <!--           https://asrt.gluege.boerde.de              -->
+    <string name="settings_button_text">Kioski seaded</string>
+    <string name="customize">Kohanda</string>
+    <string name="access_denied">Ligipääs keelatud</string>
+    <string name="access_denied_subheading">Teil pole lubatud sellele sisule juurde pääseda</string>
+    <string name="app_crash">Rakenduse krahh</string>
+    <string name="app_crash_subheading">Vabandame ebamugavuste pärast, et selle probleemi peagi lahendame</string>
+    <string name="exit">Välju</string>
+    <string name="custom_settings">Seaded</string>
+    <string name="plugins">Pistikprogrammid</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Heli</string>
+    <string name="airplane_mode">Lennukirežiim</string>
+    <string name="mobile_data">Mobiilne andmeside</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
+    <string name="settings_plugin">Seadete pistikprogramm</string>
+    <string name="allow_settings_plugin_subheading">Valitud pistikprogrammid on saadaval KeyOSi avakuva seadete suvandi alt</string>
 </resources>
