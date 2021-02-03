@@ -362,6 +362,13 @@
     <string name="exit">Exit</string>
     <string name="custom_settings">Settings</string>
     <string name="plugins">Plugins</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="sound">Sound</string>
+    <string name="airplane_mode">Airplane Mode</string>
+    <string name="mobile_data">Mobile Data</string>
+    <string name="gps">GPS</string>
+    <string name="vpn">Vpn</string>
 
 
 </resources>

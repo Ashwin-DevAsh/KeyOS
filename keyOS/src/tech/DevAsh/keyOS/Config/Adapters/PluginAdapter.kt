@@ -41,8 +41,9 @@ class PluginAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
             holder as SettingsPluginViewHolder
-            holder.name.text = items[position].pluginName
-
+            try{
+                holder.name.text = context.getText(Plugins.allPluginsMap[items[position].pluginName]!!)
+            }catch (e:Throwable){}
             holder.view.setOnClickListener{
                 try {
                     val intent = Intent(items[position].packageName)

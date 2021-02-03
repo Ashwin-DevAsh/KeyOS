@@ -28,7 +28,7 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:padding="12dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
                         app:srcCompat="@drawable/back"
                         android:id="@+id/back"
                         android:clickable="true"
@@ -38,8 +38,8 @@
                     <TextView
                         android:gravity="center"
                         android:layout_width="wrap_content"
-                        android:layout_marginLeft="80dp"
-                        android:textSize="20dp"
+                        android:layout_marginStart="80dp"
+                        android:textSize="20sp"
                         android:textAllCaps="true"
                         android:id="@+id/heading"
                         android:textColor="@android:color/black"
@@ -55,7 +55,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:background="@color/colorPrimary"
-                android:layout_below="@+id/appBar"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <androidx.recyclerview.widget.RecyclerView
@@ -82,7 +81,8 @@
                 android:elevation="200dp"
                 android:gravity="center"
                 android:background="@color/colorPrimary"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:baselineAligned="false">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_weight="50"

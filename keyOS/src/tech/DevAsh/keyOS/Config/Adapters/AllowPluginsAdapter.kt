@@ -53,9 +53,10 @@ class AllowPluginsAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(position!=0){
             holder as PluginViewHolder
-            holder.name.text = items[position].pluginName
+            try{
+                holder.name.text = context.getText(Plugins.allPluginsMap[items[position].pluginName]!!)
+            }catch (e:Throwable){}
             holder.packageName.text = items[position].packageName
-
             if(toggleCallback.getToggleState()){
                 holder.view.alpha = 1f
             }else{
@@ -63,12 +64,12 @@ class AllowPluginsAdapter(
             }
 
 
-            val className: String = try{
+            val className: String = (try{
                 val intent = Intent(items[position].packageName)
                 intent.resolveActivity(context.packageManager).className
             }catch (e:Throwable){
                 items[position].packageName
-            }
+            }).toString()
 
             items[position].className = className
 

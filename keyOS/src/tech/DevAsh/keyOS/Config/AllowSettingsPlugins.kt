@@ -62,7 +62,7 @@ class AllowSettingsPlugins : AppCompatActivity(),ToggleCallback {
                 plugins,
                 allowedPlugins,
               this,
-                "Selected plugins are available in settings option in KeyOS home screen" ,
+                "Selected plugins are available under settings option in KeyOS home screen" ,
                 this)
     }
 
