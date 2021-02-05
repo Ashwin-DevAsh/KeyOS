@@ -35,12 +35,17 @@
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
-    <style name="customSettings" parent="keyOS">
+    <style name="customSettings" parent="@style/Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@color/black</item>
-        <item name="statusBarBackground">@color/black</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar">false</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
+        <item name="android:colorEdgeEffect">?colorAccent</item>
+        <item name="android:statusBarColor">@color/black</item>
         <item name="android:navigationBarColor">@color/black</item>
+        <item name="useLightSystemBars">false</item>
+        <item name="settingsBackground">@color/black</item>
     </style>
 
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">

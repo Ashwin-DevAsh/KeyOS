@@ -27,9 +27,9 @@ class CustomSettings : AppCompatActivity() {
     }
 
     fun loadView(){
-        val window: Window = window
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = Color.BLACK
+//        val window: Window = window
+//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+//        window.statusBarColor = Color.BLACK
 
         val layoutManager = LinearLayoutManager(this)
         pluginsContainer.layoutManager = layoutManager

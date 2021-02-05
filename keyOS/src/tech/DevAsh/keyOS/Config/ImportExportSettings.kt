@@ -96,23 +96,28 @@ class ImportExportSettings : AppCompatActivity() {
             grantResults: IntArray
                                            ) {
 
-        if(requestCode==1){
-            if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
-                startActivity(Intent(this, QrScanner::class.java))
+        try{
+            if(requestCode==1){
+                if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
+                    startActivity(Intent(this, QrScanner::class.java))
+                }
+            }else if(requestCode==2){
+                if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
+                    saveFile()
+                }
+            }else if(requestCode==3){
+                if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
+                    showFileChooser()
+                }
+            }else if(requestCode==4){
+                if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
+                    displayQR.share()
+                }
             }
-        }else if(requestCode==2){
-            if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
-                saveFile()
-            }
-        }else if(requestCode==3){
-            if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
-                showFileChooser()
-            }
-        }else if(requestCode==4){
-            if(grantResults[0]==PackageManager.PERMISSION_GRANTED ){
-               displayQR.share()
-            }
+        }catch(e:Throwable){
+            Toast.makeText(this,getString(R.string.failed),Toast.LENGTH_SHORT).show()
         }
+
     }
 
     private fun generateNoteOnSD(fileName: String?, sBody: String?) {
