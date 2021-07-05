@@ -183,6 +183,18 @@
         android:supportsRtl="true"
         tools:ignore="ManifestResource">
 
+        <activity
+            android:name="tech.DevAsh.keyOS.Config.DonationResult"
+            android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+
+        <activity
+            android:name="tech.DevAsh.keyOS.Config.Donate"
+            android:theme="@style/keyOS"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+
 
         <activity
             android:name="tech.DevAsh.keyOS.Config.AllowSettingsPlugins"

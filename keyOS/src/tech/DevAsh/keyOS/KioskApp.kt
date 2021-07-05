@@ -32,6 +32,7 @@ import tech.DevAsh.Launcher.KioskLauncher
 import tech.DevAsh.Launcher.blur.BlurWallpaperProvider
 import tech.DevAsh.Launcher.settings.ui.SettingsActivity
 import tech.DevAsh.Launcher.theme.ThemeManager
+import tech.DevAsh.keyOS.Api.IDonationService
 import tech.DevAsh.keyOS.Api.IMailService
 import tech.DevAsh.keyOS.Database.User
 import tech.DevAsh.keyOS.Helpers.AlertDeveloper
@@ -48,6 +49,8 @@ class KioskApp : Application() {
     var loadAppsAndServices = LoadAppsAndServices(this)
     var firebaseAnalytics: FirebaseAnalytics? = null
     @Inject lateinit var mailService: IMailService
+    @Inject lateinit var donationService: IDonationService
+
 
 
     override fun onCreate() {

@@ -94,6 +94,10 @@ class About : AppCompatActivity() {
             AnalyticsHelper.logEvent(this, "Opened_termsAndCondition_website")
             openWebsite(BuildConfig.TERMS_AND_CONDITIONS)
         }
+        donate.setOnClickListener {
+            AnalyticsHelper.logEvent(this, "Opened_Donation_page")
+            startActivity(Intent(this,Donate::class.java))
+        }
     }
 
 
@@ -163,7 +167,7 @@ class About : AppCompatActivity() {
             }
     }
 
-    private fun openWebsite(url: String = "https://www.devash.tech", color: String = "#ffffff"){
+    private fun openWebsite(url: String = "https://www.devash.in", color: String = "#ffffff"){
         try {
             val builder = CustomTabsIntent.Builder()
             try {

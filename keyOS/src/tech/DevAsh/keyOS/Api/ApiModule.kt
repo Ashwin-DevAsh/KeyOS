@@ -24,4 +24,9 @@ class ApiModule {
         return retrofit.create(IQRCodeService::class.java)
     }
 
+    @Provides
+    fun getDonationService():IDonationService{
+        return retrofit.create(IDonationService::class.java)
+    }
+
 }

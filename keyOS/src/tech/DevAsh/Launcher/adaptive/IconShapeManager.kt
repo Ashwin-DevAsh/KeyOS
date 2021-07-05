@@ -93,7 +93,7 @@ class IconShapeManager(private val context: Context) {
                 IconShape.RoundedSquare,
                 IconShape.Squircle,
                 IconShape.Teardrop,
-                IconShape.Cylinder).minBy {
+                IconShape.Cylinder).minByOrNull {
             path.reset()
             it.addShape(path, 0f, 0f, 50f)
             pathRegion.setPath(path, clip)
