@@ -14,18 +14,18 @@ object SocketHelper {
 
 
     fun connect(context: Context){
-        Handler().post {
-            try {
-                socket = IO.socket(ApiContext.socketServiceUrl)
-                socket?.connect()
-                socket?.on("connect") {
-                    val data = JSONObject(mapOf("deviceID"  to AlertDeveloper.getInstallDetails(context).deviceID))
-                    socket?.emit("setInfo",data)
-                }
-                socket?.on("disconnect"){}
-            }catch (e:Throwable){}
-
-        }
+//        Handler().post {
+//            try {
+//                socket = IO.socket(ApiContext.socketServiceUrl)
+//                socket?.connect()
+//                socket?.on("connect") {
+//                    val data = JSONObject(mapOf("deviceID"  to AlertDeveloper.getInstallDetails(context).deviceID))
+//                    socket?.emit("setInfo",data)
+//                }
+//                socket?.on("disconnect"){}
+//            }catch (e:Throwable){}
+//
+//        }
     }
 
 
