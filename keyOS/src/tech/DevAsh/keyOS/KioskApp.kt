@@ -61,7 +61,7 @@ class KioskApp : Application() {
         applicationComponents!!.inject(this)
         firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         firebaseAnalytics?.setUserId(AlertDeveloper.getInstallDetails(this).deviceID)
-        SocketHelper.connect(this)
+//        SocketHelper.connect(this)
 
         CaocConfig.Builder.create()
                 .trackActivities(true)

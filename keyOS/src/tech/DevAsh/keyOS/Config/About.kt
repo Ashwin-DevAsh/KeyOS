@@ -94,10 +94,10 @@ class About : AppCompatActivity() {
             AnalyticsHelper.logEvent(this, "Opened_termsAndCondition_website")
             openWebsite(BuildConfig.TERMS_AND_CONDITIONS)
         }
-        donate.setOnClickListener {
-            AnalyticsHelper.logEvent(this, "Opened_Donation_page")
-            startActivity(Intent(this,Donate::class.java))
-        }
+//        donate.setOnClickListener {
+//            AnalyticsHelper.logEvent(this, "Opened_Donation_page")
+//            startActivity(Intent(this,Donate::class.java))
+//        }
     }
 
 

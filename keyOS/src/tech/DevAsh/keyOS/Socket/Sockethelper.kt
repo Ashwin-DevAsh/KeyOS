@@ -2,15 +2,15 @@ package tech.DevAsh.keyOS.Socket
 
 import android.content.Context
 import android.os.Handler
-import com.github.nkzawa.socketio.client.IO
-import com.github.nkzawa.socketio.client.Socket
+//import com.github.nkzawa.socketio.client.IO
+//import com.github.nkzawa.socketio.client.Socket
 import org.json.JSONObject
 import tech.DevAsh.keyOS.Api.ApiContext
 import tech.DevAsh.keyOS.Helpers.AlertDeveloper
 
 object SocketHelper {
 
-    var socket: Socket? = null
+//    var socket: Socket? = null
 
 
     fun connect(context: Context){
@@ -23,7 +23,10 @@ object SocketHelper {
 //                    socket?.emit("setInfo",data)
 //                }
 //                socket?.on("disconnect"){}
-//            }catch (e:Throwable){}
+//            }catch (e:Throwable){
+//                System.out.println("Socket Error : "+e.message)
+//                e.printStackTrace()
+//            }
 //
 //        }
     }

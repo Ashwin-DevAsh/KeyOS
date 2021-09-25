@@ -504,50 +504,50 @@
                         </LinearLayout>
                     </RelativeLayout>
 
-                    <LinearLayout
-                        android:layout_alignParentBottom="true"
-                        android:background="#20000000"
-                        android:layout_marginVertical="30dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"/>
+<!--                    <LinearLayout-->
+<!--                        android:layout_alignParentBottom="true"-->
+<!--                        android:background="#20000000"-->
+<!--                        android:layout_marginVertical="30dp"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="1dp"/>-->
 
-                    <RelativeLayout
-                        android:id="@+id/donate"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        >
+<!--                    <RelativeLayout-->
+<!--                        android:id="@+id/donate"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        >-->
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="5dp"
-                            android:orientation="vertical">
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_centerInParent="true"-->
+<!--                            android:layout_alignParentStart="true"-->
+<!--                            android:layout_marginStart="5dp"-->
+<!--                            android:orientation="vertical">-->
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="Donate to KeyOS"
-                                android:textColor="@android:color/black"
-                                android:textSize="16sp" />
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:gravity="center"-->
+<!--                                android:text="Donate to KeyOS"-->
+<!--                                android:textColor="@android:color/black"-->
+<!--                                android:textSize="16sp" />-->
 
 
-                        </LinearLayout>
+<!--                        </LinearLayout>-->
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerInParent="true">
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_alignParentEnd="true"-->
+<!--                            android:layout_centerInParent="true">-->
 
-                            <ImageView
-                                android:layout_width="20dp"
-                                app:srcCompat="@drawable/ios_forward"
-                                android:layout_height="20dp"/>
-                        </LinearLayout>
-                    </RelativeLayout>
+<!--                            <ImageView-->
+<!--                                android:layout_width="20dp"-->
+<!--                                app:srcCompat="@drawable/ios_forward"-->
+<!--                                android:layout_height="20dp"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </RelativeLayout>-->
 
                 </LinearLayout>
 
