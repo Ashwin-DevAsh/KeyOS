@@ -75,12 +75,12 @@ apply plugin: 'com.google.firebase.firebase-perf'
 def appVersion = 121
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 31
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         minSdkVersion 22
-        targetSdkVersion 29
+        targetSdkVersion 31
 
         versionCode appVersion
         versionName "KeyOS v${appVersion}"
@@ -187,7 +187,7 @@ android {
     sourceSets {
         main {
             res.srcDirs = ['res']
-            java.srcDirs = ['src']
+            java.srcDirs = ['src','src_plugins']
             aidl.srcDirs = ['src']
             assets.srcDirs = ['assets']
             manifest.srcFile 'AndroidManifest-common.xml'
@@ -195,7 +195,9 @@ android {
                 srcDir 'protos/'
                 srcDir 'proto_overrides/'
                 srcDir 'proto_pixel/'
+                srcDir 'quickstep/protos_overrides/'
             }
+
         }
 
         debug {
