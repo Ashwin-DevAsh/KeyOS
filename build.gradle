@@ -1,19 +1,21 @@
 buildscript {
-    ext.kotlin_version = '1.4.31'
+    ext.kotlin_version = '1.6.10'
     repositories {
         google()
         jcenter()
+        mavenCentral()
         maven { url = "https://storage.googleapis.com/r8-releases/raw" }
     }
     dependencies {
         classpath "io.realm:realm-gradle-plugin:7.0.0"
-        classpath 'com.android.tools.build:gradle:4.1.3'
-        classpath 'com.android.tools:r8:2.2.60'
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.9'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20'
-        classpath 'com.google.gms:google-services:4.3.5'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.2'
-        classpath 'com.google.firebase:perf-plugin:1.3.5'
+        classpath 'com.android.tools.build:gradle:7.2.0-beta02'
+        classpath 'com.android.tools:r8:3.1.51'
+        classpath PROTOBUF_CLASS_PATH
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.16'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30'
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
+        classpath 'com.google.firebase:perf-plugin:1.4.1'
 
     }
 }
@@ -27,7 +29,12 @@ tasks {
 allprojects {
     repositories {
         google()
+        jcenter()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven { url "../../../prebuilts/sdk/current/androidx/m2repository" }
+        maven { url "../../../prebuilts/fullsdk-darwin/extras/android/m2repository" }
+        maven { url "../../../prebuilts/fullsdk-linux/extras/android/m2repository" }
         maven { url 'https://jitpack.io' }
     }
 
@@ -72,11 +79,13 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 
+
 def appVersion = 121
 
 android {
     compileSdkVersion 31
-    buildToolsVersion '30.0.3'
+    buildToolsVersion '31.0.0'
+
 
     defaultConfig {
         minSdkVersion 22
@@ -230,7 +239,8 @@ android {
 
         keyOS {
             res.srcDirs = ['keyOS/res','general/res']
-            java.srcDirs = ['keyOS/src']
+//            aidl.srcDirs = ['keyOS/aidl']
+            java.srcDirs = ['src_flags', 'src_shortcuts_overrides','keyOS/src']
             manifest.srcFile "keyOS/AndroidManifest.xml"
         }
 
@@ -255,40 +265,33 @@ android {
             options.compilerArgs.add('-Xbootclasspath/p:keyOS/libs/framework.jar')
         }
     }
+
+    addFrameworkJar('framework-12.jar')
+
 }
 
 
-
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        jcenter()
-        maven { url 'https://jitpack.io' }
-    }
-}
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.palette:palette-ktx:1.0.0'
-    implementation 'androidx.preference:preference-ktx:1.1.1'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
     implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'com.github.florent37:fiftyshadesof:1.0.0'
-    implementation 'com.google.protobuf.nano:protobuf-javanano:3.1.0'
+    implementation 'com.google.protobuf.nano:protobuf-javanano:3.2.0rc2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.github.LawnchairLauncher:hoko-lite:4e0d797'
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    implementation 'com.github.topjohnwu.libsu:core:2.5.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.github.topjohnwu.libsu:core:3.1.2'
     implementation 'eu.chainfire:librootjava:1.3.0'
     implementation 'me.mvdw.recyclerviewmergeadapter:recyclerviewmergeadapter:2.1.0'
-    implementation 'me.xdrop:fuzzywuzzy:1.2.0'
+    implementation 'me.xdrop:fuzzywuzzy:1.4.0'
     quickstepImplementation project(':SystemUIShared')
     keyOSImplementation files('keyOS/libs/sesame-lib.aar')
     proImplementation files('keyOS/libs/sesame-lib.aar')
@@ -297,12 +300,12 @@ dependencies {
 //    for keyos
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.material:material:1.5.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.agrawalsuneet.androidlibs:dotsloader:1.4'
     implementation 'net.igenius:customcheckbox:1.3'
@@ -311,59 +314,63 @@ dependencies {
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'com.github.zcweng:switch-button:0.0.3@aar'
     implementation 'com.bitvale:switcher:1.1.0'
-    implementation 'com.github.takusemba:spotlight:2.0.1'
+    implementation 'com.github.takusemba:spotlight:2.0.5'
     implementation 'com.nispok:snackbar:2.11.0'
-    implementation 'jp.wasabeef:blurry:3.0.0'
-    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation 'jp.wasabeef:blurry:4.0.1'
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
     implementation 'com.github.clans:fab:1.6.4'
     implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'com.github.danimahardhika:cafebar:1.3.1'
     implementation 'com.budiyev.android:code-scanner:2.1.0'
     implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.4'
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
     implementation 'com.github.halysongoncalves:pugnotification:1.8.1'
     implementation 'com.agrawalsuneet.androidlibs:fourfoldloader:0.4'
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
-    implementation 'com.google.dagger:dagger:2.24'
+    implementation 'com.google.dagger:dagger:2.40.5'
     kapt 'com.google.dagger:dagger-compiler:2.24'
-    implementation  'com.google.android.play:core:1.10.0'
+    implementation  'com.google.android.play:core:1.10.3'
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-perf-ktx'
-    implementation "androidx.browser:browser:1.3.0"
+    implementation "androidx.browser:browser:1.4.0"
+    implementation 'com.google.protobuf:protobuf-javalite:3.11.0'
+
 //    implementation ('com.github.nkzawa:socket.io-client:0.6.0'){
 //        // excluding org.json which is provided by Android
 //        exclude group: 'org.json', module: 'json'
 //    }
-    implementation 'cat.ereza:customactivityoncrash:2.2.0'
-    implementation 'com.razorpay:checkout:1.6.6'
+    implementation 'cat.ereza:customactivityoncrash:2.3.0'
+    implementation 'com.razorpay:checkout:1.6.16'
+
+
+    implementation project(':iconloaderlib')
+    implementation project(':searchuilib')
+    implementation fileTree(dir: "prebuilts/libs", include: 'sysui_statslog.jar')
+    implementation fileTree(dir: "prebuilts/libs", include: 'wm_shell-aidls.jar')
+
 }
 
 protobuf {
+    // Configure the protoc executable
     protoc {
-        artifact = 'com.google.protobuf:protoc:3.0.0-alpha-3'
-
-        generateProtoTasks {
-            all().each { task ->
-                task.builtins {
-                    remove java
-                    javanano {
-                        option "java_package=launcher_log_extension.proto|com.android.launcher3.userevent.nano"
-                        option "java_package=launcher_log.proto|com.android.launcher3.userevent.nano"
-                        option "java_package=launcher_dump.proto|com.android.launcher3.model.nano"
-                        option "java_package=search.proto|com.google.android.apps.nexuslauncher.search.nano"
-                        option "java_package=smartspace.proto|com.google.android.apps.nexuslauncher.smartspace.nano"
-                        option "enum_style=java"
-                    }
+        artifact = "com.google.protobuf:protoc:3.18.0"
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                remove java
+                java {
+                    option "lite"
                 }
             }
         }

@@ -4,9 +4,11 @@ android {
     compileSdkVersion 31
     buildToolsVersion '31.0.0'
 
+
+
     defaultConfig {
         minSdkVersion 25
-        targetSdkVersion 31
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -33,5 +35,5 @@ android {
 }
 
 dependencies {
-    implementation "androidx.core:core:1.6.0"
+    implementation "androidx.core:core:1.7.0"
 }
