@@ -68,6 +68,6 @@ KeyOS acts as an Android Kiosk Launcher that limits user interactions to a prede
 - **Restricted Times:**
   - Define specific periods during which device use is restricted.
     
-- Secured Kiosk Mode:**
+- **Secured Kiosk Mode:**
   - Password-protected kiosk mode prevents users from altering system settings.
 
