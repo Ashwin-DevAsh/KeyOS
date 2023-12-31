@@ -12,9 +12,7 @@ KeyOS is an innovative Android Kiosk Launcher developed using Android Studio, Ko
   <img src="https://i.postimg.cc/CLD3gC3r/image.png" width="200" />
   <img src="https://i.postimg.cc/xC4w06jh/image.png" width="200" />
   <img src="https://i.postimg.cc/pLC1WsqC/image.png" width="200" />
-</p>
-<p float="left">
-  <img src="https://i.postimg.cc/L85jPvmN/image.png" width="200" />
+    <img src="https://i.postimg.cc/L85jPvmN/image.png" width="200" />
   <img src="https://i.postimg.cc/3RYRXJgY/image.png" width="200" />
   <img src="https://i.postimg.cc/43b4xkjM/image.png" width="200" />
   <img src="https://i.postimg.cc/NMKg79Kh/image.png" width="200" />
