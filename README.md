@@ -1,5 +1,5 @@
 [![KeyOS](https://i.postimg.cc/4x8S1K61/tech-Dev-Ash-key-OS-icon.png)](https://www.amazon.in/KeyOS-Kiosk-Lockdown-Child-Blocker/dp/B08R95FPFF)
-# KeyOS Android
+# KeyOS - Kiosk Lockdown | Child Lock | Web Blocker
 
 ## Overview
 
