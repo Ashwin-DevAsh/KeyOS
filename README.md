@@ -57,4 +57,16 @@ KeyOS acts as an Android Kiosk Launcher that limits user interactions to a prede
 
 - **Web Filter:**
   - Block unwanted websites and create whitelists/blacklists for website access control.
+ 
+- **Call Blocker:**
+  - Block incoming and outgoing calls, with options for whitelisting/blacklisting.
+ 
+- **Daily Time Limits:**
+  - Set daily screen time limits for device usage.
+    
+- **Restricted Times:**
+  - Define specific periods during which device use is restricted.
+    
+- Secured Kiosk Mode:**
+  - Password-protected kiosk mode prevents users from altering system settings.
 
