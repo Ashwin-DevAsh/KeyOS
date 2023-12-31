@@ -5,6 +5,21 @@
 
 KeyOS is an innovative Android Kiosk Launcher developed using Android Studio, Kotlin, and Java. It serves as a powerful tool to restrict user access and ensure a secure, controlled environment for specific applications. By replacing the default home screen with a customizable interface, KeyOS prevents users from accessing unintended apps, providing a unique solution for various use cases.
 
+## Screenshots
+
+<p float="left">
+  <img src="https://i.postimg.cc/m2hv5fj4/image.png" width="200" />
+  <img src="https://i.postimg.cc/CLD3gC3r/image.png" width="200" />
+  <img src="https://i.postimg.cc/xC4w06jh/image.png" width="200" />
+  <img src="https://i.postimg.cc/pLC1WsqC/image.png" width="200" />
+</p>
+<p float="left">
+  <img src="https://i.postimg.cc/L85jPvmN/image.png" width="200" />
+  <img src="https://i.postimg.cc/3RYRXJgY/image.png" width="200" />
+  <img src="https://i.postimg.cc/43b4xkjM/image.png" width="200" />
+  <img src="https://i.postimg.cc/NMKg79Kh/image.png" width="200" />
+</p>
+
 ## Features
 
 - **Restrict Access to Applications:**
