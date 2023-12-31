@@ -71,3 +71,8 @@ KeyOS acts as an Android Kiosk Launcher that limits user interactions to a prede
 - **Secured Kiosk Mode:**
   - Password-protected kiosk mode prevents users from altering system settings.
 
+## Google Play Store
+
+<a href="https://www.amazon.in/KeyOS-Kiosk-Lockdown-Child-Blocker/dp/B08R95FPFF">
+  <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Download on the Google Play Store" width="200">
+</a>
