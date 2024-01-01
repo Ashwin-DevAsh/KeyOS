@@ -93,7 +93,6 @@ KeyOS acts as an Android Kiosk Launcher that limits user interactions to a prede
 ## Customer Reviews
 
 <p align="left">
-  <img src="https://i.postimg.cc/6pcDcvqj/Screenshot-2024-01-01-132736.png"  alt="Review 1"/>
   <img src="https://i.postimg.cc/g001T26Y/Screenshot-2024-01-01-132752.png"  alt="Review 2"/>
   <img src="https://i.postimg.cc/d1kpJNBp/Screenshot-2024-01-01-132831.png"  alt="Review 3"/>
   <img src="https://i.postimg.cc/YSyTKB1Q/Screenshot-2024-01-01-132845.png"  alt="Review 4"/>
