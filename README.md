@@ -87,28 +87,25 @@ KeyOS acts as an Android Kiosk Launcher that limits user interactions to a prede
 ## Customer Reviews
 
 <p align="left">
-<div style="border-radius: 10px; overflow: hidden;">
-    <img src="https://i.postimg.cc/6pcDcvqj/Screenshot-2024-01-01-132736.png" width="200" alt="Review 1"/>
+  <div style="border-radius: 20px; overflow: hidden;">
+    <img src="https://i.postimg.cc/g001T26Y/Screenshot-2024-01-01-132752.png" alt="Review 2"/>
   </div>
-  <div style="border-radius: 10px; overflow: hidden;">
-    <img src="https://i.postimg.cc/g001T26Y/Screenshot-2024-01-01-132752.png" width="200" alt="Review 2"/>
+  <div style="border-radius: 20px; overflow: hidden;">
+    <img src="https://i.postimg.cc/d1kpJNBp/Screenshot-2024-01-01-132831.png" alt="Review 3"/>
   </div>
-  <div style="border-radius: 10px; overflow: hidden;">
-    <img src="https://i.postimg.cc/d1kpJNBp/Screenshot-2024-01-01-132831.png" width="200" alt="Review 3"/>
+  <div style="border-radius: 20px; overflow: hidden;">
+    <img src="https://i.postimg.cc/YSyTKB1Q/Screenshot-2024-01-01-132845.png" alt="Review 4"/>
   </div>
-  <div style="border-radius: 10px; overflow: hidden;">
-    <img src="https://i.postimg.cc/YSyTKB1Q/Screenshot-2024-01-01-132845.png" width="200" alt="Review 4"/>
+  <div style="border-radius: 20px; overflow: hidden;">
+    <img src="https://i.postimg.cc/KjtWMKC5/Screenshot-2024-01-01-132919.png" alt="Review 5"/>
   </div>
-  <div style="border-radius: 10px; overflow: hidden;">
-    <img src="https://i.postimg.cc/KjtWMKC5/Screenshot-2024-01-01-132919.png" width="200" alt="Review 5"/>
+  <div style="border-radius: 20px; overflow: hidden;">
+    <img src="https://i.postimg.cc/wTXKtPpd/Screenshot-2024-01-01-132938.png"  alt="Review 6"/>
   </div>
-  <div style="border-radius: 10px; overflow: hidden;">
-    <img src="https://i.postimg.cc/wTXKtPpd/Screenshot-2024-01-01-132938.png" width="200" alt="Review 6"/>
-  </div>
-  <div style="border-radius: 10px; overflow: hidden;">
+  <div style="border-radius: 20px; overflow: hidden;">
     <img src="https://i.postimg.cc/dVwbGBsZ/Screenshot-2024-01-01-133001.png" width="200" alt="Review 7"/>
   </div>
-  <div style="border-radius: 10px; overflow: hidden;">
+  <div style="border-radius: 20px; overflow: hidden;">
     <img src="https://i.postimg.cc/NM3VF8CM/Screenshot-2024-01-01-133037.png" width="200" alt="Review 8"/>
   </div>
 </p>
