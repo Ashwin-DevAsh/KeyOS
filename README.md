@@ -84,21 +84,39 @@ KeyOS acts as an Android Kiosk Launcher that limits user interactions to a prede
 - **Secured Kiosk Mode:**
   - Password-protected kiosk mode prevents users from altering system settings.
 
+## Customer Reviews
+
+<p align="left">
+<div style="border-radius: 10px; overflow: hidden;">
+    <img src="https://i.postimg.cc/6pcDcvqj/Screenshot-2024-01-01-132736.png" width="200" alt="Review 1"/>
+  </div>
+  <div style="border-radius: 10px; overflow: hidden;">
+    <img src="https://i.postimg.cc/g001T26Y/Screenshot-2024-01-01-132752.png" width="200" alt="Review 2"/>
+  </div>
+  <div style="border-radius: 10px; overflow: hidden;">
+    <img src="https://i.postimg.cc/d1kpJNBp/Screenshot-2024-01-01-132831.png" width="200" alt="Review 3"/>
+  </div>
+  <div style="border-radius: 10px; overflow: hidden;">
+    <img src="https://i.postimg.cc/YSyTKB1Q/Screenshot-2024-01-01-132845.png" width="200" alt="Review 4"/>
+  </div>
+  <div style="border-radius: 10px; overflow: hidden;">
+    <img src="https://i.postimg.cc/KjtWMKC5/Screenshot-2024-01-01-132919.png" width="200" alt="Review 5"/>
+  </div>
+  <div style="border-radius: 10px; overflow: hidden;">
+    <img src="https://i.postimg.cc/wTXKtPpd/Screenshot-2024-01-01-132938.png" width="200" alt="Review 6"/>
+  </div>
+  <div style="border-radius: 10px; overflow: hidden;">
+    <img src="https://i.postimg.cc/dVwbGBsZ/Screenshot-2024-01-01-133001.png" width="200" alt="Review 7"/>
+  </div>
+  <div style="border-radius: 10px; overflow: hidden;">
+    <img src="https://i.postimg.cc/NM3VF8CM/Screenshot-2024-01-01-133037.png" width="200" alt="Review 8"/>
+  </div>
+</p>
+
 ## Google Play Store
 
 <a href="https://www.amazon.in/KeyOS-Kiosk-Lockdown-Child-Blocker/dp/B08R95FPFF">
   <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Download on the Google Play Store" width="200">
 </a>
 
-## Customer Reviews
-
-<p align="left">
-  <img src="https://i.postimg.cc/g001T26Y/Screenshot-2024-01-01-132752.png"  alt="Review 2"/>
-  <img src="https://i.postimg.cc/d1kpJNBp/Screenshot-2024-01-01-132831.png"  alt="Review 3"/>
-  <img src="https://i.postimg.cc/YSyTKB1Q/Screenshot-2024-01-01-132845.png"  alt="Review 4"/>
-  <img src="https://i.postimg.cc/KjtWMKC5/Screenshot-2024-01-01-132919.png"  alt="Review 5"/>
-  <img src="https://i.postimg.cc/wTXKtPpd/Screenshot-2024-01-01-132938.png"  alt="Review 6"/>
-  <img src="https://i.postimg.cc/dVwbGBsZ/Screenshot-2024-01-01-133001.png"  alt="Review 7"/>
-  <img src="https://i.postimg.cc/NM3VF8CM/Screenshot-2024-01-01-133037.png"  alt="Review 8"/>
-</p>
 
